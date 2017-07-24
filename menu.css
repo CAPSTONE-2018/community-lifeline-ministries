@@ -1,0 +1,19 @@
+img {
+    display: block;
+    margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+}
+
+.selection, h3 {
+	line-height: 0px;
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 12;
+	color: black;
+    font-weight: normal;
+}
+
+body {
+    Background-color: white;
+}

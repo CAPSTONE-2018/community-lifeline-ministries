@@ -1,0 +1,36 @@
+h2 {
+    margin: 0px;
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 18;
+	color: black;
+    font-weight: normal;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+}
+
+table {
+    border: 2px solid black;
+    background-color: lightgrey;
+    margin: 0 auto;
+    font-family: 'Arial';
+    font-size: 12;
+    color: black;
+}
+
+th {
+    border-bottom: 5px solid black;
+}
+
+td {
+    border-bottom: 2px solid black;
+}
+
+body {
+    Background-color: white;
+}
