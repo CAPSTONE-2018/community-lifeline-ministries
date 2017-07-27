@@ -1,13 +1,5 @@
 # Community Lifeline Ministries Project
 
-
-## Contact
-Lou Ann Johnson<br/>
-Executive Director<br/>
-Community Lifeline Ministries<br/>
-Email: cllminc@yahoo.com<br/>
-Mobile: (815) 545-2741
-
 ## Background
 Community Lifeline ministries (CLM) is a non-profit organization based in Joliet, Illinois. The organization was formed in September 2014. Since then they have been trying to improve the local community’s quality of life. They do so by hosting several outreach programs than aim to benefit children’s education, community health nourishment, and help stop the spread of violence. CLM has three main programs to date: GEMS after school program, Blessing table, and Sons of Thunder.  This project is for the GEMS after school program. GEMS stands for Growth Education and Motivation of Students. GEMS’s purpose is to provide a learning environment for under-represented youth within the community.  See their [website](http://www.sbcjoliet.org/gems.html) for more details.
 
