@@ -21,7 +21,7 @@
 
         <form action="EmergencyAdded.php" method="POST" id="form2">
 			<br>
-			<label><h2>Add Emergency Contact Information:</h2></label><br>
+			<label><h2>Add Emergency Contact Information:::</h2></label><br>
 			<label><h4>Student ID Number:</h4><input type="text" name="id"></label><br><br>
 			<label><h4>Student First Name:</h4><input type="text" name="studf"></label><br><br>
 			<label><h4>Student Last Name:</h4><input type="text" name="studl"></label><br><br>
