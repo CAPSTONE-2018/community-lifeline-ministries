@@ -12,7 +12,10 @@ CREATE TABLE Students(
     program char(5),
     ethnicity varchar(30),
     permission_slip char(1),
-    birth_certificate char(1)
+    birth_certificate char(1),
+    school_year varchar(25),
+    pre_test varchar(10),
+    post_test varchar(10)
 );
 
 
