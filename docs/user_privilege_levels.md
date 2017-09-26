@@ -25,7 +25,7 @@ The report_user will have access to the reports page and will be able to make an
 * Be able to export those reports to an Excel file.
 * Be able to print the report directly from the report page.
 
-#### When Should a User be Assigned The Administrator Level:
+#### When Should a User be Assigned The Report User Level:
 * When He/She needs to create reports and gather information to successfully fulfill their job duties.
 
 
@@ -38,5 +38,5 @@ The teacher is the least privileged of all the user levels. They will have acces
 * Be able to access information on the students' parents.
 * Be able to access the Emergency Information page to contact students' emergency contact. 
 
-#### When Should a User be Assigned The Administrator Level:
+#### When Should a User be Assigned The Teacher Level:
 *  When the user is a teacher.
