@@ -14,6 +14,7 @@ CREATE TABLE Students(
     permission_slip char(1),
     birth_certificate char(1),
     school_year varchar(25),
+    reduced_lunch_eligible VARCHAR(10),
     pre_test varchar(10),
     post_test varchar(10)
 );
