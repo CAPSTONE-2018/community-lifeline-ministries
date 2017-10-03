@@ -38,7 +38,7 @@
         
         #Adding student records based on the information the user added into the "add" fields
         $stmt = $db->prepare("INSERT INTO Students VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('sssissssssssss', $id, $lname, $fname, $age, $gender, $dob, $address, $zip, $city, $school, $program, $ethnicity, $permission_slip, $birth_certificate, $school_year, $reduced_lunch_eligible, $pre_test, $post_test);
+        $stmt->bind_param('sssissssssssssisdd', $id, $lname, $fname, $age, $gender, $dob, $address, $zip, $city, $school, $program, $ethnicity, $permission_slip, $birth_certificate, $school_year, $reduced_lunch_eligible, $pre_test, $post_test);
         
         $id = $_POST['id'];
         $lname = $_POST['lname'];
@@ -54,10 +54,10 @@
         $ethnicity = $_POST['ethnicity'];
         $permission_slip = $_POST['permission_slip'];
         $birth_certificate = $_POST['birth_certificate'];
-        $school_year = $_POST['school_year'];
+        $school_year = intval($_POST['school_year']);
         $reduced_lunch_eligible = $_POST['reduced_lunch_eligible'];
-        $pre_test = $_POST['pre_test'];
-        $post_test = $_POST['post_test'];
+        $pre_test = floatval($_POST['pre_test']);
+        $post_test = floatval($_POST['post_test']);
         $stmt->execute();
         
         if ($stmt->affected_rows == -1) {
