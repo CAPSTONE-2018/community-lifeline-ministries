@@ -37,7 +37,7 @@
             <label><h4>Permission Slip on File (Y or N):</h4><input type="text" name="permission_slip"></label><br><br>
             <label><h4>Birth Certificate on File (Y or N):</h4><input type="text" name="birth_certificate"></label><br><br>
             <label><h4>School Year:</h4><input type="text" name="school_year"></label><br><br>
-            <label><h4>Reduced Lunch Eligible:</h4><input type="text" name="reduced_lunch_eligible"></label><br><br>
+            <label><h4>Reduced Lunch Eligible (1 for Yes or 0 for No:</h4><input type="text" name="reduced_lunch_eligible"></label><br><br>
             <label><h4>Pre-Test Score:</h4><input type="text" name="pre_test"></label><br><br>
             <label><h4>Post-Test Score:</h4><input type="text" name="post_test"></label><br><br>
             <input type="submit" value="Submit"><br><br>

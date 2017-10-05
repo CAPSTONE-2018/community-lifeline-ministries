@@ -1,3 +1,10 @@
+/*
+**********************************Important Note*********************************
+    To actually make changes to the database, you must edit this file
+    and edit the actual database on the front server! talk to Dr.
+    Howard about gaining access to the MYSQL database on the server
+*********************************************************************************
+*/
 CREATE TABLE Students(
     student_id char(10) PRIMARY KEY,
     l_Name varchar(30),
