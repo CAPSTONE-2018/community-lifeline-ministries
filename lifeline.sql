@@ -14,7 +14,7 @@ CREATE TABLE Students(
     permission_slip char(1),
     birth_certificate char(1),
     school_year INT,
-    reduced_lunch_eligible VARCHAR(3),
+    reduced_lunch_eligible TINYINT(1),
     pre_test FLOAT(5,2),
     post_test FLOAT(5,2)
 );
