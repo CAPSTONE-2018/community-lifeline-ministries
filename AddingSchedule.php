@@ -3,6 +3,7 @@
     if(!isset($_SESSION['loggedIn'])){
         header("Location: login.html");
     }
+    include("Header.php");
 ?>
 
 <html>
@@ -11,15 +12,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     </head>
     
-    <body>
-        <form align="right" name="form" action="menu.php" method="POST">
-            <label class="home">
-            <input name="submit" type="submit" id="home" value="Home">
-            </label>
-        </form>
-        
-		<img src="Lifeline.png" alt="Community Lifeline" align="middle">
-        
+    <body>        
         <div id="form_wrapper">
         <form action="ScheduleAdded.php" method="POST" id="form2">
 			<br>

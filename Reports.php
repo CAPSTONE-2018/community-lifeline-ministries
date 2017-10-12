@@ -3,6 +3,7 @@
     if(!isset($_SESSION['loggedIn'])){
         header("Location: login.html");
     }
+    include("Header.php");
 ?>
 
 <html>
@@ -33,13 +34,6 @@
     </head>
 	
 	<body onload="onLoad()">
-		<form align="right" name="form" action="menu.php" method="POST">
-			<label class="home">
-			<input name="submit" type="submit" id="home" value="Home">
-			</label>
-		</form>
-		
-		<img src="Lifeline.png" alt="Community Lifeline" align="middle">
 		
 		<div class="selectReport">
 			<button onclick="formSelector(1)">Teacher Classroom List</button><br /><br />
