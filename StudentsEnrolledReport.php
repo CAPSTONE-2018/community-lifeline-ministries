@@ -33,19 +33,15 @@
 				exit;
 			} 
 			
-			$teacherFirstName = $_POST['teacherFirstName'];
-			$teacherLastName = $_POST['teacherLastName'];
+			$schoolYear = $_POST['schoolYear'];
 			
-			$stmt = "SELECT * FROM Schedule Where teacher_f=? AND teacher_l=?";
+			$stmt = "SELECT * FROM Students WHERE school_year=$schoolYear";
 			$result = mysqli_query($db, $stmt);
 			
-			if (mysqli_num_rows($result) > 0) {
+			if(mysqli_num_rows($result) > 0) {
 				while($row = mysqli_fetch_assoc($result)) {
-					echo "Classname: " . $row["className"] . "<br />"; 
-				}	
-			}
-			else {
-				echo "0 results";
+					echo $row["studentID"] . "<br />"; 
+				}
 			}
 			
 			mysqli_close($db); 		

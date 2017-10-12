@@ -46,19 +46,19 @@
 			<button onclick="formSelector(2)">All Students Enrolled</button><br /><br />
 		</div>
 		
-		<form action="GenerateReport.php" method="POST" display="none" id="classroomList">
+		<form action="ClassroomScheduleReport.php" method="POST" display="none" id="classroomList">
 			<label><h2>Teacher Classroom List:</h2></label><br />
 			<label><h4>Teacher First Name:</h4></label>
-			<input type="text" id="teacherFirstName" /><br />
+			<input type="text" name="teacherFirstName" /><br />
 			<label><h4>Teacher Last Name:</h4></label>
-			<input type="text" id="teacherLastName" /><br /></br />
+			<input type="text" name="teacherLastName" /><br /></br />
 			<input type="submit" value="Generate" /><br />
         </form>
 		
-		<form action="GenerateReport.php" method="POST" display="none" id="studentsEnrolled">
+		<form action="StudentsEnrolledReport.php" method="POST" display="none" id="studentsEnrolled">
 			<label><h2>Students Enrolled in Term:</h2></label><br />
 			<label><h4>School Year:</h4></label>
-			<input type="text" id="schoolYear" /><br /><br />
+			<input type="text" name="schoolYear" /><br /><br />
 			<input type="submit" value="Generate" /><br />
         </form>
 	

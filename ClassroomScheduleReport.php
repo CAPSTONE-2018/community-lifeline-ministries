@@ -36,7 +36,7 @@
 			$teacherFirstName = $_POST['teacherFirstName'];
 			$teacherLastName = $_POST['teacherLastName'];
 			
-			$stmt = "SELECT * FROM Schedule Where teacher_f=? AND teacher_l=?";
+			$stmt = "SELECT * FROM Schedule Where teacher_f=$teacherFirstName AND teacher_l=$teacherLastName";
 			$result = mysqli_query($db, $stmt);
 			
 			if (mysqli_num_rows($result) > 0) {
