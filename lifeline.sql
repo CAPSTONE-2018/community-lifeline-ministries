@@ -5,6 +5,131 @@
     Howard about gaining access to the MYSQL database on the server
 *********************************************************************************
 */
+CREATE TABLE Student(
+    Id int(10) PRIMARY KEY,
+    First_Name varchar(30),
+    Last_Name varchar(30),
+    Gender char(1),
+    Dirth_Date DATE,
+    Address varchar(40),
+    City varchar(30),
+    State char(2),
+    Zip int(5),
+    Ethnicity varchar(30),
+    School varchar(30),
+    Program varchar(30),
+    Permission_Slip TINYINT(1),
+    Birth_Certificate TINYINT(1),
+    Reduced_Lunch_Eligible TINYINT(1),
+    IEP TINYINT(1)
+);
+
+/*
+IEP = immediate emotional problem
+ */
+
+
+CREATE TABLE Allergy (
+    Id INT(10) PRIMARY KEY,
+    Student_Id INT(10),
+    Type varchar(60),
+    Note varchar(500),
+    CONSTRAINT FK_Student_Id_Allergy FOREIGN KEY (Student_Id)
+    REFERENCES Student(Id)
+);
+
+
+CREATE TABLE Contact(
+    Id INT(10) PRIMARY KEY,
+    Student_Id INT(10),
+    First_Name varchar(30),
+    Last_Name varchar(30),
+    Phone_Cell CHAR(20),
+    Phone_Home CHAR(20),
+    Address VARCHAR(40),
+    City VARCHAR(30),
+    State CHAR(2),
+    Zip INT(5),
+    Email VARCHAR(50),
+    Relationship VARCHAR(30),
+    CONSTRAINT FK_Student_Id_Contact FOREIGN KEY (Student_Id)
+    	REFERENCES Student(Id)
+);
+
+
+CREATE TABLE Volunteer_Employee(
+    Id INT(10) PRIMARY KEY,
+    First_Name varchar(30),
+    Last_Name varchar(30),
+    Phone_Cell char(20),
+    Phone_Home char(20),
+    Address varchar(40),
+    City varchar(30),
+    State CHAR(5),
+    Zip INT(5),
+    Email varchar(50),
+    Type VARCHAR(10),
+    Program VARCHAR(30)
+);
+
+CREATE TABLE Class(
+    Id INT(10) PRIMARY KEY,
+    Class_Name VARCHAR(60),
+    Volunteer_Id INT(10),
+    CONSTRAINT FK_Volunteer_Id_Class FOREIGN KEY (Volunteer_Id)
+        REFERENCES Volunteer_Employee(Id)
+);
+
+CREATE TABLE Schedule(
+    Id INT(10) PRIMARY KEY,
+    Class_Id INT(10),
+    Room_Number VARCHAR(30),
+    Start_Time TIME,
+    End_Time TIME,
+    Day varchar(30),
+    CONSTRAINT FK_Class_Id_Schedule FOREIGN KEY (Class_Id)
+        REFERENCES Class(Id)
+);
+
+CREATE TABLE School_Year(
+    Id INT(10) PRIMARY KEY,
+    Student_Id INT(10),
+    Term VARCHAR(20),
+    Year INT(4),
+    Pre_Test DECIMAL(4, 2),
+    Post_Test DECIMAL(4, 2),
+    CONSTRAINT FK_Student_Id_School_Year FOREIGN KEY (Student_Id)
+        REFERENCES Student(Id)
+);
+
+CREATE TABLE Enrolled(
+    Id INT(10) PRIMARY KEY,
+    Student_Id INT(10),
+    Class_Id INT(10),
+    CONSTRAINT FK_Student_Id_Enrolled FOREIGN KEY (Student_Id)
+        REFERENCES Student(Id),
+    CONSTRAINT FK_Class_Id_Enrolled FOREIGN KEY (Class_Id)
+        REFERENCES Class(Id)
+);
+
+
+
+CREATE TABLE Login (
+	Id INT(10) PRIMARY KEY,
+  Username VARCHAR(60),
+	Password varchar(60),
+	Account_Type varchar(30),
+	First_Name varchar(30),
+	Last_Name varchar(30),
+	Email varchar(50)
+);
+
+
+
+-- Original code as back up
+
+/*
+
 CREATE TABLE Students(
     student_id char(10) PRIMARY KEY,
     l_Name varchar(30),
@@ -29,12 +154,12 @@ CREATE TABLE Students(
 
 CREATE TABLE Parents(
     child_id char(10) PRIMARY KEY,
-    stud_f varchar(30), 
+    stud_f varchar(30),
     stud_l varchar(30),
     f_name varchar(30),
     l_name varchar(30),
     phone char(14),
-    income varchar(6),	
+    income varchar(6),
     CONSTRAINT FK_child_id FOREIGN KEY (child_id, phone)
     	REFERENCES Students(student_id)
 );
@@ -79,7 +204,7 @@ CREATE TABLE Emergency_Info (
     phone_num char(14),
     CONSTRAINT PK_EMERGENCY_INFO PRIMARY KEY (student_reference_id,phone_num),
     CONSTRAINT FK_student_reference_id FOREIGN KEY (student_reference_id)
-    	REFERENCES Students(student_id) 
+    	REFERENCES Students(student_id)
 );
 
 CREATE TABLE Logins (
@@ -110,3 +235,4 @@ INSERT INTO Emergency_Info VALUES
 
 INSERT INTO Logins VALUES
 ('kenny123', 'lewis123', 'administrator', 'Kenny', 'Madsen', 'kenny@lewisu.edu');
+ */
