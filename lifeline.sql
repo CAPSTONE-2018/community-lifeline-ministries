@@ -6,11 +6,11 @@
 *********************************************************************************
 */
 CREATE TABLE Student(
-    Id int(10) PRIMARY KEY,
+    Id int(10) AUTO_INCREMENT PRIMARY KEY,
     First_Name varchar(30),
     Last_Name varchar(30),
     Gender char(1),
-    Dirth_Date DATE,
+    Birth_Date DATE,
     Address varchar(40),
     City varchar(30),
     State char(2),
@@ -30,7 +30,7 @@ IEP = immediate emotional problem
 
 
 CREATE TABLE Allergy (
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Type varchar(60),
     Note varchar(500),
@@ -40,7 +40,7 @@ CREATE TABLE Allergy (
 
 
 CREATE TABLE Contact(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     First_Name varchar(30),
     Last_Name varchar(30),
@@ -58,7 +58,7 @@ CREATE TABLE Contact(
 
 
 CREATE TABLE Volunteer_Employee(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     First_Name varchar(30),
     Last_Name varchar(30),
     Phone_Cell char(20),
@@ -73,7 +73,7 @@ CREATE TABLE Volunteer_Employee(
 );
 
 CREATE TABLE Class(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Class_Name VARCHAR(60),
     Volunteer_Id INT(10),
     CONSTRAINT FK_Volunteer_Id_Class FOREIGN KEY (Volunteer_Id)
@@ -81,7 +81,7 @@ CREATE TABLE Class(
 );
 
 CREATE TABLE Schedule(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Class_Id INT(10),
     Room_Number VARCHAR(30),
     Start_Time TIME,
@@ -92,7 +92,7 @@ CREATE TABLE Schedule(
 );
 
 CREATE TABLE School_Year(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Term VARCHAR(20),
     Year INT(4),
@@ -103,7 +103,7 @@ CREATE TABLE School_Year(
 );
 
 CREATE TABLE Enrolled(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Class_Id INT(10),
     CONSTRAINT FK_Student_Id_Enrolled FOREIGN KEY (Student_Id)
