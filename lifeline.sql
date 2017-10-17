@@ -114,14 +114,13 @@ CREATE TABLE Enrolled(
 
 
 
-CREATE TABLE Login (
-	Id INT(10) PRIMARY KEY,
-  Username VARCHAR(60),
-	Password varchar(60),
-	Account_Type varchar(30),
-	First_Name varchar(30),
-	Last_Name varchar(30),
-	Email varchar(50)
+CREATE TABLE Logins (
+    username varchar(30) PRIMARY KEY,
+    password varchar(32),
+    account_type varchar(30),
+    first_name varchar(30),
+    last_name varchar(30),
+    email varchar(30)
 );
 
 
