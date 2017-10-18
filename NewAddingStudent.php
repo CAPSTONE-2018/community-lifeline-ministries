@@ -46,7 +46,6 @@ include("Header.php");
 
         <label><h4>School:</h4><input type="text" name="school"></label>
         <label><h4>Program Name:</h4><input type="text" name="program"></label>
-        <label><h4>School Year:</h4><input type="text" name="school_year"></label>
         <br><br>
 
         <label><h4>Permission Slip on File:</h4>

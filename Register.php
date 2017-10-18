@@ -26,6 +26,7 @@
             <label><h4>Account type:</h4>
                 Administrator<input value="administrator" type="radio" name="account">
                 Teacher<input value="teacher" type="radio" name="account">
+                Report User<input value="report_user" type="radio" name="account">
             </label>
             <br><br>
             
