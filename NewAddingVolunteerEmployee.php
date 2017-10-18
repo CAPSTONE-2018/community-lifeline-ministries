@@ -17,12 +17,14 @@ include("Header.php");
 <div id="form_wrapper">
     <form action="NewVolunteerEmployeeAdded.php" method="POST" id="form2">
         <br>
-        <label><h2>Add Teacher Information:</h2></label><br>
-        <label><h4>Teacher Name:</h4>
+        <label><h2>Add Volunteer/Employee Information:</h2></label><br>
+        <label><h4>Volunteer/Employee Name:</h4>
             <input placeholder="First" type="text" name="fname">
             <input placeholder="Last" type="text" name="lname">
         </label>
         <br><br>
+
+        <label><h4>Volunteer/Employee Id:</h4><input type="text" name="id"></label>
 
         <label><h4>Cell Phone:</h4><input type="text" name="cellphone"></label>
         <label><h4>Home Phone:</h4><input type="text" name="homephone"></label>
@@ -31,7 +33,7 @@ include("Header.php");
         <label><h4>Address:</h4><input type="text" name="address"></label>
         <label><h4>City:</h4><input type="text" name="city"></label>
         <label><h4>State:</h4><input type="text" name="state"></label>
-        <label><h4>Zipcode:</h4><input type="text" name="zipcode"></label>
+        <label><h4>Zip:</h4><input type="text" name="zip"></label>
         <br><br>
 
 

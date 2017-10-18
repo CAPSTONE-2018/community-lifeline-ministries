@@ -37,14 +37,14 @@ include("Header.php");
 
         <label><h4>Address:</h4><input type="text" name="address"></label>
         <label><h4>City:</h4><input type="text" name="city"></label>
-        <label><h4>City:</h4><input type="text" name="State"></label>
+        <label><h4>State:</h4><input type="text" name="state"></label>
         <label><h4>Zip Code:</h4><input type="text" name="zip"></label>
         <br><br>
 
         <label><h4>Email:</h4><input type="text" name="email"></label>
         <br><br>
 
-        <label><h4>Relationship:</h4><input type="text" name="zip"></label>
+        <label><h4>Relationship:</h4><input type="text" name="relationship"></label>
         <br><br>
 
 

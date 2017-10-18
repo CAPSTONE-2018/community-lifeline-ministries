@@ -15,19 +15,16 @@ include("Header.php");
 <body>
 
 <div id="form_wrapper">
-    <form action="NewTestScoresAdded.php" method="POST" id="form2">
+    <form action="NewStudentToClassAdded.php" method="POST" id="form2">
         <br>
 
-
-        <label><h4>Student ID Number:</h4><input type="text" name="id"></label>
+        <label><h2>Add Student and Class Information:</h2></label><br>
+        <label><h4>Student Id:</h4>
+            <input placeholder="Student Id" type="text" name="sid">
+        </label>
         <br><br>
+        <input placeholder="Class Id" type="text" name="cid">
 
-        <label><h4>Term:</h4><input type="text" name="term"></label>
-        <label><h4>Year:</h4><input type="text" name="year"></label>
-
-        <label><h4>Pre-Test Score:</h4><input type="text" name="pre_test"></label>
-        <label><h4>Post-Test Score:</h4><input type="text" name="post_test"></label>
-        <br><br>
 
         <input id="submit" type="submit" value="Submit"><br><br>
     </form>

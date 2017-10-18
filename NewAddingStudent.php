@@ -24,6 +24,9 @@ include("Header.php");
         </label>
         <br><br>
 
+        <label><h4>Student ID Number:</h4><input type="text" name="id"></label>
+        <br><br>
+
 
         <label><h4>Date of Birth:</h4><input placeholder="YYYY/MM/DD" type="text" name="dob"></label>
         <br><br>
@@ -37,7 +40,7 @@ include("Header.php");
 
         <label><h4>Address:</h4><input type="text" name="address"></label>
         <label><h4>City:</h4><input type="text" name="city"></label>
-        <label><h4>City:</h4><input type="text" name="State"></label>
+        <label><h4>State:</h4><input type="text" name="state"></label>
         <label><h4>Zip Code:</h4><input type="text" name="zip"></label>
         <br><br>
 
@@ -71,8 +74,8 @@ include("Header.php");
         <br><br>
 
         <label><h4>Allergies:</h4>
-            Type:<input type="text" name="iep">
-            Note:<input type="text" name="iep">
+            Type:<input type="text" name="atype">
+            Note:<input type="text" name="anote">
         </label>
         <br><br>
 

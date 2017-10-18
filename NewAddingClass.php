@@ -23,6 +23,8 @@ include("Header.php");
             <input placeholder="Class Name" type="text" name="name">
         </label>
         <br><br>
+        <input placeholder="Class Id" type="text" name="id">
+        <label><h4>Volunteer/Employee Id:</h4><input type="text" name="vid"></label>
 
         <label><h4>Room Number:</h4><input type="text" name="rnum"></label>
         <label><h4>Day:</h4><input type="text" name="day"></label>
