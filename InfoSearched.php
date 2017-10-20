@@ -1,4 +1,14 @@
 <?php
+
+    /*
+     * This class needs work! where are a lot of the variables coming from??
+     *
+     * ***********************************************************************
+     *
+     *
+     */
+
+
     session_start();
     if(!isset($_SESSION['loggedIn'])){
         header("Location: login.html");
@@ -32,12 +42,13 @@
         $lname = $_POST['name'];
         $id = $_POST['child_id'];
         // Brings up student information
-        if ($stmt = $db->prepare("SELECT * FROM Students WHERE l_Name = ? AND student_id = ?")) {
+        if ($stmt = $db->prepare("SELECT * FROM Student WHERE Last_Name = ? AND Id = ?")) {
         
             $stmt->bind_param("ss", $lname, $id);
         
             $stmt->execute();
-            
+
+            //where are these variables coming from???
             $stmt->bind_result($studentID, $lastName, $firstName, $age, $gender, $birthdate, $address, $zipCode, $city, $school, $program, $ethnicity, $permission, $birth);
             $stmt->fetch();
             if ($studentID == null or $lastName == null or $firstName == null) {
@@ -52,11 +63,12 @@
 		// if ($stmt2 = $db->prepare("SELECT * FROM  WHERE l_Name = ? AND student_id = ?"))
 		
             //$stmt2->bind_param("ss", $lname, $id);
-			if ($stmt2 = $db->prepare("SELECT * FROM Parents WHERE child_id = ?")) {
+			if ($stmt2 = $db->prepare("SELECT * FROM Contact WHERE Student_Id = ?")) {
 			$stmt2->bind_param("s", $id);
         
             $stmt2->execute();
-            
+
+            //Again, Where are these variables coming from???
             $stmt2->bind_result($child_id, $cfname, $clname, $fName, $lName, $phone, $income);
             $stmt2->fetch();
             //if ($studentID == null or $lastName == null or $firstName == null) {
@@ -69,7 +81,9 @@
             $stmt2->close();
 			}
 		
-		
+
+		/*Not needed anymore since all info in Contact
+
 		// Brings up Emergency Information
 		if ($stmt3 = $db->prepare("SELECT * FROM Emergency_Info WHERE student_reference_id = ?")) {
         
@@ -89,6 +103,8 @@
             }
             $stmt3->close();
 			}
+
+		*/
         ?>
     </body>
 </html>

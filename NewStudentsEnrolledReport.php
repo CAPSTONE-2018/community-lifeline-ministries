@@ -29,7 +29,9 @@ if (!$db) {
 
 $schoolYear = $_POST['schoolYear'];
 
-$stmt = "SELECT Student.Id, Student.First_Name, Student.Last_Name  FROM Student JOIN School_Year ON Student.Id = School_Year.Student_Id AND School_Year.Year = '$schoolYear'";
+$stmt = "SELECT Student.Id, Student.First_Name, Student.Last_Name  
+          FROM Student JOIN School_Year ON 
+          Student.Id = School_Year.Student_Id AND School_Year.Year = '$schoolYear'";
 $result = mysqli_query($db, $stmt);
 
 if(mysqli_num_rows($result) > 0) {
