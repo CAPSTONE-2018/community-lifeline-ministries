@@ -46,12 +46,12 @@
 			<button onclick="formSelector(2)">All Students Enrolled</button><br /><br />
 		</div>
 		
-		<form action="ClassroomScheduleReport.php" method="POST" display="none" id="classroomList">
-			<label><h2>Teacher Classroom List:</h2></label><br />
-			<label><h4>Teacher First Name:</h4></label>
-			<input type="text" name="teacherFirstName" /><br />
-			<label><h4>Teacher Last Name:</h4></label>
-			<input type="text" name="teacherLastName" /><br /></br />
+		<form action="ClassroomStudentsReport.php" method="POST" display="none" id="classroomList">
+			<label><h2>Students in Classroom:</h2></label><br />
+			<label><h4>Room Number:</h4></label>
+			<input type="text" name="roomNumber" /><br />
+			<label><h4>Start Time:</h4></label>
+			<input type="text" name="startTime" /><br /></br />
 			<input type="submit" value="Generate" /><br />
         </form>
 		

@@ -33,19 +33,28 @@
 				exit;
 			} 
 			
-			$teacherFirstName = $_POST['teacherFirstName'];
-			$teacherLastName = $_POST['teacherLastName'];
+			$roomNumber = $_POST['roomNumber'];
+			$startTime = $_POST['startTime'];
 			
-			$stmt = "SELECT * FROM Schedule Where teacher_f=$teacherFirstName AND teacher_l=$teacherLastName";
-			$result = mysqli_query($db, $stmt);
-			
-			if (mysqli_num_rows($result) > 0) {
-				while($row = mysqli_fetch_assoc($result)) {
-					echo "Classname: " . $row["className"] . "<br />"; 
+			$stmtSchedule = "SELECT * FROM Schedule Where Room_Number=$roomNumber AND Start_Time=$startTime";
+			$resultSchedule = mysqli_query($db, $stmt);
+			$classId = NULL; 
+			if (mysqli_num_rows($resultSchedule) > 0) {
+				while($row = mysqli_fetch_assoc($resultSchedule)) {
+					$classId = $row["Class_Id"]; 
 				}	
 			}
 			else {
 				echo "0 results";
+			}
+			
+			$stmtEnrolled = "SELECT Student_Id FROM Enrolled WHERE Class_Id = $classId";
+			$resultEnrolled = mysql_query($db, $stmtEnrolled);
+			
+			if (mysqli_num_rows($resultClass) > 0) {
+				while($row = mysqli_fetch_assoc($resultEnrolled)) {
+					echo $row["Student_Id"] . "<br />"; 
+				}	
 			}
 			
 			mysqli_close($db); 		
