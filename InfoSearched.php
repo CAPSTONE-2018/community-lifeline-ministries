@@ -44,18 +44,21 @@
         // Brings up student information
         if ($stmt = $db->prepare("SELECT * FROM Student WHERE Last_Name = ? AND Id = ?")) {
         
-            $stmt->bind_param("ss", $lname, $id);
+            $stmt->bind_param("si", $lname, $id);
         
             $stmt->execute();
 
-            //where are these variables coming from???
-            $stmt->bind_result($studentID, $lastName, $firstName, $age, $gender, $birthdate, $address, $zipCode, $city, $school, $program, $ethnicity, $permission, $birth);
+            //old
+           // $stmt->bind_result($studentID, $lastName, $firstName, $age, $gender, $birthdate, $address, $zipCode, $city, $school, $program, $ethnicity, $permission, $birth);
+
+            $stmt->bind_result($studentID, $firstName, $lastName, $gender, $birthdate, $address, $city, $state, $zipCode, $ethnicity, $school, $program, $permission, $birth, $RLE, $IEP);
+
             $stmt->fetch();
             if ($studentID == null or $lastName == null or $firstName == null) {
                 echo "<h2>Student could not be located in the database, please try again.</h2>";
             } else {
 				echo "<h3> Student Information: </h3>";
-                echo "<h2>ID Number: $studentID<br> Last Name: $lastName<br> First Name: $firstName<br> Age: $age<br> Gender: $gender<br> Birthdate: $birthdate<br>Address: $address<br>Zipcode: $zipCode<br>City: $city<br>School: $school<br>Program: $program<br>Ethnicity: $ethnicity<br>Permission Slip: $permission<br>Birth Certificate: $birth</h2>";
+                echo "<h2>ID Number: $studentID<br> First Name: $firstName<br> Last Name: $lastName<br> Gender: $gender<br> Birthdate: $birthdate<br>Address: $address<br>City: $city<br>State: $state<br>Zip: $zipCode<br>Ethnicity: $ethnicity<br>School: $school<br>Program: $program<br>Permission Slip: $permission<br>Birth Certificate: $birth<br>Reduced Lunch Eligible: $RLE<br>Emotional Problem: $IEP</h2>";
             }
             $stmt->close();
         }
@@ -64,19 +67,19 @@
 		
             //$stmt2->bind_param("ss", $lname, $id);
 			if ($stmt2 = $db->prepare("SELECT * FROM Contact WHERE Student_Id = ?")) {
-			$stmt2->bind_param("s", $id);
+			$stmt2->bind_param("i", $id);
         
             $stmt2->execute();
 
             //Again, Where are these variables coming from???
-            $stmt2->bind_result($child_id, $cfname, $clname, $fName, $lName, $phone, $income);
+            $stmt2->bind_result($contactId, $child_id, $cfname, $clname, $cphone, $hphone, $caddress, $ccity, $cstate, $czip, $cemail, $crelationship);
             $stmt2->fetch();
             //if ($studentID == null or $lastName == null or $firstName == null) {
 			if ($child_id == null) {
                 echo "<h2>Parent could not be located in the database, please try again.</h2>";
             } else {
 				echo "<br><h3>Parent Information: </h3>";
-                echo "<h2> First Name: $fName<br> Last Name: $lName<br> Phone number: $phone<br>Income: $income </h2>";
+                echo "<h2> First Name: $cfname<br> Last Name: $clname<br> Cell Phone: $cphone<br>Home Phone: $hphone<br> Email: $cemail<br>Relationship: $crelationship </h2>";
             }
             $stmt2->close();
 			}
