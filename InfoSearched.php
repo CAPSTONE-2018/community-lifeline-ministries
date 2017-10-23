@@ -76,9 +76,9 @@
             $stmt2->fetch();
             //if ($studentID == null or $lastName == null or $firstName == null) {
 			if ($child_id == null) {
-                echo "<h2>Parent could not be located in the database, please try again.</h2>";
+                echo "<h2>Contact could not be located in the database, please try again.</h2>";
             } else {
-				echo "<br><h3>Parent Information: </h3>";
+				echo "<br><h3>Contact Information: </h3>";
                 echo "<h2> First Name: $cfname<br> Last Name: $clname<br> Cell Phone: $cphone<br>Home Phone: $hphone<br> Email: $cemail<br>Relationship: $crelationship </h2>";
             }
             $stmt2->close();

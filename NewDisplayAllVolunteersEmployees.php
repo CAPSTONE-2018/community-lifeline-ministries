@@ -13,7 +13,7 @@ include("Header.php");
 
 <body>
 
-<label><h2>Displaying All Teachers:</h2></label><br>
+<label><h2>Displaying All Volunteer/Employee:</h2></label><br>
 
 <?php
 

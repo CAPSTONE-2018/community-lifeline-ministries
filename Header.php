@@ -24,24 +24,28 @@
             <button class="dropdwn_btn">New</button>
             <div class="dropdwn_list">
             
-                <form action="AddingStudent.php" method="POST">
+                <form action="NewAddingStudent.php" method="POST">
                     <input type="submit" value="Student" />
                 </form>
                 
-                <form action="AddingParent.php" method="POST">
-                    <input type="submit" value="Parent" />
+                <form action="NewAddingContact.php" method="POST">
+                    <input type="submit" value="Contact" />
                 </form>
                 
-                <form action="AddingEmergency.php" method="POST">
-                    <input type="submit" value="Emergency Information" />
+                <form action="NewAddingVolunteerEmployee.php" method="POST">
+                    <input type="submit" value="Volunteer/Employee" />
                 </form>
                 
-                <form action="AddingTeacher.php" method="POST">
-                    <input type="submit" value="Teacher" />
+                <form action="NewAddingClass.php" method="POST">
+                    <input type="submit" value="Class" />
                 </form>
-                
-                <form action="AddingSchedule.php" method="POST">
-                    <input type="submit" value="Schedule" />
+
+                <form action="NewAddingStudentToClass.php" method="POST">
+                    <input type="submit" value="Student To Class" />
+                </form>
+
+                <form action="NewAddingTestScores.php" method="POST">
+                    <input type="submit" value="Student Test Scores" />
                 </form>
             </div>
         </div>
@@ -65,7 +69,7 @@
                 </form>
                 
                 <form action="SearchingTeacher.php" method="POST">
-                    <input type="submit" value="Teacher" />
+                    <input type="submit" value="Volunteer/Employee" />
                 </form>
                 
                 <form action="SearchingSchedule.php" method="POST">
@@ -78,16 +82,16 @@
             <button class="dropdwn_btn">Display All</button>
             <div class="dropdwn_list">
                 
-                <form action="DisplayAllStudents.php" method="POST">
+                <form action="NewDisplayAllStudents.php" method="POST">
                     <input type="submit" value="Students" />
                 </form>
                 
-                <form action="DisplayAllTeachers.php" method="POST">
-                    <input type="submit" value="Teachers" />
+                <form action="NewDisplayAllVolunteersEmployees.php" method="POST">
+                    <input type="submit" value="Volunteers/Employees" />
                 </form>
                 
-                <form action="DisplayAllSchedules.php" method="POST">
-                    <input type="submit" value="Schedules" />
+                <form action="NewDisplayAllClasses.php" method="POST">
+                    <input type="submit" value="Classes" />
                 </form> 
             </div>
         </div>

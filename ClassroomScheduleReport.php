@@ -30,7 +30,7 @@
 			//$teacherLastName = $_POST['teacherLastName'];
 
 			//need to confirm where this is coming from
-			$volunteerId = $_POST[''];
+			$volunteerId = $_POST['id'];
 			
 			//$stmt = "SELECT * FROM Schedule Where teacher_f=$teacherFirstName AND teacher_l=$teacherLastName";
 			$newstmt = "SELECT Volunteer_Employee.First_Name, Volunteer_Employee.Last_Name, Class.Class_Name, Schedule.Room_Number, Schedule.Start_Time, Schedule.End_Time, Schedule.Day

@@ -78,9 +78,6 @@ include("Header.php");
         </label>
         <br><br>
 
-        <label><h4>Pre-Test Score:</h4><input type="text" name="pre_test"></label>
-        <label><h4>Post-Test Score:</h4><input type="text" name="post_test"></label>
-        <br><br>
 
         <input id="submit" type="submit" value="Submit"><br><br>
     </form>

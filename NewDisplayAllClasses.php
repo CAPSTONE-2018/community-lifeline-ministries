@@ -13,7 +13,7 @@ include("Header.php");
 
 <body>
 
-<label><h2>Displaying All Schedules:</h2></label><br>
+<label><h2>Displaying All Classes:</h2></label><br>
 
 
 <?php

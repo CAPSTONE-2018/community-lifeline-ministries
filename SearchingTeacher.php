@@ -15,7 +15,7 @@
     <body>
         
         <div id="form_wrapper">
-        <form action="TeacherSearched.php" method="POST" id="form2">
+        <form action="NewVolunteerEmployeeSearched.php" method="POST" id="form2">
 			<br>
 			<label><h2>Search Volunteer/Employee Information:</h2></label><br>
 			<label><h4>Volunteer/Employee Last Name:</h4><input type="text" name="name"></label><br><br>

@@ -16,7 +16,7 @@
         <div id="form_wrapper">
         <form action="InfoSearched.php" method="POST" id="form2">
 			<br>
-			<label><h2>Search Student/Parent/Emergency Contact Information:</h2></label><br>
+			<label><h2>Search Student/Contact/Emergency Contact Information:</h2></label><br>
 			<label><h4>Student Last Name:</h4><input type="text" name="name"></label><br><br>
 			<label><h4>Student ID Number:</h4><input type="text" name="child_id"></label><br><br>
 			
