@@ -47,7 +47,7 @@ $relationship = $_POST['relationship'];
 
 
 
-$stmt = $db->prepare("INSERT INTO Contact VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $db->prepare("INSERT INTO Contact (Student_Id, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Relationship) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param('isssssssiss', $id, $fname, $lname, $cellphone, $homephone, $address, $city, $state, $zip, $email, $relationship);
 $stmt->execute();
 

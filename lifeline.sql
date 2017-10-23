@@ -96,8 +96,8 @@ CREATE TABLE School_Year(
     Student_Id INT(10),
     Term VARCHAR(20),
     Year INT(4),
-    Pre_Test DECIMAL(4, 2),
-    Post_Test DECIMAL(4, 2),
+    Pre_Test DECIMAL(5, 2),
+    Post_Test DECIMAL(5, 2),
     CONSTRAINT FK_Student_Id_School_Year FOREIGN KEY (Student_Id)
         REFERENCES Student(Id)
 );

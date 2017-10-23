@@ -38,7 +38,7 @@ $postTest = floatval($_POST['post_test']);
 
 
 
-$stmt = $db->prepare("INSERT INTO School_Year VALUES (?, ?, ?, ?, ?)");
+$stmt = $db->prepare("INSERT INTO School_Year (Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (?, ?, ?, ?, ?)");
 $stmt->bind_param('isidd', $id, $term, $year, $preTest, $postTest);
 $stmt->execute();
 

@@ -53,7 +53,7 @@ else {
     $stmt->close();
 }
 
-$stmt = $db->prepare("INSERT INTO Schedule VALUES (?, ?, ?, ?, ?)");
+$stmt = $db->prepare("INSERT INTO Schedule (Class_Id, Room_Number, Start_Time, End_Time, Day) VALUES (?, ?, ?, ?, ?)");
 $stmt->bind_param('issss', $id, $roomNum, $srtTime, $endTime, $day);
 $stmt->execute();
 

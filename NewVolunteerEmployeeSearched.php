@@ -33,7 +33,7 @@ $lname = $_POST['name'];
 $id = $_POST['ID'];
 
 if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee
-                                  WHERE l_name=? AND teacher_id=?")) {
+                                  WHERE Last_Name=? AND Id=?")) {
 
     $stmt->bind_param('ss', $lname, $id);
 

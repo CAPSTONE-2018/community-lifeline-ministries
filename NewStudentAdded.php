@@ -69,7 +69,7 @@ else {
 
 
 
-$stmt = $db->prepare("INSERT INTO Student VALUES (?, ?, ?)");
+$stmt = $db->prepare("INSERT INTO Allergy (Student_Id, Type, Note) VALUES (?, ?, ?)");
 $stmt->bind_param('iss', $id, $allergyType, $allergyNote);
 $stmt->execute();
 

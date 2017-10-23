@@ -57,7 +57,7 @@
             if ($studentID == null or $lastName == null or $firstName == null) {
                 echo "<h2>Student could not be located in the database, please try again.</h2>";
             } else {
-				echo "<h3> Student Information: </h3>";
+				echo "<h3> Student Information: </h3><br>";
                 echo "<h2>ID Number: $studentID<br> First Name: $firstName<br> Last Name: $lastName<br> Gender: $gender<br> Birthdate: $birthdate<br>Address: $address<br>City: $city<br>State: $state<br>Zip: $zipCode<br>Ethnicity: $ethnicity<br>School: $school<br>Program: $program<br>Permission Slip: $permission<br>Birth Certificate: $birth<br>Reduced Lunch Eligible: $RLE<br>Emotional Problem: $IEP</h2>";
             }
             $stmt->close();
@@ -78,7 +78,7 @@
 			if ($child_id == null) {
                 echo "<h2>Contact could not be located in the database, please try again.</h2>";
             } else {
-				echo "<br><h3>Contact Information: </h3>";
+				echo "<br><h3>Contact Information: </h3><br>";
                 echo "<h2> First Name: $cfname<br> Last Name: $clname<br> Cell Phone: $cphone<br>Home Phone: $hphone<br> Email: $cemail<br>Relationship: $crelationship </h2>";
             }
             $stmt2->close();

@@ -36,7 +36,7 @@ $classId = $_POST['cid'];
 
 
 
-$stmt = $db->prepare("INSERT INTO Enrolled VALUES (?, ?)");
+$stmt = $db->prepare("INSERT INTO Enrolled (Student_Id, Class_Id) VALUES (?, ?)");
 $stmt->bind_param('ii', $studentId, $classId);
 $stmt->execute();
 
