@@ -41,7 +41,7 @@ $query = "SELECT * FROM Class LEFT OUTER JOIN Schedule ON Class.Id = Schedule.Cl
 $result = mysqli_query($db, $query);
 
 echo "<table>";
-echo "<tr><th>Class ID</th><th></th><th>Class Name</th><th>Volunteer/Employee ID</th><th>Room Number</th><th>Start Time</th><th>End Time</th><th>Day</th></tr>";
+echo "<tr><th>Class ID</th><th>Class Name</th><th>Volunteer/Employee ID</th><th>Room Number</th><th>Start Time</th><th>End Time</th><th>Day</th></tr>";
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "<tr><td>";

@@ -41,14 +41,14 @@
         
         if ($stmt = $db->prepare("SELECT Student.Id, Student.First_Name, Student.Last_Name, Class.Class_Name, Schedule.Room_Number, Schedule.Start_Time, Schedule.End_Time, Schedule.Day
                                           FROM Student JOIN Enrolled ON
-                                            Student.Id = Enrolled.Student.Id
+                                            Student.Id = Enrolled.Student_Id
                                             JOIN Class ON
                                             Enrolled.Class_Id = Class.Id
                                             JOIN Schedule ON 
                                             Schedule.Class_Id = Class.Id
-                                            WHERE id_student=?")) {
+                                            WHERE Student.Id=?")) {
         
-            $stmt->bind_param('s', $id_student);
+            $stmt->bind_param('i', $id_student);
             
             $stmt->execute();
 
