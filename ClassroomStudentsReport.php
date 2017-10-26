@@ -64,7 +64,7 @@
 			//Write records to CSV file
 			foreach ($records as $record)
 			{
-				fputcsv($csv, explode(',',$record));
+				fputcsv($csv, $record);
 			}
 			
 			mysqli_close($db); 		
