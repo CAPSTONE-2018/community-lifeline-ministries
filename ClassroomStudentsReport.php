@@ -35,7 +35,7 @@
 			
 			$roomNumber = $_POST['roomNumber'];
 			$startTime = $_POST['startTime'];
-			
+		
 			$stmtSchedule = "SELECT * FROM Schedule Where Room_Number=$roomNumber AND Start_Time=$startTime";
 			$resultSchedule = mysqli_query($db, $stmt);
 			$classId = NULL; 
@@ -49,12 +49,22 @@
 			}
 			
 			$stmtEnrolled = "SELECT Student_Id FROM Enrolled WHERE Class_Id = $classId";
-			$resultEnrolled = mysql_query($db, $stmtEnrolled);
+			$resultEnrolled = mysqli_query($db, $stmtEnrolled);
+			$records = array(); 	
 			
 			if (mysqli_num_rows($resultClass) > 0) {
 				while($row = mysqli_fetch_assoc($resultEnrolled)) {
-					echo $row["Student_Id"] . "<br />"; 
+					$line = $row["Student_Id"];
+					array_push($records, $line); 
 				}	
+			}
+			
+			$csv = fopen("classroom_students_report.csv","w");
+			
+			//Write records to CSV file
+			foreach ($records as $record)
+			{
+				fputcsv($csv, explode(',',$record));
 			}
 			
 			mysqli_close($db); 		

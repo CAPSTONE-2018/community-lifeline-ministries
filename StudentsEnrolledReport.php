@@ -37,11 +37,21 @@
 			
 			$stmt = "SELECT * FROM Students WHERE school_year=$schoolYear";
 			$result = mysqli_query($db, $stmt);
+			$records = array(); 
 			
 			if(mysqli_num_rows($result) > 0) {
 				while($row = mysqli_fetch_assoc($result)) {
-					echo $row["studentID"] . "<br />"; 
+					$line = array($row["Student_Id"], $row["Term"], $row["Pre_Test"] . $row["Post_Test"]);
+					array_push($records, $line); 
 				}
+			}
+			
+			$csv = fopen("students_enrolled_report.csv","w");
+			
+			//Write records to CSV file
+			foreach ($records as $record)
+			{
+				fputcsv($csv, explode(',',$record));
 			}
 			
 			mysqli_close($db); 		
