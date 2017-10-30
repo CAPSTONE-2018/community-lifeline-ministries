@@ -33,8 +33,10 @@ include("Header.php");
 
         <label><h4>Ethnicity:</h4><input type="text" name="ethnicity"></label>
         <label><h4>Gender:</h4>
-            Male<input type="radio" value="M" name="gender">
-            Female<input type="radio" value="F" name="gender">
+            <select name="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
         </label>
         <br><br>
 
@@ -45,30 +47,45 @@ include("Header.php");
         <br><br>
 
         <label><h4>School:</h4><input type="text" name="school"></label>
-        <label><h4>Program Name:</h4><input type="text" name="program"></label>
+        <label><h4>Program Name:</h4>
+            <select name="program">
+                <option value="G.E.M.S">G.E.M.S</option>
+                <option value="Sons of Thunder">Sons of Thunder</option>
+            </select>
+        </label>
         <br><br>
 
         <label><h4>Permission Slip on File:</h4>
-            Yes<input type="radio" value="1" name="permission_slip">
-            No<input type="radio" value="0" name="permission_slip">
+            <select name="permission_slip">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
         </label>
         <br><br>
 
         <label><h4>Birth Certificate on File:</h4>
-            Yes<input type="radio" value="1" name="birth_certificate">
-            No<input type="radio" value="0" name="birth_certificate">
+            <select name="birth_certificate">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
         </label>
         <br><br>
 
         <label><h4>Reduced Lunch Eligible:</h4>
-            Yes<input type="radio" value="1" name="reduced_lunch_eligible">
-            No<input type="radio" value="0" name="reduced_lunch_eligible">
+            <select name="reduced_lunch_eligible">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
         </label>
         <br><br>
 
         <label><h4>Immediate Emotional Problem:</h4>
-            Yes<input type="radio" value="1" name="iep">
-            No<input type="radio" value="0" name="iep">
+            <select name="iep">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
         </label>
         <br><br>
 
