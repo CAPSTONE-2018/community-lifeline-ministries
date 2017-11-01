@@ -22,7 +22,14 @@ include("Header.php");
         <label><h4>Student ID Number:</h4><input type="text" name="id"></label>
         <br><br>
 
-        <label><h4>Term:</h4><input type="text" name="term"></label>
+        <label><h4>Term:</h4>
+            <select name="term">
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+                <option value="Fall">Fall</option>
+                <option value="Winter">Winter</option>
+            </select>
+        </label>
         <label><h4>Year:</h4><input type="text" name="year"></label>
 
         <label><h4>Pre-Test Score:</h4><input type="text" name="pre_test"></label>

@@ -24,9 +24,11 @@
 			<br><br>
 			
             <label><h4>Account type:</h4>
-                Administrator<input value="administrator" type="radio" name="account">
-                Teacher<input value="teacher" type="radio" name="account">
-                Report User<input value="report_user" type="radio" name="account">
+                <select name="account">
+                    <option value="administrator">Administrator</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="report_user">Report User</option>
+                </select>
             </label>
             <br><br>
             

@@ -65,13 +65,36 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "</td><td>";
     echo $row['Program'];
     echo "</td><td>";
-    echo $row['Permission_Slip'];
+
+    if ($row['Permission_Slip'] == 1){
+        echo "Yes";
+    }else if ($row['Permission_Slip'] == 0){
+        echo "No";
+    }
+
     echo "</td><td>";
-    echo $row['Birth_Certificate'];
+
+    if ($row['Birth_Certificate'] == 1){
+        echo "Yes";
+    }else if ($row['Birth_Certificate'] == 0){
+        echo "No";
+    }
     echo "</td><td>";
-    echo $row['Reduced_Lunch_Eligible'];
+
+    if ($row['Reduced_Lunch_Eligible'] == 1){
+        echo "Yes";
+    }else if ($row['Reduced_Lunch_Eligible'] == 0){
+        echo "No";
+    }
+
     echo "</td><td>";
-    echo $row['IEP'];
+
+    if ($row['IEP'] == 1){
+        echo "Yes";
+    }else if ($row['IEP'] == 0){
+        echo "No";
+    }
+
     echo "</td><td>";
 
 }

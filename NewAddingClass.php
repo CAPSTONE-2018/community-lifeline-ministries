@@ -27,7 +27,17 @@ include("Header.php");
         <label><h4>Volunteer/Employee Id:</h4><input type="text" name="vid"></label>
 
         <label><h4>Room Number:</h4><input type="text" name="rnum"></label>
-        <label><h4>Day:</h4><input type="text" name="day"></label>
+        <label><h4>Day:</h4>
+            <select name="day">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+        </label>
         <label><h4>Start Time:</h4><input type="text" name="stime"></label>
         <label><h4>End Time:</h4><input type="text" name="etime"></label>
 
