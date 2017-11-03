@@ -9,7 +9,7 @@ include("Header.php");
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="DisplayAll.css"/>
-    
+    <script src="print.js"></script>
 </head>
 
 <body>
@@ -37,7 +37,8 @@ $query = "SELECT * FROM Student;";
 $result = mysqli_query($db, $query);
 
 
-
+echo "<div id=\"print_div\">";
+echo '<link rel="stylesheet" type="text/css" href="DisplayAll.css"/>';
 echo "<table>";
 echo "<tr><th>ID Number</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>Birth Date</th><th>Address</th><th>City</th><th>State</th><th>Zip</th>
         <th>Ethnicity</th><th>School</th><th>Program</th><th>Permission Slip</th><th>Birth Certificate</th><th>Reduced Lunch Eligible</th><th>IEP</th></tr>";
@@ -79,7 +80,10 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
 }
 //$row = mysqli_fetch_array($result);
-
+echo "</table>";
+echo "</div>";
+echo "<br />";
+echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
 ?>
 
 </body>
