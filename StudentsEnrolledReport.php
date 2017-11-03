@@ -35,15 +35,20 @@
 			
 			$schoolYear = $_POST['schoolYear'];
 			
-			$stmt = "SELECT * FROM Students WHERE school_year=$schoolYear";
-			$result = mysqli_query($db, $stmt);
-			$records = array(); 
+			$stmt = "SELECT Student.Id, Student.First_Name, 
+				Student.Last_Name FROM Student JOIN School_Year
+				ON Student.Id = School_Year.Student_Id 
+				WHERE School_Year.Year = '$schoolYear'";
+			
+			$result = mysqli_query($db, $stmt); 
+			$records = array();
 			
 			if(mysqli_num_rows($result) > 0) {
 				while($row = mysqli_fetch_assoc($result)) {
-					$line = array($row["Student_Id"], $row["Term"], $row["Pre_Test"] . $row["Post_Test"]);
+					$line = array($row["Id"], $row["First_Name"], $row["Last_Name"]);
 					array_push($records, $line); 
 				}
+				echo '<input type="button" value="Export" />';
 			}
 			
 			$csv = fopen("students_enrolled_report.csv","w");
