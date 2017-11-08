@@ -36,7 +36,9 @@ include("Header.php");
 			  WHERE School_Year.Year = '$schoolYear'";
 	$result = mysqli_query($db, $stmt);
 	$records = array(); 
-
+	$header = array("Id","First Name","Last Name");
+	array_push($records, $header); 
+	
 	if(mysqli_num_rows($result) > 0) {
 		echo "<div id=\"print_div\">";
 		
@@ -49,24 +51,24 @@ include("Header.php");
 		echo "</div>";
 		echo "<br />";
 		echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
-		
-		// output headers so that the file is downloaded rather than displayed
-		header('Content-type: text/csv');
+		echo "<br />"; 
+		echo "<h3>Students_Enrolled_Report.csv</h3>"; 
+				
+		header('Content-Type: text/csv');
 		header('Content-Disposition: attachment; filename="Students_Enrolled_Report.csv"');
-
-		// do not cache the file
-		header('Pragma: no-cache');
-		header('Expires: 0');
-
-		// create a file pointer connected to the output stream
-		$csv = fopen('php://output', 'w');
-
 		
-		//Write records to CSV file
+		$csv = fopen('php://output', 'w');
+		
+		// Write records to CSV file
 		foreach ($records as $record)
 		{
+			echo "<br />";
 			fputcsv($csv, $record);
 		}
+		
+		fclose($csv);
+
+		exit;
 	}
 	else{
 		echo "0 results";
