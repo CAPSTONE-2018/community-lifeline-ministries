@@ -3,6 +3,7 @@
     if(!isset($_SESSION['loggedIn'])){
         header("Location: login.html");
     }
+    include("Header.php");
 ?>
 
 <html>
@@ -11,13 +12,6 @@
     </head>
     
     <body>
-        <form align="right" name="form" action="menu.php" method="POST">
-            <label class="home">
-            <input name="submit" type="submit" id="home" value="Home">
-            </label>
-        </form>
-        
-		<img src="Lifeline.png" alt="Community Lifeline" align="middle">
         
         <label><h2>Displaying All Students:</h2></label><br>
 
@@ -43,7 +37,7 @@
         
         echo "<table>";
         echo "<tr><th>Student ID Number</th><th>Last Name</th><th>First Name</th><th>Age</th><th>Gender</th><th>Birth Date</th><th>Address</th><th>Zip Code</th>
-        <th>City</th><th>School</th><th>Program</th><th>Ethnicity</th><th>Permission Slip</th><th>Birth Certificate</th></tr>";
+        <th>City</th><th>School</th><th>Program</th><th>Ethnicity</th><th>Permission Slip</th><th>Birth Certificate</th><th>School Year</th><th>Reduced Lunch Eligible</th><th>Pre-Test Score</th><th>Post-Test Score</th></tr>";
         
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             echo "<tr><td>";
@@ -74,6 +68,14 @@
             echo $row['permission_slip'];
             echo "</td><td>";
             echo $row['birth_certificate'];
+            echo "</td><td>";
+            echo $row['school_year'];
+            echo "</td><td>";
+            echo $row['reduced_lunch_eligible'];
+            echo "</td><td>";
+            echo $row['pre_test'];
+            echo "</td><td>";
+            echo $row['post_test'];
             echo "</td><td>";
         }
         

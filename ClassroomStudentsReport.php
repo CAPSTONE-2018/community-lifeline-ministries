@@ -3,22 +3,16 @@
     if(!isset($_SESSION['loggedIn'])){
         header("Location: login.html");
     }
+    include("Header.php");
 ?>
 
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="reports.css"/>
+        <script src="print.js"></script>
 	</head>
 	
-	<body>
-		<form align="right" name="form" action="menu.php" method="POST">
-			<label class="home">
-			<input name="submit" type="submit" id="home" value="Home">
-			</label>
-		</form>
-		
-		<img src="Lifeline.png" alt="Community Lifeline" align="middle">
-		
+	<body>		
 		<?php
 			//Setting up variable to use for mysqli function
 			$server = "localhost";
@@ -48,11 +42,13 @@
 			$records = array();
 						
 			if (mysqli_num_rows($result) > 0) {
+                echo "<div id=\"print_div\">";
 				while($row = mysqli_fetch_assoc($result)) {
-					$line = array($row["Id"], $row["First_Name"], $row["Last_Name"]);
-					array_push($records, $line); 
-					echo '<input type="button" value="Export" />';
-				}	
+					echo "Class Name: " . $row["Class_Name"] . "<br />";
+				}
+				echo "</div>";
+				echo "<br />";
+				echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
 			}
 			else {
 				echo "0 results";
