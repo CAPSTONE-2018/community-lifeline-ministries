@@ -41,6 +41,8 @@ include("Header.php");
 		echo "<div id=\"print_div\">";
 		
 		while($row = mysqli_fetch_assoc($result)) {
+			$line = array($row["Id"], $row["First_Name"], $row["Last_Name"]);
+			array_push($records, $line); 
 			echo "Student ID: " . $row["Id"] . " Student Name: " . $row["First_Name"] . " " . $row["Last_Name"] . "<br />";
 		}
 		
@@ -48,12 +50,17 @@ include("Header.php");
 		echo "<br />";
 		echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
 		
-		while($row = mysqli_fetch_assoc($result)) {
-			$line = array($row["Id"], $row["First_Name"], $row["Last_Name"]);
-			array_push($records, $line); 
-		}
-		
-		$csv = fopen("students_enrolled_report.csv","w");
+		// output headers so that the file is downloaded rather than displayed
+		header('Content-type: text/csv');
+		header('Content-Disposition: attachment; filename="Students_Enrolled_Report.csv"');
+
+		// do not cache the file
+		header('Pragma: no-cache');
+		header('Expires: 0');
+
+		// create a file pointer connected to the output stream
+		$csv = fopen('php://output', 'w');
+
 		
 		//Write records to CSV file
 		foreach ($records as $record)
