@@ -7,12 +7,13 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="menu.css"/>
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     </head>
     
     <body>
         <form align="right" name="form" action="logout.php" method="POST">
             <label class="logout">
-            <input name="submit" type="submit" id="logout" value="Logout">
+            <input name="submit" type="submit" id="logout" class="btn btn-info btn-lg btn-block" value="Logout">
             </label>
         </form>
         

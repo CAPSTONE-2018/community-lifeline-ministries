@@ -9,7 +9,7 @@ h2 {
     margin: 0px;
 	text-align: center;
 	font-family: 'Arial';
-	font-size: 18;
+	font-size: 18px;
 	color: black;
     font-weight: normal;
 }
@@ -18,7 +18,7 @@ label h4{
     margin: 0px;
     min-width: 120px;
 	font-family: 'Arial';
-	font-size: 12;
+	font-size: 12px;
 	color: black;
     font-weight: normal;
 }
@@ -34,7 +34,7 @@ label h4{
     display: inline-block;
     text-align: left;
 	font-family: 'Arial';
-	font-size: 12;
+	font-size: 12px;
 	color: black;
     font-weight: normal;
 }
@@ -45,4 +45,4 @@ label h4{
 
 body {
     Background-color: white;
-}*/
+}

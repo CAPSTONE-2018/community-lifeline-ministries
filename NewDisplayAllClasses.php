@@ -9,7 +9,6 @@ include("Header.php");
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="DisplayAll.css"/>
-    <script src="print.js"></script>
 </head>
 
 <body>
@@ -40,8 +39,7 @@ if (!$db) {
 
 $query = "SELECT * FROM Class LEFT OUTER JOIN Schedule ON Class.Id = Schedule.Class_Id;";
 $result = mysqli_query($db, $query);
-echo "<div id=\"print_div\">";
-echo '<link rel="stylesheet" type="text/css" href="DisplayAll.css"/>';
+
 echo "<table>";
 echo "<tr><th>Class ID</th><th>Class Name</th><th>Volunteer/Employee ID</th><th>Room Number</th><th>Start Time</th><th>End Time</th><th>Day</th></tr>";
 
@@ -64,10 +62,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 }
 
 //$row = mysqli_fetch_array($result);
-echo "</table>";
-echo "</div>";
-echo "<br />";
-echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
+
 ?>
 </body>
 </html>
