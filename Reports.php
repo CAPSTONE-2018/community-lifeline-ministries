@@ -9,28 +9,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="reports.css"/>
-		
-		<script>
-			function onLoad()
-			{
-				document.getElementById("classroomList").style.display="none";
-				document.getElementById("studentsEnrolled").style.display="none";
-			}
-		
-			function formSelector(choice)
-			{
-				if (choice == 1)
-				{
-					document.getElementById("classroomList").style.display="block";
-					document.getElementById("studentsEnrolled").style.display="none";
-				}
-				else if(choice == 2)
-				{
-					document.getElementById("studentsEnrolled").style.display="block";
-					document.getElementById("classroomList").style.display="none";
-				}
-			}
-		</script>
+		<script src="ReportSelection.js"></script>
     </head>
 	
 	<body onload="onLoad()">
@@ -40,7 +19,7 @@
 			<button onclick="formSelector(2)">All Students Enrolled</button><br /><br />
 		</div>
 		
-		<form action="ClassroomScheduleReport.php" method="POST" display="none" id="classroomList">
+		<form action="ClassroomStudentsReport.php" method="POST" display="none" id="classroomList">
 			<label><h2>Volunteer/Employee Classroom List:</h2></label><br />
 			<label><h4>Volunteer/Employee First Name:</h4></label>
 			<input type="text" name="teacherFirstName" /><br />
