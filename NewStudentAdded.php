@@ -9,7 +9,7 @@ include("Header.php");
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="add.css"/>
-    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
     <body>
