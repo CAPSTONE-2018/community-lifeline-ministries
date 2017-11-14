@@ -6,6 +6,27 @@ if(!isset($_SESSION['loggedIn'])){
 include("Header.php");
 ?>
 
+<?php
+//Setting up variable to use for mysqli function
+$server = "localhost";
+$user = "clm_user";
+$psw = "dbuser";
+$database = "community_lifeline";
+
+//Connecting to database
+$db = mysqli_connect($server, $user, $psw, $database);
+if (!$db) {
+    echo "Error - Could not connect to MySQL";
+    exit;
+}
+
+$query = "SELECT * FROM Student ORDER BY Last_Name, First_Name;";
+$result = mysqli_query($db, $query);
+
+
+
+?>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="adding.css"/>
@@ -36,8 +57,18 @@ include("Header.php");
                             <input id="lastname" class="form-control" placeholder="Last Name" type="text" name="lname">
                         </div>
                         <div class="col-lg-4">
-                            <label class="control-label" for="studentid">Student ID Number:</label>
-                            <input id="studentid" class="form-control" placeholder="Student ID" type="text" name="id">
+                            <label class="control-label" for="studentid">Student ID Number For:</label>
+                            <!--<input id="studentid" class="form-control" placeholder="Student ID" type="text" name="id">-->
+                            <select id="studentid" class="form-control" name="id">
+                                <?php
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        //echo "<option value='".$row['Id']."'>'".$row['First_Name']."'</option>";
+                                        echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                 </div>

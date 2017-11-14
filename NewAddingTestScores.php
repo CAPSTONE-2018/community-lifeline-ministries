@@ -6,6 +6,24 @@ if(!isset($_SESSION['loggedIn'])){
 include("Header.php");
 ?>
 
+<?php
+//Setting up variable to use for mysqli function
+$server = "localhost";
+$user = "clm_user";
+$psw = "dbuser";
+$database = "community_lifeline";
+
+//Connecting to database
+$db = mysqli_connect($server, $user, $psw, $database);
+if (!$db) {
+    echo "Error - Could not connect to MySQL";
+    exit;
+}
+
+$query = "SELECT * FROM Student ORDER BY Last_Name, First_Name;";
+$result = mysqli_query($db, $query);
+?>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="adding.css"/>
@@ -24,8 +42,18 @@ include("Header.php");
 
                         <div class="form-group">
                             <div class="col-lg-4">
-                                <label class="control-label" for="sid">Student ID Number:</label>
-                                <input id="sid" class="form-control" placeholder="Student ID" type="text" name="id">
+                                <label class="control-label" for="sid">Student ID Number For:</label>
+                                <!--<input id="sid" class="form-control" placeholder="Student ID" type="text" name="id">-->
+                                <select id="sid" class="form-control" name="id">
+                                    <?php
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            //echo "<option value='".$row['Id']."'>'".$row['First_Name']."'</option>";
+                                            echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
+                                        }
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <div class="col-lg-4">
                                 <label class="control-label" for="term">Term:</label>

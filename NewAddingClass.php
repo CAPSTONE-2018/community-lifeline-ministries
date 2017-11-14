@@ -6,6 +6,24 @@ if(!isset($_SESSION['loggedIn'])){
 include("Header.php");
 ?>
 
+<?php
+//Setting up variable to use for mysqli function
+$server = "localhost";
+$user = "clm_user";
+$psw = "dbuser";
+$database = "community_lifeline";
+
+//Connecting to database
+$db = mysqli_connect($server, $user, $psw, $database);
+if (!$db) {
+    echo "Error - Could not connect to MySQL";
+    exit;
+}
+
+$query = "SELECT * FROM Volunteer_Employee ORDER BY Last_Name, First_Name;";
+$result = mysqli_query($db, $query);
+?>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="adding.css"/>
@@ -34,8 +52,19 @@ include("Header.php");
                                 <input id="cid" class="form-control" placeholder="Class ID" type="text" name="id">
                             </div>
                             <div class="col-lg-3">
-                                <label class="control-label" for="veid">Volunteer/Employee ID:</label>
-                                <input id="veid" class="form-control" placeholder="Volunteer/Employee ID" type="text" name="vid">
+                                <label class="control-label" for="veid">Volunteer/Employee ID For:</label>
+                                <!--<input id="veid" class="form-control" placeholder="Volunteer/Employee ID" type="text" name="vid">-->
+                                <select id="veid" class="form-control" name="vid">
+                                    <?php
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            //echo "<option value='".$row['Id']."'>'".$row['First_Name']."'</option>";
+                                            echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
+                                        }
+                                    }
+                                    ?>
+
+                                </select>
                             </div>
                             <div class="col-lg-3">
                                 <label class="control-label" for="roomnum">Room Number:</label>
