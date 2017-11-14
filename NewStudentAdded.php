@@ -55,8 +55,8 @@ include("Header.php");
 
 
             #Adding student records based on the information the user added into the "add" fields
-            $stmt = $db->prepare("INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('isssssssisssiiii', $id, $fname, $lname, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $program, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
+            $stmt = $db->prepare("INSERT INTO Student (First_Name, Last_Name, Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Program, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('sssssssisssiiii', $fname, $lname, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $program, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
             $stmt->execute();
 
 
@@ -73,10 +73,17 @@ include("Header.php");
             }
 
 
+            //query to get id of Student just added
+            $query = 'SELECT * FROM Student WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
+            $result = $db->query($query);
+
+
+
+            $row = $result->fetch_assoc();
 
 
             $stmt = $db->prepare("INSERT INTO Allergy (Student_Id, Type, Note) VALUES (?, ?, ?)");
-            $stmt->bind_param('iss', $id, $allergyType, $allergyNote);
+            $stmt->bind_param('iss', $row['Id'], $allergyType, $allergyNote);
             $stmt->execute();
 
 

@@ -43,15 +43,11 @@ $result = mysqli_query($db, $query);
 
                     <div class="row">
                         <div class="form-group">
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <label class="control-label" for="name">Class Name:</label>
                                 <input id="name" class="form-control" placeholder="Class Name" type="text" name="name">
                             </div>
-                            <div class="col-lg-3">
-                                <label class="control-label" for="cid">Class ID:</label>
-                                <input id="cid" class="form-control" placeholder="Class ID" type="text" name="id">
-                            </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <label class="control-label" for="veid">Volunteer/Employee ID For:</label>
                                 <!--<input id="veid" class="form-control" placeholder="Volunteer/Employee ID" type="text" name="vid">-->
                                 <select id="veid" class="form-control" name="vid">
@@ -66,7 +62,7 @@ $result = mysqli_query($db, $query);
 
                                 </select>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <label class="control-label" for="roomnum">Room Number:</label>
                                 <input id="roomnum" class="form-control" placeholder="Room Number" type="text" name="rnum">
                             </div>

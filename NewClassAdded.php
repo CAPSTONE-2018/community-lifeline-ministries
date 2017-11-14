@@ -32,7 +32,7 @@ include("Header.php");
                 exit;
             }
 
-            $id = intval($_POST['id']);
+            //$id = intval($_POST['id']);
             $className = $_POST['name'];
             $volunteerId = intval($_POST['vid']);
             $roomNum = $_POST['rnum'];
@@ -42,8 +42,9 @@ include("Header.php");
 
 
 
-            $stmt = $db->prepare("INSERT INTO Class VALUES (?, ?, ?)");
-            $stmt->bind_param('isi', $id, $className, $volunteerId);
+
+            $stmt = $db->prepare("INSERT INTO Class (Class_Name, Volunteer_Id) VALUES (?, ?)");
+            $stmt->bind_param('si',  $className, $volunteerId);
             $stmt->execute();
 
 
@@ -59,8 +60,18 @@ include("Header.php");
                 $stmt->close();
             }
 
+
+            //query to get id of class just added
+            $query = 'SELECT * FROM Class WHERE Class_Name = "' .$className. '";';
+            $result = $db->query($query);
+
+
+
+            $row = $result->fetch_assoc();
+            //$row = mysqli_fetch_assoc($result);
+
             $stmt = $db->prepare("INSERT INTO Schedule (Class_Id, Room_Number, Start_Time, End_Time, Day) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param('issss', $id, $roomNum, $srtTime, $endTime, $day);
+            $stmt->bind_param('issss', $row['Id'], $roomNum, $srtTime, $endTime, $day);
             $stmt->execute();
 
 

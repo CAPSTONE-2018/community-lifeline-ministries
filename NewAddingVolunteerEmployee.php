@@ -24,18 +24,15 @@ include("Header.php");
                     <div class="row">
 
                         <div class="form-group">
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label class="control-label" for="first">First Name:</label>
                                 <input id="first" class="form-control" placeholder="First Name" type="text" name="fname">
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label class="control-label" for="last">Last Name</label>
                                 <input id="last" class="form-control" placeholder="Last Name" type="text" name="lname">
                             </div>
-                            <div class="col-lg-4">
-                                <label class="control-label" for="veid">Volunteer/Employee Id:</label>
-                                <input id="veid" class="form-control" placeholder="Volunteer/Employee ID" type="text" name="id">
-                            </div>
+
                         </div>
                     </div>
                     <div class="row">

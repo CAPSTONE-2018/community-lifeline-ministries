@@ -6,7 +6,7 @@
 *********************************************************************************
 */
 CREATE TABLE Student(
-    Id int(10) PRIMARY KEY,
+    Id int(10) AUTO_INCREMENT PRIMARY KEY,
     First_Name varchar(30),
     Last_Name varchar(30),
     Gender char(1),
@@ -58,7 +58,7 @@ CREATE TABLE Contact(
 
 
 CREATE TABLE Volunteer_Employee(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     First_Name varchar(30),
     Last_Name varchar(30),
     Phone_Cell char(20),
@@ -73,7 +73,7 @@ CREATE TABLE Volunteer_Employee(
 );
 
 CREATE TABLE Class(
-    Id INT(10) PRIMARY KEY,
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Class_Name VARCHAR(60),
     Volunteer_Id INT(10),
     CONSTRAINT FK_Volunteer_Id_Class FOREIGN KEY (Volunteer_Id)

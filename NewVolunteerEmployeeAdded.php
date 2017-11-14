@@ -50,8 +50,8 @@ include("Header.php");
 
 
 
-            $stmt = $db->prepare("INSERT INTO Volunteer_Employee VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('isssssssisss', $id, $fname, $lname, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
+            $stmt = $db->prepare("INSERT INTO Volunteer_Employee (First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Type, Program) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('sssssssisss', $fname, $lname, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
             $stmt->execute();
 
 
