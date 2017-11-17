@@ -9,6 +9,7 @@ include("Header.php");
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="add.css"/>
+    <script src="print.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,11 @@ if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee
     if ($lname == null or $id == null) {
         echo "<h2>Volunteer/Employee could not be located in the database, please try again.</h2>";
     } else {
+        echo '<div id="print_div">';
+        echo '<link rel="stylesheet" type="text/css" href="add.css"/>';
         echo "<h2>ID Number: $id<br> First Name: $firstName<br> Last Name: $lastName<br> Cell Phone: $cellphone<br> Home Phone: $homephone<br> Address: $address<br> City: $city<br> State: $state<br> Zipcode: $zip<br>Email: $email<br> Type: $type<br>Program: $program</h2>";
+        echo '</div>';
+        echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
     }
     $stmt->close();
 }

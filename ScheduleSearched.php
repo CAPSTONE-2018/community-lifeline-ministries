@@ -17,6 +17,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="add.css"/>
+        <script src="print.js"></script>
     </head>
     
     <body>
@@ -60,7 +61,11 @@
             if ($id_student == null) {
                 echo "<h2>Schedule could not be located in the database, please try again.</h2>";
             } else {
+                echo '<div id="print_div">';
+                echo '<link rel="stylesheet" type="text/css" href="add.css"/>';
                 echo "<h2>Student Id: $id_student<br> Student First Name: $studfirst<br> Student Last Name: $studlast<br> Class Name: $classname<br> Room Number: $roomnum<br> Start Time: $starttime<br>  End Time: $endtime<br> Day: $day</h2>";
+                echo '</div>';
+                echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
             }
             $stmt->close();
         }        
