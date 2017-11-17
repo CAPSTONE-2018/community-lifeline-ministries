@@ -54,23 +54,10 @@ if (mysqli_num_rows($result) > 0) {
     echo "</div>";
     echo "<br />";
     echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
-    echo "<br />";
-    echo "<h3>Classroom_Students_Report.csv</h3>";
-
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="Classroom_Students_Report.csv"');
-
-    $csv = fopen('php://output', 'w');
-
-    // Write records to CSV file
-    foreach ($records as $record)
-    {
-        echo "<br />";
-        fputcsv($csv, $record);
-    }
-
-    fclose($csv);
-    exit;
+	echo '<form action="ExportClassroomStudentsReport.php" method="POST">';
+	echo "<input type=\"hidden\" name=\"Records\" value=\"$serialized\"/>";
+	echo "<input type=\"submit\" name=\"submit\" value=\"Export\" />"; 
+	echo '</form>';
 }
 else {
     echo "0 results";
