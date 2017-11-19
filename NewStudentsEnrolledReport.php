@@ -40,17 +40,28 @@ include("Header.php");
 	array_push($records, $header); 
 	
 	if(mysqli_num_rows($result) > 0) {
-		echo "<div id=\"print_div\">";
-		
+		echo '<div class="container">
+            <div id="print_div">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>';
 		while($row = mysqli_fetch_assoc($result)) {
 			$line = array($row["Id"], $row["First_Name"], $row["Last_Name"]);
 			array_push($records, $line); 
-			echo "Student ID: " . $row["Id"] . " Student Name: " . $row["First_Name"] . " " . $row["Last_Name"] . "<br />";
+			echo "<tr><td>" . $row["Id"] . "</td><td>" . $row["First_Name"] . "</td><td>" . $row["Last_Name"] . "</td></tr>";
 		}
-		
-		echo "</div>";
-		echo "<br />";
-		echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
+		echo "</tbody>";
+		echo "</table>";
+        echo "</div>";
+        echo "<br />";
+        echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
+        echo "</div>";
 		echo "<br />"; 
 		echo "<h3>Students_Enrolled_Report.csv</h3>"; 
 				
@@ -76,6 +87,7 @@ include("Header.php");
 
 	mysqli_close($db);
 ?>
+
 </body>
 
 </html>
