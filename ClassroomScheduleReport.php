@@ -44,25 +44,13 @@
 			$result = mysqli_query($db, $newstmt);
 			
 			if (mysqli_num_rows($result) > 0) {
-            echo '<div class="container">
-            <div id="print_div">
-                <table class="table table-condensed table-striped">
-                    <thead>
-                    <tr>
-                        <th>Class Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
+                echo "<div id=\"print_div\">";
 				while($row = mysqli_fetch_assoc($result)) {
-					echo "<tr><td>" . $row["Class_Name"] . "</td></tr>";
+					echo "Class Name: " . $row["Class_Name"] . "<br />";
 				}
-                echo "</tbody>";
-                echo "</table>";
                 echo "</div>";
                 echo "<br />";
-                echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
-                echo "</div>";
-                echo "<br />"; 
+ 				echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
 			}
 			else {
 				echo "0 results";

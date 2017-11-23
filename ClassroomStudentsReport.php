@@ -38,33 +38,23 @@ $stmt = "SELECT Volunteer_Employee.First_Name, Volunteer_Employee.Last_Name, Cla
                 Class.Id = Schedule.Class_Id
                 WHERE Volunteer_Employee.Id ='$volunteerId'";
 
-$result = mysqli_query($db, $stmt);
+$result = mysqli_query($db, $newstmt);
 $records = array();
 $header = array("Class Name");
 array_push($records, $header);
 
 if (mysqli_num_rows($result) > 0) {
-    echo '<div class="container">
-            <div id="print_div">
-                <table class="table table-condensed table-striped">
-                    <thead>
-                    <tr>
-                        <th>Class Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
+    echo "<div id=\"print_div\">";
 
     while($row = mysqli_fetch_assoc($result)) {
         $line = array($row["Class_Name"]);
-        echo "<tr><td>" . $row["Class_Name"] . "</td></tr>";
+        echo "Class Name: " . $row["Class_Name"] . "<br />";
     }
-    echo "</tbody>";
-    echo "</table>";
+
     echo "</div>";
     echo "<br />";
-    echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
-    echo "</div>";
-    echo "<br />"; 
+    echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
+    echo "<br />";
     echo "<h3>Classroom_Students_Report.csv</h3>";
 
     header('Content-Type: text/csv');
