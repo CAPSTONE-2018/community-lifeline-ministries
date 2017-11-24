@@ -14,7 +14,7 @@ include("Header.php");
 
     <body>
         <div class="container">
-            <h1>Add Test Score Information:</h1>
+            <h1>Add Contact Information:</h1>
             <br />
 
 

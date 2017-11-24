@@ -50,6 +50,16 @@
                 </form>
             </div>
         </div>
+
+            <div class="dropdwn">
+                <button class="dropdwn_btn">Update</button>
+                <div class="dropdwn_list">
+
+                    <form action="UpdatingStudent.php" method="POST">
+                        <input type="submit" value="Student" />
+                    </form>
+                </div>
+            </div>
         
         <div class="dropdwn">
             <button class="dropdwn_btn">Reports</button>
