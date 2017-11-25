@@ -9,11 +9,13 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="add.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     
     <body>
         
-        <label><h3>Add Information:</h3></label><br>
+        <h1>Add Information:</h1>
+        <br />
 
         
         <?php
@@ -48,9 +50,13 @@
         $stmt->execute();
         
         if ($stmt->affected_rows == -1) {
-            echo "<h2>User could not be added to the database, please try again.</h2>";
+            echo "<div class='alert alert-danger'>
+                        <strong>Failure! </strong>User could not be added to the database, please try again.
+                      </div>";
         } else {
-            echo "<h2>User successfully added to the database .</h2>";        
+            echo "<div class='alert alert-success'>
+                        <strong>Success! </strong>User successfully added to the database.
+                      </div>";
             $stmt->close();
         }
         
