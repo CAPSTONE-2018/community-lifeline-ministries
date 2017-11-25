@@ -39,12 +39,14 @@
             exit;
         } 
         #This will get the text from the add a student fields
-        $lname = $_POST['name'];
+        //old
+        //$lname = $_POST['name'];
         $id = $_POST['child_id'];
         // Brings up student information
-        if ($stmt = $db->prepare("SELECT * FROM Student WHERE Last_Name = ? AND Id = ?")) {
-        
-            $stmt->bind_param("si", $lname, $id);
+        //old
+        //if ($stmt = $db->prepare("SELECT * FROM Student WHERE Last_Name = ? AND Id = ?")) {
+        if ($stmt = $db->prepare("SELECT * FROM Student WHERE Id = ?")) {
+            $stmt->bind_param("i", $id);
         
             $stmt->execute();
 

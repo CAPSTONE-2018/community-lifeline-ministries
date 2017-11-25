@@ -29,19 +29,19 @@ if (!$db) {
     exit;
 }
 #This will get the text from the add a teacher fields
-$lname = $_POST['name'];
+//$lname = $_POST['name'];
 $id = $_POST['ID'];
-
-if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee
-                                  WHERE Last_Name=? AND Id=?")) {
-
-    $stmt->bind_param('ss', $lname, $id);
-
+//if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee WHERE Last_Name=? AND Id=?")) {
+if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee WHERE Id = ?")){ 
+    //$stmt->bind_param('ss', $lname, $id);
+    
+    $stmt->bind_param("i", $id);
+    
     $stmt->execute();
 
     $stmt->bind_result($id, $firstName, $lastName, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
     $stmt->fetch();
-    if ($lname == null or $id == null) {
+    if ($id == null) {
         echo "<h2>Volunteer/Employee could not be located in the database, please try again.</h2>";
     } else {
         echo "<h2>ID Number: $id<br> First Name: $firstName<br> Last Name: $lastName<br> Cell Phone: $cellphone<br> Home Phone: $homephone<br> Address: $address<br> City: $city<br> State: $state<br> Zipcode: $zip<br>Email: $email<br> Type: $type<br>Program: $program</h2>";
