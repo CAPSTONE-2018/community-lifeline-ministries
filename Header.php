@@ -58,6 +58,10 @@
                     <form action="UpdatingStudent.php" method="POST">
                         <input type="submit" value="Student" />
                     </form>
+
+                    <form action="UpdateContact.php" method="POST">
+                        <input type="submit" value="Contact" />
+                    </form>
                 </div>
             </div>
         
