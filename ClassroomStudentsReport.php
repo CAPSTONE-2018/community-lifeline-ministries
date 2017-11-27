@@ -38,26 +38,43 @@ $stmt = "SELECT Volunteer_Employee.First_Name, Volunteer_Employee.Last_Name, Cla
                 Class.Id = Schedule.Class_Id
                 WHERE Volunteer_Employee.Id ='$volunteerId'";
 
-$result = mysqli_query($db, $newstmt);
+$result = mysqli_query($db, $stmt);
 $records = array();
 $header = array("Class Name");
 array_push($records, $header);
 
 if (mysqli_num_rows($result) > 0) {
-    echo "<div id=\"print_div\">";
+    echo '<div class="container">
+            <div id="print_div">
+                <table class="table table-condensed table-striped">
+                    <thead>
+                    <tr>
+                        <th>Class Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>';
 
     while($row = mysqli_fetch_assoc($result)) {
         $line = array($row["Class_Name"]);
-        echo "Class Name: " . $row["Class_Name"] . "<br />";
+		array_push($records, $line); 
+        echo "<tr><td>" . $row["Class_Name"] . "</td></tr>";
     }
-
+    echo "</tbody>";
+    echo "</table>";
     echo "</div>";
     echo "<br />";
-    echo '<input type="button" onclick="printReport(\'print_div\')" value="Print" />';
+    echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
+    echo "</div>";
+    echo "<br />"; 
+	
+	$serialized =htmlspecialchars(serialize($records));
+	echo "<div>";
 	echo '<form action="ExportClassroomStudentsReport.php" method="POST">';
 	echo "<input type=\"hidden\" name=\"Records\" value=\"$serialized\"/>";
-	echo "<input type=\"submit\" name=\"submit\" value=\"Export\" />"; 
+	echo "<input type=\"submit\" class=\"btn btn-primary btn-lg btn-block\" name=\"submit\" value=\"Export\" />"; 
 	echo '</form>';
+	echo "</div>";
+	
 }
 else {
     echo "0 results";

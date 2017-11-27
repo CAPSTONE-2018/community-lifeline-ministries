@@ -50,6 +50,32 @@
                 </form>
             </div>
         </div>
+
+            <div class="dropdwn">
+                <button class="dropdwn_btn">Update</button>
+                <div class="dropdwn_list">
+
+                    <form action="UpdatingStudent.php" method="POST">
+                        <input type="submit" value="Student" />
+                    </form>
+
+                    <form action="UpdateContact.php" method="POST">
+                        <input type="submit" value="Contact" />
+                    </form>
+
+                    <form action="UpdateVolunteerEmployee.php" method="POST">
+                        <input type="submit" value="Volunteer/Employee" />
+                    </form>
+
+                    <form action="UpdateClass.php" method="POST">
+                        <input type="submit" value="Class" />
+                    </form>
+
+                    <form action="UpdateTestScores.php" method="POST">
+                        <input type="submit" value="Student Test Scores" />
+                    </form>
+                </div>
+            </div>
         
         <div class="dropdwn">
             <button class="dropdwn_btn">Reports</button>
