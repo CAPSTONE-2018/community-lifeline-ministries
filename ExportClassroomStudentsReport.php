@@ -9,7 +9,6 @@
     // Write records to CSV file
     foreach ($records as $record)
     {
-        echo "<br />";
         fputcsv($csv, $record);
     }
 
