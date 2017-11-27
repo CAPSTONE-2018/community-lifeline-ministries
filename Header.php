@@ -70,6 +70,10 @@
                     <form action="UpdateClass.php" method="POST">
                         <input type="submit" value="Class" />
                     </form>
+
+                    <form action="UpdateTestScores.php" method="POST">
+                        <input type="submit" value="Student Test Scores" />
+                    </form>
                 </div>
             </div>
         
