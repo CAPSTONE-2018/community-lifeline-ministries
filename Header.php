@@ -62,6 +62,10 @@
                     <form action="UpdateContact.php" method="POST">
                         <input type="submit" value="Contact" />
                     </form>
+
+                    <form action="UpdateVolunteerEmployee.php" method="POST">
+                        <input type="submit" value="Volunteer/Employee" />
+                    </form>
                 </div>
             </div>
         
