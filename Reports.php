@@ -15,16 +15,12 @@
 	<body onload="onLoad()">
 		
 		<div class="selectReport">
-			<button onclick="formSelector(1)">Volunteer/Employee Classroom List</button><br /><br />
-			<button onclick="formSelector(2)">All Students Enrolled</button><br /><br />
+			<button type ="button" class="btn btn-primary btn-lg" onclick="formSelector(1)">Volunteer/Employee Classroom List</button>
+			<button type ="button" class="btn btn-primary btn-lg" onclick="formSelector(2)">All Students Enrolled</button><br /><br />
 		</div>
 		
-		<form action="ClassroomStudentsReport.php" method="POST" display="none" id="classroomList">
+		<form action="ClassroomScheduleReport.php" method="POST" display="none" id="classroomList">
 			<label><h2>Volunteer/Employee Classroom List:</h2></label><br />
-			<label><h4>Volunteer/Employee First Name:</h4></label>
-			<input type="text" name="teacherFirstName" /><br />
-			<label><h4>Volunteer/Employee Last Name:</h4></label>
-			<input type="text" name="teacherLastName" /><br /></br />
             <label><h4>Volunteer/Employee Id:</h4></label>
             <input type="text" name="id" /><br /></br />
 			<input type="submit" value="Generate" /><br />

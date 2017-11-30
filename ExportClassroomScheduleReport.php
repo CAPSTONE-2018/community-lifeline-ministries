@@ -2,7 +2,7 @@
 	$records = unserialize($_POST['Records']); 
 	
 	header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="Classroom_Students_Report.csv"');
+    header('Content-Disposition: attachment; filename="Classroom_Schedule_Report.csv"');
 
     $csv = fopen('php://output', 'w');
 

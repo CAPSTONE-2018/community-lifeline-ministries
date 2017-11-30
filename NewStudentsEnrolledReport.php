@@ -60,15 +60,13 @@ include("Header.php");
 		echo "</tbody>";
 		echo "</table>";
         echo "</div>";
-        echo "<br />";
-        echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
-        echo "</div>";
 		echo "<br />"; 
 		
 		$serialized =htmlspecialchars(serialize($records));
 		echo "<div>";
 		echo '<form action="ExportStudentsEnrolledReport.php" method="POST">';
 		echo "<input type=\"hidden\" name=\"Records\" value=\"$serialized\"/>";
+		echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
 		echo "<input type=\"submit\" class=\"btn btn-primary btn-lg btn-block\" name=\"submit\" value=\"Export\" />"; 
 		echo '</form>';
 		echo "</div>";
