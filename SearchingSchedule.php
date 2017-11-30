@@ -34,27 +34,30 @@ $result = mysqli_query($db, $query);
     </head>
     
     <body>
-        
-        <div id="form_wrapper">
-        <form action="ScheduleSearched.php" method="POST" id="form2">
-			<br>
-			<label><h2>Search Schedule Information:</h2></label><br>
-            <!--<label><h4>Student ID Number:</h4><input type="text" name="id_student"></label><br><br>-->
-            
-            <label class="control-label" for="studentid">Student ID Number For:</label>
-            <!--<input id="studentid" class="form-control" placeholder="Student ID" type="text" name="id">-->
-            <select id="studentid" class="form-control" name="id_student">
-            <?php
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    //echo "<option value='".$row['Id']."'>'".$row['First_Name']."'</option>";
-                    echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
-                }
-            }
-            ?>
-            </select>
-			<input id="submit" type="submit" value="Submit"><br><br>
-		</form>
+        <div class="container">
+
+            <div id="form_wrapper">
+            <form action="ScheduleSearched.php" method="POST" id="form2">
+
+                <h1>Search Schedule Information:</h1>
+                <br />
+
+                <div class="col-lg-12">
+                    <label class="control-label" for="studentid">Student ID Number For:</label>
+                    <select id="studentid" class="form-control" name="id_student">
+                        <?php
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                    <br />
+                    <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
+                </div>
+            </form>
+            </div>
         </div>
     </body>
 
