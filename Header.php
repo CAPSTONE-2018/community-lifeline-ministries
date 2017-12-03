@@ -135,6 +135,17 @@
                         </div>';
             }
         ?>
+
+
+            <div class="dropdwn">
+                <button class="dropdwn_btn">Help</button>
+                <div class="dropdwn_list">
+
+                    <form action="UserDocumentation.php" method="POST">
+                        <input type="submit" value="User Documentation" />
+                    </form>
+                </div>
+            </div>
             
                 
         
