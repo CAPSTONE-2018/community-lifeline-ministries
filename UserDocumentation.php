@@ -21,10 +21,10 @@ include("Header.php");
             <a href="#addnewuser" class="list-group-item list-group-item-action">Adding a New User</a>
             <a href="#addnewobject" class="list-group-item list-group-item-action">Adding Objects to the Database</a>
             <a href="#updateobject" class="list-group-item list-group-item-action">Updating Objects in the Database</a>
-            <a class="list-group-item list-group-item-action">Searching For an Object in the Database</a>
-            <a class="list-group-item list-group-item-action">Displaying Objects in the Database</a>
+            <a href="#searchingobject" class="list-group-item list-group-item-action">Searching For an Object in the Database</a>
+            <a href="#displayingobject" class="list-group-item list-group-item-action">Displaying Objects in the Database</a>
             <a class="list-group-item list-group-item-action">Creating a Report</a>
-            <a class="list-group-item list-group-item-action">Printing Reports/Lists</a>
+            <a href="#printobject" class="list-group-item list-group-item-action">Printing Reports/Lists</a>
         </div>
         <br />
 
@@ -63,7 +63,34 @@ include("Header.php");
         </ol>
         <br />
 
-
+        <h1 id="searchingobject">Searching For an Object in the Database</h1>
+        <hr />
+        <ol>
+            <li>Click on the information/volunteer/employee/schedule sub-tab under the search tab.</li>
+            <li>Select the name of the person whose information is desired from the dropdown box.</li>
+            <li>Click the submit button.</li>
+            <li>A list of the appropreate information associated with the person whose name is selected will be displayed.</li>
+        </ol>
+        <br />
+        
+        <h1 id="displayingobject">Displaying Objects in the Database</h1>
+        <hr />
+        <ol>
+            <li>Click on the students/volunteer/employee/classes sub-tab under the display all tab.</li>
+            <li>A list of all the entries in the database of the type specified by the sub-tab will be displayed.</li>
+        </ol>
+        <br />
+        
+        <h1 id="printobject">Printing Reports/Lists</h1>
+        <hr />
+        <ol>
+            <li>Ensure that you are on the page of the report/list you wish to print.</li>
+            <li>Click the print button beneath the report/list.</li>
+            <li>Select the printer that you want to print the report from on the popup.</li>
+            <li>Edit the print settings as necessary.</li>
+            <li>Click the print button on the popup.</li>
+        </ol>
+        <br />
     </div>
 
 </body>
