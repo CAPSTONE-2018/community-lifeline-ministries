@@ -23,7 +23,7 @@ include("Header.php");
             <a href="#updateobject" class="list-group-item list-group-item-action">Updating Objects in the Database</a>
             <a href="#searchingobject" class="list-group-item list-group-item-action">Searching For an Object in the Database</a>
             <a href="#displayingobject" class="list-group-item list-group-item-action">Displaying Objects in the Database</a>
-            <a class="list-group-item list-group-item-action">Creating a Report</a>
+            <a href="#creatingreport" class="list-group-item list-group-item-action">Creating a Report</a>
             <a href="#printobject" class="list-group-item list-group-item-action">Printing Reports/Lists</a>
         </div>
         <br />
@@ -80,7 +80,18 @@ include("Header.php");
             <li>A list of all the entries in the database of the type specified by the sub-tab will be displayed.</li>
         </ol>
         <br />
-        
+	  
+        <h1 id="creatingreport">Creating a Report</h1>
+        <hr />
+        <ol>
+            <li>Click on the Generate Reports sub-tab under the Reports tab.</li>
+            <li>Select the type of report you would like to generate.</li>
+            <li>Enter the requested information in the form that appears.</li>
+            <li>Click the Generate button.</li>
+            <li>To export the generated report as a CSV file, click the Export button.</li>
+        </ol>
+        <br />	  
+	  
         <h1 id="printobject">Printing Reports/Lists</h1>
         <hr />
         <ol>
