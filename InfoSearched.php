@@ -112,13 +112,36 @@
                     echo "</td><td>";
                     echo $program;
                     echo "</td><td>";
-                    echo $permission;
+
+                    if ($permission == 1){
+                        echo "Yes";
+                    }else if ($permission == 0){
+                        echo "No";
+                    }
                     echo "</td><td>";
-                    echo $birth;
+
+                    if ($birth == 1){
+                        echo "Yes";
+                    }else if ($birth == 0){
+                        echo "No";
+                    }
+
                     echo "</td><td>";
-                    echo $RLE;
+
+                    if ($RLE == 1){
+                        echo "Yes";
+                    }else if ($RLE == 0){
+                        echo "No";
+                    }
+
                     echo "</td><td>";
-                    echo $IEP;
+
+                    if ($IEP == 1){
+                        echo "Yes";
+                    }else if ($IEP == 0){
+                        echo "No";
+                    }
+
                     echo "</td></tr>";
                     echo "</tbody>";
                     echo "</table>";

@@ -154,6 +154,7 @@ include("Header.php");
                                 <select id="sprogramname" class="form-control" name="program">
                                     <option value="G.E.M.S">G.E.M.S</option>
                                     <option value="Sons of Thunder">Sons of Thunder</option>
+                                    <option value="Both">Both</option>
                                 </select>
                             </div>
                         </div>
