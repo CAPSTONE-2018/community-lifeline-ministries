@@ -1,47 +1,33 @@
 <?php
-    include("db/db.php");
 
-    //saving info from text boxes
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $encryptPass = md5($password);
+//saving info from text boxes
+$username = $_POST['username'];
+$password = $_POST['password'];
 
+if($username == '' || $password == ''){
+  header("Location: index.html");
+}else{
+  $encryptPass = md5($password);
 
-    if ($stmt = $db->prepare("SELECT * FROM Logins WHERE username=? AND password=?")) {
+  //Retrieve database credentials and connect to database
+  include("db/config.php");
+  if ($stmt = $db->prepare("SELECT * FROM Logins WHERE username=? AND password=?")) {
+      $stmt->bind_param('ss', $username, $encryptPass);
+      $stmt->execute();
+      $stmt->bind_result($user_name, $pass, $account, $firstName, $lastName, $email);
+      $stmt->fetch();
+      $stmt->close();
 
-        $stmt->bind_param('ss', $username, $encryptPass);
+      //check if the credentials match an account in the database
+     if($user_name == $username and $pass == $encryptPass ) {
+          session_start();
+          $_SESSION['loggedIn'] = "$username";
+          $_SESSION['account'] = "$account";
 
-        $stmt->execute();
-
-        $stmt->bind_result($user_name, $account, $firstName, $lastName, $email, $pass);
-        $stmt->fetch();
-
-        //checking if the credentials match an account in the database
-        if($user_name == $username and $pass == $encryptPass and checkUsername($username) and checkPassword($password)) {
-            session_start();
-            $_SESSION['loggedIn'] = "$username";
-            header("Location: menu.php");
-        } else {
-            unset($_SESSION['loggedIn']);
-            header("Location: login.html");
-        }
-        $stmt->close();
-        }
-
-    //checking if the username and password are left blank
-    function checkUsername($userStr) {
-        if($userStr == NULL){
-            return false;
-        } else {
-            return true;
-        }
+          header("Location: menu.php");
+      }else{
+        header("Location: index.html");
+      }
     }
-
-    function checkPassword($passStr) {
-        if($passStr == NULL){
-            return false;
-        } else {
-            return true;
-        }
-    }
-    ?>
+  }
+?>

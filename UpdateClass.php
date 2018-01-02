@@ -1,85 +1,55 @@
 <?php
-session_start();
-if(!isset($_SESSION['loggedIn'])){
-    header("Location: login.html");
-}
-include("Header.php");
+include("scripts/header.php");
 ?>
 
-<?php
-//Setting up variable to use for mysqli function
-$server = "localhost";
-$user = "clm_user";
-$psw = "dbuser";
-$database = "community_lifeline";
+    <h1>Update Class Information:</h1>
+    <br />
 
-//Connecting to database
-$db = mysqli_connect($server, $user, $psw, $database);
-if (!$db) {
-    echo "Error - Could not connect to MySQL";
-    exit;
-}
 
-$query = "SELECT * FROM Class ORDER BY Class_Name;";
-$result = mysqli_query($db, $query);
-?>
+    <?php
 
-<html>
+    //connect to database
+    include("db/config.php");
 
-<head>
+    session_start();
 
-    <link rel="stylesheet" type="text/css" href="adding.css"/>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    $id = $_SESSION['classId'];
 
-</head>
+    $className = $_POST['name'];
+    $roomNum = $_POST['rnum'];
+    $srtTime = $_POST['stime'];
+    $endTime = $_POST['etime'];
+    $day = $_POST['day'];
 
-<body>
 
-<div class="container">
 
-    <div class="row">
 
-        <div class="form-group">
-            <div class="col-lg-4">
-                <label class="control-label" for="classid">Select Class To Update:</label>
+    $sql = "UPDATE Class SET Class_Name = '$className' WHERE Id = '$id' ;";
 
-                <select id="classid" class="form-control" name="id">
-                    <option value="">Please Select a Class</option>
-                    <?php
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
+    if ($db->query($sql) === TRUE){
+        echo "<div class='alert alert-success'>
+                        <strong>Success! </strong>Class Name has been successfully Updated.
+                      </div>";
+    }else{
+        echo "<div class='alert alert-danger'>
+                        <strong>Failure! </strong>Class Name could not be updated, please try again.
+                      </div>";
+    }
 
-                            echo "<option value='" . $row['Id'] . "'>" . $row['Class_Name'] . "</option>";
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-    </div>
 
-    <div id="showClassInfo"></div>
 
-</div>
 
-</body>
 
-</html>
+    $sql2 = "UPDATE Schedule SET Room_Number = '$roomNum', Start_Time = '$srtTime', End_Time = '$endTime', Day = '$day' WHERE Class_Id = '$id';";
+    if ($db->query($sql2) === TRUE){
+        echo "<div class='alert alert-success'>
+                        <strong>Success! </strong>Class Schedule has been successfully Updated.
+                      </div>";
+    }else{
+        echo "<div class='alert alert-danger'>
+                        <strong>Failure! </strong>Class Schedule could not be updated, please try again.
+                      </div>";
+    }
 
-<script>
-    $(document).ready(function () {
-        $('#classid').change(function () {
-            var classid = $(this).val();
-            $.ajax({
-                url:"AjaxUpdateClass.php",
-                method:"POST",
-                data:{classid:classid},
-                success:function (output) {
-                    $('#showClassInfo').html(output);
-                }
-            });
-        });
-    });
-</script>
-
+      include("scripts/footer.php");
+    ?>

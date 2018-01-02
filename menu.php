@@ -1,18 +1,4 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['loggedIn'])){
-        header("Location: login.html");
-    }
-    include("Header.php");
+    include("scripts/header.php");
+    include("scripts/footer.php");
 ?>
-
-<html>
-    
-    <head>
-        <link rel="stylesheet" type="text/css" href="menu.css"/>
-    </head>
-    
-    <body>
-    </body>
-
-</html>

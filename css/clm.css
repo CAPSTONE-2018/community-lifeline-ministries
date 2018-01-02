@@ -1,0 +1,125 @@
+.img-responsive {
+  display: inline-block;
+}
+
+
+h2 {
+  margin: 0px;
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 18;
+	color: black;
+    font-weight: normal;
+}
+
+h3 {
+	margin: 0px;
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 18;
+	color: black;
+    font-weight: normal;
+}
+
+label h4{
+    margin: 0px;
+    min-width: 120px;
+	font-family: 'Arial';
+	font-size: 12px;
+	color: black;
+    font-weight: normal;
+}
+
+.selectReport {
+	text-align: center;
+}
+
+#form_wrapper {
+    text-align: center;
+    display: block;
+}
+
+#form2 {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  text-align: left;
+	font-family: 'Arial';
+	font-size: 12px;
+	color: black;
+  font-weight: normal;
+}
+
+#submit {
+  float:right;
+}
+
+body {
+    Background-color: white;
+}
+
+
+/*menubar-##############################*/
+
+ #menubar {
+ text-align: center;
+ margin-top: 20px;
+ }
+
+.dropdwn {
+    position: relative;
+    display: inline-block;
+}
+
+
+ /* Menubar hover button */
+.dropdwn_btn {
+    background-color: #2EA7A2;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdwn:hover .dropbtn {
+    color: #2EA7A2;
+    background-color: #f1f1f1;
+}
+
+
+/* List of links */
+.dropdwn_list {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdwn:hover .dropdwn_list {
+    display: block;
+}
+
+/* Form elememts which serve as links to php files */
+.dropdwn_list form {
+    font-size: 0;
+}
+
+.dropdwn_list form > input{
+    font-size: 12px;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    background-color: #6BC9D1;
+    border-color: #6BC9D1;
+    width: 100%;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdwn_list form > input:hover {
+    color: #6BC9D1;
+    background-color: #f1f1f1;
+}

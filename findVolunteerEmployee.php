@@ -1,0 +1,80 @@
+<?php
+  include("scripts/header.php");
+?>
+
+
+        <h1>Search Volunteer/Employee Information:</h1>
+        <br />
+
+        <?php
+
+        //connect to database
+        include("db/config.php");
+
+        $id = $_POST['ID'];
+
+        if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee WHERE Id = ?")){
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->bind_result($id, $firstName, $lastName, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
+            $stmt->fetch();
+            if ($id == null) {
+                echo "<div class='alert alert-danger'>
+                                    <strong>Failure! </strong>Volunteer/Employee could not be located in the database, please try again.
+                                  </div>";
+            } else {
+                echo "<h2> Volunteer/Employee Information: </h2><br>";
+
+
+                echo "<table class=\"table table-condensed table-striped\">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Cell Phone</th>
+                        <th>Home Phone</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <th>Program</th>
+                    </tr>
+                    </thead>
+                    <tbody>";
+                echo "<tr><td>";
+                echo $id;
+                echo "</td><td>";
+                echo $firstName;
+                echo "</td><td>";
+                echo $lastName;
+                echo "</td><td>";
+                echo $cellphone;
+                echo "</td><td>";
+                echo $homephone;
+                echo "</td><td>";
+                echo $address;
+                echo "</td><td>";
+                echo $city;
+                echo "</td><td>";
+                echo $state;
+                echo "</td><td>";
+                echo $zip;
+                echo "</td><td>";
+                echo $email;
+                echo "</td><td>";
+                echo $type;
+                echo "</td><td>";
+                echo $program;
+                echo "</td></tr>";
+                echo "</tbody>";
+                echo "</table>";
+
+            }
+            $stmt->close();
+        }
+          include("scripts/footer.php");
+        ?>
+      

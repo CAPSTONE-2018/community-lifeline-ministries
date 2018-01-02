@@ -1,31 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['loggedIn'])){
-    header("Location: login.html");
-}
-include("Header.php");
-?>
+include("scripts/header.php");
 
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="reports.css"/>
-    <script src="print.js"></script>
-</head>
-
-<body>
-<?php
-//Setting up variable to use for mysqli function
-$server = "localhost";
-$user = "clm_user";
-$psw = "dbuser";
-$database = "community_lifeline";
-
-//Connecting to database
-$db = mysqli_connect($server, $user, $psw, $database);
-if (!$db) {
-    print "Error - Could not connect to MySQL";
-    exit;
-}
+//connect to database
+include("db/config.php");
 
 //need to confirm where this is coming from
 $volunteerId = $_POST['id'];
@@ -59,9 +36,9 @@ if (mysqli_num_rows($result) > 0) {
                     <tbody>';
 
     while($row = mysqli_fetch_assoc($result)) {
-        $line = array($row["Class_Name"], $row["Room_Number"], $row["Start_Time"], 
+        $line = array($row["Class_Name"], $row["Room_Number"], $row["Start_Time"],
 						$row["End_Time"], $row["Day"]);
-		array_push($records, $line); 
+		array_push($records, $line);
         echo "<tr>";
 		echo "<td>" . $row["Class_Name"] . "</td>";
 		echo "<td>" . $row["Room_Number"] . "</td>";
@@ -74,23 +51,37 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table>";
     echo "</div>";
     echo "<br />";
-	
+
 	$serialized =htmlspecialchars(serialize($records));
-	echo "<div>";
-	echo '<form action="ExportClassroomScheduleReport.php" method="POST">';
-	echo "<input type=\"hidden\" name=\"Records\" value=\"$serialized\"/>";
-	echo '<input type="button" class="btn btn-primary btn-lg btn-block" onclick="printReport(\'print_div\')" value="Print" />';
-	echo "<input type=\"submit\" class=\"btn btn-primary btn-lg btn-block\" name=\"submit\" value=\"Export\" />"; 
-	echo '</form>';
-	echo "</div>";
-	
+  ?>
+  <form class="form-horizontal" action="scripts/exportReport.php" method="POST">
+    <input type="hidden" name="Records" value="<?php echo $serialized ?>"/>
+    <input type="hidden" name="filename"  value="Classroom_Schedule_Report"/>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print" />
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="form-group">
+            <div class="col-lg-12">
+              <input type="submit" class="btn btn-primary pull-right" name="submit" value="Export" />
+            </div>
+        </div>
+    </div>
+  </form>
+
+
+<script src="scripts/print.js"></script>
+<?php
+
 }
 else {
     echo "0 results";
 }
 
 mysqli_close($db);
+include("scripts/footer.php");
 ?>
-</body>
-
-</html>

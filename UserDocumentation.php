@@ -1,20 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['loggedIn'])){
-    header("Location: login.html");
-}
-include("Header.php");
+include("scripts/header.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Documentation</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
+
         <h1>Table of contents</h1>
         <hr />
         <div class="list-group">
@@ -72,7 +60,7 @@ include("Header.php");
             <li>A list of the appropreate information associated with the person whose name is selected will be displayed.</li>
         </ol>
         <br />
-        
+
         <h1 id="displayingobject">Displaying Objects in the Database</h1>
         <hr />
         <ol>
@@ -80,7 +68,7 @@ include("Header.php");
             <li>A list of all the entries in the database of the type specified by the sub-tab will be displayed.</li>
         </ol>
         <br />
-	  
+
         <h1 id="creatingreport">Creating a Report</h1>
         <hr />
         <ol>
@@ -90,8 +78,8 @@ include("Header.php");
             <li>Click the Generate button.</li>
             <li>To export the generated report as a CSV file, click the Export button.</li>
         </ol>
-        <br />	  
-	  
+        <br />
+
         <h1 id="printobject">Printing Reports/Lists</h1>
         <hr />
         <ol>

@@ -1,85 +1,45 @@
 <?php
-session_start();
-if(!isset($_SESSION['loggedIn'])){
-    header("Location: login.html");
-}
-include("Header.php");
+include("scripts/header.php");
 ?>
 
-<?php
-//Setting up variable to use for mysqli function
-$server = "localhost";
-$user = "clm_user";
-$psw = "dbuser";
-$database = "community_lifeline";
+    <h1>Update Contact Information:</h1>
+    <br />
 
-//Connecting to database
-$db = mysqli_connect($server, $user, $psw, $database);
-if (!$db) {
-    echo "Error - Could not connect to MySQL";
-    exit;
-}
 
-$query = "SELECT * FROM Contact ORDER BY Last_Name, First_Name;";
-$result = mysqli_query($db, $query);
-?>
+    <?php
 
-<html>
+    //connect to database
+    include("db/config.php");
 
-<head>
+    session_start();
 
-    <link rel="stylesheet" type="text/css" href="adding.css"/>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    $id = $_SESSION['contactId'];
 
-</head>
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $cellphone = $_POST['cellphone'];
+    $homephone = $_POST['homephone'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $zip = intval($_POST['zip']);
+    $email = $_POST['email'];
+    $relationship = $_POST['relationship'];
 
-<body>
 
-<div class="container">
+    $sql = "UPDATE Contact SET First_Name = '$fname', Last_Name = '$lname', Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email', Relationship = '$relationship'  WHERE Id = '$id' ;";
 
-    <div class="row">
+    if ($db->query($sql) === TRUE){
+        echo "<div class='alert alert-success'>
+                        <strong>Success! </strong>Contact has been successfully Updated.
+                      </div>";
+    }else{
+        echo "<div class='alert alert-danger'>
+                        <strong>Failure! </strong>Contact could not be updated, please try again.
+                      </div>";
+    }
 
-        <div class="form-group">
-            <div class="col-lg-3">
-                <label class="control-label" for="contactid">Select Contact To Update:</label>
 
-                <select id="contactid" class="form-control" name="id">
-                    <option value="">Please Select a Contact</option>
-                    <?php
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
 
-                            echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div id="showContactInfo"></div>
-
-</div>
-
-</body>
-
-</html>
-
-<script>
-    $(document).ready(function () {
-        $('#contactid').change(function () {
-            var cid = $(this).val();
-            $.ajax({
-                url:"AjaxUpdateContact.php",
-                method:"POST",
-                data:{cid:cid},
-                success:function (output) {
-                    $('#showContactInfo').html(output);
-                }
-            });
-        });
-    });
-</script>
-
+include("scripts/footer.php");
+    ?>
