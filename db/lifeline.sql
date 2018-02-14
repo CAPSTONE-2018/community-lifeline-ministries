@@ -118,6 +118,14 @@ CREATE TABLE Students_To_Classes(
     REFERENCES Classes(Id)
 );
 
+CREATE TABLE Students_To_Contacts(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Student_Id INT(10),
+    Conctact_Id INT(10),
+    CONSTRAINT FK_Student_Id_To_Student FOREIGN KEY (Student_Id) REFERENCES Student(Id),
+    CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Conctact_Id) REFERENCES Contact(Id)
+);
+
 CREATE TABLE Volunteer_To_Programs(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Program_Id INT(10),
