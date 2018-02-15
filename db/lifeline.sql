@@ -51,7 +51,7 @@ CREATE TABLE Contact(
     First_Name varchar(30),
     Last_Name varchar(30),
     Middle_Name varchar(30),
-    Suffex varchar(10),
+    Suffix varchar(10),
     Phone_Cell CHAR(20),
     Phone_Home CHAR(20),
     Address VARCHAR(40),
