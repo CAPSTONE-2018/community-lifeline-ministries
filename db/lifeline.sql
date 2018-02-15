@@ -47,7 +47,6 @@ CREATE TABLE Student_To_Allergy(
 
 CREATE TABLE Contact(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Student_Id INT(10),
     Prefix varchar(10),
     First_Name varchar(30),
     Last_Name varchar(30),
@@ -60,16 +59,17 @@ CREATE TABLE Contact(
     State CHAR(2),
     Zip INT(5),
     Email VARCHAR(50),
-    Relationship VARCHAR(30),
-    CONSTRAINT FK_Student_Id_Contact FOREIGN KEY (Student_Id)
-    REFERENCES Student(Id)
+    Relationship VARCHAR(30)
 );
 
 
 CREATE TABLE Volunteer_Employee(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    First_Name varchar(30),
-    Last_Name varchar(30),
+    Prefix VARCHAR(10),
+    First_Name VARCHAR(30),
+    Last_Name VARCHAR(30),
+    Middle_Name VARCHAR(30),
+    Suffex VARCHAR(10),
     Phone_Cell char(20),
     Phone_Home char(20),
     Address varchar(40),
