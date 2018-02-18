@@ -9,6 +9,8 @@ CREATE TABLE Student(
     Id int(10) AUTO_INCREMENT PRIMARY KEY,
     First_Name varchar(30),
     Last_Name varchar(30),
+    Middle_Name varchar(30),
+    Suffix varchar(10),
     Gender char(1),
     Birth_Date DATE,
     Address varchar(40),
@@ -17,7 +19,6 @@ CREATE TABLE Student(
     Zip int(5),
     Ethnicity varchar(30),
     School varchar(30),
-    Program varchar(30),
     Permission_Slip TINYINT(1),
     Birth_Certificate TINYINT(1),
     Reduced_Lunch_Eligible TINYINT(1),
@@ -31,19 +32,26 @@ IEP = immediate emotional problem
 
 CREATE TABLE Allergy (
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Student_Id INT(10),
     Type varchar(60),
-    Note varchar(500),
-    CONSTRAINT FK_Student_Id_Allergy FOREIGN KEY (Student_Id)
-    REFERENCES Student(Id)
+    Note varchar(500)
+);
+
+CREATE TABLE Student_To_Allergy(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Student_Id INT(10),
+    Allery_Id INT(10),
+    CONSTRAINT FK_Student_Id_Allergy FOREIGN KEY (Student_Id) REFERENCES Student(Id),
+    CONSTRAINT FK_Allergy_Id_Allergy FOREIGN KEY (Allery_Id) REFERENCES Allergy(Id)
 );
 
 
 CREATE TABLE Contact(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Student_Id INT(10),
+    Prefix varchar(10),
     First_Name varchar(30),
     Last_Name varchar(30),
+    Middle_Name varchar(30),
+    Suffix varchar(10),
     Phone_Cell CHAR(20),
     Phone_Home CHAR(20),
     Address VARCHAR(40),
@@ -51,16 +59,17 @@ CREATE TABLE Contact(
     State CHAR(2),
     Zip INT(5),
     Email VARCHAR(50),
-    Relationship VARCHAR(30),
-    CONSTRAINT FK_Student_Id_Contact FOREIGN KEY (Student_Id)
-    	REFERENCES Student(Id)
+    Relationship VARCHAR(30)
 );
 
 
 CREATE TABLE Volunteer_Employee(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    First_Name varchar(30),
-    Last_Name varchar(30),
+    Prefix VARCHAR(10),
+    First_Name VARCHAR(30),
+    Last_Name VARCHAR(30),
+    Middle_Name VARCHAR(30),
+    Suffex VARCHAR(10),
     Phone_Cell char(20),
     Phone_Home char(20),
     Address varchar(40),
@@ -68,27 +77,12 @@ CREATE TABLE Volunteer_Employee(
     State CHAR(5),
     Zip INT(5),
     Email varchar(50),
-    Type VARCHAR(10),
-    Program VARCHAR(30)
+    Type VARCHAR(10)
 );
 
-CREATE TABLE Class(
+CREATE TABLE Classes(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Class_Name VARCHAR(60),
-    Volunteer_Id INT(10),
-    CONSTRAINT FK_Volunteer_Id_Class FOREIGN KEY (Volunteer_Id)
-        REFERENCES Volunteer_Employee(Id)
-);
-
-CREATE TABLE Schedule(
-    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Class_Id INT(10),
-    Room_Number VARCHAR(30),
-    Start_Time TIME,
-    End_Time TIME,
-    Day varchar(30),
-    CONSTRAINT FK_Class_Id_Schedule FOREIGN KEY (Class_Id)
-        REFERENCES Class(Id)
+    Class_Name VARCHAR(60)
 );
 
 CREATE TABLE School_Year(
@@ -98,20 +92,61 @@ CREATE TABLE School_Year(
     Year INT(4),
     Pre_Test DECIMAL(5, 2),
     Post_Test DECIMAL(5, 2),
-    CONSTRAINT FK_Student_Id_School_Year FOREIGN KEY (Student_Id)
-        REFERENCES Student(Id)
+    CONSTRAINT FK_Student_Id_School_Year FOREIGN KEY (Student_Id) REFERENCES Student(Id)
 );
 
-CREATE TABLE Enrolled(
+CREATE TABLE Programs (
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Program_Name VARCHAR(60)
+);
+
+CREATE TABLE Classes_To_Programs(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Program_Id INT(10),
+    Class_Id INT(10),
+    CONSTRAINT FK_Program_Id_Classes FOREIGN KEY (Program_Id) REFERENCES Programs(Id),
+    CONSTRAINT FK_Class_Id_Classes FOREIGN KEY (Class_Id) REFERENCES Classes(Id)
+);
+
+CREATE TABLE Students_To_Classes(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Class_Id INT(10),
     CONSTRAINT FK_Student_Id_Enrolled FOREIGN KEY (Student_Id)
-        REFERENCES Student(Id),
+    REFERENCES Student(Id),
     CONSTRAINT FK_Class_Id_Enrolled FOREIGN KEY (Class_Id)
-        REFERENCES Class(Id)
+    REFERENCES Classes(Id)
 );
 
+CREATE TABLE Students_To_Contacts(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Student_Id INT(10),
+    Conctact_Id INT(10),
+    CONSTRAINT FK_Student_Id_To_Student FOREIGN KEY (Student_Id) REFERENCES Student(Id),
+    CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Conctact_Id) REFERENCES Contact(Id)
+);
+
+CREATE TABLE Volunteer_To_Programs(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Program_Id INT(10),
+    Volunteer_Id INT(10),
+    CONSTRAINT FK_Program_Id_Programs FOREIGN KEY (Program_Id) REFERENCES Programs(Id),
+    CONSTRAINT FK_Volunteer_Id_Programs FOREIGN KEY (Volunteer_Id) REFERENCES Volunteer_Employee(Id)
+);
+
+CREATE TABLE Schedule(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Class_Id INT(10),
+    Volunteer_Id INT(10),
+    Room_Number VARCHAR(30),
+    Start_Time TIME,
+    End_Time TIME,
+    Day varchar(30),
+    CONSTRAINT FK_Class_Id_Schedule FOREIGN KEY (Class_Id)
+    REFERENCES Classes(Id),
+    CONSTRAINT FK_Volunteer_Id_Schedule FOREIGN KEY (Volunteer_Id)
+    REFERENCES Volunteer_Employee(Id)
+);
 
 
 CREATE TABLE Logins (
@@ -236,3 +271,4 @@ INSERT INTO Emergency_Info VALUES
 INSERT INTO Logins VALUES
 ('kenny123', 'lewis123', 'administrator', 'Kenny', 'Madsen', 'kenny@lewisu.edu');
  */
+
