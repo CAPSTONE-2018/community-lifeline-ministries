@@ -69,7 +69,7 @@ CREATE TABLE Volunteer_Employee(
     First_Name VARCHAR(30),
     Last_Name VARCHAR(30),
     Middle_Name VARCHAR(30),
-    Suffex VARCHAR(10),
+    Suffix VARCHAR(10),
     Phone_Cell char(20),
     Phone_Home char(20),
     Address varchar(40),
