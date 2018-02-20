@@ -32,6 +32,7 @@ IEP = immediate emotional problem
 
 CREATE TABLE Allergy (
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(60),
     Type varchar(60),
     Note varchar(500)
 );
