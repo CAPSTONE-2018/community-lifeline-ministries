@@ -15,8 +15,11 @@ include("scripts/header.php");
 
 
             $id = intval($_POST['id']);
+            $prefix = $_POST['prefix'];
             $fname = $_POST['fname'];
+            $mname = $_POST['mname'];
             $lname = $_POST['lname'];
+            $suffix = $_POST['suffix'];
             $cellphone = $_POST['cellphone'];
             $homephone = $_POST['homephone'];
             $address = $_POST['address'];
@@ -26,8 +29,8 @@ include("scripts/header.php");
             $email = $_POST['email'];
             $relationship = $_POST['relationship'];
 
-            $stmt = $db->prepare("INSERT INTO Contact (Student_Id, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Relationship) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('isssssssiss', $id, $fname, $lname, $cellphone, $homephone, $address, $city, $state, $zip, $email, $relationship);
+            $stmt = $db->prepare("INSERT INTO Contact (Student_Id, Prefix, First_Name, Middle_Name,Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Relationship) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('isssssssiss', $id,  $prefix, $fname, $mname ,$lname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email, $relationship, $references);
             $stmt->execute();
 
 

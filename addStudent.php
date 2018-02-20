@@ -12,7 +12,9 @@ include("scripts/header.php");
 
             $id = intval($_POST['id']);
             $fname = $_POST['fname'];
+            $mname = $_POST['mname'];
             $lname = $_POST['lname'];
+            $suffix = $_POST['suffix'];
             $gender = $_POST['gender'];
             $dob = $_POST['dob'];
             $ethnicity = $_POST['ethnicity'];
@@ -21,7 +23,6 @@ include("scripts/header.php");
             $city = $_POST['city'];
             $state = $_POST['state'];
             $school = $_POST['school'];
-            $program = $_POST['program'];
             $permission_slip = intval($_POST['permission_slip']);
             $birth_certificate = intval($_POST['birth_certificate']);
             $reduced_lunch_eligible = intval($_POST['reduced_lunch_eligible']);
@@ -33,8 +34,8 @@ include("scripts/header.php");
 
 
             #Adding student records based on the information the user added into the "add" fields
-            $stmt = $db->prepare("INSERT INTO Student (First_Name, Last_Name, Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Program, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('sssssssisssiiii', $fname, $lname, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $program, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
+            $stmt = $db->prepare("INSERT INTO student (First_Name , Middle_Name, Last_Name, Suffix,Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            $stmt->bind_param('sssssssisssiiii', $fname , $mname, $lname, $suffix, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
             $stmt->execute();
 
 

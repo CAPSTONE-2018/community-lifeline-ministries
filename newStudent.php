@@ -22,6 +22,19 @@ include("scripts/header.php");
                       </div>
                   </div>
               </div>
+              <div class="row">
+
+                  <div class="form-group">
+                      <div class="col-lg-6">
+                          <label class="control-label" for="middlename">Middle Name:</label>
+                          <input id="middlename" class="form-control" placeholder="Middle Name" type="text" name="mname">
+                      </div>
+                      <div class="col-lg-6">
+                          <label class="control-label" for="suffix">Suffix:</label>
+                          <input id="suffix" class="form-control" placeholder="Suffix" type="text" name="suffix">
+                      </div>
+                  </div>
+              </div>
 
 
               <div class="row">
