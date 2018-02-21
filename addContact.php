@@ -27,10 +27,9 @@ include("scripts/header.php");
             $state = $_POST['state'];
             $zip = intval($_POST['zip']);
             $email = $_POST['email'];
-            $relationship = $_POST['relationship'];
 
-            $stmt = $db->prepare("INSERT INTO Contact (Student_Id, Prefix, First_Name, Middle_Name,Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Relationship) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('isssssssiss', $id,  $prefix, $fname, $mname ,$lname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email, $relationship, $references);
+            $stmt = $db->prepare("INSERT INTO Contact (Id, Prefix, First_Name, Middle_Name,Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('issssssssssis', $id,  $prefix, $fname, $mname ,$lname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email);
             $stmt->execute();
 
 

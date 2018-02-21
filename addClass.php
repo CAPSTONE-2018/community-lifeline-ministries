@@ -12,14 +12,14 @@ include("scripts/header.php");
             //connect to database
             include("db/config.php");
 
-            //$id = intval($_POST['id']);
+            $id = intval($_POST['id']);
             $className = $_POST['name'];
 
 
 
 
-            $stmt = $db->prepare("INSERT INTO Class (Class_Name) VALUES (?)");
-            $stmt->bind_param('si',  $className);
+            $stmt = $db->prepare("INSERT INTO Classes (Id,Class_Name) VALUES (?, ?)");
+            $stmt->bind_param('is', $id ,$className);
             $stmt->execute();
 
 
