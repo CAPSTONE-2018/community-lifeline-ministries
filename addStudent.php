@@ -33,12 +33,16 @@ include("scripts/header.php");
             $allergyNote = $_POST['anote'];
 
 
+
             #Adding student records based on the information the user added into the "add" fields
-            $stmt = $db->prepare("INSERT INTO student (First_Name , Middle_Name, Last_Name, Suffix,Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
-            $stmt->bind_param('sssssssisssiiii', $fname , $mname, $lname, $suffix, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
-            $stmt->execute();
 
-
+            $stmt = $db->prepare("INSERT INTO Student (First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            if(!$stmt) {
+                $stmt->bind_param('sssssssssissiiii', $fname, $mname, $lname, $suffix, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
+                $stmt->execute();
+            }else{
+                echo("acac");
+            }
             if ($stmt->affected_rows == -1) {
                 echo "<div class='alert alert-danger'>
                         <strong>Failure! </strong>Student could not be added to the database, please try again.
