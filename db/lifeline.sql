@@ -32,6 +32,7 @@ IEP = immediate emotional problem
 
 CREATE TABLE Allergy (
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(60),
     Type varchar(60),
     Note varchar(500)
 );
@@ -58,8 +59,7 @@ CREATE TABLE Contact(
     City VARCHAR(30),
     State CHAR(2),
     Zip INT(5),
-    Email VARCHAR(50),
-    Relationship VARCHAR(30)
+    Email VARCHAR(50)
 );
 
 
@@ -122,6 +122,7 @@ CREATE TABLE Students_To_Contacts(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Conctact_Id INT(10),
+    Relationship VARCHAR(100),
     CONSTRAINT FK_Student_Id_To_Student FOREIGN KEY (Student_Id) REFERENCES Student(Id),
     CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Conctact_Id) REFERENCES Contact(Id)
 );
@@ -139,8 +140,8 @@ CREATE TABLE Schedule(
     Class_Id INT(10),
     Volunteer_Id INT(10),
     Room_Number VARCHAR(30),
-    Start_Time TIME,
-    End_Time TIME,
+    Start_Time VARCHAR(20),
+    End_Time VARCHAR(20),
     Day varchar(30),
     CONSTRAINT FK_Class_Id_Schedule FOREIGN KEY (Class_Id)
     REFERENCES Classes(Id),
