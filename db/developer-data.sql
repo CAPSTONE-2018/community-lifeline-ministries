@@ -54,9 +54,9 @@ INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (2, 
 INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (3, "Fall", 2018, 86.3, 92.1);
 INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (4, "Spring", 2018, 72.5, 85.3);
 
-INSERT INTO Student_To_Allergy(Student_Id, Allery_Id) VALUES (2, 1);
-INSERT INTO Student_To_Allergy(Student_Id, Allery_Id) VALUES (1, 4);
-INSERT INTO Student_To_Allergy(Student_Id, Allery_Id) VALUES (4, 2);
+INSERT INTO Student_To_Allergy(Student_Id, Allergy_Id) VALUES (2, 1);
+INSERT INTO Student_To_Allergy(Student_Id, Allergy_Id) VALUES (1, 4);
+INSERT INTO Student_To_Allergy(Student_Id, Allergy_Id) VALUES (4, 2);
 
 INSERT INTO Students_To_Classes(Student_Id, Class_Id) VALUES (1, 5);
 INSERT INTO Students_To_Classes(Student_Id, Class_Id) VALUES (1, 2);

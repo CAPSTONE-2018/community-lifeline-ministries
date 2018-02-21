@@ -40,9 +40,9 @@ CREATE TABLE Allergy (
 CREATE TABLE Student_To_Allergy(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
-    Allery_Id INT(10),
+    Allergy_Id INT(10),
     CONSTRAINT FK_Student_Id_Allergy FOREIGN KEY (Student_Id) REFERENCES Student(Id),
-    CONSTRAINT FK_Allergy_Id_Allergy FOREIGN KEY (Allery_Id) REFERENCES Allergy(Id)
+    CONSTRAINT FK_Allergy_Id_Allergy FOREIGN KEY (Allergy_Id) REFERENCES Allergy(Id)
 );
 
 
