@@ -16,10 +16,6 @@ include("scripts/header.php");
     $id = $_SESSION['classId'];
 
     $className = $_POST['name'];
-    $roomNum = $_POST['rnum'];
-    $srtTime = $_POST['stime'];
-    $endTime = $_POST['etime'];
-    $day = $_POST['day'];
 
 
 

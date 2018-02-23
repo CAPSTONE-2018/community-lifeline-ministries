@@ -21,11 +21,6 @@ $result = mysqli_query($db, $query);
                         <tr>
                             <th>ID</th>
                             <th>Class Name</th>
-                            <th>Volunteer/Employee ID</th>
-                            <th>Room Number</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Day</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,16 +31,6 @@ $result = mysqli_query($db, $query);
                             echo "</td><td>";
                             echo $row['Class_Name']; //coming from Class table
                             echo "</td><td>";
-                            echo $row['Volunteer_Id']; //coming from Class table
-                            echo "</td><td>";
-                            echo $row['Room_Number']; //coming from Schedule table
-                            echo "</td><td>";
-                            echo $row['Start_Time']; //coming from Schedule table
-                            echo "</td><td>";
-                            echo $row['End_Time']; //coming from Schedule table
-                            echo "</td><td>";
-                            echo $row['Day']; //coming from Schedule table
-                            echo "</td></tr>";
                         }
                         ?>
                     </tbody>

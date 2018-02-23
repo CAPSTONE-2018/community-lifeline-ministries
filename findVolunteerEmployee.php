@@ -16,7 +16,7 @@
         if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee WHERE Id = ?")){
             $stmt->bind_param("i", $id);
             $stmt->execute();
-            $stmt->bind_result($id, $firstName, $lastName, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
+            $stmt->bind_result($id, $prefix,$firstName, $lastName, $mname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email, $type);
             $stmt->fetch();
             if ($id == null) {
                 echo "<div class='alert alert-danger'>
@@ -30,8 +30,11 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Prefix</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Middle Name</th>
+                        <th>Suffix</th>
                         <th>Cell Phone</th>
                         <th>Home Phone</th>
                         <th>Address</th>
@@ -40,16 +43,21 @@
                         <th>Zip</th>
                         <th>Email</th>
                         <th>Type</th>
-                        <th>Program</th>
                     </tr>
                     </thead>
                     <tbody>";
                 echo "<tr><td>";
                 echo $id;
                 echo "</td><td>";
+                echo $prefix;
+                echo "</td><td>";
                 echo $firstName;
                 echo "</td><td>";
                 echo $lastName;
+                echo "</td><td>";
+                echo $mname;
+                echo "</td><td>";
+                echo $suffix;
                 echo "</td><td>";
                 echo $cellphone;
                 echo "</td><td>";
@@ -66,8 +74,6 @@
                 echo $email;
                 echo "</td><td>";
                 echo $type;
-                echo "</td><td>";
-                echo $program;
                 echo "</td></tr>";
                 echo "</tbody>";
                 echo "</table>";

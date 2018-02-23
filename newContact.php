@@ -23,7 +23,7 @@ $result = mysqli_query($db, $query);
                         <label class="control-label" for="prefix">Prefix:</label>
                         <select id="gend" class="form-control" name="prefix">
                             <option value="Mr.">Mr.</option>
-                            <option value="Ms ">Ms</option>
+                            <option value="Ms.">Ms.</option>
                             <option value="Mrs.">Mrs.</option>
                         </select>
                     </div>
