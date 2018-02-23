@@ -6,7 +6,7 @@ include("scripts/header.php");
 include("db/config.php");
 
 
-$query = "SELECT * FROM Class LEFT OUTER JOIN Schedule ON Class.Id = Schedule.Class_Id;";
+$query = "SELECT * FROM Classes;";
 $result = mysqli_query($db, $query);
 ?>
 
