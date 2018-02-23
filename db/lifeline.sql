@@ -44,6 +44,25 @@ CREATE TABLE Student_To_Allergy(
     CONSTRAINT FK_Allergy_Id_Allergy FOREIGN KEY (Allery_Id) REFERENCES Allergy(Id)
 );
 
+CREATE TABLE ATTENDANCE_TO_PROGRAM (
+  ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+  Program_Id INT(10),
+  Attendance_Id INT(10),
+  CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id) REFERENCES Program (Id),
+  CONSTRAINT FK_Attendance_Id_Attendance FOREIGN KEY (Attendance_Id) REFERENCES Attendance (Id)
+);
+
+CREATE TABLE ATTENDANCE (
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Student_Id Int(10),
+    Student_Firstname varchar(50),
+    Student_LastName varchar(50),
+    Present TINYINT(1),
+    Absent TINYINT(1),
+    TardyInd TINYINT(1),
+    TardyTime varchar(50)
+);
+
 
 CREATE TABLE Contact(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
