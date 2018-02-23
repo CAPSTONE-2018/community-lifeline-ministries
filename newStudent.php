@@ -151,18 +151,29 @@ include("scripts/header.php");
 
                   <div class="form-group">
 
-                      <div class="col-lg-3">
+                      <div class="col-lg-6">
+                          <label class="control-label" for="saname">Type:</label>
+                          <input id="saname" class="form-control" placeholder="Allergy Name" type="text" name="aname">
+                      </div>
+                      <div class="col-lg-6">
                           <label class="control-label" for="satype">Type:</label>
                           <input id="satype" class="form-control" placeholder="Allergy Type" type="text" name="atype">
                       </div>
-                      <div class="col-lg-9">
+
+
+                  </div>
+              </div>
+              <div class="row">
+
+                  <div class="form-group">
+                      <div class="col-lg-11">
                           <label class="control-label" for="sanote">Note:</label>
                           <input id="sanote" class="form-control" placeholder="Allergy Note" type="text" name="anote">
                       </div>
 
+
                   </div>
               </div>
-
               <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Submit"><br><br>
 
           </form>

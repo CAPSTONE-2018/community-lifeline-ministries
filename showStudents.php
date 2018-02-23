@@ -21,6 +21,8 @@ $result = mysqli_query($db, $query);
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Middle Name</th>
+                        <th>Suffix</th>
                         <th>Gender</th>
                         <th>Birth Date</th>
                         <th>Address</th>
@@ -29,7 +31,6 @@ $result = mysqli_query($db, $query);
                         <th>Zip</th>
                         <th>Ethnicity</th>
                         <th>School</th>
-                        <th>Program</th>
                         <th>Permission Slip</th>
                         <th>Birth Certificate</th>
                         <th>Reduced Lunch Eligible</th>
@@ -45,6 +46,10 @@ $result = mysqli_query($db, $query);
                         echo $row['First_Name'];
                         echo "</td><td>";
                         echo $row['Last_Name'];
+                        echo "</td><td>";
+                        echo $row['Middle_Name'];
+                        echo "</td><td>";
+                        echo $row['Suffix'];
                         echo "</td><td>";
                         echo $row['Gender'];
                         echo "</td><td>";

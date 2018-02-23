@@ -19,8 +19,11 @@ $result = mysqli_query($db, $query);
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Prefix</th>
                             <th>First Name</th>
                             <th>Last Name</th>
+                            <th>Middle Name</th>
+                            <th>Suffix</th>
                             <th>Cell Phone</th>
                             <th>Home Phone</th>
                             <th>Address</th>
@@ -38,9 +41,15 @@ $result = mysqli_query($db, $query);
                             echo "<tr><td>";
                             echo $row['Id'];
                             echo "</td><td>";
+                            echo $row['Prefix'];
+                            echo "</td><td>";
                             echo $row['First_Name'];
                             echo "</td><td>";
                             echo $row['Last_Name'];
+                            echo "</td><td>";
+                            echo $row['Middle_Name'];
+                            echo "</td><td>";
+                            echo $row['Suffix'];
                             echo "</td><td>";
                             echo $row['Phone_Cell'];
                             echo "</td><td>";
@@ -58,8 +67,6 @@ $result = mysqli_query($db, $query);
                             echo "</td><td>";
                             echo $row['Type'];
                             echo "</td><td>";
-                            echo $row['Program'];
-                            echo "</td></tr>";
                         }
                         ?>
                     </tbody>

@@ -11,8 +11,11 @@ include("db/config.php");
 
 
 $id = intval($_POST['id']);
+$prefix = $_POST['prefix'];
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
+$mname = $_POST['mname'];
+$suffix = $_POST['suffix'];
 $cellphone = $_POST['cellphone'];
 $homephone = $_POST['homephone'];
 $address = $_POST['address'];
@@ -21,11 +24,10 @@ $state = $_POST['state'];
 $zip = intval($_POST['zip']);
 $email = $_POST['email'];
 $type = $_POST['type'];
-$program = $_POST['program'];
 
 
-$stmt = $db->prepare("INSERT INTO Volunteer_Employee (First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Type, Program) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('sssssssisss', $fname, $lname, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
+$stmt = $db->prepare("INSERT INTO Volunteer_Employee (Prefix, First_Name, Last_Name, Middle_Name, Suffix, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Type, Program) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('ssssssssssisss', $prefix, $fname, $lname, $mname, $suffix, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type, $program);
 $stmt->execute();
 
 

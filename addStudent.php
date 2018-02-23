@@ -9,6 +9,8 @@ include("scripts/header.php");
 # connect to db
 include("db/config.php");
 $id = intval($_POST['id']);
+$sid = intval($_POST['id']);
+$aid = intval($_POST['id']);
 $fname = $_POST['fname'];
 $mname = $_POST['mname'];
 $lname = $_POST['lname'];
@@ -25,6 +27,7 @@ $permission_slip = intval($_POST['permission_slip']);
 $birth_certificate = intval($_POST['birth_certificate']);
 $reduced_lunch_eligible = intval($_POST['reduced_lunch_eligible']);
 $iep = intval($_POST['iep']);
+$allergyName = $_POST['aname'];
 $allergyType = $_POST['atype'];
 $allergyNote = $_POST['anote'];
 #Adding student records based on the information the user added into the "add" fields
@@ -47,8 +50,8 @@ else {
 $query = 'SELECT * FROM Student WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
 $result = $db->query($query);
 $row = $result->fetch_assoc();
-$stmt = $db->prepare("INSERT INTO Allergy (Type, Note) VALUES (?, ?)");
-$stmt->bind_param('ss',$allergyType, $allergyNote);
+$stmt = $db->prepare("INSERT INTO Allergy (Name, Type, Note) VALUES (?, ?, ?)");
+$stmt->bind_param('sss',$allergyname,$allergyType, $allergyNote);
 $stmt->execute();
 if ($stmt->affected_rows == -1) {
     echo "<div class='alert alert-danger'>
@@ -58,6 +61,29 @@ if ($stmt->affected_rows == -1) {
 else {
     echo "<div class='alert alert-success'>
                         <strong>Success! </strong>Allergies has been successfully added to the database.
+                      </div>";
+    $stmt->close();
+}
+//query to get id of Student just added
+$query = 'SELECT * FROM Student WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
+$result = $db->query($query);
+$row = $result->fetch_assoc();
+
+$query = 'SELECT * FROM allergy WHERE Name = "' .$allergyName. '" AND Type = "' .$allergyType. '" AND Note = "' .$allergyNote. '";';
+$result = $db->query($query);
+$row_aid = $result->fetch_assoc();
+$stmt = $db->prepare("INSERT INTO student_to_allergy (Id, Student_Id,Allergy_Id) VALUES (?, ?, ?)");
+$stmt->bind_param('iii',$id ,$row, $row_aid);
+$stmt->execute();
+
+if ($stmt->affected_rows == -1) {
+    echo "<div class='alert alert-danger'>
+                        <strong>Failure! </strong>Students to Allergies could not be added to the database, please try again.
+                      </div>";
+}
+else {
+    echo "<div class='alert alert-success'>
+                        <strong>Success! </strong>Students to Allergies has been successfully added to the database.
                       </div>";
     $stmt->close();
 }

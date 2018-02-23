@@ -15,8 +15,11 @@ include("scripts/header.php");
 
     $id = $_SESSION['VolunteerEmployeeId'];
 
+    $prefix = $_POST['prefix'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
+    $mname = $_POST['mname'];
+    $suffix = $_POST['suffix'];
     $cellphone = $_POST['cellphone'];
     $homephone = $_POST['homephone'];
     $address = $_POST['address'];
@@ -25,10 +28,9 @@ include("scripts/header.php");
     $zip = intval($_POST['zip']);
     $email = $_POST['email'];
     $type = $_POST['type'];
-    $program = $_POST['program'];
 
 
-    $sql = "UPDATE Volunteer_Employee SET First_Name = '$fname', Last_Name = '$lname', Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email', Type = '$type', Program = '$program'  WHERE Id = '$id' ;";
+    $sql = "UPDATE Volunteer_Employee SET Prefix = '$prefix',First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$mname', Suffix = '$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email', Type = '$type', Program = '$program'  WHERE Id = '$id' ;";
 
     if ($db->query($sql) === TRUE){
         echo "<div class='alert alert-success'>

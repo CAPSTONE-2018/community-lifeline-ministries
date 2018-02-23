@@ -15,8 +15,11 @@ include("scripts/header.php");
 
     $id = $_SESSION['contactId'];
 
+    $prefix = $_POST['prefix'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
+    $mname = $_POST['mname'];
+    $suffix = $_POST['suffix'];
     $cellphone = $_POST['cellphone'];
     $homephone = $_POST['homephone'];
     $address = $_POST['address'];
@@ -27,7 +30,7 @@ include("scripts/header.php");
     $relationship = $_POST['relationship'];
 
 
-    $sql = "UPDATE Contact SET First_Name = '$fname', Last_Name = '$lname', Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email', Relationship = '$relationship'  WHERE Id = '$id' ;";
+    $sql = "UPDATE Contact SET First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$manme', Suffix='$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email'  WHERE Id = '$id' ;";
 
     if ($db->query($sql) === TRUE){
         echo "<div class='alert alert-success'>
