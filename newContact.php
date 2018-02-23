@@ -18,6 +18,34 @@ $result = mysqli_query($db, $query);
 
                 <h1>Add Contact Information:</h1>
                 <br />
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="control-label" for="prefix">Prefix:</label>
+                        <select id="gend" class="form-control" name="prefix">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms ">Ms</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label" for="suffix">Suffix:</label>
+                        <input id="suffix" class="form-control" placeholder="Suffix" type="text" name="suffix">
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label" for="studentid">Student ID Number For:</label>
+
+                        <select id="studentid" class="form-control" name="id">
+                            <?php
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+
+                                    echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="row">
 
@@ -31,18 +59,8 @@ $result = mysqli_query($db, $query);
                             <input id="lastname" class="form-control" placeholder="Last Name" type="text" name="lname">
                         </div>
                         <div class="col-lg-4">
-                            <label class="control-label" for="studentid">Student ID Number For:</label>
-
-                            <select id="studentid" class="form-control" name="id">
-                                <?php
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-
-                                        echo "<option value='" . $row['Id'] . "'>" . $row['First_Name'] . " " . $row['Last_Name'] . "</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
+                            <label class="control-label" for="middlename">Middle Name:</label>
+                            <input id="middlename" class="form-control" placeholder="Middle Name" type="text" name="mname">
                         </div>
                     </div>
                 </div>

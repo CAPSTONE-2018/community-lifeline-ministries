@@ -22,6 +22,19 @@ include("scripts/header.php");
                       </div>
                   </div>
               </div>
+              <div class="row">
+
+                  <div class="form-group">
+                      <div class="col-lg-6">
+                          <label class="control-label" for="middlename">Middle Name:</label>
+                          <input id="middlename" class="form-control" placeholder="Middle Name" type="text" name="mname">
+                      </div>
+                      <div class="col-lg-6">
+                          <label class="control-label" for="suffix">Suffix:</label>
+                          <input id="suffix" class="form-control" placeholder="Suffix" type="text" name="suffix">
+                      </div>
+                  </div>
+              </div>
 
 
               <div class="row">
@@ -85,14 +98,6 @@ include("scripts/header.php");
                           <input id="sschool" class="form-control" placeholder="School" type="text" name="school">
                       </div>
 
-                      <div class="col-lg-4">
-                          <label class="control-label" for="sprogramname">Program Name:</label>
-                          <select id="sprogramname" class="form-control" name="program">
-                              <option value="G.E.M.S">G.E.M.S</option>
-                              <option value="Sons of Thunder">Sons of Thunder</option>
-                              <option value="Both">Both</option>
-                          </select>
-                      </div>
                   </div>
               </div>
 
