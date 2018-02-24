@@ -31,17 +31,6 @@ if ($row['Type'] == "Volunteer"){
     $employeeSelected = "selected=\"selected\"";
 }
 
-$gemsSelected = "";
-$thunderSelected = "";
-
-if ($row['Program'] == "G.E.M.S"){
-    $gemsSelected = "selected=\"selected\"";
-}elseif($row['Program'] == "Sons of Thunder"){
-  $thunderSelected = "selected=\"selected\"";
-}else{
-  $bothSelected = "selected=\"selected\"";
-}
-
 $stateSelect = stateDropdown($row['State']);
 
 $output = "<div id=\"form_wrapper\">
@@ -50,6 +39,24 @@ $output = "<div id=\"form_wrapper\">
 
                     <h1>Update ".$row['First_Name']." ".$row["Last_Name"]."'s Information:</h1>
                     <br />
+                    
+                    <div class=\"row\">
+
+                        <div class=\"form-group\">
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"prefix\">Prefix:</label>
+                                <input id=\"prefix\" class=\"form-control\" value='".$row['Prefix']."' placeholder=\"First\" type=\"text\" name=\"prefix\">
+                            </div>
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"suffix\">Suffix:</label>
+                                <input id=\"suffix\" class=\"form-control\" value='".$row['Suffix']."' placeholder=\"Last\" type=\"text\" name=\"suffix\">
+                            </div>
+                             <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"middlename\">Middle Name:</label>
+                                <input id=\"middlename\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Last\" type=\"text\" name=\"mname\">
+                            </div>
+                        </div>
+                    </div>
 
                     <div class=\"row\">
 
@@ -112,23 +119,15 @@ $output = "<div id=\"form_wrapper\">
                     <div class=\"row\">
 
                     <div class=\"form-group\">
-                        <div class=\"col-lg-4\">
+                        <div class=\"col-lg-6\">
                             <label class=\"control-label\" for=\"email\">Email:</label>
                             <input id=\"email\" class=\"form-control\" value='".$row['Email']."' placeholder=\"Email\" type=\"text\" name=\"email\">
                         </div>
-                        <div class=\"col-lg-4\">
+                        <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"type\">Type:</label>
                                     <select id=\"type\" class=\"form-control\" name=\"type\">
                                         <option value=\"Volunteer\" ". $volunteerSelected .">Volunteer</option>
                                         <option value=\"Employee\" ". $employeeSelected .">Employee</option>
-                                    </select>
-                            </div>
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"program\">Program:</label>
-                                    <select id=\"program\" class=\"form-control\" name=\"program\">
-                                        <option value=\"G.E.M.S\" ". $gemsSelected .">G.E.M.S</option>
-                                        <option value=\"Sons of Thunder\" ". $thunderSelected .">Sons of Thunder</option>
-                                        <option value=\"Both\" ". $bothSelected .">Both</option>
                                     </select>
                             </div>
                     </div>

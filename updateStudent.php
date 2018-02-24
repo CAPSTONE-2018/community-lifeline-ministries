@@ -53,7 +53,7 @@ include("scripts/header.php");
 
 
 
-    $sql2 = "UPDATE Allergy SET Name = '$aname', Type = '$allergyType', Note = '$allergyNote' WHERE Student_Id = '$id';";
+    $sql2 = "UPDATE Allergy SET Name = '$allergyName', Type = '$allergyType', Note = '$allergyNote' WHERE Id = '$id';";
     if ($db->query($sql2) === TRUE){
         echo "<div class='alert alert-success'>
                         <strong>Success! </strong>Student Allergy has been successfully Updated.

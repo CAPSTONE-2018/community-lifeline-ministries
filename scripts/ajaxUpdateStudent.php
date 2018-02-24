@@ -31,16 +31,6 @@ if ($row['Gender'] == "M"){
     $femaleSelected = "selected=\"selected\"";
 }
 
-$gemsSelected = "";
-$thunderSelected = "";
-
-if ($row['Program'] == "G.E.M.S"){
-    $gemsSelected = "selected=\"selected\"";
-}elseif($row['Program'] == "Sons of Thunder"){
-  $thunderSelected = "selected=\"selected\"";
-}else{
-  $bothSelected = "selected=\"selected\"";
-}
 
 $permYes = "";
 $permNo = "";
@@ -101,6 +91,19 @@ $output = "<div id=\"form_wrapper\">
                         </div>
                     </div>
 
+                  <div class=\"row\">
+    
+                    <div class=\"form-group\">
+                        <div class=\"col-lg-6\">
+                            <label class=\"control-label\" for=\"MiddleName\">Middle Name:</label>
+                            <input id=\"middlename\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Middle\" type=\"text\" name=\"mname\">
+                        </div>
+                        <div class=\"col-lg-6\">
+                            <label class=\"control-label\" for=\"suffix\">Suffix:</label>
+                            <input id=\"suffix\" class=\"form-control\" value='".$row['Suffix']."' placeholder=\"Suffix\" type=\"text\" name=\"suffix\">
+                        </div>
+                    </div>
+                  </div>
 
                     <div class=\"row\">
 
@@ -158,15 +161,6 @@ $output = "<div id=\"form_wrapper\">
                                 <label class=\"control-label\" for=\"sschool\">School:</label>
                                 <input id=\"sschool\" class=\"form-control\" value='".$row['School']."' placeholder=\"School\" type=\"text\" name=\"school\">
                             </div>
-
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"sprogramname\">Program Name:</label>
-                                <select id=\"sprogramname\" class=\"form-control\" name=\"program\">
-                                    <option value=\"G.E.M.S\" ". $gemsSelected .">G.E.M.S</option>
-                                    <option value=\"Sons of Thunder\" ". $thunderSelected .">Sons of Thunder</option>
-                                    <option value=\"Both\" ". $bothSelected .">Both</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
 
@@ -219,12 +213,16 @@ $output = "<div id=\"form_wrapper\">
                     <div class=\"row\">
 
                         <div class=\"form-group\">
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"saname\">Name:</label>
+                                <input id=\"saname\" class=\"form-control\" value='". $row2['Name'] ."' placeholder=\"Allergy Name\" type=\"text\" name=\"aname\">
+                            </div>
 
-                            <div class=\"col-lg-3\">
+                            <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"satype\">Type:</label>
                                 <input id=\"satype\" class=\"form-control\" value='". $row2['Type'] ."' placeholder=\"Allergy Type\" type=\"text\" name=\"atype\">
                             </div>
-                            <div class=\"col-lg-9\">
+                            <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"sanote\">Note:</label>
                                 <input id=\"sanote\" class=\"form-control\" value='". $row2['Note'] ."' placeholder=\"Allergy Note\" type=\"text\" name=\"anote\">
                             </div>

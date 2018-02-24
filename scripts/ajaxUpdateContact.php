@@ -28,7 +28,24 @@ $output = "<div id=\"form_wrapper\">
 
                     <h1>Update ".$row['First_Name']." ".$row["Last_Name"]."'s Information:</h1>
                     <br />
+                    
+                    <div class=\"row\">
 
+                        <div class=\"form-group\">
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"prefix\">Prefix:</label>
+                                <input id=\"prefix\" class=\"form-control\" value='".$row['Prefix']."' placeholder=\"First\" type=\"text\" name=\"prefix\">
+                            </div>
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"suffix\">Suffix:</label>
+                                <input id=\"suffix\" class=\"form-control\" value='".$row['Suffix']."' placeholder=\"Last\" type=\"text\" name=\"suffix\">
+                            </div>
+                             <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"middlename\">Middle Name:</label>
+                                <input id=\"middlename\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Last\" type=\"text\" name=\"mname\">
+                            </div>
+                        </div>
+                    </div>
                     <div class=\"row\">
 
                         <div class=\"form-group\">
@@ -93,10 +110,6 @@ $output = "<div id=\"form_wrapper\">
                         <div class=\"col-lg-6\">
                             <label class=\"control-label\" for=\"email\">Email:</label>
                             <input id=\"email\" class=\"form-control\" value='".$row['Email']."' placeholder=\"Email\" type=\"text\" name=\"email\">
-                        </div>
-                        <div class=\"col-lg-6\">
-                            <label class=\"control-label\" for=\"relationship\">Relationship:</label>
-                            <input id=\"relationship\" class=\"form-control\" value='".$row['Relationship']."' placeholder=\"Relationship\" type=\"text\" name=\"relationship\">
                         </div>
                     </div>
                 </div>
