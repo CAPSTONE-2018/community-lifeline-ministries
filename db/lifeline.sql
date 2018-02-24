@@ -49,7 +49,7 @@ CREATE TABLE ATTENDANCE_TO_PROGRAM (
   ID INT(10) AUTO_INCREMENT PRIMARY KEY,
   Program_Id INT(10),
   Attendance_Id INT(10),
-  CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id) REFERENCES Program (Id),
+  CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id) REFERENCES Programs (Id),
   CONSTRAINT FK_Attendance_Id_Attendance FOREIGN KEY (Attendance_Id) REFERENCES Attendance (Id)
 );
 
