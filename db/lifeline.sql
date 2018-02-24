@@ -56,8 +56,6 @@ CREATE TABLE Attendance_To_Programs (
 CREATE TABLE Attendance (
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id Int(10),
-    Student_Firstname varchar(50),
-    Student_LastName varchar(50),
     Present TINYINT(1),
     Absent TINYINT(1),
     TardyInd TINYINT(1),
