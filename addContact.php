@@ -28,7 +28,7 @@ include("scripts/header.php");
             $zip = intval($_POST['zip']);
             $email = $_POST['email'];
 
-            $stmt = $db->prepare("INSERT INTO Contact (Id, Prefix, First_Name, Middle_Name,Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $db->prepare("INSERT INTO Contact (Id, Prefix, First_Name, Middle_Name, Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param('issssssssssis', $id,  $prefix, $fname, $mname ,$lname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email);
             $stmt->execute();
 
