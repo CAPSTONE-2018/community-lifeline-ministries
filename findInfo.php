@@ -15,7 +15,7 @@
                 $stmt->bind_param("i", $id);
 
                 $stmt->execute();
-                $stmt->bind_result($studentID, $firstName, $lastName, $gender, $birthdate, $address, $city, $state, $zipCode, $ethnicity, $school, $program, $permission, $birth, $RLE, $IEP);
+                $stmt->bind_result($studentID, $firstName, $lastName, $mname, $suffix, $gender, $birthdate, $address, $city, $state, $zipCode, $ethnicity, $school, $permission, $birth, $RLE, $IEP);
 
                 $stmt->fetch();
                 if ($studentID == null or $lastName == null or $firstName == null) {
@@ -30,6 +30,8 @@
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Middle Name</th>
+                        <th>Suffix</th>
                         <th>Gender</th>
                         <th>Birthdate</th>
                         <th>Address</th>
@@ -38,7 +40,6 @@
                         <th>Zip</th>
                         <th>Ethnicity</th>
                         <th>School</th>
-                        <th>Program</th>
                         <th>Permission Slip</th>
                         <th>Birth Certificate</th>
                         <th>Reduced Lunch Eligible</th>
@@ -53,6 +54,10 @@
                     echo "</td><td>";
                     echo $lastName;
                     echo "</td><td>";
+                    echo $mname;
+                    echo "</td><td>";
+                    echo $suffix;
+                    echo "</td><td>";
                     echo $gender;
                     echo "</td><td>";
                     echo $birthdate;
@@ -63,13 +68,11 @@
                     echo "</td><td>";
                     echo $state;
                     echo "</td><td>";
-                    echo $zip;
+                    echo $zipCode;
                     echo "</td><td>";
                     echo $ethnicity;
                     echo "</td><td>";
                     echo $school;
-                    echo "</td><td>";
-                    echo $program;
                     echo "</td><td>";
 
                     if ($permission == 1){
@@ -119,7 +122,7 @@
                 $stmt2->execute();
 
 
-                $stmt2->bind_result($contactId, $child_id, $cfname, $clname, $cphone, $hphone, $caddress, $ccity, $cstate, $czip, $cemail, $crelationship);
+                $stmt2->bind_result($contactId, $child_id, $cprefix,$cfname, $clname, $cmname, $csuffix, $cphone, $hphone, $caddress, $ccity, $cstate, $czip, $cemail);
                 $stmt2->fetch();
 
                 if ($child_id == null) {
@@ -133,27 +136,33 @@
                     echo "<table class=\"table table-condensed table-striped\">
                     <thead>
                     <tr>
+                        <th>Prefix</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Middle Name</th>
+                        <th>Suffix</th>
                         <th>Cell Phone</th>
                         <th>Home Phone</th>
                         <th>Email</th>
-                        <th>Relationship</th>
                     </tr>
                     </thead>
                     <tbody>";
                     echo "<tr><td>";
+                    echo $cprefix;
+                    echo "</td><td>";
                     echo $cfname;
                     echo "</td><td>";
                     echo $clname;
+                    echo "</td><td>";
+                    echo $cmname;
+                    echo "</td><td>";
+                    echo $csuffix;
                     echo "</td><td>";
                     echo $cphone;
                     echo "</td><td>";
                     echo $hphone;
                     echo "</td><td>";
                     echo $cemail;
-                    echo "</td><td>";
-                    echo $crelationship;
                     echo "</td></tr>";
                     echo "</tbody>";
                     echo "</table>";

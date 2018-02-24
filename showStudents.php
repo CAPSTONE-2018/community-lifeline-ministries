@@ -67,8 +67,6 @@ $result = mysqli_query($db, $query);
                         echo "</td><td>";
                         echo $row['School'];
                         echo "</td><td>";
-                        echo $row['Program'];
-                        echo "</td><td>";
 
                         if ($row['Permission_Slip'] == 1){
                             echo "Yes";

@@ -19,7 +19,7 @@ include("scripts/header.php");
             $classId = $_POST['cid'];
 
 
-            $stmt = $db->prepare("INSERT INTO Enrolled (Student_Id, Class_Id) VALUES (?, ?)");
+            $stmt = $db->prepare("INSERT INTO students_to_classes (Student_Id, Class_Id) VALUES (?, ?)");
             $stmt->bind_param('ii', $studentId, $classId);
             $stmt->execute();
 
