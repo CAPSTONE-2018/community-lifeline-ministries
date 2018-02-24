@@ -30,7 +30,7 @@ include("scripts/header.php");
     $type = $_POST['type'];
 
 
-    $sql = "UPDATE Volunteer_Employee SET Prefix = '$prefix',First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$mname', Suffix = '$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email', Type = '$type', Program = '$program'  WHERE Id = '$id' ;";
+    $sql = "UPDATE Volunteer_Employee SET Prefix = '$prefix',First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$mname', Suffix = '$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email', Type = '$type'  WHERE Id = '$id' ;";
 
     if ($db->query($sql) === TRUE){
         echo "<div class='alert alert-success'>
