@@ -20,7 +20,7 @@ include("scripts/header.php");
 
 
             $stmt = $db->prepare("INSERT INTO School_Year (Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param('isidd', $id, $term, $year, $preTest, $postTest);
+            $stmt->bind_param('isiii', $id, $term, $year, $preTest, $postTest);
             $stmt->execute();
 
 
