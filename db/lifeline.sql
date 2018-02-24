@@ -45,14 +45,6 @@ CREATE TABLE Student_To_Allergy(
     CONSTRAINT FK_Allergy_Id_Allergy FOREIGN KEY (Allergy_Id) REFERENCES Allergy(Id)
 );
 
-CREATE TABLE Attendance_To_Programs (
-  ID INT(10) AUTO_INCREMENT PRIMARY KEY,
-  Program_Id INT(10),
-  Attendance_Id INT(10),
-  CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id) REFERENCES Programs (Id),
-  CONSTRAINT FK_Attendance_Id_Attendance FOREIGN KEY (Attendance_Id) REFERENCES Attendance (Id)
-);
-
 CREATE TABLE Attendance (
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id Int(10),
@@ -61,7 +53,6 @@ CREATE TABLE Attendance (
     TardyInd TINYINT(1),
     TardyTime varchar(50)
 );
-
 
 CREATE TABLE Contact(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -78,7 +69,6 @@ CREATE TABLE Contact(
     Zip INT(5),
     Email VARCHAR(50)
 );
-
 
 CREATE TABLE Volunteer_Employee(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -104,17 +94,31 @@ CREATE TABLE Classes(
 
 CREATE TABLE School_Year(
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Student_Id INT(10),
     Term VARCHAR(20),
-    Year INT(4),
+    Year INT(4)
+);
+
+CREATE TABLE Test_Score_To_Students(
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Student_Id INT(10),
+    School_Year_Id INT(10),
     Pre_Test DECIMAL(5, 2),
     Post_Test DECIMAL(5, 2),
-    CONSTRAINT FK_Student_Id_School_Year FOREIGN KEY (Student_Id) REFERENCES Student(Id)
+    CONSTRAINT FK_School_Year_Id_To_School_Year FOREIGN KEY (School_Year_Id) REFERENCES School_Year(Id),
+    CONSTRAINT FK_Student_Id_To_Students FOREIGN KEY (Student_Id) REFERENCES Student(Id)
 );
 
 CREATE TABLE Programs (
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Program_Name VARCHAR(60)
+);
+
+CREATE TABLE Attendance_To_Programs (
+    ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Program_Id INT(10),
+    Attendance_Id INT(10),
+    CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id) REFERENCES Programs (Id),
+    CONSTRAINT FK_Attendance_Id_Attendance FOREIGN KEY (Attendance_Id) REFERENCES Attendance (Id)
 );
 
 CREATE TABLE Classes_To_Programs(
@@ -165,7 +169,6 @@ CREATE TABLE Schedule(
     CONSTRAINT FK_Volunteer_Id_Schedule FOREIGN KEY (Volunteer_Id)
     REFERENCES Volunteer_Employee(Id)
 );
-
 
 CREATE TABLE Logins (
     username varchar(30) PRIMARY KEY,

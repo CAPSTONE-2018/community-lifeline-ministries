@@ -27,7 +27,7 @@ $result = mysqli_query($db, $query);
                         <?php
                         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                             echo "<tr><td>";
-                            echo $row['Class_Id']; //coming from Schedule table
+                            echo $row['Id']; //coming from Schedule table
                             echo "</td><td>";
                             echo $row['Class_Name']; //coming from Class table
                             echo "</td><td>";

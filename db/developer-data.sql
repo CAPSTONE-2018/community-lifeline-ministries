@@ -48,11 +48,10 @@ INSERT INTO Schedule(Class_Id, Volunteer_Id, Room_Number, Start_Time, End_Time, 
 INSERT INTO Schedule(Class_Id, Volunteer_Id, Room_Number, Start_Time, End_Time, Day) VALUES (3, 5, "103", "4:30", "6:30", "Wednesdays");
 INSERT INTO Schedule(Class_Id, Volunteer_Id, Room_Number, Start_Time, End_Time, Day) VALUES (5, 3, "104", "3:30", "5:30", "Fridays");
 
-INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (1, "Spring", 2018, 72.5, 85.3);
-INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (1, "Fall", 2018, 83.5, 89.3);
-INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (2, "Spring", 2017, 78.1, 82.8);
-INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (3, "Fall", 2018, 86.3, 92.1);
-INSERT INTO School_Year(Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (4, "Spring", 2018, 72.5, 85.3);
+INSERT INTO School_Year (Term, Year) VALUES ("Spring", 2017);
+INSERT INTO School_Year(Term, Year) VALUES ("Fall", 2017);
+INSERT INTO School_Year(Term, Year) VALUES ("Spring", 2016);
+INSERT INTO School_Year(Term, Year) VALUES ("Fall", 2016);
 
 INSERT INTO Student_To_Allergy(Student_Id, Allergy_Id) VALUES (2, 1);
 INSERT INTO Student_To_Allergy(Student_Id, Allergy_Id) VALUES (1, 4);
