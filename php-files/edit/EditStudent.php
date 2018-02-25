@@ -31,12 +31,6 @@ $result = mysqli_query($db, $query);
 
     <div id="showInfo"></div>
 
-</div>
-
-</body>
-
-</html>
-
 <script>
     $(document).ready(function () {
         $('#studentid').change(function () {

@@ -2,17 +2,14 @@
 include("../scripts/header.php");
 ?>
 
-    <h1>Update Contact Information:</h1>
-    <br />
+<h1>Update Contact Information:</h1>
+<br />
 
 
-    <?php
-
+<?php
     //connect to database
     include("../../db/config.php");
-
     session_start();
-
     $id = $_SESSION['contactId'];
 
     $prefix = $_POST['prefix'];
@@ -30,7 +27,7 @@ include("../scripts/header.php");
     $relationship = $_POST['relationship'];
 
 
-    $sql = "UPDATE Contact SET Prefix = '$prefix' ,First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$manme', Suffix='$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email'  WHERE Id = '$id' ;";
+    $sql = "UPDATE Contact SET Prefix = '$prefix' ,First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$mname', Suffix='$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email'  WHERE Id = '$id' ;";
 
     if ($db->query($sql) === TRUE){
         echo "<div class='alert alert-success'>
@@ -44,5 +41,5 @@ include("../scripts/header.php");
 
 
 
-include("scripts/footer.php");
-    ?>
+    include("../scripts/footer.php");
+?>
