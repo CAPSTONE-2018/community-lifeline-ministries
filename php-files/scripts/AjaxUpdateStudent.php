@@ -1,11 +1,11 @@
 <?php
 
-include("States.php");
+    include("States.php");
 
-//Connect to database
-include("../db/config.php");
-$output = "";
-$id = intval($_POST['sid']);
+    //Connect to database
+    include("../../db/config.php");
+    $output = "";
+    $id = intval($_POST['sid']);
 
 session_start();
 
@@ -72,7 +72,7 @@ $stateSelect = stateDropdown($row['State']);
 
 $output = "<div id=\"form_wrapper\">
 
-                <form class=\"form-horizontal\" action=\"updateStudent.php\" method=\"POST\" id=\"form2\">
+                <form class=\"form-horizontal\" action=\"UpdateStudent.php\" method=\"POST\" id=\"form2\">
 
                     <h1>Update ".$row['First_Name']." ".$row["Last_Name"]."'s Information:</h1>
                     <br />

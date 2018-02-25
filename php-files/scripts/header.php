@@ -59,7 +59,7 @@ $account = $_SESSION['account'];
             <button class="dropdwn_btn">New</button>
             <div class="dropdwn_list">
 
-              <form action="newStudent.php" method="POST">
+              <form action="../new/NewStudent.php" method="POST">
                 <input type="submit" value="Student" />
               </form>
 
@@ -89,7 +89,7 @@ $account = $_SESSION['account'];
             <button class="dropdwn_btn">Update</button>
             <div class="dropdwn_list">
 
-              <form action="editStudent.php" method="POST">
+              <form action="../edit/EditStudent.php" method="POST">
                 <input type="submit" value="Student" />
               </form>
 
@@ -143,7 +143,7 @@ $account = $_SESSION['account'];
             <button class="dropdwn_btn">Display All</button>
             <div class="dropdwn_list">
 
-              <form action="showStudents.php" method="POST">
+              <form action="../show/ShowStudents.php" method="POST">
                 <input type="submit" value="Students" />
               </form>
 

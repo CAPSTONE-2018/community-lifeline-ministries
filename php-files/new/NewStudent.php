@@ -1,10 +1,10 @@
 <?php
-include("scripts/header.php");
+include("../scripts/header.php");
 ?>
 
       <div id="form_wrapper">
 
-          <form class="form-horizontal" action="addStudent.php" method="POST" id="form2">
+          <form class="form-horizontal" action="../add/AddStudent.php" method="POST" id="form2">
 
               <h1>Add Student Information:</h1>
               <br />
@@ -75,7 +75,7 @@ include("scripts/header.php");
                           <input id="sstate" class="form-control" placeholder="State" type="text" name="state">-->
                           <label class="control-label" for="state">State:</label>
                           <?php
-                          include("scripts/States.php");
+                          include("../scripts/States.php");
                           echo stateDropdown()
                           ?>
 
@@ -182,5 +182,5 @@ include("scripts/header.php");
 
   </div>
   <?php
-  include("scripts/footer.php");
+  include("../scripts/footer.php");
   ?>

@@ -1,8 +1,8 @@
 <?php
-include("scripts/header.php");
+include("../scripts/header.php");
 
 //Connect to database
-include("db/config.php");
+include("../../db/config.php");
 
 $query = "SELECT * FROM Student ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
@@ -42,7 +42,7 @@ $result = mysqli_query($db, $query);
         $('#studentid').change(function () {
             var sid = $(this).val();
             $.ajax({
-                url:"scripts/ajaxUpdateStudent.php",
+                url:"../scripts/AjaxUpdateStudent.php",
                 method:"POST",
                 data:{sid:sid},
                 success:function (output) {

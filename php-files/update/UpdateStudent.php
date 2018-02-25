@@ -1,6 +1,6 @@
 <?php
 
-include("scripts/header.php");
+include("../scripts/header.php");
 ?>
 
     <h1>Update Student Information:</h1>
@@ -10,7 +10,7 @@ include("scripts/header.php");
     <?php
 
     //connect to database
-    include("db/config.php");
+    include("../../db/config.php");
 
     session_start();
 
@@ -64,5 +64,5 @@ include("scripts/header.php");
                       </div>";
     }
 
-    include("scripts/footer.php");
+    include("../scripts/footer.php");
     ?>
