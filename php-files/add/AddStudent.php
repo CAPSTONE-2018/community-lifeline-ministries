@@ -30,7 +30,7 @@ include("../scripts/header.php");
     $allergyNote = $_POST['anote'];
     #Adding student records based on the information the user added into the "add" fields
 
-    $stmt = $db->prepare("INSERT INTO Student (First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO Students (First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param('sssssssssissiiii', $fname, $mname, $lname, $suffix, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
     $stmt->execute();
 
@@ -47,10 +47,10 @@ include("../scripts/header.php");
         $stmt->close();
 }
     //query to get id of Student just added
-    $query = 'SELECT * FROM Student WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
+    $query = 'SELECT * FROM Students WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
     $result = $db->query($query);
     $row = $result->fetch_assoc();
-    $stmt = $db->prepare("INSERT INTO Allergy (Name, Type, Note) VALUES (?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO Allergies (Name, Type, Note) VALUES (?, ?, ?)");
     $stmt->bind_param('sss',$allergyname,$allergyType, $allergyNote);
     $stmt->execute();
     if ($stmt->affected_rows == -1) {
@@ -66,11 +66,11 @@ include("../scripts/header.php");
         $stmt->close();
 }
     //query to get id of Student just added
-    $query = 'SELECT * FROM Student WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
+    $query = 'SELECT * FROM Students WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
     $result = $db->query($query);
     $row = $result->fetch_assoc();
 
-    $query = 'SELECT * FROM allergy WHERE Name = "' .$allergyName. '" AND Type = "' .$allergyType. '" AND Note = "' .$allergyNote. '";';
+    $query = 'SELECT * FROM Allergies WHERE Name = "' .$allergyName. '" AND Type = "' .$allergyType. '" AND Note = "' .$allergyNote. '";';
     $result = $db->query($query);
     $row_aid = $result->fetch_assoc();
     $stmt = $db->prepare("INSERT INTO student_to_allergy (Id, Student_Id,Allergy_Id) VALUES (?, ?, ?)");
