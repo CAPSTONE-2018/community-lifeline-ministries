@@ -14,7 +14,7 @@ $_SESSION['VolunteerEmployeeId'] = $id;
 
 
 
-$query = "SELECT * FROM Volunteer_Employee WHERE Id ='".$id."' ;";
+$query = "SELECT * FROM Volunteer_Employees WHERE Id ='".$id."' ;";
 
 
 $result = mysqli_query($db, $query);
