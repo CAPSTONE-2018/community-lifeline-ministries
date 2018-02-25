@@ -1,6 +1,6 @@
 <?php
 
-include("../../scripts/header.php");
+include("../scripts/header.php");
 ?>
 
             <h1>Add Test Score Information:</h1>
@@ -34,5 +34,5 @@ include("../../scripts/header.php");
                       </div>";
                 $stmt->close();
             }
-            include("scripts/footer.php");
+            include("../scripts/footer.php");
             ?>

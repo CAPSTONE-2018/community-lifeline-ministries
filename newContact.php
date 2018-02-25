@@ -127,4 +127,4 @@ $result = mysqli_query($db, $query);
                 <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Submit"><br><br>
             </form>
         </div>
-    <?php include("scripts/footer.php")?>
+    <?php include("scripts/footer.php") ?>

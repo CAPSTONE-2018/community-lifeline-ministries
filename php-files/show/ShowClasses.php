@@ -1,6 +1,6 @@
 <?php
 
-include("../../scripts/header.php");
+include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");

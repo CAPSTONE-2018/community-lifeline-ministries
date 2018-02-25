@@ -1,5 +1,5 @@
 <?php
-include("../../scripts/header.php");
+include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
@@ -34,7 +34,7 @@ $result = mysqli_query($db, $query);
     <div id="showClassInfo"></div>
 
     <?php
-      include("../../scripts/footer.php");
+      include("../scripts/footer.php");
       ?>
 
 <script>
@@ -42,7 +42,7 @@ $result = mysqli_query($db, $query);
         $('#classid').change(function () {
             var classid = $(this).val();
             $.ajax({
-                url:"scripts/ajaxUpdateClass.php",
+                url:"../scripts/ajaxUpdateClass.php",
                 method:"POST",
                 data:{classid:classid},
                 success:function (output) {

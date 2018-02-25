@@ -151,7 +151,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Volunteers/Employees" />
               </form>
 
-              <form action="../show/showClasses.php" method="POST">
+              <form action="../show/ShowClasses.php" method="POST">
                 <input type="submit" value="Classes" />
               </form>
             </div>
