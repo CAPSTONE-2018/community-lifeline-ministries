@@ -162,7 +162,7 @@ $account = $_SESSION['account'];
                echo '<div class="dropdwn">
                            <button class="dropdwn_btn">Administrative Tools</button>
                                <div class="dropdwn_list">
-                                   <form action="newUser.php" method="POST">
+                                   <form action="../new/NewUser.php" method="POST">
                                        <input type="submit" value="Register new user" />
                                    </form>
                                </div>
