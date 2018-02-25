@@ -4,7 +4,7 @@ include("scripts/header.php");
 //connect to database
 include("db/config.php");
 
-$query = "SELECT * FROM Class ORDER BY Class_Name;";
+$query = "SELECT * FROM Classes ORDER BY Id;";
 $result = mysqli_query($db, $query);
 ?>
 

@@ -12,8 +12,8 @@ $_SESSION['classId'] = $id;
 
 
 
-$query = "SELECT * FROM Class WHERE Id ='".$id."' ;";
-$query2 = "SELECT * FROM Schedule WHERE Class_Id ='".$id."' ;";
+$query = "SELECT * FROM Classes WHERE Id =$id;";
+$query2 = "SELECT * FROM Schedule WHERE Class_Id =$id;";
 
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);

@@ -20,7 +20,7 @@ include("scripts/header.php");
 
 
 
-    $sql = "UPDATE Class SET Class_Name = '$className' WHERE Id = '$id' ;";
+    $sql = "UPDATE Classes SET Class_Name = '$className' WHERE Id = '$id' ;";
 
     if ($db->query($sql) === TRUE){
         echo "<div class='alert alert-success'>
