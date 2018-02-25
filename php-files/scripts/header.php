@@ -79,7 +79,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Student To Class" />
               </form>
 
-              <form action="newTestScores.php" method="POST">
+              <form action="../new/NewTestScores.php" method="POST">
                 <input type="submit" value="Student Test Scores" />
               </form>
             </div>
