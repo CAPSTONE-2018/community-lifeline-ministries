@@ -13,7 +13,7 @@ $_SESSION['contactId'] = $id;
 
 
 
-$query = "SELECT * FROM Contact WHERE Id ='".$id."' ;";
+$query = "SELECT * FROM Contacts WHERE Id ='".$id."' ;";
 
 
 $result = mysqli_query($db, $query);
