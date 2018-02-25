@@ -4,7 +4,7 @@
 include("../../db/config.php");
 
 
-$query = "SELECT * FROM Contact ORDER BY Last_Name, First_Name;";
+$query = "SELECT * FROM Contacts ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
 
 include("../scripts/header.php");
