@@ -22,7 +22,7 @@
     $zip = intval($_POST['zip']);
     $email = $_POST['email'];
 
-    $stmt = $db->prepare("INSERT INTO Contact (Prefix, First_Name, Middle_Name, Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO Contacts (Prefix, First_Name, Middle_Name, Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param('ssssssssssis', $prefix, $fname, $mname ,$lname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email);
     $stmt->execute();
 
