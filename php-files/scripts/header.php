@@ -102,6 +102,10 @@ $account = $_SESSION['account'];
                     <input type="submit" value="Volunteer/Employee"/>
                 </form>
 
+                <form action="../edit/EditProgram.php" method="POST">
+                    <input type="submit" value="Program"/>
+                </form>
+
                 <form action="../edit/EditClass.php" method="POST">
                     <input type="submit" value="Class"/>
                 </form>
@@ -165,6 +169,10 @@ $account = $_SESSION['account'];
 
                 <form action="../show/ShowVolunteersEmployees.php" method="POST">
                     <input type="submit" value="Volunteers/Employees"/>
+                </form>
+
+                <form action="../show/ShowPrograms.php" method="POST">
+                    <input type="submit" value="Programs"/>
                 </form>
 
                 <form action="../show/ShowClasses.php" method="POST">
