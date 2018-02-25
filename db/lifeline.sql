@@ -173,6 +173,14 @@ CREATE TABLE Logins (
     email varchar(30)
 );
 
+CREATE TABLE Student_To_Programs (
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Student_Id INT(10),
+    Program_Id INT(10),
+    CONSTRAINT FK_Student_Id_Program FOREIGN KEY (Student_Id) REFERENCES Students(Id),
+    CONSTRAINT FK_Program_Id_Program FOREIGN KEY (Program_Id) REFERENCES Programs(Id)
+);
+
 CREATE USER 'clm_user'@'localhost'  identified by 'dbuser';
 GRANT SELECT, INSERT, UPDATE, DELETE on community_lifeline.* TO 'clm_user'@'localhost';
 

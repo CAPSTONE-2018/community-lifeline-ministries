@@ -17,7 +17,7 @@ $studentId = intval($_POST['sid']);
 $classId = $_POST['cid'];
 
 
-$stmt = $db->prepare("INSERT INTO Student_To_Classes (Student_Id, Class_Id) VALUES (?, ?)");
+$stmt = $db->prepare("INSERT INTO Student_To_Programs (Student_Id, Program_Id) VALUES (?, ?)");
 $stmt->bind_param('ii', $studentId, $classId);
 $stmt->execute();
 

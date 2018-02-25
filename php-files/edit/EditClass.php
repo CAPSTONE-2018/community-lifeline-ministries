@@ -42,7 +42,7 @@ $result = mysqli_query($db, $query);
         $('#classid').change(function () {
             var classid = $(this).val();
             $.ajax({
-                url:"../scripts/ajaxUpdateClass.php",
+                url:"../scripts/AjaxUpdateClass.php",
                 method:"POST",
                 data:{classid:classid},
                 success:function (output) {
