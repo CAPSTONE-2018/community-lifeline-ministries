@@ -16,8 +16,8 @@ include("../scripts/header.php");
     $preTest = floatval($_POST['pre_test']);
     $postTest = floatval($_POST['post_test']);
 
-    $stmt = $db->prepare("INSERT INTO Test_Score_To_Students (Student_Id, School_Year_Id, Pre_Test, Post_Test) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param('iiii', $id, $year, $preTest, $postTest);
+    $stmt = $db->prepare("INSERT INTO Student_To_Test_Scores (Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param('iisii', $id, $year, $term, $preTest, $postTest);
     $stmt->execute();
 
 
