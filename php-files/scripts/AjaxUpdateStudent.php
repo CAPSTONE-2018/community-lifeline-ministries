@@ -12,8 +12,8 @@ $_SESSION['studentId'] = $id;
 
 
 
-$query = "SELECT * FROM Student WHERE Id ='".$id."' ;";
-$query2 = "SELECT * FROM Allergy WHERE Student_Id ='".$id."' ;";
+$query = "SELECT * FROM Students WHERE Id ='".$id."' ;";
+$query2 = "SELECT * FROM Allergies WHERE Student_Id ='".$id."' ;";
 
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
