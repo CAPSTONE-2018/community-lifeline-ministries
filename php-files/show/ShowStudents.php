@@ -6,7 +6,7 @@
 
     //Getting the query to search if the username and password are correct in the database
     //Do not need prepared statements because there is NO user input for this query so there can be no sql injection attack
-    $query = "SELECT * FROM Student;";
+    $query = "SELECT * FROM Students;";
     $result = mysqli_query($db, $query);
 ?>
 
