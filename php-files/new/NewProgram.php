@@ -24,7 +24,7 @@ $result = mysqli_query($db, $query);
                 <div class="form-group">
                     <div class="col-lg-4">
                         <label class="control-label" for="name">Program Name:</label>
-                        <input id="name" class="form-control" placeholder="Class Name" type="text" name="name">
+                        <input id="name" class="form-control" placeholder="Program Name" type="text" name="name">
                     </div>
                 </div>
             </div>

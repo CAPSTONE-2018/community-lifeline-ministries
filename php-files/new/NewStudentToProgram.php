@@ -39,7 +39,6 @@ $result2 = mysqli_query($db, $query2);
                         <?php
                         if (mysqli_num_rows($result2) > 0) {
                             while ($row = mysqli_fetch_assoc($result2)) {
-                                //echo "<option value='".$row['Id']."'>'".$row['First_Name']."'</option>";
                                 echo "<option value='" . $row['Id'] . "'>" . $row['Program_Name'] . "</option>";
                             }
                         }
