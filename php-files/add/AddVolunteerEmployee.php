@@ -26,7 +26,7 @@
     $email = $_POST['email'];
     $type = $_POST['type'];
 
-    $stmt = $db->prepare("INSERT INTO Volunteer_Employee (Prefix, First_Name, Last_Name, Middle_Name, Suffix, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO Volunteer_Employees (Prefix, First_Name, Last_Name, Middle_Name, Suffix, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param('ssssssssssiss', $prefix, $fname, $lname, $mname, $suffix, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type);
     $stmt->execute();
 
