@@ -5,7 +5,7 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$query = "SELECT * FROM Volunteer_Employee;";
+$query = "SELECT * FROM Volunteer_Employees;";
 $result = mysqli_query($db, $query);
 ?>
 
