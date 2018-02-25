@@ -15,7 +15,7 @@ $account = $_SESSION['account'];
       <title>CLM</title>
 
       <!-- Stylesheet -->
-      <link rel="stylesheet" type="text/css" href="css/clm.css"/>
+      <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
 
       <!-- JQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -40,7 +40,7 @@ $account = $_SESSION['account'];
 
               <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="../../logout.php">Logout</a></li>
               </ul>
             </div>
             <!--/.nav-collapse -->
@@ -50,7 +50,7 @@ $account = $_SESSION['account'];
 
 
         <div class="text-center">
-          <a href="menu.php" title="Homepage"><img src="images/Lifeline.png" alt="Community Lifeline"></a>
+          <a href="../../menu.php" title="Homepage"><img src="../../images/Lifeline.png" alt="Community Lifeline"></a>
        </div>
 
         <!--menubar-########################################-->
@@ -71,7 +71,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 
-              <form action="newClass.php" method="POST">
+              <form action="../new/newClass.php" method="POST">
                 <input type="submit" value="Class" />
               </form>
 
@@ -101,7 +101,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 
-              <form action="editClass.php" method="POST">
+              <form action="../edit/editClass.php" method="POST">
                 <input type="submit" value="Class" />
               </form>
 
@@ -151,7 +151,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Volunteers/Employees" />
               </form>
 
-              <form action="showClasses.php" method="POST">
+              <form action="../show/showClasses.php" method="POST">
                 <input type="submit" value="Classes" />
               </form>
             </div>

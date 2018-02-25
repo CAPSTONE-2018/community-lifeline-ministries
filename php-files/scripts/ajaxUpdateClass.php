@@ -1,7 +1,7 @@
 <?php
 
 //connect to database
-include("../db/config.php");
+include("../../db/config.php");
 
 $output = "";
 $id = intval($_POST['classid']);
@@ -25,11 +25,9 @@ $row2 = mysqli_fetch_array($result2);
 
 
 
-$output = "<div id=\"form_wrapper\">
+$output = ">
 
-                <form class=\"form-horizontal\" action=\"updateClass.php\" method=\"POST\" id=\"form2\">
-
-                    <h1>Update ".$row['Class_Name']."'s Information:</h1>
+                    <h1>Update \"" .$row['Class_Name']."'s Information:</h1>
                     <br />
 
                     <div class=\"row\">

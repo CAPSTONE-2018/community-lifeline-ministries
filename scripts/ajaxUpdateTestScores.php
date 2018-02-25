@@ -12,7 +12,7 @@ $_SESSION['testScoreId'] = $id;
 
 
 
-$query = "SELECT * FROM School_Year WHERE Student_Id ='".$id."' ;";
+$query = "SELECT * FROM Test_Score_To_Students WHERE Student_Id ='".$id."' ;";
 
 
 $result = mysqli_query($db, $query);

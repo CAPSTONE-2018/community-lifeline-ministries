@@ -1,9 +1,9 @@
 <?php
 
-include("scripts/header.php");
+include("../../scripts/header.php");
 
 //connect to database
-include("db/config.php");
+include("../../db/config.php");
 
 
 $query = "SELECT * FROM Classes;";
@@ -37,7 +37,7 @@ $result = mysqli_query($db, $query);
                 </table>
             </div>
             <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print" />
-            <script src="scripts/print.js"></script>
+            <script src="../../scripts/print.js"></script>
       <?php
         include("scripts/footer.php");
       ?>

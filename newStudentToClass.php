@@ -8,7 +8,7 @@ include("db/config.php");
 $query = "SELECT * FROM Student ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
 
-$query2 = "SELECT * FROM  Class ORDER BY Class_Name;";
+$query2 = "SELECT * FROM  Classes ORDER BY Class_Name;";
 $result2 = mysqli_query($db, $query2);
 ?>
 

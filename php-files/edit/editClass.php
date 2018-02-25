@@ -1,8 +1,8 @@
 <?php
-include("scripts/header.php");
+include("../../scripts/header.php");
 
 //connect to database
-include("db/config.php");
+include("../../db/config.php");
 
 $query = "SELECT * FROM Classes ORDER BY Id;";
 $result = mysqli_query($db, $query);
@@ -34,7 +34,7 @@ $result = mysqli_query($db, $query);
     <div id="showClassInfo"></div>
 
     <?php
-      include("scripts/footer.php");
+      include("../../scripts/footer.php");
       ?>
 
 <script>

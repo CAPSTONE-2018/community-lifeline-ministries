@@ -1,9 +1,9 @@
 <?php
 
-include("scripts/header.php");
+include("../scripts/header.php");
 
 //connect to database
-include("db/config.php");
+include("../../db/config.php");
 
 
 $query = "SELECT * FROM Volunteer_Employee ORDER BY Last_Name, First_Name;";
@@ -17,7 +17,7 @@ $result = mysqli_query($db, $query);
 
             <div id="form_wrapper">
 
-                <form class="form-horizontal" action="addClass.php" method="POST" id="form2">
+                <form class="form-horizontal" action="../add/addClass.php" method="POST" id="form2">
 
 
                     <h1>Add Class Information:</h1>
@@ -35,4 +35,4 @@ $result = mysqli_query($db, $query);
                     <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Submit"><br><br>
                 </form>
             </div>
-        <?php include("scripts/footer.php"); ?>
+        <?php include("../../scripts/footer.php"); ?>

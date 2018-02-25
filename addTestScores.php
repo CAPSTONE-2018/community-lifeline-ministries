@@ -19,8 +19,8 @@ include("scripts/header.php");
 
 
 
-            $stmt = $db->prepare("INSERT INTO School_Year (Student_Id, Term, Year, Pre_Test, Post_Test) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param('isiii', $id, $term, $year, $preTest, $postTest);
+            $stmt = $db->prepare("INSERT INTO Test_Score_To_Students (Student_Id, School_Year_Id, Pre_Test, Post_Test) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param('iiii', $id, $year, $preTest, $postTest);
             $stmt->execute();
 
 
