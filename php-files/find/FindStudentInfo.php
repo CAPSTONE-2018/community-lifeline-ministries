@@ -1,5 +1,5 @@
 <?php
-  include("scripts/header.php");
+  include("../scripts/header.php");
 ?>
 
             <h1>Student/Parent/Emergency Contact Information:</h1>
@@ -8,10 +8,10 @@
             <?php
 
             //connect to database
-            include("db/config.php");
+            include("../../db/config.php");
             $id = $_POST['child_id'];
 
-            if ($stmt = $db->prepare("SELECT * FROM Student WHERE Id = ?")) {
+            if ($stmt = $db->prepare("SELECT * FROM Students WHERE Id = ?")) {
                 $stmt->bind_param("i", $id);
 
                 $stmt->execute();
@@ -171,5 +171,5 @@
                 }
                 $stmt2->close();
                 }
-                include("scripts/footer.php");
+                include("../scripts/footer.php");
             ?>

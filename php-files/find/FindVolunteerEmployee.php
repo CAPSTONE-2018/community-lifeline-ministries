@@ -1,5 +1,5 @@
 <?php
-  include("scripts/header.php");
+  include("../scripts/header.php");
 ?>
 
 
@@ -9,11 +9,11 @@
         <?php
 
         //connect to database
-        include("db/config.php");
+        include("../../db/config.php");
 
         $id = $_POST['ID'];
 
-        if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employee WHERE Id = ?")){
+        if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employees WHERE Id = ?")){
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $stmt->bind_result($id, $prefix,$firstName, $lastName, $mname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email, $type);

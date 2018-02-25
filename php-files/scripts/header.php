@@ -125,11 +125,11 @@ $account = $_SESSION['account'];
             <button class="dropdwn_btn">Search</button>
             <div class="dropdwn_list">
 
-              <form action="searchInfo.php" method="POST">
+              <form action="../search/SearchStudentInfo.php" method="POST">
                 <input type="submit" value="Information" />
               </form>
 
-              <form action="searchTeacher.php" method="POST">
+              <form action="../search/SearchVolunteerEmployee.php" method="POST">
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 

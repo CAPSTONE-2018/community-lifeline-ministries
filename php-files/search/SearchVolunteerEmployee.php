@@ -1,10 +1,10 @@
 <?php
-  include("scripts/header.php");
+  include("../scripts/header.php");
 
   //connect to database
-  include("db/config.php");
+  include("../../db/config.php");
 
-$query = "SELECT * FROM Volunteer_Employee ORDER BY Last_Name, First_Name;";
+$query = "SELECT * FROM Volunteer_Employees ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
 
 
@@ -12,7 +12,7 @@ $result = mysqli_query($db, $query);
 ?>
 
             <div id="form_wrapper">
-                <form action="findVolunteerEmployee.php" method="POST" id="form2">
+                <form action="../find/FindVolunteerEmployee.php" method="POST" id="form2">
                     <br>
                     <h1>Search Volunteer/Employee Information:</h1>
                     <br />
@@ -33,4 +33,4 @@ $result = mysqli_query($db, $query);
                     </div>
                 </form>
             </div>
-        <?php include("scripts/footer.php"); ?>
+        <?php include("../scripts/footer.php"); ?>
