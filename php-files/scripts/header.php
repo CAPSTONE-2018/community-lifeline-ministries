@@ -71,7 +71,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 
-              <form action="../new/newClass.php" method="POST">
+              <form action="../new/NewClass.php" method="POST">
                 <input type="submit" value="Class" />
               </form>
 
@@ -101,7 +101,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 
-              <form action="../edit/editClass.php" method="POST">
+              <form action="../edit/EditClass.php" method="POST">
                 <input type="submit" value="Class" />
               </form>
 
