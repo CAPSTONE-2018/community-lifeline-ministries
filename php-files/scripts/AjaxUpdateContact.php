@@ -1,8 +1,8 @@
 <?php
-include("states.php");
+include("States.php");
 
 //Connect to database
-include("../db/config.php");
+include("../../db/config.php");
 
 $output = "";
 $id = intval($_POST['cid']);
@@ -24,7 +24,7 @@ $stateSelect = stateDropdown($row['State']);
 
 $output = "<div id=\"form_wrapper\">
 
-                <form class=\"form-horizontal\" action=\"updateContact.php\" method=\"POST\" id=\"form2\">
+                <form class=\"form-horizontal\" action=\"../update/UpdateContact.php\" method=\"POST\" id=\"form2\">
 
                     <h1>Update ".$row['First_Name']." ".$row["Last_Name"]."'s Information:</h1>
                     <br />
@@ -38,11 +38,11 @@ $output = "<div id=\"form_wrapper\">
                             </div>
                             <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"suffix\">Suffix:</label>
-                                <input id=\"suffix\" class=\"form-control\" value='".$row['Suffix']."' placeholder=\"Last\" type=\"text\" name=\"suffix\">
+                                <input id=\"suffix\" class=\"form-control\" value='".$row['Suffix']."' placeholder=\"Suffix\" type=\"text\" name=\"suffix\">
                             </div>
                              <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"middlename\">Middle Name:</label>
-                                <input id=\"middlename\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Last\" type=\"text\" name=\"mname\">
+                                <input id=\"middlename\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Middle Name\" type=\"text\" name=\"mname\">
                             </div>
                         </div>
                     </div>

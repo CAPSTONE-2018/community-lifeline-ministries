@@ -1,6 +1,6 @@
 <?php
 
-include("states.php");
+include("States.php");
 
 //Connect to database
 include("../db/config.php");

@@ -63,7 +63,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Student" />
               </form>
 
-              <form action="newContact.php" method="POST">
+              <form action="../new/NewContact.php" method="POST">
                 <input type="submit" value="Contact" />
               </form>
 
@@ -93,7 +93,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Student" />
               </form>
 
-              <form action="editContact.php" method="POST">
+              <form action="../edit/EditContact.php" method="POST">
                 <input type="submit" value="Contact" />
               </form>
 

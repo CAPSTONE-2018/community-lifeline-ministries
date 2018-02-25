@@ -75,7 +75,7 @@ include("scripts/header.php");
                           <input id="sstate" class="form-control" placeholder="State" type="text" name="state">-->
                           <label class="control-label" for="state">State:</label>
                           <?php
-                          include("scripts/states.php");
+                          include("scripts/States.php");
                           echo stateDropdown()
                           ?>
 

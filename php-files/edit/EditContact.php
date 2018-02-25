@@ -1,13 +1,13 @@
 <?php
 
 //connect to database
-include("db/config.php");
+include("../../db/config.php");
 
 
 $query = "SELECT * FROM Contact ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
 
-include("scripts/header.php");
+include("../scripts/header.php");
 ?>
 
 
@@ -35,7 +35,7 @@ include("scripts/header.php");
     <div id="showContactInfo"></div>
 
 <?php
-  include("scripts/footer.php");
+  include("../scripts/footer.php");
   ?>
 
 <script>
@@ -43,7 +43,7 @@ include("scripts/header.php");
         $('#contactid').change(function () {
             var cid = $(this).val();
             $.ajax({
-                url:"scripts/ajaxUpdateContact.php",
+                url:"../scripts/AjaxUpdateContact.php",
                 method:"POST",
                 data:{cid:cid},
                 success:function (output) {

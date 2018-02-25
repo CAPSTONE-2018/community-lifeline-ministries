@@ -64,7 +64,7 @@ include("scripts/header.php");
                             <div class="col-lg-3">
                                 <label class="control-label" for="state">State:</label>
                                 <?php
-                                include("scripts/states.php");
+                                include("scripts/States.php");
                                 echo stateDropdown()
                                 ?>
                             </div>
