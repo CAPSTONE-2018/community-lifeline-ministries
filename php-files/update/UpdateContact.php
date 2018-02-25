@@ -27,7 +27,7 @@ include("../scripts/header.php");
     $relationship = $_POST['relationship'];
 
 
-    $sql = "UPDATE Contact SET Prefix = '$prefix' ,First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$mname', Suffix='$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email'  WHERE Id = '$id' ;";
+    $sql = "UPDATE Contacts SET Prefix = '$prefix' ,First_Name = '$fname', Last_Name = '$lname', Middle_Name = '$mname', Suffix='$suffix',Phone_Cell = '$cellphone', Phone_Home = '$homephone', Address = '$address', City = '$city', State = '$state', Zip = '$zip', Email = '$email'  WHERE Id = '$id' ;";
 
     if ($db->query($sql) === TRUE){
         echo "<div class='alert alert-success'>
