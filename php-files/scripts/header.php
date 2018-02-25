@@ -67,7 +67,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Contact" />
               </form>
 
-              <form action="newVolunteerEmployee.php" method="POST">
+              <form action="../new/NewVolunteerEmployee.php" method="POST">
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 
@@ -97,7 +97,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Contact" />
               </form>
 
-              <form action="editVolunteerEmployee.php" method="POST">
+              <form action="../edit/EditVolunteerEmployee.php" method="POST">
                 <input type="submit" value="Volunteer/Employee" />
               </form>
 
@@ -147,7 +147,7 @@ $account = $_SESSION['account'];
                 <input type="submit" value="Students" />
               </form>
 
-              <form action="showVolunteersEmployees.php" method="POST">
+              <form action="../show/ShowVolunteersEmployees.php" method="POST">
                 <input type="submit" value="Volunteers/Employees" />
               </form>
 
