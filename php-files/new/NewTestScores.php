@@ -6,7 +6,7 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 
-$query = "SELECT * FROM Student ORDER BY Last_Name, First_Name;";
+$query = "SELECT * FROM Students ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
 ?>
 
