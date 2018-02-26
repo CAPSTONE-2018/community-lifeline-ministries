@@ -13,12 +13,12 @@
 
     $id = intval($_POST['id']);
     $prefix = $_POST['prefix'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $mname = $_POST['mname'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $middleName = $_POST['middleName'];
     $suffix = $_POST['suffix'];
-    $cellphone = $_POST['cellphone'];
-    $homephone = $_POST['homephone'];
+    $cellPhone = $_POST['cellPhone'];
+    $homePhone = $_POST['homePhone'];
     $address = $_POST['address'];
     $city = $_POST['city'];
     $state = $_POST['state'];
@@ -27,7 +27,7 @@
     $type = $_POST['type'];
 
     $stmt = $db->prepare("INSERT INTO Volunteer_Employees (Prefix, First_Name, Last_Name, Middle_Name, Suffix, Phone_Cell, Phone_Home, Address, City, State, Zip, Email, Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ssssssssssiss', $prefix, $fname, $lname, $mname, $suffix, $cellphone, $homephone, $address, $city, $state, $zip, $email, $type);
+    $stmt->bind_param('ssssssssssiss', $prefix, $firstName, $lastName, $middleName, $suffix, $cellPhone, $homePhone, $address, $city, $state, $zip, $email, $type);
     $stmt->execute();
 
 

@@ -13,8 +13,8 @@ include("../scripts/header.php");
     $id = intval($_POST['id']);
     $term = $_POST['term'];
     $year = intval($_POST['year']);
-    $preTest = floatval($_POST['pre_test']);
-    $postTest = floatval($_POST['post_test']);
+    $preTest = floatval($_POST['preTest']);
+    $postTest = floatval($_POST['postTest']);
 
     $stmt = $db->prepare("INSERT INTO Student_To_Test_Scores (Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param('iisii', $id, $year, $term, $preTest, $postTest);

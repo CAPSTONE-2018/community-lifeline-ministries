@@ -9,9 +9,9 @@ include("../scripts/header.php");
     # connect to db
     include("../../db/config.php");
 
-    $fname = $_POST['fname'];
-    $mname = $_POST['mname'];
-    $lname = $_POST['lname'];
+    $firstName = $_POST['$firstName'];
+    $middleName = $_POST['$middleName'];
+    $lastName = $_POST['$lastName'];
     $suffix = $_POST['suffix'];
     $gender = $_POST['gender'];
     $dob = $_POST['dob'];
@@ -21,17 +21,17 @@ include("../scripts/header.php");
     $city = $_POST['city'];
     $state = $_POST['state'];
     $school = $_POST['school'];
-    $permission_slip = intval($_POST['permission_slip']);
-    $birth_certificate = intval($_POST['birth_certificate']);
-    $reduced_lunch_eligible = intval($_POST['reduced_lunch_eligible']);
+    $permissionSlip = intval($_POST['$permissionSlip']);
+    $birthCertificate = intval($_POST['$birthCertificate']);
+    $reducedLunchEligibility = intval($_POST['$reducedLunchEligibility']);
     $iep = intval($_POST['iep']);
-    $allergyName = $_POST['aname'];
-    $allergyType = $_POST['atype'];
-    $allergyNote = $_POST['anote'];
+    $allergyName = $_POST['allergyName'];
+    $allergyType = $_POST['allergyType'];
+    $allergyNote = $_POST['allergyNote'];
     #Adding student records based on the information the user added into the "add" fields
 
     $stmt = $db->prepare("INSERT INTO Students (First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('sssssssssissiiii', $fname, $mname, $lname, $suffix, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $permission_slip, $birth_certificate, $reduced_lunch_eligible, $iep);
+    $stmt->bind_param('sssssssssissiiii', $firstName, $middleName, $lastName, $suffix, $gender, $dob, $address, $city, $state, $zip, $ethnicity, $school, $permissionSlip, $birthCertificate, $reducedLunchEligibility, $iep);
     $stmt->execute();
 
     if ($stmt->affected_rows == -1) {
@@ -47,11 +47,11 @@ include("../scripts/header.php");
         $stmt->close();
 }
     //query to get id of Student just added
-    $query = 'SELECT * FROM Students WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
+    $query = 'SELECT * FROM Students WHERE First_Name = "' .$firstName. '" AND Last_Name = "'.$lastName. '";';
     $result = $db->query($query);
     $row = $result->fetch_assoc();
     $stmt = $db->prepare("INSERT INTO Allergies (Name, Type, Note) VALUES (?, ?, ?)");
-    $stmt->bind_param('sss',$allergyname,$allergyType, $allergyNote);
+    $stmt->bind_param('sss', $allergyName, $allergyType, $allergyNote);
     $stmt->execute();
     if ($stmt->affected_rows == -1) {
         echo "
@@ -66,7 +66,7 @@ include("../scripts/header.php");
         $stmt->close();
 }
     //query to get id of Student just added
-    $query = 'SELECT * FROM Students WHERE First_Name = "' .$fname. '" AND Last_Name = "'.$lname. '";';
+    $query = 'SELECT * FROM Students WHERE First_Name = "' .$firstName. '" AND Last_Name = "'.$lastName. '";';
     $result = $db->query($query);
     $row = $result->fetch_assoc();
 

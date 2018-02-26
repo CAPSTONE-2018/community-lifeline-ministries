@@ -3,18 +3,15 @@
 include("../scripts/header.php");
 ?>
 
-
 <h1>Add Student to Class Information:</h1>
 <br/>
 
-
 <?php
-
 //connect to database
 include("../../db/config.php");
 
-$studentId = intval($_POST['sid']);
-$classId = $_POST['cid'];
+$studentId = intval($_POST['studentId']);
+$classId = $_POST['classId'];
 
 $stmt = $db->prepare("INSERT INTO Student_To_Classes (Student_Id, Class_Id) VALUES (?, ?)");
 $stmt->bind_param('ii', $studentId, $classId);
