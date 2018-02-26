@@ -10,7 +10,7 @@ if($username == '' || $password == ''){
   $encryptPass = md5($password);
 
   //Retrieve database credentials and connect to database
-  include("db/config.php");
+  include("../../db/config.php");
   if ($stmt = $db->prepare("SELECT * FROM Logins WHERE username=? AND password=?")) {
       $stmt->bind_param('ss', $username, $encryptPass);
       $stmt->execute();

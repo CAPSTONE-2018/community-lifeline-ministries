@@ -41,7 +41,7 @@ $account = $_SESSION['account'];
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="../../logout.php">Logout</a></li>
+                    <li><a href="../index-login/logout.php">Logout</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -51,7 +51,7 @@ $account = $_SESSION['account'];
 
 
     <div class="text-center">
-        <a href="../../menu.php" title="Homepage"><img src="../../images/Lifeline.png" alt="Community Lifeline"></a>
+        <a href="../index-login/menu.php" title="Homepage"><img src="../../images/Lifeline.png" alt="Community Lifeline"></a>
     </div>
 
     <!--menubar-########################################-->
@@ -211,7 +211,7 @@ $account = $_SESSION['account'];
             <button class="dropdwn_btn">Help</button>
             <div class="dropdwn_list">
 
-                <form action="userDocumentation.php" method="POST">
+                <form action="../../UserDocumentation.php" method="POST">
                     <input type="submit" value="User Documentation"/>
                 </form>
             </div>
