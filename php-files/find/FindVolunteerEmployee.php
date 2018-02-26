@@ -16,7 +16,7 @@
         if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employees WHERE Id = ?")){
             $stmt->bind_param("i", $id);
             $stmt->execute();
-            $stmt->bind_result($id, $prefix,$firstName, $lastName, $mname, $suffix,$cellphone, $homephone, $address, $city, $state, $zip, $email, $type);
+            $stmt->bind_result($id, $prefix,$firstName, $lastName, $middleName, $suffix,$cellPhone, $homePhone, $address, $city, $state, $zip, $email, $type);
             $stmt->fetch();
             if ($id == null) {
                 echo "<div class='alert alert-danger'>
@@ -55,13 +55,13 @@
                 echo "</td><td>";
                 echo $lastName;
                 echo "</td><td>";
-                echo $mname;
+                echo $middleName;
                 echo "</td><td>";
                 echo $suffix;
                 echo "</td><td>";
-                echo $cellphone;
+                echo $cellPhone;
                 echo "</td><td>";
-                echo $homephone;
+                echo $homePhone;
                 echo "</td><td>";
                 echo $address;
                 echo "</td><td>";
@@ -81,6 +81,6 @@
             }
             $stmt->close();
         }
-          include("scripts/footer.php");
+          include("../scripts/footer.php");
         ?>
       

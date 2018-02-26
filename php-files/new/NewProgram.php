@@ -11,15 +11,10 @@ $result = mysqli_query($db, $query);
 ?>
 
 <div class="container">
-
     <div id="form_wrapper">
-
         <form class="form-horizontal" action="../add/AddProgram.php" method="POST" id="form2">
-
-
             <h1>Add Program Information:</h1>
             <br/>
-
             <div class="row">
                 <div class="form-group">
                     <div class="col-lg-4">
@@ -32,4 +27,6 @@ $result = mysqli_query($db, $query);
             <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Submit"><br><br>
         </form>
     </div>
-    <?php include("../scripts/footer.php"); ?>
+</div>
+
+<?php include("../scripts/footer.php"); ?>

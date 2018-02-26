@@ -21,8 +21,8 @@ $result2 = mysqli_query($db, $query2);
 
             <div class="form-group">
                 <div class="col-lg-6">
-                    <label class="control-label" for="sid">Student ID:</label>
-                    <select id="sid" class="form-control" name="sid">
+                    <label class="control-label" for="studentId">Student ID:</label>
+                    <select id="studentId" class="form-control" name="studentId">
                         <?php
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -33,9 +33,9 @@ $result2 = mysqli_query($db, $query2);
                     </select>
                 </div>
                 <div class="col-lg-6">
-                    <label class="control-label" for="cid">Class ID:</label>
+                    <label class="control-label" for="classId">Class ID:</label>
                     <!--<input id="cid" class="form-control" placeholder="Class ID" type="text" name="cid">-->
-                    <select id="cid" class="form-control" name="cid">
+                    <select id="classId" class="form-control" name="classId">
                         <?php
                         if (mysqli_num_rows($result2) > 0) {
                             while ($row = mysqli_fetch_assoc($result2)) {

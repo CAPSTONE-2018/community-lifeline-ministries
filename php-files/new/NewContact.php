@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <label class="control-label" for="prefix">Prefix:</label>
-                <select id="gend" class="form-control" name="prefix">
+                <select id="gender" class="form-control" name="prefix">
                     <option value="Mr.">Mr.</option>
                     <option value="Ms.">Ms.</option>
                     <option value="Mrs.">Mrs.</option>
@@ -24,9 +24,9 @@
                 <input id="suffix" class="form-control" placeholder="Suffix" type="text" name="suffix">
             </div>
             <div class="col-lg-4">
-                <label class="control-label" for="studentid">Student ID Number For:</label>
+                <label class="control-label" for="studentId">Student ID Number For:</label>
 
-                <select id="studentid" class="form-control" name="id">
+                <select id="studentId" class="form-control" name="id">
                     <?php
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -43,16 +43,16 @@
 
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label class="control-label" for="firstname">First Name:</label>
-                    <input id="firstname" class="form-control" placeholder="First Name" type="text" name="fname">
+                    <label class="control-label" for="firstName">First Name:</label>
+                    <input id="firstName" class="form-control" placeholder="First Name" type="text" name="firstName">
                 </div>
                 <div class="col-lg-4">
-                    <label class="control-label" for="lastname">Last Name:</label>
-                    <input id="lastname" class="form-control" placeholder="Last Name" type="text" name="lname">
+                    <label class="control-label" for="lastName">Last Name:</label>
+                    <input id="lastName" class="form-control" placeholder="Last Name" type="text" name="lastName">
                 </div>
                 <div class="col-lg-4">
-                    <label class="control-label" for="middlename">Middle Name:</label>
-                    <input id="middlename" class="form-control" placeholder="Middle Name" type="text" name="mname">
+                    <label class="control-label" for="middleName">Middle Name:</label>
+                    <input id="middleName" class="form-control" placeholder="Middle Name" type="text" name="middleName">
                 </div>
             </div>
         </div>
@@ -61,13 +61,13 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-lg-6">
-                    <label class="control-label" for="cellnum">Cell Number:</label>
-                    <input id="cellnum" class="form-control" placeholder="Cell Number" type="text" name="cellphone">
+                    <label class="control-label" for="cellPhone">Cell Number:</label>
+                    <input id="cellPhone" class="form-control" placeholder="Cell Number" type="text" name="cellPhone">
                 </div>
 
                 <div class="col-lg-6">
-                    <label class="control-label" for="homenum">Home Number:</label>
-                    <input id="homenum" class="form-control" placeholder="Home Number" type="text" name="homephone">
+                    <label class="control-label" for="homePhone">Home Number:</label>
+                    <input id="homePhone" class="form-control" placeholder="Home Number" type="text" name="homePhone">
                 </div>
 
             </div>

@@ -20,9 +20,9 @@ $result = mysqli_query($db, $query);
 
             <div class="form-group">
                 <div class="col-lg-4">
-                    <label class="control-label" for="sid">Student:</label>
+                    <label class="control-label" for="testScoreId">Student:</label>
                     <!--<input id="sid" class="form-control" placeholder="Student ID" type="text" name="id">-->
-                    <select id="sid" class="form-control" name="id">
+                    <select id="testScoreId" class="form-control" name="testScoreId">
                         <?php
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -53,12 +53,12 @@ $result = mysqli_query($db, $query);
 
             <div class="form-group">
                 <div class="col-lg-6">
-                    <label class="control-label" for="pre">Pre-Test Score:</label>
-                    <input id="pre" class="form-control" placeholder="Pre-Test Score" type="text" name="pre_test">
+                    <label class="control-label" for="preTest">Pre-Test Score:</label>
+                    <input id="preTest" class="form-control" placeholder="Pre-Test Score" type="text" name="preTest">
                 </div>
                 <div class="col-lg-6">
-                    <label class="control-label" for="post">Post-Test Score:</label>
-                    <input id="post" class="form-control" placeholder="Post_Test Score" type="text" name="post_test">
+                    <label class="control-label" for="postTest">Post-Test Score:</label>
+                    <input id="postTest" class="form-control" placeholder="Post_Test Score" type="text" name="postTest">
                 </div>
             </div>
         </div>

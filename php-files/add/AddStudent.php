@@ -9,9 +9,9 @@ include("../scripts/header.php");
     # connect to db
     include("../../db/config.php");
 
-    $firstName = $_POST['$firstName'];
-    $middleName = $_POST['$middleName'];
-    $lastName = $_POST['$lastName'];
+    $firstName = $_POST['firstName'];
+    $middleName = $_POST['middleName'];
+    $lastName = $_POST['lastName'];
     $suffix = $_POST['suffix'];
     $gender = $_POST['gender'];
     $dob = $_POST['dob'];
@@ -21,9 +21,9 @@ include("../scripts/header.php");
     $city = $_POST['city'];
     $state = $_POST['state'];
     $school = $_POST['school'];
-    $permissionSlip = intval($_POST['$permissionSlip']);
-    $birthCertificate = intval($_POST['$birthCertificate']);
-    $reducedLunchEligibility = intval($_POST['$reducedLunchEligibility']);
+    $permissionSlip = intval($_POST['permissionSlip']);
+    $birthCertificate = intval($_POST['birthCertificate']);
+    $reducedLunchEligibility = intval($_POST['reducedLunchEligibility']);
     $iep = intval($_POST['iep']);
     $allergyName = $_POST['allergyName'];
     $allergyType = $_POST['allergyType'];
