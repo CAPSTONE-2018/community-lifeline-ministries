@@ -8,14 +8,14 @@ include("../../db/config.php");
 $query = "SELECT * FROM Students ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
 
-$query2 = "SELECT * FROM Programs ORDER BY Program_Name";
+$query2 = "SELECT * FROM Classes ORDER BY Class_Name";
 $result2 = mysqli_query($db, $query2);
 ?>
 
 <div id="form_wrapper">
-    <form class="form-horizontal" action="../add/AddStudentToProgram.php" method="POST" id="form2">
+    <form class="form-horizontal" action="../add/AddStudentToClass.php" method="POST" id="form2">
 
-        <h1>Add Student and Program Information:</h1>
+        <h1>Add Student and Class Information:</h1>
         <br/>
         <div class="row">
 
@@ -33,12 +33,13 @@ $result2 = mysqli_query($db, $query2);
                     </select>
                 </div>
                 <div class="col-lg-6">
-                    <label class="control-label" for="pid">Program:</label>
-                    <select id="pid" class="form-control" name="pid">
+                    <label class="control-label" for="cid">Class:</label>
+                    <!--<input id="cid" class="form-control" placeholder="Class ID" type="text" name="cid">-->
+                    <select id="cid" class="form-control" name="cid">
                         <?php
                         if (mysqli_num_rows($result2) > 0) {
                             while ($row = mysqli_fetch_assoc($result2)) {
-                                echo "<option value='" . $row['Id'] . "'>" . $row['Program_Name'] . "</option>";
+                                echo "<option value='" . $row['Id'] . "'>" . $row['Class_Name'] . "</option>";
                             }
                         }
                         ?>

@@ -4,7 +4,7 @@ include("../scripts/header.php");
 ?>
 
 
-<h1>Add Student to Class Information:</h1>
+<h1>Add Student to Program Information:</h1>
 <br/>
 
 
@@ -14,11 +14,11 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 $studentId = intval($_POST['sid']);
-$classId = $_POST['cid'];
+$programId = $_POST['pid'];
 
 
 $stmt = $db->prepare("INSERT INTO Student_To_Programs (Student_Id, Program_Id) VALUES (?, ?)");
-$stmt->bind_param('ii', $studentId, $classId);
+$stmt->bind_param('ii', $studentId, $programId);
 $stmt->execute();
 
 

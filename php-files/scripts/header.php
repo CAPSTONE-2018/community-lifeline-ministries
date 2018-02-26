@@ -122,8 +122,13 @@ $account = $_SESSION['account'];
             <div class="dropdwn_list">
 
                 <form action="../new/NewStudentToProgram.php" method="POST">
+                    <input type="submit" value="Students to Programs"/>
+                </form>
+
+                <form action="../new/NewStudentToClass.php" method="POST">
                     <input type="submit" value="Students to Classes"/>
                 </form>
+
                 <form action="../new/NewVolunteerEmployeeToProgram.php" method="POST">
                     <input type="submit" value="Volunteers to Classes"/>
                 </form>
