@@ -15,8 +15,8 @@ $result = mysqli_query($db, $query);
         <br/>
 
         <div class="col-lg-12">
-            <label class="control-label" for="studentid">Student:</label>
-            <select id="studentid" class="form-control" name="id_student">
+            <label class="control-label" for="studentId">Student:</label>
+            <select id="studentId" class="form-control" name="studentId">
                 <?php
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {

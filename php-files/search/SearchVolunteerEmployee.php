@@ -18,8 +18,8 @@ $result = mysqli_query($db, $query);
                     <br />
 
                     <div class="col-lg-12">
-                        <label class="control-label" for="volunteerid">Employee/Volunteer:</label>
-                        <select id="volunteerid" class="form-control" name="ID">
+                        <label class="control-label" for="volunteerId">Employee/Volunteer:</label>
+                        <select id="volunteerId" class="form-control" name="volunteerId">
                             <?php
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {

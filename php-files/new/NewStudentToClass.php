@@ -34,7 +34,7 @@ $result2 = mysqli_query($db, $query2);
                 </div>
                 <div class="col-lg-6">
                     <label class="control-label" for="contactId">Class:</label>
-                    <select id="contactId" class="form-control" name="contactId">
+                    <select id="contactId" class="form-control" name="classId">
                         <?php
                         if (mysqli_num_rows($result2) > 0) {
                             while ($row = mysqli_fetch_assoc($result2)) {

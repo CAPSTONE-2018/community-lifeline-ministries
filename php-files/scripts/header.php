@@ -130,7 +130,7 @@ $account = $_SESSION['account'];
                 </form>
 
                 <form action="../new/NewVolunteerEmployeeToProgram.php" method="POST">
-                    <input type="submit" value="Volunteers to Classes"/>
+                    <input type="submit" value="Volunteers to Programs"/>
                 </form>
             </div>
         </div>

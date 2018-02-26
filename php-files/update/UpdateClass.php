@@ -10,7 +10,7 @@
     include("../../db/config.php");
 
     session_start();
-    $id = $_SESSION['classid'];
+    $id = $_SESSION['classId'];
     $className = $_POST['name'];
 
     $sql = "UPDATE Classes SET Class_Name = '$className' WHERE Id = '$id' ;";

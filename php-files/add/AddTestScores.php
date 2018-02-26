@@ -10,7 +10,7 @@ include("../scripts/header.php");
     //connect to database
     include("../../db/config.php");
 
-    $id = intval($_POST['id']);
+    $id = intval($_POST['testScoreId']);
     $term = $_POST['term'];
     $year = intval($_POST['year']);
     $preTest = floatval($_POST['preTest']);
