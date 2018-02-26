@@ -6,13 +6,10 @@ include("States.php");
 include("../../db/config.php");
 
 $output = "";
-$id = intval($_POST['vid']);
+$id = intval($_POST['volunteerId']);
 
 session_start();
-
-$_SESSION['VolunteerEmployeeId'] = $id;
-
-
+$_SESSION['volunteerId'] = $id;
 
 $query = "SELECT * FROM Volunteer_Employees WHERE Id ='".$id."' ;";
 
@@ -52,8 +49,8 @@ $output = "<div id=\"form_wrapper\">
                                 <input id=\"suffix\" class=\"form-control\" value='".$row['Suffix']."' placeholder=\"Last\" type=\"text\" name=\"suffix\">
                             </div>
                              <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"middlename\">Middle Name:</label>
-                                <input id=\"middlename\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Last\" type=\"text\" name=\"mname\">
+                                <label class=\"control-label\" for=\"middleName\">Middle Name:</label>
+                                <input id=\"middleName\" class=\"form-control\" value='".$row['Middle_Name']."' placeholder=\"Last\" type=\"text\" name=\"middleName\">
                             </div>
                         </div>
                     </div>
@@ -62,12 +59,12 @@ $output = "<div id=\"form_wrapper\">
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"firstname\">First Name:</label>
-                                <input id=\"firstname\" class=\"form-control\" value='".$row['First_Name']."' placeholder=\"First\" type=\"text\" name=\"fname\">
+                                <label class=\"control-label\" for=\"firstName\">First Name:</label>
+                                <input id=\"firstName\" class=\"form-control\" value='".$row['First_Name']."' placeholder=\"First\" type=\"text\" name=\"firstName\">
                             </div>
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"lastname\">Last Name:</label>
-                                <input id=\"lastname\" class=\"form-control\" value='".$row['Last_Name']."' placeholder=\"Last\" type=\"text\" name=\"lname\">
+                                <label class=\"control-label\" for=\"lastName\">Last Name:</label>
+                                <input id=\"lastName\" class=\"form-control\" value='".$row['Last_Name']."' placeholder=\"Last\" type=\"text\" name=\"lastName\">
                             </div>
                         </div>
                     </div>
@@ -75,13 +72,13 @@ $output = "<div id=\"form_wrapper\">
                     <div class=\"row\">
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"cellnum\">Cell Number:</label>
-                                <input id=\"cellnum\" class=\"form-control\" value='".$row['Phone_Cell']."' placeholder=\"Cell Number\" type=\"text\" name=\"cellphone\">
+                                <label class=\"control-label\" for=\"cellPhone\">Cell Number:</label>
+                                <input id=\"cellPhone\" class=\"form-control\" value='".$row['Phone_Cell']."' placeholder=\"Cell Number\" type=\"text\" name=\"cellPhone\">
                             </div>
 
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"homenum\">Home Number:</label>
-                                <input id=\"homenum\" class=\"form-control\" value='".$row['Phone_Home']."' placeholder=\"Home Number\" type=\"text\" name=\"homephone\">
+                                <label class=\"control-label\" for=\"homePhone\">Home Number:</label>
+                                <input id=\"homePhone\" class=\"form-control\" value='".$row['Phone_Home']."' placeholder=\"Home Number\" type=\"text\" name=\"homePhone\">
                             </div>
 
                         </div>
@@ -94,30 +91,25 @@ $output = "<div id=\"form_wrapper\">
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"saddress\">Address:</label>
-                                <input id=\"saddress\" class=\"form-control\" value='".$row['Address']."' placeholder=\"Address\" type=\"text\" name=\"address\">
+                                <label class=\"control-label\" for=\"address\">Address:</label>
+                                <input id=\"address\" class=\"form-control\" value='".$row['Address']."' placeholder=\"Address\" type=\"text\" name=\"address\">
                             </div>
                             <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"scity\">City:</label>
-                                <input id=\"scity\" class=\"form-control\" value='".$row['City']."' placeholder=\"City\" type=\"text\" name=\"city\">
+                                <label class=\"control-label\" for=\"city\">City:</label>
+                                <input id=\"city\" class=\"form-control\" value='".$row['City']."' placeholder=\"City\" type=\"text\" name=\"city\">
                             </div>
                             <div class=\"col-lg-3\">
-                                <!--<label class=\"control-label\" for=\"sstate\">State:</label>
-                                <input id=\"sstate\" class=\"form-control\" placeholder=\"State\" type=\"text\" name=\"state\">-->
-                                <label class=\"control-label\" for=\"sstate\">State:</label>
+                                <label class=\"control-label\" for=\"state\">State:</label>
                                 $stateSelect
                             </div>
                             <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"szip\">Zip Code:</label>
-                                <input id=\"szip\" class=\"form-control\" value='".$row['Zip']."' placeholder=\"Zip Code\" type=\"text\" name=\"zip\">
+                                <label class=\"control-label\" for=\"zip\">Zip Code:</label>
+                                <input id=\"zip\" class=\"form-control\" value='".$row['Zip']."' placeholder=\"Zip Code\" type=\"text\" name=\"zip\">
                             </div>
                         </div>
-
-
                     </div>
 
                     <div class=\"row\">
-
                     <div class=\"form-group\">
                         <div class=\"col-lg-6\">
                             <label class=\"control-label\" for=\"email\">Email:</label>
@@ -133,16 +125,10 @@ $output = "<div id=\"form_wrapper\">
                     </div>
                 </div>
 
-
                     <input id=\"submit\" class=\"btn btn-primary btn-lg btn-block\" type=\"submit\" value=\"Submit\"><br><br>
 
                 </form>
-
             </div>";
-
 echo $output;
-
-
-
 
 ?>

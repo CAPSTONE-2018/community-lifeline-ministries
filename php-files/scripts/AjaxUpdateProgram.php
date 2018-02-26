@@ -4,9 +4,9 @@
 include("../../db/config.php");
 
 $output = "";
-$id = intval($_POST['programid']);
+$id = intval($_POST['programId']);
 session_start();
-$_SESSION['programid'] = $id;
+$_SESSION['programId'] = $id;
 
 $query = "SELECT * FROM Programs WHERE Id =$id;";
 
@@ -28,7 +28,7 @@ $output = "<div id=\"form_wrapper\">
             <div class=\"form-group\">
                 <div class=\"col-lg-6\">
                     <label class=\"control-label\" for=\"name\">Program Name:</label>
-                    <input id=\"name\" class=\"form-control\" value='".$row['Program_Name']."' placeholder=\"Program Name\" type=\"text\" name=\"programname\">
+                    <input id=\"name\" class=\"form-control\" value='".$row['Program_Name']."' placeholder=\"Program Name\" type=\"text\" name=\"programName\">
                 </div>                 
             </div>
         </div>

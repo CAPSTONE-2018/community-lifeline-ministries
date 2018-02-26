@@ -10,8 +10,8 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 session_start();
-$id = $_SESSION['programid'];
-$programName = $_POST['programname'];
+$id = $_SESSION['programId'];
+$programName = $_POST['programName'];
 
 $sql = "UPDATE Programs SET Program_Name = '$programName' WHERE Id = '$id' ;";
 
