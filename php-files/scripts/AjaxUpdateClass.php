@@ -8,7 +8,7 @@ $id = intval($_POST['classid']);
 
 session_start();
 
-$_SESSION['classId'] = $id;
+$_SESSION['classid'] = $id;
 
 $query = "SELECT * FROM Classes WHERE Id =$id;";
 $query2 = "SELECT * FROM Schedules WHERE Class_Id =$id;";
@@ -22,7 +22,7 @@ $row2 = mysqli_fetch_array($result2);
 $output = "<div id=\"form_wrapper\">
     <form class=\"form - horizontal\" action=\"../update/UpdateClass.php\" method=\"POST\" id=\"form2\">
 
-        <h1>Update \"" .$row['Class_Name']."'s Information:</h1>
+        <h1>Update \"".$row['Class_Name']."'s Information:</h1>
         <br />
         <div class=\"row\">
     

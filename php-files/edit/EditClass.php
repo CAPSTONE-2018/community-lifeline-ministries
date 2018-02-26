@@ -7,11 +7,7 @@ include("../../db/config.php");
 $query = "SELECT * FROM Classes ORDER BY Id;";
 $result = mysqli_query($db, $query);
 ?>
-
-
-
     <div class="row">
-
         <div class="form-group">
             <div class="col-lg-4">
                 <label class="control-label" for="classid">Select Class To Update:</label>

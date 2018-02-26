@@ -1,18 +1,17 @@
 <?php
 
 //connect to database
-include("../db/config.php");
+include("../../db/config.php");
 
 $output = "";
 $id = intval($_POST['scoreid']);
 
 session_start();
 
-$_SESSION['testScoreId'] = $id;
+$_SESSION['scoreid'] = $id;
 
 
-
-$query = "SELECT * FROM Test_Score_To_Students WHERE Student_Id ='".$id."' ;";
+$query = "SELECT * FROM Student_To_Test_Scores WHERE Student_Id ='".$id."' ;";
 
 
 $result = mysqli_query($db, $query);
@@ -42,12 +41,13 @@ if ($row['Term'] == "Winter"){
 
 $output = "<div id=\"form_wrapper\">
 
-                <form class=\"form-horizontal\" action=\"updateTestScores.php\" method=\"POST\" id=\"form2\">
+                <form class=\"form-horizontal\" action=\"../update/UpdateTestScores.php\" method=\"POST\" id=\"form2\">
 
                     <h1>Update Test Score Information:</h1>
                     <br />
 
                     <div class=\"row\">
+                        <input type=\"text\" name=\"scoreid\" value=$id />
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
@@ -61,7 +61,7 @@ $output = "<div id=\"form_wrapper\">
                             </div>
                             <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"year\">Year:</label>
-                                <input id=\"year\" class=\"form-control\" value='". $row['Year'] ."' placeholder=\"Year\" type=\"text\" name=\"year\">
+                                <input id=\"year\" class=\"form-control\" value='". $row['School_Year'] ."' placeholder=\"Year\" type=\"text\" name=\"year\">
                             </div>
                         </div>
                     </div>

@@ -110,7 +110,7 @@ $account = $_SESSION['account'];
                     <input type="submit" value="Class"/>
                 </form>
 
-                <form action="editTestScores.php" method="POST">
+                <form action="../edit/EditTestScores.php" method="POST">
                     <input type="submit" value="Student Test Scores"/>
                 </form>
             </div>
@@ -181,6 +181,10 @@ $account = $_SESSION['account'];
 
                 <form action="../show/ShowContacts.php" method="POST">
                     <input type="submit" value="Contacts"/>
+                </form>
+
+                <form action="../show/ShowTestScores.php" method="POST">
+                    <input type="submit" value="Test Scores"/>
                 </form>
             </div>
         </div>
