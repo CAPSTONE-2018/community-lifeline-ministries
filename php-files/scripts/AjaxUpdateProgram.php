@@ -10,13 +10,13 @@ $_SESSION['programid'] = $id;
 
 $query = "SELECT * FROM Programs WHERE Id =$id;";
 
-//$query2 = "SELECT * FROM Volunteer_To_Programs WHERE Program_Id =$id;";
+$query2 = "SELECT * FROM Volunteer_To_Programs WHERE Program_Id =$id;";
 
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
 
-//$result2 = mysqli_query($db, $query2);
-//$row2 = mysqli_fetch_array($result2);
+$result2 = mysqli_query($db, $query2);
+$row2 = mysqli_fetch_array($result2);
 
 $output = "<div id=\"form_wrapper\">
     <form class=\"form - horizontal\" action=\"../update/UpdateProgram.php\" method=\"POST\" id=\"form2\">
