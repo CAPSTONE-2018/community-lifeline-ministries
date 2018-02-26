@@ -6,11 +6,11 @@ INSERT INTO Allergies(Type) VALUES ("Insect Sting Allergy");
 INSERT INTO Allergies(Type) VALUES ("Dust Allergy");
 INSERT INTO Allergies(Type) VALUES ("Pet Allergy");
 
-INSERT INTO Classes(Class_Name) VALUES ("First Class");
-INSERT INTO Classes(Class_Name) VALUES ("Second Class");
-INSERT INTO Classes(Class_Name) VALUES ("Third Class");
-INSERT INTO Classes(Class_Name) VALUES ("Fourth Class");
-INSERT INTO Classes(Class_Name) VALUES ("Fifth Class");
+INSERT INTO Classes(Class_Name) VALUES ("Reading Workshop");
+INSERT INTO Classes(Class_Name) VALUES ("Writing Workshop");
+INSERT INTO Classes(Class_Name) VALUES ("Math Workshop");
+INSERT INTO Classes(Class_Name) VALUES ("Computer Programming");
+INSERT INTO Classes(Class_Name) VALUES ("Art Workshop");
 
 INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mrs.", "Marilee", "Muller", "630-350-4389", "630-833-8899", "454 Royal Oaks Drive", "Wooddale", "IL", 60105, "muller@gmail.com");
 INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Address, City, State, Zip, Email) VALUES ("Mr.", "Bruce", "Alder", "773-240-0223", "250 Red Oaks Drive", "Bensenville", "IL", 60103, "bruce@yahoo.com");
@@ -18,17 +18,14 @@ INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Addr
 INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mrs.", "Pamela", "Ellery", "630-333-2453", "630-889-3299", "400 S Mason St", "Bensenville", "IL", 60103, "pam1@gmail.com");
 INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mrs.", "Andrea", "Wisnowski", "630-924-4592", "630-321-1299", "323 Judson St", "Addison", "IL", 60101, "andrea@gmail.com");
 
-INSERT INTO Programs(Program_Name) VALUES ("First Program");
-INSERT INTO Programs(Program_Name) VALUES ("Second Program");
-INSERT INTO Programs(Program_Name) VALUES ("Third Program");
-INSERT INTO Programs(Program_Name) VALUES ("Fourth Program");
-INSERT INTO Programs(Program_Name) VALUES ("Fifth Program");
+INSERT INTO Programs(Program_Name) VALUES ("Sons of Thunder");
+INSERT INTO Programs(Program_Name) VALUES ("G.E.M.");
 
 INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (1,4);
 INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (2,1);
-INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (3,5);
-INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (4,2);
-INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (5,3);
+INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (2,5);
+INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (1,2);
+INSERT INTO Class_To_Programs(Program_Id, Class_Id) VALUES (1,3);
 
 INSERT INTO Students(First_Name, Last_Name, Gender, Birth_Date, Address, City, State, Zip, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES ("Audrey", "Chapman", "F", '2007-05-14' , "640 George St", "Bensenville", "IL", 60103, "Fullerton Middle School", 1, 1, 1, 0);
 INSERT INTO Students(First_Name, Last_Name, Gender, Birth_Date, Address, City, State, Zip, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES ("Evan", "Freemon", "M", "2005-08-22", "389 Catalpa Dr", "Wooddale", "IL", 60105, "Glen Ellyn Middle School", 1, 1, 1, 0);
@@ -68,10 +65,34 @@ INSERT INTO Student_To_Contacts(Student_Id, Conctact_Id, Relationship) VALUES (5
 
 INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (1, 4);
 INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (2, 3);
-INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (3, 1);
-INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (4, 2);
-INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (5, 5);
+INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (2, 1);
+INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (1, 2);
+INSERT INTO Volunteer_To_Programs(Program_Id, Volunteer_Id) VALUES (1, 5);
 
 INSERT INTO Student_To_Test_Scores(Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES (1, 2016, "Spring", 22, 23);
 INSERT INTO Student_To_Test_Scores(Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES (2, 2017, "Fall", 74, 80);
 INSERT INTO Student_To_Test_Scores(Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES (3, 2018, "Summer", 55, 65);
+
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (1, "2017-08-12", 1, 0, 0, 0);
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (2, "2017-08-12", 1, 0, 0, 0);
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (3, "2017-08-12", 1, 0, 0, 0);
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (2, "2017-08-13", 1, 0, 0, 0);
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (3, "2017-08-13", 1, 0, 0, 0);
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (5, "2017-08-12", 1, 0, 0, 0);
+INSERT INTO Attendance(Student_Id, Date, Present, Absent, TardyInd, TardyTime) VALUES (5, "2017-08-13", 1, 0, 0, 0);
+
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (1, 1);
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (2, 1);
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (3, 2);
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (4, 2);
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (5, 1);
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (5, 1);
+INSERT INTO Attendance_To_Programs(Attendance_Id, Program_Id) VALUES (5, 1);
+
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (1,1);
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (1,2);
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (2,1);
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (3,2);
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (4,1);
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (4,2);
+INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (5,2);

@@ -16,7 +16,7 @@ $result = mysqli_query($db, $query);
         <div class="form-group">
             <div class="col-lg-3">
                 <label class="control-label" for="scoreid">Select Student To Update Scores:</label>
-                <select id="scoreid" class="form-control" name="scoreid">
+                <select id="scoreid" class="form-control" name="id">
                     <option value="">Please Select a Student</option>
                     <?php
                     if (mysqli_num_rows($result) > 0) {

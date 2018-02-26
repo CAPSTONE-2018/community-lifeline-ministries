@@ -47,7 +47,7 @@ $output = "<div id=\"form_wrapper\">
                     <br />
 
                     <div class=\"row\">
-                        <input type=\"text\" name=\"scoreid\" value=$id />
+                        <input id=\"scoreid\" type=\"number\" name=\"scoreid\" value=$id />
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
