@@ -1,27 +1,27 @@
 <?php
 
 //saving info from text boxes
-$username = $_POST['username'];
-$password = $_POST['password'];
+$enteredUsername = $_POST['username'];
+$enteredPassword = $_POST['password'];
 
-if($username == '' || $password == ''){
+if($enteredUsername == '' || $enteredPassword == ''){
   header("Location: index.html");
 }else{
-  $encryptPass = md5($password);
+  $encryptPass = md5($enteredPassword);
 
   //Retrieve database credentials and connect to database
   include("../../db/config.php");
   if ($stmt = $db->prepare("SELECT * FROM Logins WHERE username=? AND password=?")) {
-      $stmt->bind_param('ss', $username, $encryptPass);
+      $stmt->bind_param('ss', $enteredUsername, $encryptPass);
       $stmt->execute();
-      $stmt->bind_result($user_name, $pass, $account, $firstName, $lastName, $email);
+      $stmt->bind_result($foundUsername, $foundPassword, $account, $firstName, $lastName, $email);
       $stmt->fetch();
       $stmt->close();
 
       //check if the credentials match an account in the database
-     if($user_name == $username and $pass == $encryptPass ) {
+     if($foundUsername == $enteredUsername and $foundPassword == $encryptPass ) {
           session_start();
-          $_SESSION['loggedIn'] = "$username";
+          $_SESSION['loggedIn'] = "$enteredUsername";
           $_SESSION['account'] = "$account";
 
           header("Location: menu.php");

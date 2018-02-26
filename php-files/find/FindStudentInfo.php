@@ -9,7 +9,7 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
-$id = $_POST['child_id'];
+$id = $_POST['studentId'];
 
 if ($stmt = $db->prepare("SELECT * FROM Students WHERE Id = ?")) {
     $stmt->bind_param("i", $id);

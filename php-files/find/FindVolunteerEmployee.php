@@ -11,7 +11,7 @@
         //connect to database
         include("../../db/config.php");
 
-        $id = $_POST['ID'];
+        $id = $_POST['volunteerId'];
 
         if ($stmt = $db->prepare("SELECT * FROM Volunteer_Employees WHERE Id = ?")){
             $stmt->bind_param("i", $id);
