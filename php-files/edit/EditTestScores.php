@@ -15,8 +15,8 @@ $result = mysqli_query($db, $query);
     <div class="row">
         <div class="form-group">
             <div class="col-lg-3">
-                <label class="control-label" for="scoreid">Select Student To Update Scores:</label>
-                <select id="scoreid" class="form-control" name="id">
+                <label class="control-label" for="testScoreId">Select Student To Update Scores:</label>
+                <select id="testScoreId" class="form-control" name="id">
                     <option value="">Please Select a Student</option>
                     <?php
                     if (mysqli_num_rows($result) > 0) {
@@ -31,21 +31,21 @@ $result = mysqli_query($db, $query);
         </div>
     </div>
 
-    <div id="showScoreInfo"></div>
+    <div id="showTestScoreInfo"></div>
 
     <?php
       include("../scripts/footer.php");
       ?>
 <script>
     $(document).ready(function () {
-        $('#scoreid').change(function () {
-            var scoreid = $(this).val();
+        $('#testScoreId').change(function () {
+            var testScoreId = $(this).val();
             $.ajax({
                 url:"../scripts/AjaxUpdateTestScores.php",
                 method:"POST",
-                data:{scoreid:scoreid},
+                data:{testScoreId:testScoreId},
                 success:function (output) {
-                    $('#showScoreInfo').html(output);
+                    $('#showTestScoreInfo').html(output);
                 }
             });
         });

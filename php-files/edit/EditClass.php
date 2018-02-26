@@ -10,9 +10,9 @@ $result = mysqli_query($db, $query);
     <div class="row">
         <div class="form-group">
             <div class="col-lg-4">
-                <label class="control-label" for="classid">Select Class To Update:</label>
+                <label class="control-label" for="classId">Select Class To Update:</label>
 
-                <select id="classid" class="form-control" name="id">
+                <select id="classId" class="form-control" name="id">
                     <option value="">Please Select a Class</option>
                     <?php
                     if (mysqli_num_rows($result) > 0) {
@@ -35,12 +35,12 @@ $result = mysqli_query($db, $query);
 
 <script>
     $(document).ready(function () {
-        $('#classid').change(function () {
-            var classid = $(this).val();
+        $('#classId').change(function () {
+            var classId = $(this).val();
             $.ajax({
                 url:"../scripts/AjaxUpdateClass.php",
                 method:"POST",
-                data:{classid:classid},
+                data:{classId:classId},
                 success:function (output) {
                     $('#showClassInfo').html(output);
                 }

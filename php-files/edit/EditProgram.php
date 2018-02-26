@@ -8,15 +8,11 @@ $query = "SELECT * FROM Programs ORDER BY Id;";
 $result = mysqli_query($db, $query);
 ?>
 
-
-
 <div class="row">
-
     <div class="form-group">
         <div class="col-lg-4">
-            <label class="control-label" for="programid">Select Program To Update:</label>
-
-            <select id="programid" class="form-control" name="id">
+            <label class="control-label" for="programId">Select Program To Update:</label>
+            <select id="programId" class="form-control" name="id">
                 <option value="">Please Select a Program</option>
                 <?php
                 if (mysqli_num_rows($result) > 0) {
@@ -31,7 +27,7 @@ $result = mysqli_query($db, $query);
     </div>
 </div>
 
-<div id="showClassInfo"></div>
+<div id="showProgramInfo"></div>
 
 <?php
 include("../scripts/footer.php");
@@ -39,14 +35,14 @@ include("../scripts/footer.php");
 
 <script>
     $(document).ready(function () {
-        $('#programid').change(function () {
-            var programid = $(this).val();
+        $('#programId').change(function () {
+            var programId = $(this).val();
             $.ajax({
                 url:"../scripts/AjaxUpdateProgram.php",
                 method:"POST",
-                data:{programid:programid},
+                data:{programId:programId},
                 success:function (output) {
-                    $('#showClassInfo').html(output);
+                    $('#showProgramInfo').html(output);
                 }
             });
         });
