@@ -11,7 +11,7 @@ include("../scripts/header.php");
 
 <div class="row">
     <div class="form-group">
-        <div class="col-lg-3">
+        <div class="col-lg-10">
             <label class="control-label" for="contactId">Select Contact To Update:</label>
             <select id="contactId" class="form-control" name="id">
                 <option value="">Please Select a Contact</option>

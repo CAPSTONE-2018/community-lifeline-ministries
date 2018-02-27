@@ -10,7 +10,7 @@ $result = mysqli_query($db, $query);
 
 <div class="row">
     <div class="form-group">
-        <div class="col-lg-4">
+        <div class="col-lg-10">
             <label class="control-label" for="programId">Select Program To Update:</label>
             <select id="programId" class="form-control" name="id">
                 <option value="">Please Select a Program</option>

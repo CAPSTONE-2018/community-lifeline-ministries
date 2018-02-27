@@ -6,12 +6,12 @@ include("scripts/header.php");
         <h1>Table of contents</h1>
         <hr />
         <div class="list-group">
-            <a href="#addnewuser" class="list-group-item list-group-item-action">Adding a New User</a>
-            <a href="#addnewobject" class="list-group-item list-group-item-action">Adding Objects to the Database</a>
-            <a href="#updateobject" class="list-group-item list-group-item-action">Updating Objects in the Database</a>
-            <a href="#searchingobject" class="list-group-item list-group-item-action">Searching For an Object in the Database</a>
-            <a href="#displayingobject" class="list-group-item list-group-item-action">Displaying Objects in the Database</a>
-            <a href="#creatingreport" class="list-group-item list-group-item-action">Creating a Report</a>
+            <a href="#addnewuser" class="list-group-item list-group-item-action">Adding a New User</a><br>
+            <a href="#addnewobject" class="list-group-item list-group-item-action">Adding Objects to the Database</a><br>
+            <a href="#updateobject" class="list-group-item list-group-item-action">Updating Objects in the Database</a><br>
+            <a href="#searchingobject" class="list-group-item list-group-item-action">Searching For an Object in the Database</a><br>
+            <a href="#displayingobject" class="list-group-item list-group-item-action">Displaying Objects in the Database</a><br>
+            <a href="#creatingreport" class="list-group-item list-group-item-action">Creating a Report</a><br>
             <a href="#printobject" class="list-group-item list-group-item-action">Printing Reports/Lists</a>
         </div>
         <br />
