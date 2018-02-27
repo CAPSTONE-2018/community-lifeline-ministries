@@ -44,11 +44,11 @@
             <div class="form-group">
                 <div class="col-lg-4">
                     <label class="control-label" for="firstName">First Name:</label>
-                    <input id="firstName" class="form-control" placeholder="First Name" type="text" name="firstName">
+                    <input id="firstName" class="form-control" placeholder="First Name" type="text" name="firstName" autofocus required />
                 </div>
                 <div class="col-lg-4">
                     <label class="control-label" for="lastName">Last Name:</label>
-                    <input id="lastName" class="form-control" placeholder="Last Name" type="text" name="lastName">
+                    <input id="lastName" class="form-control" placeholder="Last Name" type="text" name="lastName" required />
                 </div>
                 <div class="col-lg-4">
                     <label class="control-label" for="middleName">Middle Name:</label>
@@ -62,7 +62,7 @@
             <div class="form-group">
                 <div class="col-lg-6">
                     <label class="control-label" for="cellPhone">Cell Number:</label>
-                    <input id="cellPhone" class="form-control" placeholder="Cell Number" type="text" name="cellPhone">
+                    <input id="cellPhone" class="form-control" placeholder="Cell Number" type="text" name="cellPhone" required />
                 </div>
 
                 <div class="col-lg-6">
