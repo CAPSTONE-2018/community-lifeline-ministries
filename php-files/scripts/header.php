@@ -170,6 +170,7 @@ $account = $_SESSION['account'];
                 <div class="span"></div>
                 <div class="span"><img class="center-block" src="../../images/Lifeline.png" /></div>
                 <div class="span"></div>
+            <br><br><br>
 
 
 
