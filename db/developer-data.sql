@@ -47,6 +47,9 @@ INSERT INTO Schedules(Class_Id, Volunteer_Id, Room_Number, Start_Time, End_Time,
 
 INSERT INTO Student_To_Allergies(Student_Id, Allergy_Id) VALUES (2, 1);
 INSERT INTO Student_To_Allergies(Student_Id, Allergy_Id) VALUES (1, 4);
+INSERT INTO Student_To_Allergies(Student_Id, Allergy_Id) VALUES (4, 1);
+INSERT INTO Student_To_Allergies(Student_Id, Allergy_Id) VALUES (3, 2);
+INSERT INTO Student_To_Allergies(Student_Id, Allergy_Id) VALUES (5, 2);
 INSERT INTO Student_To_Allergies(Student_Id, Allergy_Id) VALUES (4, 2);
 
 INSERT INTO Student_To_Classes(Student_Id, Class_Id) VALUES (1, 5);
