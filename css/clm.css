@@ -31,6 +31,7 @@ a, a:hover, a:focus {
     box-shadow: none;
     outline: none !important;
     border: none;
+    text-align: left;
 }
 
 .line {
@@ -50,6 +51,7 @@ i, span {
 .wrapper {
     display: flex;
     align-items: stretch;
+    text-align: center;
 }
 
 #sidebar {
@@ -105,13 +107,15 @@ i, span {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 5px;
     background: #2EA6A2;
+
 }
 
 #sidebar .sidebar-header strong {
     display: none;
     font-size: 1.8em;
+    text-align: center;
 }
 
 #sidebar ul.components {
@@ -175,11 +179,11 @@ ul.CTAs a {
 
 a.download {
     background: #fff;
-    color: ##E95C58;
+    color: #E95C58;
 }
 
 a.article, a.article:hover {
-    background: ##E95C58 !important;
+    background: #E95C58 !important;
     color: #fff !important;
 }
 
@@ -192,8 +196,14 @@ a.article, a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
-    max-width: 1500px;
-    margin: auto;
+    max-width: 750px;
+    margin-left: 10%;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -207,6 +217,7 @@ a.article, a.article:hover {
         text-align: center;
         margin-left: -80px !important ;
     }
+
     a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
         top: auto;
         bottom: 5px;

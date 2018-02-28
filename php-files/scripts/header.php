@@ -26,22 +26,37 @@ $account = $_SESSION['account'];
 
 
 
+
+
+
+<p id="time" class="navbar-text navbar-right">
+        <script>
+            var d =  new Date();
+            document.getElementById("time").innerHTML = d.toLocaleTimeString();
+        </script>
+</p>
+
+
+
+
+
 <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar">
+
+        <div class="navbar-btn">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                <i class="glyphicon glyphicon-align-left"></i>
+            </button>
+        </div>
+
+
         <div class="sidebar-header">
             <h3>Community Lifeline Ministries</h3>
             <strong>CLM</strong>
         </div>
 
-
         <ul class="list-unstyled components">
-            <li class"navbar-header">
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                <i class="glyphicon glyphicon-align-left"></i>
-            </button>
-            </li>
-
 
             <li class="active">
                 <a href="../index-login/menu.php">
@@ -66,7 +81,7 @@ $account = $_SESSION['account'];
             </li>
             <li>
                 <a href="#contactSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-user"></i>
+                    <i class="glyphicon glyphicon-earphone"></i>
                     Contacts
                 </a>
                 <ul class="collapse list-unstyled" id="contactSubmenu">
@@ -77,7 +92,7 @@ $account = $_SESSION['account'];
             </li>
             <li>
                 <a href="#volunteerSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-user"></i>
+                    <i class="glyphicon glyphicon-briefcase"></i>
                     Volunteers
                 </a>
                 <ul class="collapse list-unstyled" id="volunteerSubmenu">
@@ -87,7 +102,7 @@ $account = $_SESSION['account'];
             </li>
             <li>
                 <a href="#classSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-user"></i>
+                    <i class="glyphicon glyphicon-pencil"></i>
                     Classes & Programs
                 </a>
                 <ul class="collapse list-unstyled" id="classSubmenu">
@@ -113,7 +128,7 @@ $account = $_SESSION['account'];
             </li>
             <li>
                 <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-duplicate"></i>
+                    <i class="glyphicon glyphicon-search"></i>
                     Search
                 </a>
                 <ul class="collapse list-unstyled" id="searchSubmenu">
@@ -124,22 +139,22 @@ $account = $_SESSION['account'];
             </li>
             <li>
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-duplicate"></i>
+                    <i class="glyphicon glyphicon-cog"></i>
                     Admin
                 </a>
                 <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li><a href="../add/AddUser.php">New User</a></li>
+                    <li><a href="../new/NewUser.php">New User</a></li>
                 </ul>
             </li>
             <li>
                 <a href="../../UserDocumentation.php">
-                    <i class="glyphicon glyphicon-home"></i>
+                    <i class="glyphicon glyphicon-question-sign"></i>
                     Help
                 </a>
             </li>
             <li>
                 <a href="../index-login/logout.php">
-                    <i class="glyphicon glyphicon-home"></i>
+                    <i class="glyphicon glyphicon-off"></i>
                     Logout
                 </a>
             </li>
@@ -150,9 +165,13 @@ $account = $_SESSION['account'];
 
     <div id="content">
 
-        <div class="text-center">
-            <a href="../index-login/menu.php" title="Homepage"><img src="../../images/Lifeline.png" alt="Community Lifeline"></a>
-        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span"></div>
+                <div class="span"><img class="center-block" src="../../images/Lifeline.png" /></div>
+                <div class="span"></div>
+
+
 
 
 

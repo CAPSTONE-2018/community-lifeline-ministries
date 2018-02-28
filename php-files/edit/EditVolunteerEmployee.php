@@ -11,7 +11,7 @@ include("../scripts/header.php");
 <div class="row">
 
     <div class="form-group">
-        <div class="col-lg-10">
+        <div class="100%">
             <label class="control-label" for="volunteerId">Select Volunteer/Employee To Update:</label>
 
             <select id="volunteerId" class="form-control" name="id">
