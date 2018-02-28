@@ -132,9 +132,9 @@ $account = $_SESSION['account'];
                     Search
                 </a>
                 <ul class="collapse list-unstyled" id="searchSubmenu">
-                    <li><a href="../find/FindStudentInfo.php">Student Info</a></li>
-                    <li><a href="../find/FindVolunteerEmployee.php">Volunteer Info</a></li>
-                    <li><a href="../find/FindSchedule.php">Schedules</a></li>
+                    <li><a href="../search/SearchStudentInfo.php">Student Info</a></li>
+                    <li><a href="../search/SearchVolunteerEmployee.php">Volunteer Info</a></li>
+                    <li><a href="../search/SearchSchedule.php">Schedules</a></li>
                 </ul>
             </li>
             <li>
@@ -147,7 +147,7 @@ $account = $_SESSION['account'];
                 </ul>
             </li>
             <li>
-                <a href="../../UserDocumentation.php">
+                <a href="../index-login/UserDocumentation.php">
                     <i class="glyphicon glyphicon-question-sign"></i>
                     Help
                 </a>
