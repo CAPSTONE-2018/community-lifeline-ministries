@@ -12,7 +12,7 @@ $result = mysqli_query($db, $query);
 <h1>Displaying All Classes:</h1>
 <br/>
 
-<div id="table-wrapper">
+<div id="print_div" class="table-wrapper">
     <table class="table table-condensed table-striped">
         <thead>
         <tr>
@@ -52,7 +52,7 @@ include("../scripts/footer.php");
 
 <script>
     $('#show-all-button').on('click', function(e) {
-        $('#table-wrapper').slideDown();
+        $('.table-wrapper').slideDown();
         $('#show-all-button').hide();
         $('#show-class-info').slideUp();
         e.preventDefault();
@@ -68,7 +68,7 @@ include("../scripts/footer.php");
                 success:function (output) {
                     $('#show-class-info').slideDown().html(output);
                     $('#show-all-button').show();
-                    $('#table-wrapper').slideUp();
+                    $('.table-wrapper').slideUp();
                 }
             });
         });
