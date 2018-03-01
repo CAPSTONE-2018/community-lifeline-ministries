@@ -40,7 +40,7 @@ $result = mysqli_query($db, $query);
     </table>
 </div>
 <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-<input type="button" style="display: " id="show-all-button" class="btn btn-primary pull-right" value="Show All"/>
+<input type="button" id="show-all-button" class="btn btn-primary pull-right" value="Show All"/>
 
 <script src="../../scripts/print.js"></script>
 

@@ -12,7 +12,7 @@ $result = mysqli_query($db, $query);
 <h1>Displaying All Allergies:</h1>
 <br/>
 
-<div id="print_div">
+<div id="print_div" class="table-wrapper">
     <table id="allergy-table" class="table table-condensed table-striped">
         <thead>
         <tr>
@@ -40,13 +40,15 @@ $result = mysqli_query($db, $query);
             echo "</td><td>";
             echo "$result2[0]";
             echo "</td><td>";
-            echo "<button class='table-submit-button' type='button' value='$search' >Update</button>";
+            echo "<button class='table-update-button' type='button' value='$search' >Update</button>";
         }
         ?>
         </tbody>
     </table>
 </div>
 <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
+<input type="button" id="show-all-button" class="btn btn-primary pull-right" value="Show All"/>
+
 <script src="../../scripts/print.js"></script>
 
 <div id="show-allergy-info"></div>
@@ -56,16 +58,24 @@ include("../scripts/footer.php");
 
 
 <script>
+    $('#show-all-button').on('click', function(e) {
+        $('.table-wrapper').slideDown();
+        $('#show-all-button').hide();
+        $('#show-allergy-info').slideUp();
+        e.preventDefault();
+    });
+
     $(document).ready(function () {
-        $('.table-submit-button').click(function () {
+        $('.table-update-button').click(function () {
             var allergyId = $(this).attr('value');
-            alert(allergyId);
             $.ajax({
                 url: "../scripts/AjaxUpdateAllergies.php",
                 method: "POST",
                 data: {allergyId: allergyId},
                 success: function (output) {
-                    $('#show-allergy-info').html(output);
+                    $('#show-allergy-info').slideDown().html(output);
+                    $('#show-all-button').show();
+                    $('.table-wrapper').slideUp();
                 }
             })
         });
