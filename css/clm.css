@@ -60,6 +60,7 @@ i, span {
     background: #2EA6A2;
     color: #fff;
     transition: all 0.3s;
+    position: fixed;
 }
 
 #sidebar.active {
@@ -81,7 +82,7 @@ i, span {
 }
 
 #sidebar.active ul li a {
-    padding: 20px 10px;
+    padding: 10px 5px;
     text-align: center;
     font-size: 0.85em;
 }
@@ -196,8 +197,8 @@ a.article, a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
-    max-width: 750px;
-    margin-left: 10%;
+    margin-left: 275px;
+    margin-right: auto;
 }
 
 .center-block {
@@ -212,12 +213,11 @@ a.article, a.article:hover {
 
 
 
-                           /* ---------------------------------------------------
-                               MEDIAQUERIES
-                           ----------------------------------------------------- */
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
 @media (max-width: 768px) {
     #sidebar {
-        min-width: 80px;
         max-width: 80px;
         text-align: center;
         margin-left: -80px !important ;
