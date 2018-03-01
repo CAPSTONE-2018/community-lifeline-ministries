@@ -40,6 +40,7 @@ $result = mysqli_query($db, $query);
             echo "</td><td>";
             echo "$result2[0]";
             echo "</td><td>";
+            echo "<button class='table-submit-button' type='button' value='$search' >Update</button>";
         }
         ?>
         </tbody>
@@ -47,6 +48,8 @@ $result = mysqli_query($db, $query);
 </div>
 <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
 <script src="../../scripts/print.js"></script>
+
+<div id="show-allery-info"/>
 <?php
 include("../scripts/footer.php");
 ?>
@@ -62,7 +65,7 @@ include("../scripts/footer.php");
                 method: "POST",
                 data: {allergyId: allergyId},
                 success: function (output) {
-                    $('#showAllergyInfo').html(output);
+                    $('#show-allergy-info').html(output);
                 }
             })
         });

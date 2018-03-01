@@ -19,10 +19,12 @@ $row = mysqli_fetch_array($result);
 $result2 = mysqli_query($db, $query2);
 $row2 = mysqli_fetch_array($result2);
 
+$classNameToDisplay = $row['Class_Name'];
+
 $output = "<div id=\"form_wrapper\">
     <form class=\"form - horizontal\" action=\"../update/UpdateClass.php\" method=\"POST\" id=\"form2\">
 
-        <h1>Update \"".$row['Class_Name']."'s Information:</h1>
+        <h1>Update $classNameToDisplay's Information:</h1>
         <br />
         <div class=\"row\">
     
@@ -41,6 +43,4 @@ $output = "<div id=\"form_wrapper\">
 </div>";
 
 echo $output;
-
-
 ?>
