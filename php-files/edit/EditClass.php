@@ -9,7 +9,7 @@ $result = mysqli_query($db, $query);
 ?>
     <div class="row">
         <div class="form-group">
-            <div class="col-lg-4">
+            <div class="100%">
                 <label class="control-label" for="classId">Select Class To Update:</label>
 
                 <select id="classId" class="form-control" name="id">
