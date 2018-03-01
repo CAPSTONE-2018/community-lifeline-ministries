@@ -3,7 +3,7 @@
 include("../scripts/header.php");
 ?>
 
-<h1>Add Test Score Information:</h1>
+<h1>Add Class Information:</h1>
 <br/>
 
 <?php
