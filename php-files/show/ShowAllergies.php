@@ -49,7 +49,7 @@ $result = mysqli_query($db, $query);
 <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
 <script src="../../scripts/print.js"></script>
 
-<div id="show-allery-info"/>
+<div id="show-allergy-info"></div>
 <?php
 include("../scripts/footer.php");
 ?>
