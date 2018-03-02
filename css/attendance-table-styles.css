@@ -53,3 +53,11 @@
     list-style: middle;
 
 }
+
+.checkbox-form {
+    vertical-align: middle;
+}
+
+.checkbox-form ul {
+    padding: 0;
+}
