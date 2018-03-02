@@ -1,0 +1,55 @@
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.checkbox-wrapper {
+    margin: auto;
+}
+
+.left-column-title {
+    width: 55%;
+}
+
+
+.centered-column-title {
+    margin: auto;
+    text-align: center;
+    width: 15%;
+}
+
+#attendance-table-wrapper {
+    width: 90%;
+}
+
+.student-name-column {
+    width: 55%;
+    vertical-align: middle;
+}
+
+.present-column,
+.absent-column {
+    width: 15%;
+}
+
+.check-mark-column {
+    width: 15%;
+    text-align: center;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.checkbox-form li {
+    list-style: none;
+
+}
+
+.table td {
+    list-style: middle;
+
+}
