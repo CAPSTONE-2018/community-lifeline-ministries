@@ -12,13 +12,13 @@ $result = mysqli_query($db, $query);
 <h1>Displaying All Classes:</h1>
 <br/>
 
-<div id="table-wrapper">
+<div id="print_div" class="table-wrapper">
     <table class="table table-condensed table-striped">
         <thead>
         <tr>
             <th>ID</th>
             <th>Class Name</th>
-            <th>Tools</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@ $result = mysqli_query($db, $query);
             echo "</td><td>";
             echo $row['Class_Name']; //coming from Class table
             echo "</td><td>";
-            echo "<button class='table-submit-button' type='button' value='$search' >Update</button>";
+            echo "<button class='table-update-button' type='button' value='$search' >Update</button>";
 
         }
         ?>
@@ -40,7 +40,7 @@ $result = mysqli_query($db, $query);
     </table>
 </div>
 <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-<input type="button" style="display: " id="show-all-button" class="btn btn-primary pull-right" onclick="clickHandler()" value="Show All"/>
+<input type="button" id="show-all-button" class="btn btn-primary pull-right" value="Show All"/>
 
 <script src="../../scripts/print.js"></script>
 
@@ -52,25 +52,23 @@ include("../scripts/footer.php");
 
 <script>
     $('#show-all-button').on('click', function(e) {
-        $('#table-wrapper').slideDown();
+        $('.table-wrapper').slideDown();
         $('#show-all-button').hide();
+        $('#show-class-info').slideUp();
         e.preventDefault();
     });
-</script>
 
-<script>
     $(document).ready(function () {
-        $("#show-all-button").css("display","none");
-        $('.table-submit-button').click(function () {
+        $('.table-update-button').click(function () {
             var classId = $(this).val();
             $.ajax({
                 url:"../scripts/AjaxUpdateClass.php",
                 method:"POST",
                 data:{classId:classId},
                 success:function (output) {
-                    $('#show-class-info').html(output);
+                    $('#show-class-info').slideDown().html(output);
                     $('#show-all-button').show();
-                    $('#table-wrapper').slideUp();
+                    $('.table-wrapper').slideUp();
                 }
             });
         });

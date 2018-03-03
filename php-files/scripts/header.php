@@ -24,38 +24,25 @@ $account = $_SESSION['account'];
 </head>
 <body>
 
-
-
-
-
-
 <p id="time" class="navbar-text navbar-right">
-        <script>
-            var d =  new Date();
-            document.getElementById("time").innerHTML = d.toLocaleTimeString();
-        </script>
+    <script>
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.toLocaleTimeString();
+    </script>
 </p>
-
-
-
-
 
 <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar">
-
         <div class="navbar-btn">
             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                 <i class="glyphicon glyphicon-align-left"></i>
             </button>
         </div>
-
-
         <div class="sidebar-header">
             <h3>Community Lifeline Ministries</h3>
             <strong>CLM</strong>
         </div>
-
         <ul class="list-unstyled components">
 
             <li class="active">
@@ -126,6 +113,20 @@ $account = $_SESSION['account'];
                     <li><a href="#">Page 3</a></li>
                 </ul>
             </li>
+
+            <li>
+                <a href="#allergySubmenu" data-toggle="collapse" aria-expanded="false">
+                    <i class="glyphicon glyphicon-alert"></i>
+                    Allergies
+                </a>
+                <ul class="collapse list-unstyled" id="allergySubmenu">
+                    <li><a href="#">Add Student Allergy</a></li>
+                    <li><a href="../new/NewAllergy.php">Add</a></li>
+                    <li><a href="../edit/EditAllergy.php">Update</a></li>
+                    <li><a href="../show/ShowAllergies.php">Display All</a></li>
+                </ul>
+            </li>
+
             <li>
                 <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false">
                     <i class="glyphicon glyphicon-search"></i>
@@ -161,33 +162,27 @@ $account = $_SESSION['account'];
     </nav>
 
 
-
-
     <div id="content">
 
         <div class="container">
             <div class="row">
                 <div class="span"></div>
-                <div class="span"><img class="center-block" src="../../images/Lifeline.png" /></div>
+                <div class="span"><img class="center-block" src="../../images/Lifeline.png"/></div>
                 <div class="span"></div>
-            <br><br><br>
+                <br><br><br>
 
 
+                <!-- jQuery CDN -->
+                <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+                <!-- Bootstrap Js CDN -->
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
-
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<!-- Bootstrap Js CDN -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-    });
-</script>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#sidebarCollapse').on('click', function () {
+                            $('#sidebar').toggleClass('active');
+                        });
+                    });
+                </script>
 </body>
 </html>
