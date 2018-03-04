@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
-
 <?php
 session_start();
 if (!isset($_SESSION['loggedIn'])) {
@@ -23,6 +21,8 @@ $account = $_SESSION['account'];
     <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
 </head>
 <body>
+
+<div class="container-fluid">
 
 <p id="time" class="navbar-text navbar-right">
     <script>
