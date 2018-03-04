@@ -4,9 +4,15 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-//Getting the query to search if the username and password are correct in the database
-//Do not need prepared statements because there is NO user input for this query so there can be no sql injection attack
-$query = "SELECT * FROM Student_To_Test_Scores;";
+$query = "SELECT Students.First_Name, Students.Last_Name, 
+            Student_To_Test_Scores.Student_Id, 
+            Student_To_Test_Scores.School_Year, 
+            Student_To_Test_Scores.Pre_Test,
+            Student_To_Test_Scores.Term,
+            Student_To_Test_Scores.Post_Test 
+            FROM Student_To_Test_Scores 
+            JOIN Students ON Student_To_Test_Scores.Student_Id = Students.Id;";
+
 $result = mysqli_query($db, $query);
 ?>
 
@@ -29,7 +35,7 @@ $result = mysqli_query($db, $query);
         <?php
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             echo "<tr><td>";
-            echo $row['Student_Id'];
+            echo $row['First_Name'];
             echo "</td><td>";
             echo $row['School_Year'];
             echo "</td><td>";
