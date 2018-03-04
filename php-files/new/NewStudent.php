@@ -214,25 +214,11 @@ include("../scripts/footer.php");
                 var reducedLunch = "Reduced Lunch Eligible: " + x.elements[14].value + "<br>";
                 var emotionalProblems = "Immediate Emotional Problem: " + x.elements[15].value + "<br>";
 
-
                 txt = firstName + lastName + middleName + suffix + dob + ethnicity + gender
                         + address + city + state + zipCode + school + permissionSlip + birthCertificate
                             + reducedLunch + emotionalProblems;
             }
             document.getElementById("modalBody").innerHTML = txt;
-
-
-
-//            $.ajax({
-//                url:"../scripts/AjaxUpdateAllergies.php",
-//                method:"POST",
-//                data:{allergyId:allergyId},
-//                success:function (output) {
-//                    $('#showAllergyInfo').html(output);
-//                }
-//            });
-
-
         });
     });
 </script>
