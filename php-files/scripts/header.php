@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
-
 <?php
 session_start();
 if (!isset($_SESSION['loggedIn'])) {
