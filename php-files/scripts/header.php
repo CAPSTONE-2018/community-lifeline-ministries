@@ -22,6 +22,8 @@ $account = $_SESSION['account'];
 </head>
 <body>
 
+<div class="container-fluid">
+
 <p id="time" class="navbar-text navbar-right">
     <script>
         var d = new Date();
