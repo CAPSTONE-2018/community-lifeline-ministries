@@ -31,7 +31,7 @@ $account = $_SESSION['account'];
     </script>
 </p>
 
-<div class="wrapper">
+
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="navbar-btn">
@@ -172,11 +172,6 @@ $account = $_SESSION['account'];
                 <br><br><br>
 
 
-                <!-- jQuery CDN -->
-                <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-                <!-- Bootstrap Js CDN -->
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
                 <script type="text/javascript">
                     $(document).ready(function () {
                         $('#sidebarCollapse').on('click', function () {
@@ -184,5 +179,3 @@ $account = $_SESSION['account'];
                         });
                     });
                 </script>
-</body>
-</html>
