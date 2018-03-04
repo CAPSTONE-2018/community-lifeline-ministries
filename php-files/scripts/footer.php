@@ -30,6 +30,6 @@
 </div>
 </div>
 </div>
-<!-- the above </div> closes the open <div class="container-fluid"> located in the header.php file-->
+<!-- the above </div> tags closes the open <div> tags from the header.php file-->
 </body>
 </html>
