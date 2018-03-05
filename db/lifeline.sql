@@ -6,6 +6,9 @@
 *********************************************************************************
 */
 CREATE TABLE Students (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id int(10) AUTO_INCREMENT PRIMARY KEY,
     First_Name VARCHAR(30),
     Last_Name VARCHAR(30),
@@ -31,6 +34,9 @@ IEP = immediate emotional problem
 
 
 CREATE TABLE Allergies (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(60),
     Type VARCHAR(60),
@@ -38,6 +44,9 @@ CREATE TABLE Allergies (
 );
 
 CREATE TABLE Student_To_Allergies (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Allergy_Id INT(10),
@@ -48,6 +57,9 @@ CREATE TABLE Student_To_Allergies (
 );
 
 CREATE TABLE Attendance (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Date DATE,
@@ -58,6 +70,9 @@ CREATE TABLE Attendance (
 );
 
 CREATE TABLE Contacts (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Prefix VARCHAR(10),
     First_Name VARCHAR(30),
@@ -74,6 +89,9 @@ CREATE TABLE Contacts (
 );
 
 CREATE TABLE Volunteer_Employees (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Prefix VARCHAR(10),
     First_Name VARCHAR(30),
@@ -91,11 +109,17 @@ CREATE TABLE Volunteer_Employees (
 );
 
 CREATE TABLE Classes(
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Class_Name VARCHAR(60)
 );
 
 CREATE TABLE Student_To_Test_Scores (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     School_Year INT(10),
@@ -107,11 +131,17 @@ CREATE TABLE Student_To_Test_Scores (
 );
 
 CREATE TABLE Programs (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Program_Name VARCHAR(60)
 );
 
 CREATE TABLE Attendance_To_Programs (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     ID INT(10) AUTO_INCREMENT PRIMARY KEY,
     Program_Id INT(10),
     Attendance_Id INT(10),
@@ -122,6 +152,9 @@ CREATE TABLE Attendance_To_Programs (
 );
 
 CREATE TABLE Class_To_Programs (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Program_Id INT(10),
     Class_Id INT(10),
@@ -132,6 +165,9 @@ CREATE TABLE Class_To_Programs (
 );
 
 CREATE TABLE Student_To_Classes(
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Class_Id INT(10),
@@ -142,6 +178,9 @@ CREATE TABLE Student_To_Classes(
 );
 
 CREATE TABLE Student_To_Contacts(
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Conctact_Id INT(10),
@@ -153,6 +192,9 @@ CREATE TABLE Student_To_Contacts(
 );
 
 CREATE TABLE Volunteer_To_Programs(
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Program_Id INT(10),
     Volunteer_Id INT(10),
@@ -163,6 +205,9 @@ CREATE TABLE Volunteer_To_Programs(
 );
 
 CREATE TABLE Schedules (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Class_Id INT(10),
     Volunteer_Id INT(10),
@@ -177,6 +222,9 @@ CREATE TABLE Schedules (
 );
 
 CREATE TABLE Logins (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     username VARCHAR(30) PRIMARY KEY,
     password VARCHAR(32),
     account_type VARCHAR(30),
@@ -186,6 +234,9 @@ CREATE TABLE Logins (
 );
 
 CREATE TABLE Student_To_Programs (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Student_Id INT(10),
     Program_Id INT(10),
