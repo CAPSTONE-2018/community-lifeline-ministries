@@ -10,6 +10,7 @@ CREATE TABLE Students (
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
     Id int(10) AUTO_INCREMENT PRIMARY KEY,
+    Active_Student TINYINT(1),
     First_Name VARCHAR(30),
     Last_Name VARCHAR(30),
     Middle_Name VARCHAR(30),
@@ -74,6 +75,7 @@ CREATE TABLE Contacts (
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Active_Contact TINYINT(1),
     Prefix VARCHAR(10),
     First_Name VARCHAR(30),
     Last_Name VARCHAR(30),
@@ -93,6 +95,7 @@ CREATE TABLE Volunteer_Employees (
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Active_Volunteer TINYINT(1),
     Prefix VARCHAR(10),
     First_Name VARCHAR(30),
     Last_Name VARCHAR(30),
@@ -113,6 +116,7 @@ CREATE TABLE Classes(
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Active_Class TINYINT(1),
     Class_Name VARCHAR(60)
 );
 
@@ -135,6 +139,7 @@ CREATE TABLE Programs (
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Active_Program TINYINT(1),
     Program_Name VARCHAR(60)
 );
 
@@ -209,14 +214,14 @@ CREATE TABLE Schedules (
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
     Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Class_Id INT(10),
+    Program_Id INT(10),
     Volunteer_Id INT(10),
     Room_Number VARCHAR(30),
     Start_Time VARCHAR(20),
     End_Time VARCHAR(20),
-    Day VARCHAR(30),
-    CONSTRAINT FK_Class_Id_Schedule FOREIGN KEY (Class_Id)
-    REFERENCES Classes(Id),
+    Day_Of_Week VARCHAR(30),
+    CONSTRAINT FK_Program_Id_Schedule FOREIGN KEY (Program_Id)
+    REFERENCES Programs(Id),
     CONSTRAINT FK_Volunteer_Id_Schedule FOREIGN KEY (Volunteer_Id)
     REFERENCES Volunteer_Employees (Id)
 );
@@ -225,6 +230,7 @@ CREATE TABLE Logins (
     Created_Timestamp TIMESTAMP DEFAULT now(),
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Author VARCHAR(30),
+    Active_User TINYINT(1),
     username VARCHAR(30) PRIMARY KEY,
     password VARCHAR(32),
     account_type VARCHAR(30),
