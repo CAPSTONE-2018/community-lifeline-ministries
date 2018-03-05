@@ -1,308 +1,265 @@
 <?php
 include("../scripts/header.php");
 ?>
-
 <link rel="stylesheet" href="../../css/form-styles.css"/>
+<link rel="stylesheet" href="../../css/toggle-switch.css"/>
 
-<div id="form_wrapper">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#1" data-toggle="tab">Student Info</a>
+                            </li>
+                            <li>
+                                <a href="#2" data-toggle="tab">Student Allergies</a>
+                            </li>
+                            <li>
+                                <a href="#3" data-toggle="tab">Student Contact</a>
+                            </li>
+                        </ul>
+                    </div>
 
-    <div class="form-bg">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <form class="form-horizontal" action="../add/AddStudent.php" method="POST" id="newStudentForm">
-                        <div class="header">Add Student Info</div>
+                    <form class="form-horizontal" action="../add/AddStudent.php" method="POST" name="newStudentForm" id="newStudentForm">
                         <div class="form-content">
-                            <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Personal Info</h4>
-                            <hr>
-                            <div class="form-group">
-                                <div class="col-sm-6">
-                                    <input id="firstName" class="form-control" placeholder="First Name" type="text"
-                                           name="firstName">
+                            <div class="tab-content">
+                                <div class="tab-pane active " id="1">
+                                    <div class="header">Add Student Info</div>
+
+                                    <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Personal Info</h4>
+                                    <div class="blue-line-color"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <input id="firstName" class="form-control" type="text"
+                                                       name="firstName"
+                                                       required/>
+                                                <div class="label-text">First Name</div>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input id="lastName" class="form-control" placeholder="Last Name"
+                                                   type="text"
+                                                   name="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <input id="middleName" class="form-control" placeholder="Middle Name"
+                                                   type="text"
+                                                   name="middleName">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input id="suffix" class="form-control" placeholder="Suffix" type="text"
+                                                   name="suffix">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <input id="dob" class="form-control" placeholder="YYYY/MM/DD"
+                                                   type="text"
+                                                   name="dob">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="ethnic" class="form-control" placeholder="Ethnicity"
+                                                   type="text"
+                                                   name="ethnicity">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select id="gender" class="form-control" name="gender">
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <h4 class="heading"><i class="glyphicon glyphicon-home"></i> Address</h4>
+                                    <div class="blue-line-color"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <input id="studentAddressOne" class="form-control" placeholder="Address"
+                                                   type="text"
+                                                   name="addressOne">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input id="studentAddressTwo" class="form-control"
+                                                   placeholder="Apt/Suite"
+                                                   type="text"
+                                                   name="addressTwo">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="studentCity" class="form-control" placeholder="City"
+                                                   type="text"
+                                                   name="city">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <!--<label class="control-label" for="sstate">State:</label>
+                                            <input id="sstate" class="form-control" placeholder="State" type="text" name="state">-->
+                                            <?php
+                                            include("../scripts/States.php");
+                                            echo stateDropdown()
+                                            ?>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="studentZip" class="form-control" placeholder="Zip Code"
+                                                   type="text"
+                                                   name="zip">
+                                        </div>
+                                    </div>
+
+
+                                    <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
+                                    <div class="blue-line-color"></div>
+                                    <div class="form-group">
+                                        <div class="col-lg">
+                                            <input id="studentSchool" class="form-control" placeholder="School"
+                                                   type="text"
+                                                   name="school">
+                                        </div>
+
+
+                                        <div class="col-sm-3">
+                                            <div class="toggle-title">Reduced Lunch Eligible</div>
+                                            <ul class="tg-list">
+                                                <div class="toggle-side-label">No</div>
+                                                <li class="tg-list-item">
+                                                    <input class="tgl tgl-flat" id="cb1" name="reducedLunchEligibility"
+                                                           type="checkbox"/>
+                                                    <label class="tgl-btn" for="cb1"></label>
+                                                </li>
+                                                <div class="toggle-side-label">Yes</div>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="toggle-title">Permission Slip On File</div>
+                                            <ul class="tg-list">
+                                                <div class="toggle-side-label">No</div>
+                                                <li class="tg-list-item">
+                                                    <input class="tgl tgl-flat" id="cb2" name="permissionSlip"
+                                                           type="checkbox"/>
+                                                    <label class="tgl-btn" for="cb2"></label>
+                                                </li>
+                                                <div class="toggle-side-label">Yes</div>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="toggle-title">Birth Certificate on
+                                                File
+                                            </div>
+                                            <ul class="tg-list">
+                                                <div class="toggle-side-label">No</div>
+                                                <li class="tg-list-item">
+                                                    <input class="tgl tgl-flat" id="cb3" name="birthCertificate"
+                                                           type="checkbox"/>
+                                                    <label class="tgl-btn" for="cb3"></label>
+                                                </li>
+                                                <div class="toggle-side-label">Yes</div>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="toggle-title">Immediate Emotional Problem</div>
+                                            <ul class="tg-list">
+                                                <div class="toggle-side-label">No</div>
+                                                <li class="tg-list-item">
+                                                    <input class="tgl tgl-flat" id="cb4" name="iep" type="checkbox"/>
+                                                    <label class="tgl-btn" for="cb4"></label>
+                                                </li>
+                                                <div class="toggle-side-label">Yes</div>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input id="lastName" class="form-control" placeholder="Last Name" type="text"
-                                           name="lastName">
+
+
+                            <div class="tab-pane" id="2">
+                                <div class="header">Add Allergy Info</div>
+
+                                <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Student Allergies</h4>
+                                <div class="blue-line-color"></div>
+                                <div class="form-group">
+
+
+                                    <div class="col-lg-6">
+                                        <label class="control-label" for="allergyName">Allergy Name:</label>
+                                        <input id="allergyName" class="form-control" type="text" name="allergyName">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="control-label" for="allergyType">Type:</label>
+                                        <input id="allergyType" class="form-control" type="text" name="allergyType">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-6">
-                                    <input id="middleName" class="form-control" placeholder="Middle Name" type="text"
-                                           name="middleName">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input id="suffix" class="form-control" placeholder="Suffix" type="text"
-                                           name="suffix">
+
+
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <label class="control-label" for="allergyNote">Note:</label>
+                                        <input id="allergyNote" class="form-control" type="text" name="allergyNote">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <input id="dob" class="form-control" placeholder="YYYY/MM/DD" type="text"
-                                           name="dob">
-                                </div>
-                                <div class="col-sm-4">
-                                    <input id="ethnic" class="form-control" placeholder="Ethnicity" type="text"
-                                           name="ethnicity">
-                                </div>
-                                <div class="col-sm-4">
-                                    <select id="gender" class="form-control" name="gender">
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
-                                    </select>
-                                </div>
-                            </div>
 
+                            <div class="tab-pane" id="3">
 
-                        <h4 class="heading"><i class="glyphicon glyphicon-home"></i> Address Info</h4>
-                        <hr/>
-                        <div class="form-group">
-                            <div class="col-sm-3">
-                                <input id="studentAddress" class="form-control" placeholder="Address" type="text"
-                                       name="address">
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="studentCity" class="form-control" placeholder="City" type="text" name="city">
-                            </div>
-                            <div class="col-sm-3">
-                                <!--<label class="control-label" for="sstate">State:</label>
-                                <input id="sstate" class="form-control" placeholder="State" type="text" name="state">-->
-                                <?php
-                                include("../scripts/States.php");
-                                echo stateDropdown()
-                                ?>
+                                <h3>add clearfix to tab-content (see the css)</h3>
 
                             </div>
-                            <div class="col-sm-3">
-                                <input id="studentZip" class="form-control" placeholder="Zip Code" type="text"
-                                       name="zip">
+
                             </div>
+
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <label class="control-label" for="exampleInputName2"><i
-                                            class="fa fa-calendar"></i></label>
-                                <input class="form-control" id="exampleInputName2"
-                                       placeholder="Check-in date (dd/mm/yy)" type="text">
-                            </div>
+                    </form>
 
-                            <div class="col-sm-6">
-                                <label class="control-label" for="exampleInputName2"><i
-                                            class="fa fa-calendar"></i></label>
-                                <input class="form-control" id="exampleInputName2"
-                                       placeholder="Check-out date (dd/mm/yy)" type="text">
-                            </div>
+                    <div class="card-footer">
+                        <div class="right-align">
+                            <!--   Button trigger modal -->
+                            <button id="buttonTrigger" type="button" class="btn btn-right btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                Verify Info
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label class="control-label" for="exampleInputName2"><i
-                                            class="fa fa-calendar"></i></label>
-                                <textarea class="form-control" placeholder="Additional Message"></textarea>
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                            <button type="submit" class="btn btn-default"> Register</button>
-                        </div>
+                    </div>
                 </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
-<!---->
-<!---->
-<!--    <form class="form-horizontal" action="../add/AddStudent.php" method="POST" id="newStudentForm">-->
-<!---->
-<!--        <h1>Add Student Information:</h1>-->
-<!--        <br/>-->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <label class="control-label" for="firstName">First Name:</label>-->
-<!--                    <input id="firstName" class="form-control" placeholder="First" type="text" name="firstName">-->
-<!--                </div>-->
-<!--                <div class="col-lg-6">-->
-<!--                    <label class="control-label" for="lastName">Last Name:</label>-->
-<!--                    <input id="lastName" class="form-control" placeholder="Last" type="text" name="lastName">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <label class="control-label" for="middleName">Middle Name:</label>-->
-<!--                    <input id="middleName" class="form-control" placeholder="Middle Name" type="text" name="middleName">-->
-<!--                </div>-->
-<!--                <div class="col-lg-6">-->
-<!--                    <label class="control-label" for="suffix">Suffix:</label>-->
-<!--                    <input id="suffix" class="form-control" placeholder="Suffix" type="text" name="suffix">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!---->
-<!--        <div class="row">-->
-<!---->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-4">-->
-<!--                    <label class="control-label" for="dob">Date of Birth:</label>-->
-<!--                    <input id="dob" class="form-control" placeholder="YYYY/MM/DD" type="text" name="dob">-->
-<!--                </div>-->
-<!--                <div class="col-lg-4">-->
-<!--                    <label class="control-label" for="ethnic">Ethnicity:</label>-->
-<!--                    <input id="ethnic" class="form-control" placeholder="Ethnicity" type="text" name="ethnicity">-->
-<!--                </div>-->
-<!--                <div class="col-lg-4">-->
-<!--                    <label class="control-label" for="gender">Gender:</label>-->
-<!--                    <select id="gender" class="form-control" name="gender">-->
-<!--                        <option value="M">Male</option>-->
-<!--                        <option value="F">Female</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="studentAddress">Address:</label>-->
-<!--                    <input id="studentAddress" class="form-control" placeholder="Address" type="text" name="address">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="studentCity">City:</label>-->
-<!--                    <input id="studentCity" class="form-control" placeholder="City" type="text" name="city">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3">-->
-<!--                    <!--<label class="control-label" for="sstate">State:</label>-->
-<!--                    <input id="sstate" class="form-control" placeholder="State" type="text" name="state">-->-->
-<!--                    <label class="control-label" for="state">State:</label>-->
-<!--                    --><?php
-//                    include("../scripts/States.php");
-//                    echo stateDropdown()
-//                    ?>
-<!---->
-<!--                </div>-->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="studentZip">Zip Code:</label>-->
-<!--                    <input id="studentZip" class="form-control" placeholder="Zip Code" type="text" name="zip">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-8">-->
-<!--                    <label class="control-label" for="studentSchool">School:</label>-->
-<!--                    <input id="studentSchool" class="form-control" placeholder="School" type="text" name="school">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="permissionSlip">Permission Slip on File:</label>-->
-<!--                    <select id="permissionSlip" class="form-control" name="permissionSlip">-->
-<!--                        <option value="1">Yes</option>-->
-<!--                        <option value="0">No</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="birthCertificate">Birth Certificate on File:</label>-->
-<!--                    <select id="birthCertificate" class="form-control" name="birthCertificate">-->
-<!--                        <option value="1">Yes</option>-->
-<!--                        <option value="0">No</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="reducedLunchEligibility">Reduced Lunch Eligible:</label>-->
-<!--                    <select id="reducedLunchEligibility" class="form-control" name="reducedLunchEligibility">-->
-<!--                        <option value="1">Yes</option>-->
-<!--                        <option value="0">No</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col-lg-3">-->
-<!--                    <label class="control-label" for="siep">Immediate Emotional Problem:</label>-->
-<!--                    <select id="siep" class="form-control" name="iep">-->
-<!--                        <option value="1">Yes</option>-->
-<!--                        <option value="0">No</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <br/>-->
-<!--        <h1>Allergies:</h1>-->
-<!--        <br/>-->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <label class="control-label" for="allergyName">Allergy Name:</label>-->
-<!--                    <input id="allergyName" class="form-control" placeholder="Allergy Name" type="text" name="allergyName">-->
-<!--                </div>-->
-<!--                <div class="col-lg-6">-->
-<!--                    <label class="control-label" for="allergyType">Type:</label>-->
-<!--                    <input id="allergyType" class="form-control" placeholder="Allergy Type" type="text" name="allergyType">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--            <div class="form-group">-->
-<!--                <div class="col-lg-11">-->
-<!--                    <label class="control-label" for="allergyNote">Note:</label>-->
-<!--                    <input id="allergyNote" class="form-control" placeholder="Allergy Note" type="text" name="allergyNote">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--        <!-- Button trigger modal -->-->
-<!--        <button id="buttonTrigger" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">-->
-<!--            Launch demo modal-->
-<!--        </button>-->
-<!---->
-<!--        <!-- Modal -->-->
-<!--        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">-->
-<!--            <div class="modal-dialog modal-dialog-centered" role="document">-->
-<!--                <div class="modal-content">-->
-<!--                    <div class="modal-header">-->
-<!--                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>-->
-<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                            <span aria-hidden="true">&times;</span>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                    <div class="modal-body">-->
-<!---->
-<!--                        <div class="card">-->
-<!--                            <div class="card-body" id="modalBody">-->
-<!---->
-<!--                            </div>-->
-<!---->
-<!--                        </div>-->
-<!---->
-<!---->
-<!--                    </div>-->
-<!--                    <div class="modal-footer">-->
-<!--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                        <button type="submit" class="btn btn-primary">Submit</button>-->
-<!--<!--                        <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit" value="Submit"><br><br>-->
--->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </form>-->
-<!--    -->
-<!--    -->
+                <div class="card">
+                    <div class="card-body" id="modalBody">
 
+                    </div>
+                </div>
 
+            </div>
+            <div class="modal-footer">
+                <div class="right-align">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" form="newStudentForm" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

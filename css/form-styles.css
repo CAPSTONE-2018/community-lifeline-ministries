@@ -1,11 +1,13 @@
 .form-bg{
     background: #e4e6e6;
 }
+
 form{
     font-family: 'Roboto', sans-serif;
 }
+
 .form-horizontal .header{
-    background: #3f9cb5;
+    background: #60C2CB;
     padding: 30px 25px;
     font-size: 30px;
     color: #fff;
@@ -13,16 +15,19 @@ form{
     text-transform: uppercase;
     border-radius: 3px 3px 0 0;
 }
+
 .form-horizontal .heading{
     font-size: 16px;
-    color: #3f9cb5;
+    color: #60C2CB;
     margin: 10px 0 20px 0;
     text-transform: capitalize;
 }
+
 .form-horizontal .form-content{
     padding: 25px;
     background: #fff;
 }
+
 .form-horizontal .form-control{
     padding: 12px 16px 12px 0;
     height: 50px;
@@ -34,10 +39,12 @@ form{
     box-shadow: none;
     margin-bottom: 15px;
 }
+
 .form-horizontal .form-control:focus{
-    border-color: #3f9cb5;
+    border-color: #7fc6a6;
     box-shadow: none;
 }
+
 .form-horizontal .control-label{
     font-size: 17px;
     color: #ccc;
@@ -46,10 +53,12 @@ form{
     left: 10px;
     text-align: center;
 }
+
 .form-horizontal textarea.form-control{
     resize: vertical;
     height: 130px;
 }
+
 .form-horizontal .btn{
     font-size: 18px;
     color: #4e4e4e;
@@ -60,7 +69,66 @@ form{
     padding: 10px 25px;
     transition: all 0.5s ease 0s;
 }
-.form-horizontal .btn:hover{
-    background: #fff;
-    border-color: #3f9cb5;
+
+.right-align {
+    text-align: right;
+
+}
+
+label {
+    display: block;
+    letter-spacing: 1px;
+}
+
+label .label-text {
+    /*color: #000;*/
+    cursor: text;
+    /*font-size: 17px;*/
+    /*line-height: 20px;*/
+    text-transform: uppercase;
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+    transition: all 0.3s;
+}
+
+label input {
+    background-color: transparent;
+    border: 0;
+    /*border-bottom: 2px solid #4A4A4A;*/
+    /*color: #000000;*/
+    font-size: 15px;
+    outline: 0;
+    transition: all 0.3s;
+    width: 500px;
+}
+
+label input:focus {
+    max-width: 100%;
+    width: 400px;
+}
+
+label input:focus + .label-text {
+    color: #7fc6a6;
+    font-size: 15px;
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -webkit-transform: translateY(-60px);
+    transform: translateY(-60px);
+}
+
+label input:valid + .label-text {
+
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+}
+
+.blue-line-color {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #3EA6A2;
 }
