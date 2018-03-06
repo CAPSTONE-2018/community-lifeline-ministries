@@ -5,6 +5,11 @@ INSERT INTO Allergies(Type) VALUES ("Skin Allergy");
 INSERT INTO Allergies(Type) VALUES ("Insect Sting Allergy");
 INSERT INTO Allergies(Type) VALUES ("Dust Allergy");
 INSERT INTO Allergies(Type) VALUES ("Pet Allergy");
+INSERT INTO Allergies(Type) VALUES ("Air Allergy");
+
+UPDATE Allergies SET Type = "Update Again Again", Last_Updated_Timestamp = NULL WHERE Id = 6;
+
+
 
 INSERT INTO Classes(Class_Name) VALUES ("Reading Workshop");
 INSERT INTO Classes(Class_Name) VALUES ("Writing Workshop");
@@ -12,11 +17,11 @@ INSERT INTO Classes(Class_Name) VALUES ("Math Workshop");
 INSERT INTO Classes(Class_Name) VALUES ("Computer Programming");
 INSERT INTO Classes(Class_Name) VALUES ("Art Workshop");
 
-INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mrs.", "Marilee", "Muller", "630-350-4389", "630-833-8899", "454 Royal Oaks Drive", "Wooddale", "IL", 60105, "muller@gmail.com");
-INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Address, City, State, Zip, Email) VALUES ("Mr.", "Bruce", "Alder", "773-240-0223", "250 Red Oaks Drive", "Bensenville", "IL", 60103, "bruce@yahoo.com");
-INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mr.", "Paul", "Shall", "630-567-3322", "630-483-2234", "350 Forest Preserve Drive", "Wooddale", "IL", 60105, "shall@gmail.com");
-INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mrs.", "Pamela", "Ellery", "630-333-2453", "630-889-3299", "400 S Mason St", "Bensenville", "IL", 60103, "pam1@gmail.com");
-INSERT INTO Contacts(Prefix, First_Name, Last_Name, Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ("Mrs.", "Andrea", "Wisnowski", "630-924-4592", "630-321-1299", "323 Judson St", "Addison", "IL", 60101, "andrea@gmail.com");
+INSERT INTO Contacts(Active_Contact, Prefix, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES (1, "Mrs.", "Marilee", "Muller", "630-350-4389", "630-833-8899", "454 Royal Oaks Drive", "Apt 11B", "Wooddale", "IL", 60105, "muller@gmail.com");
+INSERT INTO Contacts(Active_Contact, Prefix, First_Name, Last_Name, Primary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES (1, "Mr.", "Bruce", "Alder", "773-240-0223", "250 Red Oaks Drive", "Bensenville", "IL", 60103, "bruce@yahoo.com");
+INSERT INTO Contacts(Active_Contact, Prefix, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, City, State, Zip, Email) VALUES (1, "Mr.", "Paul", "Shall", "630-567-3322", "630-483-2234", "350 Forest Preserve Drive", "Wooddale", "IL", 60105, "shall@gmail.com");
+INSERT INTO Contacts(Active_Contact, Prefix, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES (1, "Mrs.", "Pamela", "Ellery", "630-333-2453", "630-889-3299", "400 S Mason St", "Apt 3D", "Bensenville", "IL", 60103, "pam1@gmail.com");
+INSERT INTO Contacts(Active_Contact, Prefix, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES (1, "Mrs.", "Andrea", "Wisnowski", "630-924-4592", "630-321-1299", "323 Judson St", "Suite 4" ,"Addison", "IL", 60101, "andrea@gmail.com");
 
 INSERT INTO Programs(Program_Name) VALUES ("Sons of Thunder");
 INSERT INTO Programs(Program_Name) VALUES ("G.E.M.");
