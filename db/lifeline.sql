@@ -47,7 +47,7 @@ CREATE TABLE Students (
 );
 
 
-CREATE TABLE Allergies (
+CREATE TABLE Medical_Concerns (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
@@ -57,17 +57,17 @@ CREATE TABLE Allergies (
   Note                   VARCHAR(500)
 );
 
-CREATE TABLE Student_To_Allergies (
+CREATE TABLE Student_To_Medical_Concerns (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
-  Allergy_Id             INT(10),
-  CONSTRAINT FK_Student_Id_Allergy FOREIGN KEY (Student_Id)
+  Medical_Concern_Id     INT(10),
+  CONSTRAINT FK_Student_Id_Medical_Concerns FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
-  CONSTRAINT FK_Allergy_Id_Allergy FOREIGN KEY (Allergy_Id)
-  REFERENCES Allergies (Id)
+  CONSTRAINT FK_Medical_Id_Medical_Concerns FOREIGN KEY (Medical_Concern_Id)
+  REFERENCES Medical_Concerns (Id)
 );
 
 CREATE TABLE Attendance (
@@ -79,7 +79,7 @@ CREATE TABLE Attendance (
   Date                   DATE,
   Present                TINYINT(1),
   Absent                 TINYINT(1),
-  TardyInd               TINYINT(1),
+  Tardy                  TINYINT(1),
   TardyTime              VARCHAR(50)
 );
 
@@ -135,7 +135,7 @@ CREATE TABLE Classes (
   Class_Name             VARCHAR(60)
 );
 
-CREATE TABLE Student_To_Test_Scores (
+CREATE TABLE Student_Test_Scores (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
@@ -254,5 +254,6 @@ CREATE TABLE Student_To_Programs (
   REFERENCES Programs (Id)
 );
 
-CREATE USER 'clm_user'@'localhost'  identified by 'dbuser';
-GRANT SELECT, INSERT, UPDATE, DELETE on community_lifeline.* TO 'clm_user'@'localhost';
+CREATE USER 'clm_user'@'localhost'
+  IDENTIFIED BY 'dbuser';
+GRANT SELECT, INSERT, UPDATE, DELETE ON community_lifeline.* TO 'clm_user'@'localhost';
