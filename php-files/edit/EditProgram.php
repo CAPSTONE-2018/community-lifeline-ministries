@@ -38,10 +38,10 @@ include("../scripts/footer.php");
         $('#programId').change(function () {
             var programId = $(this).val();
             $.ajax({
-                url:"../scripts/AjaxUpdateProgram.php",
-                method:"POST",
-                data:{programId:programId},
-                success:function (output) {
+                url: "../scripts/AjaxUpdateProgram.php",
+                method: "POST",
+                data: {programId: programId},
+                success: function (output) {
                     $('#showProgramInfo').html(output);
                 }
             });
