@@ -4,7 +4,7 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$query = "SELECT * FROM Allergies ORDER BY Name;";
+$query = "SELECT * FROM Medical_Concerns ORDER BY Name;";
 $result = mysqli_query($db, $query);
 ?>
 <div class="row">
@@ -12,13 +12,13 @@ $result = mysqli_query($db, $query);
         <div class="col-lg-4">
             <label class="control-label" for="classId">Select Allergy To Update:</label>
 
-            <select id="allergyId" class="form-control" name="id">
-                <option value="">Please Select an Allergy</option>
+            <select id="medicalConcernId" class="form-control" name="id">
+                <option value="">Please Select Medical Concern</option>
                 <?php
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<option value='" . $row['Id'] . "'>" . $row['Type'] . "</option>";
+                        echo "<option value='" . $row['Id'] . "'>" . $row['Name'] . "</option>";
                     }
                 }
                 ?>
@@ -36,11 +36,11 @@ include("../scripts/footer.php");
 <script>
     $(document).ready(function () {
         $('#allergyId').change(function () {
-            var allergyId = $(this).val();
+            var medicalConcernId = $(this).val();
             $.ajax({
                 url:"../scripts/AjaxUpdateAllergies.php",
                 method:"POST",
-                data:{allergyId:allergyId},
+                data:{medicalConcernId:medicalConcernId},
                 success:function (output) {
                     $('#showAllergyInfo').html(output);
                 }

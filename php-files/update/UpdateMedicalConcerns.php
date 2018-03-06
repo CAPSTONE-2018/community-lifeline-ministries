@@ -11,11 +11,11 @@ include("../../db/config.php");
 
 session_start();
 $id = $_SESSION['allergyId'];
-$allergyName = $_POST['allergyName'];
-$allergyType = $_POST['allergyType'];
-$allergyNote = $_POST['allergyNote'];
+$medicalConcernName = $_POST['name'];
+$medicalConcernType = $_POST['allergyType'];
+$medicalConcernNote = $_POST['allergyNote'];
 
-$sql = "UPDATE Allergies SET Name = '$allergyName', Type = '$allergyType', Note = '$allergyNote' WHERE Id = '$id' ;";
+$sql = "UPDATE Medical_Concerns SET Name = '$medicalConcernName', Type = '$medicalConcernType', Note = '$medicalConcernNote' WHERE Id = '$id' ;";
 
 if ($db->query($sql) === TRUE){
     echo "

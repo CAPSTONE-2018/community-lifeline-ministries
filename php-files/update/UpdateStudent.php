@@ -48,19 +48,19 @@ if ($db->query($sql) === TRUE) {
             <strong>Failure! </strong>Student could not be updated, please try again.
         </div>";
 }
-
-
-$sql2 = "UPDATE Allergies SET Name = '$allergyName', Type = '$allergyType', Note = '$allergyNote' WHERE Id = '$id';";
-if ($db->query($sql2) === TRUE) {
-    echo "<div class='alert alert-success'>
-                        <strong>Success! </strong>Student Allergy has been successfully Updated.
-                      </div>";
-} else {
-    echo "
-        <div class='alert alert-danger'>
-            <strong>Failure! </strong>Student Allergy could not be updated, please try again.
-        </div>";
-}
+//
+//
+//$sql2 = "UPDATE Allergies SET Name = '$allergyName', Type = '$allergyType', Note = '$allergyNote' WHERE Id = '$id';";
+//if ($db->query($sql2) === TRUE) {
+//    echo "<div class='alert alert-success'>
+//                        <strong>Success! </strong>Student Allergy has been successfully Updated.
+//                      </div>";
+//} else {
+//    echo "
+//        <div class='alert alert-danger'>
+//            <strong>Failure! </strong>Student Allergy could not be updated, please try again.
+//        </div>";
+//}
 
 include("../scripts/footer.php");
 ?>
