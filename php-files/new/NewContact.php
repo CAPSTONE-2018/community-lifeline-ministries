@@ -1,9 +1,9 @@
 <?php
-    include("../scripts/header.php");
-    //connect to database
-    include("../../db/config.php");
-    $query = "SELECT * FROM Students ORDER BY Last_Name, First_Name;";
-    $result = mysqli_query($db, $query);
+include("../scripts/header.php");
+//connect to database
+include("../../db/config.php");
+$query = "SELECT * FROM Students ORDER BY Last_Name, First_Name;";
+$result = mysqli_query($db, $query);
 ?>
 
 <div id="form_wrapper">
@@ -41,13 +41,11 @@
                 </div>
 
                 <div class="col-lg-3">
-
-                        <label class="control-label" for="activeFlag">Active Contact?</label>
-                        <select id="activeFlag" class="form-control" name="activeFlag">
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                        </select>
-
+                    <label class="control-label" for="activeFlag">Active Contact?</label>
+                    <select id="activeFlag" class="form-control" name="activeFlag">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
                 </div>
 
             </div>
@@ -59,11 +57,13 @@
             <div class="form-group">
                 <div class="col-lg-4">
                     <label class="control-label" for="firstName">First Name:</label>
-                    <input id="firstName" class="form-control" placeholder="First Name" type="text" name="firstName" autofocus required />
+                    <input id="firstName" class="form-control" placeholder="First Name" type="text" name="firstName"
+                           autofocus required/>
                 </div>
                 <div class="col-lg-4">
                     <label class="control-label" for="lastName">Last Name:</label>
-                    <input id="lastName" class="form-control" placeholder="Last Name" type="text" name="lastName" required />
+                    <input id="lastName" class="form-control" placeholder="Last Name" type="text" name="lastName"
+                           required/>
                 </div>
                 <div class="col-lg-4">
                     <label class="control-label" for="middleName">Middle Name:</label>
@@ -77,12 +77,14 @@
             <div class="form-group">
                 <div class="col-lg-6">
                     <label class="control-label" for="primaryPhone">Primary Phone Number:</label>
-                    <input id="primaryPhone" class="form-control" placeholder="Primary Number" type="text" name="primaryPhone" required />
+                    <input id="primaryPhone" class="form-control" placeholder="Primary Number" type="text"
+                           name="primaryPhone" required/>
                 </div>
 
                 <div class="col-lg-6">
                     <label class="control-label" for="secondaryPhone">Secondary Phone Number:</label>
-                    <input id="secondaryPhone" class="form-control" placeholder="Secondary Number" type="text" name="secondaryPhone">
+                    <input id="secondaryPhone" class="form-control" placeholder="Secondary Number" type="text"
+                           name="secondaryPhone">
                 </div>
 
             </div>
