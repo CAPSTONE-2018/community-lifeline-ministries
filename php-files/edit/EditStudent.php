@@ -29,6 +29,10 @@ $result = mysqli_query($db, $query);
 
 <div id="showStudentInfo"></div>
 
+<?php
+include("../scripts/footer.php");
+?>
+
 <script>
     $(document).ready(function () {
         $('#studentId').change(function () {
