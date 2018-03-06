@@ -10,7 +10,7 @@ $result = mysqli_query($db, $query);
 <div class="row">
     <div class="form-group">
         <div class="col-lg-4">
-            <label class="control-label" for="classId">Select Allergy To Update:</label>
+            <label class="control-label" for="classId">Select Medical Concern To Update:</label>
 
             <select id="medicalConcernId" class="form-control" name="id">
                 <option value="">Please Select Medical Concern</option>
@@ -38,7 +38,7 @@ include("../scripts/footer.php");
         $('#medicalConcernId').change(function () {
             var medicalConcernId = $(this).val();
             $.ajax({
-                url:"../scripts/AjaxUpdateAllergies.php",
+                url:"../scripts/AjaxUpdateMedicalConcerns.php",
                 method:"POST",
                 data:{medicalConcernId:medicalConcernId},
                 success:function (output) {

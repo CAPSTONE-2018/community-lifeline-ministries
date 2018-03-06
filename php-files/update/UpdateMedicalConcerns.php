@@ -10,22 +10,31 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 session_start();
+$userMakingChanges = $_SESSION['loggedIn'];
 $id = $_SESSION['allergyId'];
 $medicalConcernName = $_POST['name'];
 $medicalConcernType = $_POST['allergyType'];
 $medicalConcernNote = $_POST['allergyNote'];
 
-$sql = "UPDATE Medical_Concerns SET Name = '$medicalConcernName', Type = '$medicalConcernType', Note = '$medicalConcernNote' WHERE Id = '$id' ;";
+
+$sql = "
+UPDATE Medical_Concerns SET 
+  Last_Updated_Timestamp = NULL, 
+  Author_Username = $userMakingChanges,
+  Name = '$medicalConcernName', 
+  Type = '$medicalConcernType', 
+  Note = '$medicalConcernNote' 
+  WHERE Id = '$id' ;";
 
 if ($db->query($sql) === TRUE){
     echo "
         <div class='alert alert-success'>
-            <strong>Success! </strong>Allergy Name has been successfully Updated.
+            <strong>Success! </strong>Medical Concern has been successfully Updated.
         </div>";
 }else{
     echo "
         <div class='alert alert-danger'>
-            <strong>Failure! </strong>Allergy Name could not be updated, please try again.
+            <strong>Failure! </strong>Medical Concern could not be updated, please try again.
         </div>";
 }
 

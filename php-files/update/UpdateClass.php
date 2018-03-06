@@ -15,7 +15,13 @@ $id = $_SESSION['classId'];
 $className = $_POST['name'];
 $isActiveFlag = $_POST['activeFlag'];
 
-$sql = "UPDATE Classes SET Author_Username = '$userMakingChanges', Last_Updated_Timestamp = NULL, Active_Class = $isActiveFlag, Class_Name = '$className' WHERE Id = '$id' ;";
+$sql = "
+UPDATE Classes SET 
+  Author_Username = '$userMakingChanges', 
+  Last_Updated_Timestamp = NULL, 
+  Active_Class = $isActiveFlag, 
+  Class_Name = '$className' 
+  WHERE Id = '$id' ;";
 
 if ($db->query($sql) === TRUE) {
     echo "
