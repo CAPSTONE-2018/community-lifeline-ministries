@@ -1,4 +1,4 @@
-INSERT INTO Logins (Author_Username, Active_User, username, password, account_type, first_name, last_name, email) VALUES("Developer", 1, "admin", "21232f297a57a5a743894a0e4a801fc3", "administrator", "Developer", "Developer",  "Developer@gmail.com");
+INSERT INTO Logins (username, password, account_type, first_name, last_name, email) VALUES("admin", "21232f297a57a5a743894a0e4a801fc3", "administrator", "Developer", "Developer",  "Developer@gmail.com");
 
 INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Corn Allergy", "Food Allergy");
 INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Fish Allergy", "Food Allergy");

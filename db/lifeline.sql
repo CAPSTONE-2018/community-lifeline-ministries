@@ -8,11 +8,6 @@
 
 
 CREATE TABLE Logins (
-  Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Author_Username        VARCHAR(30),
-  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Active_User            TINYINT(1),
   username               VARCHAR(30),
   password               VARCHAR(32),
   account_type           VARCHAR(30),
