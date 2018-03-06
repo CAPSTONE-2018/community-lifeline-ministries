@@ -30,10 +30,11 @@ include("../scripts/header.php");
     $medicalConcernName = $_POST['medicalConcernName'];
     $medicalConcernType = $_POST['medicalConcernType'];
     $medicalConcernNote = $_POST['medicalConcernNote'];
+    $isActiveFlag = $_POST['activeFlag'];
     #Adding student records based on the information the user added into the "add" fields
 
-    $stmtStudent = $db->prepare("INSERT INTO Students (Author_Username, First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmtStudent->bind_param('sssssssssssissiiii', $userMakingChanges, $firstName, $middleName, $lastName, $suffix, $gender, $dob, $address_one, $address_two, $city, $state, $zip, $ethnicity, $school, $permissionSlip, $birthCertificate, $reducedLunchEligibility, $iep);
+    $stmtStudent = $db->prepare("INSERT INTO Students (Author_Username, Active_Student, First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmtStudent->bind_param('sissssssssssissiiii', $userMakingChanges, $isActiveFlag, $firstName, $middleName, $lastName, $suffix, $gender, $dob, $address_one, $address_two, $city, $state, $zip, $ethnicity, $school, $permissionSlip, $birthCertificate, $reducedLunchEligibility, $iep);
     $stmtStudent->execute();
 
     if ($stmtStudent->affected_rows == -1) {
