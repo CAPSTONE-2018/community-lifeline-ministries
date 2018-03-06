@@ -3,7 +3,7 @@
 include("../scripts/header.php");
 ?>
 
-<h1>Add Allergy Information:</h1>
+<h1>Add Medical Information:</h1>
 <br/>
 
 <?php

@@ -9,7 +9,7 @@ include("../../db/config.php");
 
 <div class="container">
     <div id="form_wrapper">
-        <form class="form-horizontal" action="../add/AddAllergy.php" method="POST" id="form2">
+        <form class="form-horizontal" action="../add/AddMedicalConcern.php" method="POST" id="form2">
             <h1>Allergies:</h1>
             <br/>
             <div class="row">
