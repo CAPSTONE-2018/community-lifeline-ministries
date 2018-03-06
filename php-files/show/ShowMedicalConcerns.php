@@ -5,11 +5,11 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$query = "SELECT * FROM Allergies;";
+$query = "SELECT * FROM Medical_Concerns;";
 $result = mysqli_query($db, $query);
 ?>
 
-<h1>Displaying All Allergies:</h1>
+<h1>Displaying All Medical Concerns:</h1>
 <br/>
 
 <div id="print_div" class="table-wrapper">
@@ -17,8 +17,8 @@ $result = mysqli_query($db, $query);
         <thead>
         <tr>
             <th>ID</th>
-            <th>Allergy Name</th>
-            <th>Allergy Type</th>
+            <th>Name</th>
+            <th>Type</th>
             <th>Students Affected</th>
         </tr>
         </thead>
@@ -27,7 +27,7 @@ $result = mysqli_query($db, $query);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
             $search = $row['Id'];
-            $studentToAllergyQuery = ("SELECT COUNT(Allergy_Id) from Student_To_Allergies Where Allergy_Id = $search;");
+            $studentToAllergyQuery = ("SELECT COUNT(Medical_Concern_Id) from Student_To_Medical_Concerns Where Medical_Concern_Id = $search;");
             $rs = mysqli_query($db, $studentToAllergyQuery);
             $result2 = mysqli_fetch_array($rs);
 
@@ -51,7 +51,7 @@ $result = mysqli_query($db, $query);
 
 <script src="../../scripts/print.js"></script>
 
-<div id="show-allergy-info"></div>
+<div id="show-medical-info"></div>
 <?php
 include("../scripts/footer.php");
 ?>
@@ -61,7 +61,7 @@ include("../scripts/footer.php");
     $('#show-all-button').on('click', function(e) {
         $('.table-wrapper').slideDown();
         $('#show-all-button').hide();
-        $('#show-allergy-info').slideUp();
+        $('#show-medical-info').slideUp();
         e.preventDefault();
     });
 
@@ -69,11 +69,11 @@ include("../scripts/footer.php");
         $('.table-update-button').click(function () {
             var allergyId = $(this).attr('value');
             $.ajax({
-                url: "../scripts/AjaxUpdateAllergies.php",
+                url: "../scripts/AjaxUpdateMedicalConcerns.php",
                 method: "POST",
                 data: {allergyId: allergyId},
                 success: function (output) {
-                    $('#show-allergy-info').slideDown().html(output);
+                    $('#show-medical-info').slideDown().html(output);
                     $('#show-all-button').show();
                     $('.table-wrapper').slideUp();
                 }
