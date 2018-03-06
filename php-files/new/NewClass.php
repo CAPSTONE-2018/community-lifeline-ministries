@@ -20,6 +20,15 @@ $result = mysqli_query($db, $query);
                         <label class="control-label" for="name">Class Name:</label>
                         <input id="name" class="form-control" placeholder="Class Name" type="text" name="name" autofocus required>
                     </div>
+
+                    <div class="col-lg-3">
+                        <label class="control-label" for="activeFlag">Active Class?</label>
+                        <select id="activeFlag" class="form-control" name="activeFlag">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+
                 </div>
             </div>
 

@@ -10,10 +10,12 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
+$userMakingChanges = $_SESSION['loggedIn'];
 $className = $_POST['name'];
+$isClassActiveFlag = $_POST['activeFlag'];
 
-$stmt = $db->prepare("INSERT INTO Classes (Class_Name) VALUES (?)");
-$stmt->bind_param('s', $className);
+$stmt = $db->prepare("INSERT INTO Classes (Author_Username, Active_Class, Class_Name) VALUES (?, ?, ?)");
+$stmt->bind_param('sis',$userMakingChanges, $isClassActiveFlag, $className);
 $stmt->execute();
 
 if ($stmt->affected_rows == -1) {
