@@ -48,10 +48,10 @@ $output = "<div id=\"form_wrapper\">
                 <div class=\"col-lg-6\">
                     <label class=\"control-label\" for=\"activeFlag\">Active Class?</label>
                     <select id=\"activeFlag\" class=\"form-control\" name=\"activeFlag\">
-                        <option value=\"1\">Yes</option>
-                        <option value=\"0\">No</option>
+                        <option value=\"1\" ".$classIsActive.">Yes</option>
+                        <option value=\"0\" ".$classIsNotActive.">No</option>
                     </select>
-                </div>                               
+                </div>
             </div>
         </div>
         <input id=\"submit\" class=\"btn btn-primary btn-lg btn-block\" type=\"submit\" value=\"Submit\"><br><br>
