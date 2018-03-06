@@ -10,13 +10,13 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$userName = $_SESSION['loggedIn'];
+$userMakingChange = $_SESSION['loggedIn'];
 $medicalConcernName = $_POST['name'];
 $medicalConcernType = $_POST['type'];
 $medicalConcernNote = $_POST['note'];
 
 $stmt = $db->prepare("INSERT INTO Medical_Concerns (Author_Username, Name, Type, Note) VALUES (?, ?, ?, ?)");
-$stmt->bind_param('ssss', $userName, $medicalConcernName, $medicalConcernType, $medicalConcernNote);
+$stmt->bind_param('ssss', $userMakingChange, $medicalConcernName, $medicalConcernType, $medicalConcernNote);
 $stmt->execute();
 
 if ($stmt->affected_rows == -1) {
