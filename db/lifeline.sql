@@ -5,6 +5,24 @@
     Howard about gaining access to the MYSQL database on the server
 *********************************************************************************
 */
+
+
+CREATE TABLE Logins (
+    Created_Timestamp TIMESTAMP DEFAULT now(),
+    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Author_Id VARCHAR(30),
+    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Active_User TINYINT(1),
+    username VARCHAR(30) PRIMARY KEY,
+    password VARCHAR(32),
+    account_type VARCHAR(30),
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    email VARCHAR(30),
+    CONSTRAINT FK_Author_Id_Logins FOREIGN KEY (Author_Id)
+    REFERENCES Logins(Id)
+);
+
 CREATE TABLE Students (
     Created_Timestamp TIMESTAMP DEFAULT now(),
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -255,22 +273,6 @@ CREATE TABLE Schedules (
         REFERENCES Logins(Id)
 );
 
-CREATE TABLE Logins (
-    Created_Timestamp TIMESTAMP DEFAULT now(),
-    Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Author_Id VARCHAR(30),
-    Id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    Active_User TINYINT(1),
-    username VARCHAR(30) PRIMARY KEY,
-    password VARCHAR(32),
-    account_type VARCHAR(30),
-    first_name VARCHAR(30),
-    last_name VARCHAR(30),
-    email VARCHAR(30),
-    CONSTRAINT FK_Author_Id_Logins FOREIGN KEY (Author_Id)
-    REFERENCES Logins(Id)
-);
-
 CREATE TABLE Student_To_Programs (
     Created_Timestamp TIMESTAMP DEFAULT now(),
     Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -286,6 +288,5 @@ CREATE TABLE Student_To_Programs (
         REFERENCES Logins(Id)
 );
 
-
-
-
+CREATE USER 'clm_user'@'localhost'  identified by 'dbuser';
+GRANT SELECT, INSERT, UPDATE, DELETE on community_lifeline.* TO 'clm_user'@'localhost';
