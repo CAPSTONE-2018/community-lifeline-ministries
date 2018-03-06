@@ -27,7 +27,7 @@ $result = mysqli_query($db, $query);
     </div>
 </div>
 
-<div id="showAllergyInfo"></div>
+<div id="showMedicalConcernInfo"></div>
 
 <?php
 include("../scripts/footer.php");
@@ -35,14 +35,14 @@ include("../scripts/footer.php");
 
 <script>
     $(document).ready(function () {
-        $('#allergyId').change(function () {
+        $('#medicalConcernId').change(function () {
             var medicalConcernId = $(this).val();
             $.ajax({
                 url:"../scripts/AjaxUpdateAllergies.php",
                 method:"POST",
                 data:{medicalConcernId:medicalConcernId},
                 success:function (output) {
-                    $('#showAllergyInfo').html(output);
+                    $('#showMedicalConcernInfo').html(output);
                 }
             });
         });
