@@ -25,13 +25,13 @@ if ($row['Type'] == "Volunteer"){
 }
 
 
-$isActiveContact = "";
-$isNotActiveContact = "";
+$isActiveVolunteer = "";
+$isNotActiveVolunteer = "";
 
 if ($row['Active_Volunteer'] == 1) {
-    $isActiveContact = "selected=\"selected\"";
+    $isActiveVolunteer = "selected=\"selected\"";
 } else {
-    $isNotActiveContact = "selected=\"selected\"";
+    $isNotActiveVolunteer = "selected=\"selected\"";
 }
 
 $stateSelect = stateDropdown($row['State']);
@@ -102,8 +102,8 @@ $output = "<div id=\"form_wrapper\">
                             </div>
                             
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"address\">Apt/Suite:</label>
-                                <input id=\"address\" class=\"form-control\" value='".$row['Address_Two']."' placeholder=\"Address\" type=\"text\" name=\"address\">
+                                <label class=\"control-label\" for=\"addressTwo\">Apt/Suite:</label>
+                                <input id=\"addressTwo\" class=\"form-control\" value='".$row['Address_Two']."' placeholder=\"Address\" type=\"text\" name=\"addressTwo\">
                             </div>
                         </div>
                         
@@ -137,10 +137,10 @@ $output = "<div id=\"form_wrapper\">
                                  </select>
                             </div>
                             <div class=\"col-lg-4\">
-                    <label class=\"control-label\" for=\"activeFlag\">Active Contact?</label>
+                    <label class=\"control-label\" for=\"activeFlag\">Active Employee?</label>
                     <select id=\"activeFlag\" class=\"form-control\" name=\"activeFlag\">
-                        <option value=\"1\" " . $isActiveContact . ">Yes</option>
-                        <option value=\"0\" " . $isNotActiveContact . ">No</option>
+                        <option value=\"1\" " . $isActiveVolunteer . ">Yes</option>
+                        <option value=\"0\" " . $isNotActiveVolunteer . ">No</option>
                     </select>
                 </div>
                     </div>

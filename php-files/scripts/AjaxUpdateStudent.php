@@ -76,6 +76,7 @@ $output = "<div id=\"form_wrapper\">
                     <br />
 
                     <div class=\"row\">
+                    <input type='hidden' value='".$row['Id']."' name=\"studentId\"/>
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
@@ -207,29 +208,6 @@ $output = "<div id=\"form_wrapper\">
                     </div>
 
                     <br />
-
-                    <h1>Allergies:</h1>
-                    <br />
-
-                    <div class=\"row\">
-
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"allergyName\">Name:</label>
-                                <input id=\"allergyName\" class=\"form-control\" value='" . $row2['Name'] . "' placeholder=\"Allergy Name\" type=\"text\" name=\"allergyName\">
-                            </div>
-
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"allergyType\">Type:</label>
-                                <input id=\"allergyType\" class=\"form-control\" value='" . $row2['Type'] . "' placeholder=\"Allergy Type\" type=\"text\" name=\"allergyType\">
-                            </div>
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"allergyNote\">Note:</label>
-                                <input id=\"allergyNote\" class=\"form-control\" value='" . $row2['Note'] . "' placeholder=\"Allergy Note\" type=\"text\" name=\"allergyNote\">
-                            </div>
-
-                        </div>
-                    </div>
 
                     <input id=\"submit\" class=\"btn btn-primary btn-lg btn-block\" type=\"submit\" value=\"Submit\"><br><br>
 

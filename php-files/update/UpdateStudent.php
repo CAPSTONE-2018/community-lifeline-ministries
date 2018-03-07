@@ -13,7 +13,7 @@ include("../../db/config.php");
 
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$id = $_SESSION['studentId'];
+$id = $_POST['studentId'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $middleName = $_POST['middleName'];

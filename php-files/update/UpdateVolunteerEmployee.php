@@ -12,6 +12,7 @@ include("../../db/config.php");
 
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
+$activeFlag = $_POST['activeFlag'];
 $id = $_SESSION['volunteerId'];
 $prefix = $_POST['prefix'];
 $firstName = $_POST['firstName'];
@@ -31,6 +32,7 @@ $type = $_POST['type'];
 $sql = "
 UPDATE Volunteer_Employees SET 
   Author_Username = '$userMakingChanges',
+  Active_Volunteer = '$activeFlag',
   Last_Updated_Timestamp = NULL,
   Prefix = '$prefix',
   First_Name = '$firstName', 
@@ -40,7 +42,7 @@ UPDATE Volunteer_Employees SET
   Primary_Phone = '$primaryPhone', 
   Secondary_Phone = '$secondaryPhone', 
   Address_One = '$addressOne', 
-  Address_One = '$addressTwo', 
+  Address_Two = '$addressTwo', 
   City = '$city', 
   State = '$state', 
   Zip = '$zip', 
