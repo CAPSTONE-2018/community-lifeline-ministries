@@ -13,12 +13,8 @@ $_SESSION['volunteerId'] = $id;
 
 $query = "SELECT * FROM Volunteer_Employees WHERE Id ='".$id."' ;";
 
-
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
-
-
-
 $volunteerSelected = "";
 $employeeSelected = "";
 
@@ -37,7 +33,6 @@ if ($row['Active_Volunteer'] == 1) {
 } else {
     $isNotActiveContact = "selected=\"selected\"";
 }
-
 
 $stateSelect = stateDropdown($row['State']);
 
