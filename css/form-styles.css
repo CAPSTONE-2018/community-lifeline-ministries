@@ -45,19 +45,19 @@ form{
     box-shadow: none;
 }
 
-.form-horizontal .control-label{
-    font-size: 17px;
-    color: #ccc;
-    position: absolute;
-    top: 5px;
-    left: 10px;
-    text-align: center;
-}
+/*.form-horizontal .control-label{*/
+    /*font-size: 17px;*/
+    /*color: #ccc;*/
+    /*position: absolute;*/
+    /*top: 5px;*/
+    /*left: 10px;*/
+    /*text-align: center;*/
+/*}*/
 
-.form-horizontal textarea.form-control{
-    resize: vertical;
-    height: 130px;
-}
+/*.form-horizontal textarea.form-control{*/
+    /*resize: vertical;*/
+    /*height: 130px;*/
+/*}*/
 
 .form-horizontal .btn{
     font-size: 18px;
@@ -78,18 +78,18 @@ form{
 label {
     display: block;
     letter-spacing: 1px;
+    height: 50px;
 }
 
 label .label-text {
-    /*color: #000;*/
     cursor: text;
-    /*font-size: 17px;*/
-    /*line-height: 20px;*/
-    text-transform: uppercase;
-    -moz-transform: translateY(-40px);
-    -ms-transform: translateY(-40px);
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
+    font-size: 16px;
+    font-weight: 300;
+    color: #8e8e8e;
+    -moz-transform: translateY(-55px);
+    -ms-transform: translateY(-55px);
+    -webkit-transform: translateY(-55px);
+    transform: translateY(-55px);
     transition: all 0.3s;
 }
 

@@ -23,7 +23,8 @@ include("../scripts/header.php");
                         </ul>
                     </div>
 
-                    <form class="form-horizontal" action="../add/AddStudent.php" method="POST" name="newStudentForm" id="newStudentForm">
+                    <form class="form-horizontal" action="../add/AddStudent.php" method="POST" name="newStudentForm"
+                          id="newStudentForm">
                         <div class="form-content">
                             <div class="tab-content">
                                 <div class="tab-pane active " id="1">
@@ -34,16 +35,15 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <label>
-                                                <input id="firstName" class="form-control" type="text"
-                                                       name="firstName"
-                                                       required/>
+                                                <input id="firstName" class="form-control" type="text" name="firstName" required/>
                                                 <div class="label-text">First Name</div>
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input id="lastName" class="form-control" placeholder="Last Name"
-                                                   type="text"
-                                                   name="lastName">
+                                            <label>
+                                                <input id="lastName" class="form-control" type="text" name="lastName">
+                                                <div class="label-text">Last Name</div>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -180,39 +180,39 @@ include("../scripts/header.php");
                                 </div>
 
 
-                            <div class="tab-pane" id="2">
-                                <div class="header">Add Allergy Info</div>
+                                <div class="tab-pane" id="2">
+                                    <div class="header">Add Allergy Info</div>
 
-                                <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Student Allergies</h4>
-                                <div class="blue-line-color"></div>
-                                <div class="form-group">
+                                    <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Student Allergies</h4>
+                                    <div class="blue-line-color"></div>
+                                    <div class="form-group">
 
 
-                                    <div class="col-lg-6">
-                                        <label class="control-label" for="allergyName">Allergy Name:</label>
-                                        <input id="allergyName" class="form-control" type="text" name="allergyName">
+                                        <div class="col-lg-6">
+                                            <label class="control-label" for="allergyName">Allergy Name:</label>
+                                            <input id="allergyName" class="form-control" type="text" name="allergyName">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="control-label" for="allergyType">Type:</label>
+                                            <input id="allergyType" class="form-control" type="text" name="allergyType">
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label class="control-label" for="allergyType">Type:</label>
-                                        <input id="allergyType" class="form-control" type="text" name="allergyType">
+
+
+                                    <div class="form-group">
+                                        <div class="col-lg-11">
+                                            <label class="control-label" for="allergyNote">Note:</label>
+                                            <input id="allergyNote" class="form-control" type="text" name="allergyNote">
+                                        </div>
                                     </div>
                                 </div>
 
 
-                                <div class="form-group">
-                                    <div class="col-lg-11">
-                                        <label class="control-label" for="allergyNote">Note:</label>
-                                        <input id="allergyNote" class="form-control" type="text" name="allergyNote">
-                                    </div>
+                                <div class="tab-pane" id="3">
+
+                                    <h3>add clearfix to tab-content (see the css)</h3>
+
                                 </div>
-                            </div>
-
-
-                            <div class="tab-pane" id="3">
-
-                                <h3>add clearfix to tab-content (see the css)</h3>
-
-                            </div>
 
                             </div>
 
@@ -222,7 +222,8 @@ include("../scripts/header.php");
                     <div class="card-footer">
                         <div class="right-align">
                             <!--   Button trigger modal -->
-                            <button id="buttonTrigger" type="button" class="btn btn-right btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
+                                    data-toggle="modal" data-target="#exampleModalCenter">
                                 Verify Info
                             </button>
                         </div>
@@ -234,7 +235,8 @@ include("../scripts/header.php");
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
