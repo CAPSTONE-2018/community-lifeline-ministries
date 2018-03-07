@@ -8,7 +8,7 @@ $id = intval($_POST['testScoreId']);
 session_start();
 $_SESSION['testScoreId'] = $id;
 
-$query = "SELECT * FROM Student_To_Test_Scores WHERE Student_Id ='".$id."' ;";
+$query = "SELECT * FROM Student_Test_Scores WHERE Id ='".$id."' ;";
 
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
@@ -36,7 +36,7 @@ $output = "<div id=\"form_wrapper\">
                     <h1>Update Test Score Information:</h1>
                     <br />
                     <div class=\"row\">
-                        <input id=\"testScoreId\" type=\"number\" name=\"testScoreId\" value=$id />
+                        <input id=\"testScoreId\" type=\"hidden\" name=\"testScoreId\" value=$id />
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"term\">Term:</label>

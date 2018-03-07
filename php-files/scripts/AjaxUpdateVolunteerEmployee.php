@@ -13,12 +13,8 @@ $_SESSION['volunteerId'] = $id;
 
 $query = "SELECT * FROM Volunteer_Employees WHERE Id ='".$id."' ;";
 
-
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
-
-
-
 $volunteerSelected = "";
 $employeeSelected = "";
 
@@ -26,6 +22,16 @@ if ($row['Type'] == "Volunteer"){
     $volunteerSelected = "selected=\"selected\"";
 }else{
     $employeeSelected = "selected=\"selected\"";
+}
+
+
+$isActiveVolunteer = "";
+$isNotActiveVolunteer = "";
+
+if ($row['Active_Volunteer'] == 1) {
+    $isActiveVolunteer = "selected=\"selected\"";
+} else {
+    $isNotActiveVolunteer = "selected=\"selected\"";
 }
 
 $stateSelect = stateDropdown($row['State']);
@@ -72,13 +78,13 @@ $output = "<div id=\"form_wrapper\">
                     <div class=\"row\">
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"cellPhone\">Cell Number:</label>
-                                <input id=\"cellPhone\" class=\"form-control\" value='".$row['Phone_Cell']."' placeholder=\"Cell Number\" type=\"text\" name=\"cellPhone\">
+                                <label class=\"control-label\" for=\"primaryPhone\">Primary Number:</label>
+                                <input id=\"primaryPhone\" class=\"form-control\" value='".$row['Primary_Phone']."' placeholder=\"Primary Number\" type=\"text\" name=\"primaryPhone\">
                             </div>
 
                             <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"homePhone\">Home Number:</label>
-                                <input id=\"homePhone\" class=\"form-control\" value='".$row['Phone_Home']."' placeholder=\"Home Number\" type=\"text\" name=\"homePhone\">
+                                <label class=\"control-label\" for=\"secondaryPhone\">Secondary Number:</label>
+                                <input id=\"secondaryPhone\" class=\"form-control\" value='".$row['Secondary_Phone']."' placeholder=\"Secondary Number\" type=\"text\" name=\"secondaryPhone\">
                             </div>
 
                         </div>
@@ -90,10 +96,18 @@ $output = "<div id=\"form_wrapper\">
                     <div class=\"row\">
 
                         <div class=\"form-group\">
-                            <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"address\">Address:</label>
-                                <input id=\"address\" class=\"form-control\" value='".$row['Address']."' placeholder=\"Address\" type=\"text\" name=\"address\">
+                            <div class=\"col-lg-6\">
+                                <label class=\"control-label\" for=\"addressOne\">Address:</label>
+                                <input id=\"addressOne\" class=\"form-control\" value='".$row['Address_One']."' placeholder=\"Address\" type=\"text\" name=\"addressOne\">
                             </div>
+                            
+                            <div class=\"col-lg-6\">
+                                <label class=\"control-label\" for=\"addressTwo\">Apt/Suite:</label>
+                                <input id=\"addressTwo\" class=\"form-control\" value='".$row['Address_Two']."' placeholder=\"Address\" type=\"text\" name=\"addressTwo\">
+                            </div>
+                        </div>
+                        
+                        <div class=\"form-group\">
                             <div class=\"col-lg-3\">
                                 <label class=\"control-label\" for=\"city\">City:</label>
                                 <input id=\"city\" class=\"form-control\" value='".$row['City']."' placeholder=\"City\" type=\"text\" name=\"city\">
@@ -111,17 +125,24 @@ $output = "<div id=\"form_wrapper\">
 
                     <div class=\"row\">
                     <div class=\"form-group\">
-                        <div class=\"col-lg-6\">
+                        <div class=\"col-lg-4\">
                             <label class=\"control-label\" for=\"email\">Email:</label>
                             <input id=\"email\" class=\"form-control\" value='".$row['Email']."' placeholder=\"Email\" type=\"text\" name=\"email\">
                         </div>
-                        <div class=\"col-lg-6\">
+                        <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"type\">Type:</label>
                                     <select id=\"type\" class=\"form-control\" name=\"type\">
                                         <option value=\"Volunteer\" ". $volunteerSelected .">Volunteer</option>
                                         <option value=\"Employee\" ". $employeeSelected .">Employee</option>
-                                    </select>
+                                 </select>
                             </div>
+                            <div class=\"col-lg-4\">
+                    <label class=\"control-label\" for=\"activeFlag\">Active Employee?</label>
+                    <select id=\"activeFlag\" class=\"form-control\" name=\"activeFlag\">
+                        <option value=\"1\" " . $isActiveVolunteer . ">Yes</option>
+                        <option value=\"0\" " . $isNotActiveVolunteer . ">No</option>
+                    </select>
+                </div>
                     </div>
                 </div>
 

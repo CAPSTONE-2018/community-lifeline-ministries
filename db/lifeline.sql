@@ -8,12 +8,12 @@
 
 
 CREATE TABLE Logins (
-  username               VARCHAR(30),
-  password               VARCHAR(32),
-  account_type           VARCHAR(30),
-  first_name             VARCHAR(30),
-  last_name              VARCHAR(30),
-  email                  VARCHAR(30)
+  username     VARCHAR(30),
+  password     VARCHAR(32),
+  account_type VARCHAR(30),
+  first_name   VARCHAR(30),
+  last_name    VARCHAR(30),
+  email        VARCHAR(30)
 );
 
 CREATE TABLE Students (
@@ -75,7 +75,8 @@ CREATE TABLE Attendance (
   Present                TINYINT(1),
   Absent                 TINYINT(1),
   Tardy                  TINYINT(1),
-  TardyTime              VARCHAR(50)
+  TardyTime              VARCHAR(50),
+  Note                   VARCHAR(500)
 );
 
 CREATE TABLE Contacts (

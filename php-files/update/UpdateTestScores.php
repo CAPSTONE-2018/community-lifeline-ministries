@@ -12,14 +12,22 @@ include("../../db/config.php");
 
 session_start();
 
-$id = $_SESSION['testScoreId'];
-//$id = intval($_POST['scoreid']);
+$userMakingChanges = $_SESSION['loggedIn'];
+$id = $_POST['testScoreId'];
 $term = $_POST['term'];
 $year = intval($_POST['year']);
-$preTest = floatval($_POST['pre_test']);
-$postTest = floatval($_POST['post_test']);
+$preTest = floatval($_POST['preTest']);
+$postTest = floatval($_POST['postTest']);
 
-$sql = "UPDATE Student_To_Test_Scores SET Term = $term, School_Year = $year, Pre_Test = $preTest, Post_Test = $postTest  WHERE Id = $id;";
+$sql = "
+UPDATE Student_Test_Scores SET 
+  Author_Username = '$userMakingChanges',
+  Last_Updated_Timestamp = NULL,
+  Term = '$term', 
+  School_Year = '$year', 
+  Pre_Test = '$preTest', 
+  Post_Test = '$postTest'  
+  WHERE Id = $id;";
 
 if ($db->query($sql) === TRUE) {
     echo "

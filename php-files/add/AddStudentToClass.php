@@ -10,11 +10,12 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
+$userMakingChanges = $_SESSION['loggedIn'];
 $studentId = intval($_POST['studentId']);
 $classId = $_POST['classId'];
 
-$stmt = $db->prepare("INSERT INTO Student_To_Classes (Student_Id, Class_Id) VALUES (?, ?)");
-$stmt->bind_param('ii', $studentId, $classId);
+$stmt = $db->prepare("INSERT INTO Student_To_Classes (Author_Username, Student_Id, Class_Id) VALUES (?, ?, ?)");
+$stmt->bind_param('sii', $userMakingChanges, $studentId, $classId);
 $stmt->execute();
 
 if ($stmt->affected_rows == -1) {

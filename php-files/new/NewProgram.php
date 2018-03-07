@@ -17,9 +17,19 @@ $result = mysqli_query($db, $query);
             <br/>
             <div class="row">
                 <div class="form-group">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <label class="control-label" for="name">Program Name:</label>
                         <input id="name" class="form-control" placeholder="Program Name" type="text" name="name">
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <label class="control-label" for="activeFlag">Active Contact?</label>
+                        <select id="activeFlag" class="form-control" name="activeFlag">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+
                     </div>
                 </div>
             </div>

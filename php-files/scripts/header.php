@@ -121,9 +121,9 @@ $account = $_SESSION['account'];
                 </a>
                 <ul class="collapse list-unstyled" id="allergySubmenu">
                     <li><a href="#">Add Student Allergy</a></li>
-                    <li><a href="../new/NewAllergy.php">Add</a></li>
-                    <li><a href="../edit/EditAllergy.php">Update</a></li>
-                    <li><a href="../show/ShowAllergies.php">Display All</a></li>
+                    <li><a href="../new/NewMedicalConcern.php">Add</a></li>
+                    <li><a href="../edit/EditMedicalConcern.php">Update</a></li>
+                    <li><a href="../show/ShowMedicalConcerns.php">Display All</a></li>
                 </ul>
             </li>
 
