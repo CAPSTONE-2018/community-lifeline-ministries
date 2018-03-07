@@ -112,7 +112,6 @@ label input:valid + .label-text {
     transform: translateY(-70px);
 }
 
-
 /*label input:-moz-ui-invalid + .label-text {*/
     /*color: #7fc6a6;*/
     /*font-size: 12px;*/

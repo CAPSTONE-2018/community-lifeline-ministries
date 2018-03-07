@@ -35,84 +35,95 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <label>
-                                                <input id="firstName" class="form-control" type="text" name="firstName" autofocus required/>
+                                                <input id="firstName" class="form-control" type="text" name="firstName"
+                                                       autofocus required/>
                                                 <div class="label-text">First Name</div>
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>
-                                                <input id="lastName" class="form-control" type="text" name="lastName" required/>
+                                                <input id="lastName" class="form-control" type="text" name="lastName"
+                                                       aria-invalid="false" required/>
                                                 <div class="label-text">Last Name</div>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <input id="middleName" class="form-control" placeholder="Middle Name"
-                                                   type="text"
-                                                   name="middleName">
+                                            <label>
+                                                <input id="middleName" class="form-control" type="text"
+                                                       name="middleName" required/>
+                                                <div class="label-text">Middle Name</div>
+                                            </label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input id="suffix" class="form-control" placeholder="Suffix" type="text"
-                                                   name="suffix">
+                                            <label>
+                                                <input id="suffix" class="form-control" type="text" name="suffix"
+                                                       required/>
+                                                <div class="label-text">Suffix</div>
+                                            </label>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-sm-4">
-                                            <input id="dob" class="form-control" placeholder="YYYY/MM/DD"
-                                                   type="text"
-                                                   name="dob">
+                                            <label>
+                                                <input id="dob" class="form-control" type="text" name="dob" required/>
+                                                <div class="label-text">DOB</div>
+                                            </label>
                                         </div>
                                         <div class="col-sm-4">
-                                            <input id="ethnic" class="form-control" placeholder="Ethnicity"
-                                                   type="text"
-                                                   name="ethnicity">
+                                            <label>
+                                                <input id="ethnic" class="form-control" type="text" name="ethnicity"
+                                                       required/>
+                                                <div class="label-text">Ethnicity</div>
+                                            </label>
                                         </div>
                                         <div class="col-sm-4">
-                                            <select id="gender" class="form-control" name="gender">
+                                            <select id="gender" class="form-control" name="gender" required/>
                                                 <option value="M">Male</option>
                                                 <option value="F">Female</option>
                                             </select>
                                         </div>
                                     </div>
 
-
                                     <h4 class="heading"><i class="glyphicon glyphicon-home"></i> Address</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <input id="studentAddressOne" class="form-control" placeholder="Address"
-                                                   type="text"
-                                                   name="addressOne">
+                                            <label>
+                                                <input id="studentAddressOne" class="form-control" type="text" name="addressOne" required/>
+                                                <div class="label-text">Address</div>
+                                            </label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input id="studentAddressTwo" class="form-control"
-                                                   placeholder="Apt/Suite"
-                                                   type="text"
-                                                   name="addressTwo">
+                                            <label>
+                                                <input id="studentAddressTwo" class="form-control" type="text" name="addressTwo" required/>
+                                                <div class="label-text">Apt/Suite</div>
+                                            </label>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
                                         <div class="col-sm-4">
-                                            <input id="studentCity" class="form-control" placeholder="City"
-                                                   type="text"
-                                                   name="city">
+                                            <label>
+                                                <input id="studentCity" class="form-control" type="text" name="city" required/>
+                                                <div class="label-text">City</div>
+                                            </label>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <!--<label class="control-label" for="sstate">State:</label>
-                                            <input id="sstate" class="form-control" placeholder="State" type="text" name="state">-->
+                                        <div class="col-lg-4">
+                                            <label class="control-label" for="state">State:</label>
                                             <?php
                                             include("../scripts/States.php");
                                             echo stateDropdown()
                                             ?>
-
                                         </div>
                                         <div class="col-sm-4">
-                                            <input id="studentZip" class="form-control" placeholder="Zip Code"
-                                                   type="text"
-                                                   name="zip">
+                                            <label>
+                                                <input id="studentZip" class="form-control" type="text" name="zip" required/>
+                                                <div class="label-text">Zip</div>
+                                            </label>
                                         </div>
                                     </div>
-
 
                                     <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
                                     <div class="blue-line-color"></div>
@@ -129,7 +140,7 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb1" name="reducedLunchEligibility"
+                                                    <input class="tgl tgl-flat" id="cb1" name="reducedLunchEligibilityCheckbox"
                                                            type="checkbox"/>
                                                     <label class="tgl-btn" for="cb1"></label>
                                                 </li>
@@ -142,7 +153,7 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb2" name="permissionSlip"
+                                                    <input class="tgl tgl-flat" id="cb2" name="permissionSlipCheckbox"
                                                            type="checkbox"/>
                                                     <label class="tgl-btn" for="cb2"></label>
                                                 </li>
@@ -157,7 +168,7 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb3" name="birthCertificate"
+                                                    <input class="tgl tgl-flat" id="cb3" name="birthCertificateCheckbox"
                                                            type="checkbox"/>
                                                     <label class="tgl-btn" for="cb3"></label>
                                                 </li>
@@ -170,7 +181,7 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" name="iep" type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" value={$determinedValue}  name="iepCheckbox" type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
@@ -265,7 +276,33 @@ include("../scripts/header.php");
 </div>
 
 
+
 <?php
+
+if(isset($_POST['permissionSlipCheckbox'])) {
+   $determinedValue = 1;
+} else {
+    $_POST['permissionSlipCheckbox'] = 0;
+}
+
+if(isset($_POST['reducedLunchEligibilityCheckbox'])) {
+    $_POST['reducedLunchEligibilityCheckbox'] = 1;
+} else {
+    $_POST['reducedLunchEligibilityCheckbox'] = 0;
+}
+
+if(isset($_POST['birthCertificateCheckbox'])) {
+    $_POST['birthCertificateCheckbox'] = 1;
+} else {
+    $_POST['birthCertificateCheckbox'] = 0;
+}
+
+if(isset($_POST['iepCheckbox'])) {
+    $_POST['iepCheckbox'] = 1;
+} else {
+    $_POST['iepCheckbox'] = 0;
+}
+
 include("../scripts/footer.php");
 ?>
 
@@ -273,6 +310,13 @@ include("../scripts/footer.php");
     $(document).ready(function () {
         $('#buttonTrigger').click(function () {
             var x = document.getElementById("newStudentForm");
+
+            var birthCertificateCheckbox = x[13];
+
+            if (birthCertificateCheckbox.valid){
+
+            }
+
             var txt = "";
             var i;
             for (i = 0; i < x.length; i++) {
@@ -301,18 +345,9 @@ include("../scripts/footer.php");
             document.getElementById("modalBody").innerHTML = txt;
         });
     });
-</script>
 
+    console.log("checkbox");
 
-<script>
-    document.getElementsByTagName("label").onblur = function() {
-        if (!this.value.includes('@')) { // not email
-            // show the error
-            this.classList.add("error");
-            // ...and put the focus back
-            input.focus();
-        } else {
-            this.classList.remove("error");
-        }
-    };
+    var checkbox = $( "checkbox" );
+    checkbox.val( checkbox[0].checked ? 1 : 0 );
 </script>
