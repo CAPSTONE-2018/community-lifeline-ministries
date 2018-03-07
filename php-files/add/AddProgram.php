@@ -10,10 +10,12 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
+$userMakingChanges = $_SESSION['loggedIn'];
 $programName = $_POST['name'];
+$isActiveFlag = $_POST['activeFlag'];
 
-$stmt = $db->prepare("INSERT INTO Programs (Program_Name) VALUES (?)");
-$stmt->bind_param('s', $programName);
+$stmt = $db->prepare("INSERT INTO Programs (Author_Username, Active_Program, Program_Name) VALUES (?, ?, ?)");
+$stmt->bind_param('sis', $userMakingChanges, $isActiveFlag, $programName);
 $stmt->execute();
 
 

@@ -10,10 +10,18 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 session_start();
+$userMakingChanges = $_SESSION['loggedIn'];
 $id = $_SESSION['programId'];
 $programName = $_POST['programName'];
+$isActiveFlag = $_POST['activeFlag'];
 
-$sql = "UPDATE Programs SET Program_Name = '$programName' WHERE Id = '$id' ;";
+$sql = "
+UPDATE Programs SET 
+  Author_Username = '$userMakingChanges',
+  Last_Updated_Timestamp = NULL,
+  Program_Name = '$programName',
+  Active_Program = '$isActiveFlag'
+  WHERE Id = '$id' ;";
 
 if ($db->query($sql) === TRUE){
     echo "

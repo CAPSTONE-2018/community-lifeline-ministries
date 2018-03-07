@@ -35,7 +35,7 @@ $result = mysqli_query($db, $query);
             echo "</td><td>";
             echo $row['Last_Name'];
             echo "</td><td>";
-            echo $row['Address'];
+            echo $row['Address_One'];
             echo "</td><td>";
             echo $row['City'];
             echo "</td><td>";

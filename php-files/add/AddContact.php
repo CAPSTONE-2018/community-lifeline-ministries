@@ -8,21 +8,24 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
+$userMakingChanges = $_SESSION['loggedIn'];
 $prefix = $_POST['prefix'];
 $firstName = $_POST['firstName'];
 $middleName = $_POST['middleName'];
 $lastName = $_POST['lastName'];
 $suffix = $_POST['suffix'];
-$cellPhone = $_POST['cellPhone'];
-$homePhone = $_POST['homePhone'];
-$address = $_POST['address'];
+$primaryPhone = $_POST['primaryPhone'];
+$secondaryPhone = $_POST['secondaryPhone'];
+$addressOne = $_POST['addressOne'];
+$addressTwo = $_POST['addressTwo'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $zip = intval($_POST['zip']);
 $email = $_POST['email'];
+$isActiveFlag = $_POST['activeFlag'];
 
-$stmt = $db->prepare("INSERT INTO Contacts (Prefix, First_Name, Middle_Name, Last_Name, Suffix ,Phone_Cell, Phone_Home, Address, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('ssssssssssis', $prefix, $firstName, $middleName, $lastName, $suffix, $cellPhone, $homePhone, $address, $city, $state, $zip, $email);
+$stmt = $db->prepare("INSERT INTO Contacts (Author_Username, Active_Contact, Prefix, First_Name, Middle_Name, Last_Name, Suffix , Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('sisssssssssssis', $userMakingChanges, $isActiveFlag, $prefix, $firstName, $middleName, $lastName, $suffix, $primaryPhone, $secondaryPhone, $addressOne, $addressTwo, $city, $state, $zip, $email);
 $stmt->execute();
 
 if ($stmt->affected_rows == -1) {

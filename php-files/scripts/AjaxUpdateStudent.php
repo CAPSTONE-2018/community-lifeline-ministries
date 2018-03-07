@@ -76,6 +76,7 @@ $output = "<div id=\"form_wrapper\">
                     <br />
 
                     <div class=\"row\">
+                    <input type='hidden' value='".$row['Id']."' name=\"studentId\"/>
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
@@ -126,31 +127,34 @@ $output = "<div id=\"form_wrapper\">
                     </div>
 
                     <div class=\"row\">
-
                         <div class=\"form-group\">
-                            <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"address\">Address:</label>
-                                <input id=\"address\" class=\"form-control\" value='" . $row['Address'] . "' placeholder=\"Address\" type=\"text\" name=\"address\">
+                            <div class=\"col-lg-6\">
+                                <label class=\"control-label\" for=\"addressOne\">Address:</label>
+                                <input id=\"addressOne\" class=\"form-control\" value='" . $row['Address_One'] . "' placeholder=\"Address\" type=\"text\" name=\"addressOne\">
                             </div>
-                            <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"city\">City:</label>
-                                <input id=\"city\" class=\"form-control\" value='" . $row['City'] . "' placeholder=\"City\" type=\"text\" name=\"city\">
-                            </div>
-                            <div class=\"col-lg-3\">
-                                <!--<label class=\"control-label\" for=\"state\">State:</label>
-                                <input id=\"state\" class=\"form-control\" placeholder=\"State\" type=\"text\" name=\"state\">-->
-                                <label class=\"control-label\" for=\"state\">State:</label>
-                                $stateSelect
-                            </div>
-                            <div class=\"col-lg-3\">
-                                <label class=\"control-label\" for=\"zip\">Zip Code:</label>
-                                <input id=\"zip\" class=\"form-control\" value='" . $row['Zip'] . "' placeholder=\"Zip Code\" type=\"text\" name=\"zip\">
+                            <div class=\"col-lg-6\">
+                                <label class=\"control-label\" for=\"addressTwo\">Apt/Suite:</label>
+                                <input id=\"addressTwo\" class=\"form-control\" value='" . $row['Address_Two'] . "' placeholder=\"Apt/Suite\" type=\"text\" name=\"addressTwo\">
                             </div>
                         </div>
 
+                        <div class=\"form-group\">
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"city\">City:</label>
+                                <input id=\"city\" class=\"form-control\" value='" . $row['City'] . "' placeholder=\"City\" type=\"text\" name=\"city\">
+                            </div>
 
+                            <div class=\"col-lg-4\">
+                                <label class=\"control-label\" for=\"state\">State:</label>
+                                $stateSelect
+                            </div>
+
+                        <div class=\"col-lg-4\">
+                            <label class=\"control-label\" for=\"zip\">Zip Code:</label>
+                            <input id=\"zip\" class=\"form-control\" value='" . $row['Zip'] . "' placeholder=\"Zip Code\" type=\"text\" name=\"zip\">
+                        </div>
                     </div>
-
+                
                     <div class=\"row\">
 
                         <div class=\"form-group\">
@@ -204,29 +208,6 @@ $output = "<div id=\"form_wrapper\">
                     </div>
 
                     <br />
-
-                    <h1>Allergies:</h1>
-                    <br />
-
-                    <div class=\"row\">
-
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"allergyName\">Name:</label>
-                                <input id=\"allergyName\" class=\"form-control\" value='" . $row2['Name'] . "' placeholder=\"Allergy Name\" type=\"text\" name=\"allergyName\">
-                            </div>
-
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"allergyType\">Type:</label>
-                                <input id=\"allergyType\" class=\"form-control\" value='" . $row2['Type'] . "' placeholder=\"Allergy Type\" type=\"text\" name=\"allergyType\">
-                            </div>
-                            <div class=\"col-lg-4\">
-                                <label class=\"control-label\" for=\"allergyNote\">Note:</label>
-                                <input id=\"allergyNote\" class=\"form-control\" value='" . $row2['Note'] . "' placeholder=\"Allergy Note\" type=\"text\" name=\"allergyNote\">
-                            </div>
-
-                        </div>
-                    </div>
 
                     <input id=\"submit\" class=\"btn btn-primary btn-lg btn-block\" type=\"submit\" value=\"Submit\"><br><br>
 

@@ -18,6 +18,16 @@ $row = mysqli_fetch_array($result);
 $result2 = mysqli_query($db, $query2);
 $row2 = mysqli_fetch_array($result2);
 
+
+$programIsActive = "";
+$programIsNotActive = "";
+
+if ($row['Active_Class'] == 1) {
+    $programIsActive = "selected=\"selected\"";
+} else {
+    $programIsNotActive = "selected=\"selected\"";
+}
+
 $output = "<div id=\"form_wrapper\">
     <form class=\"form - horizontal\" action=\"../update/UpdateProgram.php\" method=\"POST\" id=\"form2\">
 
@@ -31,17 +41,16 @@ $output = "<div id=\"form_wrapper\">
                     <input id=\"name\" class=\"form-control\" value='".$row['Program_Name']."' placeholder=\"Program Name\" type=\"text\" name=\"programName\">
                 </div>                 
             </div>
-        </div>
-        
-        <div class=\"row\">
-    
-            <div class=\"form-group\">
-                <div class=\"col-lg-6\">
-                    <label class=\"control-label\" for=\"name\">Volunteer ID (need to query for name):</label>
-                    <input id=\"name\" class=\"form-control\" value='".$row2['Volunteer_Id']."' placeholder=\"Class Name\" type=\"text\" name=\"name\">
-                </div>                 
+            
+            <div class=\"col-lg-6\">
+                <label class=\"control-label\" for=\"activeFlag\">Active Class?</label>
+                <select id=\"activeFlag\" class=\"form-control\" name=\"activeFlag\">
+                    <option value=\"1\" ".$programIsActive.">Yes</option>
+                    <option value=\"0\" ".$programIsNotActive.">No</option>
+                </select>
             </div>
         </div>
+        
     
         <input id=\"submit\" class=\"btn btn-primary btn-lg btn-block\" type=\"submit\" value=\"Submit\"><br><br>
 
