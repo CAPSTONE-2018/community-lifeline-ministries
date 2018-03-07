@@ -35,13 +35,13 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <label>
-                                                <input id="firstName" class="form-control" type="text" name="firstName" required/>
+                                                <input id="firstName" class="form-control" type="text" name="firstName" autofocus required/>
                                                 <div class="label-text">First Name</div>
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>
-                                                <input id="lastName" class="form-control" type="text" name="lastName">
+                                                <input id="lastName" class="form-control" type="text" name="lastName" required/>
                                                 <div class="label-text">Last Name</div>
                                             </label>
                                         </div>
@@ -301,4 +301,18 @@ include("../scripts/footer.php");
             document.getElementById("modalBody").innerHTML = txt;
         });
     });
+</script>
+
+
+<script>
+    document.getElementsByTagName("label").onblur = function() {
+        if (!this.value.includes('@')) { // not email
+            // show the error
+            this.classList.add("error");
+            // ...and put the focus back
+            input.focus();
+        } else {
+            this.classList.remove("error");
+        }
+    };
 </script>
