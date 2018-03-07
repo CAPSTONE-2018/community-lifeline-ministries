@@ -11,16 +11,16 @@ include("../../db/config.php");
 
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$id = $_SESSION['allergyId'];
+$id = $_SESSION['medicalConcernId'];
 $medicalConcernName = $_POST['name'];
-$medicalConcernType = $_POST['allergyType'];
-$medicalConcernNote = $_POST['allergyNote'];
+$medicalConcernType = $_POST['type'];
+$medicalConcernNote = $_POST['note'];
 
 
 $sql = "
 UPDATE Medical_Concerns SET 
   Last_Updated_Timestamp = NULL, 
-  Author_Username = $userMakingChanges,
+  Author_Username = '$userMakingChanges',
   Name = '$medicalConcernName', 
   Type = '$medicalConcernType', 
   Note = '$medicalConcernNote' 

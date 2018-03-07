@@ -67,11 +67,11 @@ include("../scripts/footer.php");
 
     $(document).ready(function () {
         $('.table-update-button').click(function () {
-            var allergyId = $(this).attr('value');
+            var medicalConcernId = $(this).attr('value');
             $.ajax({
                 url: "../scripts/AjaxUpdateMedicalConcerns.php",
                 method: "POST",
-                data: {allergyId: allergyId},
+                data: {medicalConcernId: medicalConcernId},
                 success: function (output) {
                     $('#show-medical-info').slideDown().html(output);
                     $('#show-all-button').show();
