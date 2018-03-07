@@ -4,11 +4,11 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$query = "SELECT test_scores.*, 
-            student.First_Name,
-            student.Last_Name
-            FROM Student_To_Test_Scores AS test_scores 
-            JOIN Students AS student ON student.Id = test_scores.Student_Id;";
+$query = "SELECT Student_Test_Scores.*, 
+            Students.First_Name,
+            Students.Last_Name
+            FROM Student_Test_Scores 
+            JOIN Students ON Students.Id = Student_Test_Scores.Student_Id;";
 $result = mysqli_query($db, $query);
 
 ?>
