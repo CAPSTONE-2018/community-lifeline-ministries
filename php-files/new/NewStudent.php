@@ -3,6 +3,7 @@ include("../scripts/header.php");
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
+<link rel="stylesheet" href="../../css/new-toggle.css"/>
 
 <div class="container-fluid">
     <div class="row">
@@ -204,8 +205,14 @@ include("../scripts/header.php");
                                             <input id="allergyName" class="form-control" type="text" name="allergyName">
                                         </div>
                                         <div class="col-lg-6">
-                                            <label class="control-label" for="allergyType">Type:</label>
-                                            <input id="allergyType" class="form-control" type="text" name="allergyType">
+<!--                                            <label class="control-label" for="allergyType">Type:</label>-->
+<!--                                            <input id="allergyType" class="form-control" type="text" name="allergyType">-->
+
+                                            <label class="switch">
+                                                <input name="permissionSlipCheckbox" type="checkbox" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+
                                         </div>
                                     </div>
 
