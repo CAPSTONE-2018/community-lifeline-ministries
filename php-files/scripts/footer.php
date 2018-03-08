@@ -22,6 +22,7 @@
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
+            $('#content').toggleClass('col-lg-10 shorten col-lg-9');
         });
     });
 </script>
