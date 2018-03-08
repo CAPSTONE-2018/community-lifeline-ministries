@@ -15,7 +15,7 @@ $account = $_SESSION['account'];
 
     <title>Community Lifeline Ministries</title>
 
-    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
@@ -170,6 +170,7 @@ $account = $_SESSION['account'];
                 <div class="span"><img class="center-block" src="../../images/Lifeline.png"/></div>
                 <div class="span"></div>
                 <br><br><br>
+            </div>
 
 
                 <script type="text/javascript">
