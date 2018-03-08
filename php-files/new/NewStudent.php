@@ -3,7 +3,10 @@ include("../scripts/header.php");
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
+<link rel="stylesheet" href="../../css/input-stylings.css"/>
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
+
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 <div class="container-fluid">
     <div class="row">
@@ -35,53 +38,56 @@ include("../scripts/header.php");
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <label>
-                                                <input id="firstName" class="form-control" type="text" name="firstName"
-                                                       autofocus required/>
-                                                <div class="label-text">First Name</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="firstName" class="mdl-textfield__input" name="firstName" type="text" pattern="(.|\s)*\S(.|\s)*" />
+                                                <label class="mdl-textfield__label" for="firstName">First Name</label>
+                                                <span class="mdl-textfield__error">First Name is Required</span>
+                                            </div>
                                         </div>
+
                                         <div class="col-sm-6">
-                                            <label>
-                                                <input id="lastName" class="form-control" type="text" name="lastName"
-                                                       aria-invalid="false" required/>
-                                                <div class="label-text">Last Name</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="lastName" class="mdl-textfield__input" name="lastName" type="text"/>
+                                                <label class="mdl-textfield__label" for="lastName">Last Name</label>
+                                                <span class="mdl-textfield__error">Last Name is Required</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <label>
-                                                <input id="middleName" class="form-control" type="text"
-                                                       name="middleName" required/>
-                                                <div class="label-text">Middle Name</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="middleName" class="mdl-textfield__input" name="middleName" type="text"/>
+                                                <label class="mdl-textfield__label" for="middleName">Middle Name</label>
+                                            </div>
                                         </div>
+
                                         <div class="col-sm-6">
-                                            <label>
-                                                <input id="suffix" class="form-control" type="text" name="suffix"
-                                                       required/>
-                                                <div class="label-text">Suffix</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="suffix" class="mdl-textfield__input" name="suffix" type="text"/>
+                                                <label class="mdl-textfield__label" for="suffix">Suffix</label>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
+
                                         <div class="col-sm-4">
-                                            <label>
-                                                <input id="dob" class="form-control" type="text" name="dob" required/>
-                                                <div class="label-text">DOB</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="dob" class="mdl-textfield__input" pattern="-?[0-9]*(\.[0-9]+)?"  name="dob" type="text" />
+                                                <label class="mdl-textfield__label" for="dob">D.O.B.</label>
+                                                <span class="mdl-textfield__error">Input is not a date!</span>
+                                            </div>
                                         </div>
+
                                         <div class="col-sm-4">
-                                            <label>
-                                                <input id="ethnic" class="form-control" type="text" name="ethnicity"
-                                                       required/>
-                                                <div class="label-text">Ethnicity</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="ethnicity" class="mdl-textfield__input" name="ethnicity" type="text"/>
+                                                <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
+                                            </div>
                                         </div>
+
                                         <div class="col-sm-4">
-                                            <select id="gender" class="form-control" name="gender" required/>
+                                            <select id="gender" class="form-control" name="gender" />
                                                 <option value="M">Male</option>
                                                 <option value="F">Female</option>
                                             </select>
@@ -92,24 +98,25 @@ include("../scripts/header.php");
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <label>
-                                                <input id="studentAddressOne" class="form-control" type="text" name="addressOne" required/>
-                                                <div class="label-text">Address</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="studentAddressOne" class="mdl-textfield__input" name="studentAddressOne" type="text"/>
+                                                <label class="mdl-textfield__label" for="studentAddressOne">Address</label>
+                                            </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label>
-                                                <input id="studentAddressTwo" class="form-control" type="text" name="addressTwo" required/>
-                                                <div class="label-text">Apt/Suite</div>
-                                            </label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="studentAddressTwo" class="mdl-textfield__input" name="studentAddressTwo" type="text"/>
+                                                <label class="mdl-textfield__label" for="studentAddressTwo">Apt/Suite</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-4">
-                                            <label>
-                                                <input id="studentCity" class="form-control" type="text" name="city" required/>
-                                                <div class="label-text">City</div>
-                                            </label>
+
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="studentCity" class="mdl-textfield__input" name="studentCity" type="text"/>
+                                                <label class="mdl-textfield__label" for="studentCity">City</label>
+                                            </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <label class="control-label" for="state">State:</label>
@@ -119,10 +126,11 @@ include("../scripts/header.php");
                                             ?>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label>
-                                                <input id="studentZip" class="form-control" type="text" name="zip" required/>
-                                                <div class="label-text">Zip</div>
-                                            </label>
+
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="studentZip" class="mdl-textfield__input" name="studentZip" type="text"/>
+                                                <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -130,11 +138,12 @@ include("../scripts/header.php");
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-lg">
-                                            <input id="studentSchool" class="form-control" placeholder="School"
-                                                   type="text"
-                                                   name="school">
-                                        </div>
 
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="studentSchool" class="mdl-textfield__input" name="studentSchool" type="text"/>
+                                                <label class="mdl-textfield__label" for="studentSchool">School Currently Attending</label>
+                                            </div>
+                                        </div>
 
                                         <div class="col-sm-3">
                                             <div class="toggle-title">Reduced Lunch Eligible</div>
@@ -286,10 +295,9 @@ include("../scripts/header.php");
 
 <?php
 
-if(isset($_POST['permissionSlipCheckbox'])) {
-   $determinedValue = 1;
-} else {
-    $_POST['permissionSlipCheckbox'] = 0;
+
+if(isset($_POST['firstName'])) {
+   echo "Fill out name";
 }
 
 if(isset($_POST['reducedLunchEligibilityCheckbox'])) {
@@ -358,3 +366,13 @@ include("../scripts/footer.php");
     var checkbox = $( "checkbox" );
     checkbox.val( checkbox[0].checked ? 1 : 0 );
 </script>
+
+
+<!--<div class="col-sm-6">-->
+<!--    <!-- Numeric Textfield with Floating Label -->-->
+<!--    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-->
+<!--        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">-->
+<!--        <label class="mdl-textfield__label" for="sample4">Number...</label>-->
+<!--        <span class="mdl-textfield__error">Input is not a number!</span>-->
+<!--    </div>-->
+<!--</div>-->

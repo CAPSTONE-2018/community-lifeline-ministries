@@ -8,7 +8,7 @@ form{
 
 .form-horizontal .header{
     background: #60C2CB;
-    padding: 30px 25px;
+    padding: 15px 25px;
     font-size: 30px;
     color: #fff;
     text-align: center;
@@ -61,65 +61,6 @@ form{
     text-align: right;
 
 }
-
-label {
-    display: block;
-    letter-spacing: 1px;
-    height: 50px;
-}
-
-label .label-text,  input[value=""]{
-    cursor: text;
-    font-size: 16px;
-    font-weight: 300;
-    color: #8e8e8e;
-    -moz-transform: translateY(-55px);
-    -ms-transform: translateY(-55px);
-    -webkit-transform: translateY(-55px);
-    transform: translateY(-55px);
-    transition: all 0.3s;
-}
-
-label input {
-    background-color: transparent;
-    border: 0;
-    font-size: 15px;
-    outline: 0;
-    transition: all 0.3s;
-    width: 500px;
-}
-
-label input:focus + .label-text {
-    font-size: 12px;
-    -moz-transform: translateY(-75px);
-    -ms-transform: translateY(-75px);
-    -webkit-transform: translateY(-75px);
-    transform: translateY(-75px);
-}
-
-input:focus + .form-control {
-    outline: none !important;
-    border-color: #719ECE;
-    box-shadow: 0 0 10px #719ECE;
-}
-
-label input:valid + .label-text {
-    color: #7fc6a6;
-    font-size: 12px;
-    -moz-transform: translateY(-70px);
-    -ms-transform: translateY(-70px);
-    -webkit-transform: translateY(-70px);
-    transform: translateY(-70px);
-}
-
-/*label input:-moz-ui-invalid + .label-text {*/
-    /*color: #7fc6a6;*/
-    /*font-size: 12px;*/
-    /*-moz-transform: translateY(-70px);*/
-    /*-ms-transform: translateY(-70px);*/
-    /*-webkit-transform: translateY(-70px);*/
-    /*transform: translateY(-70px);*/
-/*}*/
 
 .blue-line-color {
     margin-top: 20px;
