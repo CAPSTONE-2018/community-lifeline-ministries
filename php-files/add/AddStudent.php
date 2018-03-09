@@ -23,10 +23,10 @@ $zip = intval($_POST['studentZip']);
 $city = $_POST['studentCity'];
 $state = $_POST['state'];
 $school = $_POST['studentSchool'];
-//$permissionSlip = intval($_POST['permissionSlipCheckbox']);
-//$birthCertificate = intval($_POST['birthCertificateCheckbox']);
-//$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
-//$iep = intval($_POST['iepCheckbox']);
+$permissionSlip = intval($_POST['permissionSlipCheckbox']);
+$birthCertificate = intval($_POST['birthCertificateCheckbox']);
+$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
+$iep = intval($_POST['iepCheckbox']);
 $isActiveFlag = 1;
 
 //$medicalConcernName = $_POST['medicalConcernName'];
