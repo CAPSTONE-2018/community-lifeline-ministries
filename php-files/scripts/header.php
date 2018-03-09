@@ -22,18 +22,23 @@ $account = $_SESSION['account'];
     <link rel="stylesheet" type="text/css" href="../../css/clm.css" />
 </head>
 
+
 <body>
 
+
 <div class="container" id="wrapper">
-    <!-- Image in Top Nav -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <!-- Top Nav -->
+    <nav class="navbar-fixed-top">
+        <div id="time" class="clock">
+        </div>
         <div class="top-nav-pic">
-            <a href="../../php-files/index-login/menu.php"> <img src="../../images/Lifeline.png" width=inherit height=60px alt="" style="float:right"></a>
+            <a href="../../php-files/index-login/menu.php"> <img src="../../images/Lifeline.png" height="50px" alt="" style="float:right"></a>
         </div>
     </nav>
 
+    <!-- Sidebar Nav -->
     <nav id="sidebar">
-        <div class="navbar-btn">
+        <div class="navbar-btn sidebar">
             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                 <i class="glyphicon glyphicon-align-left"></i>
             </button>
@@ -162,6 +167,6 @@ $account = $_SESSION['account'];
         </ul>
     </nav>
 
-
+    <!-- Content goes after here - closed by footer -->
     <div class="col-lg-9" id="content">
         <div class="container-fluid">

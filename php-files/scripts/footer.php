@@ -19,14 +19,42 @@
 <!--        crossorigin="anonymous"></script>-->
 
 <script type="text/javascript">
+
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
-            $('#content').toggleClass('col-lg-11 shorten col-lg-9');
+            document.cookie = "menuCollapse=True";
+            $('#content').toggleClass('col-lg-12 shorten col-lg-9');
         });
     });
+
+    function updateClock() {
+        var now = new Date();
+
+        hours = ((now.getHours() + 11) % 12 + 1 );
+        min = now.getMinutes();
+        if(min < 10)
+        {
+            min = '0' + min;
+        }
+        sec = now.getSeconds();
+        if(sec < 10)
+        {
+            sec = '0' + sec;
+        }
+
+        time = hours + ':' + min + ':' + sec;
+
+        document.getElementById('time').innerHTML = time;
+
+        setTimeout(updateClock, 1000);
+    }
+    updateClock(); // initial call
+
 </script>
 
+
+</div>
 </div>
 </div>
 </div>
