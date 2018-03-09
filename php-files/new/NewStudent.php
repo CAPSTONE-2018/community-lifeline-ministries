@@ -5,9 +5,7 @@ include("../scripts/header.php");
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../css/input-stylings.css"/>
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
-
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
@@ -39,7 +37,7 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="firstName" class="mdl-textfield__input" name="firstName" type="text" pattern="(.|\s)*\S(.|\s)*" />
+                                                <input id="firstName" class="mdl-textfield__input" name="studentFirstName" type="text" />
                                                 <label class="mdl-textfield__label" for="firstName">First Name</label>
                                                 <span class="mdl-textfield__error">First Name is Required</span>
                                             </div>
@@ -47,7 +45,7 @@ include("../scripts/header.php");
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="lastName" class="mdl-textfield__input" name="lastName" type="text"/>
+                                                <input id="lastName" class="mdl-textfield__input" name="studentLastName" type="text"/>
                                                 <label class="mdl-textfield__label" for="lastName">Last Name</label>
                                                 <span class="mdl-textfield__error">Last Name is Required</span>
                                             </div>
@@ -56,14 +54,14 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="middleName" class="mdl-textfield__input" name="middleName" type="text"/>
+                                                <input id="middleName" class="mdl-textfield__input" name="studentMiddleName" type="text"/>
                                                 <label class="mdl-textfield__label" for="middleName">Middle Name</label>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="suffix" class="mdl-textfield__input" name="suffix" type="text"/>
+                                                <input id="suffix" class="mdl-textfield__input" name="studentSuffix" type="text"/>
                                                 <label class="mdl-textfield__label" for="suffix">Suffix</label>
                                             </div>
                                         </div>
@@ -73,7 +71,7 @@ include("../scripts/header.php");
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="dob" class="mdl-textfield__input" pattern="-?[0-9]*(\.[0-9]+)?"  name="dob" type="text" />
+                                                <input id="dob" class="mdl-textfield__input" name="dob" type="text" />
                                                 <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                                 <span class="mdl-textfield__error">Input is not a date!</span>
                                             </div>
@@ -191,7 +189,7 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" value={$determinedValue}  name="iepCheckbox" type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
@@ -217,10 +215,10 @@ include("../scripts/header.php");
 <!--                                            <label class="control-label" for="allergyType">Type:</label>-->
 <!--                                            <input id="allergyType" class="form-control" type="text" name="allergyType">-->
 
-                                            <label class="switch">
-                                                <input name="permissionSlipCheckbox" type="checkbox" checked>
-                                                <span class="slider round"></span>
-                                            </label>
+<!--                                            <label class="switch">-->
+<!--                                                <input name="permissionSlipCheckbox" type="checkbox" checked>-->
+<!--                                                <span class="slider round"></span>-->
+<!--                                            </label>-->
 
                                         </div>
                                     </div>
