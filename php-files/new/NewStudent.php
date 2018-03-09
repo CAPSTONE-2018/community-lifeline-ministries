@@ -5,9 +5,7 @@ include("../scripts/header.php");
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../css/input-stylings.css"/>
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
-
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
@@ -191,7 +189,7 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" value={$determinedValue}  name="iepCheckbox" type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>

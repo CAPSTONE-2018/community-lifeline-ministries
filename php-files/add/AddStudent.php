@@ -23,15 +23,15 @@ $zip = intval($_POST['studentZip']);
 $city = $_POST['studentCity'];
 $state = $_POST['state'];
 $school = $_POST['studentSchool'];
-$permissionSlip = intval($_POST['permissionSlipCheckbox']);
-$birthCertificate = intval($_POST['birthCertificateCheckbox']);
-$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
-$iep = intval($_POST['iepCheckbox']);
+//$permissionSlip = intval($_POST['permissionSlipCheckbox']);
+//$birthCertificate = intval($_POST['birthCertificateCheckbox']);
+//$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
+//$iep = intval($_POST['iepCheckbox']);
 $isActiveFlag = 1;
 
-$medicalConcernName = $_POST['medicalConcernName'];
-$medicalConcernType = $_POST['medicalConcernType'];
-$medicalConcernNote = $_POST['medicalConcernNote'];
+//$medicalConcernName = $_POST['medicalConcernName'];
+//$medicalConcernType = $_POST['medicalConcernType'];
+//$medicalConcernNote = $_POST['medicalConcernNote'];
 
 
 #Adding student records based on the information the user added into the "add" fields
@@ -82,23 +82,23 @@ if ($stmtStudent->affected_rows == -1) {
 //    $result = $db->query($query);
 //    $row_aid = $result->fetch_assoc();
 
-
-$stmt = $db->prepare("INSERT INTO Student_To_Medical_Concerns (Student_Id, Medical_Concern_Id) VALUES (?, ?)");
-$stmt->bind_param('ii', $stmtStudent->insert_id, $row_aid);
-$stmt->execute();
-
-if ($stmt->affected_rows == -1) {
-    echo "
-            <div class='alert alert-danger'>
-                <strong>Failure! </strong>Students to Allergies could not be added to the database, please try again.
-            </div>";
-} else {
-    echo "
-            <div class='alert alert-success'>
-                <strong>Success! </strong>Students to Allergies has been successfully added to the database.
-            </div>";
-    $stmt->close();
-}
+//
+//$stmt = $db->prepare("INSERT INTO Student_To_Medical_Concerns (Student_Id, Medical_Concern_Id) VALUES (?, ?)");
+//$stmt->bind_param('ii', $stmtStudent->insert_id, $row_aid);
+//$stmt->execute();
+//
+//if ($stmt->affected_rows == -1) {
+//    echo "
+//            <div class='alert alert-danger'>
+//                <strong>Failure! </strong>Students to Allergies could not be added to the database, please try again.
+//            </div>";
+//} else {
+//    echo "
+//            <div class='alert alert-success'>
+//                <strong>Success! </strong>Students to Allergies has been successfully added to the database.
+//            </div>";
+//    $stmt->close();
+//}
 
 include("../scripts/footer.php");
 ?>
