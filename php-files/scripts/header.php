@@ -24,15 +24,14 @@ $account = $_SESSION['account'];
 
 <body>
 
-<!-- Image in Top Nav -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="top-nav-pic">
-        <a href="../../php-files/index-login/menu.php"> <img src="../../images/Lifeline.png" width=inherit height=60px alt="" style="float:right"></a>
-    </div>
-</nav>
+<div class="container" id="wrapper">
+    <!-- Image in Top Nav -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="top-nav-pic">
+            <a href="../../php-files/index-login/menu.php"> <img src="../../images/Lifeline.png" width=inherit height=60px alt="" style="float:right"></a>
+        </div>
+    </nav>
 
-
-<div id="wrapper">
     <nav id="sidebar">
         <div class="navbar-btn">
             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
