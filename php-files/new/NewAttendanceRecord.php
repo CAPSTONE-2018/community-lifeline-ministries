@@ -13,29 +13,25 @@ $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Progr
 $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
 $programName = $getInfo['Program_Name'];
+$rowId = 0;
 ?>
-
 <link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
+<link rel="stylesheet" href="../../css/check-mark-styles.css"/>
 
 <div class="container-fluid">
-    <div class="form-group">
-        <div class="card">
-            <form class="form-horizontal" action="../add/AddAttendanceRecord.php" method="POST" name="newAttendanceRecordForm"
+        <div class="card col-lg-12">
+            <form class="form-horizontal" action="../add/AddAttendanceRecord.php" method="POST"
+                  name="newAttendanceRecordForm"
                   id="newAttendanceRecordForm">
                 <div class="card-body">
-
                     <div class="header">
                         <?php
                         echo "<h3 class=\"card-title\">$programName Attendance</h3>";
                         ?>
                     </div>
-
-
                     <div class="card-content">
                         <div>
-                            <!--Table-->
-                            <table class="table table-hover table-responsive">
-                                <!--Table head-->
+                            <table id="attendance-table" class="table table-condensed table-hover table-responsive">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -43,47 +39,51 @@ $programName = $getInfo['Program_Name'];
                                     <th class="centered-column-title">Present</th>
                                     <th class="centered-column-title">Absent</th>
                                     <th class="centered-column-title">Tardy</th>
+                                    <th class="centered-column-title">Actions</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <?php
                                 while ($row = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC)) {
+                                    $rowId ++;
                                     $studentName = $row['First_Name'] . " " . $row['Last_Name'];
                                     $studentId = mysqli_fetch_array($row['Student_Id'], MYSQLI_ASSOC);
-                                    echo "<tr><td>
+
+                                    $studentRow = "
+                                <tr>
+                                    <td></td>
+                                    <td class='student-name-column'>$studentName</td>
+                                    <td class='check-mark-column'>
+                                        <input id='presentCheckBox' name='presentCheckbox' type='checkbox'>
+                                    </td>
+                                    <td class='check-mark-column'>
+                                        <input id='absentCheckbox' name='absentCheckbox' type='checkbox'>                                   
+                                    </td>
+                                    <td class='check-mark-column'>
+                                        <input id='tardyCheckbox' name='tardyCheckbox' type='checkbox'>
+                                    </td>
+                                    <td class='check-mark-column'>
+                                        <button type='button' data-toggle='collapse' data-target='#collapseRow$rowId' aria-expanded='false' aria-controls='collapseRow$rowId' class='student-info-button'>Info</button>                         
+                                    </td>
+                                    
+                                    
+                              
+                                </tr>
                                 
-                               </td><td class='student-name-column'>
-                                $studentName
-                                </td><td class='check-mark-column'>
-                               
-                    <section class=\"checkbox-wrapper\">
-                        <form class=\"checkbox-form ac-checkmark\" autocomplete=\"off\">
-                            <ul>
-                                <li><input id=\"present-check-box\" name=\"present\" type=\"checkbox\"><label for=\"cb6\"></label></li>
-                            </ul>
-                        </form>
-                    </section>
-                    
-                    </td><td class='check-mark-column'>
+                                <tr >
                                 
-                    <section>
-				        <form class=\"checkbox-form ac-checkbox ac-checkmark\" autocomplete=\"off\">
-					        <ul>
-						        <li><input id=\"absent-checkbox\" name=\"absent\" type=\"checkbox\"><label for=\"cb6\"></label></li>
-					        </ul>
-                        </form>
-			        </section>
-                    </td><td class='check-mark-column'>          
-                    <section class=\"checkbox-wrapper\">
-                        <form class=\"checkbox-form\" autocomplete=\"off\">
-                            <ul>
-                                <li><input id=\"tardy-check-box\" name=\"tardy\" type=\"checkbox\"><label for=\"cb6\"></label></li>
-                            </ul>
-                        </form>
-                    </section>
-                    </td></tr>";
-                                }
+                                
+                                
+                                    <td class='collapse' id='collapseRow$rowId' colspan='12'>
+                                    
+                                        <card>Hello</card>
+                                    
+                                    </td>
+                                </tr>
+                                </div>";
+
+                                    echo $studentRow; }
                                 ?>
                                 </tbody>
                             </table>
@@ -99,15 +99,40 @@ $programName = $getInfo['Program_Name'];
                         </div>
                     </div>
                 </div>
-
-
             </form>
         </div>
-    </div>
 </div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.student-info-button').click(function () {
+            var infoId = $(this).val();
+            $.ajax({
+                success:function () {
+                    alert("hello");
+                    $('#hidden-row' + infoId).toggle();
+                }
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        $('.studentInfoButton').click(function () {
+            var rowId = $(this).val();
+            alert(rowId);
+        });
+
+        $('input[type="checkbox"]').on('change', function() {
+            $(this).siblings('input[type="checkbox"]').prop('checked', false);
+        });
+    });
+</script>
 
 
 <script type="text/javascript">
+
     var table = document.getElementsByTagName('table')[0],
         rows = table.getElementsByTagName('tr'),
         text = 'textContent' in document ? 'textContent' : 'innerText';

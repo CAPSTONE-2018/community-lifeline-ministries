@@ -6,14 +6,14 @@
     box-sizing: border-box;
 }
 
-.checkbox-wrapper {
-    margin: auto;
+#attendance-table .hidden-row
+{
+    display:none;
 }
 
 .left-column-title {
     width: 55%;
 }
-
 
 .centered-column-title {
     margin: auto;
@@ -44,11 +44,6 @@
     vertical-align: middle;
 }
 
-.checkbox-form li {
-    list-style: none;
-
-}
-
 .table td {
     list-style: middle;
 
@@ -58,6 +53,6 @@
     vertical-align: middle;
 }
 
-.checkbox-form ul {
-    padding: 0;
+.hidden-row {
+    display: none;
 }
