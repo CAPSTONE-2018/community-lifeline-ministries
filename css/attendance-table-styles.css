@@ -38,15 +38,11 @@
 .check-mark-column {
     width: 15%;
     text-align: center;
+    margin: auto;
 }
 
 .middle {
     vertical-align: middle;
-}
-
-.table td {
-    list-style: middle;
-
 }
 
 .checkbox-form {
@@ -55,4 +51,8 @@
 
 .hidden-row {
     display: none;
+}
+
+.smooth {
+    transition: 3s;
 }

@@ -9,9 +9,6 @@ $result = mysqli_query($db, $queryForProgramName);
 
 ?>
     <link rel="stylesheet" href="../../css/attendance-program-selection.css">
-    <link rel="stylesheet" href="../../css/check-mark-styles.css">
-    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-
 
     <div class="container-fluid">
         <div class="form-group">
@@ -38,54 +35,32 @@ $result = mysqli_query($db, $queryForProgramName);
                     </div>
                 </div>
 
-                <div id="checker" class="checkBoxContainer">
-                    <label >
-                        <input type="checkbox" class="attendanceCheckMark">
-                        <span class="customCheckMark"></span>
-                    </label>
-
-                    <label>
-                        <input type="checkbox" class="attendanceCheckMark">
-                        <span class="customCheckMark"></span>
-                    </label>
-
-                    <label>
-                        <input id="attendanceCheckMark" type="checkbox" class="attendanceCheckMark">
-                        <span class="customCheckMark"></span>
-                    </label>
-                </div>
-
 
             </div>
         </div>
-
     </div>
 
-
     <script type="text/javascript">
-
-        $('#attendanceCheckMark').on("click", function () {
-            if ($(this).attr('checked')) {
-                alert('is checked');
-            } else {
-                alert('is not checked');
-            }
-        });
-
-
-        $(document).ready(function () {
-            $("#checker input:checkbox").on("click", function () {
-                alert("hello");
-                $("#checker input:checkbox").attr("checked", false);
-                $(this).attr("checked", true);
+        $(document).ready(function() {
+            $("label").on("click", function(e) {
+                e.preventDefault();
+                var $radio = $("#" + $(this).attr("for")),
+                    name = $radio.attr("name"),
+                    hasRadio = $radio.attr("type") == "radio";
+                if (!hasRadio) return;
+                if ($radio.checked("is-checked") == true) {
+                    $radio.prop("checked", false).change();
+                    $radio.data("is-checked", false);
+                } else {
+                    $radio.data("is-checked", true);
+                    $radio.prop("checked", true).change();
+                }
+                $('input[type="radio"][name="' + name + '"]')
+                    .not("#" + $(this).attr("for"))
+                    .data("is-checked", false);
             });
-
-        }
+        });
     </script>
-
-
-
-
     <div id="showClassInfo"></div>
 
 <?php

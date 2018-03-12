@@ -37,8 +37,7 @@
     background: #ffffff;
 }
 
-.program-select-buttons:active {
+.program-select-buttons:hover {
     background: #60C2CB;
     color: #ffffff;
-
 }

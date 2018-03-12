@@ -1,0 +1,63 @@
+.radio-input-wrapper input:checked {
+    transform: scale(1);
+    opacity: 1;
+}
+.radio-input-wrapper .custom-check-mark {
+    position: relative;
+}
+
+.radio-input-wrapper input {
+    display: none;
+}
+
+.custom-check-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+    border: 3px solid #585D65;
+}
+
+.radio-input-wrapper:hover input ~ .custom-check-mark{
+    background-color: #ccc;
+}
+
+.radio-input-wrapper input:checked ~ .blue-check {
+    background-color: #2196F3;
+}
+
+.radio-input-wrapper input:checked ~ .red-check {
+    background-color: #d50000;
+
+}
+
+.radio-input-wrapper input:checked ~ .green-check {
+    background-color: #7fc6a6;
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.custom-check-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-input-wrapper input:checked ~ .custom-check-mark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.radio-input-wrapper .custom-check-mark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
