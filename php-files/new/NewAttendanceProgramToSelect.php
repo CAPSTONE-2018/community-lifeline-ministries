@@ -18,8 +18,6 @@ $result = mysqli_query($db, $queryForProgramName);
                     <div class="header">
                         <h3 class="card-title">Select A Program For Attendance</h3>
                     </div>
-
-
                     <div class="col-10 card-body button-card-background">
                         <form action="./NewAttendanceRecord.php" method="POST" id="program-form">
                             <?php
@@ -34,33 +32,10 @@ $result = mysqli_query($db, $queryForProgramName);
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("label").on("click", function(e) {
-                e.preventDefault();
-                var $radio = $("#" + $(this).attr("for")),
-                    name = $radio.attr("name"),
-                    hasRadio = $radio.attr("type") == "radio";
-                if (!hasRadio) return;
-                if ($radio.checked("is-checked") == true) {
-                    $radio.prop("checked", false).change();
-                    $radio.data("is-checked", false);
-                } else {
-                    $radio.data("is-checked", true);
-                    $radio.prop("checked", true).change();
-                }
-                $('input[type="radio"][name="' + name + '"]')
-                    .not("#" + $(this).attr("for"))
-                    .data("is-checked", false);
-            });
-        });
-    </script>
     <div id="showClassInfo"></div>
 
 <?php

@@ -52,32 +52,34 @@ $checkboxNameId = 0;
                                 $secondRowId = $randomId + 2;
                                 $thirdRowId = $randomId + 3;
 
+                                $studentId = $row['Student_Id'];
                                 $studentName = $row['First_Name'] . " " . $row['Last_Name'];
                                 $studentId = mysqli_fetch_array($row['Student_Id'], MYSQLI_ASSOC);
 
                                 echo "
-                                <tr>
+                                <input type='hidden' name='studentId' value='$studentName'/>
+                                <tr class='number-row'>
                                     <td></td>
                                     <td class='student-name-column'>$studentName</td>
                                     
                                     
                                     <td class='radio-input-wrapper check-mark-column'>
                                         <label class='radio-label' for='radio$firstRowId'>
-                                            <input type='radio' name='attendanceCheckbox$checkboxNameId' id='radio$firstRowId' />
+                                            <input type='radio' name='attendanceCheckbox$checkboxNameId' value='1' id='radio$firstRowId' />
                                             <span class='custom-check-mark green-check'></span>
                                         </label>
                                     </td>
                                     
                                     <td class='radio-input-wrapper check-mark-column'>
                                         <label class='radio-label' for='radio$secondRowId'>
-                                            <input class='hover-checkbox' type='radio' name='attendanceCheckbox$checkboxNameId' id='radio$secondRowId' />
+                                            <input class='hover-checkbox' type='radio' name='attendanceCheckbox$checkboxNameId' value='2' id='radio$secondRowId' />
                                             <span class='custom-check-mark red-check'></span>
                                         </label>
                                     </td>
                                     
                                     <td class='radio-input-wrapper check-mark-column'>
                                         <label class='radio-label' for='radio$thirdRowId'>
-                                            <input type='radio' name='attendanceCheckbox$checkboxNameId' id='radio$thirdRowId' />
+                                            <input type='radio' name='attendanceCheckbox$checkboxNameId' value='3' id='radio$thirdRowId' />
                                             <span class='custom-check-mark blue-check'></span>
                                         </label>
                                     </td>
@@ -143,14 +145,38 @@ $checkboxNameId = 0;
 </script>
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        $("label").on("click", function(e) {
+            e.preventDefault();
+            var $radio = $("#" + $(this).attr("for")),
+                name = $radio.attr("name"),
+                hasRadio = $radio.attr("type") == "radio";
+            if (!hasRadio) return;
+            if ($radio.checked("is-checked") == true) {
+                $radio.prop("checked", false).change();
+                $radio.data("is-checked", false);
+            } else {
+                $radio.data("is-checked", true);
+                $radio.prop("checked", true).change();
+            }
+            $('input[type="radio"][name="' + name + '"]')
+                .not("#" + $(this).attr("for"))
+                .data("is-checked", false);
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
 
     var table = document.getElementsByTagName('table')[0],
-        rows = table.getElementsByTagName('tr'),
+        rows = table.getElementsByClassName('number-row'),
         text = 'textContent' in document ? 'textContent' : 'innerText';
     console.log(text);
 
-    for (var i = 1, len = rows.length; i < len; i++) {
-        rows[i].children[0][text] = i + ".";
+    for (var i = 0, len = rows.length; i < len; i++) {
+        var numberToDisplay = i + 1;
+        rows[i].children[0][text] = numberToDisplay + ".";
     }
 </script>
 
