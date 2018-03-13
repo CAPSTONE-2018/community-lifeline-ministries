@@ -53,6 +53,10 @@
     display: none;
 }
 
+.hidden-row-width {
+    width: 40%;
+}
+
 .smooth {
     transition: 3s;
 }

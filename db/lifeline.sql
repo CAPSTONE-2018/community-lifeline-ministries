@@ -199,11 +199,11 @@ CREATE TABLE Student_To_Contacts (
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
-  Conctact_Id            INT(10),
+  Contact_Id            INT(10),
   Relationship           VARCHAR(100),
   CONSTRAINT FK_Student_Id_To_Student FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
-  CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Conctact_Id)
+  CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Contact_Id)
   REFERENCES Contacts (Id)
 );
 

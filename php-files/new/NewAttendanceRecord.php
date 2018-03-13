@@ -86,16 +86,24 @@ $checkboxNameId = 0;
                                     <td class='check-mark-column'>
                                         <button type='button' data-toggle='collapse' data-target='#collapseRow$checkboxNameId' aria-expanded='false' aria-controls='collapseRow$checkboxNameId' class='student-info-button'>Info</button>                         
                                     </td>
-                                </tr>
-                                
-                                <tr class='collapse smooth' id='collapseRow$checkboxNameId' >
+                                </tr>";
+
+                                $studentIdToSearch = $row['Student_Id'];
+                                $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
+                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";
+                                $currentContactForStudent = mysqli_query($db, $queryForContacts);
+                                while($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC))  {
+                                    $contactName = $contactRow['First_Name']. " " . $contactRow['Last_Name'];
+                                    $contactPhone = $contactRow['Primary_Phone'];
+                                    echo "<tr class='collapse smooth' id='collapseRow$checkboxNameId' >
                                     <td></td>
                                     <td colspan='12'>
-                                    
-                                        hello
-                                    
+                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
+                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
                                     </td>
-                                </tr>";}
+                                    
+                                </tr>";
+                                }}
                             ?>
                             </tbody>
                         </table>
