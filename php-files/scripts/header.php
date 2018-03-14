@@ -8,6 +8,7 @@ $account = $_SESSION['account'];
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,30 +16,34 @@ $account = $_SESSION['account'];
 
     <title>Community Lifeline Ministries</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/clm.css" />
 </head>
+
+
 <body>
 
-<div class="container-fluid">
 
-<p id="time" class="navbar-text navbar-right">
-    <script>
-        var d = new Date();
-        document.getElementById("time").innerHTML = d.toLocaleTimeString();
-    </script>
-</p>
+<div class="container" id="wrapper">
+    <!-- Top Nav -->
+    <nav class="navbar-fixed-top">
+        <div id="time" class="clock">
+        </div>
+        <div class="top-nav-pic">
+            <a href="../../php-files/index-login/menu.php"> <img src="../../images/Lifeline.png" height="50px" alt="" style="float:right"></a>
+        </div>
+    </nav>
 
-
-    <!-- Sidebar Holder -->
+    <!-- Sidebar Nav -->
     <nav id="sidebar">
-        <div class="navbar-btn">
+        <div class="navbar-btn sidebar">
             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                 <i class="glyphicon glyphicon-align-left"></i>
             </button>
         </div>
+
         <div class="sidebar-header">
             <h3>Community Lifeline Ministries</h3>
             <strong>CLM</strong>
@@ -159,24 +164,9 @@ $account = $_SESSION['account'];
                     Logout
                 </a>
             </li>
+        </ul>
     </nav>
 
-
-    <div id="content">
-
+    <!-- Content goes after here - closed by footer -->
+    <div class="col-lg-9" id="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="span"></div>
-                <div class="span"><img class="center-block" src="../../images/Lifeline.png"/></div>
-                <div class="span"></div>
-                <br><br><br>
-            </div>
-
-
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#sidebarCollapse').on('click', function () {
-                            $('#sidebar').toggleClass('active');
-                        });
-                    });
-                </script>
