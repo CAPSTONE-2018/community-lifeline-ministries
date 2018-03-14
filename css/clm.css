@@ -228,11 +228,12 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
    MEDIAQUERIES
 ----------------------------------------------------- */
-@media (max-width: 1200px) {
+@media (max-width: 756px) {
     #sidebar {
         max-width: 80px;
         text-align: center;
         margin-left: -250px !important ;
+        position: fixed;
     }
 
     a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
