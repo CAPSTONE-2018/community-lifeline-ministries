@@ -19,44 +19,44 @@ $checkboxNameId = 0;
 <link rel="stylesheet" href="../../css/radio-styles.css"/>
 
 <div class="container-fluid">
-    <div class="card col-lg-12">
-        <form class="form-horizontal" action="../add/AddAttendanceRecord.php" method="POST"
-              name="newAttendanceRecordForm"
-              id="newAttendanceRecordForm">
-            <div class="card-body">
-                <div class="header">
-                    <?php
-                    echo "<h3 class=\"card-title\">$programName Attendance</h3>";
-                    ?>
-                </div>
-                <div class="card-content">
-                    <div>
-                        <table id="attendance-table" class="table table-condensed table-hover table-responsive">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th class="left-column-title">Student Name</th>
-                                <th class="centered-column-title">Present</th>
-                                <th class="centered-column-title">Absent</th>
-                                <th class="centered-column-title">Tardy</th>
-                                <th class="centered-column-title">Actions</th>
-                            </tr>
-                            </thead>
+    <div class="card">
+        <div class="card-body">
+            <div class="header">
+                <?php
+                echo "<h3 class='card-title'>$programName Attendance</h3>";
+                ?>
+            </div>
+            <div class="card-content">
+                <form class="form-horizontal" action="../add/AddAttendanceRecord.php" method="POST"
+                      name="newAttendanceRecordForm"
+                      id="newAttendanceRecordForm">
+                    <table id="attendance-table" class="table table-condensed table-hover table-responsive">
 
-                            <tbody>
-                            <?php
-                            while ($row = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC)) {
-                                $checkboxNameId++;
-                                $randomId = random_int(100,500);
-                                $firstRowId = $randomId + 1;
-                                $secondRowId = $randomId + 2;
-                                $thirdRowId = $randomId + 3;
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="left-column-title">Student Name</th>
+                            <th class="centered-column-title">Present</th>
+                            <th class="centered-column-title">Absent</th>
+                            <th class="centered-column-title">Tardy</th>
+                            <th class="centered-column-title">Actions</th>
+                        </tr>
+                        </thead>
 
-                                $studentId = $row['Student_Id'];
-                                $studentName = $row['First_Name'] . " " . $row['Last_Name'];
-                                $studentId = mysqli_fetch_array($row['Student_Id'], MYSQLI_ASSOC);
+                        <tbody>
+                        <?php
+                        while ($row = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC)) {
+                            $checkboxNameId++;
+                            $randomId = random_int(100, 500);
+                            $firstRowId = $randomId + 1;
+                            $secondRowId = $randomId + 2;
+                            $thirdRowId = $randomId + 3;
 
-                                echo "
+                            $studentId = $row['Student_Id'];
+                            $studentName = $row['First_Name'] . " " . $row['Last_Name'];
+                            $studentId = mysqli_fetch_array($row['Student_Id'], MYSQLI_ASSOC);
+
+                            echo "
                                 <input type='hidden' name='studentId' value='$studentName'/>
                                 <tr class='number-row'>
                                     <td></td>
@@ -89,14 +89,14 @@ $checkboxNameId = 0;
                                         <button type='button' data-toggle='collapse' data-target='.collapseRow$checkboxNameId' aria-expanded='false' aria-controls='collapseRow$checkboxNameId' class='student-info-button'>Info</button>                         
                                     </td>
                                 </tr>";
-                                $studentIdToSearch = $row['Student_Id'];
-                                $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
+                            $studentIdToSearch = $row['Student_Id'];
+                            $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
                                   FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";
-                                $currentContactForStudent = mysqli_query($db, $queryForContacts);
-                                while($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC))  {
-                                    $contactName = $contactRow['First_Name']. " " . $contactRow['Last_Name'];
-                                    $contactPhone = $contactRow['Primary_Phone'];
-                                    echo "
+                            $currentContactForStudent = mysqli_query($db, $queryForContacts);
+                            while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
+                                $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
+                                $contactPhone = $contactRow['Primary_Phone'];
+                                echo "
                                     <tr class='collapse smooth collapseRow$checkboxNameId'>
                                     <td></td>
                                     <td colspan='12'>
@@ -107,23 +107,24 @@ $checkboxNameId = 0;
                                 </tr>
                                 
                                 ";
-                                }}
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                            }
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
 
-                <div class="card-footer">
-                    <div>
-                        <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
-                                data-toggle="modal" data-target="#exampleModalCenter">
-                            Verify Info
-                        </button>
-                    </div>
+            <div class="card-footer">
+                <div>
+                    <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
+                            data-toggle="modal" data-target="#exampleModalCenter">
+                        Verify Info
+                    </button>
                 </div>
             </div>
-        </form>
+        </div>
+
     </div>
 </div>
 
@@ -133,7 +134,7 @@ $checkboxNameId = 0;
         $('.student-info-button').click(function () {
             var infoId = $(this).val();
             $.ajax({
-                success:function () {
+                success: function () {
                     alert("hello");
                     $('#hidden-row' + infoId).toggle();
                 }
@@ -143,29 +144,6 @@ $checkboxNameId = 0;
 
 
 </script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("label").on("click", function(e) {
-            e.preventDefault();
-            var $radio = $("#" + $(this).attr("for")),
-                name = $radio.attr("name"),
-                hasRadio = $radio.attr("type") == "radio";
-            if (!hasRadio) return;
-            if ($radio.checked("is-checked") == true) {
-                $radio.prop("checked", false).change();
-                $radio.data("is-checked", false);
-            } else {
-                $radio.data("is-checked", true);
-                $radio.prop("checked", true).change();
-            }
-            $('input[type="radio"][name="' + name + '"]')
-                .not("#" + $(this).attr("for"))
-                .data("is-checked", false);
-        });
-    });
-</script>
-
 
 <script type="text/javascript">
 
