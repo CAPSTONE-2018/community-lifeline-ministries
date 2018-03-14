@@ -26,7 +26,7 @@ $account = $_SESSION['account'];
 <body>
 
 
-<div class="container" id="wrapper">
+<div class="container-fluid" id="wrapper">
     <!-- Top Nav -->
     <nav class="navbar-fixed-top">
         <div id="time" class="clock">
