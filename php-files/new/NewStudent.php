@@ -14,13 +14,13 @@ include("../scripts/header.php");
                     <div class="card-title">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#1" data-toggle="tab">Student Info</a>
+                                <a href="#studentInfo" data-toggle="tab">Student Info</a>
                             </li>
                             <li>
-                                <a href="#2" data-toggle="tab">Student Allergies</a>
+                                <a href="#studentMedicalConcerns" data-toggle="tab">Medical Concerns</a>
                             </li>
                             <li>
-                                <a href="#3" data-toggle="tab">Student Contact</a>
+                                <a href="#studentContact" data-toggle="tab">Student Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -29,7 +29,7 @@ include("../scripts/header.php");
                           id="newStudentForm">
                         <div class="form-content">
                             <div class="tab-content">
-                                <div class="tab-pane active " id="1">
+                                <div class="tab-pane active " id="studentInfo">
                                     <div class="header">Add Student Info</div>
 
                                     <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Personal Info</h4>
@@ -116,7 +116,7 @@ include("../scripts/header.php");
                                                 <label class="mdl-textfield__label" for="studentCity">City</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-sm-4">
                                             <label class="control-label" for="state">State:</label>
                                             <?php
                                             include("../scripts/States.php");
@@ -135,7 +135,7 @@ include("../scripts/header.php");
                                     <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
-                                        <div class="col-lg">
+                                        <div class="col-sm-10">
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentSchool" class="mdl-textfield__input" name="studentSchool" type="text"/>
@@ -199,41 +199,37 @@ include("../scripts/header.php");
                                 </div>
 
 
-                                <div class="tab-pane" id="2">
-                                    <div class="header">Add Allergy Info</div>
+                                <div class="tab-pane" id="studentMedicalConcerns">
+                                    <div class="header">Add Medical Info</div>
 
-                                    <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Student Allergies</h4>
+                                    <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
-
-
-                                        <div class="col-lg-6">
-                                            <label class="control-label" for="allergyName">Allergy Name:</label>
-                                            <input id="allergyName" class="form-control" type="text" name="allergyName">
+                                        <div class="col-sm-6">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="medicalConcernType" class="mdl-textfield__input" name="medicalConcernType" type="text"/>
+                                                <label class="mdl-textfield__label" for="medicalConcernType">Name</label>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6">
-<!--                                            <label class="control-label" for="allergyType">Type:</label>-->
-<!--                                            <input id="allergyType" class="form-control" type="text" name="allergyType">-->
 
-<!--                                            <label class="switch">-->
-<!--                                                <input name="permissionSlipCheckbox" type="checkbox" checked>-->
-<!--                                                <span class="slider round"></span>-->
-<!--                                            </label>-->
-
+                                        <div class="col-sm-6">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="medicalConcernType" class="mdl-textfield__input" name="medicalConcernType" type="text"/>
+                                                <label class="mdl-textfield__label" for="medicalConcernType">Type</label>
+                                            </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <div class="col-lg-11">
-                                            <label class="control-label" for="allergyNote">Note:</label>
-                                            <input id="allergyNote" class="form-control" type="text" name="allergyNote">
+                                        <div class="col-sm-10">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <textarea id="medicalConcernNote" class="mdl-textfield__input" name="medicalConcernNote" type="text">
+                                                </textarea>
+                                                <label class="mdl-textfield__label" for="medicalConcernNote">Note</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="tab-pane" id="3">
+                                <div class="tab-pane" id="studentContact">
 
                                     <h3>add clearfix to tab-content (see the css)</h3>
 
