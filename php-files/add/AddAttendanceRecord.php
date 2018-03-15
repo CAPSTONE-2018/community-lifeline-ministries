@@ -8,30 +8,19 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-foreach ($_POST as $key => $value) {
-
-}
-
-
 $userMakingChanges = $_SESSION['loggedIn'];
-$studentId = $_POST['studentId'];
-$attendanceValue = $POST[''];
+$i = 0;
 
-$stmt = $db->prepare("INSERT INTO Classes (Author_Username, Active_Class, Class_Name) VALUES (?, ?, ?)");
-$stmt->bind_param('sis',$userMakingChanges, $isClassActiveFlag, $className);
-$stmt->execute();
+foreach ($_POST as $key){
+    $i++;
+    $studentId = $_POST['studentId'][$i];
+    $programId = $_POST['programId'][$i];
+    $checkboxValue = $_POST['attendanceCheckbox'][$i];
 
-if ($stmt->affected_rows == -1) {
-    echo "
-        <div class='alert alert-danger'>
-            <strong>Failure! </strong>Class could not be added to the database, please try again.
-        </div>";
-} else {
-    echo "
-        <div class='alert alert-success'>
-            <strong>Success! </strong>Class has been successfully added to the database.
-        </div>";
-    $stmt->close();
+    $stmt = $db->prepare("INSERT INTO Attendance (Author_Username, Student_Id, Program_Id, Attendance_Value) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param('siii',$userMakingChanges, $studentId, $programId, $checkboxValue);
+    $stmt->execute();
 }
+
 include("../scripts/footer.php");
 ?>

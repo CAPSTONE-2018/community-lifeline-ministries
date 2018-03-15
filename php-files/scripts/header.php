@@ -16,6 +16,9 @@ $account = $_SESSION['account'];
 
     <title>Community Lifeline Ministries</title>
 
+    <!-- Local Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Stylesheet -->
@@ -32,7 +35,7 @@ $account = $_SESSION['account'];
         <div id="time" class="clock">
         </div>
         <div class="top-nav-pic">
-            <a href="../../php-files/index-login/menu.php"> <img src="../../images/Lifeline.png" height="50px" alt="" style="float:right"></a>
+            <a href="../../php-files/index-login/menu.php"> <img src="../../images/new-logo.png" height="50px" alt="" style="float:right"></a>
         </div>
     </nav>
 
