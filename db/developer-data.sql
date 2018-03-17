@@ -1,25 +1,30 @@
   INSERT INTO Logins (username, password, account_type, first_name, last_name, email) VALUES("admin", "21232f297a57a5a743894a0e4a801fc3", "administrator", "Developer", "Developer",  "Developer@gmail.com");
 
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Corn Allergy", "Food Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Fish Allergy", "Food Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Egg Allergy", "Food Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Meat Allergy", "Food Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Peanut Allergy", "Food Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Eczema", "Skin Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Hives", "Skin Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Contact Dermatitis", "Skin Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Honeybee Sting", "Insect Sting Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Hornet Sting", "Insect Sting Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Wasp Sting", "Insect Sting Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Yellow Jackets Sting", "Insect Sting Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Fire Ants Sting", "Insect Sting Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Dog Allergy", "Pet Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Cat Allergy", "Pet Allergy");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "ADHD", "Mental Health");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Anxiety", "Mental Health");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "ODD", "Mental Health");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Asthma", "Medical Concern");
-  INSERT INTO Medical_Concerns(Author_Username, Name, Type) VALUES ("Developer", "Diabetes", "Medical Concern");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Corn Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Fish Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Egg Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Meat Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Peanut Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Eczema");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Hives");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Contact Dermatitis");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Honeybee Sting");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Hornet Sting");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Wasp Sting");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Yellow Jackets Sting");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Fire Ants Sting");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Dog Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Cat Allergy");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "ADHD");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Anxiety");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "ODD");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Asthma");
+  INSERT INTO Medical_Concerns(Author_Username, Name) VALUES ("Developer", "Diabetes");
+
+
+  INSERT INTO Medical_Concern_Types(Author_Username, Type, Note) VALUES ("Developer", "Allergy", "");
+  INSERT INTO Medical_Concern_Types(Author_Username, Type, Note) VALUES ("Developer", "Mental Health", "");
+  INSERT INTO Medical_Concern_Types(Author_Username, Type, Note) VALUES ("Developer", "Medical Concern", "");
 
 
   INSERT INTO Classes(Author_Username, Active_Class, Class_Name) VALUES ("Developer", 1, "Reading Workshop");
@@ -98,21 +103,13 @@
   INSERT INTO Student_Test_Scores(Author_Username, Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES ("Developer", 3, 2018, "Spring", 55, 65);
   INSERT INTO Student_Test_Scores(Author_Username, Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES ("Developer", 3, 2018, "Summer", 55, 65);
 
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 1, "2017-08-12", 1, 0, 0, 0);
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 2, "2017-08-12", 1, 0, 0, 0);
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 3, "2017-08-12", 1, 0, 0, 0);
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 2, "2017-08-13", 1, 0, 0, 0);
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 3, "2017-08-13", 1, 0, 0, 0);
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 5, "2017-08-12", 1, 0, 0, 0);
-  INSERT INTO Attendance(Author_Username, Student_Id, Date, Present, Absent, Tardy, TardyTime) VALUES ("Developer", 5, "2017-08-13", 1, 0, 0, 0);
-
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 1, 1);
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 2, 1);
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 3, 2);
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 4, 2);
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 5, 1);
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 5, 1);
-  INSERT INTO Attendance_To_Programs(Author_Username, Attendance_Id, Program_Id) VALUES ("Developer", 5, 1);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 1, "2017-08-12", 1);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 2, "2017-08-12", 2);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 3, "2017-08-12", 1);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 2, "2017-08-13", 3);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 3, "2017-08-13", 1);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 5, "2017-08-12", 1);
+  INSERT INTO Attendance(Author_Username, Student_Id, Date, TardyTime) VALUES ("Developer", 5, "2017-08-13", 2);
 
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ("Developer", 1, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ("Developer", 1, 2);

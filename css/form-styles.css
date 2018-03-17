@@ -62,6 +62,10 @@ form{
 
 }
 
+.full-width {
+    width: 100%;
+}
+
 .blue-line-color {
     margin-top: 20px;
     margin-bottom: 20px;

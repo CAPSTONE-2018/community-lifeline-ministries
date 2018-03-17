@@ -1,10 +1,21 @@
 <?php
 include("../scripts/header.php");
 ?>
+
+<?php
+include("../../db/config.php");
+
+$queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
+
+$medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
+$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
+?>
+
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../css/input-stylings.css"/>
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
+<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css" />
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <div class="container-fluid">
     <div class="row">
@@ -85,7 +96,7 @@ include("../scripts/header.php");
                                         </div>
 
                                         <div class="col-sm-4">
-                                            <select id="gender" class="form-control" name="gender" />
+                                            <select id="gender" class="pretty full-width" name="gender">
                                                 <option value="M">Male</option>
                                                 <option value="F">Female</option>
                                             </select>
@@ -117,7 +128,7 @@ include("../scripts/header.php");
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="control-label" for="state">State:</label>
+                                            <label for="state">State:</label>
                                             <?php
                                             include("../scripts/States.php");
                                             echo stateDropdown()
@@ -213,10 +224,20 @@ include("../scripts/header.php");
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="medicalConcernType" class="mdl-textfield__input" name="medicalConcernType" type="text"/>
-                                                <label class="mdl-textfield__label" for="medicalConcernType">Type</label>
-                                            </div>
+
+
+
+                                            <label for="sort">Type</label><br>
+                                            <select id="sort" name="sort" class="pretty">
+                                                <option value="position">
+                                                    <?php
+                                                   while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
+                                                            echo "<option name='medicalConcernType' value=".$medicalConcernTypeRow['Id'].">".$medicalConcernTypeRow['Type']."</option>";
+                                                        }
+
+                                                    ?>
+                                                </option>
+                                            </select>
                                         </div>
                                         <div class="col-sm-10">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -356,12 +377,14 @@ include("../scripts/footer.php");
     });
 </script>
 
-
-<!--<div class="col-sm-6">-->
-<!--    <!-- Numeric Textfield with Floating Label -->-->
-<!--    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-->
-<!--        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">-->
-<!--        <label class="mdl-textfield__label" for="sample4">Number...</label>-->
-<!--        <span class="mdl-textfield__error">Input is not a number!</span>-->
-<!--    </div>-->
-<!--</div>-->
+<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
+<script>
+    $(document).ready(function() {
+        $dropdown = $('select').prettyDropdown({
+            height: 40,
+            classic: true,
+        });
+    });
+    // When <select> state changes...
+    $dropdown.refresh();
+</script>

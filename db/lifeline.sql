@@ -6,7 +6,6 @@
 *********************************************************************************
 */
 
-
 CREATE TABLE Logins (
   username     VARCHAR(30),
   password     VARCHAR(32),
@@ -41,13 +40,20 @@ CREATE TABLE Students (
   IEP                    TINYINT(1)
 );
 
-
 CREATE TABLE Medical_Concerns (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Name                   VARCHAR(60),
+  Note                   VARCHAR(500)
+);
+
+CREATE TABLE Medical_Concern_Types (
+  Created_Timestamp      TIMESTAMP DEFAULT now(),
+  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Author_Username        VARCHAR(30),
+  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Type                   VARCHAR(60),
   Note                   VARCHAR(500)
 );
@@ -59,6 +65,7 @@ CREATE TABLE Student_To_Medical_Concerns (
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
   Medical_Concern_Id     INT(10),
+  Note                   VARCHAR(500),
   CONSTRAINT FK_Student_Id_Medical_Concerns FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
   CONSTRAINT FK_Medical_Id_Medical_Concerns FOREIGN KEY (Medical_Concern_Id)

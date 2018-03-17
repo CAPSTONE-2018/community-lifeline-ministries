@@ -35,7 +35,7 @@ $account = $_SESSION['account'];
         <div id="time" class="clock">
         </div>
         <div class="top-nav-pic">
-            <a href="../../php-files/index-login/menu.php"> <img src="../../images/new-logo.png" height="50px" alt="" style="float:right"></a>
+            <a href="../index-login/menu.php"> <img src="../../images/new-logo.png" height="50px" alt="" style="float:right"></a>
         </div>
     </nav>
 

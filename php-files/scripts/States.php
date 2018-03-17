@@ -62,7 +62,7 @@ function stateDropdown($selected="IL") {
 		array('WY', 'Wyoming')
 	);
 
-	$options = '<select id="state" class="form-control" name="state">';
+	$options = '<select size=15 id="state" class="pretty" name="state">';
 
 	foreach ($states as $state) {
     	$options .= '<option value="'.$state[0].'" '. check_select($selected, $state[0]) .' >'.$state[1].'</option>'."\n";
