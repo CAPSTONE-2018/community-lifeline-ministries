@@ -6,14 +6,14 @@
     box-sizing: border-box;
 }
 
-.checkbox-wrapper {
-    margin: auto;
+#attendance-table .hidden-row
+{
+    display:none;
 }
 
 .left-column-title {
     width: 55%;
 }
-
 
 .centered-column-title {
     margin: auto;
@@ -38,26 +38,25 @@
 .check-mark-column {
     width: 15%;
     text-align: center;
+    margin: auto;
 }
 
 .middle {
     vertical-align: middle;
 }
 
-.checkbox-form li {
-    list-style: none;
-
-}
-
-.table td {
-    list-style: middle;
-
-}
-
 .checkbox-form {
     vertical-align: middle;
 }
 
-.checkbox-form ul {
-    padding: 0;
+.hidden-row {
+    display: none;
+}
+
+.hidden-row-width {
+    width: 40%;
+}
+
+.smooth {
+    transition: 3s;
 }

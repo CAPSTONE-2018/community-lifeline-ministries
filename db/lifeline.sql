@@ -65,18 +65,30 @@ CREATE TABLE Student_To_Medical_Concerns (
   REFERENCES Medical_Concerns (Id)
 );
 
+CREATE TABLE Programs (
+  Created_Timestamp      TIMESTAMP DEFAULT now(),
+  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Author_Username        VARCHAR(30),
+  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Program         TINYINT(1),
+  Program_Name           VARCHAR(60)
+);
+
 CREATE TABLE Attendance (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
+  Program_Id             INT(10),
   Date                   DATE,
-  Present                TINYINT(1),
-  Absent                 TINYINT(1),
-  Tardy                  TINYINT(1),
+  Attendance_Value       TINYINT(1),
   TardyTime              VARCHAR(50),
-  Note                   VARCHAR(500)
+  Note                   VARCHAR(500),
+  CONSTRAINT FK_Student_Id_Attendance FOREIGN KEY (Student_Id)
+  REFERENCES Students (Id),
+  CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id)
+  REFERENCES Programs (Id)
 );
 
 CREATE TABLE Contacts (
@@ -145,27 +157,6 @@ CREATE TABLE Student_Test_Scores (
   REFERENCES Students (Id)
 );
 
-CREATE TABLE Programs (
-  Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Author_Username        VARCHAR(30),
-  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Active_Program         TINYINT(1),
-  Program_Name           VARCHAR(60)
-);
-
-CREATE TABLE Attendance_To_Programs (
-  Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Author_Username        VARCHAR(30),
-  ID                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Program_Id             INT(10),
-  Attendance_Id          INT(10),
-  CONSTRAINT FK_Program_Id_Attendance FOREIGN KEY (Program_Id)
-  REFERENCES Programs (Id),
-  CONSTRAINT FK_Attendance_Id_Attendance FOREIGN KEY (Attendance_Id)
-  REFERENCES Attendance (Id)
-);
 
 CREATE TABLE Class_To_Programs (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
@@ -199,11 +190,11 @@ CREATE TABLE Student_To_Contacts (
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
-  Conctact_Id            INT(10),
+  Contact_Id             INT(10),
   Relationship           VARCHAR(100),
   CONSTRAINT FK_Student_Id_To_Student FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
-  CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Conctact_Id)
+  CONSTRAINT FK_Contact_Id_To_Contact FOREIGN KEY (Contact_Id)
   REFERENCES Contacts (Id)
 );
 

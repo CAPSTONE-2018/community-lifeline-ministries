@@ -358,11 +358,6 @@ include("../scripts/footer.php");
             document.getElementById("modalBody").innerHTML = txt;
         });
     });
-
-    console.log("checkbox");
-
-    var checkbox = $( "checkbox" );
-    checkbox.val( checkbox[0].checked ? 1 : 0 );
 </script>
 
 

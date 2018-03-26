@@ -12,100 +12,192 @@ $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Progr
 
 $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
-$programName = $getInfo['Program_Name'];
+$programId = $getInfo['Program_Name'];
+$dynamicRowId = 0;
 ?>
+<link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
+<link rel="stylesheet" href="../../css/radio-styles.css"/>
 
-<link rel="stylesheet" href="../../css/attendance-table-styles.css" />
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-
-<div class="attendance-container">
-    <div class="attendance-title">
-        <?php
-            echo "<h2>$programName Attendance</h2>";
-        ?>
-    </div>
-
+<div class="container-fluid">
     <div class="card">
-        <div>
-            <!--Table-->
-            <table class="table table-hover table-responsive">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th class="left-column-title">Student Name</th>
-                    <th class="centered-column-title">Present</th>
-                    <th class="centered-column-title">Absent</th>
-                    <th class="centered-column-title">Tardy</th>
-                </tr>
-                </thead>
-
-                <tbody>
+        <div class="card-body">
+            <div class="header">
                 <?php
-                while ($row = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC)) {
-                    $studentName = $row['First_Name'] . " " . $row['Last_Name'];
-                    $studentId = mysqli_fetch_array($row['Student_Id'], MYSQLI_ASSOC);
-
-                    echo "<tr><td>";
-                    echo "";
-                    echo "</td><td class='student-name-column'>";
-                    echo $studentName;
-                    echo "</td><td class='check-mark-column'>";
-                    echo "
-                    <section class=\"checkbox-wrapper\">
-                        <form class=\"checkbox-form ac-checkmark\" autocomplete=\"off\">
-                            <ul>
-                                <li><input id=\"present-check-box\" name=\"present\" type=\"checkbox\"><label for=\"cb6\"></label></li>
-                            </ul>
-                        </form>
-                    </section>";
-                    echo "</td><td class='check-mark-column'>";
-                    echo "
-                    <section>
-				        <form class=\"checkbox-form ac-checkbox ac-checkmark\" autocomplete=\"off\">
-					        <ul>
-						        <li><input id=\"absent-checkbox\" name=\"absent\" type=\"checkbox\"><label for=\"cb6\"></label></li>
-					        </ul>
-                        </form>
-			        </section>
-                ";
-                    echo "</td><td class='check-mark-column'>";
-                    echo "
-                    <section class=\"checkbox-wrapper\">
-                        <form class=\"checkbox-form\" autocomplete=\"off\">
-                            <ul>
-                                <li><input id=\"tardy-check-box\" name=\"tardy\" type=\"checkbox\"><label for=\"cb6\"></label></li>
-                            </ul>
-                        </form>
-                    </section>";
-                    echo "</td></tr>";
-                }
+                echo "<h3 class='card-title'>$programId Attendance</h3>";
                 ?>
-                </tbody>
-            </table>
 
+            </div>
+            <div class="card-content">
+                <form class="form-horizontal" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
+
+                    <table id="attendance-table" class="table table-condensed table-hover table-responsive">
+                        <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th class="left-column-title">Student Name</th>
+                            <th class="centered-column-title">Present</th>
+                            <th class="centered-column-title">Absent</th>
+                            <th class="centered-column-title">Tardy</th>
+                            <th class="centered-column-title">Actions</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <?php
+                        while ($row = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC)) {
+                            $dynamicRowId++;
+                            $firstRowId = md5(uniqid(rand(), true));
+                            $secondRowId = md5(uniqid(rand(), true));
+                            $thirdRowId = md5(uniqid(rand(), true));
+
+                            $programId = $row['Program_Id'];
+                            $studentIdToSearch = $row['Student_Id'];
+                            $studentName = $row['First_Name'] . " " . $row['Last_Name'];
+//                            $studentId = mysqli_fetch_array($row['Student_Id'], MYSQLI_ASSOC);
+
+                            echo "<tr class='number-row'>
+                                    <td></td> 
+                                    <td class='student-name-column'>
+                                        $studentName
+                                    </td>
+                                    <td class='hidden-row'>
+                                        <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
+                                        <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
+                                    </td>                                    
+                                    <td class='radio-input-wrapper check-mark-column'>
+                                        <label class='radio-label' for='radio$firstRowId'>
+                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='1' id='radio$firstRowId' />
+                                            <span class='custom-check-mark green-check'></span>
+                                        </label>
+                                    </td>
+                                    
+                                    <td class='radio-input-wrapper check-mark-column'>
+                                        <label class='radio-label' for='radio$secondRowId'>
+                                            <input class='hover-checkbox' type='radio' name='attendanceCheckbox[$dynamicRowId]' value='2' id='radio$secondRowId' />
+                                            <span class='custom-check-mark red-check'></span>
+                                        </label>
+                                    </td>
+                                    
+                                    <td class='radio-input-wrapper check-mark-column'>
+                                        <label class='radio-label' for='radio$thirdRowId'>
+                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='3' id='radio$thirdRowId' />
+                                            <span class='custom-check-mark blue-check'></span>
+                                        </label>
+                                    </td>
+
+                                    
+                                    <td class='check-mark-column'>
+                                        <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'>Info</button>                         
+                                    </td>
+                                </tr>";
+                            $studentIdToSearch = $row['Student_Id'];
+                            $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
+                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";
+                            $currentContactForStudent = mysqli_query($db, $queryForContacts);
+                            while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
+                                $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
+                                $contactPhone = $contactRow['Primary_Phone'];
+                                echo "
+                                    <tr class='collapse smooth collapseRow$dynamicRowId'>
+                                    <td></td>
+                                    <td colspan='12'>
+                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
+                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
+                                    </td>
+                                    
+                                </tr>
+                                
+                                ";
+                            }
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <div class="card-footer">
+                <div>
+                    <button id="submitAttendance" form="newAttendanceRecordForm" type="submit" class="btn btn-right btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </div>
         </div>
 
     </div>
-
 </div>
 
+<!---->
+<!--        <script>-->
+<!--            $(document).ready(function(){-->
+<!--                var form=$("#newAttendanceRecordForm");-->
+<!--                $("#submitAttendance").click(function(){-->
+<!--                    $.ajax({-->
+<!--                        type:"POST",-->
+<!--                        url:"../add/AddAttendanceRecord.php",-->
+<!--                        data:form.serialize(),-->
+<!--                        success: function(response){-->
+<!--                            console.log(response);-->
+<!--                        }-->
+<!--                    });-->
+<!--                });-->
+<!--            });-->
+<!--        </script>-->
 
+
+<!--<script>-->
+<!---->
+<!--    var submitButton = document.getElementById('submitAttendance');-->
+<!--    submitButton.onclick = sendForm();-->
+<!---->
+<!--    function sendForm() {-->
+<!--        var data = $('form#attendanceForm').serialize();-->
+<!--        $.ajax({-->
+<!--            url: '../add/AddAttendanceRecord.php',-->
+<!--            method: 'post',-->
+<!--            data: {formData: data}-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->
+<!---->
+<!--        <script type="text/javascript">-->
+<!--            $( "form" ).on( "submit", function( event ) {-->
+<!--                event.preventDefault();-->
+<!--                console.log( $( this ).serialize() );-->
+<!--            });-->
+<!--        </script>-->
+
+<!---->
+<!--<script>-->
+<!--    $("#submitAttendance").click(function () {-->
+<!--//        var data = $('#newAttendanceRecordForm').serialize();-->
+<!--        var data = $("#newAttendanceRecordForm").serialize();-->
+<!--        $.ajax({-->
+<!--            url: '../add/AddAttendanceRecord.php',-->
+<!--            method: 'POST',-->
+<!--            data: {dataForm: data}-->
+<!--//            success: function (output) {-->
+<!--//                $('#showClassInfo').html(output);-->
+<!--//            }-->
+<!--        });-->
+<!--    };-->
+<!--</script>-->
 
 
 <script type="text/javascript">
+
     var table = document.getElementsByTagName('table')[0],
-        rows = table.getElementsByTagName('tr'),
+        rows = table.getElementsByClassName('number-row'),
         text = 'textContent' in document ? 'textContent' : 'innerText';
     console.log(text);
 
-    for (var i = 1, len = rows.length; i < len; i++){
-        rows[i].children[0][text] = i + ".";
+    for (var i = 0, len = rows.length; i < len; i++) {
+        var numberToDisplay = i + 1;
+        rows[i].children[0][text] = numberToDisplay + ".";
     }
 </script>
-
-<div id="showProgramInfo"></div>
 
 <?php
 include("../scripts/footer.php");
