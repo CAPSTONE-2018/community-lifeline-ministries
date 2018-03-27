@@ -68,6 +68,21 @@ function removeEmailFocus() {
 }
 
 
+function addContactRelationToStudentFocus() {
+    $('div[id=floatingRelationship]').addClass("is-focused");
+}
+
+function removeContactRelationToStudentFocus() {
+    var userInput = document.getElementById("contactRelationToStudent").value;
+
+    if (userInput === "") {
+        $('div[id=floatingRelationship]').removeClass("is-focused");
+    } else {
+        $('div[id=floatingRelationship]').removeClass("is-focused").addClass("is-dirty");
+    }
+}
+
+
 function addAddressOneFocus() {
     $('div[id=floatingAddressOne]').addClass("is-focused");
 }

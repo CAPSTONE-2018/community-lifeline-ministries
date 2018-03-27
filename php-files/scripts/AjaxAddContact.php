@@ -30,14 +30,21 @@
                 <label class='mdl-textfield__label' for='contactSecondaryPhone'>Secondary Phone</label>
             </div>
         </div>
-
-        <div class="col-sm-10">
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6">
             <div id="floatingEmail" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                 <input id='contactEmail' class='mdl-textfield__input' onfocus="addEmailFocus()" onblur="removeEmailFocus()" name='contactEmail' type='text'/>
                 <label class='mdl-textfield__label' for='contactEmail'>Email</label>
             </div>
         </div>
 
+        <div class="col-sm-6">
+            <div id="floatingRelationship" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input id='contactRelationToStudent' class='mdl-textfield__input' onfocus="addContactRelationToStudentFocus()" onblur="removeContactRelationToStudentFocus()" name='contactRelationToStudent' type='text'/>
+                <label class='mdl-textfield__label' for='contactRelationToStudent'>Relationship To Student</label>
+            </div>
+        </div>
     </div>
     <h4 class='heading'><i class='glyphicon glyphicon-home'></i> Address</h4>
     <div class='blue-line-color'></div>
