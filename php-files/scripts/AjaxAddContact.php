@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="../../css/input-stylings.css"/>
-<form class="form-horizontal col-sm-12" action="../add/AddContact.php" method="POST" name="newContactForm" id="newContactForm">
+<div>
     <div class="form-group">
         <div class="col-sm-6">
             <div id="floatingFirstName" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -19,18 +18,26 @@
     </div>
     <div class='form-group'>
         <div class='col-sm-6'>
-            <div id="floatingMiddleName" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                <input id='contactMiddleName' class='mdl-textfield__input' onfocus="addMiddleNameFocus()" onblur="removeMiddleNameFocus()" name='contactMiddleName' type='text'/>
-                <label class='mdl-textfield__label' for='contactMiddleName'>Middle Name</label>
+            <div id="floatingPrimaryPhone" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input id='contactPrimaryPhone' class='mdl-textfield__input' onfocus='addPrimaryPhoneFocus()' onblur="removePrimaryPhoneFocus()" name='contactPrimaryPhone' type='text'/>
+                <label class='mdl-textfield__label' for='contactPrimaryPhone'>Primary Phone</label>
             </div>
         </div>
 
         <div class='col-sm-6'>
-            <div id="floatingSuffix" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                <input id='contactSuffix' class='mdl-textfield__input' onfocus="addSuffixFocus()" onblur="removeSuffixFocus()" name='contactSuffix' type='text'/>
-                <label class='mdl-textfield__label' for='contactSuffix'>Suffix</label>
+            <div id="floatingSecondaryPhone" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input id='contactSecondaryPhone' class='mdl-textfield__input' onfocus="addSecondaryPhoneFocus()" onblur="removeSecondaryPhoneFocus()" name='contactSecondaryPhone' type='text'/>
+                <label class='mdl-textfield__label' for='contactSecondaryPhone'>Secondary Phone</label>
             </div>
         </div>
+
+        <div class="col-sm-10">
+            <div id="floatingEmail" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input id='contactEmail' class='mdl-textfield__input' onfocus="addEmailFocus()" onblur="removeEmailFocus()" name='contactEmail' type='text'/>
+                <label class='mdl-textfield__label' for='contactEmail'>Email</label>
+            </div>
+        </div>
+
     </div>
     <h4 class='heading'><i class='glyphicon glyphicon-home'></i> Address</h4>
     <div class='blue-line-color'></div>
@@ -60,7 +67,7 @@
             <?php
             include("States.php");
             $output = '';
-            echo stateDropdown();
+            echo stateDropdown("contactState");
             ?>
         </div>
         <div class='col-sm-4'>
@@ -70,7 +77,7 @@
             </div>
         </div>
     </div>
-</form>
+</div>
 
 <script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
 <script>

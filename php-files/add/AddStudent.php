@@ -1,45 +1,61 @@
 <?php
 include("../scripts/header.php");
 ?>
-
     <h1>Add Student Information:</h1>
     <br/>
-
 <?php
 # connect to db
 include("../../db/config.php");
 
 $userMakingChanges = $_SESSION['loggedIn'];
-$isActiveFlag = 1;
-$firstName = $_POST['studentFirstName'];
-$middleName = $_POST['studentMiddleName'];
-$lastName = $_POST['studentLastName'];
-$suffix = $_POST['studentSuffix'];
-$gender = $_POST['gender'];
-$dob = $_POST['dob'];
-$ethnicity = $_POST['ethnicity'];
-$addressOne = $_POST['studentAddressOne'];
-$addressTwo = $_POST['studentAddressTwo'];
-$zip = intval($_POST['studentZip']);
-$city = $_POST['studentCity'];
-$state = $_POST['state'];
-$school = $_POST['studentSchool'];
-$permissionSlip = intval($_POST['permissionSlipCheckbox']);
-$birthCertificate = intval($_POST['birthCertificateCheckbox']);
-$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
-$iep = intval($_POST['iepCheckbox']);
+$studentActiveFlag = 1;
+$studentFirstName = $_POST['studentFirstName'];
+$studentMiddleName = $_POST['studentMiddleName'];
+$studentLastName = $_POST['studentLastName'];
+$studentSuffix = $_POST['studentSuffix'];
+$studentGender = $_POST['gender'];
+$studentDob = $_POST['dob'];
+$studentEthnicity = $_POST['ethnicity'];
+$studentAddressOne = $_POST['studentAddressOne'];
+$studentAddressTwo = $_POST['studentAddressTwo'];
+$studentZip = intval($_POST['studentZip']);
+$studentCity = $_POST['studentCity'];
+$studentState = $_POST['studentState'];
+$studentSchool = $_POST['studentSchool'];
+$studentPermissionSlip = intval($_POST['permissionSlipCheckbox']);
+$studentBirthCertificate = intval($_POST['birthCertificateCheckbox']);
+$studentReducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
+$studentIep = intval($_POST['iepCheckbox']);
 $medicalConcernName = $_POST['medicalConcernName'];
 $medicalConcernType = $_POST['medicalConcernType'];
 $medicalConcernNote = $_POST['medicalConcernNote'];
 
+$contactActiveFlag = 1;
+$contactFirstName = $_POST['contactFirstName'];
+$contactLastName = $_POST['contactLastName'];
+$contactPrimaryPhone = $_POST['contactPrimaryPhone'];
+$contactSecondaryPhone = $_POST['contactSecondaryPhone'];
+$contactAddressOne = $_POST['contactAddressOne'];
+$contactAddressTwo = $_POST['contactAddressTwo'];
+$contactCity = $_POST['contactCity'];
+$contactState = $_POST['contactState'];
+$contactZip = $_POST['contactZip'];
+$contactEmail = $_POST['contactEmail'];
+
+
 
 $stmtStudent = $db->prepare("INSERT INTO Students (Author_Username, Active_Student, First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmtStudent->bind_param('sissssssssssissiiii', $userMakingChanges, $isActiveFlag, $firstName, $middleName, $lastName, $suffix, $gender, $dob, $addressOne, $addressTwo, $city, $state, $zip, $ethnicity, $school, $permissionSlip, $birthCertificate, $reducedLunchEligibility, $iep);
+$stmtStudent->bind_param('sissssssssssissiiii', $userMakingChanges, $studentActiveFlag, $studentFirstName, $studentMiddleName, $studentLastName, $studentSuffix, $studentGender, $studentDob, $studentAddressOne, $studentAddressTwo, $studentCity, $studentState, $studentZip, $studentEthnicity, $studentSchool, $studentPermissionSlip, $studentBirthCertificate, $studentReducedLunchEligibility, $studentIep);
 $stmtStudent->execute();
 
-$stmtMedicalConcerns = $db->prepare("INSERT INTO Student_To_Medical_Concerns (Author_Username, Name, Type, Note) VALUES (?,?,?,?)");
-$stmtMedicalConcerns->bind_param('ssss', $userMakingChanges, $medicalConcernName, $medicalConcernType, $medicalConcernNote);
-$stmtMedicalConcerns->execute();
+
+if (isset($_POST['contactFirstName'])){
+    $stmtContact = $db->prepare("INSERT INTO Contacts (Author_Username, Active_Contact, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmtContact->bind_param('sissssssssis', $userMakingChanges, $contactActiveFlag, $contactFirstName, $contactLastName, $contactPrimaryPhone, $contactSecondaryPhone, $contactAddressOne, $contactAddressTwo, $contactCity, $contactState, $contactZip, $contactEmail);
+    $stmtContact->execute();
+    $stmtContact->close();
+}
+
 
 if ($stmtStudent->affected_rows == -1) {
     echo "

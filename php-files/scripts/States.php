@@ -6,7 +6,7 @@
  * @uses check_select
  * @return string
  */
-function stateDropdown($selected="IL") {
+function stateDropdown($optionName ,$selected="IL") {
 	$states = array(
 		array('AL', 'Alabama'),
     array('AK', 'Alaska'),
@@ -62,10 +62,10 @@ function stateDropdown($selected="IL") {
 		array('WY', 'Wyoming')
 	);
 
-	$options = '<select size=15 id="state" class="pretty" name="state">';
+	$options = '<select size=15 id="state" class="pretty" name="'.$optionName.'">';
 
 	foreach ($states as $state) {
-    	$options .= '<option value="'.$state[0].'" '. check_select($selected, $state[0]) .' >'.$state[1].'</option>'."\n";
+    	$options .= '<option value="'.$state[0].'" '. check_select($selected, $state[0]) .' >'.$state[1].'</option>';
   }
 
   $options .= '</select>';

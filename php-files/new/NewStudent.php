@@ -138,7 +138,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                             <label for="state">State:</label>
                                             <?php
                                             include("../scripts/States.php");
-                                            echo stateDropdown()
+                                            echo stateDropdown("studentState")
                                             ?>
                                         </div>
                                         <div class="col-sm-4">
@@ -277,11 +277,11 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <button type="button" id="create-new-contact-button" class="btn btn-outline-primary" onclick=loadDoc()>Add New Contact</button>
+                                            <button type="button" id="create-new-contact-button" class="btn btn-outline-primary" >Add New Contact</button>
 
                                         </div>
 
-                                        <div id="show-new-contact-form" class="row container-fluid col-sm-12">
+                                        <div id="show-new-contact-form" class="col-sm-12">
 
 
                                         </div>
@@ -332,7 +332,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
             <div class="modal-footer">
                 <div class="right-align">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" form="newStudentForm" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary" onclick="sendForm()">Submit</button>
                 </div>
             </div>
         </div>
@@ -367,38 +367,15 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 include("../scripts/footer.php");
 ?>
 <script src="../../js/input-styling.min.js"></script>
-<script>
-    function loadDoc() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("show-new-contact-form").innerHTML =
-                    this.responseText;
-            }
-        };
-        xhttp.open("GET", "../../scripts/AjaxAddContact.php", true);
-        xhttp.send();
-    }
-</script>
 
 <script>
-    //    $('#create-new-contact-button').on('click', function(e) {
-    //        $('.form-group').slideDown();
-    //        $('#show-all-button').hide();
-    //        $('#show-medical-info').slideUp();
-    //        e.preventDefault();
-    //    });
-
     $(document).ready(function () {
         $('#create-new-contact-button').click(function () {
             $.ajax({
                 url: "../scripts/AjaxAddContact.php",
-                method: "POST",
-//                data: {medicalConcernId: medicalConcernId},
+                method: "GET",
                 success: function (output) {
                     $('#show-new-contact-form').slideDown().html(output);
-//                    $('#show-all-button').show();
-//                    $('.table-wrapper').slideUp();
                 }
             })
         });
@@ -456,4 +433,6 @@ include("../scripts/footer.php");
     });
     // When <select> state changes...
     $dropdown.refresh();
+
+
 </script>
