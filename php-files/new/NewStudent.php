@@ -1,11 +1,29 @@
 <?php
 include("../scripts/header.php");
 ?>
+
+<?php
+include("../../db/config.php");
+
+
+$queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
+
+$medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
+$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
+
+$queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
+
+$existingContactsResult = mysqli_query($db, $queryForExistingContacts);
+$existingContactsRow = mysqli_fetch_array($existingContactsResult);
+
+?>
+
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../css/input-stylings.css"/>
+
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
@@ -14,13 +32,13 @@ include("../scripts/header.php");
                     <div class="card-title">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#1" data-toggle="tab">Student Info</a>
+                                <a href="#studentInfo" data-toggle="tab">Student Info</a>
                             </li>
                             <li>
-                                <a href="#2" data-toggle="tab">Student Allergies</a>
+                                <a href="#studentMedicalConcerns" data-toggle="tab">Medical Concerns</a>
                             </li>
                             <li>
-                                <a href="#3" data-toggle="tab">Student Contact</a>
+                                <a href="#studentContact" data-toggle="tab">Student Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -29,7 +47,7 @@ include("../scripts/header.php");
                           id="newStudentForm">
                         <div class="form-content">
                             <div class="tab-content">
-                                <div class="tab-pane active " id="1">
+                                <div class="tab-pane active " id="studentInfo">
                                     <div class="header">Add Student Info</div>
 
                                     <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Personal Info</h4>
@@ -37,7 +55,8 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="firstName" class="mdl-textfield__input" name="studentFirstName" type="text" />
+                                                <input id="firstName" class="mdl-textfield__input"
+                                                       name="studentFirstName" type="text"/>
                                                 <label class="mdl-textfield__label" for="firstName">First Name</label>
                                                 <span class="mdl-textfield__error">First Name is Required</span>
                                             </div>
@@ -45,7 +64,8 @@ include("../scripts/header.php");
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="lastName" class="mdl-textfield__input" name="studentLastName" type="text"/>
+                                                <input id="lastName" class="mdl-textfield__input" name="studentLastName"
+                                                       type="text"/>
                                                 <label class="mdl-textfield__label" for="lastName">Last Name</label>
                                                 <span class="mdl-textfield__error">Last Name is Required</span>
                                             </div>
@@ -54,14 +74,16 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="middleName" class="mdl-textfield__input" name="studentMiddleName" type="text"/>
+                                                <input id="middleName" class="mdl-textfield__input"
+                                                       name="studentMiddleName" type="text"/>
                                                 <label class="mdl-textfield__label" for="middleName">Middle Name</label>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="suffix" class="mdl-textfield__input" name="studentSuffix" type="text"/>
+                                                <input id="suffix" class="mdl-textfield__input" name="studentSuffix"
+                                                       type="text"/>
                                                 <label class="mdl-textfield__label" for="suffix">Suffix</label>
                                             </div>
                                         </div>
@@ -71,7 +93,7 @@ include("../scripts/header.php");
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="dob" class="mdl-textfield__input" name="dob" type="text" />
+                                                <input id="dob" class="mdl-textfield__input" name="dob" type="text"/>
                                                 <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                                 <span class="mdl-textfield__error">Input is not a date!</span>
                                             </div>
@@ -79,13 +101,14 @@ include("../scripts/header.php");
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="ethnicity" class="mdl-textfield__input" name="ethnicity" type="text"/>
+                                                <input id="ethnicity" class="mdl-textfield__input" name="ethnicity"
+                                                       type="text"/>
                                                 <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-4">
-                                            <select id="gender" class="form-control" name="gender" />
+                                            <select id="gender" class="pretty full-width" name="gender">
                                                 <option value="M">Male</option>
                                                 <option value="F">Female</option>
                                             </select>
@@ -97,14 +120,18 @@ include("../scripts/header.php");
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="studentAddressOne" class="mdl-textfield__input" name="studentAddressOne" type="text"/>
-                                                <label class="mdl-textfield__label" for="studentAddressOne">Address</label>
+                                                <input id="studentAddressOne" class="mdl-textfield__input"
+                                                       name="studentAddressOne" type="text"/>
+                                                <label class="mdl-textfield__label"
+                                                       for="studentAddressOne">Address</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="studentAddressTwo" class="mdl-textfield__input" name="studentAddressTwo" type="text"/>
-                                                <label class="mdl-textfield__label" for="studentAddressTwo">Apt/Suite</label>
+                                                <input id="studentAddressTwo" class="mdl-textfield__input"
+                                                       name="studentAddressTwo" type="text"/>
+                                                <label class="mdl-textfield__label"
+                                                       for="studentAddressTwo">Apt/Suite</label>
                                             </div>
                                         </div>
                                     </div>
@@ -112,21 +139,23 @@ include("../scripts/header.php");
                                         <div class="col-sm-4">
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="studentCity" class="mdl-textfield__input" name="studentCity" type="text"/>
+                                                <input id="studentCity" class="mdl-textfield__input" name="studentCity"
+                                                       type="text"/>
                                                 <label class="mdl-textfield__label" for="studentCity">City</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <label class="control-label" for="state">State:</label>
+                                        <div class="col-sm-4">
+                                            <label for="state">State:</label>
                                             <?php
                                             include("../scripts/States.php");
-                                            echo stateDropdown()
+                                            echo stateDropdown("studentState")
                                             ?>
                                         </div>
                                         <div class="col-sm-4">
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="studentZip" class="mdl-textfield__input" name="studentZip" type="text"/>
+                                                <input id="studentZip" class="mdl-textfield__input" name="studentZip"
+                                                       type="text"/>
                                                 <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
                                             </div>
                                         </div>
@@ -135,11 +164,13 @@ include("../scripts/header.php");
                                     <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
-                                        <div class="col-lg">
+                                        <div class="col-sm-10">
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="studentSchool" class="mdl-textfield__input" name="studentSchool" type="text"/>
-                                                <label class="mdl-textfield__label" for="studentSchool">School Currently Attending</label>
+                                                <input id="studentSchool" class="mdl-textfield__input"
+                                                       name="studentSchool" type="text"/>
+                                                <label class="mdl-textfield__label" for="studentSchool">School Currently
+                                                    Attending</label>
                                             </div>
                                         </div>
 
@@ -148,8 +179,10 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb1" name="reducedLunchEligibilityCheckbox"
-                                                           type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb1"
+                                                           name="reducedLunchEligibilityCheckbox"
+                                                           type="checkbox"
+                                                    />
                                                     <label class="tgl-btn" for="cb1"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
@@ -189,53 +222,98 @@ include("../scripts/header.php");
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
+                                                           onclick="countChecked()"
+                                                           type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
                                             </ul>
                                         </div>
+
+                                        <div id="checkboxTest">
+                                            <span>Hello World</span>
+
+                                        </div>
                                     </div>
                                 </div>
 
+                                <div class="tab-pane" id="studentMedicalConcerns">
+                                    <div class="header">Add Medical Info</div>
 
-                                <div class="tab-pane" id="2">
-                                    <div class="header">Add Allergy Info</div>
-
-                                    <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Student Allergies</h4>
+                                    <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
-
-
-                                        <div class="col-lg-6">
-                                            <label class="control-label" for="allergyName">Allergy Name:</label>
-                                            <input id="allergyName" class="form-control" type="text" name="allergyName">
+                                        <div class="col-sm-6">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input id="medicalConcernType" class="mdl-textfield__input"
+                                                       name="medicalConcernType" type="text"/>
+                                                <label class="mdl-textfield__label"
+                                                       for="medicalConcernType">Name</label>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6">
-<!--                                            <label class="control-label" for="allergyType">Type:</label>-->
-<!--                                            <input id="allergyType" class="form-control" type="text" name="allergyType">-->
 
-<!--                                            <label class="switch">-->
-<!--                                                <input name="permissionSlipCheckbox" type="checkbox" checked>-->
-<!--                                                <span class="slider round"></span>-->
-<!--                                            </label>-->
+                                        <div class="col-sm-6">
+                                            <label for="sort">Type</label><br>
+                                            <select id="sort" name="sort" class="pretty">
+                                                <option value="position">
+                                                    <?php
+                                                    while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
+                                                        echo "<option name='medicalConcernType' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</option>";
+                                                    }
 
+                                                    ?>
+                                                </option>
+                                            </select>
                                         </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <div class="col-lg-11">
-                                            <label class="control-label" for="allergyNote">Note:</label>
-                                            <input id="allergyNote" class="form-control" type="text" name="allergyNote">
+                                        <div class="col-sm-10">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <textarea id="medicalConcernNote" class="mdl-textfield__input"
+                                                          name="medicalConcernNote" type="text">
+                                                </textarea>
+                                                <label class="mdl-textfield__label"
+                                                       for="medicalConcernNote">Note</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="tab-pane" id="3">
+                                <div class="tab-pane" id="studentContact">
 
-                                    <h3>add clearfix to tab-content (see the css)</h3>
+                                    <div class="header">Add Contact Info</div>
+
+                                    <h4 class="heading"><i class="glyphicon glyphicon-earphone"></i> Student Contact
+                                        Information</h4>
+                                    <div class="blue-line-color"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <label for="sort">Select From Existing Contact</label><br>
+                                            <select id="sort" name="sort" class="pretty">
+                                                <option value="position">
+                                                    <?php
+                                                    while ($existingContactsRow = mysqli_fetch_assoc($existingContactsResult)) {
+                                                        $contactNameToDisplay = $existingContactsRow['First_Name'] . " " . $existingContactsRow['Last_Name'];
+                                                        echo "<option name='studentContact' value=" . $existingContactsRow['Id'] . ">" . $contactNameToDisplay . "</option>";
+                                                    }
+
+                                                    ?>
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <button type="button" id="create-new-contact-button"
+                                                    class="btn btn-outline-primary">Add New Contact
+                                            </button>
+
+                                        </div>
+
+                                        <div id="show-new-contact-form" class="col-sm-12">
+
+
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -279,93 +357,36 @@ include("../scripts/header.php");
                 </div>
 
             </div>
+            x
             <div class="modal-footer">
                 <div class="right-align">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" form="newStudentForm" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary"
+                            onclick="sendForm()">Submit
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
-<?php
-
-
-if(isset($_POST['firstName'])) {
-   echo "Fill out name";
-}
-
-if(isset($_POST['reducedLunchEligibilityCheckbox'])) {
-    $_POST['reducedLunchEligibilityCheckbox'] = 1;
-} else {
-    $_POST['reducedLunchEligibilityCheckbox'] = 0;
-}
-
-if(isset($_POST['birthCertificateCheckbox'])) {
-    $_POST['birthCertificateCheckbox'] = 1;
-} else {
-    $_POST['birthCertificateCheckbox'] = 0;
-}
-
-if(isset($_POST['iepCheckbox'])) {
-    $_POST['iepCheckbox'] = 1;
-} else {
-    $_POST['iepCheckbox'] = 0;
-}
-
-include("../scripts/footer.php");
-?>
-
+<script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
+<?php include("../scripts/footer.php"); ?>
+<script src="../../js/input-styling.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#buttonTrigger').click(function () {
-            var x = document.getElementById("newStudentForm");
-
-            var birthCertificateCheckbox = x[13];
-
-            if (birthCertificateCheckbox.valid){
-
-            }
-
-            var txt = "";
-            var i;
-            for (i = 0; i < x.length; i++) {
-//                txt = txt + x.elements[i].value + "<br>";
-                var firstName = "First Name: " + x.elements[0].value + "<br>";
-                var lastName = "Last Name: " + x.elements[1].value + "<br>";
-                var middleName = "Middle Name: " + x.elements[2].value + "<br>";
-                var suffix = "Suffix: " + x.elements[3].value + "<br>";
-                var dob = "Date of Birth: " + x.elements[4].value + "<br>";
-                var ethnicity = "Ethnicity: " + x.elements[5].value + "<br>";
-                var gender = "Gender: " + x.elements[6].value + "<br>";
-                var address = "Address: " + x.elements[7].value + "<br>";
-                var city = "City: " + x.elements[8].value + "<br>";
-                var state = "State: " + x.elements[9].value + "<br>";
-                var zipCode = "Zip Code: " + x.elements[10].value + "<br>";
-                var school = "School: " + x.elements[11].value + "<br>";
-                var permissionSlip = "Permission Slip on File: " + x.elements[12].value + "<br>";
-                var birthCertificate = "Birth Certificate on File: " + x.elements[13].value + "<br>";
-                var reducedLunch = "Reduced Lunch Eligible: " + x.elements[14].value + "<br>";
-                var emotionalProblems = "Immediate Emotional Problem: " + x.elements[15].value + "<br>";
-
-                txt = firstName + lastName + middleName + suffix + dob + ethnicity + gender
-                    + address + city + state + zipCode + school + permissionSlip + birthCertificate
-                    + reducedLunch + emotionalProblems;
-            }
-            document.getElementById("modalBody").innerHTML = txt;
+        $('#create-new-contact-button').click(function () {
+            $.ajax({
+                url: "../scripts/AjaxAddContact.php",
+                method: "GET",
+                success: function (output) {
+                    $('#show-new-contact-form').slideDown().html(output);
+                }
+            })
         });
     });
 </script>
 
-
-<!--<div class="col-sm-6">-->
-<!--    <!-- Numeric Textfield with Floating Label -->-->
-<!--    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-->
-<!--        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">-->
-<!--        <label class="mdl-textfield__label" for="sample4">Number...</label>-->
-<!--        <span class="mdl-textfield__error">Input is not a number!</span>-->
-<!--    </div>-->
-<!--</div>-->
+<script src="../../js/new-student-scripts/NewStudentModal.js"></script>
+<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
+<script src="../../js/PrettyDropDowns.js"></script>

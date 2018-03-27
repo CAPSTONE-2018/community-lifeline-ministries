@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 25px 0;
+    padding: 25px 0 15px 0;
     font-weight: 300;
 }
 
@@ -128,7 +128,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 
 .mdl-textfield__label:after {
     background-color: #7fc6a6;
-    bottom: 20px;
+    bottom: 10px;
     content: '';
     height: 2px;
     left: 45%;
