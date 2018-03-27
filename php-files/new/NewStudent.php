@@ -5,18 +5,25 @@ include("../scripts/header.php");
 <?php
 include("../../db/config.php");
 
+
 $queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
 
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
+
+$queryForExistingContacts= "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
+
+$existingContactsResult = mysqli_query($db, $queryForExistingContacts);
+$existingContactsRow = mysqli_fetch_array($existingContactsResult);
+
 ?>
 
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../css/input-stylings.css"/>
+
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
 <link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css" />
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
@@ -224,9 +231,6 @@ $medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
                                         </div>
 
                                         <div class="col-sm-6">
-
-
-
                                             <label for="sort">Type</label><br>
                                             <select id="sort" name="sort" class="pretty">
                                                 <option value="position">
@@ -252,7 +256,36 @@ $medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 
                                 <div class="tab-pane" id="studentContact">
 
-                                    <h3>add clearfix to tab-content (see the css)</h3>
+                                    <div class="header">Add Contact Info</div>
+
+                                    <h4 class="heading"><i class="glyphicon glyphicon-earphone"></i> Student Contact Information</h4>
+                                    <div class="blue-line-color"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <label for="sort">Select From Existing Contact</label><br>
+                                            <select id="sort" name="sort" class="pretty">
+                                                <option value="position">
+                                                    <?php
+                                                    while ($existingContactsRow = mysqli_fetch_assoc($existingContactsResult)) {
+                                                        $contactNameToDisplay = $existingContactsRow['First_Name'] . " " . $existingContactsRow['Last_Name'];
+                                                        echo "<option name='studentContact' value=".$existingContactsRow['Id'].">".$contactNameToDisplay."</option>";
+                                                    }
+
+                                                    ?>
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <button type="button" id="create-new-contact-button" class="btn btn-outline-primary" onclick=loadDoc()>Add New Contact</button>
+
+                                        </div>
+
+                                        <div id="show-new-contact-form" class="row container-fluid col-sm-12">
+
+
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -306,35 +339,71 @@ $medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
     </div>
 </div>
 
-
-
 <?php
 
-
-if(isset($_POST['firstName'])) {
-   echo "Fill out name";
-}
-
-if(isset($_POST['reducedLunchEligibilityCheckbox'])) {
-    $_POST['reducedLunchEligibilityCheckbox'] = 1;
-} else {
-    $_POST['reducedLunchEligibilityCheckbox'] = 0;
-}
-
-if(isset($_POST['birthCertificateCheckbox'])) {
-    $_POST['birthCertificateCheckbox'] = 1;
-} else {
-    $_POST['birthCertificateCheckbox'] = 0;
-}
-
-if(isset($_POST['iepCheckbox'])) {
-    $_POST['iepCheckbox'] = 1;
-} else {
-    $_POST['iepCheckbox'] = 0;
-}
+//
+//if(isset($_POST['firstName'])) {
+//   echo "Fill out name";
+//}
+//
+//if(isset($_POST['reducedLunchEligibilityCheckbox'])) {
+//    $_POST['reducedLunchEligibilityCheckbox'] = 1;
+//} else {
+//    $_POST['reducedLunchEligibilityCheckbox'] = 0;
+//}
+//
+//if(isset($_POST['birthCertificateCheckbox'])) {
+//    $_POST['birthCertificateCheckbox'] = 1;
+//} else {
+//    $_POST['birthCertificateCheckbox'] = 0;
+//}
+//
+//if(isset($_POST['iepCheckbox'])) {
+//    $_POST['iepCheckbox'] = 1;
+//} else {
+//    $_POST['iepCheckbox'] = 0;
+//}
 
 include("../scripts/footer.php");
 ?>
+<script src="../../js/input-styling.min.js"></script>
+<script>
+    function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("show-new-contact-form").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "../../scripts/AjaxAddContact.php", true);
+        xhttp.send();
+    }
+</script>
+
+<script>
+    //    $('#create-new-contact-button').on('click', function(e) {
+    //        $('.form-group').slideDown();
+    //        $('#show-all-button').hide();
+    //        $('#show-medical-info').slideUp();
+    //        e.preventDefault();
+    //    });
+
+    $(document).ready(function () {
+        $('#create-new-contact-button').click(function () {
+            $.ajax({
+                url: "../scripts/AjaxAddContact.php",
+                method: "POST",
+//                data: {medicalConcernId: medicalConcernId},
+                success: function (output) {
+                    $('#show-new-contact-form').slideDown().html(output);
+//                    $('#show-all-button').show();
+//                    $('.table-wrapper').slideUp();
+                }
+            })
+        });
+    });
+</script>
 
 <script>
     $(document).ready(function () {
@@ -382,7 +451,7 @@ include("../scripts/footer.php");
     $(document).ready(function() {
         $dropdown = $('select').prettyDropdown({
             height: 40,
-            classic: true,
+            classic: true
         });
     });
     // When <select> state changes...
