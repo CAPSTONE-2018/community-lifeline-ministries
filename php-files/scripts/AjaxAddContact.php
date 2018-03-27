@@ -97,4 +97,4 @@
     // When <select> state changes...
     $dropdown.refresh();
 </script>
-<script type="text/javascript" src="../../js/ajax-inputs.js"></script>
+<script type="text/javascript" src="../../js/AjaxContactFormStyles.js"></script>

@@ -90,9 +90,6 @@ if($lastContactInsertId != null) {
     $stmtStudentToContact->execute();
 }
 
-
-//$queryForStudent = 'SELECT Id FROM Students WHERE First_Name ="'.$studentFirstName.'" AND Last_Name = "'.$studentLastName.'" AND Middle_Name = "'..'"';
-
 $query = 'SELECT * FROM Medical_Concerns WHERE Name = "' . $medicalConcernName . '" AND Type = "' . $medicalConcernType . '" AND Note = "' . $medicalConcernNote . '";';
 $result = $db->query($query);
 $row_aid = $result->fetch_assoc();
