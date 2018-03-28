@@ -15,7 +15,7 @@ $result = mysqli_query($db, $query);
         var input, filter, table, tr, td, i, show = false;
         input = document.getElementById("searchInput");
         filter = input.value.toUpperCase();
-        table = document.getElementById("program_table");
+        table = document.getElementById("contacts_table");
         tr = table.getElementsByTagName("tr");
 
 // Loop through all table rows, and hide those who don't match the search query
@@ -52,7 +52,7 @@ $result = mysqli_query($db, $query);
 <br />
 
 <div id="print_div">
-    <table class="table table-condensed table-striped">
+    <table id="contacts_table" class="table table-condensed table-striped">
         <thead>
         <tr>
             <th>First Name</th>

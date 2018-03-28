@@ -58,6 +58,7 @@ $result = mysqli_query($db, $query);
             <th>ID</th>
             <th>Name</th>
             <th>Type</th>
+            <th>Note</th>
             <th>Students Affected</th>
         </tr>
         </thead>
@@ -73,9 +74,11 @@ $result = mysqli_query($db, $query);
             echo "<tr><td>";
             echo $row['Id'];
             echo "</td><td>";
-            echo $row['Name'];
+            echo $row['NAME'];
             echo "</td><td>";
-            echo $row['Type'];
+            echo $row['TYPE'];
+            echo "</td><td>";
+            echo $row['Note'];
             echo "</td><td>";
             echo "$result2[0]";
             echo "</td><td>";
