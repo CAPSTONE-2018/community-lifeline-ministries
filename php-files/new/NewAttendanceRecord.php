@@ -14,19 +14,22 @@ $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
 $programId = $getInfo['Program_Name'];
 $dynamicRowId = 0;
+
+//$currentDateSelectStatement = "SELECT DATE_FORMAT(NOW(),'%W, %M %e, %Y')";
+
+
 ?>
 <link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
 <link rel="stylesheet" href="../../css/radio-styles.css"/>
-
 <div class="container-fluid">
     <div class="card">
-        <div class="card-body">
-            <div class="header">
-                <?php
-                echo "<h3 class='card-title'>$programId Attendance</h3>";
-                ?>
+        <div class="card-header">
+            <?php
+            echo "<h3 class='card-title'>Attendance for $programId ".date('l F jS')."</h3>"
 
-            </div>
+            ?>
+        </div>
+        <div class="card-body">
             <div class="card-content">
                 <form class="form-horizontal" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
 
@@ -88,7 +91,7 @@ $dynamicRowId = 0;
 
                                     
                                     <td class='check-mark-column'>
-                                        <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'>Info</button>                         
+                                        <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'><i class=\"glyphicon glyphicon-earphone\"></i>Contact</button>                         
                                     </td>
                                 </tr>";
                             $studentIdToSearch = $row['Student_Id'];
@@ -129,70 +132,10 @@ $dynamicRowId = 0;
     </div>
 </div>
 
-<!---->
-<!--        <script>-->
-<!--            $(document).ready(function(){-->
-<!--                var form=$("#newAttendanceRecordForm");-->
-<!--                $("#submitAttendance").click(function(){-->
-<!--                    $.ajax({-->
-<!--                        type:"POST",-->
-<!--                        url:"../add/AddAttendanceRecord.php",-->
-<!--                        data:form.serialize(),-->
-<!--                        success: function(response){-->
-<!--                            console.log(response);-->
-<!--                        }-->
-<!--                    });-->
-<!--                });-->
-<!--            });-->
-<!--        </script>-->
-
-
-<!--<script>-->
-<!---->
-<!--    var submitButton = document.getElementById('submitAttendance');-->
-<!--    submitButton.onclick = sendForm();-->
-<!---->
-<!--    function sendForm() {-->
-<!--        var data = $('form#attendanceForm').serialize();-->
-<!--        $.ajax({-->
-<!--            url: '../add/AddAttendanceRecord.php',-->
-<!--            method: 'post',-->
-<!--            data: {formData: data}-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
-<!---->
-<!--        <script type="text/javascript">-->
-<!--            $( "form" ).on( "submit", function( event ) {-->
-<!--                event.preventDefault();-->
-<!--                console.log( $( this ).serialize() );-->
-<!--            });-->
-<!--        </script>-->
-
-<!---->
-<!--<script>-->
-<!--    $("#submitAttendance").click(function () {-->
-<!--//        var data = $('#newAttendanceRecordForm').serialize();-->
-<!--        var data = $("#newAttendanceRecordForm").serialize();-->
-<!--        $.ajax({-->
-<!--            url: '../add/AddAttendanceRecord.php',-->
-<!--            method: 'POST',-->
-<!--            data: {dataForm: data}-->
-<!--//            success: function (output) {-->
-<!--//                $('#showClassInfo').html(output);-->
-<!--//            }-->
-<!--        });-->
-<!--    };-->
-<!--</script>-->
-
-
 <script type="text/javascript">
-
     var table = document.getElementsByTagName('table')[0],
         rows = table.getElementsByClassName('number-row'),
         text = 'textContent' in document ? 'textContent' : 'innerText';
-    console.log(text);
-
     for (var i = 0, len = rows.length; i < len; i++) {
         var numberToDisplay = i + 1;
         rows[i].children[0][text] = numberToDisplay + ".";

@@ -172,5 +172,5 @@ $account = $_SESSION['account'];
     </nav>
 
     <!-- Content goes after here - closed by footer -->
-    <div class="col-lg-9" id="content">
+    <div class="col-sm-9" id="content">
         <div class="container-fluid">
