@@ -14,10 +14,6 @@ $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
 $programId = $getInfo['Program_Name'];
 $dynamicRowId = 0;
-
-//$currentDateSelectStatement = "SELECT DATE_FORMAT(NOW(),'%W, %M %e, %Y')";
-
-
 ?>
 <link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
 <link rel="stylesheet" href="../../css/radio-styles.css"/>
@@ -25,7 +21,9 @@ $dynamicRowId = 0;
     <div class="card">
         <div class="card-header">
             <?php
-            echo "<h3 class='card-title'>Attendance for $programId ".date('l F jS')."</h3>"
+            $dateToDisplay = date('l F jS');
+            echo "<h3 class='card-title'>Attendance for $programId</h3>";
+            echo "<h5>$dateToDisplay</h5>";
 
             ?>
         </div>
@@ -33,6 +31,7 @@ $dynamicRowId = 0;
             <div class="card-content">
                 <form class="form-horizontal" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
 
+                    <input type='hidden' name='attendanceDate' value='<?php echo date("m/d/Y"); ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
                         <thead>
 

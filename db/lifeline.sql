@@ -88,7 +88,7 @@ CREATE TABLE Attendance (
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
   Program_Id             INT(10),
-  Date                   DATE,
+  Date                   VARCHAR(100),
   Attendance_Value       TINYINT(1),
   TardyTime              VARCHAR(50),
   Note                   VARCHAR(500),
