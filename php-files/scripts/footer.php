@@ -24,7 +24,7 @@
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('closed');
             document.cookie = "menuCollapse=True";
-            $('#content').toggleClass('col-lg-12 shorten col-lg-9');
+            $('#content').toggleClass('col-sm-11');
         });
     });
 
