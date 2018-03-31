@@ -1,22 +1,15 @@
 <?php
 //connect to database
 include("../../db/config.php");
-
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = CURDATE();";
-
 $programResults = mysqli_query($db, $queryForAllPrograms);
 $attendanceRecordResult = mysqli_query($db, $queryDoesAttendanceRecordExist);
-
 $programsWithAttendanceRecordArray = [];
-
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 }
 ?>
-
-
-
 <link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
 <div class="container-fluid col-sm-8">
@@ -54,22 +47,35 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     </form>
                 </div>
 
-                <div class="nav-item col-sm-4 on-hover">
+                <div class="nav-item col-sm-4">
                     <a class="nav-link" href="#">
                         <i class="glyphicon glyphicon-search"></i> Look Up
                     </a>
                 </div>
 
-                <div class="nav-item col-sm-4 on-hover">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-pencil"></i> Edit
-                    </a>
+                <div class="nav-item col-sm-4">
+                    <form id="attendanceProgramToEdit" action="#" method="POST">
+                        <select onchange="this.form.submit()" name="programId">
+                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
+                                    disabled selected> Edit
+                            </option>
+                            <?php
+                            while ($programsRowToEdit = mysqli_fetch_assoc($programResults)) {
+                                $programIdToEdit = $programsRowToEdit['Id'];
+                                $programEditNameToDisplay = $programsRowToEdit['Program_Name'];
+
+                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) {
+                                    echo "<option class='custom-size program-select-buttons' value='$programIdToEdit'>$programEditNameToDisplay</option>";
+                                } else {
+                                    echo "<option class='custom-size program-select-buttons' disabled value='$programIdToEdit'>$programEditNameToDisplay</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                        <noscript><input type="submit" value="Submit"></noscript>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
-
-

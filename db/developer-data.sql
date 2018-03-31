@@ -103,13 +103,13 @@
   INSERT INTO Student_Test_Scores(Author_Username, Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES ("Developer", 3, 2018, "Spring", 55, 65);
   INSERT INTO Student_Test_Scores(Author_Username, Student_Id, School_Year, Term, Pre_Test, Post_Test) VALUES ("Developer", 3, 2018, "Summer", 55, 65);
 
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 1,  1, "2017-08-12", 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  2, "2017-08-12", 2);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 1,  3, "2017-08-12", 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 1,  2, "2017-08-13", 3);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  3, "2017-08-13", 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  5, "2017-08-12", 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  5, "2017-08-13", 2);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 1,  1, "2018/02/12", 1);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  2, "2018/02/12", 2);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 1,  3, "2018/02/12", 1);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 1,  2, "2018/02/12", 3);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  3, "2018/02/12", 1);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  5, "2018/02/12", 1);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ("Developer", 2,  5, "2018/02/12", 2);
 
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ("Developer", 1, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ("Developer", 1, 2);
