@@ -4,13 +4,21 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$queryForProgramName = "SELECT * FROM Programs ORDER BY Program_Name;";
-$result = mysqli_query($db, $queryForProgramName);
+$queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
+$queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = CURDATE();";
 
+$programResults = mysqli_query($db, $queryForAllPrograms);
+$attendanceRecordResult = mysqli_query($db, $queryDoesAttendanceRecordExist);
+
+$programsWithAttendanceRecordArray = [];
+
+while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
+    array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
+}
 ?>
 <link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
-<div class="container-fluid">
+<div class="container-fluid col-sm-8">
     <div class="card text-center">
         <div class="card-header">
             Message On If Attendance Was Taken Today
@@ -24,14 +32,19 @@ $result = mysqli_query($db, $queryForProgramName);
                 <div class="nav-item col-sm-4">
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
-                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>" disabled selected>  Start New Record</option>
+                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
+                                    disabled selected> Start New Record
+                            </option>
 
                             <?php
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $buttonTitle = $row['Program_Name'];
-                                    $buttonValue = $row['Id'];
-                                    echo "<option class='custom-size program-select-buttons' value='$buttonValue'>$buttonTitle</option>";
+                            while ($programsRow = mysqli_fetch_assoc($programResults)) {
+                                $programId = $programsRow['Id'];
+                                $programNameToDisplay = $programsRow['Program_Name'];
+
+                                if (in_array($programId, $programsWithAttendanceRecordArray)) {
+                                    echo "<option class='custom-size program-select-buttons' disabled value='$programId'>$programNameToDisplay</option>";
+                                } else {
+                                    echo "<option class='custom-size program-select-buttons' value='$programId'>$programNameToDisplay</option>";
                                 }
                             }
                             ?>
