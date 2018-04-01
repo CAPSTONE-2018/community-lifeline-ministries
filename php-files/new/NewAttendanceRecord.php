@@ -3,6 +3,12 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
+
+$date = new DateTime(null, new DateTimeZone(date_default_timezone_get()));
+$date->setTimeZone(new DateTimeZone('America/Chicago'));
+$dateToDisplay = (string)$date->format('l F jS');
+$dateToSubmit = (string)$date->format("Y/m/d");
+
 $programIdToSearch = $_POST['programId'];
 $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Programs.Program_Name,
                             Student_To_Programs.Student_Id, Students.First_Name, Students.Last_Name FROM
@@ -21,7 +27,6 @@ $dynamicRowId = 0;
     <div class="card">
         <div class="card-header">
             <?php
-            $dateToDisplay = date('l F jS');
             echo "<h3 class='card-title'>Attendance for $programNameToDisplay</h3>";
             echo "<h5>$dateToDisplay</h5>";
 
@@ -31,7 +36,7 @@ $dynamicRowId = 0;
             <div class="card-content">
                 <form class="form-horizontal" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
 
-                    <input type='hidden' name='attendanceDate' value='<?php echo date("Y/m/d"); ?>'/>
+                    <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
                         <thead>
 
