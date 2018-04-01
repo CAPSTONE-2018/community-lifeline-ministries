@@ -25,7 +25,7 @@ $programNameToDisplay = $getInfo['Program_Name'];
 $dynamicRowId = 0;
 
 ?>
-<link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
+<link rel="stylesheet" href="../../css/table-styles.css"/>
 <link rel="stylesheet" href="../../css/radio-styles.css"/>
 <div class="container-fluid">
     <div class="card">
@@ -86,7 +86,7 @@ $dynamicRowId = 0;
                                     <td class='col-sm-4 align-middle'>
                                         $studentName
                                     </td>
-                                    <td class='hidden-row align-middle'>
+                                    <td class='hidden align-middle'>
                                         <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
                                         <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
                                     </td>                                    
@@ -116,9 +116,9 @@ $dynamicRowId = 0;
                                         <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'><i class=\"glyphicon glyphicon-earphone\"></i>Contact</button>                         
                                     </td>
                                 </tr>";
-                            $studentIdToSearch = $row['Student_Id'];
+//                            $studentIdToSearch = $row['Student_Id'];
                             $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
-                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";
+                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch;";
                             $currentContactForStudent = mysqli_query($db, $queryForContacts);
                             while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
                                 $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];

@@ -18,7 +18,7 @@ $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
 $programNameToDisplay = $getInfo['Program_Name'];
 $dynamicRowId = 0;
 ?>
-<link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
+<link rel="stylesheet" href="../../css/table-styles.css"/>
 <link rel="stylesheet" href="../../css/radio-styles.css"/>
 <div class="container-fluid">
     <div class="card">
@@ -64,7 +64,7 @@ $dynamicRowId = 0;
                                     <td class='col-sm-4 align-middle'>
                                         $studentName
                                     </td>
-                                    <td class='hidden-row align-middle'>
+                                    <td class='hidden align-middle'>
                                         <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
                                         <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
                                     </td>                                    
