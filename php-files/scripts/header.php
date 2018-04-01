@@ -19,7 +19,7 @@ $userMakingChanges = $_SESSION['loggedIn'];
 
     <title>Community Lifeline Ministries</title>
 
-    <link rel="stylesheet" href="../../css/input-stylings.css"/>
+    <link rel="stylesheet" href="../../css/input-styles.css"/>
 
     <!-- Local Bootstrap -->
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
