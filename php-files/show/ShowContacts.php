@@ -9,50 +9,24 @@ include("../../db/config.php");
 $query = "SELECT * FROM Contacts;";
 $result = mysqli_query($db, $query);
 ?>
-<script>
-    function FilterFields() {
-// Declare variables
-        var input, filter, table, tr, td, i, show = false;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("contacts_table");
-        tr = table.getElementsByTagName("tr");
-
-// Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            show = false;
-            for (j = 0; j < 14; j++) {
-                td = tr[i].getElementsByTagName("td")[j];
-                if (td) {
-                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                        show = true;
-                    }
-                }
-            }
-            if(!show){
-                tr[i].style.display = "none";
-            }
-        }
-    }
-</script>
+<script type="text/javascript" src="../../js/SearchBar.js"></script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../css/input-stylings.css"/>
+<link rel="stylesheet" href="../../css/input-styles.css"/>
 <link rel="stylesheet" href="../../css/new-toggle.css"/>
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <h1>Displaying All Contacts:</h1>
 <div class="col-lg">
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input id="searchInput" class="mdl-textfield__input" name="searchInput" onkeyup="return FilterFields();" type="text"/>
+        <input id="searchInput" class="mdl-textfield__input" name="searchInput" onkeyup="FilterFields();" type="text"/>
         <label class="mdl-textfield__label" for="searchInput">Search Contacts</label>
     </div>
 </div>
 <br />
 
 <div id="print_div">
-    <table id="contacts_table" class="table table-condensed table-striped">
+    <table id="searchTable" class="table table-condensed table-striped">
         <thead>
         <tr>
             <th>First Name</th>

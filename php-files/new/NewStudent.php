@@ -20,8 +20,6 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-
-<link rel="stylesheet" href="../../css/new-toggle.css"/>
 <link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
 <div class="container-fluid">
