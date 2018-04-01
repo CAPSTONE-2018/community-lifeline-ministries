@@ -7,16 +7,23 @@ include("../../db/config.php");
 include("../TimeZoneFormat.php");
 
 $programIdToSearch = $_POST['programId'];
-$queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Programs.Program_Name,
-                            Student_To_Programs.Student_Id, Students.First_Name, Students.Last_Name FROM
-                            (Student_To_Programs JOIN Students ON Student_To_Programs.Student_Id = Students.Id)
-                            JOIN Programs ON Student_To_Programs.Program_Id = Programs.Id
-                            WHERE Student_To_Programs.Program_Id = $programIdToSearch;";
+$dateToSearch = $dateToSubmit;
 
-$currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
-$getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
+$queryForProgramName = "SELECT Program_Name From Programs WHERE Id = $programIdToSearch;";
+
+$queryForStudentsAttendanceRecord = "SELECT Attendance.Student_Id, Attendance.Program_Id,
+                                            Attendance.Attendance_Value, Attendance.TardyTime,
+                                            Attendance.Note, Programs.Program_Name, Students.First_Name, Students.Last_Name 
+                                     FROM (Attendance JOIN Programs ON Programs.Id = Attendance.Program_Id)
+                                        JOIN Students ON Students.Id = Attendance.Student_Id WHERE Date = '$dateToSearch' AND Attendance.Program_Id = $programIdToSearch;";
+
+$programNameResult = mysqli_query($db, $queryForProgramName);
+$attendanceRecordResults = mysqli_query($db, $queryForStudentsAttendanceRecord);
+
+$getInfo = mysqli_fetch_array($programNameResult, MYSQLI_ASSOC);
 $programNameToDisplay = $getInfo['Program_Name'];
 $dynamicRowId = 0;
+
 ?>
 <link rel="stylesheet" href="../../css/attendance-table-styles.css"/>
 <link rel="stylesheet" href="../../css/radio-styles.css"/>
@@ -24,14 +31,16 @@ $dynamicRowId = 0;
     <div class="card">
         <div class="card-header">
             <?php
-            echo "<h3 class='card-title'>Attendance for $programNameToDisplay</h3>";
+
+            echo "<h3 class='card-title'>Editing Attendance for $programNameToDisplay</h3>";
             echo "<h5>$dateToDisplay</h5>";
 
             ?>
         </div>
         <div class="card-body">
             <div class="card-content">
-                <form class="form-horizontal" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
+                <form class="form-horizontal" method="POST" action="../update/UpdateAttendanceRecord.php"
+                      name="editAttendanceRecordForm" id="editAttendanceRecordForm">
 
                     <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
@@ -49,15 +58,28 @@ $dynamicRowId = 0;
 
                         <tbody>
                         <?php
-                        while ($row = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC)) {
+                        while ($row = mysqli_fetch_assoc($attendanceRecordResults)) {
                             $dynamicRowId++;
                             $firstRowId = md5(uniqid(rand(), true));
                             $secondRowId = md5(uniqid(rand(), true));
                             $thirdRowId = md5(uniqid(rand(), true));
 
+                            $attendanceValue = $row['Attendance_Value'];
                             $programId = $row['Program_Id'];
                             $studentIdToSearch = $row['Student_Id'];
                             $studentName = $row['First_Name'] . " " . $row['Last_Name'];
+                            $presentCheckMark = '';
+                            $absentCheckMark = '';
+                            $tardyCheckMark = '';
+
+                            if ($attendanceValue == 1) {
+                                $presentCheckMark = "checked";
+                            } else if ($attendanceValue == 2) {
+                                $absentCheckMark = "checked";
+                            } else {
+                                $tardyCheckMark = "checked";
+                            }
+
 
                             echo "<tr class='number-row'>
                                     <td></td> 
@@ -70,21 +92,21 @@ $dynamicRowId = 0;
                                     </td>                                    
                                     <td class='radio-input-wrapper check-mark-column'>
                                         <label class='radio-label' for='radio$firstRowId'>
-                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='1' id='radio$firstRowId' />
+                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' $presentCheckMark value='1' id='radio$firstRowId' />
                                             <span class='custom-check-mark green-check'></span>
                                         </label>
                                     </td>
                                     
                                     <td class='radio-input-wrapper check-mark-column'>
                                         <label class='radio-label' for='radio$secondRowId'>
-                                            <input class='hover-checkbox' type='radio' name='attendanceCheckbox[$dynamicRowId]' value='2' id='radio$secondRowId' />
+                                            <input class='hover-checkbox' type='radio' name='attendanceCheckbox[$dynamicRowId]' $absentCheckMark value='2' id='radio$secondRowId' />
                                             <span class='custom-check-mark red-check'></span>
                                         </label>
                                     </td>
                                     
                                     <td class='radio-input-wrapper check-mark-column'>
                                         <label class='radio-label' for='radio$thirdRowId'>
-                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='3' id='radio$thirdRowId' />
+                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' $tardyCheckMark value='3' id='radio$thirdRowId' />
                                             <span class='custom-check-mark blue-check'></span>
                                         </label>
                                     </td>
@@ -122,7 +144,8 @@ $dynamicRowId = 0;
 
             <div class="card-footer">
                 <div>
-                    <button id="submitAttendance" form="newAttendanceRecordForm" type="submit" class="btn btn-right btn-primary">
+                    <button id="submitAttendance" form="editAttendanceRecordForm" type="submit"
+                            class="btn btn-right btn-primary">
                         Submit
                     </button>
                 </div>
