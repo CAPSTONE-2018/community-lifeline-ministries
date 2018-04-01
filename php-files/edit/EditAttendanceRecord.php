@@ -39,10 +39,10 @@ $dynamicRowId = 0;
         </div>
         <div class="card-body">
             <div class="card-content">
-                <form class="form-horizontal" method="POST" action="#"
+                <form class="form-horizontal" method="POST" action="../update/UpdateAttendanceRecord.php"
                       name="editAttendanceRecordForm" id="editAttendanceRecordForm">
 
-                    <input type='hidden' name='attendanceDate' value=<?php echo $dateToDisplay ?>/>
+                    <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
                         <thead>
 
