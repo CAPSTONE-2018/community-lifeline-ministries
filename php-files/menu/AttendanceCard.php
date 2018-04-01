@@ -4,6 +4,7 @@ include("../../db/config.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = CURDATE();";
 $programResults = mysqli_query($db, $queryForAllPrograms);
+$resultsForEdit = mysqli_query($db, $queryForAllPrograms);
 $attendanceRecordResult = mysqli_query($db, $queryDoesAttendanceRecordExist);
 $programsWithAttendanceRecordArray = [];
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
@@ -54,13 +55,13 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                 </div>
 
                 <div class="nav-item col-sm-4">
-                    <form id="attendanceProgramToEdit" action="#" method="POST">
+                    <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
                                     disabled selected> Edit
                             </option>
                             <?php
-                            while ($programsRowToEdit = mysqli_fetch_assoc($programResults)) {
+                            while ($programsRowToEdit = mysqli_fetch_assoc($resultsForEdit)) {
                                 $programIdToEdit = $programsRowToEdit['Id'];
                                 $programEditNameToDisplay = $programsRowToEdit['Program_Name'];
 

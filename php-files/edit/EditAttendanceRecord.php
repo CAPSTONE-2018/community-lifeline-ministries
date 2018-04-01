@@ -3,8 +3,11 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
-$programIdToSearch = 1;
-$dateToSearch = date("Y/m/d");
+
+include("../TimeZoneFormat.php");
+
+$programIdToSearch = $_POST['programId'];
+$dateToSearch = $dateToSubmit;
 
 $queryForProgramName = "SELECT Program_Name From Programs WHERE Id = $programIdToSearch;";
 
@@ -12,12 +15,10 @@ $queryForStudentsAttendanceRecord = "SELECT Attendance.Student_Id, Attendance.Pr
                                             Attendance.Attendance_Value, Attendance.TardyTime,
                                             Attendance.Note, Programs.Program_Name, Students.First_Name, Students.Last_Name 
                                      FROM (Attendance JOIN Programs ON Programs.Id = Attendance.Program_Id)
-                                        JOIN Students ON Students.Id = Attendance.Student_Id WHERE Date = '2018/03/31' AND Attendance.Program_Id = 2;";
+                                        JOIN Students ON Students.Id = Attendance.Student_Id WHERE Date = '$dateToSearch' AND Attendance.Program_Id = $programIdToSearch;";
 
 $programNameResult = mysqli_query($db, $queryForProgramName);
 $attendanceRecordResults = mysqli_query($db, $queryForStudentsAttendanceRecord);
-
-
 
 $getInfo = mysqli_fetch_array($programNameResult, MYSQLI_ASSOC);
 $programNameToDisplay = $getInfo['Program_Name'];
@@ -32,7 +33,7 @@ $dynamicRowId = 0;
             <?php
 
             echo "<h3 class='card-title'>Editing Attendance for $programNameToDisplay</h3>";
-            echo "<h5>$dateToSearch</h5>";
+            echo "<h5>$dateToDisplay</h5>";
 
             ?>
         </div>
@@ -41,7 +42,7 @@ $dynamicRowId = 0;
                 <form class="form-horizontal" method="POST" action="#"
                       name="editAttendanceRecordForm" id="editAttendanceRecordForm">
 
-                    <input type='hidden' name='attendanceDate' value=<?php echo $dateToSearch ?>/>
+                    <input type='hidden' name='attendanceDate' value=<?php echo $dateToDisplay ?>/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
                         <thead>
 
