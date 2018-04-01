@@ -13,8 +13,8 @@ $(document).ready(function () {
         for (i = 0; i < x.length; i++) {
 //                txt = txt + x.elements[i].value + "<br>";
             var firstName = "First Name: " + x.elements[0].value + "<br>";
-            var lastName = "Last Name: " + x.elements[1].value + "<br>";
             var middleName = "Middle Name: " + x.elements[2].value + "<br>";
+            var lastName = "Last Name: " + x.elements[1].value + "<br>";
             var suffix = "Suffix: " + x.elements[3].value + "<br>";
             var dob = "Date of Birth: " + x.elements[4].value + "<br>";
             var ethnicity = "Ethnicity: " + x.elements[5].value + "<br>";
@@ -29,7 +29,7 @@ $(document).ready(function () {
             var reducedLunch = "Reduced Lunch Eligible: " + x.elements[14].value + "<br>";
             var emotionalProblems = "Immediate Emotional Problem: " + x.elements[15].value + "<br>";
 
-            txt = firstName + lastName + middleName + suffix + dob + ethnicity + gender
+            txt = firstName + middleName + lastName + suffix + dob + ethnicity + gender
                 + address + city + state + zipCode + school + permissionSlip + birthCertificate
                 + reducedLunch + emotionalProblems;
         }
