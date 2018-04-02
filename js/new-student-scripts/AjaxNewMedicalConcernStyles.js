@@ -1,40 +1,47 @@
 function addMedicalConcernNameFocus(dynamicFieldId) {
-    var dynamicId = "'id=floatingConcernName" + dynamicFieldId + ";";
-    $('div[dynamicId]').addClass("is-focused");
+    var activeId = document.getElementById("floatingConcernName" + dynamicFieldId);
+    $(activeId).addClass("is-focused");
 }
-function removeMedicalConcernNameFocus() {
+
+function removeMedicalConcernNameFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernName" + dynamicFieldId);
+
     var input = document.getElementById("medicalConcernName").value;
 
     if (input === "") {
-        $('div[id=floatingConcernName]').removeClass("is-focused");
+        $(activeId).removeClass("is-focused");
     } else {
-        $('div[id=floatingConcernName]').removeClass("is-focused").addClass("is-dirty");
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
     }
 }
 
-function addMedicalConcernTypeFocus() {
-    $('div[id=floatingConcernType]').addClass("is-focused");
+function addMedicalConcernTypeFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernType" + dynamicFieldId);
+    $(activeId).addClass("is-focused");
 }
-function removeMedicalConcernTypeFocus() {
+function removeMedicalConcernTypeFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernType" + dynamicFieldId);
     var input = document.getElementById("medicalConcernType").value;
 
     if (input === "") {
-        $('div[id=floatingConcernType]').removeClass("is-focused");
+        $(activeId).removeClass("is-focused");
     } else {
-        $('div[id=floatingConcernType]').removeClass("is-focused").addClass("is-dirty");
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
     }
 }
 
 
-function addMedicalConcernNoteFocus() {
-    $('div[id=floatingConcernNote]').addClass("is-focused");
+function addMedicalConcernNoteFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernNote" + dynamicFieldId);
+    $(activeId).addClass("is-focused");
 }
-function removeMedicalConcernNoteFocus() {
+function removeMedicalConcernNoteFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernNote" + dynamicFieldId);
     var input = document.getElementById("medicalConcernType").value;
 
     if (input === "") {
-        $('div[id=floatingConcernNote]').removeClass("is-focused");
+        $(activeId).removeClass("is-focused");
     } else {
-        $('div[id=floatingConcernNote]').removeClass("is-focused").addClass("is-dirty");
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
     }
 }

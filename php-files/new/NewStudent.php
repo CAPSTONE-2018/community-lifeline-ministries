@@ -6,7 +6,7 @@ $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 //$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
-$dynamicRowId = 0;
+//$dynamicRowId = 0;
 
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
