@@ -1,20 +1,11 @@
 <?php
 include("../scripts/header.php");
-?>
-
-<?php
 include("../../db/config.php");
-
-
 $queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
-
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
-$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
-
+//$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
-
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
-//$existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
@@ -238,19 +229,13 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                 <div class="toggle-side-label">Yes</div>
                                             </ul>
                                         </div>
-
-                                        <div id="checkboxTest">
-                                            <span>Hello World</span>
-
-                                        </div>
                                     </div>
                                 </div>
                                 <!--Medical concern tab-->
                                 <div class="tab-pane" id="studentMedicalConcerns">
                                     <div class="header">Add Medical Info</div>
                                     <div>
-                                        <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns
-                                        </h4>
+                                        <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
                                         <!--Create button to add another medical condition field-->
                                         <button type="button" id="another" onclick="NewStudentMed()">Add</button>
                                     </div>
@@ -286,12 +271,11 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                 <textarea id="medicalConcernNote" class="mdl-textfield__input"
                                                           name="medicalConcernNote" type="text">
                                                 </textarea>
-                                                <label class="mdl-textfield__label"
-                                                       for="medicalConcernNote">Note</label>
+                                                <label class="mdl-textfield__label" for="medicalConcernNote">Note</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="newLayer"></div>
+                                    <div class="newLayer"></div>
                                 </div>
                                 <!--Ends the medical concern portion-->
 
@@ -405,6 +389,16 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
     });
 </script>
 
+<script>
+    function NewStudentMed() {
+        $.ajax({
+            url: "../NewStudentDynamicMedicalConcern.php",
+            success: function (output) {
+                $('.newLayer').append(output);
+            }
+        });
+    }
+</script>
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
 <script type="text/javascript" src="../../js/MdlSelect.js"></script>
-<script src="../../js/new-student-scripts/NewStudentMed.js"></script>
+<!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
