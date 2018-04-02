@@ -18,6 +18,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 ?>
 
+<script src="../../js/new-student-scripts/NewStudentMed.js"></script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
@@ -391,6 +392,5 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 </script>
 
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
-<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
-<script src="../../js/PrettyDropDowns.js"></script>
-<script src="../../js/new-student-scripts/NewStudentMed.php"></script>
+
+
