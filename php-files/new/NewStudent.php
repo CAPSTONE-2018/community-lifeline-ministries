@@ -266,17 +266,20 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label for="sort">Type</label><br>
-                                            <select id="sort" name="sort" class="pretty">
-                                                <option value="position">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="medicalConcernType" readonly>
+                                                <input type="hidden" value="" name="medicalConcernType">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="medicalConcernType" class="mdl-textfield__label">Type</label>
+                                                <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
-                                                        echo "<option name='medicalConcernType' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</option>";
+                                                        echo "<li class='mdl-menu__item' data-val='".$medicalConcernTypeRow['Id']."' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
                                                     }
 
                                                     ?>
-                                                </option>
-                                            </select>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="col-sm-10">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
