@@ -62,13 +62,13 @@ function stateDropdown($optionName ,$selected="IL") {
 		array('WY', 'Wyoming')
 	);
 
-	$options = '<select size=15 id="state" class="pretty" name="'.$optionName.'">';
+	$options = '<ul for="state" id="state" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" name="'.$optionName.'">';
 
 	foreach ($states as $state) {
-    	$options .= '<option value="'.$state[0].'" '. check_select($selected, $state[0]) .' >'.$state[1].'</option>';
+    	$options .= '<li class="mdl-menu__item" value="'.$state[0].'" '. check_select($selected, $state[0]) .' >'.$state[1].'</li>';
   }
 
-  $options .= '</select>';
+  $options .= '</ul>';
   return $options;
 
 }

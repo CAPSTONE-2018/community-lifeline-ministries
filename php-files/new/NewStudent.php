@@ -149,11 +149,16 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="state">State:</label>
-                                            <?php
-                                            include("../scripts/States.php");
-                                            echo stateDropdown("studentState")
-                                            ?>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="studentState"
+                                                       readonly>
+                                                <input type="hidden" value="" name="gender">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="studentState" class="mdl-textfield__label">State</label>
+                                                <?php include ("../scripts/States.php");
+                                                    echo stateDropdown("studentState")
+                                                ?>
+                                            </div>
                                         </div>
                                         <div class="col-sm-4">
 
