@@ -235,15 +235,16 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                         </div>
                                     </div>
                                 </div>
-				<!--Medical concern tab-->
+                                <!--Medical concern tab-->
                                 <div class="tab-pane" id="studentMedicalConcerns">
                                     <div class="header">Add Medical Info</div>
-				    <div>
-                                    <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
-                                    <!--Create button to add another medical condition field-->
-                                    <button type="button" id="another" onclick="NewStudentMed()">Add</button>
-				    </div>
-				    <div class="blue-line-color"></div>
+                                    <div>
+                                        <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns
+                                        </h4>
+                                        <!--Create button to add another medical condition field-->
+                                        <button type="button" id="another" onclick="NewStudentMed()">Add</button>
+                                    </div>
+                                    <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -279,7 +280,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                     </div>
                                 </div>
                                 <div id="newLayer"></div>
-				<!--Ends the medical concern portion-->
+                                <!--Ends the medical concern portion-->
 
                                 <div class="tab-pane" id="studentContact">
 
@@ -392,4 +393,4 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
 <script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
 <script src="../../js/PrettyDropDowns.js"></script>
-<script src="../../js/new-student-scripts/NewStudentMed.js"></script>
+<script src="../../js/new-student-scripts/NewStudentMed.php"></script>
