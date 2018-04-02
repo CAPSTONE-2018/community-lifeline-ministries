@@ -85,16 +85,4 @@
         </div>
     </div>
 </div>
-
-<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
-<script>
-    $(document).ready(function () {
-        $dropdown = $('select').prettyDropdown({
-            height: 40,
-            classic: true
-        });
-    });
-    // When <select> state changes...
-    $dropdown.refresh();
-</script>
-<script type="text/javascript" src="../../js/AjaxContactFormStyles.js"></script>
+<script type="text/javascript" src="../../js/new-student-scripts/AjaxContactFormStyles.js"></script>

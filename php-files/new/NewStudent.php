@@ -6,6 +6,7 @@ $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 //$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
+$dynamicRowId = 0;
 
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
@@ -221,9 +222,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
-                                                           onclick="countChecked()"
-                                                           type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
@@ -237,16 +236,16 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                     <div>
                                         <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
                                         <!--Create button to add another medical condition field-->
-                                        <button type="button" id="another" onclick="NewStudentMed()">Add</button>
+                                        <button type="button" id="add-new-medical-concern-button">Add</button>
                                     </div>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="medicalConcernType" class="mdl-textfield__input"
-                                                       name="medicalConcernType" type="text"/>
+                                                <input id="medicalConcernName" class="mdl-textfield__input"
+                                                       name="medicalConcernName" type="text"/>
                                                 <label class="mdl-textfield__label"
-                                                       for="medicalConcernType">Name</label>
+                                                       for="medicalConcernName">Name</label>
                                             </div>
                                         </div>
 
@@ -275,7 +274,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="newLayer"></div>
+                                    <div class="new-layer"></div>
                                 </div>
                                 <!--Ends the medical concern portion-->
 
@@ -288,8 +287,6 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-
-
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                 <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
                                                 <input type="hidden" value="" name="studentContact">
@@ -307,22 +304,13 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <button type="button" id="create-new-contact-button"
-                                                    class="btn btn-outline-primary">Add New Contact
-                                            </button>
-
+                                            <button type="button" id="create-new-contact-button" class="btn btn-outline-primary">Add New Contact</button>
                                         </div>
 
-                                        <div id="show-new-contact-form" class="col-sm-12">
-
-
-                                        </div>
+                                        <div id="show-new-contact-form" class="col-sm-12"></div>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
                     </form>
 
@@ -387,17 +375,37 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
             })
         });
     });
+
+
 </script>
 
 <script>
-    function NewStudentMed() {
-        $.ajax({
-            url: "../NewStudentDynamicMedicalConcern.php",
-            success: function (output) {
-                $('.newLayer').append(output);
-            }
+
+    $(document).ready(function () {
+        $('#add-new-medical-concern-button').click(function () {
+
+            $.ajax({
+                url: "../NewStudentDynamicMedicalConcern.php",
+                method: "POST",
+                
+                success: function (output) {
+                    $('.new-layer').slideDown().append(output);
+                }
+            })
         });
-    }
+    });
+//    function NewStudentMed() {
+//        var dynamicRowId = 0;
+//        dynamicRowId++;
+//        $.ajax({
+//            url: "",
+//            method: "GET",
+//            data: {dynamicRowId: dynamicRowId},
+//            success: function (output) {
+//                $('.newLayer').append(output);
+//            }
+//        });
+//    }
 </script>
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
 <script type="text/javascript" src="../../js/MdlSelect.js"></script>
