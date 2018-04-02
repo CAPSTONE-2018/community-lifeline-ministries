@@ -20,7 +20,6 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
 <div class="container-fluid">
     <div class="row">
@@ -106,10 +105,17 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                         </div>
 
                                         <div class="col-sm-4">
-                                            <select id="gender" class="pretty full-width" name="gender">
-                                                <option value="M">Male</option>
-                                                <option value="F">Female</option>
-                                            </select>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="gender"
+                                                       readonly>
+                                                <input type="hidden" value="" name="gender">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="gender" class="mdl-textfield__label">Gender</label>
+                                                <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                    <li class="mdl-menu__item" data-val="M">Male</li>
+                                                    <li class="mdl-menu__item" data-val="F">Female</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -143,11 +149,18 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="state">State:</label>
-                                            <?php
-                                            include("../scripts/States.php");
-                                            echo stateDropdown("studentState")
-                                            ?>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="studentState"
+                                                       readonly>
+                                                <input type="hidden" value="" name="gender">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="studentState" class="mdl-textfield__label">State</label>
+                                                <ul id="state" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <?php include ("../scripts/States.php");
+                                                    echo stateDropdown("studentState")
+                                                ?>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="col-sm-4">
 
@@ -162,7 +175,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                     <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-12">
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentSchool" class="mdl-textfield__input"
@@ -221,17 +234,11 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
                                                     <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
-                                                           onclick="countChecked()"
                                                            type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
                                             </ul>
-                                        </div>
-
-                                        <div id="checkboxTest">
-                                            <span>Hello World</span>
-
                                         </div>
                                     </div>
                                 </div>
@@ -386,5 +393,4 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 </script>
 
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
-<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
-<script src="../../js/PrettyDropDowns.js"></script>
+<script type="text/javascript" src="../../js/MdlSelect.js"></script>
