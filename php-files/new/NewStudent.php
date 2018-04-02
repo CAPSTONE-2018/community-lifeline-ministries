@@ -375,17 +375,13 @@ $dynamicRowId = 0;
             })
         });
     });
-
-
 </script>
 
 <script>
-
     $(document).ready(function () {
         $('#add-new-medical-concern-button').click(function () {
-
             $.ajax({
-                url: "../NewStudentDynamicMedicalConcern.php",
+                url: "../scripts/AjaxNewMedicalConcern.php",
                 method: "POST",
                 
                 success: function (output) {
