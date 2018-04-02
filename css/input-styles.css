@@ -550,3 +550,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     bottom: auto;
     top: 0
 }
+
+.overflow {
+    overflow-y: scroll;
+    max-height: 300px;
+}

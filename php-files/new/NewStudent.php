@@ -155,7 +155,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                                 <input type="hidden" value="" name="gender">
                                                 <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
                                                 <label for="studentState" class="mdl-textfield__label">State</label>
-                                                <ul id="state" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <ul id="state" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                 <?php include ("../scripts/States.php");
                                                     echo stateDropdown("studentState")
                                                 ?>
