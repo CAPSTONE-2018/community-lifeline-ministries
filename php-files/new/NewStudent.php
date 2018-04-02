@@ -14,7 +14,7 @@ $medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
-$existingContactsRow = mysqli_fetch_array($existingContactsResult);
+//$existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
@@ -301,18 +301,22 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <label for="sort">Select From Existing Contact</label><br>
-                                            <select id="sort" name="sort" class="pretty">
-                                                <option value="position">
+
+
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
+                                                <input type="hidden" value="" name="studentContact">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="gender" class="mdl-textfield__label">Select From Existing Contact</label>
+                                                <ul for="studentContact" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($existingContactsRow = mysqli_fetch_assoc($existingContactsResult)) {
                                                         $contactNameToDisplay = $existingContactsRow['First_Name'] . " " . $existingContactsRow['Last_Name'];
-                                                        echo "<option name='studentContact' value=" . $existingContactsRow['Id'] . ">" . $contactNameToDisplay . "</option>";
+                                                        echo "<li class='mdl-menu__item' value=" . $existingContactsRow['Id'] . ">" . $contactNameToDisplay . "</li>";
                                                     }
-
                                                     ?>
-                                                </option>
-                                            </select>
+                                                </ul>
+                                            </div>
                                         </div>
 
                                         <div class="col-sm-6">
