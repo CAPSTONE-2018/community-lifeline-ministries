@@ -291,8 +291,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="newLayer"></div>
                                 </div>
-                                <div id="newLayer"></div>
                                 <!--Ends the medical concern portion-->
 
                                 <div class="tab-pane" id="studentContact">
