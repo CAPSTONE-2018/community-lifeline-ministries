@@ -175,7 +175,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                     <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-12">
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentSchool" class="mdl-textfield__input"
