@@ -140,12 +140,14 @@ $dynamicRowId = 0;
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input" id="studentState" readonly>
+                                                <input type="text" value="" class="mdl-textfield__input"
+                                                       id="studentState" readonly>
                                                 <input type="hidden" value="" name="studentState">
                                                 <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
                                                 <label for="studentState" class="mdl-textfield__label">State</label>
-                                                <ul id="state" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <?php include ("../scripts/States.php");
+                                                <ul id="state"
+                                                    class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                    <?php include("../scripts/States.php");
                                                     echo stateDropdown("studentState")
                                                     ?>
                                                 </ul>
@@ -251,14 +253,17 @@ $dynamicRowId = 0;
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input" id="medicalConcernType" readonly>
+                                                <input type="text" value="" class="mdl-textfield__input"
+                                                       id="medicalConcernType" readonly>
                                                 <input type="hidden" value="" name="medicalConcernType">
                                                 <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="medicalConcernType" class="mdl-textfield__label">Type</label>
-                                                <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <label for="medicalConcernType"
+                                                       class="mdl-textfield__label">Type</label>
+                                                <ul for="medicalConcernType"
+                                                    class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
-                                                        echo "<li class='mdl-menu__item' data-val='".$medicalConcernTypeRow['Id']."' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
+                                                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
                                                     }
 
                                                     ?>
@@ -270,7 +275,8 @@ $dynamicRowId = 0;
                                                 <textarea id="medicalConcernNote" class="mdl-textfield__input"
                                                           name="medicalConcernNote" type="text">
                                                 </textarea>
-                                                <label class="mdl-textfield__label" for="medicalConcernNote">Note</label>
+                                                <label class="mdl-textfield__label"
+                                                       for="medicalConcernNote">Note</label>
                                             </div>
                                         </div>
                                     </div>
@@ -288,11 +294,14 @@ $dynamicRowId = 0;
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
+                                                <input type="text" value="" class="mdl-textfield__input" id="gender"
+                                                       readonly>
                                                 <input type="hidden" value="" name="studentContact">
                                                 <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="gender" class="mdl-textfield__label">Select From Existing Contact</label>
-                                                <ul for="studentContact" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <label for="gender" class="mdl-textfield__label">Select From Existing
+                                                    Contact</label>
+                                                <ul for="studentContact"
+                                                    class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($existingContactsRow = mysqli_fetch_assoc($existingContactsResult)) {
                                                         $contactNameToDisplay = $existingContactsRow['First_Name'] . " " . $existingContactsRow['Last_Name'];
@@ -304,7 +313,9 @@ $dynamicRowId = 0;
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <button type="button" id="create-new-contact-button" class="btn btn-outline-primary">Add New Contact</button>
+                                            <button type="button" id="create-new-contact-button"
+                                                    class="btn btn-outline-primary">Add New Contact
+                                            </button>
                                         </div>
 
                                         <div id="show-new-contact-form" class="col-sm-12"></div>
@@ -353,7 +364,8 @@ $dynamicRowId = 0;
             <div class="modal-footer">
                 <div class="right-align">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary">Submit
+                    </button>
                 </div>
             </div>
         </div>
@@ -378,30 +390,20 @@ $dynamicRowId = 0;
 </script>
 
 <script>
+    var dynamicFieldId = 0;
     $(document).ready(function () {
         $('#add-new-medical-concern-button').click(function () {
+            dynamicFieldId++;
             $.ajax({
                 url: "../scripts/AjaxNewMedicalConcern.php",
                 method: "POST",
-                
+                data: {dynamicFieldId: dynamicFieldId},
                 success: function (output) {
                     $('.new-layer').slideDown().append(output);
                 }
             })
         });
     });
-//    function NewStudentMed() {
-//        var dynamicRowId = 0;
-//        dynamicRowId++;
-//        $.ajax({
-//            url: "",
-//            method: "GET",
-//            data: {dynamicRowId: dynamicRowId},
-//            success: function (output) {
-//                $('.newLayer').append(output);
-//            }
-//        });
-//    }
 </script>
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
 <script type="text/javascript" src="../../js/MdlSelect.js"></script>
