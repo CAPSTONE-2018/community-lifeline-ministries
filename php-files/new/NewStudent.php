@@ -17,11 +17,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 ?>
-
-<script src="../../js/new-student-scripts/NewStudentMed.js"></script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
 <div class="container-fluid">
     <div class="row">
@@ -107,10 +104,16 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                         </div>
 
                                         <div class="col-sm-4">
-                                            <select id="gender" class="pretty full-width" name="gender">
-                                                <option value="M">Male</option>
-                                                <option value="F">Female</option>
-                                            </select>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
+                                                <input type="hidden" value="" name="gender">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="gender" class="mdl-textfield__label">Gender</label>
+                                                <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                    <li class="mdl-menu__item" data-val="M">Male</li>
+                                                    <li class="mdl-menu__item" data-val="F">Female</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -144,11 +147,17 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="state">State:</label>
-                                            <?php
-                                            include("../scripts/States.php");
-                                            echo stateDropdown("studentState")
-                                            ?>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="" class="mdl-textfield__input" id="studentState" readonly>
+                                                <input type="hidden" value="" name="studentState">
+                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <label for="studentState" class="mdl-textfield__label">State</label>
+                                                <ul id="state" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                    <?php include ("../scripts/States.php");
+                                                    echo stateDropdown("studentState")
+                                                    ?>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="col-sm-4">
 
@@ -365,9 +374,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
             <div class="modal-footer">
                 <div class="right-align">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary"
-                            onclick="sendForm()">Submit
-                    </button>
+                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
@@ -392,5 +399,5 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 </script>
 
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
-
-
+<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+<script src="../../js/new-student-scripts/NewStudentMed.js"></script>
