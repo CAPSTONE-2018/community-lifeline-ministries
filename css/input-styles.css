@@ -517,7 +517,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 
 .getmdl-select .mdl-icon-toggle__label {
     float: right;
-    margin-top: -25px;
+    margin-top: -30px;
     color: rgba(0, 0, 0, 0.4);
     transform: rotate(0);
     transition: transform 0.3s
@@ -525,7 +525,6 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 
 .getmdl-select.is-focused .mdl-icon-toggle__label {
     color: #3f51b5;
-    margin-top: -40px;
     transform: rotate(180deg)
 }
 

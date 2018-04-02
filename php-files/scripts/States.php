@@ -1,3 +1,6 @@
+<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+<link type="text/css" href="../../css/input-styles.css" />
+
 <?php
 
 /**
@@ -63,13 +66,12 @@ function stateDropdown($optionName, $selected = "IL")
         array('WY', 'Wyoming')
     );
 
-    $options = '<ul for="state" id="state" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" name="' . $optionName . '">';
-
+    $options = '';
     foreach ($states as $state) {
         $options .= '<li class="mdl-menu__item" value="' . $state[0] . '" ' . check_select($selected, $state[0]) . ' >' . $state[1] . '</li>';
     }
 
-    $options .= '</ul>';
+    $options .= '';
     return $options;
 
 }

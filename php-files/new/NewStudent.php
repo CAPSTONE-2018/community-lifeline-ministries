@@ -20,7 +20,7 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
@@ -155,9 +155,11 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
                                                 <input type="hidden" value="" name="gender">
                                                 <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
                                                 <label for="studentState" class="mdl-textfield__label">State</label>
+                                                <ul id="state" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                 <?php include ("../scripts/States.php");
                                                     echo stateDropdown("studentState")
                                                 ?>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -391,5 +393,4 @@ $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 </script>
 
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
-<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
-<script src="../../js/PrettyDropDowns.js"></script>
+<script type="text/javascript" src="../../js/MdlSelect.js"></script>
