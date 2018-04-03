@@ -28,19 +28,16 @@
         });
     });
 
-//    needed for all bootstrap tool tips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+//    needed for all tooltips
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
+    });
 
 </script>
 
 
 </div>
 </div>
-</div>
-</div>
-</div>
-<!-- the above </div> closes the open <div class="container-fluid"> located in the header.php file-->
+
 </body>
 </html>

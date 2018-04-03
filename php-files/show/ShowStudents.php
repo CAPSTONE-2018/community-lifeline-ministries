@@ -47,10 +47,12 @@ $dynamicRowId = 0;
                             <tbody>
                             <?php
                             while ($activeStudentsRow = mysqli_fetch_array($activeStudentResults, MYSQLI_ASSOC)) {
+                                $numberOfProgramsRow = mysqli_fetch_array($enrolledProgramResults, MYSQLI_ASSOC);
+
                                 $dynamicRowId++;
                                 $studentIdToSearch = $activeStudentsRow['Id'];
                                 $studentName = $activeStudentsRow['First_Name'] . " " . $activeStudentsRow['Last_Name'];
-
+                                $numberOfPrograms = $numberOfProgramsRow['Enrolled_Programs'];
                                 echo "<tr class='number-row'>
                                     <td class='col-sm-1 align-middle'></td> 
                                     <td class='col-sm-3 align-middle'>$studentName</td>
@@ -58,9 +60,7 @@ $dynamicRowId = 0;
                                         <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
                                         <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
                                     </td>                                    
-                                    <td class='col-sm-2 align-middle text-center text-align-middle'>
-                                    hello
-                                    </td>
+                                    <td class='col-sm-2 align-middle text-center text-align-middle'>$numberOfPrograms</td>
                                     
                                     <td class='col-sm-1 align-middle text-center'>
                                         hello
@@ -73,7 +73,7 @@ $dynamicRowId = 0;
                                             </div>
                                             
                                             <div class='d-inline'>
-                                                <button type='button' class='btn large-action-buttons delete-student-button'><i class='fa fa-trash-o'></i>Delete</button>
+                                                <button type='button' class='btn large-action-buttons delete-student-button'><i class='fa fa-trash-o'></i> Delete</button>
                                             </div>
                                             </div>
                                             
