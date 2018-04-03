@@ -70,12 +70,19 @@
             </div>
         </div>
         <div class='col-sm-4'>
-            <label for='state'>State:</label>
-            <?php
-            include("States.php");
-            $output = '';
-            echo stateDropdown("contactState");
-            ?>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                <input type="text" class="mdl-textfield__input"
+                       id="contactState" readonly>
+                <input type="hidden" value="" name="contactState">
+                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                <label for="contactState" class="mdl-textfield__label">State</label>
+                <ul id="contactState"
+                    class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                    <?php include("../scripts/States.php");
+                    echo stateDropdown("contactState")
+                    ?>
+                </ul>
+            </div>
         </div>
         <div class='col-sm-4'>
             <div id="floatingZipCode" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
@@ -85,4 +92,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../../js/new-student-scripts/AjaxContactFormStyles.js"></script>
+<script type="text/javascript" src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
