@@ -3,36 +3,45 @@
 
 }
 
-.action-buttons {
+.large-action-buttons {
+    display: inline-block;
+    width: 30%;
+    margin: 7px auto;
+    color: #fff;
+
+}
+
+.small-action-buttons {
+    display: inline-block;
+
+    margin: auto;
     color: #fff;
 }
 
 .edit-student-button {
     background-color: #3CA8F7;
     color: #fff;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .delete-student-button {
-    background-color: #F34541;
-    width: 100%;
-
+    background-color: #F2453D;
+    /*width: 100%;*/
+    color: #fff;
 }
 
 .student-contact-button {
-    background-color: #38B87C;
-    width: 98%;
-
+    background-color: #6640B4;
 }
 
 .view-allergies-button {
-    background-color: #2BBD8F;
+    background-color: #4055B2;
 
 }
 
 .test-scores-button {
     /*background-color: #02D1FF;*/
-    background-color: #2492FF;
+    background-color: #1FBCD3;
 
 }
 
@@ -48,6 +57,7 @@
     width: 40%;
     margin: auto;
     vertical-align: top;
+    text-align: center;
 }
 
 .side-by-side {

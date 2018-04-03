@@ -28,6 +28,11 @@
         });
     });
 
+//    needed for all bootstrap tool tips
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 </script>
 
 
