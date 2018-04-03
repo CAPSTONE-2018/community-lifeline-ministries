@@ -40,10 +40,10 @@ $dynamicRowId = 0;
                         <tr>
                             <th class="col-sm-1">#</th>
                             <th class="col-sm-3">Student Name</th>
-                            <th class="col-sm-2 centered-column">Present</th>
-                            <th class="col-sm-2 centered-column">Absent</th>
-                            <th class="col-sm-2 centered-column">Tardy</th>
-                            <th class="col-sm-2">Actions</th>
+                            <th class="col-sm-2 text-center">Present</th>
+                            <th class="col-sm-2 text-center">Absent</th>
+                            <th class="col-sm-2 text-center">Tardy</th>
+                            <th class="col-sm-2 text-center">Actions</th>
                         </tr>
                         </thead>
 
@@ -68,21 +68,21 @@ $dynamicRowId = 0;
                                         <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
                                         <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
                                     </td>                                    
-                                    <td class='radio-input-wrapper col-sm-1 align-middle centered-column'>
+                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
                                         <label class='radio-label' for='radio$firstRowId'>
                                             <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='1' id='radio$firstRowId' />
                                             <span class='custom-check-mark green-check'></span>
                                         </label>
                                     </td>
                                     
-                                    <td class='radio-input-wrapper col-sm-1 align-middle centered-column'>
+                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
                                         <label class='radio-label' for='radio$secondRowId'>
                                             <input class='hover-checkbox' type='radio' name='attendanceCheckbox[$dynamicRowId]' value='2' id='radio$secondRowId' />
                                             <span class='custom-check-mark red-check'></span>
                                         </label>
                                     </td>
                                     
-                                    <td class='radio-input-wrapper col-sm-1 align-middle centered-column'>
+                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
                                         <label class='radio-label' for='radio$thirdRowId'>
                                             <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='3' id='radio$thirdRowId' />
                                             <span class='custom-check-mark blue-check'></span>
@@ -90,7 +90,7 @@ $dynamicRowId = 0;
                                     </td>
 
                                     
-                                    <td class='col-sm-2 align-middle'>
+                                    <td class='col-sm-2 text-center align-middle'>
                                         <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'><i class=\"glyphicon glyphicon-earphone\"></i>Contact</button>                         
                                     </td>
                                 </tr>";

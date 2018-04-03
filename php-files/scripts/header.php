@@ -20,7 +20,7 @@ $userMakingChanges = $_SESSION['loggedIn'];
     <title>Community Lifeline Ministries</title>
 
     <link rel="stylesheet" href="../../css/input-styles.css"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Local Bootstrap -->
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <!-- Bootstrap CSS CDN -->

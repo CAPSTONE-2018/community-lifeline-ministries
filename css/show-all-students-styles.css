@@ -1,0 +1,60 @@
+
+.responsive-text {
+
+}
+
+.action-buttons {
+    color: #fff;
+}
+
+.edit-student-button {
+    background-color: #3CA8F7;
+    color: #fff;
+    width: 100%;
+}
+
+.delete-student-button {
+    background-color: #F34541;
+    width: 100%;
+
+}
+
+.student-contact-button {
+    background-color: #38B87C;
+    width: 98%;
+
+}
+
+.view-allergies-button {
+    background-color: #2BBD8F;
+
+}
+
+.test-scores-button {
+    /*background-color: #02D1FF;*/
+    background-color: #2492FF;
+
+}
+
+.left-action-buttons-container {
+    display: inline-block;
+    width: 58%;
+    margin: auto;
+    vertical-align: top;
+}
+
+.right-action-buttons-container {
+    display: inline-block;
+    width: 40%;
+    margin: auto;
+    vertical-align: top;
+}
+
+.side-by-side {
+    display: inline-block;
+    width: 48%;
+    margin: auto;
+}
+
+
+
