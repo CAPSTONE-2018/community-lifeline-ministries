@@ -1,12 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['loggedIn'])) {
-    header("Location: index.html");
+    header("Location: ../../index.html");
 }
 $account = $_SESSION['account'];
 
 
 $userMakingChanges = $_SESSION['loggedIn'];
+include("../widgets/TimeZoneFormat.php");
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +36,12 @@ $userMakingChanges = $_SESSION['loggedIn'];
 <!-- Top Nav -->
 <nav class="navbar-default navbar-fixed-top">
     <div class="navbar-user">
-        Signed In As:
-        <?php
-        echo $userMakingChanges
-        ?>
+        Signed In As: <?php echo $userMakingChanges ?>
+        <div class="">
+            <? echo $timeToDisplay ?>
+        </div>
     </div>
+
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
             <li>
