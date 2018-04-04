@@ -35,6 +35,7 @@
 
 </script>
 
+<script type="text/javascript" src="../../js/CapitalizeFirstLetter.js"></script>
 
 </div>
 </div>

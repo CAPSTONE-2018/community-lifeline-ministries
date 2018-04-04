@@ -141,10 +141,10 @@ $dynamicRowId = 0;
                 <div class="card-footer">
 
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Launch demo modal
-                    </button>
+<!--                    <!-- Button trigger modal -->
+<!--                    <button type="button" class="btn btn-primary" >-->
+<!--                        Launch demo modal-->
+<!--                    </button>-->
                 </div>
             </div>
         </div>
@@ -166,16 +166,34 @@ $dynamicRowId = 0;
     <script>
         function editStudent(studentId){
             alert(studentId);
-            $.ajax({
-                url: "../scripts/AjaxUpdateStudent.php",
-                method: "POST",
-                data: {studentId: studentId},
-                success: function (output) {
-                    $('#showStudentInfo').html(output);
-                }
+            $('#exampleModal').modal({
+                show: true
+                studentId: studentId
             });
+
+//            $.ajax({
+//                url: "../scripts/AjaxUpdateStudent.php",
+//                method: "POST",
+//                data: {studentId: studentId},
+//                success: function (output) {
+//                    $('#showStudentInfo').html(output);
+//                }
+//            });
         }
     </script>
+
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function() {-->
+<!--            $('.edit-student-button').click(function() {-->
+<!--                var id = this.id;-->
+<!--                alert(id);-->
+<!--                $("#iframe").attr("src","url?id=" + id);-->
+<!--                $('#Modal').modal({-->
+<!--                    show: true-->
+<!--                });-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 <?php
 include("../modals/EditStudentModal.php");
 include("../scripts/footer.php");
