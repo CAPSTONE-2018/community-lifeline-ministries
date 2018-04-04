@@ -9,7 +9,7 @@ include("../../db/config.php");
 $query = "SELECT * FROM Contacts;";
 $result = mysqli_query($db, $query);
 ?>
-<script type="text/javascript" src="../../js/SearchBar.js"></script>
+<script type="text/javascript" src="../../js/FilterFields.js"></script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../css/input-styles.css"/>
