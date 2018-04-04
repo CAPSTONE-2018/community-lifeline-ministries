@@ -67,7 +67,7 @@ $dynamicRowId = 0;
                                     <td class='col-5'>
                                         <div class='left-action-buttons-container d-inline m-auto'>
                                            <div class=' d-inline'>
-                                                <a onclick='editStudent($studentIdToSearch)' id='editButton'><button type='button' id='editButton' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button></a>
+                                                <a onclick='editStudent($studentIdToSearch)' id='editButton'><button type='button' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button></a>
                                             </div>
                                             
                                             <div class='d-inline'>
@@ -132,19 +132,10 @@ $dynamicRowId = 0;
                         </div>
                         <div id="showStudentInfo"></div>
                     </form>
-
-
-
-
                 </div>
 
                 <div class="card-footer">
 
-
-<!--                    <!-- Button trigger modal -->
-<!--                    <button type="button" class="btn btn-primary" >-->
-<!--                        Launch demo modal-->
-<!--                    </button>-->
                 </div>
             </div>
         </div>
@@ -168,7 +159,7 @@ $dynamicRowId = 0;
             alert(studentId);
             $('#exampleModal').modal({
                 show: true
-                studentId: studentId
+
             });
 
 //            $.ajax({
@@ -181,19 +172,6 @@ $dynamicRowId = 0;
 //            });
         }
     </script>
-
-<!--    <script type="text/javascript">-->
-<!--        $(document).ready(function() {-->
-<!--            $('.edit-student-button').click(function() {-->
-<!--                var id = this.id;-->
-<!--                alert(id);-->
-<!--                $("#iframe").attr("src","url?id=" + id);-->
-<!--                $('#Modal').modal({-->
-<!--                    show: true-->
-<!--                });-->
-<!--            });-->
-<!--        });-->
-<!--    </script>-->
 <?php
 include("../modals/EditStudentModal.php");
 include("../scripts/footer.php");
