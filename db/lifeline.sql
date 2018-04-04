@@ -65,11 +65,14 @@ CREATE TABLE Student_To_Medical_Concerns (
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
   Medical_Concern_Id     INT(10),
+  Medical_Type_Id        INT(10),
   Note                   VARCHAR(500),
   CONSTRAINT FK_Student_Id_Medical_Concerns FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
   CONSTRAINT FK_Medical_Id_Medical_Concerns FOREIGN KEY (Medical_Concern_Id)
-  REFERENCES Medical_Concerns (Id)
+  REFERENCES Medical_Concerns (Id),
+  CONSTRAINT FK_Medical_Type_Id_Medical_Concerns FOREIGN KEY (Medical_Type_Id)
+  REFERENCES Medical_Concern_Types (Id)
 );
 
 CREATE TABLE Programs (

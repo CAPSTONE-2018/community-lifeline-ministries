@@ -67,32 +67,32 @@ $dynamicRowId = 0;
                                     <td class='col-5'>
                                         <div class='left-action-buttons-container d-inline m-auto'>
                                            <div class=' d-inline'>
-                                                <button type='button' id='editButton' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button
+                                                <a href='../edit/EditStudent.php'><button type='button' id='editButton' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button</a>
                                             </div>
                                             
                                             <div class='d-inline'>
-                                                <button type='button'  class='btn large-action-buttons delete-student-button'><i class='fa fa-trash-o'></i> Delete</button>
+                                                <a href='#'><button type='button' id='deleteStudentButton' class='btn large-action-buttons delete-student-button'><i class='fa fa-trash-o'></i> Delete</button></a>
                                             </div>
                                             </div>
                                             
                                             <div class='right-action-buttons-container d-inline'>
                                             
                                                 <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <a href='../edit/EditStudent.php'><button type='button' value='$dynamicRowId' class='btn small-action-buttons student-contact-button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId'><i class='fa fa-phone'></i></button></a>
+                                                    <button type='button'  id='studentContactButton' class='btn small-action-buttons student-contact-button' data-toggle='collapse' data-target='.collapseContactRow$dynamicRowId'><i class='fa fa-phone'></i></button>
                                                 </span>
                                                 
                                                 <span title='Student Allergies' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <button type='button' class='btn small-action-buttons view-allergies-button'><i class='fa fa-bullhorn'></i></button>
+                                                    <button type='button' id='studentAllergiesButton' class='btn small-action-buttons view-allergies-button' data-toggle='collapse' data-target='.collapseAllergyRow$dynamicRowId'><i class='fa fa-bullhorn'></i></button>
                                                 </span>
                                                 
                                                 <span title='Test Scores' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <button type='button' class='btn small-action-buttons test-scores-button'><i class='fa fa-bar-chart'></i></button>
+                                                    <button type='button' id='studentTestScoresButton' class='btn small-action-buttons test-scores-button' data-toggle='collapse' data-target='.collapseTestScoresRow$dynamicRowId'><i class='fa fa-bar-chart'></i></button>
                                                 </span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>";
-//                            $studentIdToSearch = $row['Student_Id'];
+
                                     $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
                                   FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch;";
                                     $currentContactForStudent = mysqli_query($db, $queryForContacts);
@@ -100,17 +100,33 @@ $dynamicRowId = 0;
                                         $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
                                         $contactPhone = $contactRow['Primary_Phone'];
                                         echo "
-                                    <tr class='collapse smooth collapseRow$dynamicRowId'>
-                                    <td></td>
-                                    <td colspan='12'>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
-                                    </td>
-                                </tr>";
-                                    }
-                                }
-                                ?>
+                                    <tr class='collapse smooth collapseContactRow$dynamicRowId'>
+                                        <td></td>
+                                        <td colspan='12'>
+                                            <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
+                                            <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
+                                        </td>
+                                    </tr>";
 
+                                        $queryForStudentAllergies = "SELECT Medical_Concerns.Name, Medical_Concern_Types.Type  FROM
+                                                                      (Medical_Concerns JOIN Student_To_Medical_Concerns ON Medical_Concerns.Id = Student_To_Medical_Concerns.Medical_Concern_Id)
+                                                                      JOIN Medical_Concern_Types ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id WHERE Student_Id = $studentIdToSearch;";
+                                        $studentAllergies = mysqli_query($db, $queryForStudentAllergies);
+                                        while($allergyRow = mysqli_fetch_array($studentAllergies, MYSQLI_ASSOC)) {
+
+                                            $allergyName = $allergyRow['Name'];
+                                            $allergyType = $allergyRow['Type'];
+
+                                            echo "<tr class='collapse smooth collapseAllergyRow$dynamicRowId'>
+                                                    <td></td>
+                                                    <td colspan='12'>
+                                                        <span class='hidden-row-width'><i class='fa fa-bullhorn'></i> $allergyName</span>
+                                                        <span class='hidden-row-width'>$allergyType</span>
+                                                    </td>
+                                                  </tr>";
+                                        }
+                                    }
+                                }?>
                                 </tbody>
                             </table>
                         </div>
@@ -125,8 +141,8 @@ $dynamicRowId = 0;
     </div>
 
 
-<!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
-<!--    <script src="../../scripts/print.js"></script>-->
+    <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
+    <!--    <script src="../../scripts/print.js"></script>-->
 
     <script type="text/javascript">
         var table = document.getElementsByTagName('table')[0],
@@ -138,14 +154,7 @@ $dynamicRowId = 0;
         }
     </script>
 
-    <script>
 
-        var editButton = document.getElementById("editButton");
-        var studentId = editButton.val();
-        alert(studentId);
-
-
-    </script>
 <?php
 include("../scripts/footer.php");
 ?>
