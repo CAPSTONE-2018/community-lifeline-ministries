@@ -4,7 +4,7 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1";
+$queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name";
 $queryForAllInactiveStudents = "SELECT * FROM Students WHERE Active_Student = 0";
 
 $queryForStudentsAndEnrolledPrograms = "SELECT Students.First_Name, Students.Last_Name, Students.Id, COUNT(Student_To_Programs.Program_Id) AS Enrolled_Programs FROM
@@ -38,7 +38,7 @@ $dynamicRowId = 0;
                                 <tr>
                                     <th class="col-sm-1">#</th>
                                     <th class="col-sm-3">Student Name</th>
-                                    <th class="col-sm-2 text-center">Program</th>
+                                    <th class="col-sm-2 text-center">Programs</th>
                                     <th class="col-sm-1 text-center">All Docs On File</th>
                                     <th class="col-sm-5 text-center">Actions</th>
                                 </tr>
@@ -67,7 +67,7 @@ $dynamicRowId = 0;
                                     <td class='col-5'>
                                         <div class='left-action-buttons-container d-inline m-auto'>
                                            <div class=' d-inline'>
-                                                <a href='../edit/EditStudent.php'><button type='button' id='editButton' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button</a>
+                                                <a onclick='editStudent($studentIdToSearch)' id='editButton'><button type='button' id='editButton' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button></a>
                                             </div>
                                             
                                             <div class='d-inline'>
@@ -132,9 +132,19 @@ $dynamicRowId = 0;
                         </div>
                         <div id="showStudentInfo"></div>
                     </form>
+
+
+
+
                 </div>
 
                 <div class="card-footer">
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Launch demo modal
+                    </button>
                 </div>
             </div>
         </div>
@@ -153,8 +163,20 @@ $dynamicRowId = 0;
             rows[i].children[0][text] = numberToDisplay + ".";
         }
     </script>
-
-
+    <script>
+        function editStudent(studentId){
+            alert(studentId);
+            $.ajax({
+                url: "../scripts/AjaxUpdateStudent.php",
+                method: "POST",
+                data: {studentId: studentId},
+                success: function (output) {
+                    $('#showStudentInfo').html(output);
+                }
+            });
+        }
+    </script>
 <?php
+include("../modals/EditStudentModal.php");
 include("../scripts/footer.php");
 ?>

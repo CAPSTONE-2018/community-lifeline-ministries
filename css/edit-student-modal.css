@@ -1,0 +1,21 @@
+.modal-heading {
+    background: #60C2CB;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.heading{
+    font-size: 16px;
+    color: #60C2CB;
+    margin: 10px 0 20px 0;
+    text-transform: capitalize;
+}
+
+.blue-line-color {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #3EA6A2;
+}
