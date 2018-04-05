@@ -3,6 +3,7 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
+include("../modals/ShowContactModal.php");
 
 $queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name";
 $queryForAllInactiveStudents = "SELECT * FROM Students WHERE Active_Student = 0";
@@ -97,7 +98,7 @@ $dynamicRowId = 0;
                                                     <button type='button' id='studentAllergiesButton' class='btn small-action-buttons view-allergies-button' data-toggle='collapse' data-target='.collapseAllergyRow$dynamicRowId'><i class='fa fa-bullhorn'></i></button>
                                                 </span>
                                                 <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <button type='button'  id='studentContactButton' class='btn small-action-buttons student-contact-button' data-toggle='collapse' data-target='.collapseContactRow$dynamicRowId'><i class='fa fa-phone'></i></button>
+                                                    <button type='button'  id='studentContactButton' class='btn small-action-buttons student-contact-button' data-toggle='modal' data-target='#showContactModal'><i class='fa fa-phone'></i></button>
                                                 </span>
                                             </div>
                                         
