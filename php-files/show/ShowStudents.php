@@ -3,7 +3,7 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
-include("../modals/ShowContactModal.php");
+
 
 $queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name";
 $queryForAllInactiveStudents = "SELECT * FROM Students WHERE Active_Student = 0";
@@ -98,7 +98,8 @@ $dynamicRowId = 0;
                                                     <button type='button' id='studentAllergiesButton' class='btn small-action-buttons view-allergies-button' data-toggle='collapse' data-target='.collapseAllergyRow$dynamicRowId'><i class='fa fa-bullhorn'></i></button>
                                                 </span>
                                                 <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <button type='button'  id='studentContactButton' class='btn small-action-buttons student-contact-button' data-toggle='modal' data-target='#showContactModal'><i class='fa fa-phone'></i></button>
+                                                    
+                                                        <button type='button' onclick='launchContactModal($studentIdToSearch)' class='btn small-action-buttons student-contact-button' value='$studentIdToSearch'><i class='fa fa-phone'></i></button>
                                                 </span>
                                             </div>
                                         
@@ -127,22 +128,7 @@ $dynamicRowId = 0;
                                                 "</span>
                                             </td>
                                         </tr>";
-                                    }
 
-                                    $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
-                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch;";
-                                    $currentContactForStudent = mysqli_query($db, $queryForContacts);
-                                    while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
-                                        $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
-                                        $contactPhone = $contactRow['Primary_Phone'];
-                                        echo "
-                                            <tr class='collapse smooth collapseContactRow$dynamicRowId'>
-                                                <td></td>
-                                                <td colspan='12'>
-                                                <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
-                                                <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
-                                                </td>
-                                            </tr>";
 
                                         $queryForStudentAllergies = "SELECT Medical_Concerns.Name, Medical_Concern_Types.Type  FROM
                                                                       (Medical_Concerns JOIN Student_To_Medical_Concerns ON Medical_Concerns.Id = Student_To_Medical_Concerns.Medical_Concern_Id)
@@ -197,19 +183,27 @@ $dynamicRowId = 0;
             $('#exampleModal').modal({
                 show: true
 
-            });
 
-//            $.ajax({
-//                url: "../scripts/AjaxUpdateStudent.php",
-//                method: "POST",
-//                data: {studentId: studentId},
-//                success: function (output) {
-//                    $('#showStudentInfo').html(output);
-//                }
-//            });
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        function launchContactModal(studentIdToSearch){
+            var studentId = studentIdToSearch;
+            $.ajax({
+                type: "POST",
+                url: "../modals/ShowContactModal.php",
+                data: {studentIdToSearch: studentId},
+                success: function(){
+                    $('#showContactModal').modal("show");
+                }
+            });
         }
     </script>
 <?php
 include("../modals/EditStudentModal.php");
+include("../modals/ShowContactModal.php");
 include("../scripts/footer.php");
 ?>
