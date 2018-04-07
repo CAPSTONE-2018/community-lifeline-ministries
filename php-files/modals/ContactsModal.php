@@ -1,18 +1,13 @@
 <?php
 include("../../db/config.php");
 $studentId = $_POST['studentIdToSearch'];
-
 $queryForContacts = "SELECT * FROM Contacts
             JOIN Student_To_Contacts ON Contacts.Id = Student_To_Contacts.Contact_Id 
-            WHERE Student_To_Contacts.Student_Id = $studentId;";
-
+            WHERE Student_To_Contacts.Student_Id = '$studentId';";
 $studentContactResults = mysqli_query($db, $queryForContacts);
 $dynamicRowId = 0;
-
 error_log($queryForContacts);
-
 ?>
-
 <link rel="stylesheet" href="../../css/modals/contact-modal.css"/>
 <div class="container">
     <!-- Modal -->
@@ -98,13 +93,13 @@ error_log($queryForContacts);
 
                         <p>
                             <button class="btn btn-outline" type="button" data-toggle="collapse"
-                                    data-target="#collapseAddress<?php echo $dynamicRowId;?>" aria-expanded="false"
-                                    aria-controls="collapseAddress<?php echo $dynamicRowId;?>">
+                                    data-target="#collapseAddress<?php echo $dynamicRowId; ?>" aria-expanded="false"
+                                    aria-controls="collapseAddress<?php echo $dynamicRowId; ?>">
                                 View Address Info
                             </button>
                         </p>
 
-                        <div class="collapse" id="collapseAddress<?php echo $dynamicRowId;?>">
+                        <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
                             <div class="row form-group">
                                 <div class="col-2 text-center mt-auto mb-auto">
                                     <i class="fa fa-address-book-o"></i>

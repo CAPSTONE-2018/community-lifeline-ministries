@@ -42,7 +42,6 @@ $dynamicRowId = 0;
                                 <?php
                                 while ($activeStudentsRow = mysqli_fetch_array($activeStudentResults, MYSQLI_ASSOC)) {
                                     $numberOfProgramsRow = mysqli_fetch_array($enrolledProgramResults, MYSQLI_ASSOC);
-
                                     $studentDocumentFlag = false;
                                     $dynamicRowId++;
                                     $studentIdToSearch = $activeStudentsRow['Id'];
@@ -115,7 +114,8 @@ $dynamicRowId = 0;
                                                       class='small-action-buttons'>
                                                     <button type='button'
                                                             class='btn small-action-buttons student-contact-button'
-                                                            onclick="launchContactModal(<?php echo $studentIdToSearch; ?>)">
+                                                            value='<?php echo $studentIdToSearch; ?>'
+                                                            >
                                                             <i class='fa fa-phone'></i>
                                                     </button>
                                                 </span>
@@ -129,6 +129,7 @@ $dynamicRowId = 0;
                         </div>
                     </form>
                 </div>
+                <div id="show-class-info"></div>
 
                 <div class="card-footer">
 
@@ -170,23 +171,64 @@ $dynamicRowId = 0;
         }
     </script>
 
-    <script type="text/javascript">
-        function launchContactModal(studentIdToSearch) {
 
+<script>
+    $(document).ready(function () {
+        $('.student-contact-button').click(function () {
+            var classId = $(this).val();
+            alert(classId);
             $.ajax({
-                url: "../modals/ContactsModal.php",
-                type:"POST",
-                data: {studentIdToSearch: studentIdToSearch},
+                url:"../scripts/AjaxUpdateClass.php",
+                method:"POST",
+                data:{classId:classId},
                 success:function (output) {
-                    $('#showContactModal').modal("show");
-                    $('#modal-body').html(output);
+                    alert(output);
+                    $('#show-class-info').slideDown().html(output);
+                    $('#show-all-button').show();
+                    $('.table-wrapper').slideUp();
                 }
             });
-        }
-    </script>
+        });
+    });
+</script>
+
 <?php
 include("../modals/EditStudentModal.php");
 include("../modals/ContactsModal.php");
 //include("../modals/MedicalConcernsModal.php");
 include("../scripts/footer.php");
 ?>
+<!---->
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function () {-->
+<!--        $('.student-contact-button').click(function () {-->
+<!--            var studentIdToSearch = $(this).val();-->
+<!--            alert(studentIdToSearch);-->
+<!--            $.ajax({-->
+<!--                url: "../scripts/ContactsModal.php",-->
+<!--                method:"POST",-->
+<!--                data:{studentIdToSearch:studentIdToSearch},-->
+<!--                success:function () {-->
+<!--                    $('#showContactModal').modal("show");-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+
+
+
+
+<script type="text/javascript">
+    function launchContactModal(studentIdToSearch) {
+        $.ajax({
+            url: "../modals/ContactsModal.php",
+            method:"POST",
+            data: {studentIdToSearch: studentIdToSearch},
+            success:function () {
+                $('#showContactModal').modal("show");
+            }
+        });
+    }
+</script>
