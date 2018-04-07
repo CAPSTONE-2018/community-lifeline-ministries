@@ -11,8 +11,8 @@ error_log($queryForContacts);
 <link rel="stylesheet" href="../../css/modals/contact-modal.css"/>
 <div class="container">
     <!-- Modal -->
-    <div class="modal right fade" id="showContactModal">
-        <div class="modal-dialog">
+    <div class="modal right fade" id="showContactsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="col-3">
