@@ -48,11 +48,15 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     </form>
                 </div>
 
-                <div class="nav-item col-sm-4">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-search"></i> Look Up
-                    </a>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </div>
+
 
                 <div class="nav-item col-sm-4">
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">

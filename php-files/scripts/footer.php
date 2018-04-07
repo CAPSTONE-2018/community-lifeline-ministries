@@ -1,11 +1,3 @@
-
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<!-- Bootstrap Js CDN -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
@@ -18,6 +10,9 @@
 <!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
 <!--        crossorigin="anonymous"></script>-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.14.30/js/bootstrap-datetimepicker.min.js"></script>
+
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -28,7 +23,12 @@
         });
     });
 
+
+    $(function () {
+        $('#datetimepicker').datetimepicker();
+    });
 </script>
+
 
 
 </div>

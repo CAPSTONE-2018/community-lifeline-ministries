@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['loggedIn'])) {
-    header("Location: index.html");
+    header("Location: ../../index.html");
 }
 $account = $_SESSION['account'];
 
@@ -13,6 +13,8 @@ $userMakingChanges = $_SESSION['loggedIn'];
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -177,4 +179,3 @@ $userMakingChanges = $_SESSION['loggedIn'];
 
     <!-- Content goes after here - closed by footer -->
     <div class="col-sm-9" id="content">
-
