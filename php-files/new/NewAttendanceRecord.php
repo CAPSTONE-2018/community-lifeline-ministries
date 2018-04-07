@@ -4,7 +4,7 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-include("../TimeZoneFormat.php");
+include("../widgets/TimeZoneFormat.php");
 
 $programIdToSearch = $_POST['programId'];
 $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Programs.Program_Name,

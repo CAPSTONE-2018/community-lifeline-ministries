@@ -16,13 +16,6 @@ $inactiveStudentResults = mysqli_query($db, $queryForAllInactiveStudents);
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 $dynamicRowId = 0;
 ?>
-
-
-    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
-    <script src="/node_modules/material-design-lite/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
     <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
     <div class="print_div">
         <div class="card">
@@ -55,105 +48,85 @@ $dynamicRowId = 0;
                                     $studentIdToSearch = $activeStudentsRow['Id'];
                                     $studentName = $activeStudentsRow['First_Name'] . " " . $activeStudentsRow['Last_Name'];
                                     $numberOfPrograms = $numberOfProgramsRow['Enrolled_Programs'];
-                                    echo "<tr class='number-row'>
-                                    <td class='col-sm-1 align-middle'></td> 
-                                    <td class='col-sm-3 align-middle'>$studentName</td>
-                                    <td class='hidden align-middle'>
-                                        <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
-                                        <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
-                                    </td>                                    
-                                    <td class='col-sm-2 align-middle text-center text-align-middle'>$numberOfPrograms</td>";
-
-                                    if(($activeStudentsRow['Permission_Slip'] == 1) &&
-                                        ($activeStudentsRow['Birth_Certificate'] == 1) &&
-                                        ($activeStudentsRow['Reduced_Lunch_Eligible'] == 1) &&
-                                        ($activeStudentsRow['IEP'] == 1)) {
-                                        echo "<td class='col-sm-1 align-middle text-center'>
+                                    ?>
+                                    <tr class='number-row'>
+                                        <td class='col-sm-1 align-middle'></td>
+                                        <td class='col-sm-3 align-middle'><?php echo $studentName; ?></td>
+                                        <td class='hidden align-middle'>
+                                            <input type='hidden' name='studentId[$dynamicRowId]'
+                                                   value=$studentIdToSearch/>
+                                            <input type='hidden' name='programId[$dynamicRowId]' value=$programId/>
+                                        </td>
+                                        <td class='col-sm-2 align-middle text-center text-align-middle'><?php echo $numberOfPrograms ?></td>
+                                        <?php
+                                        if (($activeStudentsRow['Permission_Slip'] == 1) &&
+                                            ($activeStudentsRow['Birth_Certificate'] == 1) &&
+                                            ($activeStudentsRow['Reduced_Lunch_Eligible'] == 1) &&
+                                            ($activeStudentsRow['IEP'] == 1)
+                                        ) {
+                                            echo "<td class='col-sm-1 align-middle text-center'>
                                                 <i class='green-check fa fa-check-square-o'></i>
                                             </td>";
-                                    } else {
-                                        echo "
+                                        } else {
+                                            echo "
                                             <td class='col-sm-1 align-middle text-center'>
                                                 <a data-toggle='collapse' data-target='.collapseDocumentsRow$dynamicRowId'><i class='red-circle fa fa-ban'></i></a>
                                             </td>";
-                                    }
-
-                                    echo "
-                                    <td class='col-5'>
-                                        <div class='left-action-buttons-container d-inline m-auto'>
-                                           <div class=' d-inline'>
-                                                <a onclick='editStudent($studentIdToSearch)' id='editButton'><button type='button' value='$studentIdToSearch' class='btn large-action-buttons edit-student-button'><i class='fa fa-pencil'></i> Edit</button></a>
-                                            </div>
-                                            
-                                            <div class='d-inline'>
-                                                <a href='#'><button type='button' id='deleteStudentButton' class='btn large-action-buttons delete-student-button'><i class='fa fa-trash-o'></i> Delete</button></a>
-                                            </div>
-                                        </div>
-                                            
-                                            <div class='right-action-buttons-container d-inline'>
-                                                <span title='Test Scores' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <button type='button' id='studentTestScoresButton' class='btn small-action-buttons test-scores-button' data-toggle='collapse' data-target='.collapseTestScoresRow$dynamicRowId'><i class='fa fa-bar-chart'></i></button>
-                                                </span>
-                                                <span title='Student Allergies' data-toggle='tooltip' class='small-action-buttons'>
-                                                    <button type='button' id='studentAllergiesButton' class='btn small-action-buttons view-allergies-button' data-toggle='collapse' data-target='.collapseAllergyRow$dynamicRowId'><i class='fa fa-bullhorn'></i></button>
-                                                </span>
-                                                <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
-                                                    
-                                                        <button type='button' onclick='launchContactModal($studentIdToSearch)' class='btn small-action-buttons student-contact-button' value='$studentIdToSearch'><i class='fa fa-phone'></i></button>
-                                                </span>
-                                            </div>
-                                        
-                                    </td>
-                                </tr>";
-                                    $queryForDocuments = "SELECT Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP FROM Students WHERE Id = $studentIdToSearch;";
-                                    $documentResults = mysqli_query($db, $queryForDocuments);
-                                    while ($documentsRow = mysqli_fetch_array($documentResults, MYSQLI_ASSOC)){
-
-                                        echo "
-                                        <tr class='collapse smooth collapseDocumentsRow$dynamicRowId'>
-                                            <td></td>
-                                            <td colspan='12'>
-
-                                                <span>";
-                                                    if ($documentsRow['Permission_Slip'] == 0) {
-                                                        echo "No Permission Slip.  ";
-                                                    }
-                                                    if ($documentsRow['Birth_Certificate'] == 0) {
-                                                        echo "  No Birth Certificate.";
-                                                    }
-                                                    if ($documentsRow['Reduced_Lunch_Eligible'] == 0) {
-                                                        echo " Reduced Lunch";
-                                                    }
-
-                                                "</span>
-                                            </td>
-                                        </tr>";
-
-
-                                        $queryForStudentAllergies = "SELECT Medical_Concerns.Name, Medical_Concern_Types.Type  FROM
-                                                                      (Medical_Concerns JOIN Student_To_Medical_Concerns ON Medical_Concerns.Id = Student_To_Medical_Concerns.Medical_Concern_Id)
-                                                                      JOIN Medical_Concern_Types ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id WHERE Student_Id = $studentIdToSearch;";
-                                        $studentAllergies = mysqli_query($db, $queryForStudentAllergies);
-                                        while ($allergyRow = mysqli_fetch_array($studentAllergies, MYSQLI_ASSOC)) {
-
-                                            $allergyName = $allergyRow['Name'];
-                                            $allergyType = $allergyRow['Type'];
-
-                                            echo "
-                                                <tr class='collapse smooth collapseAllergyRow$dynamicRowId'>
-                                                    <td></td>
-                                                    <td colspan='12'>
-                                                        <span class='hidden-row-width'><i class='fa fa-bullhorn'></i> $allergyName</span>
-                                                        <span class='hidden-row-width'>$allergyType</span>
-                                                    </td>
-                                                </tr>";
                                         }
-                                    }
-                                }?>
+
+                                        ?>
+                                        <td class='col-5'>
+                                            <div class='left-action-buttons-container d-inline m-auto'>
+                                                <div class=' d-inline'>
+                                                    <button type='button'
+                                                            class='btn large-action-buttons edit-student-button'
+                                                            onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'>
+                                                        <i class='fa fa-pencil'></i> Edit
+                                                    </button>
+                                                </div>
+
+                                                <div class='d-inline'>
+                                                    <button type='button'
+                                                            class='btn large-action-buttons delete-student-button'>
+                                                        <i class='fa fa-trash-o'></i> Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class='right-action-buttons-container d-inline'>
+                                                <span title='Test Scores' data-toggle='tooltip'
+                                                      class='small-action-buttons'>
+                                                    <button type='button' id='studentTestScoresButton'
+                                                            class='btn small-action-buttons test-scores-button'
+                                                            data-toggle='collapse'
+                                                            data-target='.collapseTestScoresRow$dynamicRowId'>
+                                                        <i class='fa fa-bar-chart'></i>
+                                                    </button>
+                                                </span>
+                                                <span title='Student Allergies' data-toggle='tooltip'
+                                                      class='small-action-buttons'>
+                                                    <button type='button' id='studentAllergiesButton'
+                                                            class='btn small-action-buttons view-allergies-button'
+                                                            data-toggle='modal'>
+                                                        <i class='fa fa-bullhorn'></i>
+                                                    </button>
+                                                </span>
+                                                <span title='Student Contacts' data-toggle='tooltip'
+                                                      class='small-action-buttons'>
+                                                    <button type='button'
+                                                            class='btn small-action-buttons student-contact-button'
+                                                            onclick="launchContactModal(<?php echo $studentIdToSearch; ?>)">
+                                                            <i class='fa fa-phone'></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
-                        <div id="showStudentInfo"></div>
                     </form>
                 </div>
 
@@ -163,7 +136,6 @@ $dynamicRowId = 0;
             </div>
         </div>
     </div>
-
 
     <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
     <!--    <script src="../../scripts/print.js"></script>-->
@@ -178,32 +150,43 @@ $dynamicRowId = 0;
         }
     </script>
     <script>
-        function editStudent(studentId){
+        function launchEditStudentModal(studentId) {
             alert(studentId);
-            $('#exampleModal').modal({
-                show: true
+            $('#exampleModal').modal("show");
+        }
+    </script>
 
-
+    <script type="text/javascript">
+        function launchMedicalConcernsModal(studentIdToSearch) {
+            alert(studentIdToSearch);
+            $.ajax({
+                type: "POST",
+                url: "../modals/ContactsModal.php",
+                data: {studentIdToSearch: studentIdToSearch},
+                success: function () {
+                    $('#showContactModal').modal("show");
+                }
             });
         }
     </script>
 
     <script type="text/javascript">
+        function launchContactModal(studentIdToSearch) {
 
-        function launchContactModal(studentIdToSearch){
-            var studentId = studentIdToSearch;
             $.ajax({
-                type: "POST",
-                url: "../modals/ShowContactModal.php",
-                data: {studentIdToSearch: studentId},
-                success: function(){
+                url: "../modals/ContactsModal.php",
+                type:"POST",
+                data: {studentIdToSearch: studentIdToSearch},
+                success:function (output) {
                     $('#showContactModal').modal("show");
+                    $('#modal-body').html(output);
                 }
             });
         }
     </script>
 <?php
 include("../modals/EditStudentModal.php");
-include("../modals/ShowContactModal.php");
+include("../modals/ContactsModal.php");
+//include("../modals/MedicalConcernsModal.php");
 include("../scripts/footer.php");
 ?>
