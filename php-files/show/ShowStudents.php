@@ -16,7 +16,7 @@ $inactiveStudentResults = mysqli_query($db, $queryForAllInactiveStudents);
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 $dynamicRowId = 0;
 ?>
-
+    <script type="text/javascript" src="../../js/modals/StudentSlideDownModal.js"></script>
     <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
     <div class="print_div">
         <div class="card">
@@ -83,7 +83,8 @@ $dynamicRowId = 0;
                                                 <div class=' d-inline'>
                                                     <button type='button'
                                                             class='btn large-action-buttons edit-student-button'
-                                                            onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'>
+                                                            onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'
+                                                    >
                                                         <i class='fa fa-pencil'></i> Edit
                                                     </button>
                                                 </div>
@@ -156,6 +157,7 @@ $dynamicRowId = 0;
                     $('#custom-modal').removeClass().addClass('modal fade');
                     $('#custom-size').removeClass().addClass('modal-lg');
                     $('.modal-body').html(response);
+                    checkForInputs();
                     $('#custom-modal').modal("show");
                 }
             });
