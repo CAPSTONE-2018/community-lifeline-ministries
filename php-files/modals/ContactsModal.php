@@ -10,8 +10,6 @@ $studentContactResults = mysqli_query($db, $queryForContacts);
 $response = '';
 
 while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
-    $dynamicRowId++;
-
     $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
     $contactPhone = $contactRow['Primary_Phone'];
     $contactEmail = $contactRow['Email'];

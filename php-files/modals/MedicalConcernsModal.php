@@ -12,8 +12,6 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
 $response = '';
 
 while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
-    $dynamicRowId++;
-
     $medicalConcernName = $medicalConcernRow['Name'];
     $medicalConcernType = $medicalConcernRow['Type'];
     $medicalConcernNotes = $medicalConcernRow['Note'];
