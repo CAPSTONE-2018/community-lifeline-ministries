@@ -27,8 +27,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         <div class="blue-line-color"></div>
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div id="floatingStudentFirstName" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="firstName" class="mdl-textfield__input"
+                                            onblur="addStudentFirstNameFocus()" onfocus="removeStudentFirstNameFocus()"
                                            name="studentFirstName" type="text" value="' . $studentFirstName . '"/>
                                     <label class="mdl-textfield__label" for="firstName">First Name</label>
                                 </div>
@@ -238,15 +239,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             </div>
         </div>
     </div>
-</div>
-
-
-';
-}
-
+</div>';}
 echo $response;
 ?>
-
-
-<script src="../../js/input-styling.min.js"></script>
-<script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>

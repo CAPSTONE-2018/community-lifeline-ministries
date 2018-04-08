@@ -16,6 +16,7 @@ $inactiveStudentResults = mysqli_query($db, $queryForAllInactiveStudents);
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 $dynamicRowId = 0;
 ?>
+
     <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
     <div class="print_div">
         <div class="card">
@@ -143,7 +144,7 @@ $dynamicRowId = 0;
     <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
     <!--    <script src="../../scripts/print.js"></script>-->
 
-    <script type="text/javascript" src="../../js/AddTableRows.js"></script>
+    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
     <script type="text/javascript">
 
         function launchEditStudentModal(studentId) {
@@ -212,6 +213,11 @@ $dynamicRowId = 0;
             });
         }
     </script>
+
+
+    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
+    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
+
 <?php
 include("../scripts/footer.php");
 ?>
