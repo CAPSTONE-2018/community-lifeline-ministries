@@ -1,3 +1,5 @@
+// Dynamic New Student Contact Styles
+
 function addFirstNameFocus() {
     $('div[id=floatingFirstName]').addClass("is-focused");
 }
@@ -135,5 +137,70 @@ function removeZipCodeFocus() {
         $('div[id=floatingZipCode]').removeClass("is-focused");
     } else {
         $('div[id=floatingZipCode]').removeClass("is-focused").addClass("is-dirty");
+    }
+}
+
+
+// Dynamic Medical Concern Styles
+
+function addMedicalConcernNameFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernName" + dynamicFieldId);
+    $(activeId).addClass("is-focused");
+}
+
+function removeMedicalConcernNameFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernName" + dynamicFieldId);
+
+    var input = document.getElementById("medicalConcernName").value;
+
+    if (input === "") {
+        $(activeId).removeClass("is-focused");
+    } else {
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
+    }
+}
+
+function addMedicalConcernTypeFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernType" + dynamicFieldId);
+    $(activeId).addClass("is-focused");
+}
+function removeMedicalConcernTypeFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernType" + dynamicFieldId);
+    var input = document.getElementById("medicalConcernType").value;
+
+    if (input === "") {
+        $(activeId).removeClass("is-focused");
+    } else {
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
+    }
+}
+
+
+function addMedicalConcernNoteFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernNote" + dynamicFieldId);
+    $(activeId).addClass("is-focused");
+}
+function removeMedicalConcernNoteFocus(dynamicFieldId) {
+    var activeId = document.getElementById("floatingConcernNote" + dynamicFieldId);
+    var input = document.getElementById("medicalConcernType").value;
+
+    if (input === "") {
+        $(activeId).removeClass("is-focused");
+    } else {
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
+    }
+}
+
+
+function addStudentFirstNameFocus() {
+    $('div[id=floatingStudentFirstName]').addClass("is-focused");
+}
+function removeStudentFirstNameFocus() {
+    var userInput = document.getElementById("studentFirstName").value;
+
+    if (userInput === "") {
+        $('div[id=floatingStudentFirstName]').removeClass("is-focused");
+    } else {
+        $('div[id=floatingStudentFirstName]').removeClass("is-focused").addClass("is-dirty");
     }
 }

@@ -3,8 +3,7 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
-
-include("../TimeZoneFormat.php");
+include("../widgets/TimeZoneFormat.php");
 
 $programIdToSearch = $_POST['programId'];
 $dateToSearch = $dateToSubmit;

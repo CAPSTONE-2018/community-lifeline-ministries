@@ -28,7 +28,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
-                                    disabled selected> Start New Record
+                                    readonly selected> Start New Record
                             </option>
 
                             <?php
@@ -58,7 +58,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
-                                    disabled selected> Edit
+                                    readonly selected> Edit
                             </option>
                             <?php
                             while ($programsRowToEdit = mysqli_fetch_assoc($resultsForEdit)) {

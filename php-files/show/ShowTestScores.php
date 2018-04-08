@@ -5,43 +5,17 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 $query = "SELECT Students.First_Name, Students.Last_Name, 
-            Student_To_Test_Scores.Student_Id, 
-            Student_To_Test_Scores.School_Year, 
-            Student_To_Test_Scores.Pre_Test,
-            Student_To_Test_Scores.Term,
-            Student_To_Test_Scores.Post_Test 
-            FROM Student_To_Test_Scores 
-            JOIN Students ON Student_To_Test_Scores.Student_Id = Students.Id;";
+            Student_Test_Scores.Student_Id, 
+            Student_Test_Scores.School_Year, 
+            Student_Test_Scores.Pre_Test,
+            Student_Test_Scores.Term,
+            Student_Test_Scores.Post_Test 
+            FROM Students 
+            JOIN Student_Test_Scores ON Students.Id = Student_Test_Scores.Student_Id";
 
 $result = mysqli_query($db, $query);
 ?>
-<script>
-function FilterFields() {
-// Declare variables
-var input, filter, table, tr, td, i, show = false;
-input = document.getElementById("searchInput");
-filter = input.value.toUpperCase();
-table = document.getElementById("test_scores");
-tr = table.getElementsByTagName("tr");
 
-// Loop through all table rows, and hide those who don't match the search query
-for (i = 0; i < tr.length; i++) {
-show = false;
-for (j = 0; j < 14; j++) {
-td = tr[i].getElementsByTagName("td")[j];
-if (td) {
-if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-tr[i].style.display = "";
-show = true;
-}
-}
-}
-if(!show){
-tr[i].style.display = "none";
-}
-}
-}
-</script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
     <link rel="stylesheet" href="../../css/toggle-switch.css"/>
     <link rel="stylesheet" href="../../css/input-styles.css"/>

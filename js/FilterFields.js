@@ -18,7 +18,7 @@ function FilterFields() {
                 }
             }
         }
-        if (!show) {
+        if(!show){
             tr[i].style.display = "none";
         }
     }

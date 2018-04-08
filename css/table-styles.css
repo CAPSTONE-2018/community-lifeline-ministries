@@ -6,26 +6,14 @@
     box-sizing: border-box;
 }
 
-/*#attendance-table .hidden-row {*/
-    /*display:none;*/
-/*}*/
-
-/*#general-table .hidden-row {*/
-    /*display: none;*/
-/*}*/
-
-.centered-column {
-    text-align: center;
-}
-
-/*.hidden-row {*/
-    /*display: none;*/
-/*}*/
-
 .hidden-row-width {
     width: 40%;
 }
 
 .smooth {
     transition: 3s;
+}
+
+.number-row {
+    width: 100%;
 }
