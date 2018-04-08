@@ -55,7 +55,9 @@ $dynamicRowId = 0;
                                             <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                                    value=<?php echo $studentIdToSearch; ?>/>
                                         </td>
-                                        <td class='col-sm-2 align-middle text-center text-align-middle'><?php echo $numberOfPrograms ?></td>
+                                        <td class='col-sm-2 align-middle text-center text-align-middle'>
+                                            <?php echo $numberOfPrograms ?>
+                                        </td>
                                         <?php
                                         if (($activeStudentsRow['Permission_Slip'] == 1) &&
                                             ($activeStudentsRow['Birth_Certificate'] == 1) &&
@@ -68,7 +70,9 @@ $dynamicRowId = 0;
                                         } else {
                                             echo "
                                             <td class='col-sm-1 align-middle text-center'>
-                                                <a data-toggle='collapse' data-target='.collapseDocumentsRow$dynamicRowId'><i class='red-circle fa fa-ban'></i></a>
+                                                <a data-toggle='collapse' data-target='.collapseDocumentsRow$dynamicRowId'>
+                                                    <i class='red-circle fa fa-ban'></i>
+                                                </a>
                                             </td>";
                                         }
 
@@ -94,27 +98,27 @@ $dynamicRowId = 0;
                                             <div class='right-action-buttons-container d-inline'>
                                                 <span title='Test Scores' data-toggle='tooltip'
                                                       class='small-action-buttons'>
-                                                    <button type='button' id='studentTestScoresButton'
+                                                    <button type='button'
+                                                            onclick='launchTestScoresModal(<?php echo $studentIdToSearch; ?>)'
                                                             class='btn small-action-buttons test-scores-button'
-                                                            data-toggle='collapse'
-                                                            data-target='.collapseTestScoresRow$dynamicRowId'>
+                                                    >
                                                         <i class='fa fa-bar-chart'></i>
                                                     </button>
                                                 </span>
                                                 <span title='Student Allergies' data-toggle='tooltip'
                                                       class='small-action-buttons'>
-                                                    <button type='button' id='studentAllergiesButton'
+                                                    <button type='button'
+                                                            onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
                                                             class='btn small-action-buttons view-allergies-button'
-                                                            data-toggle='modal'>
+                                                    >
                                                         <i class='fa fa-bullhorn'></i>
                                                     </button>
                                                 </span>
                                                 <span title='Student Contacts' data-toggle='tooltip'
                                                       class='small-action-buttons'>
-                                                    <button
-                                                            id='<?php echo $studentIdToSearch;?>'
+                                                    <button type='button'
+                                                            onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
                                                             class='btn small-action-buttons student-contact-button'
-                                                            type='button'
                                                     >
                                                         <i class='fa fa-phone'></i>
                                                     </button>
@@ -139,15 +143,7 @@ $dynamicRowId = 0;
     <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
     <!--    <script src="../../scripts/print.js"></script>-->
 
-    <script type="text/javascript">
-        var table = document.getElementsByTagName('table')[0],
-            rows = table.getElementsByClassName('number-row'),
-            text = 'textContent' in document ? 'textContent' : 'innerText';
-        for (var i = 0, len = rows.length; i < len; i++) {
-            var numberToDisplay = i + 1;
-            rows[i].children[0][text] = numberToDisplay + ".";
-        }
-    </script>
+    <script type="text/javascript" src="../../js/AddTableRows.js"></script>
     <script>
         function launchEditStudentModal(studentId) {
             alert(studentId);
@@ -156,30 +152,62 @@ $dynamicRowId = 0;
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.student-contact-button').click(function () {
-                var userId = this.id;
-                $.ajax({
-                    url: '../modals/ContactsModal.php',
-                    type: 'post',
-                    data: {userId: userId},
-                    success: function (response) {
-                        // Add response in Modal body
-                        $('#custom-title').addClass('contact-modal-header');
-                        $('.dynamic-title').text("Contact Info");
-                        $('.modal-body').html(response);
+        function launchTestScoresModal(studentId) {
+            $.ajax({
+                url: '../modals/ContactsModal.php',
+                type: 'post',
+                data: {studentId: studentId},
+                success: function (response) {
+                    $('#custom-title').removeClass('medical-concern-modal-header');
+                    $('#custom-title').addClass('contact-modal-header');
 
-                        // Display Modal
-                        $('#slideInModal').modal('show');
-                    }
-                });
+                    $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
+                    $('.dynamic-title').text("Contact Info");
+                    $('.modal-body').html(response);
+                    $('#slideInModal').modal('show');
+                }
             });
-        });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function launchContactsModal(studentId) {
+            $.ajax({
+                url: '../modals/ContactsModal.php',
+                type: 'post',
+                data: {studentId: studentId},
+                success: function (response) {
+                    $('#custom-title').removeClass('medical-concern-modal-header');
+                    $('#custom-title').addClass('contact-modal-header');
+
+                    $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
+                    $('.dynamic-title').text("Contact Info");
+                    $('.modal-body').html(response);
+                    $('#slideInModal').modal('show');
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function launchMedicalConcernsModal(studentId) {
+            $.ajax({
+                url: '../modals/MedicalConcernsModal.php',
+                type: 'post',
+                data: {studentId: studentId},
+                success: function (response) {
+                    $('#custom-title').removeClass('contact-modal-header');
+                    $('#custom-title').addClass('medical-concern-modal-header');
+                    $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
+                    $('.dynamic-title').text("Medical Concerns");
+                    $('.modal-body').html(response);
+                    $('#slideInModal').modal('show');
+                }
+            });
+        }
     </script>
 
 <?php
 include("../modals/EditStudentModal.php");
-//include("../modals/ContactsModal.php");
-//include("../modals/MedicalConcernsModal.php");
 include("../scripts/footer.php");
 ?>

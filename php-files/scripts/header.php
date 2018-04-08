@@ -19,7 +19,7 @@ include("../widgets/TimeZoneFormat.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Community Lifeline Ministries</title>
-    <link rel="stylesheet" href="../../css/modals/contact-modal.css"/>
+    <link rel="stylesheet" href="../../css/modals/slide-out-modal.css"/>
     <link rel="stylesheet" href="../../css/input-styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Local Bootstrap -->
@@ -194,7 +194,7 @@ include("../widgets/TimeZoneFormat.php");
                             </div>
                             <div class="row modal-title m-auto text-center">
                                 <div class="d-inline col-2">
-                                    <i class="m-auto fa fa-address-card-o fa-2x"></i>
+                                    <i id="custom-icon" class="m-auto"></i>
                                 </div>
                                 <div class="col-10">
                                     <h4 class="d-inline align-middle dynamic-title"></h4>
@@ -204,7 +204,6 @@ include("../widgets/TimeZoneFormat.php");
                                 <button type="button" class="close modal-title" data-dismiss="modal" aria-label="Close">
                                     <span class="align-middle" aria-hidden="true">&times;</span>
                                 </button>
-
                             </div>
                         </div>
 

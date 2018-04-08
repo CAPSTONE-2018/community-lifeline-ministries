@@ -38,8 +38,13 @@
 }
 
 .contact-modal-header {
-    border-bottom-color: #EEEEEE;
     background-color: #6640B4;
+    height: 75px;
+    color: #fff;
+}
+
+.medical-concern-modal-header {
+    background-color: #4055B2;
     height: 75px;
     color: #fff;
 }

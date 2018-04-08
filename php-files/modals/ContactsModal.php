@@ -1,12 +1,11 @@
 <?php
 include("../../db/config.php");
 
-$userid = $_POST['userId'];
+$studentId = $_POST['studentId'];
 
-$studentId = $_POST['studentIdToSearch'];
 $queryForContacts = "SELECT * FROM Contacts
             JOIN Student_To_Contacts ON Contacts.Id = Student_To_Contacts.Contact_Id
-            WHERE Student_To_Contacts.Student_Id = '$userid';";
+            WHERE Student_To_Contacts.Student_Id = '$studentId';";
 $studentContactResults = mysqli_query($db, $queryForContacts);
 $response = '';
 
@@ -24,8 +23,6 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
 
     $response = '
 <div class="contact-modal">
-
-
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
             <i class="fa fa-users"></i>
