@@ -194,7 +194,7 @@ include("../widgets/TimeZoneFormat.php");
                             </div>
                             <div class="row modal-title m-auto text-center">
                                 <div class="d-inline col-2">
-                                    <i id="custom-icon" class="m-auto"></i>
+                                    <i id="custom-icon" class="m-auto fa fa-2x"></i>
                                 </div>
                                 <div class="col-10">
                                     <h4 class="d-inline align-middle dynamic-title"></h4>

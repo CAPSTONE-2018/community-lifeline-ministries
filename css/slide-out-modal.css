@@ -51,6 +51,8 @@
 
 .test-scores-modal-header {
     background-color: #1FBCD3;
+    color: #fff;
+    height: 75px;
 }
 
 .dynamic-title {

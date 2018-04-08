@@ -16,6 +16,7 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
 
     $medicalConcernName = $medicalConcernRow['Name'];
     $medicalConcernType = $medicalConcernRow['Type'];
+    $medicalConcernNotes = $medicalConcernRow['Note'];
 
     $response = '
 <div class="medical-concern-modal">
@@ -35,12 +36,11 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
 
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
-            <i class="fa fa-phone"></i>
+            <i class="fa fa-pencil-square-o"></i>
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactPrimaryPhone" class="mdl-textfield__input" readonly
-                       value="' . $medicalConcernType . '"
                        value="' . $medicalConcernType . '"
                        type="text"/>
                 <label class="mdl-textfield__label" for="primaryPhone">Concern Type</label>
@@ -54,40 +54,11 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
-                       value="' . $contactEmail . '"
-                       type="email"/>
+                <textarea rows="4" id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
+                       type="text">
+                    ' . $medicalConcernNotes . '
+                </textarea>
                 <label class="mdl-textfield__label" for="contactEmail">Notes</label>
-            </div>
-        </div>
-    </div>
-
-    <p>
-        <button class="btn btn-outline" type="button" data-toggle="collapse"
-                aria-controls="collapseAddress' . $dynamicRowId . '"
-                data-target="#collapseAddress' . $dynamicRowId . '"
-        >
-            View Address Info <i class="fa fa-toggle-down"></i>
-        </button>
-    </p>
-
-    <div class="collapse" id="collapseAddress' . $dynamicRowId . '">
-        <div class="row form-group">
-            <div class="col-2 text-center mt-auto mb-auto">
-                <i class="fa fa-address-book-o"></i>
-            </div>
-            <div class="col-10">
-
-                <div class="">
-                    ' . $contactAddressOne . " " . $contactAddressTwo . '
-                </div>
-                <div class="">
-                    ' . $contactCity . ", " . $contactState . '
-                </div>
-                <div class="">
-                    ' . $contactZip . '
-                </div>
-
             </div>
         </div>
     </div>

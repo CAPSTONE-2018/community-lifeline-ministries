@@ -161,8 +161,8 @@ $dynamicRowId = 0;
                     $('#custom-title').removeClass('medical-concern-modal-header contact-modal-header');
                     $('#custom-title').addClass('test-scores-modal-header');
 
-                    $('#custom-icon').removeClass('fa fa-address-card-o fa-2x');
-                    $('#custom-icon').addClass('fa fa-area-chart fa-2x');
+                    $('#custom-icon').removeClass('fa-address-card-o fa-warning');
+                    $('#custom-icon').addClass('fa-area-chart');
                     $('.dynamic-title').text("Test Score Info");
                     $('.modal-body').html(response);
                     $('#slideInModal').modal('show');
@@ -178,8 +178,8 @@ $dynamicRowId = 0;
                 success: function (response) {
                     $('#custom-title').removeClass('test-scores-modal-header medical-concern-modal-header');
                     $('#custom-title').addClass('contact-modal-header');
-
-                    $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
+                    $('#custom-icon').removeClass('fa-area-chart fa-warning');
+                    $('#custom-icon').addClass('fa-address-card-o');
                     $('.dynamic-title').text("Contact Info");
                     $('.modal-body').html(response);
                     $('#slideInModal').modal('show');
@@ -195,7 +195,8 @@ $dynamicRowId = 0;
                 success: function (response) {
                     $('#custom-title').removeClass('test-scores-modal-header contact-modal-header');
                     $('#custom-title').addClass('medical-concern-modal-header');
-                    $('#custom-icon').addClass('fa fa-warning fa-2x');
+                    $('#custom-icon').removeClass('fa-area-chart fa-address-card-o');
+                    $('#custom-icon').addClass('fa-warning');
                     $('.dynamic-title').text("Medical Concerns");
                     $('.modal-body').html(response);
                     $('#slideInModal').modal('show');
