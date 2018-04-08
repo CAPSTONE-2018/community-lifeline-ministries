@@ -111,7 +111,7 @@ $dynamicRowId = 0;
                                                             onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
                                                             class='btn small-action-buttons view-allergies-button'
                                                     >
-                                                        <i class='fa fa-bullhorn'></i>
+                                                        <i class='fa fa-warning'></i>
                                                     </button>
                                                 </span>
                                                 <span title='Student Contacts' data-toggle='tooltip'
@@ -154,30 +154,29 @@ $dynamicRowId = 0;
     <script type="text/javascript">
         function launchTestScoresModal(studentId) {
             $.ajax({
-                url: '../modals/ContactsModal.php',
+                url: '../modals/TestScoresModal.php',
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
-                    $('#custom-title').removeClass('medical-concern-modal-header');
-                    $('#custom-title').addClass('contact-modal-header');
+                    $('#custom-title').removeClass('medical-concern-modal-header contact-modal-header');
+                    $('#custom-title').addClass('test-scores-modal-header');
 
-                    $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
-                    $('.dynamic-title').text("Contact Info");
+                    $('#custom-icon').removeClass('fa fa-address-card-o fa-2x');
+                    $('#custom-icon').addClass('fa fa-area-chart fa-2x');
+                    $('.dynamic-title').text("Test Score Info");
                     $('.modal-body').html(response);
                     $('#slideInModal').modal('show');
                 }
             });
         }
-    </script>
 
-    <script type="text/javascript">
         function launchContactsModal(studentId) {
             $.ajax({
                 url: '../modals/ContactsModal.php',
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
-                    $('#custom-title').removeClass('medical-concern-modal-header');
+                    $('#custom-title').removeClass('test-scores-modal-header medical-concern-modal-header');
                     $('#custom-title').addClass('contact-modal-header');
 
                     $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
@@ -187,18 +186,16 @@ $dynamicRowId = 0;
                 }
             });
         }
-    </script>
 
-    <script type="text/javascript">
         function launchMedicalConcernsModal(studentId) {
             $.ajax({
                 url: '../modals/MedicalConcernsModal.php',
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
-                    $('#custom-title').removeClass('contact-modal-header');
+                    $('#custom-title').removeClass('test-scores-modal-header contact-modal-header');
                     $('#custom-title').addClass('medical-concern-modal-header');
-                    $('#custom-icon').addClass('fa fa-address-card-o fa-2x');
+                    $('#custom-icon').addClass('fa fa-warning fa-2x');
                     $('.dynamic-title').text("Medical Concerns");
                     $('.modal-body').html(response);
                     $('#slideInModal').modal('show');
@@ -206,7 +203,6 @@ $dynamicRowId = 0;
             });
         }
     </script>
-
 <?php
 include("../modals/EditStudentModal.php");
 include("../scripts/footer.php");

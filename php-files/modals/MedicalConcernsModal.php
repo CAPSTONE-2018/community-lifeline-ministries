@@ -21,14 +21,14 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
 <div class="medical-concern-modal">
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
-            <i class="fa fa-users"></i>
+            <i class="fa fa-bullhorn"></i>
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactName" class="mdl-textfield__input" readonly
-                       value="' . $contactName . '"
+                       value="' . $medicalConcernName . '"
                        type="text"/>
-                <label class="mdl-textfield__label" for="contactName">Contact Name</label>
+                <label class="mdl-textfield__label" for="contactName">Medical Concern</label>
             </div>
         </div>
     </div>
@@ -40,23 +40,24 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactPrimaryPhone" class="mdl-textfield__input" readonly
-                       value="' . $contactPhone . '"
+                       value="' . $medicalConcernType . '"
+                       value="' . $medicalConcernType . '"
                        type="text"/>
-                <label class="mdl-textfield__label" for="primaryPhone">Primary Phone</label>
+                <label class="mdl-textfield__label" for="primaryPhone">Concern Type</label>
             </div>
         </div>
     </div>
 
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
-            <i class="fa fa-envelope"></i>
+            <i class="fa fa-comments-o"></i>
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
                        value="' . $contactEmail . '"
                        type="email"/>
-                <label class="mdl-textfield__label" for="contactEmail">Contact Email</label>
+                <label class="mdl-textfield__label" for="contactEmail">Notes</label>
             </div>
         </div>
     </div>
