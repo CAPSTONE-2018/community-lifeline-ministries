@@ -95,10 +95,6 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
         </div>
     </div>
     <hr>
-</div>    
-';
-}
-
-
+</div>';}
 echo $response;
 exit;

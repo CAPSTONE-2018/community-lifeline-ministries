@@ -185,8 +185,8 @@ include("../widgets/TimeZoneFormat.php");
 
         <div class="container">
             <!-- Modal -->
-            <div class="modal right fade " id="custom-modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
+            <div class="modal" id="custom-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" id="custom-size" role="document">
                     <div class="modal-content">
                         <div id="custom-title" class="modal-header">
                             <div class="col-1">

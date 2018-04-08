@@ -144,20 +144,31 @@ $dynamicRowId = 0;
     <!--    <script src="../../scripts/print.js"></script>-->
 
     <script type="text/javascript" src="../../js/AddTableRows.js"></script>
-    <script>
-        function launchEditStudentModal(studentId) {
-            alert(studentId);
-            $('#exampleModal').modal("show");
-        }
-    </script>
-
     <script type="text/javascript">
+
+        function launchEditStudentModal(studentId) {
+            $.ajax({
+                url: '../modals/EditStudentModal.php',
+                type: 'POST',
+                data: {studentId: studentId},
+                success: function (response) {
+                    $('#custom-modal').removeClass().addClass('modal fade');
+                    $('#custom-size').removeClass().addClass('modal-lg');
+                    $('.modal-body').html(response);
+                    $('#custom-modal').modal("show");
+                }
+            });
+        }
+
+
         function launchTestScoresModal(studentId) {
             $.ajax({
                 url: '../modals/TestScoresModal.php',
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
+                    $('#custom-modal').removeClass().addClass('modal right fade');
+                    $('#custom-size').removeClass().addClass('modal-dialog');
                     $('#custom-title').removeClass().addClass('modal-header test-scores-modal-header');
                     $('#custom-icon').removeClass().addClass('m-auto fa fa-area-chart fa-2x');
                     $('.dynamic-title').text("Test Score Info");
@@ -173,6 +184,8 @@ $dynamicRowId = 0;
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
+                    $('#custom-modal').removeClass().addClass('modal right fade');
+                    $('#custom-size').removeClass().addClass('modal-dialog');
                     $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
                     $('#custom-icon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
                     $('.dynamic-title').text("Contact Info");
@@ -188,6 +201,8 @@ $dynamicRowId = 0;
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
+                    $('#custom-modal').removeClass().addClass('modal right fade');
+                    $('#custom-size').removeClass().addClass('modal-dialog');
                     $('#custom-title').removeClass().addClass('modal-header medical-concern-modal-header');
                     $('#custom-icon').removeClass().addClass('m-auto fa fa-warning fa-2x');
                     $('.dynamic-title').text("Medical Concerns");
@@ -198,6 +213,5 @@ $dynamicRowId = 0;
         }
     </script>
 <?php
-include("../modals/EditStudentModal.php");
 include("../scripts/footer.php");
 ?>
