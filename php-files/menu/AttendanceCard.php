@@ -11,7 +11,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 }
 ?>
-<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
+<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
 
 <div class="container-fluid col-sm-8">
     <div class="card text-center">

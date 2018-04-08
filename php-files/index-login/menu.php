@@ -7,7 +7,7 @@ include("../scripts/footer.php");
 ?>
 
 
-<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
+<script defer src="../../js/pretty-dropdowns.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $dropdown = $('select').prettyDropdown({
