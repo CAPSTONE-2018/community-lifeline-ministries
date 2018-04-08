@@ -1,4 +1,3 @@
-
 .responsive-text {
 
 }
@@ -8,41 +7,53 @@
     width: 30%;
     margin: 7px auto;
     color: #fff;
-
 }
 
 .small-action-buttons {
     display: inline-block;
-
     margin: auto;
     color: #fff;
 }
 
 .edit-student-button {
-    background-color: #3CA8F7;
-    color: #fff;
-    /*width: 100%;*/
+    /*background-color: #3CA8F7;*/
+    background-color: #1EAAF1;
+}
+
+.edit-student-button:hover {
+    background-color: #1689CF;
 }
 
 .delete-student-button {
     background-color: #F2453D;
-    /*width: 100%;*/
-    color: #fff;
+}
+
+.delete-student-button:hover {
+    background-color: #D13135;
 }
 
 .student-contact-button {
     background-color: #6640B4;
 }
 
+.student-contact-button:hover {
+    background-color: #5133A5;
+}
+
+
 .view-allergies-button {
     background-color: #4055B2;
-
+}
+.view-allergies-button:hover {
+    background-color: #32429C;
 }
 
 .test-scores-button {
-    /*background-color: #02D1FF;*/
     background-color: #1FBCD3;
+}
 
+.test-scores-button:hover {
+    background-color: #1697A6;
 }
 
 .left-action-buttons-container {

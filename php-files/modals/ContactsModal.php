@@ -1,128 +1,107 @@
 <?php
 include("../../db/config.php");
+
+$userid = $_POST['userId'];
+
 $studentId = $_POST['studentIdToSearch'];
 $queryForContacts = "SELECT * FROM Contacts
-            JOIN Student_To_Contacts ON Contacts.Id = Student_To_Contacts.Contact_Id 
-            WHERE Student_To_Contacts.Student_Id = '$studentId';";
+            JOIN Student_To_Contacts ON Contacts.Id = Student_To_Contacts.Contact_Id
+            WHERE Student_To_Contacts.Student_Id = '$userid';";
 $studentContactResults = mysqli_query($db, $queryForContacts);
-$dynamicRowId = 0;
-error_log($queryForContacts);
-?>
-<link rel="stylesheet" href="../../css/modals/contact-modal.css"/>
-<div class="container">
-    <!-- Modal -->
-    <div class="modal right fade" id="showContactsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="col-3">
+$response = '';
 
-                    </div>
-                    <div class="col-6">
-                        <h4 class="modal-title text-center" id="myModalLabel2"><i class="fa fa-address-card-o"></i>
-                            Contact Info</h4>
-                    </div>
-                    <div class="col-3 align-middle">
-                        <div class="align-middle">
-                            <button type="button" class="close modal-title" data-dismiss="modal" aria-label="Close">
-                                <span class="align-middle " aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
+    $dynamicRowId++;
 
-                <div class="modal-body">
-                    <?php
-                    while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
-                        $dynamicRowId++;
+    $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
+    $contactPhone = $contactRow['Primary_Phone'];
+    $contactEmail = $contactRow['Email'];
+    $contactAddressOne = $contactRow['Address_One'];
+    $contactAddressTwo = $contactRow['Address_Two'];
+    $contactCity = $contactRow['City'];
+    $contactState = $contactRow['State'];
+    $contactZip = $contactRow['Zip'];
 
-                        $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
-                        $contactPhone = $contactRow['Primary_Phone'];
-                        $contactEmail = $contactRow['Email'];
-                        $contactAddressOne = $contactRow['Address_One'];
-                        $contactAddressTwo = $contactRow['Address_Two'];
-                        $contactCity = $contactRow['City'];
-                        $contactState = $contactRow['State'];
-                        $contactZip = $contactRow['Zip'];
+    $response = '
+<div class="contact-modal">
 
-                        error_log($contactName);
-                        error_log($contactCity);
-                        error_log($contactZip);
-                        ?>
-                        <div class="row form-group">
-                            <div class="col-2 text-center mt-auto mb-auto">
-                                <i class="fa fa-users"></i>
-                            </div>
-                            <div class="col-10">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input id="contactName" class="mdl-textfield__input" readonly
-                                           value="<?php echo $contactName; ?>"
-                                           type="text"/>
-                                    <label class="mdl-textfield__label" for="contactName">Contact Name</label>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row form-group">
-                            <div class="col-2 text-center mt-auto mb-auto">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="col-10">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input id="primaryPhone" class="mdl-textfield__input" readonly
-                                           value="<?php echo $contactPhone; ?>"
-                                           type="text"/>
-                                    <label class="mdl-textfield__label" for="primaryPhone">Primary Phone</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row form-group">
-                            <div class="col-2 text-center mt-auto mb-auto">
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <div class="col-10">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input id="contactEmail" class="mdl-textfield__input" readonly="readonly"
-                                           value="<?php echo $contactEmail; ?>"
-                                           type="email"/>
-                                    <label class="mdl-textfield__label" for="contactEmail">Contact Email</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p>
-                            <button class="btn btn-outline" type="button" data-toggle="collapse"
-                                    data-target="#collapseAddress<?php echo $dynamicRowId; ?>" aria-expanded="false"
-                                    aria-controls="collapseAddress<?php echo $dynamicRowId; ?>">
-                                View Address Info
-                            </button>
-                        </p>
-
-                        <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
-                            <div class="row form-group">
-                                <div class="col-2 text-center mt-auto mb-auto">
-                                    <i class="fa fa-address-book-o"></i>
-                                </div>
-                                <div class="col-10">
-
-                                    <div class="">
-                                        <?php echo $contactAddressOne . " " . $contactAddressTwo; ?>
-                                    </div>
-                                    <div class="">
-                                        <?php echo $contactCity . ", " . $contactState; ?>
-                                    </div>
-                                    <div class="">
-                                        <?php echo $contactZip; ?>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                    <?php } ?>
-                </div>
+    <div class="row form-group">
+        <div class="col-2 text-center mt-auto mb-auto">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="col-10">
+            <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="contactName" class="mdl-textfield__input" readonly
+                       value="' . $contactName . '"
+                       type="text"/>
+                <label class="mdl-textfield__label" for="contactName">Contact Name</label>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="row form-group">
+        <div class="col-2 text-center mt-auto mb-auto">
+            <i class="fa fa-phone"></i>
+        </div>
+        <div class="col-10">
+            <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="contactPrimaryPhone" class="mdl-textfield__input" readonly
+                       value="' . $contactPhone . '"
+                       type="text"/>
+                <label class="mdl-textfield__label" for="primaryPhone">Primary Phone</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-2 text-center mt-auto mb-auto">
+            <i class="fa fa-envelope"></i>
+        </div>
+        <div class="col-10">
+            <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
+                       value="' . $contactEmail . '"
+                       type="email"/>
+                <label class="mdl-textfield__label" for="contactEmail">Contact Email</label>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        <button class="btn btn-outline" type="button" data-toggle="collapse"
+                aria-controls="collapseAddress'.$dynamicRowId.'"
+                data-target="#collapseAddress' . $dynamicRowId . '"
+        >
+            View Address Info <i class="fa fa-toggle-down"></i>
+        </button>
+    </p>
+
+    <div class="collapse" id="collapseAddress' . $dynamicRowId . '">
+        <div class="row form-group">
+            <div class="col-2 text-center mt-auto mb-auto">
+                <i class="fa fa-address-book-o"></i>
+            </div>
+            <div class="col-10">
+
+                <div class="">
+                    ' . $contactAddressOne . " " . $contactAddressTwo . '
+                </div>
+                <div class="">
+                    ' . $contactCity . ", " . $contactState . '
+                </div>
+                <div class="">
+                    ' . $contactZip . '
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>    
+';
+}
+
+
+echo $response;
+exit;

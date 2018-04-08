@@ -37,15 +37,16 @@
     border: none;
 }
 
-.modal-header {
+.contact-modal-header {
     border-bottom-color: #EEEEEE;
     background-color: #6640B4;
     height: 75px;
     color: #fff;
 }
 
-.modal-title {
+.dynamic-title {
     color: #fff;
 
 }
 
+/* ----- MODAL Input Styles ----- */

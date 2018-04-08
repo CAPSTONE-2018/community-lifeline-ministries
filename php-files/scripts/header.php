@@ -19,15 +19,17 @@ include("../widgets/TimeZoneFormat.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Community Lifeline Ministries</title>
-
+    <link rel="stylesheet" href="../../css/modals/contact-modal.css"/>
     <link rel="stylesheet" href="../../css/input-styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Local Bootstrap -->
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="../../css/clm.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 
@@ -51,7 +53,8 @@ include("../widgets/TimeZoneFormat.php");
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="../index-login/menu.php"><img src="../../images/new-logo.png" alt="CLM Logo" height="25px"></a></li>
+            <li><a href="../index-login/menu.php"><img src="../../images/new-logo.png" alt="CLM Logo" height="25px"></a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -180,3 +183,35 @@ include("../widgets/TimeZoneFormat.php");
     <!-- Content goes after here - closed by footer -->
     <div class="col-sm-9" id="content">
 
+        <div class="container">
+            <!-- Modal -->
+            <div class="modal right fade" id="slideInModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div id="custom-title" class="modal-header">
+                            <div class="col-1">
+
+                            </div>
+                            <div class="row modal-title m-auto text-center">
+                                <div class="d-inline col-2">
+                                    <i class="m-auto fa fa-address-card-o fa-2x"></i>
+                                </div>
+                                <div class="col-10">
+                                    <h4 class="d-inline align-middle dynamic-title"></h4>
+                                </div>
+                            </div>
+                            <div class="col-1 align-middle">
+                                <button type="button" class="close modal-title" data-dismiss="modal" aria-label="Close">
+                                    <span class="align-middle" aria-hidden="true">&times;</span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
