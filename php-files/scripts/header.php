@@ -185,7 +185,7 @@ include("../widgets/TimeZoneFormat.php");
 
         <div class="container">
             <!-- Modal -->
-            <div class="modal right fade" id="slideInModal" tabindex="-1" role="dialog">
+            <div class="modal right fade " id="custom-modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div id="custom-title" class="modal-header">
@@ -194,7 +194,7 @@ include("../widgets/TimeZoneFormat.php");
                             </div>
                             <div class="row modal-title m-auto text-center">
                                 <div class="d-inline col-2">
-                                    <i id="custom-icon" class="m-auto fa fa-2x"></i>
+                                    <i id="custom-icon"></i>
                                 </div>
                                 <div class="col-10">
                                     <h4 class="d-inline align-middle dynamic-title"></h4>

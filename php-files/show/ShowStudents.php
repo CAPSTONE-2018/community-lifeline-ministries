@@ -158,14 +158,11 @@ $dynamicRowId = 0;
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
-                    $('#custom-title').removeClass('medical-concern-modal-header contact-modal-header');
-                    $('#custom-title').addClass('test-scores-modal-header');
-
-                    $('#custom-icon').removeClass('fa-address-card-o fa-warning');
-                    $('#custom-icon').addClass('fa-area-chart');
+                    $('#custom-title').removeClass().addClass('modal-header test-scores-modal-header');
+                    $('#custom-icon').removeClass().addClass('m-auto fa fa-area-chart fa-2x');
                     $('.dynamic-title').text("Test Score Info");
                     $('.modal-body').html(response);
-                    $('#slideInModal').modal('show');
+                    $('#custom-modal').modal('show');
                 }
             });
         }
@@ -176,13 +173,11 @@ $dynamicRowId = 0;
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
-                    $('#custom-title').removeClass('test-scores-modal-header medical-concern-modal-header');
-                    $('#custom-title').addClass('contact-modal-header');
-                    $('#custom-icon').removeClass('fa-area-chart fa-warning');
-                    $('#custom-icon').addClass('fa-address-card-o');
+                    $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
+                    $('#custom-icon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
                     $('.dynamic-title').text("Contact Info");
                     $('.modal-body').html(response);
-                    $('#slideInModal').modal('show');
+                    $('#custom-modal').modal('show');
                 }
             });
         }
@@ -193,13 +188,11 @@ $dynamicRowId = 0;
                 type: 'post',
                 data: {studentId: studentId},
                 success: function (response) {
-                    $('#custom-title').removeClass('test-scores-modal-header contact-modal-header');
-                    $('#custom-title').addClass('medical-concern-modal-header');
-                    $('#custom-icon').removeClass('fa-area-chart fa-address-card-o');
-                    $('#custom-icon').addClass('fa-warning');
+                    $('#custom-title').removeClass().addClass('modal-header medical-concern-modal-header');
+                    $('#custom-icon').removeClass().addClass('m-auto fa fa-warning fa-2x');
                     $('.dynamic-title').text("Medical Concerns");
                     $('.modal-body').html(response);
-                    $('#slideInModal').modal('show');
+                    $('#custom-modal').modal('show');
                 }
             });
         }
