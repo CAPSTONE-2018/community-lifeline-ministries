@@ -10,6 +10,7 @@ $programsWithAttendanceRecordArray = [];
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 }
+$selectedDate = "";
 ?>
 <link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
@@ -48,13 +49,8 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     </form>
                 </div>
 
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
+                <div class="nav-item col-sm-4">
+                    <input id="datepicker" width="276" type="text" class="form-control"/>
                 </div>
 
 

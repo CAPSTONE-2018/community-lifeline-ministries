@@ -10,8 +10,6 @@
 <!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
 <!--        crossorigin="anonymous"></script>-->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.14.30/js/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
 
@@ -25,7 +23,7 @@
 
 
     $(function () {
-        $('#datetimepicker').datetimepicker();
+        $('#datepicker').datepicker();
     });
 </script>
 
