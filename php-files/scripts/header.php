@@ -196,8 +196,8 @@ include("../widgets/TimeZoneFormat.php");
                                 <div class="d-inline col-2">
                                     <i id="custom-icon"></i>
                                 </div>
-                                <div class="col-10">
-                                    <h4 class="d-inline align-middle dynamic-title"></h4>
+                                <div id="title-wrapper" class="col-10">
+                                    <h4 id="dynamic-title" class="d-inline align-middle"></h4>
                                 </div>
                             </div>
                             <div class="col-1 align-middle">

@@ -55,9 +55,32 @@
     height: 75px;
 }
 
-.dynamic-title {
+.edit-student-modal-header {
+    background: #1EAAF1;
     color: #fff;
-
+    height: 75px;
+    font-size: 50px;
 }
 
+/*.edit-student-heading{*/
+    /*font-size: 16px;*/
+    /*color: #60C2CB;*/
+    /*margin: 10px 0 20px 0;*/
+    /*text-transform: capitalize;*/
+/*}*/
+
+.edit-student-blue-line-color {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #1EAAF1;
+}
+
+#dynamic-title {
+    color: #fff;
+}
+
+.large-font {
+    font-size: 26px;
+}
 /* ----- MODAL Input Styles ----- */

@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../css/edit-student-modal.css"/>
+<link rel="stylesheet" href="../../css/slide-out-modal.css"/>
 <?php
 include("../../db/config.php");
-
+include("../scripts/States.php");
 $studentId = $_POST['studentId'];
 
 $queryForStudentInfo = "SELECT * FROM Students WHERE Id = '$studentId';";
@@ -18,6 +18,42 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     $studentMiddleName = $studentInfoRow['Middle_Name'];
     $studentSuffix = $studentInfoRow['Suffix'];
     $studentDob = $studentInfoRow['Birth_Date'];
+    $studentGender = $studentInfoRow['Gender'];
+    $studentAddressOne = $studentInfoRow['Address_One'];
+    $studentAddressTwo = $studentInfoRow['Address_Two'];
+    $studentCity = $studentInfoRow['City'];
+    $studentState = $studentInfoRow['State'];
+    $studentZip = $studentInfoRow['Zip'];
+    $studentEthnicity = $studentInfoRow['Ethnicity'];
+    $studentSchool = $studentInfoRow['School'];
+    $studentPermissionSlip = $studentInfoRow['Permission_Slip'];
+    $studentBirthCertificate = $studentInfoRow['Birth_Certificate'];
+    $studentReducedLunch = $studentInfoRow['Reduced_Lunch_Eligible'];
+    $studentIep = $studentInfoRow['IEP'];
+
+    if ($studentPermissionSlip == 0) {
+        $permissionChecked = "";
+    } else {
+        $permissionChecked = "checked";
+    }
+
+    if ($studentReducedLunch == 0) {
+        $reducedLunchChecked = "";
+    } else {
+        $reducedLunchChecked = "checked";
+    }
+
+    if ($studentBirthCertificate == 0) {
+        $birthCertificateChecked = "";
+    } else {
+        $birthCertificateChecked = "checked";
+    }
+
+    if ($studentIep == 0) {
+        $iepChecked = "";
+    } else {
+        $iepChecked = "checked";
+    }
 
     $response = '   
 <form class="container-fluid">
@@ -26,9 +62,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             <div class="form-content">
                 <div class="tab-content">
                     <div class="tab-pane active " id="studentInfo">
-                        <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Personal Info
+                        <h4 class="heading "><i class="glyphicon glyphicon-user"></i> Personal Info
                         </h4>
-                        <div class="blue-line-color"></div>
+                        <div class="edit-student-blue-line-color"></div>
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <div id="floatingStudentFirstName" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -79,22 +115,19 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-4">
                                 <div id="floatingEthnicity" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="ethnicity" class="mdl-textfield__input"
-                                           name="ethnicity"
-                                           type="text"/>
-                                    <label class="mdl-textfield__label"
+                                           name="ethnicity" type="text" value="' . $studentEthnicity . '"/>
+                                    <label class="mdl-textfield__label" 
                                            for="ethnicity">Ethnicity</label>
                                 </div>
                             </div>
 
                             <div class="col-sm-4">
                                 <div id="floatingGender" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                    <input type="text" value="" class="mdl-textfield__input"
-                                           id="gender" readonly>
+                                    <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
                                     <input type="hidden" value="" name="gender">
                                     <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
                                     <label for="gender" class="mdl-textfield__label">Gender</label>
-                                    <ul for="gender"
-                                        class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                    <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                         <li class="mdl-menu__item" data-val="M">Male</li>
                                         <li class="mdl-menu__item" data-val="F">Female</li>
                                     </ul>
@@ -103,12 +136,12 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         </div>
 
                         <h4 class="heading"><i class="glyphicon glyphicon-home"></i> Address</h4>
-                        <div class="blue-line-color"></div>
+                        <div class="edit-student-blue-line-color"></div>
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <div id="floatingAddressOne" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentAddressOne" class="mdl-textfield__input"
-                                           name="studentAddressOne" type="text"/>
+                                           name="studentAddressOne" type="text" value="' . $studentAddressOne . '"/>
                                     <label class="mdl-textfield__label"
                                            for="studentAddressOne">Address</label>
                                 </div>
@@ -116,7 +149,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-6">
                                 <div id="floatingAddressTwo" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentAddressTwo" class="mdl-textfield__input"
-                                           name="studentAddressTwo" type="text"/>
+                                           name="studentAddressTwo" type="text" value="' . $studentAddressTwo . '"/>
                                     <label class="mdl-textfield__label"
                                            for="studentAddressTwo">Apt/Suite</label>
                                 </div>
@@ -127,8 +160,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
                                 <div id="floatingCity" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentCity" class="mdl-textfield__input"
-                                           name="studentCity"
-                                           type="text"/>
+                                           name="studentCity" type="text" value="' . $studentCity . '"/>
                                     <label class="mdl-textfield__label"
                                            for="studentCity">City</label>
                                 </div>
@@ -143,9 +175,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                            class="mdl-textfield__label">State</label>
                                     <ul id="studentState"
                                         class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                        <?php include("../scripts/States.php");
-                                        echo stateDropdown("studentState")
-                                        ?>
+                                        ' . stateDropdown("studentState") . '
                                     </ul>
                                 </div>
                             </div>
@@ -153,25 +183,25 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
                                 <div id="floatingZip" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentZip" class="mdl-textfield__input"
-                                           name="studentZip"
-                                           type="text"/>
-                                    <label class="mdl-textfield__label" for="studentZip">Zip
-                                        Code</label>
+                                           name="studentZip" type="text" value="' . $studentZip . '"/>
+                                    <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
                                 </div>
                             </div>
                         </div>
 
-                        <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
-                        <div class="blue-line-color"></div>
+                        <div class="row col-12">
+                            
+                            <i class="glyphicon glyphicon-file"></i>
+                            <h4 class="col-3 heading"> Documents</h4>
+                        </div>
+                        
+                        <div class="edit-student-blue-line-color"></div>
                         <div class="form-group">
                             <div class="col-sm-10">
-
                                 <div id="floatingSchool" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentSchool" class="mdl-textfield__input"
-                                           name="studentSchool" type="text"/>
-                                    <label class="mdl-textfield__label" for="studentSchool">School
-                                        Currently
-                                        Attending</label>
+                                           name="studentSchool" type="text" value="' . $studentSchool . '"/>
+                                    <label class="mdl-textfield__label" for="studentSchool">School Currently Attending</label>
                                 </div>
                             </div>
 
@@ -181,9 +211,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="toggle-side-label">No</div>
                                     <li class="tg-list-item">
                                         <input class="tgl tgl-flat" id="cb1"
-                                               name="reducedLunchEligibilityCheckbox"
-                                               type="checkbox"
-                                        />
+                                               name="reducedLunchEligibilityCheckbox" type="checkbox" ' . $reducedLunchChecked . '/>
                                         <label class="tgl-btn" for="cb1"></label>
                                     </li>
                                     <div class="toggle-side-label">Yes</div>
@@ -195,9 +223,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 <ul class="tg-list">
                                     <div class="toggle-side-label">No</div>
                                     <li class="tg-list-item">
-                                        <input class="tgl tgl-flat" id="cb2"
-                                               name="permissionSlipCheckbox"
-                                               type="checkbox"/>
+                                        <input class="tgl tgl-flat" id="cb2" name="permissionSlipCheckbox" type="checkbox" ' . $permissionChecked . '/>
                                         <label class="tgl-btn" for="cb2"></label>
                                     </li>
                                     <div class="toggle-side-label">Yes</div>
@@ -205,15 +231,12 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             </div>
 
                             <div class="col-sm-3">
-                                <div class="toggle-title">Birth Certificate on
-                                    File
-                                </div>
+                                <div class="toggle-title">Birth Certificate on File</div>
                                 <ul class="tg-list">
                                     <div class="toggle-side-label">No</div>
                                     <li class="tg-list-item">
                                         <input class="tgl tgl-flat" id="cb3"
-                                               name="birthCertificateCheckbox"
-                                               type="checkbox"/>
+                                               name="birthCertificateCheckbox" type="checkbox" ' . $birthCertificateChecked . '/>
                                         <label class="tgl-btn" for="cb3"></label>
                                     </li>
                                     <div class="toggle-side-label">Yes</div>
@@ -225,8 +248,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 <ul class="tg-list">
                                     <div class="toggle-side-label">No</div>
                                     <li class="tg-list-item">
-                                        <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
-                                               type="checkbox"/>
+                                        <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox" ' . $iepChecked . '/>
                                         <label class="tgl-btn" for="cb4"></label>
                                     </li>
                                     <div class="toggle-side-label">Yes</div>
@@ -238,6 +260,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             </div>
         </div>
     </div>
-</form>';}
+</form>';
+}
 echo $response;
 ?>
