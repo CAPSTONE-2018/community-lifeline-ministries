@@ -33,9 +33,9 @@ $dynamicRowId = 0;
                                 <tr>
                                     <th class="col-sm-1">#</th>
                                     <th class="col-sm-3">Student Name</th>
-                                    <th class="col-sm-2 text-center">Programs</th>
+                                    <th class="col-sm-1 text-center">Programs</th>
                                     <th class="col-sm-1 text-center">Documents</th>
-                                    <th class="col-sm-5 text-center">Actions</th>
+                                    <th class="col-sm-6 text-center">Actions</th>
                                 </tr>
                                 </thead>
 
@@ -56,7 +56,7 @@ $dynamicRowId = 0;
                                             <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                                    value=<?php echo $studentIdToSearch; ?>/>
                                         </td>
-                                        <td class='col-sm-2 align-middle text-center text-align-middle'>
+                                        <td class='col-sm-1 align-middle text-center text-align-middle'>
                                             <?php echo $numberOfPrograms ?>
                                         </td>
                                         <?php
@@ -78,7 +78,7 @@ $dynamicRowId = 0;
                                         }
 
                                         ?>
-                                        <td class='col-5'>
+                                        <td class='col-sm-6 text-center'>
                                             <div class='left-action-buttons-container d-inline m-auto'>
                                                 <div class=' d-inline'>
                                                     <button type='button'

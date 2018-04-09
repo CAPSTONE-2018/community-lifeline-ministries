@@ -69,6 +69,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-6">
                                 <div id="floatingStudentFirstName" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentFirstName" class="mdl-textfield__input"
+                                            onblur="checkForInputs()" onfocus="addStudentFirstNameFocus()"
                                             name="studentFirstName" type="text" value="' . $studentFirstName . '"/>
                                     <label class="mdl-textfield__label" for="firstName">First Name</label>
                                 </div>
@@ -77,6 +78,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-6">
                                 <div id="floatingStudentLastName" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentLastName" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentLastNameFocus()"
                                            name="studentLastName" type="text" value="' . $studentLastName . '"/>
                                     <label class="mdl-textfield__label" for="lastName">Last Name</label>
                                     <span class="mdl-textfield__error">Last Name is Required</span>
@@ -87,6 +89,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-6 col-lg">
                                 <div id="floatingStudentMiddleName" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentMiddleName" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentMiddleNameFocus()"
                                            name="studentMiddleName" type="text" value="' . $studentMiddleName . '"/>
                                     <label class="mdl-textfield__label" for="middleName">Middle Name</label>
                                 </div>
@@ -95,6 +98,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-6">
                                 <div id="floatingStudentSuffix" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentSuffix" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentSuffixFocus()"
                                            name="studentSuffix" type="text" value="' . $studentSuffix . '"/>
                                     <label class="mdl-textfield__label" for="suffix">Suffix</label>
                                 </div>
@@ -106,6 +110,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-4">
                                 <div id="floatingDob" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="dob" class="mdl-textfield__input" 
+                                           onblur="checkForInputs()" onfocus="addStudentDobFocus()"
                                            name="dob" type="text" value="' . $studentDob . '"/>
                                     <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                     <span class="mdl-textfield__error">Input is not a date!</span>
@@ -115,12 +120,13 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             <div class="col-sm-4">
                                 <div id="floatingEthnicity" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="ethnicity" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentEthnicityFocus()"
                                            name="ethnicity" type="text" value="' . $studentEthnicity . '"/>
                                     <label class="mdl-textfield__label" 
                                            for="ethnicity">Ethnicity</label>
                                 </div>
                             </div>
-
+                            
                             <div class="col-sm-4">
                                 <div id="floatingGender" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                     <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
@@ -139,16 +145,18 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         <div class="edit-student-blue-line-color"></div>
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <div id="floatingAddressOne" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div id="floatingStudentAddressOne" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentAddressOne" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentAddressOneFocus()"
                                            name="studentAddressOne" type="text" value="' . $studentAddressOne . '"/>
                                     <label class="mdl-textfield__label"
                                            for="studentAddressOne">Address</label>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div id="floatingAddressTwo" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div id="floatingStudentAddressTwo" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentAddressTwo" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentAddressTwoFocus()"
                                            name="studentAddressTwo" type="text" value="' . $studentAddressTwo . '"/>
                                     <label class="mdl-textfield__label"
                                            for="studentAddressTwo">Apt/Suite</label>
@@ -158,15 +166,16 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         <div class="form-group">
                             <div class="col-sm-4">
 
-                                <div id="floatingCity" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div id="floatingStudentCity" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentCity" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentCityFocus()"
                                            name="studentCity" type="text" value="' . $studentCity . '"/>
                                     <label class="mdl-textfield__label"
                                            for="studentCity">City</label>
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div id="floatingState" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                <div id="floatingStudentState" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                     <input type="text" value="" class="mdl-textfield__input"
                                            id="studentState" readonly>
                                     <input type="hidden" value="" name="studentState">
@@ -181,8 +190,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             </div>
                             <div class="col-sm-4">
 
-                                <div id="floatingZip" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div id="floatingStudentZip" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentZip" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentZipFocus()"
                                            name="studentZip" type="text" value="' . $studentZip . '"/>
                                     <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
                                 </div>
@@ -198,8 +208,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         <div class="edit-student-blue-line-color"></div>
                         <div class="form-group">
                             <div class="col-sm-10">
-                                <div id="floatingSchool" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div id="floatingStudentSchool" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input id="studentSchool" class="mdl-textfield__input"
+                                           onblur="checkForInputs()" onfocus="addStudentSchoolFocus()"
                                            name="studentSchool" type="text" value="' . $studentSchool . '"/>
                                     <label class="mdl-textfield__label" for="studentSchool">School Currently Attending</label>
                                 </div>
