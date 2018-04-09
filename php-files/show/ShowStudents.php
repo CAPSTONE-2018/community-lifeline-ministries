@@ -16,19 +16,40 @@ $inactiveStudentResults = mysqli_query($db, $queryForAllInactiveStudents);
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 $dynamicRowId = 0;
 ?>
+    <script type="text/javascript" src="../../js/FilterFields.js"></script>
     <script type="text/javascript" src="../../js/modals/StudentSlideDownModal.js"></script>
     <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
+    <link rel="stylesheet" href="../../css/input-styles.css"/>
+    <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
+
     <div class="print_div">
         <div class="card">
             <div class="card-header">
-                <h3>Displaying All Students:</h3>
+
+                <div class=" col-12 text-center">
+                    <h3>All Students</h3>
+                </div>
+
+                <div class="row col-12">
+
+                    <div class="search-input-wrapper col-6">
+                        <input id="search-input" type="text" placeholder="Search" onkeyup="FilterFields()">
+                        <i class="align-middle fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+
+<!--                    <input id="search-input" class="mdl-textfield__input" name="searchInput" onkeyup="FilterFields();"-->
+<!--                           type="text" placeholder="Search"/>-->
+<!--                    <label for="search-input" class="fa fa-user input-icon"></label>-->
+                </div>
+
+
             </div>
             <div class="card-body">
                 <div class="card-content">
                     <form class="form-horizontal" method="POST" action="#" name="allStudentsTable"
                           id="allStudentsTable">
                         <div class="table-responsive">
-                            <table id="all-students-table" class="table table-striped table-condensed table-hover">
+                            <table id="search-table" class="table table-striped table-condensed table-hover">
                                 <thead>
                                 <tr>
                                     <th class="col-sm-1">#</th>
