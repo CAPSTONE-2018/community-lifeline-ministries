@@ -134,6 +134,19 @@ $dynamicRowId = 0;
 
 <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
 
+<script type="text/javascript">
+    $('#newAttendanceRecordForm').submit(function(e){
+        e.preventDefault();
+        var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
+        var numberOfTableRows = $("#newAttendanceRecordForm > tbody").children.length + 1;
+        if (numberOfCheckBoxes < numberOfTableRows) {
+            alert("please fill out entire attendance form");
+        } else {
+            document.forms["newAttendanceRecordForm"].submit();
+        }
+    });
+</script>
+
 <?php
 include("../scripts/footer.php");
 ?>
