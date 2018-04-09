@@ -25,24 +25,35 @@ $dynamicRowId = 0;
     <div class="print_div">
         <div class="card">
             <div class="card-header">
-
-                <div class=" col-12 text-center">
+                <div class="col-12 text-center">
                     <h3>All Students</h3>
                 </div>
 
-                <div class="row col-12">
-
+                <div class="row">
                     <div class="search-input-wrapper col-6">
                         <input id="search-input" type="text" placeholder="Search" onkeyup="FilterFields()">
                         <i class="align-middle fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
                     </div>
 
-<!--                    <input id="search-input" class="mdl-textfield__input" name="searchInput" onkeyup="FilterFields();"-->
-<!--                           type="text" placeholder="Search"/>-->
-<!--                    <label for="search-input" class="fa fa-user input-icon"></label>-->
+                    <div class="align-middle m-auto text-right col-6">
+                        <div class="btn-group btn-toggle">
+                            <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">Sons Of
+                                Thunder
+                            </button>
+                            <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible">
+                                Beta
+                            </button>
+                        </div>
+
+                        <div class="btn-group btn-toggle">
+                            <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible2">Hide
+                            </button>
+                            <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible2">
+                                Show
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-
             </div>
             <div class="card-body">
                 <div class="card-content">
@@ -167,81 +178,7 @@ $dynamicRowId = 0;
     <!--    <script src="../../scripts/print.js"></script>-->
 
     <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
-    <script type="text/javascript">
-
-        function launchEditStudentModal(studentId) {
-            $.ajax({
-                url: '../modals/EditStudentModal.php',
-                type: 'POST',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog modal-lg');
-                    $('#custom-title').removeClass().addClass('modal-header edit-student-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-pencil ');
-                    $('#dynamic-title').text("Edit Student Info");
-                    $('#title-wrapper').find('h4').addClass("large-font");
-                    $('.modal-body').html(response);
-                    checkForInputs();
-                    $('#custom-modal').modal("show");
-                }
-            });
-        }
-
-
-        function launchTestScoresModal(studentId) {
-            $.ajax({
-                url: '../modals/TestScoresModal.php',
-                type: 'post',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal right fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog');
-                    $('#custom-title').removeClass().addClass('modal-header test-scores-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-area-chart fa-2x');
-                    $('#dynamic-title').text("Test Score Info");
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal('show');
-                }
-            });
-        }
-
-        function launchContactsModal(studentId) {
-            $.ajax({
-                url: '../modals/ContactsModal.php',
-                type: 'post',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal right fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog');
-                    $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
-                    $('#dynamic-title').text("Contact Info");
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal('show');
-                }
-            });
-        }
-
-        function launchMedicalConcernsModal(studentId) {
-            $.ajax({
-                url: '../modals/MedicalConcernsModal.php',
-                type: 'post',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal right fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog');
-                    $('#custom-title').removeClass().addClass('modal-header medical-concern-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-warning fa-2x');
-                    $('#dynamic-title').text("Medical Concerns");
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal('show');
-                }
-            });
-        }
-    </script>
-
-
+    <script type="text/javascript" src="../../js/ShowStudentsModalScripts.js"></script>
     <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
     <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
 

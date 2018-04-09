@@ -132,15 +132,7 @@ $dynamicRowId = 0;
     </div>
 </div>
 
-<script type="text/javascript">
-    var table = document.getElementsByTagName('table')[0],
-        rows = table.getElementsByClassName('number-row'),
-        text = 'textContent' in document ? 'textContent' : 'innerText';
-    for (var i = 0, len = rows.length; i < len; i++) {
-        var numberToDisplay = i + 1;
-        rows[i].children[0][text] = numberToDisplay + ".";
-    }
-</script>
+<script type="text/javascript" src="../../js/NumberTableRows.js"></script>
 
 <?php
 include("../scripts/footer.php");
