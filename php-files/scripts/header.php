@@ -180,3 +180,38 @@ $userMakingChanges = $_SESSION['loggedIn'];
 
     <!-- Content goes after here - closed by footer -->
     <div class="col-sm-9" id="content">
+<<<<<<< HEAD
+=======
+
+        <div class="container">
+            <!-- Modal -->
+            <div class="modal" id="custom-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" id="custom-size" role="document">
+                    <div class="modal-content">
+                        <div id="custom-title" class="modal-header">
+                            <div class="col-1">
+
+                            </div>
+                            <div class="row modal-title m-auto text-center">
+                                <div class="d-inline col-2">
+                                    <i id="custom-icon"></i>
+                                </div>
+                                <div id="title-wrapper" class="col-10">
+                                    <h4 id="dynamic-title" class="d-inline align-middle"></h4>
+                                </div>
+                            </div>
+                            <div class="col-1 align-middle">
+                                <button type="button" class="close modal-title" data-dismiss="modal" aria-label="Close">
+                                    <span class="align-middle" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+>>>>>>> origin/finishing-student-modals

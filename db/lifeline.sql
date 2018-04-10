@@ -26,7 +26,7 @@ CREATE TABLE Students (
   Middle_Name            VARCHAR(30),
   Suffix                 VARCHAR(10),
   Gender                 CHAR(1),
-  Birth_Date             DATE,
+  Birth_Date             VARCHAR(30),
   Address_One            VARCHAR(40),
   Address_Two            VARCHAR(40),
   City                   VARCHAR(30),

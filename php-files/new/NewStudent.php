@@ -14,8 +14,11 @@ $medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
+<<<<<<< HEAD
 $existingContactsRow = mysqli_fetch_array($existingContactsResult);
 
+=======
+>>>>>>> origin/finishing-student-modals
 ?>
 
 <script src="../../js/new-student-scripts/NewStudentMed.js"></script>

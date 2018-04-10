@@ -1,0 +1,50 @@
+.search-input-wrapper input {
+    width: 100px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 5px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.search-input-wrapper input:focus {
+    border-color: #1E90FF;
+    width: 100%;
+    box-shadow: 0 0 8px 0 #1E90FF;
+}
+
+.search-input-wrapper input {
+    padding-left: 40px;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input-wrapper i {
+    position: absolute;
+    left: 18px;
+    top: 8px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: .3s;
+}
+
+.search-input-wrapper input:focus + i {
+    color: dodgerBlue;
+}
+
+.search-input-wrapper.inputIconBg i {
+    background-color: #aaa;
+    color: #fff;
+    padding: 9px 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-input-wrapper.inputIconBg input:focus + i {
+    color: #fff;
+    background-color: #1E90FF;
+}

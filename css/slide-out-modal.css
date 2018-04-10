@@ -1,0 +1,85 @@
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 420px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal.right .modal-body {
+    padding: 15px 15px 80px;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+    right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.contact-modal-header {
+    background-color: #6640B4;
+    height: 75px;
+    color: #fff;
+}
+
+.medical-concern-modal-header {
+    background-color: #4055B2;
+    height: 75px;
+    color: #fff;
+}
+
+.test-scores-modal-header {
+    background-color: #1FBCD3;
+    color: #fff;
+    height: 75px;
+}
+
+.edit-student-modal-header {
+    background: #1EAAF1;
+    color: #fff;
+    font-size: 50px;
+}
+
+/*.edit-student-heading{*/
+    /*font-size: 16px;*/
+    /*color: #60C2CB;*/
+    /*margin: 10px 0 20px 0;*/
+    /*text-transform: capitalize;*/
+/*}*/
+
+.edit-student-blue-line-color {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #1EAAF1;
+}
+
+#dynamic-title {
+    color: #fff;
+}
+
+.large-font {
+    font-size: 26px;
+}
+/* ----- MODAL Input Styles ----- */
