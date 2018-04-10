@@ -33,7 +33,6 @@ $userMakingChanges = $_SESSION['loggedIn'];
     <link rel="stylesheet" type="text/css" href="../../css/clm.css" />
 </head>
 
-
 <body>
 <!-- Top Nav -->
 <!-- Top Nav -->
