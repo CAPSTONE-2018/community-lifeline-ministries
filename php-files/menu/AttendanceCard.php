@@ -49,8 +49,10 @@ $selectedDate = "";
                     </form>
                 </div>
 
-                <div class="nav-item col-sm-4">
-                    <input id="datepicker" width="276" type="text" class="form-control"/>
+                <div class="nav-item col-sm">
+                    <form id="???" action="???" method="POST">
+                        <input id="datepicker" name="dateToSearch" width="276" type="text" class="form-control"/>
+                    </form>
                 </div>
 
 
