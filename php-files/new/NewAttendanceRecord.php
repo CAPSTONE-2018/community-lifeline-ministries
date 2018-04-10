@@ -31,7 +31,8 @@ $dynamicRowId = 0;
         </div>
         <div class="card-body">
             <div class="card-content">
-                <form class="form-horizontal container-fluid" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
+                <form class="form-horizontal container-fluid" method="POST" action="../add/AddAttendanceRecord.php"
+                      name="newAttendanceRecordForm" id="newAttendanceRecordForm">
 
                     <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
@@ -94,27 +95,8 @@ $dynamicRowId = 0;
                                         <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'><i class=\"glyphicon glyphicon-earphone\"></i>Contact</button>                         
                                     </td>
                                 </tr>";
-                            $studentIdToSearch = $row['Student_Id'];
-                            $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
-                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";
-                            $currentContactForStudent = mysqli_query($db, $queryForContacts);
-                            while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
-                                $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
-                                $contactPhone = $contactRow['Primary_Phone'];
-                                echo "
-                                    <tr class='collapse smooth collapseRow$dynamicRowId'>
-                                    <td></td>
-                                    <td colspan='12'>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
-                                    </td>
-                                    
-                                </tr>
-                                
-                                ";
-                            }
-                        }
-                        ?>
+
+                        }?>
                         </tbody>
                     </table>
                 </form>
@@ -122,7 +104,9 @@ $dynamicRowId = 0;
 
             <div class="card-footer">
                 <div>
-                    <button id="submitAttendance" form="newAttendanceRecordForm" type="submit" class="btn btn-right btn-primary">
+                    <button id="submitAttendance" form="newAttendanceRecordForm" type="button"
+                            onclick ="validateAttendanceRows()"
+                            class="btn btn-right btn-primary">
                         Submit
                     </button>
                 </div>
@@ -135,18 +119,27 @@ $dynamicRowId = 0;
 <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
 
 <script type="text/javascript">
-    $('#newAttendanceRecordForm').submit(function(e){
-        e.preventDefault();
+    function validateAttendanceRows() {
+
         var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
-        var numberOfTableRows = $("#newAttendanceRecordForm > tbody").children.length + 1;
+        var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
+        alert(numberOfTableRows);
+        alert(numberOfCheckBoxes);
         if (numberOfCheckBoxes < numberOfTableRows) {
             alert("please fill out entire attendance form");
         } else {
             document.forms["newAttendanceRecordForm"].submit();
         }
-    });
+    }
 </script>
 
 <?php
 include("../scripts/footer.php");
 ?>
+<!--$studentIdToSearch = $row['Student_Id'];-->
+<!--$queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone-->
+<!--FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";-->
+<!--$currentContactForStudent = mysqli_query($db, $queryForContacts);-->
+<!--while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {-->
+<!--$contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];-->
+<!--$contactPhone = $contactRow['Primary_Phone'];-->
