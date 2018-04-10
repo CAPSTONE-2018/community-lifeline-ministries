@@ -140,3 +140,17 @@ function addStudentSchoolFocus() {
     $('div[id=floatingStudentSchool]').addClass("is-focused");
 }
 
+function addGenderFocus() {
+    var activeId = document.getElementById("floatingGender");
+    $(activeId).addClass("is-focused");
+}
+function removeGenderFocus() {
+    var activeId = document.getElementById("floatingGender");
+    var input = document.getElementById("gender").value;
+
+    if (input === "") {
+        $(activeId).removeClass("is-focused");
+    } else {
+        $(activeId).removeClass("is-focused").addClass("is-dirty");
+    }
+}
