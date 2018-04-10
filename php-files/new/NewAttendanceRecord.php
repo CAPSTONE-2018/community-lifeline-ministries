@@ -123,10 +123,8 @@ $dynamicRowId = 0;
 
         var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
         var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
-        alert(numberOfTableRows);
-        alert(numberOfCheckBoxes);
         if (numberOfCheckBoxes < numberOfTableRows) {
-            alert("please fill out entire attendance form");
+            alert("NEED MODAL STATING NOT EVERY KID WAS SELECTED");
         } else {
             document.forms["newAttendanceRecordForm"].submit();
         }
