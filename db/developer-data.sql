@@ -74,16 +74,6 @@
   INSERT INTO Student_To_Medical_Concerns(Author_Username, Student_Id, Medical_Concern_Id, Medical_Type_Id) VALUES ('Developer', 5, 2, 2);
   INSERT INTO Student_To_Medical_Concerns(Author_Username, Student_Id, Medical_Concern_Id, Medical_Type_Id) VALUES ('Developer', 4, 2, 1);
 
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (1, 3);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (1, 2);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (2, 3);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (2, 1);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (3, 3);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (4, 2);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (5, 1);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (6, 1);
-  INSERT INTO Student_To_Programs(Student_Id, Program_Id) VALUES (7, 2);
-
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 1, 3, 'Uncle');
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 2, 2, 'Father');
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 3, 4, 'Aunt');
@@ -118,3 +108,12 @@
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 4, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 4, 2);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 5, 2);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 1, 3);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 1, 2);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 2, 3);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 2, 1);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 3, 3);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 4, 2);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 5, 1);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 6, 1);
+  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 7, 2);

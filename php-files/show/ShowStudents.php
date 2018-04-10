@@ -37,20 +37,27 @@ $dynamicRowId = 0;
 
                     <div class="align-middle m-auto text-right col-6">
                         <div class="btn-group btn-toggle">
-                            <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">Sons Of
-                                Thunder
-                            </button>
-                            <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible">
-                                Beta
-                            </button>
-                        </div>
-
-                        <div class="btn-group btn-toggle">
-                            <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible2">Hide
-                            </button>
                             <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible2">
-                                Show
+                                Show All
                             </button>
+
+                            <span title='G.E.M.' data-toggle='tooltip'>
+                                <button class="btn btn-default">
+                                    <i class="fa fa-diamond"></i>
+                                </button>
+                            </span>
+
+                            <span title='Sons of Thunder' data-toggle='tooltip'>
+                                <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">
+                                    <i class="fa fa-bolt"></i>
+                                </button>
+                            </span>
+
+                            <span title='Blessing Table' data-toggle='tooltip'>
+                                <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">
+                                    <i class="fa fa-book"></i>
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
