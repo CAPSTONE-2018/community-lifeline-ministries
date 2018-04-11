@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../css/slide-out-modal.css"/>
 <?php
 include("../../db/config.php");
 include("../scripts/States.php");
