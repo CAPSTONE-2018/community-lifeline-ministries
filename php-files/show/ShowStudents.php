@@ -18,13 +18,6 @@ $dynamicRowId = 0;
 
 $studentTableToLookUp = "Students";
 ?>
-    <script type="text/javascript" src="../../js/FilterFields.js"></script>
-    <script type="text/javascript" src="../../js/modals/StudentSlideDownModal.js"></script>
-
-    <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
-    <link rel="stylesheet" href="../../css/input-styles.css"/>
-    <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
-
     <div class="print_div">
         <div class="card">
             <div class="card-header">
@@ -193,11 +186,11 @@ $studentTableToLookUp = "Students";
     <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
     <!--    <script src="../../scripts/print.js"></script>-->
 
-    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
-    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>
-    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
-    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
-    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>
+<!--    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>-->
+<!--    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>-->
+<!--    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>-->
+<!--    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>-->
+<!--    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>-->
 
 <?php
 include("../scripts/footer.php");
