@@ -21,13 +21,11 @@ $archiveUserResponse = '
 
 <script type="text/javascript">
     function archiveUser(studentId) {
-        alert("inside archive user function");
         $.ajax({
             url: "../archive/ArchiveStudent.php",
             method: "POST",
             data: {studentId: studentId},
             success: function (output) {
-                alert(output);
                 if (output == 0) {
                     window.location.href = "../show/ShowStudents.php"
                 } else {
