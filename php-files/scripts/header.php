@@ -20,7 +20,7 @@ include("../widgets/TimeZoneFormat.php");
 
     <title>Community Lifeline Ministries</title>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
-    <link rel="stylesheet" href="../../css/input-styles.css"/>
+    <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Local Bootstrap -->
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
@@ -28,8 +28,17 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
+    <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
+    <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
+    <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
+    <link rel="stylesheet" href="../../css/form-styles.css"/>
+    <link rel="stylesheet" href="../../css/toggle-switch.css"/>
+    <link rel="stylesheet" href="../../css/table-styles.css"/>
+    <link rel="stylesheet" href="../../css/radio-styles.css"/>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 
@@ -79,7 +88,7 @@ include("../widgets/TimeZoneFormat.php");
                     </a>
                 </li>
                 <li>
-                    <a href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false">
+                    <a href="#attendanceSubmenu">
                         <i class="fa fa-calendar-check-o"></i> Attendance
                     </a>
                     <!--                    <ul class="collapse list-unstyled" id="attendanceSubmenu">-->
@@ -96,8 +105,8 @@ include("../widgets/TimeZoneFormat.php");
                         <li><a href="../new/NewStudent.php">Add New</a></li>
                         <li><a href="../show/ShowStudents.php">View All</a></li>
                         <li><a href="../new/NewStudentToProgram.php">Register To Program</a></li>
-                        <li><a href="../new/NewTestScores.php">Test Scores</a></li>
-                        <li><a href="#">Medical Concerns</a></li>
+<!--                        <li><a href="../new/NewTestScores.php">Test Scores</a></li>-->
+<!--                        <li><a href="#">Medical Concerns</a></li>-->
                     </ul>
                 </li>
                 <li>
@@ -107,7 +116,7 @@ include("../widgets/TimeZoneFormat.php");
                     <ul class="collapse list-unstyled" id="contactSubmenu">
                         <li><a href="../new/NewContact.php">Add New</a></li>
                         <li><a href="../show/ShowContacts.php">View All</a></li>
-                        <li><a href="#"></a>Add Student Contact</li>
+                        <li><a href="#">Student Contact</a></li>
                     </ul>
                 </li>
                 <li>
@@ -207,8 +216,9 @@ include("../widgets/TimeZoneFormat.php");
                                 </div>
                             </div>
                             <div class="col-1 align-middle">
-                                <button type="button" class="close modal-title" data-dismiss="modal" aria-label="Close">
-                                    <span class="align-middle" aria-hidden="true">&times;</span>
+                                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                    <i class="fa fa-window-close modal-close-button"></i>
+
                                 </button>
                             </div>
                         </div>

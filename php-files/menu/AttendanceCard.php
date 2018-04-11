@@ -11,7 +11,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 }
 ?>
-<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
+<!--<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>-->
 
 <div class="container-fluid col-sm-8">
     <div class="card text-center">
@@ -26,6 +26,25 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
             <div class="nav nav-pills card-header-pills align-content-center">
                 <div class="nav-item col-sm-4">
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
+
+                        <!-- Select with floating label and arrow -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                            <input type="text" value="" class="mdl-textfield__input" id="sample4" readonly>
+                            <input type="hidden" value="" name="sample4">
+                            <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                            <label for="programListings" class="mdl-textfield__label">Take Attendance</label>
+                            <ul for="programListings" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+
+
+
+
+                                <li class="mdl-menu__item" data-val="DEU">Germany</li>
+                                <li class="mdl-menu__item" data-val="BLR">Belarus</li>
+                                <li class="mdl-menu__item" data-val="RUS">Russia</li>
+                            </ul>
+                        </div>
+
+
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
                                     readonly selected> Start New Record
@@ -35,14 +54,22 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                             while ($programsRow = mysqli_fetch_assoc($programResults)) {
                                 $programId = $programsRow['Id'];
                                 $programNameToDisplay = $programsRow['Program_Name'];
-
-                                if (in_array($programId, $programsWithAttendanceRecordArray)) {
-                                    echo "<option class='custom-size program-select-buttons' disabled value='$programId'>$programNameToDisplay</option>";
-                                } else {
-                                    echo "<option class='custom-size program-select-buttons' value='$programId'>$programNameToDisplay</option>";
+                                $iconToDisplay = '';
+                                if ($programId == 1) {
+                                    $iconToDisplay = "fa fa-bolt";
+                                } else if ($programId == 2) {
+                                    $iconToDisplay = "fa fa-diamond";
+                                } else if ($programId == 3) {
+                                    $iconToDisplay = "fa fa-book";
                                 }
-                            }
-                            ?>
+                                if (in_array($programId, $programsWithAttendanceRecordArray)) { ?>
+                                        <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons'  disabled value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                <?php
+                                } else {?>
+                                        <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                <?php
+                                }
+                            } ?>
                         </select>
                         <noscript><input type="submit" value="Submit"></noscript>
                     </form>
@@ -64,14 +91,22 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                             while ($programsRowToEdit = mysqli_fetch_assoc($resultsForEdit)) {
                                 $programIdToEdit = $programsRowToEdit['Id'];
                                 $programEditNameToDisplay = $programsRowToEdit['Program_Name'];
-
-                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) {
-                                    echo "<option class='custom-size program-select-buttons' value='$programIdToEdit'>$programEditNameToDisplay</option>";
-                                } else {
-                                    echo "<option class='custom-size program-select-buttons' disabled value='$programIdToEdit'>$programEditNameToDisplay</option>";
+                                $iconToDisplay = '';
+                                if ($programIdToEdit == 1) {
+                                    $iconToDisplay = "fa fa-bolt";
+                                } else if ($programIdToEdit == 2) {
+                                    $iconToDisplay = "fa fa-diamond";
+                                } else if ($programIdToEdit == 3) {
+                                    $iconToDisplay = "fa fa-book";
                                 }
-                            }
-                            ?>
+                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) {?>
+                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                    <?php
+                                } else {?>
+                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' disabled value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                    <?php
+                                }
+                            } ?>
                         </select>
                         <noscript><input type="submit" value="Submit"></noscript>
                     </form>
