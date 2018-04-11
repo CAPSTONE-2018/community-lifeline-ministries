@@ -48,7 +48,7 @@ include("../widgets/TimeZoneFormat.php");
         <ul class="nav navbar-nav navbar-left">
             <li>
                 <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                    <i class="glyphicon glyphicon-align-left"></i>
+                    <i class="fa fa-bars"></i>
                 </button>
             </li>
         </ul>
@@ -75,59 +75,74 @@ include("../widgets/TimeZoneFormat.php");
 
                 <li class="Closed">
                     <a href="../index-login/menu.php">
-                        <i class="glyphicon glyphicon-home"></i> Home
+                        <i class="fa fa-home"></i> Home
                     </a>
                 </li>
                 <li>
+                    <a href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-calendar-check-o"></i> Attendance
+                    </a>
+                    <!--                    <ul class="collapse list-unstyled" id="attendanceSubmenu">-->
+                    <!--                        <li><a href="../new/NewProgram.php">Take Attendance</a></li>-->
+                    <!--                        <li><a href="../show/ShowPrograms.php">View All</a></li>-->
+                    <!--                        <li><a href="#">Attendance</a></li>-->
+                    <!--                    </ul>-->
+                </li>
+                <li>
                     <a href="#studentSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-user"></i> Students
+                        <i class="fa fa-graduation-cap"></i> Students
                     </a>
                     <ul class="collapse list-unstyled" id="studentSubmenu">
-                        <li><a href="../new/NewStudent.php">Add</a></li>
-                        <li><a href="../edit/EditStudent.php">Update</a></li>
-                        <li><a href="../show/ShowStudents.php">Display All</a></li>
-                        <li><a href="../new/NewStudentToClass.php">Add To Class</a></li>
-                        <li><a href="../new/NewStudentToProgram.php">Add To Program</a></li>
-                        <li><a href="../new/NewTestScores.php">New Test Score</a></li>
-                        <li><a href="../edit/EditTestScores.php">Update Test Score</a></li>
+                        <li><a href="../new/NewStudent.php">Add New</a></li>
+                        <li><a href="../show/ShowStudents.php">View All</a></li>
+                        <li><a href="../new/NewStudentToProgram.php">Register To Program</a></li>
+                        <li><a href="../new/NewTestScores.php">Test Scores</a></li>
+                        <li><a href="#">Medical Concerns</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#contactSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-earphone"></i> Contacts
+                        <i class="fa fa-address-book-o"></i> Contacts
                     </a>
                     <ul class="collapse list-unstyled" id="contactSubmenu">
-                        <li><a href="../new/NewContact.php">Add</a></li>
-                        <li><a href="../edit/EditContact.php">Update</a></li>
-                        <li><a href="../show/ShowContacts.php">Display All</a></li>
+                        <li><a href="../new/NewContact.php">Add New</a></li>
+                        <li><a href="../show/ShowContacts.php">View All</a></li>
+                        <li><a href="#"></a>Add Student Contact</li>
                     </ul>
                 </li>
                 <li>
                     <a href="#volunteerSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-briefcase"></i> Volunteers
+                        <i class="fa fa-star"></i> Volunteers
                     </a>
                     <ul class="collapse list-unstyled" id="volunteerSubmenu">
-                        <li><a href="../new/NewVolunteerEmployee.php">Add</a></li>
-                        <li><a href="../edit/EditVolunteerEmployee.php">Update</a></li>
+                        <li><a href="../new/NewVolunteerEmployee.php">Add New</a></li>
+                        <li><a href="../edit/EditVolunteerEmployee.php">View All</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#classSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-pencil"></i> Classes & Programs
+                    <a href="#programSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-pencil"></i> Programs
                     </a>
-                    <ul class="collapse list-unstyled" id="classSubmenu">
-                        <li><a href="../new/NewClass.php">New Class</a></li>
-                        <li><a href="../edit/EditClass.php">Update Class</a></li>
-                        <li><a href="../show/ShowClasses.php">Display Classes</a></li>
-                        <li><a href="../new/NewProgram.php">New Program</a></li>
-                        <li><a href="../edit/EditProgram.php">Update Program</a></li>
-                        <li><a href="../show/ShowPrograms.php">Display Programs</a></li>
+                    <ul class="collapse list-unstyled" id="programSubmenu">
+                        <li><a href="../new/NewProgram.php">Add New</a></li>
+                        <li><a href="../show/ShowPrograms.php">View All</a></li>
                         <li><a href="#">Attendance</a></li>
                     </ul>
                 </li>
                 <li>
+                    <a href="#allergySubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-warning"></i> Medical Concerns
+                    </a>
+                    <ul class="collapse list-unstyled" id="allergySubmenu">
+                        <li><a href="#">Add Student Allergy</a></li>
+                        <li><a href="../new/NewMedicalConcern.php">Add New</a></li>
+                        <li><a href="../edit/EditMedicalConcern.php">Update</a></li>
+                        <li><a href="../show/ShowMedicalConcerns.php">Display All</a></li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#reportsSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-duplicate"></i> Reports
+                        <i class="fa fa-line-chart"></i> Reports
                     </a>
                     <ul class="collapse list-unstyled" id="reportsSubmenu">
                         <li><a href="#">Page 1</a></li>
@@ -136,31 +151,22 @@ include("../widgets/TimeZoneFormat.php");
                     </ul>
                 </li>
 
-                <li>
-                    <a href="#allergySubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-alert"></i> Allergies
-                    </a>
-                    <ul class="collapse list-unstyled" id="allergySubmenu">
-                        <li><a href="#">Add Student Allergy</a></li>
-                        <li><a href="../new/NewMedicalConcern.php">Add</a></li>
-                        <li><a href="../edit/EditMedicalConcern.php">Update</a></li>
-                        <li><a href="../show/ShowMedicalConcerns.php">Display All</a></li>
-                    </ul>
-                </li>
+<!--                do we want to get rid of this drop down all together??? we have the searching capability in the view all tables-->
 
-                <li>
-                    <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-search"></i> Search
-                    </a>
-                    <ul class="collapse list-unstyled" id="searchSubmenu">
-                        <li><a href="../search/SearchStudentInfo.php">Student Info</a></li>
-                        <li><a href="../search/SearchVolunteerEmployee.php">Volunteer Info</a></li>
-                        <li><a href="../search/SearchSchedule.php">Schedules</a></li>
-                    </ul>
-                </li>
+
+<!--                <li>-->
+<!--                    <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false">-->
+<!--                        <i class="glyphicon glyphicon-search"></i> Search-->
+<!--                    </a>-->
+<!--                    <ul class="collapse list-unstyled" id="searchSubmenu">-->
+<!--                        <li><a href="../search/SearchStudentInfo.php">Student Info</a></li>-->
+<!--                        <li><a href="../search/SearchVolunteerEmployee.php">Volunteer Info</a></li>-->
+<!--                        <li><a href="../search/SearchSchedule.php">Schedules</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
                 <li>
                     <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-cog"></i> Admin
+                        <i class="fa fa-cogs"></i> Admin
                     </a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li><a href="../new/NewUser.php">New User</a></li>
@@ -168,12 +174,12 @@ include("../widgets/TimeZoneFormat.php");
                 </li>
                 <li>
                     <a href="../index-login/UserDocumentation.php">
-                        <i class="glyphicon glyphicon-question-sign"></i> Help
+                        <i class="fa fa-question-circle"></i> Help
                     </a>
                 </li>
                 <li>
                     <a href="../index-login/logout.php">
-                        <i class="glyphicon glyphicon-off"></i> Logout
+                        <i class="fa fa-power-off"></i> Logout
                     </a>
                 </li>
             </ul>
