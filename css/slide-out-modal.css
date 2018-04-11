@@ -93,4 +93,11 @@
     background-color: #7fc6a6;
     color: #fff;
 }
+
+.warning-modal-header {
+    background-color: #d50000;
+    color: #fff;
+}
+
+
 /* ----- MODAL Input Styles ----- */

@@ -15,9 +15,12 @@ $activeStudentResults = mysqli_query($db, $queryForAllActiveStudents);
 $inactiveStudentResults = mysqli_query($db, $queryForAllInactiveStudents);
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 $dynamicRowId = 0;
+
+$studentTableToLookUp = "Students";
 ?>
     <script type="text/javascript" src="../../js/FilterFields.js"></script>
     <script type="text/javascript" src="../../js/modals/StudentSlideDownModal.js"></script>
+
     <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
     <link rel="stylesheet" href="../../css/input-styles.css"/>
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
@@ -130,8 +133,14 @@ $dynamicRowId = 0;
 
                                                 <div class='d-inline'>
                                                     <button type='button'
-                                                            class='btn large-action-buttons delete-student-button'>
-                                                        <i class='fa fa-trash-o'></i> Delete
+                                                            class='btn large-action-buttons delete-student-button'
+                                                            onclick='launchArchiveUserModal(
+                                                                    "<?php echo $studentIdToSearch; ?>",
+                                                                    "<?php echo $studentTableToLookUp; ?>",
+                                                                    "<?php echo $studentName; ?>"
+                                                                    )'
+                                                    >
+                                                        <i class='fa fa-archive'></i> Archive
                                                     </button>
                                                 </div>
                                             </div>
@@ -188,6 +197,7 @@ $dynamicRowId = 0;
     <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>
     <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
     <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
+    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>
 
 <?php
 include("../scripts/footer.php");
