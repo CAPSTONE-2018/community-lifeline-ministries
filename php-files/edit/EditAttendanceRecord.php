@@ -5,7 +5,7 @@ include("../scripts/header.php");
 include("../../db/config.php");
 include("../widgets/TimeZoneFormat.php");
 
-$programIdToSearch = $_POST['programId'];
+$programIdToSearch = $_POST['programIdToEdit'];
 $dateToSearch = $dateToSubmit;
 
 $queryForProgramName = "SELECT Program_Name From Programs WHERE Id = $programIdToSearch;";

@@ -148,7 +148,7 @@ $studentsResult = mysqli_query($db, $query);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                 <input type="text" class="mdl-textfield__input" id="student" readonly>
                                                 <input type="hidden" name="student">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <i class="mdl-icon-toggle__label fa fa-sort-down"></i>
                                                 <label for="student" class="mdl-textfield__label">Student</label>
                                                 <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php

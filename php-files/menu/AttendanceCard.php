@@ -1,8 +1,9 @@
 <?php
 //connect to database
 include("../../db/config.php");
+include ("../widgets/TimeZoneFormat.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
-$queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = CURDATE();";
+$queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = '$dateToSubmit'";
 $programResults = mysqli_query($db, $queryForAllPrograms);
 $resultsForEdit = mysqli_query($db, $queryForAllPrograms);
 $attendanceRecordResult = mysqli_query($db, $queryDoesAttendanceRecordExist);
@@ -26,25 +27,6 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
             <div class="nav nav-pills card-header-pills align-content-center">
                 <div class="nav-item col-sm-4">
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
-
-                        <!-- Select with floating label and arrow -->
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" value="" class="mdl-textfield__input" id="sample4" readonly>
-                            <input type="hidden" value="" name="sample4">
-                            <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                            <label for="programListings" class="mdl-textfield__label">Take Attendance</label>
-                            <ul for="programListings" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-
-
-
-
-                                <li class="mdl-menu__item" data-val="DEU">Germany</li>
-                                <li class="mdl-menu__item" data-val="BLR">Belarus</li>
-                                <li class="mdl-menu__item" data-val="RUS">Russia</li>
-                            </ul>
-                        </div>
-
-
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
                                     readonly selected> Start New Record
@@ -63,7 +45,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                                     $iconToDisplay = "fa fa-book";
                                 }
                                 if (in_array($programId, $programsWithAttendanceRecordArray)) { ?>
-                                        <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons'  disabled value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                        <option disabled data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
                                 <?php
                                 } else {?>
                                         <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
@@ -83,7 +65,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
 
                 <div class="nav-item col-sm-4">
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
-                        <select onchange="this.form.submit()" name="programId">
+                        <select onchange="this.form.submit()" name="programIdToEdit">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
                                     readonly selected> Edit
                             </option>
@@ -103,7 +85,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                                     <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
                                     <?php
                                 } else {?>
-                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' disabled value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                    <option disabled data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons'  value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
                                     <?php
                                 }
                             } ?>

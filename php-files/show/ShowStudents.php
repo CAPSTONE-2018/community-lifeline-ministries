@@ -60,7 +60,7 @@ $studentTableToLookUp = "Students";
             </div>
             <div class="card-body">
                 <div class="card-content">
-                    <form class="form-horizontal" method="POST" action="#" name="allStudentsTable"
+                    <form method="POST" action="#" name="allStudentsTable"
                           id="allStudentsTable">
                         <div class="table-responsive">
                             <table id="search-table" class="table table-striped table-condensed table-hover">
