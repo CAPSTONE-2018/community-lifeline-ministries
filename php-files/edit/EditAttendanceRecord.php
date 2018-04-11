@@ -24,8 +24,6 @@ $programNameToDisplay = $getInfo['Program_Name'];
 $dynamicRowId = 0;
 
 ?>
-<link rel="stylesheet" href="../../css/table-styles.css"/>
-<link rel="stylesheet" href="../../css/radio-styles.css"/>
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
