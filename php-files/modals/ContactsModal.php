@@ -8,8 +8,10 @@ $queryForContacts = "SELECT * FROM Contacts
             WHERE Student_To_Contacts.Student_Id = '$studentId';";
 $studentContactResults = mysqli_query($db, $queryForContacts);
 $response = '';
+$dynamicRowId = 0;
 
 while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
+    $dynamicRowId++;
     $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
     $contactPhone = $contactRow['Primary_Phone'];
     $contactEmail = $contactRow['Email'];
@@ -20,7 +22,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
     $contactZip = $contactRow['Zip'];
 
     $response = '
-<div class="contact-modal">
+<div class="contact-modal">'; ?>
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
             <i class="fa fa-users"></i>
@@ -28,7 +30,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactName" class="mdl-textfield__input" readonly
-                       value="' . $contactName . '"
+                       value="<?php echo $contactName; ?>"
                        type="text"/>
                 <label class="mdl-textfield__label" for="contactName">Contact Name</label>
             </div>
@@ -42,7 +44,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactPrimaryPhone" class="mdl-textfield__input" readonly
-                       value="' . $contactPhone . '"
+                       value="<?php echo $contactPhone; ?>"
                        type="text"/>
                 <label class="mdl-textfield__label" for="primaryPhone">Primary Phone</label>
             </div>
@@ -56,7 +58,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
-                       value="' . $contactEmail . '"
+                       value="<?php echo $contactEmail; ?>"
                        type="email"/>
                 <label class="mdl-textfield__label" for="contactEmail">Contact Email</label>
             </div>
@@ -65,34 +67,32 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
 
     <p>
         <button class="btn btn-outline" type="button" data-toggle="collapse"
-                aria-controls="collapseAddress'.$dynamicRowId.'"
-                data-target="#collapseAddress' . $dynamicRowId . '"
+                aria-controls="collapseAddress<?php echo $dynamicRowId; ?>"
+                data-target="#collapseAddress<?php echo $dynamicRowId; ?>"
         >
             View Address Info <i class="fa fa-toggle-down"></i>
         </button>
     </p>
 
-    <div class="collapse" id="collapseAddress' . $dynamicRowId . '">
+    <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
         <div class="row form-group">
             <div class="col-2 text-center mt-auto mb-auto">
                 <i class="fa fa-address-book-o"></i>
             </div>
             <div class="col-10">
-
                 <div class="">
-                    ' . $contactAddressOne . " " . $contactAddressTwo . '
+                    <?php echo $contactAddressOne . " " . $contactAddressTwo; ?>
                 </div>
                 <div class="">
-                    ' . $contactCity . ", " . $contactState . '
+                    <?php echo $contactCity . ", " . $contactState; ?>
                 </div>
                 <div class="">
-                    ' . $contactZip . '
+                    <?php echo $contactZip; ?>
                 </div>
-
             </div>
         </div>
     </div>
     <hr>
-</div>';}
-echo $response;
-exit;
+    </div>
+<?php }
+echo $response; ?>
