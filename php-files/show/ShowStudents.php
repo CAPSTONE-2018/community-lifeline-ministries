@@ -185,7 +185,7 @@ $dynamicRowId = 0;
     <!--    <script src="../../scripts/print.js"></script>-->
 
     <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
-    <script type="text/javascript" src="../../js/ShowStudentsModalScripts.js"></script>
+    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>
     <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
     <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
 
