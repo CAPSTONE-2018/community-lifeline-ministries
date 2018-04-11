@@ -25,6 +25,8 @@
 <script src="../../js/modals/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/ArchiveUserModals.js"></script>
 
+<script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
+<script src="../../js/input-styling.min.js"></script>
 
 </div>
 </div>
