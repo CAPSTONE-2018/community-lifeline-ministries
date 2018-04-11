@@ -9,12 +9,6 @@ include("../../db/config.php");
 $query = "SELECT * FROM Contacts;";
 $result = mysqli_query($db, $query);
 ?>
-<script type="text/javascript" src="../../js/FilterFields.js"></script>
-<link rel="stylesheet" href="../../css/form-styles.css"/>
-<link rel="stylesheet" href="../../css/toggle-switch.css"/>
-<link rel="stylesheet" href="../../css/input-styles.css"/>
-<link rel="stylesheet" href="../../css/new-toggle.css"/>
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <h1>Displaying All Contacts:</h1>
 <div class="col-lg">
 
