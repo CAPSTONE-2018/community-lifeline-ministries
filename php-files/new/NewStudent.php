@@ -7,9 +7,6 @@ $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 ?>
-<link rel="stylesheet" href="../../css/form-styles.css"/>
-<link rel="stylesheet" href="../../css/toggle-switch.css"/>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
