@@ -15,11 +15,6 @@ $query = "SELECT Students.First_Name, Students.Last_Name,
 
 $result = mysqli_query($db, $query);
 ?>
-
-<link rel="stylesheet" href="../../css/form-styles.css"/>
-    <link rel="stylesheet" href="../../css/toggle-switch.css"/>
-    <link rel="stylesheet" href="../../css/input-styles.css"/>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <h1>Displaying All Test Scores:</h1>
 <div class="col-lg">
 
