@@ -82,4 +82,10 @@
 .large-font {
     font-size: 26px;
 }
+
+.duplicate-entry-modal-header {
+    background-color: #ff4500;
+    color: #fff;
+
+}
 /* ----- MODAL Input Styles ----- */
