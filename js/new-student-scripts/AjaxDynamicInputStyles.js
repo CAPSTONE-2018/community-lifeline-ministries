@@ -190,17 +190,3 @@ function removeMedicalConcernNoteFocus(dynamicFieldId) {
         $(activeId).removeClass("is-focused").addClass("is-dirty");
     }
 }
-
-
-function addStudentFirstNameFocus() {
-    $('div[id=floatingStudentFirstName]').addClass("is-focused");
-}
-function removeStudentFirstNameFocus() {
-    var userInput = document.getElementById("studentFirstName").value;
-
-    if (userInput === "") {
-        $('div[id=floatingStudentFirstName]').removeClass("is-focused");
-    } else {
-        $('div[id=floatingStudentFirstName]').removeClass("is-focused").addClass("is-dirty");
-    }
-}

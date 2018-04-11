@@ -5,7 +5,7 @@ include("../scripts/header.php");
 include("../../db/config.php");
 include("../widgets/TimeZoneFormat.php");
 
-$programIdToSearch = $_POST['programId'];
+$programIdToSearch = $_POST['programIdToEdit'];
 $dateToSearch = $dateToSubmit;
 
 $queryForProgramName = "SELECT Program_Name From Programs WHERE Id = $programIdToSearch;";
@@ -24,8 +24,6 @@ $programNameToDisplay = $getInfo['Program_Name'];
 $dynamicRowId = 0;
 
 ?>
-<link rel="stylesheet" href="../../css/table-styles.css"/>
-<link rel="stylesheet" href="../../css/radio-styles.css"/>
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">

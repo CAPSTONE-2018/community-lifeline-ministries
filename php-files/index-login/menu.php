@@ -3,11 +3,9 @@ include("../scripts/header.php");
 
 include("../menu/AttendanceCard.php");
 
-include("../scripts/footer.php");
 ?>
 
-
-<script defer src="../../js/pretty-dropdowns.js"></script>
+<script defer src="../../js/PrettyDropdowns.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $dropdown = $('select').prettyDropdown({
@@ -19,3 +17,6 @@ include("../scripts/footer.php");
     // When <select> state changes...
     $dropdown.refresh();
 </script>
+<?php
+include("../scripts/footer.php");
+?>

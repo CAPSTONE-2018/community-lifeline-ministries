@@ -6,15 +6,10 @@ $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 //$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
-//$dynamicRowId = 0;
-
 ?>
-<link rel="stylesheet" href="../../css/form-styles.css"/>
-<link rel="stylesheet" href="../../css/toggle-switch.css"/>
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">
@@ -331,7 +326,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                         <div class="right-align">
                             <!--   Button trigger modal -->
                             <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
-                                    data-toggle="modal" data-target="#exampleModalCenter">
+                                    data-toggle="modal" data-target="#verifyEntryModal">
                                 Verify Info
                             </button>
                         </div>
@@ -343,7 +338,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="verifyEntryModal" tabindex="-1" role="dialog" aria-labelledby="verifyEntryModalTitle"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -374,9 +369,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
     </div>
 </div>
 
-<script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
 <?php include("../scripts/footer.php"); ?>
-<script src="../../js/input-styling.min.js"></script>
+
 <script>
     $(document).ready(function () {
         $('#create-new-contact-button').click(function () {

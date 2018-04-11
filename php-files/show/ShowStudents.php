@@ -15,27 +15,62 @@ $activeStudentResults = mysqli_query($db, $queryForAllActiveStudents);
 $inactiveStudentResults = mysqli_query($db, $queryForAllInactiveStudents);
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 $dynamicRowId = 0;
-?>
 
-    <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
+$studentTableToLookUp = "Students";
+?>
     <div class="print_div">
         <div class="card">
             <div class="card-header">
-                <h3>Displaying All Students:</h3>
+                <div class="col-12 text-center">
+                    <h3>All Students</h3>
+                </div>
+
+                <div class="row">
+                    <div class="search-input-wrapper col-6">
+                        <input id="search-input" type="text" placeholder="Search" onkeyup="FilterFields()">
+                        <i class="align-middle fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="align-middle m-auto text-right col-6">
+                        <div class="btn-group btn-toggle">
+                            <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible2">
+                                Show All
+                            </button>
+
+                            <span title='G.E.M.' data-toggle='tooltip'>
+                                <button class="btn btn-default">
+                                    <i class="fa fa-diamond"></i>
+                                </button>
+                            </span>
+
+                            <span title='Sons of Thunder' data-toggle='tooltip'>
+                                <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">
+                                    <i class="fa fa-bolt"></i>
+                                </button>
+                            </span>
+
+                            <span title='Blessing Table' data-toggle='tooltip'>
+                                <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">
+                                    <i class="fa fa-book"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="card-content">
-                    <form class="form-horizontal" method="POST" action="#" name="allStudentsTable"
+                    <form method="POST" action="#" name="allStudentsTable"
                           id="allStudentsTable">
                         <div class="table-responsive">
-                            <table id="all-students-table" class="table table-striped table-condensed table-hover">
+                            <table id="search-table" class="table table-striped table-condensed table-hover">
                                 <thead>
                                 <tr>
                                     <th class="col-sm-1">#</th>
                                     <th class="col-sm-3">Student Name</th>
-                                    <th class="col-sm-2 text-center">Programs</th>
+                                    <th class="col-sm-1 text-center">Programs</th>
                                     <th class="col-sm-1 text-center">Documents</th>
-                                    <th class="col-sm-5 text-center">Actions</th>
+                                    <th class="col-sm-6 text-center">Actions</th>
                                 </tr>
                                 </thead>
 
@@ -56,7 +91,7 @@ $dynamicRowId = 0;
                                             <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                                    value=<?php echo $studentIdToSearch; ?>/>
                                         </td>
-                                        <td class='col-sm-2 align-middle text-center text-align-middle'>
+                                        <td class='col-sm-1 align-middle text-center text-align-middle'>
                                             <?php echo $numberOfPrograms ?>
                                         </td>
                                         <?php
@@ -78,20 +113,27 @@ $dynamicRowId = 0;
                                         }
 
                                         ?>
-                                        <td class='col-5'>
+                                        <td class='col-sm-6 text-center'>
                                             <div class='left-action-buttons-container d-inline m-auto'>
                                                 <div class=' d-inline'>
                                                     <button type='button'
                                                             class='btn large-action-buttons edit-student-button'
-                                                            onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'>
+                                                            onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'
+                                                    >
                                                         <i class='fa fa-pencil'></i> Edit
                                                     </button>
                                                 </div>
 
                                                 <div class='d-inline'>
                                                     <button type='button'
-                                                            class='btn large-action-buttons delete-student-button'>
-                                                        <i class='fa fa-trash-o'></i> Delete
+                                                            class='btn large-action-buttons delete-student-button'
+                                                            onclick='launchArchiveUserModal(
+                                                                    "<?php echo $studentIdToSearch; ?>",
+                                                                    "<?php echo $studentTableToLookUp; ?>",
+                                                                    "<?php echo $studentName; ?>"
+                                                                    )'
+                                                    >
+                                                        <i class='fa fa-archive'></i> Archive
                                                     </button>
                                                 </div>
                                             </div>
@@ -144,79 +186,11 @@ $dynamicRowId = 0;
     <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
     <!--    <script src="../../scripts/print.js"></script>-->
 
-    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>
-    <script type="text/javascript">
-
-        function launchEditStudentModal(studentId) {
-            $.ajax({
-                url: '../modals/EditStudentModal.php',
-                type: 'POST',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal fade');
-                    $('#custom-size').removeClass().addClass('modal-lg');
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal("show");
-                }
-            });
-        }
-
-
-        function launchTestScoresModal(studentId) {
-            $.ajax({
-                url: '../modals/TestScoresModal.php',
-                type: 'post',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal right fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog');
-                    $('#custom-title').removeClass().addClass('modal-header test-scores-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-area-chart fa-2x');
-                    $('.dynamic-title').text("Test Score Info");
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal('show');
-                }
-            });
-        }
-
-        function launchContactsModal(studentId) {
-            $.ajax({
-                url: '../modals/ContactsModal.php',
-                type: 'post',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal right fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog');
-                    $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
-                    $('.dynamic-title').text("Contact Info");
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal('show');
-                }
-            });
-        }
-
-        function launchMedicalConcernsModal(studentId) {
-            $.ajax({
-                url: '../modals/MedicalConcernsModal.php',
-                type: 'post',
-                data: {studentId: studentId},
-                success: function (response) {
-                    $('#custom-modal').removeClass().addClass('modal right fade');
-                    $('#custom-size').removeClass().addClass('modal-dialog');
-                    $('#custom-title').removeClass().addClass('modal-header medical-concern-modal-header');
-                    $('#custom-icon').removeClass().addClass('m-auto fa fa-warning fa-2x');
-                    $('.dynamic-title').text("Medical Concerns");
-                    $('.modal-body').html(response);
-                    $('#custom-modal').modal('show');
-                }
-            });
-        }
-    </script>
-
-
-    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
-    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
+<!--    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>-->
+<!--    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>-->
+<!--    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>-->
+<!--    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>-->
+<!--    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>-->
 
 <?php
 include("../scripts/footer.php");

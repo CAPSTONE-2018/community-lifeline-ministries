@@ -12,14 +12,12 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
 $response = '';
 
 while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
-    $dynamicRowId++;
-
     $medicalConcernName = $medicalConcernRow['Name'];
     $medicalConcernType = $medicalConcernRow['Type'];
     $medicalConcernNotes = $medicalConcernRow['Note'];
 
     $response = '
-<div class="medical-concern-modal">
+<div class="medical-concern-modal">';?>
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
             <i class="fa fa-bullhorn"></i>
@@ -27,7 +25,7 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactName" class="mdl-textfield__input" readonly
-                       value="' . $medicalConcernName . '"
+                       value="<?php echo $medicalConcernName; ?>"
                        type="text"/>
                 <label class="mdl-textfield__label" for="contactName">Medical Concern</label>
             </div>
@@ -41,7 +39,7 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactPrimaryPhone" class="mdl-textfield__input" readonly
-                       value="' . $medicalConcernType . '"
+                       value="<?php echo $medicalConcernType; ?>"
                        type="text"/>
                 <label class="mdl-textfield__label" for="primaryPhone">Concern Type</label>
             </div>
@@ -56,15 +54,15 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <textarea rows="4" id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
                        type="text">
-                    ' . $medicalConcernNotes . '
+                    <?php echo $medicalConcernNotes; ?>
                 </textarea>
                 <label class="mdl-textfield__label" for="contactEmail">Notes</label>
             </div>
         </div>
     </div>
     <hr>
-</div>';
-}
+</div>
+<?php }
 
 echo $response;
 exit;

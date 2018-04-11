@@ -55,9 +55,52 @@
     height: 75px;
 }
 
-.dynamic-title {
+.edit-student-modal-header {
+    background: #1EAAF1;
+    color: #fff;
+    font-size: 50px;
+}
+
+/*.edit-student-heading{*/
+    /*font-size: 16px;*/
+    /*color: #60C2CB;*/
+    /*margin: 10px 0 20px 0;*/
+    /*text-transform: capitalize;*/
+/*}*/
+
+.edit-student-blue-line-color {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #1EAAF1;
+}
+
+#dynamic-title {
+    color: #fff;
+}
+
+.large-font {
+    font-size: 26px;
+}
+
+.duplicate-entry-modal-header {
+    background-color: #ff4500;
     color: #fff;
 
+}
+
+.successful-entry-modal-header {
+    background-color: #7fc6a6;
+    color: #fff;
+}
+
+.warning-modal-header {
+    background-color: #d50000;
+    color: #fff;
+}
+
+.modal-close-button {
+    color: #fff;
 }
 
 /* ----- MODAL Input Styles ----- */
