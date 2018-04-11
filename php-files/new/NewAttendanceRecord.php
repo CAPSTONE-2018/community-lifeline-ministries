@@ -16,6 +16,7 @@ $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Progr
 $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
 $programNameToDisplay = $getInfo['Program_Name'];
+$programId = $getInfo['Program_Id'];
 $dynamicRowId = 0;
 ?>
 <link rel="stylesheet" href="../../css/table-styles.css"/>
@@ -24,7 +25,16 @@ $dynamicRowId = 0;
     <div class="card">
         <div class="card-header">
             <?php
-            echo "<h3 class='card-title'>Attendance for $programNameToDisplay</h3>";
+
+            if ($programId == 1) {
+                $iconToDisplay = "fa fa-bolt";
+            } else if ($programId == 2) {
+                $iconToDisplay = "fa fa-diamond";
+            } else {
+                $iconToDisplay = "fa fa-book";
+            }
+
+            echo "<h3 class='card-title'><i class='$iconToDisplay'></i> Attendance for  $programNameToDisplay</h3>";
             echo "<h5>$dateToDisplay</h5>";
 
             ?>
