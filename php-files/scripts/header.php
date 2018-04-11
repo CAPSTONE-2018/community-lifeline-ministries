@@ -7,43 +7,42 @@ $account = $_SESSION['account'];
 
 
 $userMakingChanges = $_SESSION['loggedIn'];
-include("../widgets/TimeZoneFormat.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Community Lifeline Ministries</title>
-    <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
+
     <link rel="stylesheet" href="../../css/input-styles.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Local Bootstrap -->
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/clm.css" />
 </head>
-
 
 <body>
 <!-- Top Nav -->
 <!-- Top Nav -->
 <nav class="navbar-default navbar-fixed-top">
     <div class="navbar-user">
-        Signed In As: <?php echo $userMakingChanges ?>
-        <div class="">
-            <? echo $timeToDisplay ?>
-        </div>
+        Signed In As:
+        <?php
+        echo $userMakingChanges
+        ?>
     </div>
-
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
             <li>
@@ -53,8 +52,7 @@ include("../widgets/TimeZoneFormat.php");
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="../index-login/menu.php"><img src="../../images/new-logo.png" alt="CLM Logo" height="25px"></a>
-            </li>
+            <li><a href="../index-login/menu.php"><img src="../../images/new-logo.png" alt="CLM Logo" height="25px"></a></li>
         </ul>
     </div>
 </nav>
@@ -182,6 +180,8 @@ include("../widgets/TimeZoneFormat.php");
 
     <!-- Content goes after here - closed by footer -->
     <div class="col-sm-9" id="content">
+<<<<<<< HEAD
+=======
 
         <div class="container">
             <!-- Modal -->
@@ -196,8 +196,8 @@ include("../widgets/TimeZoneFormat.php");
                                 <div class="d-inline col-2">
                                     <i id="custom-icon"></i>
                                 </div>
-                                <div class="col-10">
-                                    <h4 class="d-inline align-middle dynamic-title"></h4>
+                                <div id="title-wrapper" class="col-10">
+                                    <h4 id="dynamic-title" class="d-inline align-middle"></h4>
                                 </div>
                             </div>
                             <div class="col-1 align-middle">
@@ -214,3 +214,4 @@ include("../widgets/TimeZoneFormat.php");
                 </div>
             </div>
         </div>
+>>>>>>> origin/finishing-student-modals

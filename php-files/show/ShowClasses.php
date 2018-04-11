@@ -13,7 +13,7 @@ $result = mysqli_query($db, $query);
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../css/input-styles.css"/>
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<script type="text/javascript" src="../../js/FilterFields.js"></script>
+<script type="text/javascript" src="../../js/SearchBar.js"></script>
 <h1>Displaying All Classes:</h1>
 <div class="col-lg">
 

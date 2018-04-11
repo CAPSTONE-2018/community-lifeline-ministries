@@ -8,18 +8,18 @@ include("../../db/config.php");
 $query = "SELECT * FROM Medical_Concerns;";
 $result = mysqli_query($db, $query);
 ?>
-<script type="text/javascript" src="../../js/FilterFields.js"></script>
+<script type="text/javascript" src="../../js/SearchBar.js"></script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
 <link rel="stylesheet" href="../../css/input-styles.css"/>
+<link rel="stylesheet" href="../../css/new-toggle.css"/>
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 <h1>Displaying All Medical Concerns:</h1>
 <div class="col-lg">
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input id="searchInput" class="mdl-textfield__input" name="searchInput" onkeyup="FilterFields();"
-               type="text"/>
+        <input id="searchInput" class="mdl-textfield__input" name="searchInput" onkeyup="return FilterFields();" type="text"/>
         <label class="mdl-textfield__label" for="searchInput">Search Medical Conditions</label>
     </div>
 </div>
@@ -74,7 +74,7 @@ include("../scripts/footer.php");
 
 
 <script>
-    $('#show-all-button').on('click', function (e) {
+    $('#show-all-button').on('click', function(e) {
         $('.table-wrapper').slideDown();
         $('#show-all-button').hide();
         $('#show-medical-info').slideUp();

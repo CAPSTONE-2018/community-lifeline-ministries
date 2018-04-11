@@ -70,19 +70,12 @@
             </div>
         </div>
         <div class='col-sm-4'>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                <input type="text" class="mdl-textfield__input"
-                       id="contactState" readonly>
-                <input type="hidden" value="" name="contactState">
-                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                <label for="contactState" class="mdl-textfield__label">State</label>
-                <ul id="contactState"
-                    class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                    <?php include("../scripts/States.php");
-                    echo stateDropdown("contactState")
-                    ?>
-                </ul>
-            </div>
+            <label for='state'>State:</label>
+            <?php
+            include("States.php");
+            $output = '';
+            echo stateDropdown("contactState");
+            ?>
         </div>
         <div class='col-sm-4'>
             <div id="floatingZipCode" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
@@ -92,4 +85,16 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
+
+<script defer src="../../node_modules/pretty-dropdowns/dist/js/jquery.prettydropdowns.js"></script>
+<script>
+    $(document).ready(function () {
+        $dropdown = $('select').prettyDropdown({
+            height: 40,
+            classic: true
+        });
+    });
+    // When <select> state changes...
+    $dropdown.refresh();
+</script>
+<script type="text/javascript" src="../../js/AjaxContactFormStyles.js"></script>

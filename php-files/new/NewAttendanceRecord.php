@@ -4,7 +4,7 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-include("../widgets/TimeZoneFormat.php");
+include("../TimeZoneFormat.php");
 
 $programIdToSearch = $_POST['programId'];
 $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Programs.Program_Name,
@@ -31,7 +31,8 @@ $dynamicRowId = 0;
         </div>
         <div class="card-body">
             <div class="card-content">
-                <form class="form-horizontal container-fluid" method="POST" action="../add/AddAttendanceRecord.php" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
+                <form class="form-horizontal container-fluid" method="POST" action="../add/AddAttendanceRecord.php"
+                      name="newAttendanceRecordForm" id="newAttendanceRecordForm">
 
                     <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
@@ -40,10 +41,10 @@ $dynamicRowId = 0;
                         <tr>
                             <th class="col-sm-1">#</th>
                             <th class="col-sm-3">Student Name</th>
-                            <th class="col-sm-2 text-center">Present</th>
-                            <th class="col-sm-2 text-center">Absent</th>
-                            <th class="col-sm-2 text-center">Tardy</th>
-                            <th class="col-sm-2 text-center">Actions</th>
+                            <th class="col-sm-2 centered-column">Present</th>
+                            <th class="col-sm-2 centered-column">Absent</th>
+                            <th class="col-sm-2 centered-column">Tardy</th>
+                            <th class="col-sm-2">Actions</th>
                         </tr>
                         </thead>
 
@@ -68,21 +69,21 @@ $dynamicRowId = 0;
                                         <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
                                         <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
                                     </td>                                    
-                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                    <td class='radio-input-wrapper col-sm-1 align-middle centered-column'>
                                         <label class='radio-label' for='radio$firstRowId'>
                                             <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='1' id='radio$firstRowId' />
                                             <span class='custom-check-mark green-check'></span>
                                         </label>
                                     </td>
                                     
-                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                    <td class='radio-input-wrapper col-sm-1 align-middle centered-column'>
                                         <label class='radio-label' for='radio$secondRowId'>
                                             <input class='hover-checkbox' type='radio' name='attendanceCheckbox[$dynamicRowId]' value='2' id='radio$secondRowId' />
                                             <span class='custom-check-mark red-check'></span>
                                         </label>
                                     </td>
                                     
-                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                    <td class='radio-input-wrapper col-sm-1 align-middle centered-column'>
                                         <label class='radio-label' for='radio$thirdRowId'>
                                             <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='3' id='radio$thirdRowId' />
                                             <span class='custom-check-mark blue-check'></span>
@@ -90,31 +91,12 @@ $dynamicRowId = 0;
                                     </td>
 
                                     
-                                    <td class='col-sm-2 text-center align-middle'>
+                                    <td class='col-sm-2 align-middle'>
                                         <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'><i class=\"glyphicon glyphicon-earphone\"></i>Contact</button>                         
                                     </td>
                                 </tr>";
-                            $studentIdToSearch = $row['Student_Id'];
-                            $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
-                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";
-                            $currentContactForStudent = mysqli_query($db, $queryForContacts);
-                            while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
-                                $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
-                                $contactPhone = $contactRow['Primary_Phone'];
-                                echo "
-                                    <tr class='collapse smooth collapseRow$dynamicRowId'>
-                                    <td></td>
-                                    <td colspan='12'>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
-                                    </td>
-                                    
-                                </tr>
-                                
-                                ";
-                            }
-                        }
-                        ?>
+
+                        }?>
                         </tbody>
                     </table>
                 </form>
@@ -122,7 +104,9 @@ $dynamicRowId = 0;
 
             <div class="card-footer">
                 <div>
-                    <button id="submitAttendance" form="newAttendanceRecordForm" type="submit" class="btn btn-right btn-primary">
+                    <button id="submitAttendance" form="newAttendanceRecordForm" type="button"
+                            onclick ="validateAttendanceRows()"
+                            class="btn btn-right btn-primary">
                         Submit
                     </button>
                 </div>
@@ -132,16 +116,30 @@ $dynamicRowId = 0;
     </div>
 </div>
 
+<script type="text/javascript" src="../../js/NumberTableRows.js"></script>
+
 <script type="text/javascript">
-    var table = document.getElementsByTagName('table')[0],
-        rows = table.getElementsByClassName('number-row'),
-        text = 'textContent' in document ? 'textContent' : 'innerText';
-    for (var i = 0, len = rows.length; i < len; i++) {
-        var numberToDisplay = i + 1;
-        rows[i].children[0][text] = numberToDisplay + ".";
+    function validateAttendanceRows() {
+
+        var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
+        var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
+        alert(numberOfTableRows);
+        alert(numberOfCheckBoxes);
+        if (numberOfCheckBoxes < numberOfTableRows) {
+            alert("please fill out entire attendance form");
+        } else {
+            document.forms["newAttendanceRecordForm"].submit();
+        }
     }
 </script>
 
 <?php
 include("../scripts/footer.php");
 ?>
+<!--$studentIdToSearch = $row['Student_Id'];-->
+<!--$queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone-->
+<!--FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";-->
+<!--$currentContactForStudent = mysqli_query($db, $queryForContacts);-->
+<!--while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {-->
+<!--$contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];-->
+<!--$contactPhone = $contactRow['Primary_Phone'];-->

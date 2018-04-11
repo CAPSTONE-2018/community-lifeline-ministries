@@ -1,16 +1,30 @@
 <?php
 include("../scripts/header.php");
-include("../../db/config.php");
-$queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
-$medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
-//$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
-$queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
-$existingContactsResult = mysqli_query($db, $queryForExistingContacts);
-//$dynamicRowId = 0;
-
 ?>
+
+<?php
+include("../../db/config.php");
+
+
+$queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
+
+$medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
+$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
+
+$queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
+
+$existingContactsResult = mysqli_query($db, $queryForExistingContacts);
+<<<<<<< HEAD
+$existingContactsRow = mysqli_fetch_array($existingContactsResult);
+
+=======
+>>>>>>> origin/finishing-student-modals
+?>
+
+<script src="../../js/new-student-scripts/NewStudentMed.js"></script>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
+<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
 <div class="container-fluid">
     <div class="row">
@@ -96,16 +110,10 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         </div>
 
                                         <div class="col-sm-4">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
-                                                <input type="hidden" value="" name="gender">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="gender" class="mdl-textfield__label">Gender</label>
-                                                <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <li class="mdl-menu__item" data-val="M">Male</li>
-                                                    <li class="mdl-menu__item" data-val="F">Female</li>
-                                                </ul>
-                                            </div>
+                                            <select id="gender" class="pretty full-width" name="gender">
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -139,19 +147,11 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input"
-                                                       id="studentState" readonly>
-                                                <input type="hidden" value="" name="studentState">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="studentState" class="mdl-textfield__label">State</label>
-                                                <ul id="studentState"
-                                                    class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <?php include("../scripts/States.php");
-                                                    echo stateDropdown("studentState")
-                                                    ?>
-                                                </ul>
-                                            </div>
+                                            <label for="state">State:</label>
+                                            <?php
+                                            include("../scripts/States.php");
+                                            echo stateDropdown("studentState")
+                                            ?>
                                         </div>
                                         <div class="col-sm-4">
 
@@ -224,11 +224,18 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
+                                                           onclick="countChecked()"
+                                                           type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
                                             </ul>
+                                        </div>
+
+                                        <div id="checkboxTest">
+                                            <span>Hello World</span>
+
                                         </div>
                                     </div>
                                 </div>
@@ -236,36 +243,34 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                 <div class="tab-pane" id="studentMedicalConcerns">
                                     <div class="header">Add Medical Info</div>
                                     <div>
-                                        <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
+                                        <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns
+                                        </h4>
                                         <!--Create button to add another medical condition field-->
-                                        <button type="button" id="add-new-medical-concern-button">Add</button>
+                                        <button type="button" id="another" onclick="NewStudentMed()">Add</button>
                                     </div>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="medicalConcernName" class="mdl-textfield__input"
-                                                       name="medicalConcernName" type="text"/>
+                                                <input id="medicalConcernType" class="mdl-textfield__input"
+                                                       name="medicalConcernType" type="text"/>
                                                 <label class="mdl-textfield__label"
-                                                       for="medicalConcernName">Name</label>
+                                                       for="medicalConcernType">Name</label>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" class="mdl-textfield__input" id="medicalConcernType" readonly>
-                                                <input type="hidden" name="medicalConcernType">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="medicalConcernType" class="mdl-textfield__label">Type</label>
-                                                <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                            <label for="sort">Type</label><br>
+                                            <select id="sort" name="sort" class="pretty">
+                                                <option value="position">
                                                     <?php
                                                     while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
-                                                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
+                                                        echo "<option name='medicalConcernType' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</option>";
                                                     }
 
                                                     ?>
-                                                </ul>
-                                            </div>
+                                                </option>
+                                            </select>
                                         </div>
                                         <div class="col-sm-10">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -277,53 +282,50 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="new-medical-concern-layer"></div>
                                 </div>
+                                <div id="newLayer"></div>
                                 <!--Ends the medical concern portion-->
 
                                 <div class="tab-pane" id="studentContact">
 
                                     <div class="header">Add Contact Info</div>
 
-                                    <h4 class="heading"><i class="glyphicon glyphicon-earphone"></i> Student Contact Information</h4>
-                                    <!--Create button to add another contact drop down-->
-                                    <button type="button" id="add-new-contact-dropdown-button">Add</button>
+                                    <h4 class="heading"><i class="glyphicon glyphicon-earphone"></i> Student Contact
+                                        Information</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text"
-                                                       id="studentContact"
-                                                       class="mdl-textfield__input"
-                                                       readonly>
-                                                <input type="hidden" name="studentContact">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="studentContact" class="mdl-textfield__label">Select From Existing Contact</label>
-                                                <ul for="studentContact" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                            <label for="sort">Select From Existing Contact</label><br>
+                                            <select id="sort" name="sort" class="pretty">
+                                                <option value="position">
                                                     <?php
                                                     while ($existingContactsRow = mysqli_fetch_assoc($existingContactsResult)) {
                                                         $contactNameToDisplay = $existingContactsRow['First_Name'] . " " . $existingContactsRow['Last_Name'];
-                                                        echo "<li class='mdl-menu__item' value=" . $existingContactsRow['Id'] . ">" . $contactNameToDisplay . "</li>";
+                                                        echo "<option name='studentContact' value=" . $existingContactsRow['Id'] . ">" . $contactNameToDisplay . "</option>";
                                                     }
+
                                                     ?>
-                                                </ul>
-                                            </div>
+                                                </option>
+                                            </select>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <button type="button" id="create-new-contact-button"
                                                     class="btn btn-outline-primary">Add New Contact
                                             </button>
-                                        </div>
-
-                                        <div class="row col-sm-12 add-new-contact-dropdown">
 
                                         </div>
 
-                                        <div id="show-new-contact-form" class="col-sm-12"></div>
+                                        <div id="show-new-contact-form" class="col-sm-12">
+
+
+                                        </div>
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
                     </form>
 
@@ -366,7 +368,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
             <div class="modal-footer">
                 <div class="right-align">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary">Submit
+                    <button type="submit" id="formSubmitButton" form="newStudentForm" class="btn btn-primary"
+                            onclick="sendForm()">Submit
                     </button>
                 </div>
             </div>
@@ -381,7 +384,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
     $(document).ready(function () {
         $('#create-new-contact-button').click(function () {
             $.ajax({
-                url: "../scripts/AjaxDynamicStudentContact.php",
+                url: "../scripts/AjaxAddContact.php",
                 method: "GET",
                 success: function (output) {
                     $('#show-new-contact-form').slideDown().html(output);
@@ -391,39 +394,6 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
     });
 </script>
 
-<script>
-    var dynamicMedicalConcernId = 0;
-    $(document).ready(function () {
-        $('#add-new-medical-concern-button').click(function () {
-            dynamicMedicalConcernId++;
-            $.ajax({
-                url: "../scripts/AjaxDynamicMedicalConcern.php",
-                method: "POST",
-                data: {dynamicMedicalConcernId: dynamicMedicalConcernId},
-                success: function (output) {
-                    $('.new-medical-concern-layer').slideDown().append(output);
-                }
-            })
-        });
-    });
-</script>
-
-<script type="text/javascript">
-    var dynamicContactId = 0;
-    $(document).ready(function () {
-        $('#add-new-contact-dropdown-button').click(function () {
-            dynamicContactId++;
-            $.ajax({
-                url: "../scripts/AjaxDynamicContactDropdown.php",
-                method: "POST",
-                data: {dynamicContactId: dynamicContactId},
-                success: function (output) {
-                    $('.add-new-contact-dropdown').slideDown().append(output);
-                }
-            })
-        });
-    });
-</script>
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
-<!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
+
+

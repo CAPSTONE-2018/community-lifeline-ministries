@@ -68,7 +68,7 @@ function stateDropdown($optionName, $selected = "IL")
 
     $options = '';
     foreach ($states as $state) {
-        $options .= '<li class="mdl-menu__item" name="'.$optionName.'" value="' . $state[0] . '" ' . check_select($selected, $state[0]) . ' >' . $state[1] . '</li>';
+        $options .= '<li class="mdl-menu__item" value="' . $state[0] . '" ' . check_select($selected, $state[0]) . ' >' . $state[1] . '</li>';
     }
 
     $options .= '';

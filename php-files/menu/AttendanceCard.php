@@ -10,8 +10,9 @@ $programsWithAttendanceRecordArray = [];
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 }
+$selectedDate = "";
 ?>
-<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
+<link rel="stylesheet" href="../../node_modules/pretty-dropdowns/dist/css/prettydropdowns.css"/>
 
 <div class="container-fluid col-sm-8">
     <div class="card text-center">
@@ -28,7 +29,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
-                                    readonly selected> Start New Record
+                                    disabled selected> Start New Record
                             </option>
 
                             <?php
@@ -48,17 +49,18 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     </form>
                 </div>
 
-                <div class="nav-item col-sm-4">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-search"></i> Look Up
-                    </a>
+                <div class="nav-item col-sm">
+                    <form id="???" action="???" method="POST">
+                        <input id="datepicker" name="dateToSearch" width="276" type="text" class="form-control"/>
+                    </form>
                 </div>
+
 
                 <div class="nav-item col-sm-4">
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
-                                    readonly selected> Edit
+                                    disabled selected> Edit
                             </option>
                             <?php
                             while ($programsRowToEdit = mysqli_fetch_assoc($resultsForEdit)) {

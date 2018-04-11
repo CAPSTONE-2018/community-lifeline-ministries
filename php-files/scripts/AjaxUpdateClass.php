@@ -6,6 +6,10 @@ include("../../db/config.php");
 $output = "";
 $id = intval($_POST['classId']);
 
+session_start();
+
+$_SESSION['classId'] = $id;
+
 $query = "SELECT * FROM Classes WHERE Id =$id;";
 $query2 = "SELECT * FROM Schedules WHERE Class_Id =$id;";
 

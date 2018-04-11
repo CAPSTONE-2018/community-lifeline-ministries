@@ -26,7 +26,7 @@ CREATE TABLE Students (
   Middle_Name            VARCHAR(30),
   Suffix                 VARCHAR(10),
   Gender                 CHAR(1),
-  Birth_Date             DATE,
+  Birth_Date             VARCHAR(30),
   Address_One            VARCHAR(40),
   Address_Two            VARCHAR(40),
   City                   VARCHAR(30),
@@ -65,14 +65,11 @@ CREATE TABLE Student_To_Medical_Concerns (
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
   Medical_Concern_Id     INT(10),
-  Medical_Type_Id        INT(10),
   Note                   VARCHAR(500),
   CONSTRAINT FK_Student_Id_Medical_Concerns FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
   CONSTRAINT FK_Medical_Id_Medical_Concerns FOREIGN KEY (Medical_Concern_Id)
-  REFERENCES Medical_Concerns (Id),
-  CONSTRAINT FK_Medical_Type_Id_Medical_Concerns FOREIGN KEY (Medical_Type_Id)
-  REFERENCES Medical_Concern_Types (Id)
+  REFERENCES Medical_Concerns (Id)
 );
 
 CREATE TABLE Programs (

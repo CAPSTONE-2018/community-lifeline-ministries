@@ -1,5 +1,3 @@
-// Dynamic New Student Contact Styles
-
 function addFirstNameFocus() {
     $('div[id=floatingFirstName]').addClass("is-focused");
 }
@@ -138,6 +136,8 @@ function removeZipCodeFocus() {
     } else {
         $('div[id=floatingZipCode]').removeClass("is-focused").addClass("is-dirty");
     }
+<<<<<<< HEAD:js/AjaxContactFormStyles.js
+=======
 }
 
 
@@ -189,18 +189,5 @@ function removeMedicalConcernNoteFocus(dynamicFieldId) {
     } else {
         $(activeId).removeClass("is-focused").addClass("is-dirty");
     }
-}
-
-
-function addStudentFirstNameFocus() {
-    $('div[id=floatingStudentFirstName]').addClass("is-focused");
-}
-function removeStudentFirstNameFocus() {
-    var userInput = document.getElementById("studentFirstName").value;
-
-    if (userInput === "") {
-        $('div[id=floatingStudentFirstName]').removeClass("is-focused");
-    } else {
-        $('div[id=floatingStudentFirstName]').removeClass("is-focused").addClass("is-dirty");
-    }
+>>>>>>> origin/finishing-student-modals:js/new-student-scripts/AjaxDynamicInputStyles.js
 }
