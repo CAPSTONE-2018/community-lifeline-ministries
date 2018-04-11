@@ -17,3 +17,23 @@ function launchDuplicateEntryModal(duplicateEntryTitleToPassThrough, submissionT
         }
     });
 }
+
+function launchSuccessfulEntryModal(successfulEntryTitle, submissionType) {
+    $.ajax({
+        url: '../modals/SuccessfulEntryModal.php',
+        type: 'post',
+        data: {
+            successfulEntryTitle: successfulEntryTitle,
+            submissionType: submissionType
+        },
+        success: function (response) {
+            $('#custom-modal').removeClass().addClass('modal fade');
+            $('#custom-size').removeClass().addClass('modal-dialog');
+            $('#custom-title').removeClass().addClass('modal-header successful-entry-modal-header');
+            $('#custom-icon').removeClass().addClass('m-auto fa fa-check fa-2x');
+            $('#dynamic-title').text("Success! Entry Added");
+            $('.modal-body').html(response);
+            $('#custom-modal').modal('show');
+        }
+    });
+}

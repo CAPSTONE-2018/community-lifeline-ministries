@@ -37,7 +37,7 @@ $result = mysqli_query($db, $query);
         </form>
     </div>
 </div>
-<script type="text/javascript" src="../../js/modals/DuplicateEntriesModal.js"></script>
+<script type="text/javascript" src="../../js/modals/ValidateEntriesModal.js"></script>
 
 <script type="text/javascript">
     function validateProgramName() {
@@ -51,10 +51,9 @@ $result = mysqli_query($db, $query);
                 if (data == 1) {
                     launchDuplicateEntryModal(programName, submissionType);
                 } else if (data == 001) {
-                    alert("could not enter in database");
-
+                    alert("something went wrong with the database");
                 } else if (data == 0) {
-                    alert("program enter successfully");
+                    launchSuccessfulEntryModal(programName, submissionType);
                 }
             }
         });
