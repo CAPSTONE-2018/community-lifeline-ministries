@@ -19,6 +19,11 @@ include("../widgets/TimeZoneFormat.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Community Lifeline Ministries</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
     <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
@@ -36,9 +41,6 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/toggle-switch.css"/>
     <link rel="stylesheet" href="../../css/table-styles.css"/>
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 

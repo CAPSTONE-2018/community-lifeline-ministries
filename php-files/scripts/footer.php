@@ -16,6 +16,7 @@
         $('[data-toggle="tooltip"]').tooltip({trigger: "hover"});
     });
 
+
 </script>
 
 <script src="../../js/CapitalizeFirstLetter.js"></script>

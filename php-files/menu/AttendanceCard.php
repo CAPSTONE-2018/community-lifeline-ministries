@@ -11,6 +11,15 @@ $programsWithAttendanceRecordArray = [];
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 }
+
+
+
+$datePickerResult = null;
+if(isset($_POST['datePickerResult'])){
+    $datePickerResult = $_POST['datePickerResult'];
+}
+$queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePickerResult'";
+
 ?>
 <!--<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>-->
 
@@ -22,6 +31,18 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
         <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <div class="nav-item col-lg">
+                <input id="datepicker" width="276" name="datePickerResult" method='POST'/>
+                <script>
+                    $('#datepicker').datepicker();
+                </script>
+
+                <?php
+                    echo $datePickerResult;
+                    echo " HELLO";
+                ?>
+
+            </div>
         </div>
         <div class="card-footer text-muted align-content-center">
             <div class="nav nav-pills card-header-pills align-content-center">
@@ -55,12 +76,6 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                         </select>
                         <noscript><input type="submit" value="Submit"></noscript>
                     </form>
-                </div>
-
-                <div class="nav-item col-sm-4">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-search"></i> Look Up
-                    </a>
                 </div>
 
                 <div class="nav-item col-sm-4">
