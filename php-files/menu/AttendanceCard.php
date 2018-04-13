@@ -33,7 +33,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                 <div class="nav-item col-sm-6">
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
-                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
+                            <option data-prefix="<span aria-hidden='true' class='fa fa-plus'></span>"
                                     readonly selected> Start New Record
                             </option>
 
@@ -69,8 +69,9 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
 
                 <div class="nav-item col-sm-6">
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
+                        <input type="hidden" name="programDateToSearch" value="<?php echo $dateToSubmit; ?>"/>
                         <select onchange="this.form.submit()" name="programIdToEdit">
-                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
+                            <option data-prefix="<span aria-hidden='true' class='fa fa-pencil'></span>"
                                     readonly selected> Edit
                             </option>
                             <?php
