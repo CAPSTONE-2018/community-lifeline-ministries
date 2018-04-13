@@ -45,13 +45,10 @@ include("../widgets/TimeZoneFormat.php");
 
 <body>
 <!-- Top Nav -->
-<!-- Top Nav -->
 <nav class="navbar-default navbar-fixed-top">
     <div class="navbar-user">
         Signed In As: <?php echo $userMakingChanges ?>
-        <div class="">
-            <? echo $timeToDisplay ?>
-        </div>
+        <div id="timer"></div>
     </div>
 
     <div class="navbar-collapse collapse">
