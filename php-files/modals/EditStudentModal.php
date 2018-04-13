@@ -60,7 +60,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
         <div class="form-content">
             <div class="tab-content">
                 <div class="tab-pane active " id="studentInfo">
-                    <h4 class="heading "><i class="glyphicon glyphicon-user"></i> Personal Info
+                    <h4 class="heading "><i class="fa fa-user"></i> Personal Info
                     </h4>
                     <div class="edit-student-blue-line-color"></div>
                     <div class="form-group">
@@ -135,11 +135,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                 <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
                                 <input type="hidden" value="" name="gender">
-                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                                 <label for="gender" class="mdl-textfield__label">Gender</label>
                                 <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">.';
-
-
                                     <li class="mdl-menu__item" data-val="M">Male</li>
                                     <li class="mdl-menu__item" data-val="F">Female</li>
                                 </ul>
@@ -147,7 +145,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         </div>
                     </div>
 
-                    <h4 class="heading"><i class="glyphicon glyphicon-home"></i> Address</h4>
+                    <h4 class="heading"><i class="fa fa-home"></i> Address</h4>
                     <div class="edit-student-blue-line-color"></div>
                     <div class="form-group">
                         <div class="col-sm-6">
@@ -189,7 +187,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 <input type="text" value="" class="mdl-textfield__input"
                                        id="studentState" readonly>
                                 <input type="hidden" value="" name="studentState">
-                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                                 <label for="studentState"
                                        class="mdl-textfield__label">State</label>
                                 <ul id="studentState"
@@ -212,7 +210,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
                     <div class="row col-12">
 
-                        <i class="glyphicon glyphicon-file"></i>
+                        <i class="fa fa-file"></i>
                         <h4 class="col-3 heading"> Documents</h4>
                     </div>
 
