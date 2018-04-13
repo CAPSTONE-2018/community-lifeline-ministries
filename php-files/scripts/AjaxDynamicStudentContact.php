@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <h4 class='heading'><i class='glyphicon glyphicon-home'></i> Address</h4>
+    <h4 class='heading'><i class='fa fa-home'></i> Address</h4>
     <div class='blue-line-color'></div>
     <div class='form-group'>
         <div class='col-sm-6'>
@@ -74,7 +74,7 @@
                 <input type="text" class="mdl-textfield__input"
                        id="contactState" readonly>
                 <input type="hidden" value="" name="contactState">
-                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                 <label for="contactState" class="mdl-textfield__label">State</label>
                 <ul id="contactState"
                     class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">

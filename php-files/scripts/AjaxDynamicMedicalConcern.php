@@ -30,7 +30,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                    onblur="removeMedicalConcernTypeFocus(<?php echo $dynamicMedicalConcernId; ?>)"/>
             <input type="hidden"
                    name="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"/>
-            <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+            <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
             <label for="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>" class="mdl-textfield__label">Type</label>
             <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                 <?php

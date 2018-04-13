@@ -72,3 +72,42 @@ form{
     border: 0;
     border-top: 1px solid #3EA6A2;
 }
+
+.add-student-contact-button {
+    width: 55%;
+    height: 7%;
+    color: #007bff;
+    background-color: transparent;
+    border-color: #007bff;
+}
+
+.add-student-contact-button:hover {
+
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+
+}
+
+.add-student-contact-button:focus, .add-student-contact-button.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.add-student-contact-button.disabled, .add-student-contact-button:disabled {
+    color: #007bff;
+    background-color: transparent;
+}
+
+.add-student-contact-button:not(:disabled):not(.disabled):active,
+.add-student-contact-button:not(:disabled):not(.disabled).active,
+.show > .add-student-contact-button.dropdown-toggle {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.add-student-contact-button:not(:disabled):not(.disabled):active:focus,
+.add-student-contact-button:not(:disabled):not(.disabled).active:focus,
+.show > .add-student-contact-button.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}

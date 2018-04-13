@@ -31,9 +31,9 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                         <div class="form-content">
                             <div class="tab-content">
                                 <div class="tab-pane active " id="studentInfo">
-                                    <div class="header">Add Student Info</div>
+                                    <div class="header"><i class="fa fa-graduation-cap"></i> Student Info</div>
 
-                                    <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Personal Info</h4>
+                                    <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -92,9 +92,10 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input" id="gender" readonly>
+                                                <input type="text" value="" class="mdl-textfield__input" id="gender"
+                                                       readonly>
                                                 <input type="hidden" value="" name="gender">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                                                 <label for="gender" class="mdl-textfield__label">Gender</label>
                                                 <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <li class="mdl-menu__item" data-val="M">Male</li>
@@ -104,7 +105,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         </div>
                                     </div>
 
-                                    <h4 class="heading"><i class="glyphicon glyphicon-home"></i> Address</h4>
+                                    <h4 class="heading"><i class="fa fa-home"></i> Address</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -138,7 +139,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                 <input type="text" value="" class="mdl-textfield__input"
                                                        id="studentState" readonly>
                                                 <input type="hidden" value="" name="studentState">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                                                 <label for="studentState" class="mdl-textfield__label">State</label>
                                                 <ul id="studentState"
                                                     class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
@@ -158,7 +159,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         </div>
                                     </div>
 
-                                    <h4 class="heading"><i class="glyphicon glyphicon-file"></i> Documents</h4>
+                                    <h4 class="heading"><i class="fa fa-file"></i> Documents</h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-10">
@@ -219,7 +220,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             <ul class="tg-list">
                                                 <div class="toggle-side-label">No</div>
                                                 <li class="tg-list-item">
-                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox" type="checkbox"/>
+                                                    <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
+                                                           type="checkbox"/>
                                                     <label class="tgl-btn" for="cb4"></label>
                                                 </li>
                                                 <div class="toggle-side-label">Yes</div>
@@ -229,9 +231,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                 </div>
                                 <!--Medical concern tab-->
                                 <div class="tab-pane" id="studentMedicalConcerns">
-                                    <div class="header">Add Medical Info</div>
+                                    <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
                                     <div>
-                                        <h4 class="heading"><i class="glyphicon glyphicon-alert"></i> Medical Concerns</h4>
                                         <!--Create button to add another medical condition field-->
                                         <button type="button" id="add-new-medical-concern-button">Add</button>
                                     </div>
@@ -248,11 +249,14 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" class="mdl-textfield__input" id="medicalConcernType" readonly>
+                                                <input type="text" class="mdl-textfield__input" id="medicalConcernType"
+                                                       readonly>
                                                 <input type="hidden" name="medicalConcernType">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="medicalConcernType" class="mdl-textfield__label">Type</label>
-                                                <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
+                                                <label for="medicalConcernType"
+                                                       class="mdl-textfield__label">Type</label>
+                                                <ul for="medicalConcernType"
+                                                    class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
                                                         echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
@@ -278,23 +282,30 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                 <div class="tab-pane" id="studentContact">
 
-                                    <div class="header">Add Contact Info</div>
+                                    <div class="header"><i class="fa fa-address-book"></i> Contact Info</div>
 
-                                    <h4 class="heading"><i class="glyphicon glyphicon-earphone"></i> Student Contact Information</h4>
-                                    <!--Create button to add another contact drop down-->
-                                    <button type="button" id="add-new-contact-dropdown-button">Add</button>
                                     <div class="blue-line-color"></div>
+                                    <h4 class="heading"></h4>
+                                    <!--Create button to add another contact drop down-->
+                                    <div>
+                                        <button type="button" id="add-new-contact-dropdown-button">Add</button>
+                                    </div>
+
+
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                 <input type="text"
-                                                       id="studentContact"
+                                                       id="studentContactDropdown"
                                                        class="mdl-textfield__input"
                                                        readonly>
-                                                <input type="hidden" name="studentContact">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="studentContact" class="mdl-textfield__label">Select From Existing Contact</label>
-                                                <ul for="studentContact" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                <input type="hidden" name="studentContactDropdown">
+                                                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
+                                                <label for="studentContactDropdown" class="mdl-textfield__label">Select
+                                                    From
+                                                    Existing Contact</label>
+                                                <ul for="studentContactDropdown"
+                                                    class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($existingContactsRow = mysqli_fetch_assoc($existingContactsResult)) {
                                                         $contactNameToDisplay = $existingContactsRow['First_Name'] . " " . $existingContactsRow['Last_Name'];
@@ -305,17 +316,142 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6">
-                                            <button type="button" id="create-new-contact-button"
-                                                    class="btn btn-outline-primary">Add New Contact
-                                            </button>
+                                        <div class="col-sm-6 text-center">
+                                            <div class="col-sm-12 m-auto">
+                                                <button class="add-student-contact-button" type="button" data-toggle="collapse"
+                                                        data-target="#collapseContactOne" aria-expanded="false"
+                                                        aria-controls="collapseContactOne">
+                                                    Add New Contact
+                                                </button>
+                                            </div>
                                         </div>
+                                    </div>
 
-                                        <div class="row col-sm-12 add-new-contact-dropdown">
+                                    <div class="form-group">
+                                        <div class="collapse" id="collapseContactOne">
+                                            <div class="card card-body">
+                                                <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
+                                                <div class="blue-line-color"></div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-6">
+                                                        <div id="floatingFirstName"
+                                                             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                            <input id="contactFirstName" class="mdl-textfield__input"
+                                                                   name="contactFirstName"
+                                                                   type="text"/>
+                                                            <label class="mdl-textfield__label" for="contactFirstName">First
+                                                                Name</label>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class='col-sm-6'>
+                                                        <div id="floatingLastName"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactLastName' class='mdl-textfield__input'
+                                                                   name='contactLastName' type='text'/>
+                                                            <label class='mdl-textfield__label' for='contactLastName'>Last
+                                                                Name</label>
+                                                            <span class='mdl-textfield__error'>Last Name is Required</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class='form-group'>
+                                                    <div class='col-sm-6'>
+                                                        <div id="floatingPrimaryPhone"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactPrimaryPhone' class='mdl-textfield__input'
+                                                                   name='contactPrimaryPhone' type='text'/>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactPrimaryPhone'>Primary Phone</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class='col-sm-6'>
+                                                        <div id="floatingSecondaryPhone"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactSecondaryPhone'
+                                                                   class='mdl-textfield__input'
+                                                                   name='contactSecondaryPhone' type='text'/>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactSecondaryPhone'>Secondary Phone</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-6">
+                                                        <div id="floatingEmail"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactEmail' class='mdl-textfield__input'
+                                                                   name='contactEmail' type='text'/>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactEmail'>Email</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-6">
+                                                        <div id="floatingRelationship"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactRelationToStudent'
+                                                                   class='mdl-textfield__input'
+                                                                   name='contactRelationToStudent' type='text'/>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactRelationToStudent'>Relationship To
+                                                                Student</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h4 class='heading'><i class='fa fa-home'></i> Address
+                                                </h4>
+                                                <div class='blue-line-color'></div>
+                                                <div class='form-group'>
+                                                    <div class='col-sm-6'>
+                                                        <div id="floatingAddressOne"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactAddressOne' class='mdl-textfield__input'
+                                                                   name='contactAddressOne' type='text'/>
+                                                            <label class='mdl-textfield__label' for='contactAddressOne'>Address</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class='col-sm-6'>
+                                                        <div id="floatingAddressTwo"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactAddressTwo' class='mdl-textfield__input'
+                                                                   name='contactAddressTwo' type='text'/>
+                                                            <label class='mdl-textfield__label' for='contactAddressTwo'>Apt/Suite</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class='form-group'>
+                                                    <div class='col-sm-4'>
+                                                        <div id="floatingCity" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactCity' class='mdl-textfield__input' name='contactCity' type='text'/>
+                                                            <label class='mdl-textfield__label' for='contactCity'>City</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class='col-sm-4'>
+                                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="" class="mdl-textfield__input"
+                                                                   id="studentState" readonly>
+                                                            <input type="hidden" value="" name="studentState">
+                                                            <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
+                                                            <label for="studentState"
+                                                                   class="mdl-textfield__label">State</label>
+                                                            <ul id="studentState"
+                                                                class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                                <?php echo stateDropdown("contactState"); ?>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class='col-sm-4'>
+                                                        <div id="floatingZipCode"
+                                                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                                            <input id='contactZip' class='mdl-textfield__input' name='contactZip' type='text'/>
+                                                            <label class='mdl-textfield__label' for='contactZip'>Zip Code</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-
-                                        <div id="show-new-contact-form" class="col-sm-12"></div>
                                     </div>
                                 </div>
                             </div>
@@ -369,22 +505,6 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
     </div>
 </div>
 
-<?php include("../scripts/footer.php"); ?>
-
-<script>
-    $(document).ready(function () {
-        $('#create-new-contact-button').click(function () {
-            $.ajax({
-                url: "../scripts/AjaxDynamicStudentContact.php",
-                method: "GET",
-                success: function (output) {
-                    $('#show-new-contact-form').slideDown().html(output);
-                }
-            })
-        });
-    });
-</script>
-
 <script>
     var dynamicMedicalConcernId = 0;
     $(document).ready(function () {
@@ -421,3 +541,4 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 <script src="../../js/new-student-scripts/NewStudentModal.js"></script>
 <script type="text/javascript" src="../../js/MdlSelect.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
+<?php include("../scripts/footer.php"); ?>
