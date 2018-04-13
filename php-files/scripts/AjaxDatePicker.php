@@ -10,7 +10,7 @@ include("../../db/config.php");
 
 
 $dateToSearch = $_POST['dateToSearch'];
-$queryForDatePicker = "SELECT DISTINCT Attendance.ProgramId, Programs.Program_Name FROM Attendance JOIN Programs ON Attendance.Program_Id = Programs.Id WHERE Date = '$dateToSearch';";
+$queryForDatePicker = "SELECT DISTINCT Attendance.Program_Id, Programs.Program_Name FROM Attendance JOIN Programs ON Attendance.Program_Id = Programs.Id WHERE Date = '$dateToSearch';";
 $datePickerResults = mysqli_query($db, $queryForDatePicker);
 
 $dynamicId = 0;
