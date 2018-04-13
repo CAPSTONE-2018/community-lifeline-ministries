@@ -157,20 +157,6 @@ include("../widgets/TimeZoneFormat.php");
                         <li><a href="#">Page 3</a></li>
                     </ul>
                 </li>
-
-<!--                do we want to get rid of this drop down all together??? we have the searching capability in the view all tables-->
-
-
-<!--                <li>-->
-<!--                    <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false">-->
-<!--                        <i class="glyphicon glyphicon-search"></i> Search-->
-<!--                    </a>-->
-<!--                    <ul class="collapse list-unstyled" id="searchSubmenu">-->
-<!--                        <li><a href="../search/SearchStudentInfo.php">Student Info</a></li>-->
-<!--                        <li><a href="../search/SearchVolunteerEmployee.php">Volunteer Info</a></li>-->
-<!--                        <li><a href="../search/SearchSchedule.php">Schedules</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
                 <li>
                     <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="fa fa-cogs"></i> Admin

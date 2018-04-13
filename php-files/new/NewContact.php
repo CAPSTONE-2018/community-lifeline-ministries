@@ -117,7 +117,7 @@ $studentsResult = mysqli_query($db, $query);
                                                 <input type="text" value="" class="mdl-textfield__input"
                                                        id="studentState" readonly>
                                                 <input type="hidden" value="" name="studentState">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                                                 <label for="studentState" class="mdl-textfield__label">State</label>
                                                 <ul id="studentState"
                                                     class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
