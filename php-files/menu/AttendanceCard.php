@@ -1,7 +1,7 @@
 <?php
 //connect to database
 include("../../db/config.php");
-include ("../widgets/TimeZoneFormat.php");
+include("../widgets/TimeZoneFormat.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = '$dateToSubmit'";
 $programResults = mysqli_query($db, $queryForAllPrograms);
@@ -13,12 +13,13 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
 }
 
 
-
+/*
 $datePickerResult = null;
 if(isset($_POST['datePickerResult'])){
     $datePickerResult = $_POST['datePickerResult'];
 }
 $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePickerResult'";
+*/
 
 ?>
 <!--<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>-->
@@ -28,19 +29,16 @@ $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePick
         <div class="card-header">
             Message On If Attendance Was Taken Today
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <div class="nav-item col-lg">
-                <input id="datepicker" width="276" name="datePickerResult" method='POST'/>
-                <script>
-                    $('#datepicker').datepicker();
-                </script>
 
-                <?php
-                    echo $datePickerResult;
-                    echo " HELLO";
-                ?>
+        <div class="card-body col-sm-12">
+            <div class="form-group row text-center">
+                <div class="form-group row text-center">
+                    <input id="datepicker" width="276" name="datePickerResult" onchange="checkForDate()"/>
+                </div>
+
+                <div class="form-group row text-center">
+                    <div id="programsToDisplay" class="m-auto"></div>
+                </div>
 
             </div>
         </div>
@@ -66,11 +64,16 @@ $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePick
                                     $iconToDisplay = "fa fa-book";
                                 }
                                 if (in_array($programId, $programsWithAttendanceRecordArray)) { ?>
-                                        <option disabled data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
-                                <?php
-                                } else {?>
-                                        <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
-                                <?php
+                                    <option disabled
+                                            data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                    <?php
+                                } else { ?>
+                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                    <?php
                                 }
                             } ?>
                         </select>
@@ -96,11 +99,16 @@ $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePick
                                 } else if ($programIdToEdit == 3) {
                                     $iconToDisplay = "fa fa-book";
                                 }
-                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) {?>
-                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) { ?>
+                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
                                     <?php
-                                } else {?>
-                                    <option disabled data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons'  value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                } else { ?>
+                                    <option disabled
+                                            data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
                                     <?php
                                 }
                             } ?>
@@ -112,3 +120,21 @@ $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePick
         </div>
     </div>
 </div>
+
+<script>
+    $('#datepicker').datepicker();
+
+    function checkForDate() {
+        var dateToSearch = $('#datepicker').val();  //grabs value from calendar
+        $.ajax({
+            url: "../scripts/AjaxDatePicker.php",
+            method: "Post",
+            data: {dateToSearch: dateToSearch},
+            success: function (output) {
+                $('#programsToDisplay').slideDown().html(output);
+            }
+
+        });
+    }
+
+</script>

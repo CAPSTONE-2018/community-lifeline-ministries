@@ -6,7 +6,7 @@ include("../../db/config.php");
 include("../widgets/TimeZoneFormat.php");
 
 $programIdToSearch = $_POST['programIdToEdit'];
-$dateToSearch = $dateToSubmit;
+$dateToSearch = $_POST['programDateToSearch'];
 
 $queryForProgramName = "SELECT Program_Name From Programs WHERE Id = $programIdToSearch;";
 
@@ -30,7 +30,7 @@ $dynamicRowId = 0;
             <?php
 
             echo "<h3 class='card-title'>Editing Attendance for $programNameToDisplay</h3>";
-            echo "<h5>$dateToDisplay</h5>";
+            echo "<h5>$dateToSearch</h5>";
 
             ?>
         </div>
@@ -39,7 +39,7 @@ $dynamicRowId = 0;
                 <form class="form-horizontal col-sm-12 container-fluid" method="POST" action="../update/UpdateAttendanceRecord.php"
                       name="editAttendanceRecordForm" id="editAttendanceRecordForm">
 
-                    <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
+                    <input type='hidden' name='attendanceDate' value='<?php echo $dateToSearch; ?>'/>
                     <table id="attendance-table" class="table table-condensed table-hover table-responsive">
                         <thead>
 
