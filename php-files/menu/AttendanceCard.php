@@ -10,41 +10,27 @@ $attendanceRecordResult = mysqli_query($db, $queryDoesAttendanceRecordExist);
 $programsWithAttendanceRecordArray = [];
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
-}
-
-
-/*
-$datePickerResult = null;
-if(isset($_POST['datePickerResult'])){
-    $datePickerResult = $_POST['datePickerResult'];
-}
-$queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePickerResult'";
-*/
-
-?>
-<!--<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>-->
+} ?>
 
 <div class="container-fluid col-sm-8">
     <div class="card text-center">
         <div class="card-header">
-            Message On If Attendance Was Taken Today
+            Attendance Center
         </div>
 
         <div class="card-body col-sm-12">
             <div class="form-group row text-center">
-                <div class="form-group row text-center">
-                    <input id="datepicker" width="276" name="datePickerResult" onchange="checkForDate()"/>
+                <div class="col-sm-6 m-auto">
+                    <input id="datePicker" name="datePicker" onchange="checkForDate()" placeholder="Search By Date" />
                 </div>
-
-                <div class="form-group row text-center">
-                    <div id="programsToDisplay" class="m-auto"></div>
-                </div>
-
+            </div>
+            <div class="form-group row text-center">
+                <div id="programsToDisplay" class="m-auto"></div>
             </div>
         </div>
         <div class="card-footer text-muted align-content-center">
             <div class="nav nav-pills card-header-pills align-content-center">
-                <div class="nav-item col-sm-4">
+                <div class="nav-item col-sm-6">
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
@@ -81,7 +67,7 @@ $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePick
                     </form>
                 </div>
 
-                <div class="nav-item col-sm-4">
+                <div class="nav-item col-sm-6">
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programIdToEdit">
                             <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
@@ -122,10 +108,10 @@ $queryForDatePicker = "SELECT Program_Id FROM attendance WHERE Date = '$datePick
 </div>
 
 <script>
-    $('#datepicker').datepicker();
+    $('#datePicker').datepicker();
 
     function checkForDate() {
-        var dateToSearch = $('#datepicker').val();  //grabs value from calendar
+        var dateToSearch = $('#datePicker').val();  //grabs value from calendar
         $.ajax({
             url: "../scripts/AjaxDatePicker.php",
             method: "Post",

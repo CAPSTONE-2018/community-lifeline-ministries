@@ -6,13 +6,7 @@ include("../scripts/header.php");
 
 <?php
 
-//connect to database
 include("../../db/config.php");
-
-
-$updateQuery =
-
-
 $userMakingChanges = $_SESSION['loggedIn'];
 $i = 0;
 
