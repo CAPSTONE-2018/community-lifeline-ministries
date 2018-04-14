@@ -15,7 +15,7 @@ include("../../db/config.php");
                           id="newStudentForm">
                         <div class="form-content">
                             <div class="tab-content">
-                                <button id="show-filters" style="float:right"> Show Filters</button>
+                                <!--<button id="show-filters" style="float:right"> Show Filters</button>-->
                                 <div class="tab-pane active " id="studentInfo">
                                     <div class="header">Report</div>
                                     <div id="as" class="collapse2">
@@ -25,30 +25,25 @@ include("../../db/config.php");
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="searchInput1" class="mdl-textfield__input"
-                                                       name="searchInput1" type="text"/>
-                                                <label class="mdl-textfield__label" for="sarchInput1">Search Filter</label>
+                                                       name="searchInput1" type="text" placeholder="Search Input"/>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="First Name" class="mdl-textfield__input" id="FilterType1" readonly>
-                                                <input type="hidden" value="" name="FilterType1">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="FilterType1" class="mdl-textfield__label">Filter Type</label>
-                                                <ul for="FilterType1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <li class="mdl-menu__item" data-val="First_Name">First_Name</li>
-                                                    <li class="mdl-menu__item" data-val="Last_Name">Last_Name</li>
-                                                    <li class="mdl-menu__item" data-val="Address_one">Address_One</li>
-                                                    <li class="mdl-menu__item" data-val="Address_two">Address_Two</li>
-                                                    <li class="mdl-menu__item" data-val="City">City</li>
-                                                    <li class="mdl-menu__item" data-val="State">State</li>
-                                                    <li class="mdl-menu__item" data-val="Zip">Zip</li>
-                                                    <li class="mdl-menu__item" data-val="Ethnicity">Ethnicity</li>
-                                                    <li class="mdl-menu__item" data-val="Birth_Date">Birth Date</li>
-                                                    <li class="mdl-menu__item" data-val="School">School</li>
-                                                </ul>
-                                            </div>
+
+                                            <p style="width:100%;">Filter Type</p>
+                                            <select style="width:100%;" id="FilterType1">
+                                                <option value="First_Name">First_Name</option>
+                                                <option value="Last_Name">Last_Name</option>
+                                                <option value="Address_one">Address_One</option>
+                                                <option value="Address_two">Address_Two</option>
+                                                <option value="City">City</option>
+                                                <option value="State">State</option>
+                                                <option value="Zip">Zip</option>
+                                                <option value="Ethnicity">Ethnicity</option>
+                                                <option value="Birth_Date">Birth Date</option>
+                                                <option value="School">School</option>
+                                            </select>
                                         </div>
 
                                     </div>
@@ -231,8 +226,8 @@ include("../../db/config.php");
                 }
             }
             }
-            searchInputs[8] = document.getElementById("ReduceLunch").value;
-            searchInputs[9] = document.getElementById("Active").value;
+            searchInputs[8] = document.getElementById("Active").value;
+            searchInputs[9] = document.getElementById("ReduceLunch").value;
             searchInputs[10] = document.getElementById("BirthCertificate").value;
             searchInputs[11] = document.getElementById("IEP").value;
             searchInputs[12] = document.getElementById("PermissionSlip").value;
@@ -317,29 +312,31 @@ include("../../db/config.php");
                 }
             }
 
+
             if(searchInputs[8] == 2){
                 if(searchFilters != "WHERE") {
                     searchFilters += " AND";
                 }
-                searchFilters += " Reduced_Lunch_Eligible = 1"
+                searchFilters += " Active_Student = 1"
             }else if(searchInputs[8] == 3){
+                if(searchFilters != "WHERE") {
+                    searchFilters += " AND";
+                }
+                searchFilters += " Active_Student = 0"
+            }
+            if(searchInputs[9] == 2){
+                if(searchFilters != "WHERE") {
+                    searchFilters += " AND";
+                }
+                searchFilters += " Reduced_Lunch_Eligible = 1"
+            }else if(searchInputs[9] == 3){
                 if(searchFilters != "WHERE") {
                     searchFilters += " AND";
                 }
                 searchFilters += " Reduced_Lunch_Eligible = 0"
             }
 
-            if(searchInputs[9] == 2){
-                if(searchFilters != "WHERE") {
-                    searchFilters += " AND";
-                }
-                searchFilters += " Active = 1"
-            }else if(searchInputs[9] == 3){
-                if(searchFilters != "WHERE") {
-                    searchFilters += " AND";
-                }
-                searchFilters += " Active = 0"
-            }
+
 
             if(searchInputs[10] == 2){
                 if(searchFilters != "WHERE") {

@@ -155,7 +155,7 @@ include("../widgets/TimeZoneFormat.php");
                         <i class="fa fa-line-chart"></i> Reports
                     </a>
                     <ul class="collapse list-unstyled" id="reportsSubmenu">
-                        <li><a href="#">Page 1</a></li>
+                        <li><a href="../create/createstudentreport.php">Students Report</a></li>
                         <li><a href="#">Page 2</a></li>
                         <li><a href="#">Page 3</a></li>
                     </ul>

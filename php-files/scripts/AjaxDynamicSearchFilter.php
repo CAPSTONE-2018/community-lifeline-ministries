@@ -5,30 +5,24 @@ $dynamicSearchFilterId = $_POST['dynamicSearchFilter'];
 <div class="col-sm-6">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input id="searchInput <?php echo $dynamicSearchFilterId; ?>" class="mdl-textfield__input"
-               name="searchInput<?php echo $dynamicSearchFilterId; ?>" type="text"/>
-        <label class="mdl-textfield__label" for="searchInput<?php echo $dynamicSearchFilterId; ?>">Search Filter</label>
+               name="searchInput<?php echo $dynamicSearchFilterId; ?>" type="text" placeholder="Search Input"/>
     </div>
 </div>
 <div class="col-sm-6 ">
-    <div id="floatingFilterLabel<?php echo $dynamicSearchFilterId; ?>"
-            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-        <input type="text" value="First Name" class="mdl-textfield__input" id="FilterType<?php echo $dynamicSearchFilterId; ?>" readonly>
-        <input type="hidden" value="" name="FilterType<?php echo $dynamicSearchFilterId; ?>">
-        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-        <label for="FilterType<?php echo $dynamicSearchFilterId; ?>" class="mdl-textfield__label">Filter Type</label>
-        <ul for="FilterType<?php echo $dynamicSearchFilterId; ?>" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-            <li class="mdl-menu__item" data-val="First_Name">First Name</li>
-            <li class="mdl-menu__item" data-val="Last_Name">Last Name</li>
-            <li class="mdl-menu__item" data-val="Address_one">Address One</li>
-            <li class="mdl-menu__item" data-val="Address_two">Address Two</li>
-            <li class="mdl-menu__item" data-val="City">City</li>
-            <li class="mdl-menu__item" data-val="State">State</li>
-            <li class="mdl-menu__item" data-val="Zip">Zip</li>
-            <li class="mdl-menu__item" data-val="Ethnicity">Ethnicity</li>
-            <li class="mdl-menu__item" data-val="Birth_Date">Birth Date</li>
-            <li class="mdl-menu__item" data-val="School">School</li>
-        </ul>
-    </div>
+
+    <p style="width:100%;">Filter Type</p>
+    <select style="width:100%;" id="FilterType<?php echo $dynamicSearchFilterId; ?>">
+        <option value="First_Name">First_Name</option>
+        <option value="Last_Name">Last_Name</option>
+        <option value="Address_one">Address_One</option>
+        <option value="Address_two">Address_Two</option>
+        <option value="City">City</option>
+        <option value="State">State</option>
+        <option value="Zip">Zip</option>
+        <option value="Ethnicity">Ethnicity</option>
+        <option value="Birth_Date">Birth Date</option>
+        <option value="School">School</option>
+    </select>
 </div>
 </div>
 
