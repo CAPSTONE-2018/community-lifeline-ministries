@@ -1,5 +1,6 @@
 <?php
 include("../scripts/header.php");
+include("../scripts/States.php");
 include("../../db/config.php");
 $queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
@@ -92,9 +93,9 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                <input type="text" value="" class="mdl-textfield__input" id="gender"
+                                                <input type="text" class="mdl-textfield__input" id="gender"
                                                        readonly>
-                                                <input type="hidden" value="" name="gender">
+                                                <input type="hidden" name="gender">
                                                 <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                                                 <label for="gender" class="mdl-textfield__label">Gender</label>
                                                 <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
@@ -143,9 +144,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                 <label for="studentState" class="mdl-textfield__label">State</label>
                                                 <ul id="studentState"
                                                     class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <?php include("../scripts/States.php");
-                                                    echo stateDropdown("studentState")
-                                                    ?>
+                                                    <?php echo stateDropdown(); ?>
                                                 </ul>
                                             </div>
                                         </div>
@@ -430,15 +429,15 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                     </div>
                                                     <div class='col-sm-4'>
                                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                            <input type="text" value="" class="mdl-textfield__input"
-                                                                   id="studentState" readonly>
-                                                            <input type="hidden" value="" name="studentState">
+                                                            <input type="text" class="mdl-textfield__input"
+                                                                   id="contactState" readonly>
+                                                            <input type="hidden" name="contactState">
                                                             <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
-                                                            <label for="studentState"
+                                                            <label for="contactState"
                                                                    class="mdl-textfield__label">State</label>
-                                                            <ul id="studentState"
+                                                            <ul id="contactState"
                                                                 class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                                <?php echo stateDropdown("contactState"); ?>
+                                                                <?php echo stateDropdown(); ?>
                                                             </ul>
                                                         </div>
                                                     </div>
