@@ -51,7 +51,7 @@ $lastStudentInsertId = $stmtStudent->insert_id;
 
 
 
-if (isset($_POST['contactFirstName'])){
+if (($_POST['contactFirstName']) != ""){
     $stmtContact = $db->prepare("INSERT INTO Contacts (Author_Username, Active_Contact, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
     $stmtContact->bind_param('sissssssssis', $userMakingChanges, $contactActiveFlag, $contactFirstName, $contactLastName, $contactPrimaryPhone, $contactSecondaryPhone, $contactAddressOne, $contactAddressTwo, $contactCity, $contactState, $contactZip, $contactEmail);
     $stmtContact->execute();
