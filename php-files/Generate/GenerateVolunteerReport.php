@@ -35,7 +35,7 @@ $studentsResults = mysqli_query($db, "SELECT * FROM volunteer_employees ".$searc
                         <?php
                         while($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
                             echo "<tr><td>";
-                            echo $row['Active_Student'];
+                            echo $row['Active_Volunteer'];
                             echo "</td><td>";
                             echo $row['Prefix'];
                             echo "</td><td>";

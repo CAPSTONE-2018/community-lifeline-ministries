@@ -51,6 +51,26 @@ include("../../db/config.php");
                                         <div class="add-new-searchFilter-dropdown">
 
                                         </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-2">
+                                                <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                    <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
+                                                    <input type="hidden" value="" name="Active">
+                                                    <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                    <label for="Active" class="mdl-textfield__label">Active/Inactive</label>
+                                                    <ul for="Active" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                        <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                        <li class="mdl-menu__item" data-val="2">Active Students</li>
+                                                        <li class="mdl-menu__item" data-val="3">Inactive Students</li>
+                                                    </ul>
+                                                </div>-->
+                                                <p>Active/Inactive</p>
+                                                <select id="Active">
+                                                    <option value="1">All Students</option>
+                                                    <option value="2">Active</option>
+                                                    <option value="3">Inactive</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,24 +112,26 @@ include("../../db/config.php");
     $(document).ready(function () {
         $('.collapse2').collapse("show");
         $('#add-new-searchFilter-Button').click(function () {
-            dynamicSearchFilter++;
+            if(dynamicSearchFilter < 12) {
+                dynamicSearchFilter++;
 
-            $.ajax({
-                url: "../scripts/AjaxDynamicVolunteerSearchFilter.php",
-                method: "POST",
-                data: {dynamicSearchFilter: dynamicSearchFilter},
-                success: function (output) {
-                    $('.add-new-searchFilter-dropdown').slideDown().append(output);
-                }
-            })
+                $.ajax({
+                    url: "../scripts/AjaxDynamicVolunteerSearchFilter.php",
+                    method: "POST",
+                    data: {dynamicSearchFilter: dynamicSearchFilter},
+                    success: function (output) {
+                        $('.add-new-searchFilter-dropdown').slideDown().append(output);
+                    }
+                })
+            }
         });
     });
 
     $(document).ready(function () {
         $('#generateReport').click(function () {
-            var searchInputs = new Array(12);
-            var searchTypes = new Array(8);
-            for(var i =1; i < 12; i++){
+            var searchInputs = new Array(13);
+            var searchTypes = new Array(12);
+            for(var i =1; i < 13; i++){
                 if(document.getElementById("FilterType" + i) != null && document.getElementById("searchInput" + i) != null ){
                     searchInputs[i-1] = document.getElementById("searchInput" + i).value;
                     searchTypes[i-1] = document.getElementById("FilterType" + i).value;
@@ -130,6 +152,7 @@ include("../../db/config.php");
                 }
             }
 
+            searchInputs[11] = document.getElementById("Active").value;
             var searchFilters = 'WHERE';
 
             for(var i =0; i < searchTypes.length; i++) {
@@ -217,6 +240,17 @@ include("../../db/config.php");
                 }
             }
 
+            if(searchInputs[12] == 2){
+                if(searchFilters != "WHERE") {
+                    searchFilters += " AND";
+                }
+                searchFilters += " Active_Student = 1"
+            }else if(searchInputs[12] == 3){
+                if(searchFilters != "WHERE") {
+                    searchFilters += " AND";
+                }
+                searchFilters += " Active_Student = 0"
+            }
 
             if(searchFilters == "WHERE"){
                 searchFilters = "";

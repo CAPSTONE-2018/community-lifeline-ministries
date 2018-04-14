@@ -6,6 +6,7 @@ include("../../db/config.php");
 $searchFilters = $_POST['searchFilters'];
 
 $studentsResults = mysqli_query($db, "SELECT * FROM students ".$searchFilters);
+
 ?>
     <div id="print_div">
         <div class="card-body">
