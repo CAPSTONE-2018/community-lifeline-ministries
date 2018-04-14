@@ -15,11 +15,11 @@ include("../../db/config.php");
                           id="newStudentForm">
                         <div class="form-content">
                             <div class="tab-content">
-                                <!--<button id="show-filters" style="float:right"> Show Filters</button>-->
+                                <button id="show-filters" style="float:right"> Show Filters</button>
                                 <div class="tab-pane active " id="studentInfo">
                                     <div class="header">Report</div>
                                     <div id="as" class="collapse2">
-                                    <h4 class="heading"><i class="glyphicon glyphicon-user"></i> Search Filter <button type="button" id="add-new-searchFilter-Button">Add</button></h4>
+                                    <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report <button type="button" id="add-new-searchFilter-Button">Add</button></h4>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -148,6 +148,24 @@ include("../../db/config.php");
                                             <option value="3">No</option>
                                         </select>
                                     </div>
+                                        <div class="col-sm-2">
+                                            <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
+                                                <input type="hidden" value="" name="IEP">
+                                        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                        <label for="IEP" class="mdl-textfield__label">IEP</label>
+                                        <ul for="IEP" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                            <li class="mdl-menu__item" data-val="1">All Students</li>
+                                            <li class="mdl-menu__item" data-val="2">Yes</li>
+                                            <li class="mdl-menu__item" data-val="3">No</li>
+                                        </ul>-->
+                                            <p>Gender</p>
+                                            <select id="Gender">
+                                                <option value="1">All Students</option>
+                                                <option value="2">M</option>
+                                                <option value="3">F</option>
+                                            </select>
+                                        </div>
                                 </div>
                                     </div>
                                 </div>
@@ -204,7 +222,7 @@ include("../../db/config.php");
 
     $(document).ready(function () {
         $('#generateReport').click(function () {
-            var searchInputs = new Array(13);
+            var searchInputs = new Array(14);
             var searchTypes = new Array(8);
             for(var i =1; i < 9; i++){
                 if(document.getElementById("FilterType" + i) != null && document.getElementById("searchInput" + i) != null ){
@@ -231,6 +249,7 @@ include("../../db/config.php");
             searchInputs[10] = document.getElementById("BirthCertificate").value;
             searchInputs[11] = document.getElementById("IEP").value;
             searchInputs[12] = document.getElementById("PermissionSlip").value;
+            searchInputs[13] = document.getElementById("Gender").value;
 
             var searchFilters = 'WHERE';
 
@@ -373,11 +392,22 @@ include("../../db/config.php");
                 }
                 searchFilters += " Permission_Slip = 0"
             }
+            if(searchInputs[13] == 2){
+                if(searchFilters != "WHERE") {
+                    searchFilters += " AND";
+                }
+                searchFilters += " Gender = 'M'"
+            }else if(searchInputs[13] == 3){
+                if(searchFilters != "WHERE") {
+                    searchFilters += " AND";
+                }
+                searchFilters += " Gender = 'F'"
+            }
 
             if(searchFilters == "WHERE"){
                 searchFilters = "";
             }
-
+            $('#print_div').remove();
             $('.collapse2').collapse("hide");
             $.ajax({
                 url: "../Generate/GenerateStudentReport.php",

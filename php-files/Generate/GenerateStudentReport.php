@@ -25,6 +25,7 @@ $studentsResults = mysqli_query($db, "SELECT * FROM students ".$searchFilters);
                                 <th class="col-sm-2 text-center">State</th>
                                 <th class="col-sm-2 text-center">Zip</th>
                                 <th class="col-sm-2 text-center">Ethnicity</th>
+                                <th class="col-sm-2 text-center">Gender</th>
                                 <th class="col-sm-2 text-center">Birth date</th>
                                 <th class="col-sm-2 text-center">School</th>
                                 <th class="col-sm-2 text-center">Permission Slip</th>
@@ -54,6 +55,8 @@ $studentsResults = mysqli_query($db, "SELECT * FROM students ".$searchFilters);
                                 echo $row['Zip'];
                                 echo "</td><td>";
                                 echo $row['Ethnicity'];
+                                echo "</td><td>";
+                                echo $row['Gender'];
                                 echo "</td><td>";
                                 echo $row['Birth_Date'];
                                 echo "</td><td>";
