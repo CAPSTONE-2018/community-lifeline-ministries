@@ -39,18 +39,19 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="firstName" class="mdl-textfield__input"
-                                                       name="studentFirstName" type="text"/>
+                                                       name="studentFirstName" type="text"
+						       pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="firstName">First Name</label>
-                                                <span class="mdl-textfield__error">First Name is Required</span>
+                                                <span class="mdl-textfield__error">Invalid First Name Data Entred</span>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="lastName" class="mdl-textfield__input" name="studentLastName"
-                                                       type="text"/>
+                                                       type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="lastName">Last Name</label>
-                                                <span class="mdl-textfield__error">Last Name is Required</span>
+                                                <span class="mdl-textfield__error">Invalide Last Name Data Entered</span>
                                             </div>
                                         </div>
                                     </div>
@@ -58,16 +59,18 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="middleName" class="mdl-textfield__input"
-                                                       name="studentMiddleName" type="text"/>
+                                                       name="studentMiddleName" type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="middleName">Middle Name</label>
+                                                <span class="mdl-textfield__error">Invalid Middle Name Data Entered</span>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="suffix" class="mdl-textfield__input" name="studentSuffix"
-                                                       type="text"/>
+                                                       type="text" pattern="^[A-Z](([ \.]|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                 <label class="mdl-textfield__label" for="suffix">Suffix</label>
+                                                <span class="mdl-textfield__error">Invalid Suffix Data Entered</span>
                                             </div>
                                         </div>
                                     </div>
@@ -76,17 +79,19 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input id="dob" class="mdl-textfield__input" name="dob" type="text"/>
+                                                <input id="dob" class="mdl-textfield__input" name="dob" type="text"
+						 pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\?[1-9][0-9]{3}$"/>
                                                 <label class="mdl-textfield__label" for="dob">D.O.B.</label>
-                                                <span class="mdl-textfield__error">Input is not a date!</span>
+                                                <span class="mdl-textfield__error">Invalid D.O.B. Data Entered</span>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="ethnicity" class="mdl-textfield__input" name="ethnicity"
-                                                       type="text"/>
+                                                       type="text" pattern="^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
+                                                <span class="mdl-textfield__error">Invalid Ethnicity Data Entered</span>
                                             </div>
                                         </div>
 
@@ -111,27 +116,30 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentAddressOne" class="mdl-textfield__input"
-                                                       name="studentAddressOne" type="text"/>
+                                                       name="studentAddressOne" type="text"
+						       pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"/>
                                                 <label class="mdl-textfield__label"
                                                        for="studentAddressOne">Address</label>
+                                                <span class="mdl-textfield__error">Invalid Address Data Entered</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentAddressTwo" class="mdl-textfield__input"
-                                                       name="studentAddressTwo" type="text"/>
+                                                       name="studentAddressTwo" type="text" pattern="^[a-zA-Z0-9]+(([\- \.]|(\. ))[a-zA-Z0-9]+)*$"/>
                                                 <label class="mdl-textfield__label"
                                                        for="studentAddressTwo">Apt/Suite</label>
+                                                <span class="mdl-textfield__error">Invalid Apt/Suite Data Entered</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-4">
-
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentCity" class="mdl-textfield__input" name="studentCity"
-                                                       type="text"/>
+                                                       type="text" pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                 <label class="mdl-textfield__label" for="studentCity">City</label>
+                                                <span class="mdl-textfield__error">Invalid City Data Entered</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -153,8 +161,9 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentZip" class="mdl-textfield__input" name="studentZip"
-                                                       type="text"/>
+                                                       type="text" pattern="^[0-9]{5}(-[0-9]{4})?$"/>
                                                 <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
+                                                <span class="mdl-textfield__error">Invalid Zip Code Data Entered</span>
                                             </div>
                                         </div>
                                     </div>
