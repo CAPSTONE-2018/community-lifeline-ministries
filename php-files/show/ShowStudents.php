@@ -22,7 +22,7 @@ $studentTableToLookUp = "Students";
         <div class="card">
             <div class="card-header">
                 <div class="col-12 text-center">
-                    <h3>All Students</h3>
+                    <h3><i class="fa fa-graduation-cap"></i> All Students</h3>
                 </div>
 
                 <div class="row">
