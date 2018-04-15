@@ -4,12 +4,9 @@
 include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
-
-$queryForStudentAllergies = "SELECT students.First_Name,students.Last_Name,Medical_Concerns.Name, Medical_Concern_Types.Type, medical_concerns.Note
-                              FROM (Medical_Concerns JOIN students JOIN Student_To_Medical_Concerns ON Medical_Concerns.Id = Student_To_Medical_Concerns.Medical_Concern_Id)
-                              JOIN Medical_Concern_Types ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id ".$searchFilters;
-$studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
+$studentsResults = mysqli_query($db, "SELECT  students.First_Name, students.Last_Name,attendance.DATE, attendance.Attendance_value,programs.Program_Name FROM students JOIN attendance join programs ".$searchFilters);
 ?>
+
 <div id="print_div">
     <div class="card-body">
         <div class="card-content">
@@ -19,26 +16,32 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
                         <tr>
-                            <th class="col-sm-2 text-center">First Name</th>
-                            <th class="col-sm-2 text-center">Last Name</th>
-                            <th class="col-sm-3">Name</th>
-                            <th class="col-sm-3">Type</th>
-                            <th class="col-sm-3 text-center">Note</th>
+                            <th class="col-sm-3">First Name</th>
+                            <th class="col-sm-3">Last Name</th>
+                            <th class="col-sm-3">Date</th>
+                            <th class="col-sm-3">Status</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        while ($row = mysqli_fetch_array($studentMedicalConcernResults, MYSQLI_ASSOC)) {
+                        while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
+
                             echo "<tr><td>";
                             echo $row['First_Name'];
                             echo "</td><td>";
                             echo $row['Last_Name'];
                             echo "</td><td>";
-                            echo $row['Name'];
+                            echo $row['DATE'];
                             echo "</td><td>";
-                            echo $row['Type'];
-                            echo "</td><td>";
-                            echo $row['Note'];
+                            if($row['Attendance_value'] == 1){
+                                echo 'Present';
+                            }
+                            else if($row['Attendance_value'] == 2){
+                                echo 'Absent';
+                            }
+                            else{
+                                echo 'Tardy';
+                            }
                             echo "</td></tr>";
                         }
                         ?>

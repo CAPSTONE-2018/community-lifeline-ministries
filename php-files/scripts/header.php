@@ -159,6 +159,10 @@ include("../widgets/TimeZoneFormat.php");
                         <li><a href="../create/createContactsreport.php">Contacts Report</a></li>
                         <li><a href="../create/createVolunteerReport.php">Volunteer Report</a></li>
                         <li><a href="../create/createMedicalReport.php">Medical Report</a></li>
+                        <li><a href="../create/createStudentMedicalReport.php">Student Medical Report</a></li>
+                        <li><a href="../create/createStudentToProgramReport.php">Programs Report</a></li>
+                        <li><a href="../create/createAttendanceReport.php">Attendance Report</a></li>
+                        <li><a href="../create/createStudentAttendanceReport.php">Student Attendance Report</a></li>
                     </ul>
                 </li>
 

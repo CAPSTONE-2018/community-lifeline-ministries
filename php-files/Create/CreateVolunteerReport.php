@@ -17,7 +17,7 @@ include("../../db/config.php");
                             <div class="tab-content">
                                 <button id="show-filters" style="float:right"> Show Filters</button>
                                 <div class="tab-pane active " id="studentInfo">
-                                    <div class="header">Report</div>
+                                    <div class="header"> Volunteer Report</div>
                                     <div id="as" class="collapse2">
                                         <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report <button type="button" id="add-new-searchFilter-Button">Add</button></h4>
                                         <div class="blue-line-color"></div>
