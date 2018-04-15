@@ -156,7 +156,7 @@ include("../widgets/TimeZoneFormat.php");
                     </a>
                     <ul class="collapse list-unstyled" id="reportsSubmenu">
                         <li><a href="../create/createstudentreport.php">Students Report</a></li>
-                        <li><a href="../create/createContactsreport.php">Contacts Report</a></li>
+                        <li><a href="../create/createContactreport.php">Contacts Report</a></li>
                         <li><a href="../create/createVolunteerReport.php">Volunteer Report</a></li>
                         <li><a href="../create/createMedicalReport.php">Medical Report</a></li>
                         <li><a href="../create/createStudentMedicalReport.php">Student Medical Report</a></li>

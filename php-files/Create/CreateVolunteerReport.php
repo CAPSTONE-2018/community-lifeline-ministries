@@ -66,7 +66,7 @@ include("../../db/config.php");
                                                 </div>-->
                                                 <p>Active/Inactive</p>
                                                 <select id="Active">
-                                                    <option value="1">All Students</option>
+                                                    <option value="1">All Volunteers</option>
                                                     <option value="2">Active</option>
                                                     <option value="3">Inactive</option>
                                                 </select>
