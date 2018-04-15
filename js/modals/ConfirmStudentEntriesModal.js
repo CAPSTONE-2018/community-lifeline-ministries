@@ -27,10 +27,42 @@ $(document).ready(function () {
             var state = "State: " + x.elements[11].value + "<br>";
             var zipCode = "Zip Code: " + x.elements[13].value + "<br>";
             var school = "School: " + x.elements[14].value + "<br>";
-            var permissionSlip = "Permission Slip on File: " + x.elements[18].value + "<br>";
-            var birthCertificate = "Birth Certificate on File: " + x.elements[19].value + "<br>";
-            var reducedLunch = "Reduced Lunch Eligible: " + x.elements[17].value + "<br>";
-            var emotionalProblems = "Immediate Emotional Problem: " + x.elements[20].value + "<br>";
+
+            if(x.elements[18].value === "On" || x.elements[18].value === 0)
+            {
+                var permissionSlip = "Permission Slip on File: No" + "<br>";
+            } else
+            {
+                var permissionSlip = "Permission Slip on File: Yes" + "<br>";
+            }
+
+            if(x.elements[19].value === "On" || x.elements[19].value === 0)
+            {
+                var birthCertificate = "Birth Certificate on File: No" + "<br>";
+            } else
+            {
+                var birthCertificate = "Birth Certificate on File: Yes" + "<br>";
+            }
+
+            if(x.elements[17].value === "On" || x.elements[17].value === 0)
+            {
+                var reducedLunch = "Reduced Lunch Eligible: No" + "<br>";
+            } else
+            {
+                var reducedLunch = "Reduced Lunch Eligible: Yes" + "<br>";
+            }
+
+            if(x.elements[20].value === "On" || x.elements[20].value === 0)
+            {
+                var emotionalProblems = "Immediate Emotional Problem: No" + "<br>";
+            } else
+            {
+                var emotionalProblems = "Immediate Emotional Problem: Yes" + "<br>";
+            }
+//            var permissionSlip = "Permission Slip on File: " + x.elements[18].value + "<br>";
+//            var birthCertificate = "Birth Certificate on File: " + x.elements[19].value + "<br>";
+//            var reducedLunch = "Reduced Lunch Eligible: " + x.elements[17].value + "<br>";
+//            var emotionalProblems = "Immediate Emotional Problem: " + x.elements[20].value + "<br>";
 
             txt = firstName + middleName + lastName + suffix + dob + ethnicity + gender
                 + address + city + state + zipCode + school + permissionSlip + birthCertificate
