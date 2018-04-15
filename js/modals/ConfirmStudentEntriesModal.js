@@ -22,15 +22,15 @@ $(document).ready(function () {
             var dob = "Date of Birth: " + x.elements[4].value + "<br>";
             var ethnicity = "Ethnicity: " + x.elements[5].value + "<br>";
             var gender = "Gender: " + x.elements[6].value + "<br>";
-            var address = "Address: " + x.elements[7].value + "<br>";
-            var city = "City: " + x.elements[8].value + "<br>";
-            var state = "State: " + x.elements[9].value + "<br>";
-            var zipCode = "Zip Code: " + x.elements[10].value + "<br>";
-            var school = "School: " + x.elements[11].value + "<br>";
-            var permissionSlip = "Permission Slip on File: " + x.elements[12].value + "<br>";
-            var birthCertificate = "Birth Certificate on File: " + x.elements[13].value + "<br>";
-            var reducedLunch = "Reduced Lunch Eligible: " + x.elements[14].value + "<br>";
-            var emotionalProblems = "Immediate Emotional Problem: " + x.elements[15].value + "<br>";
+            var address = "Address: " + x.elements[8].value + " " + x.elements[9].value + "<br>";
+            var city = "City: " + x.elements[10].value + "<br>";
+            var state = "State: " + x.elements[11].value + "<br>";
+            var zipCode = "Zip Code: " + x.elements[13].value + "<br>";
+            var school = "School: " + x.elements[14].value + "<br>";
+            var permissionSlip = "Permission Slip on File: " + x.elements[18].value + "<br>";
+            var birthCertificate = "Birth Certificate on File: " + x.elements[19].value + "<br>";
+            var reducedLunch = "Reduced Lunch Eligible: " + x.elements[17].value + "<br>";
+            var emotionalProblems = "Immediate Emotional Problem: " + x.elements[20].value + "<br>";
 
             txt = firstName + middleName + lastName + suffix + dob + ethnicity + gender
                 + address + city + state + zipCode + school + permissionSlip + birthCertificate
