@@ -1,14 +1,17 @@
 $(document).ready(function () {
+    var txt = "";
     $('#buttonTrigger').click(function () {
+
+        // var submitButton = document.createElement("BUTTON");
+        // var buttonTitle = document.createTextNode("Submit");
+        // submitButton.appendChild(buttonTitle);
+        // submitButton.onclick(sendNewStudentForm());
         var x = document.getElementById("newStudentForm");
+        var submitButton = document.createElement("BUTTON");
+        var buttonTitle = document.createTextNode("Submit");
+        submitButton.appendChild(buttonTitle);
+        submitButton.setAttribute("onClick", "sendNewStudentForm()");
 
-        var birthCertificateCheckbox = x[13];
-
-        if (birthCertificateCheckbox.valid) {
-
-        }
-
-        var txt = "";
         var i;
         for (i = 0; i < x.length; i++) {
 //                txt = txt + x.elements[i].value + "<br>";
@@ -33,6 +36,20 @@ $(document).ready(function () {
                 + address + city + state + zipCode + school + permissionSlip + birthCertificate
                 + reducedLunch + emotionalProblems;
         }
-        document.getElementById("modalBody").innerHTML = txt;
+
+        $('#custom-modal').removeClass().addClass('modal fade');
+        $('#custom-size').removeClass().addClass('modal-dialog');
+        $('#custom-title').removeClass().addClass('modal-header confirm-student-modal-header');
+        $('#custom-icon').removeClass().addClass('m-auto fa fa-archive fa-2x');
+        $('#dynamic-title').text("Add User Confirmation");
+        $('.modal-body').html(txt);
+        $('.modal-footer').html(submitButton);
+        $('#custom-modal').modal('show');
     });
 });
+
+function sendNewStudentForm() {
+    var serializedForm = $('#newStudentForm').serialize();
+    $('#custom-modal').modal('hide');
+    launchConfirmationModal(serializedForm);
+}
