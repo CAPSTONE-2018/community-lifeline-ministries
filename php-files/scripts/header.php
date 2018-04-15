@@ -154,9 +154,14 @@ include("../widgets/TimeZoneFormat.php");
                         <i class="fa fa-line-chart"></i> Reports
                     </a>
                     <ul class="collapse list-unstyled" id="reportsSubmenu">
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
+                        <li><a href="../create/createstudentreport.php">Students Report</a></li>
+                        <li><a href="../create/createContactsreport.php">Contacts Report</a></li>
+                        <li><a href="../create/createVolunteerReport.php">Volunteer Report</a></li>
+                        <li><a href="../create/createMedicalReport.php">Medical Report</a></li>
+                        <li><a href="../create/createStudentMedicalReport.php">Student Medical Report</a></li>
+                        <li><a href="../create/createStudentToProgramReport.php">Programs Report</a></li>
+                        <li><a href="../create/createAttendanceReport.php">Attendance Report</a></li>
+                        <li><a href="../create/createStudentAttendanceReport.php">Student Attendance Report</a></li>
                     </ul>
                 </li>
                 <li>

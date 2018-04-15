@@ -25,7 +25,6 @@ $result = mysqli_query($db, $query);
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Type</th>
             <th>Note</th>
             <th>Students Affected</th>
         </tr>
@@ -43,8 +42,6 @@ $result = mysqli_query($db, $query);
             echo $row['Id'];
             echo "</td><td>";
             echo $row['NAME'];
-            echo "</td><td>";
-            echo $row['TYPE'];
             echo "</td><td>";
             echo $row['Note'];
             echo "</td><td>";
