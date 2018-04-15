@@ -9,7 +9,7 @@
  * @uses check_select
  * @return string
  */
-function stateDropdown($optionName, $selected = "IL")
+function stateDropdown()
 {
     $states = array(
         array('AL', 'Alabama'),
@@ -68,7 +68,7 @@ function stateDropdown($optionName, $selected = "IL")
 
     $options = '';
     foreach ($states as $state) {
-        $options .= '<li class="mdl-menu__item" name="'.$optionName.'" value="' . $state[0] . '" ' . check_select($selected, $state[0]) . ' >' . $state[1] . '</li>';
+        $options .= '<li class="mdl-menu__item" data-val="' . $state[0] . '" >' . $state[1] . '</li>';
     }
 
     $options .= '';
