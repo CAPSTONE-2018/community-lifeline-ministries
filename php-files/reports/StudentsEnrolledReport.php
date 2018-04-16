@@ -4,12 +4,10 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-	$schoolYear = $_POST['schoolYear'];
 
-	$stmt = "SELECT Student.Id, Student.First_Name, Student.Last_Name
-			  FROM Student JOIN School_Year ON
-			  Student.Id = School_Year.Student_Id
-			  WHERE School_Year.Year = '$schoolYear'";
+
+	$stmt = "SELECT Students.Id, Students.First_Name, Students.Last_Name
+			  FROM Students";
 	$result = mysqli_query($db, $stmt);
 	$records = array();
 	$header = array("Id","First Name","Last Name");
@@ -41,7 +39,7 @@ include("../../db/config.php");
 		$serialized =htmlspecialchars(serialize($records));
 		?>
 
-
+        <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
 			<form class="form-horizontal" action="../../scripts/exportReport.php" method="POST">
 				<input type="hidden" name="Records" value="<?php echo $serialized ?>"/>
 				<input type="hidden" name="filename"  value="Students_Enrolled_Report"/>
@@ -71,5 +69,4 @@ include("../../db/config.php");
 
 	mysqli_close($db);
 
-  include("scripts/footer.php");
 ?>
