@@ -386,8 +386,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name="contactFirstName"
                                                                    pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
                                                                    type="text" onkeypress="return supressEnter()"/>
-                                                            <label class="mdl-textfield__label" for="contactFirstName">First
-                                                                Name</label>
+                                                            <label class="mdl-textfield__label" for="contactFirstName">First Name</label>
+                                                            <span class="mdl-textfield__error">Invalid First Name</span>
                                                         </div>
                                                     </div>
                                                     <div class='col-sm-6'>
@@ -399,7 +399,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                             <label class='mdl-textfield__label' for='contactLastName'>Last
                                                                 Name</label>
-                                                            <span class='mdl-textfield__error'>Last Name is Required</span>
+                                                            <span class='mdl-textfield__error'>Invalid Last Name</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -412,8 +412,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactPrimaryPhone' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
-                                                            <label class='mdl-textfield__label'
-                                                                   for='contactPrimaryPhone'>Primary Phone</label>
+                                                            <label class='mdl-textfield__label' for='contactPrimaryPhone'>Primary Phone</label>
+                                                            <span class='mdl-textfield__error'>Invalid Primary Phone Number</span>
                                                         </div>
                                                     </div>
 
@@ -425,8 +425,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactSecondaryPhone' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
-                                                            <label class='mdl-textfield__label'
-                                                                   for='contactSecondaryPhone'>Secondary Phone</label>
+                                                            <label class='mdl-textfield__label' for='contactSecondaryPhone'>Secondary Phone</label>
+                                                            <span class='mdl-textfield__error'>Invalid Secondary Phone Number</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -438,8 +438,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactEmail' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^(?!\.).+@.+\..{2,5}$"/>
-                                                            <label class='mdl-textfield__label'
-                                                                   for='contactEmail'>Email</label>
+                                                            <label class='mdl-textfield__label' for='contactEmail'>Email</label>
+                                                            <span class='mdl-textfield__error'>Invalid Email</span>
                                                         </div>
                                                     </div>
 
@@ -468,6 +468,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-ZZ0-9]+)*\.?$"/>
                                                             <label class='mdl-textfield__label' for='contactAddressOne'>Address</label>
+                                                            <span class='mdl-textfield__error'>Invalid Address</span>
                                                         </div>
                                                     </div>
                                                     <div class='col-sm-6'>
@@ -478,6 +479,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[a-zA-Z0-9]+(([ \-\.]|(\. ))[a-zA-Z0-9]+)*$"/>
                                                             <label class='mdl-textfield__label' for='contactAddressTwo'>Apt/Suite</label>
+                                                            <span class='mdl-textfield__error'>Invalid Apt or Suite</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -489,8 +491,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactCity' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[A-Z](([ \-\.\,']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
-                                                            <label class='mdl-textfield__label'
-                                                                   for='contactCity'>City</label>
+                                                            <label class='mdl-textfield__label' for='contactCity'>City</label>
+                                                            <span class='mdl-textfield__error'>Invalid City</span>
                                                         </div>
                                                     </div>
                                                     <div class='col-sm-4'>
@@ -514,8 +516,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactZip' type='text'
                                                                    pattern="^[0-9]{5}(-[0-9]{4})?$"
                                                                    onkeypress="return supressEnter()"/>
-                                                            <label class='mdl-textfield__label' for='contactZip'>Zip
-                                                                Code</label>
+                                                            <label class='mdl-textfield__label' for='contactZip'>Zip Code</label>
+                                                            <span class='mdl-textfield__error'>Invalid Zip Code</span>
                                                         </div>
                                                     </div>
                                                 </div>
