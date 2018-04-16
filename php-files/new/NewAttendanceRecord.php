@@ -66,45 +66,59 @@ $dynamicRowId = 0;
 
                             $programId = $row['Program_Id'];
                             $studentIdToSearch = $row['Student_Id'];
-                            $studentName = $row['First_Name'] . " " . $row['Last_Name'];
+                            $studentName = $row['First_Name'] . " " . $row['Last_Name']; ?>
+                            <tr class='number-row'>
+                                <td class='col-sm-1 align-middle'></td>
+                                <td class='col-sm-4 align-middle'>
+                                    <?php echo $studentName; ?>
+                                </td>
+                                <td class='hidden align-middle'>
+                                    <input type='hidden' name='studentId[<?php echo $firstRowId; ?>$dynamicRowId]'
+                                           value=<?php echo $firstRowId; ?>$studentIdToSearch/>
+                                    <input type='hidden' name='programId[<?php echo $firstRowId; ?>$dynamicRowId]'
+                                           value=<?php echo $firstRowId; ?>$programId/>
+                                </td>
+                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                    <label class='radio-label' for='radio<?php echo $firstRowId; ?>'>
+                                        <input type='radio' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
+                                               value='1'
+                                               id='radio<?php echo $firstRowId; ?>'/>
+                                        <span class='custom-check-mark green-check'></span>
+                                    </label>
+                                </td>
 
-                            echo "<tr class='number-row'>
-                                    <td class='col-sm-1 align-middle'></td> 
-                                    <td class='col-sm-4 align-middle'>
-                                        $studentName
-                                    </td>
-                                    <td class='hidden align-middle'>
-                                        <input type='hidden' name='studentId[$dynamicRowId]' value=$studentIdToSearch />
-                                        <input type='hidden' name='programId[$dynamicRowId]' value=$programId />
-                                    </td>                                    
-                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
-                                        <label class='radio-label' for='radio$firstRowId'>
-                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='1' id='radio$firstRowId' />
-                                            <span class='custom-check-mark green-check'></span>
-                                        </label>
-                                    </td>
-                                    
-                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
-                                        <label class='radio-label' for='radio$secondRowId'>
-                                            <input class='hover-checkbox' type='radio' name='attendanceCheckbox[$dynamicRowId]' value='2' id='radio$secondRowId' />
-                                            <span class='custom-check-mark red-check'></span>
-                                        </label>
-                                    </td>
-                                    
-                                    <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
-                                        <label class='radio-label' for='radio$thirdRowId'>
-                                            <input type='radio' name='attendanceCheckbox[$dynamicRowId]' value='3' id='radio$thirdRowId' />
-                                            <span class='custom-check-mark blue-check'></span>
-                                        </label>
-                                    </td>
+                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                    <label class='radio-label' for='radio<?php echo $secondRowId; ?>'>
+                                        <input class='hover-checkbox' type='radio'
+                                               name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' value='2'
+                                               id='radio<?php echo $secondRowId; ?>'/>
+                                        <span class='custom-check-mark red-check'></span>
+                                    </label>
+                                </td>
 
-                                    
-                                    <td class='col-sm-2 text-center align-middle'>
-                                        <button type='button' data-toggle='collapse' data-target='.collapseRow$dynamicRowId' aria-expanded='false' aria-controls='collapseRow$dynamicRowId' class='student-info-button'><i class=\"glyphicon glyphicon-earphone\"></i>Contact</button>                         
-                                    </td>
-                                </tr>";
+                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                    <label class='radio-label' for='radio<?php echo $thirdRowId; ?>'>
+                                        <input type='radio' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
+                                               value='3'
+                                               id='radio<?php echo $thirdRowId; ?>'/>
+                                        <span class='custom-check-mark blue-check'></span>
+                                    </label>
+                                </td>
 
-                        }?>
+
+                                <td class='align-middle'>
+                                    <div class="right-action-buttons-container">
+                                    <span title='Student Contacts' data-toggle='tooltip'>
+                                        <button type='button'
+                                                onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
+                                                class='btn attendance-contact-button'>
+                                            <i class='fa fa-phone'></i>
+                                        </button>
+                                    </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </form>
@@ -113,7 +127,7 @@ $dynamicRowId = 0;
             <div class="card-footer">
                 <div>
                     <button id="submitAttendance" form="newAttendanceRecordForm" type="button"
-                            onclick ="validateAttendanceRows()"
+                            onclick="validateAttendanceRows()"
                             class="btn btn-right btn-primary">
                         Submit
                     </button>
@@ -123,8 +137,6 @@ $dynamicRowId = 0;
 
     </div>
 </div>
-
-<script type="text/javascript" src="../../js/NumberTableRows.js"></script>
 
 <script type="text/javascript">
     function validateAttendanceRows() {

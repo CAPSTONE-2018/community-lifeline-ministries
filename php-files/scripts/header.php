@@ -41,6 +41,7 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/toggle-switch.css"/>
     <link rel="stylesheet" href="../../css/table-styles.css"/>
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
+    <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
 
 </head>
 
