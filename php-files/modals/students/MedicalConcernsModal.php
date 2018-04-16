@@ -1,5 +1,5 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 $dynamicRowId = 0;
 
 $studentId = $_POST['studentId'];

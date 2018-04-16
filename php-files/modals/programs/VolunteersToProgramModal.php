@@ -1,25 +1,18 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 
-$studentId = $_POST['studentId'];
+$volunteerId = $_POST['volunteerId'];
 
-$queryForContacts = "SELECT * FROM Contacts
-            JOIN Student_To_Contacts ON Contacts.Id = Student_To_Contacts.Contact_Id
-            WHERE Student_To_Contacts.Student_Id = '$studentId';";
-$studentContactResults = mysqli_query($db, $queryForContacts);
+$queryForVolunteers = "SELECT Volunteer_Employees.First_Name, Volunteer_Employees.Last_Name FROM Volunteer_Employees 
+                        WHERE Volunteer_To_Programs.Program_Id = '$volunteerId';";
+
+$volunteerResults = mysqli_query($db, $queryForVolunteers);
 $response = '';
 $dynamicRowId = 0;
 
-while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
+while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
     $dynamicRowId++;
-    $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
-    $contactPhone = $contactRow['Primary_Phone'];
-    $contactEmail = $contactRow['Email'];
-    $contactAddressOne = $contactRow['Address_One'];
-    $contactAddressTwo = $contactRow['Address_Two'];
-    $contactCity = $contactRow['City'];
-    $contactState = $contactRow['State'];
-    $contactZip = $contactRow['Zip'];
+    $volunteerName = $volunteerRow['First_Name'] . " " . $volunteerRow['Last_Name'];
 
     $response = '
 <div class="contact-modal">'; ?>
@@ -30,7 +23,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactName" class="mdl-textfield__input" readonly
-                       value="<?php echo $contactName; ?>"
+                       value="<?php echo $volunteerName; ?>"
                        type="text"/>
                 <label class="mdl-textfield__label" for="contactName">Contact Name</label>
             </div>

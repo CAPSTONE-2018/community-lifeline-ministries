@@ -576,8 +576,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
         });
     });
 </script>
-<script src="../../js/modals/ConfirmStudentEntriesModal.js"></script>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+
 <script src="../../js/supressEnter.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
 <?php include("../scripts/footer.php"); ?>

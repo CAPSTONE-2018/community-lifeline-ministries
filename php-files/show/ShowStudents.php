@@ -67,9 +67,9 @@ $studentTableToLookUp = "Students";
                                 <thead>
                                 <tr>
                                     <th class="col-sm-1">#</th>
-                                    <th class="col-sm-3">Student Name</th>
+                                    <th class="col-sm-2">Student Name</th>
                                     <th class="col-sm-1 text-center">Programs</th>
-                                    <th class="col-sm-1 text-center">Documents</th>
+                                    <th class="col-sm-2 text-center">Permission Slip</th>
                                     <th class="col-sm-6 text-center">Actions</th>
                                 </tr>
                                 </thead>
@@ -95,13 +95,9 @@ $studentTableToLookUp = "Students";
                                             <?php echo $numberOfPrograms ?>
                                         </td>
                                         <?php
-                                        if (($activeStudentsRow['Permission_Slip'] == 1) &&
-                                            ($activeStudentsRow['Birth_Certificate'] == 1) &&
-                                            ($activeStudentsRow['Reduced_Lunch_Eligible'] == 1) &&
-                                            ($activeStudentsRow['IEP'] == 1)
-                                        ) {
+                                        if (($activeStudentsRow['Permission_Slip'] == 1)) {
                                             echo "<td class='col-sm-1 align-middle text-center'>
-                                                <i class='green-check fa fa-check-square-o'></i>
+                                                <button class='btn permission-slip-button'><i class='green-check fa fa-check-square-o'></i></button>
                                             </td>";
                                         } else {
                                             echo "
@@ -182,16 +178,6 @@ $studentTableToLookUp = "Students";
             </div>
         </div>
     </div>
-
-    <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
-    <!--    <script src="../../scripts/print.js"></script>-->
-
-<!--    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>-->
-<!--    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>-->
-<!--    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>-->
-<!--    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>-->
-<!--    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>-->
-
 <?php
 include("../scripts/footer.php");
 ?>
