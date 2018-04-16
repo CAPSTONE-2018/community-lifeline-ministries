@@ -1,4 +1,4 @@
-function launchConfirmationModal(serializedForm) {
+function launchStudentConfirmationModal(serializedForm) {
     $.ajax({
         url: "../../php-files/add/AddStudent.php",
         method: "POST",
@@ -26,7 +26,7 @@ function launchConfirmationModal(serializedForm) {
 
             var footerRow = '<div id="footerButtons" class="text-center">' +
                     '<button onclick="routeToHomePage()">Back to Home Page</button>' +
-                    '<button onclick="routeToStudent()">Add New Student</button>' +
+                    '<button onclick="routeToNewStudent()">Add New Student</button>' +
                 '</div>';
 
             $.ajax({
@@ -52,10 +52,3 @@ function launchConfirmationModal(serializedForm) {
         }
     })
 }
-
-function routeToStudent() {
-    location.href = "../../php-files/new/NewStudent.php";
-}
- function routeToHomePage() {
-    location.href = "../../php-files/index-login/menu.php";
- }
