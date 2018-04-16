@@ -1,6 +1,6 @@
 function launchEditProgramModal(programId) {
     $.ajax({
-        url: '../modals/EditProgramModal.php',
+        url: '../modals/programs/EditModal.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {
@@ -19,7 +19,7 @@ function launchEditProgramModal(programId) {
 
 function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisplay) {
     $.ajax({
-        url: '../modals/ArchiveProgramModal.php',
+        url: '../modals/programs/ArchiveModal.php',
         type: 'POST',
         data: {
             programIdToArchive: programIdToArchive,
@@ -39,19 +39,39 @@ function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisp
 }
 
 
-function launchVolunteersModal(studentId) {
+function launchVolunteersInProgramModal(volunteerId) {
+    alert(volunteerId);
     $.ajax({
-        url: '../modals/ContactsModal.php',
+        url: '../modals/programs/VolunteersToProgramModal.php',
+        type: 'post',
+        data: {volunteerId: volunteerId},
+        success: function (response) {
+            $('#custom-modal').removeClass().addClass('modal right fade');
+            $('#custom-size').removeClass().addClass('modal-dialog');
+            $('#custom-title').removeClass().addClass('modal-header test-scores-modal-header');
+            $('#custom-icon').removeClass().addClass('m-auto fa fa-star fa-2x');
+            $('#dynamic-title').text("Volunteer Info");
+            $('.modal-body').html(response);
+            $('#custom-modal').modal('show');
+        }
+    });
+}
+
+
+function launchStudentsInProgramModal(studentId) {
+    $.ajax({
+        url: '../modals/programs/StudentsEnrolledModal.php',
         type: 'post',
         data: {studentId: studentId},
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal right fade');
             $('#custom-size').removeClass().addClass('modal-dialog');
             $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
-            $('#dynamic-title').text("Contact Info");
+            $('#custom-icon').removeClass().addClass('m-auto fa fa-graduation-cap fa-2x');
+            $('#dynamic-title').text("Students Enrolled In Program");
             $('.modal-body').html(response);
             $('#custom-modal').modal('show');
         }
     });
 }
+

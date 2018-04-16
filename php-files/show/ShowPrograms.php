@@ -4,9 +4,8 @@ include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
-
-
 $queryForPrograms = "SELECT * FROM Programs;";
+
 $programResults = mysqli_query($db, $queryForPrograms);
 ?>
     <div class="print_div">
@@ -69,6 +68,12 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                     $programName = $programsRow['Program_Name'];
                                     $programId = $programsRow['Id'];
                                     $tableToLookUp = "Programs";
+                                    $queryForVolunteers = "SELECT Volunteer_Employees.Id FROM Volunteer_Employees 
+                                                            JOIN Volunteer_To_Programs ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id
+                                                            WHERE Volunteer_To_Programs.Program_Id = '$programId';";
+                                    $volunteerResults = mysqli_query($db, $queryForVolunteers);
+                                    $volunteersRow = mysqli_fetch_assoc($volunteerResults);
+                                    $volunteerId = $volunteersRow['Id'];
                                     ?>
                                     <tr class='number-row'>
                                         <td class='col-sm-1 align-middle'></td>
@@ -87,46 +92,25 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                                         <i class='fa fa-pencil'></i> Edit
                                                     </button>
                                                 </div>
-
-                                                <div class='d-inline'>
-                                                    <button type='button'
-                                                            class='btn large-action-buttons delete-student-button'
-                                                            onclick='launchArchiveProgramModal(
-                                                                    "<?php echo $programId; ?>",
-                                                                    "<?php echo $tableToLookUp; ?>",
-                                                                    "<?php echo $programName; ?>")'
-                                                    >
-                                                        <i class='fa fa-archive'></i> Archive
-                                                    </button>
-                                                </div>
                                             </div>
 
                                             <div class='right-action-buttons-container d-inline'>
-                                                <span title='Test Scores' data-toggle='tooltip'
+                                                <span title='Volunteers' data-toggle='tooltip'
                                                       class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick='launchTestScoresModal(<?php echo $studentIdToSearch; ?>)'
+                                                            onclick='launchVolunteersInProgramModal(<?php echo $volunteerId; ?>)'
                                                             class='btn small-action-buttons test-scores-button'
                                                     >
-                                                        <i class='fa fa-bar-chart'></i>
+                                                        <i class='fa fa-star'></i>
                                                     </button>
                                                 </span>
-                                                <span title='Student Allergies' data-toggle='tooltip'
+                                                <span title='Students In Program' data-toggle='tooltip'
                                                       class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
-                                                            class='btn small-action-buttons view-allergies-button'
-                                                    >
-                                                        <i class='fa fa-warning'></i>
-                                                    </button>
-                                                </span>
-                                                <span title='Student Contacts' data-toggle='tooltip'
-                                                      class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
+                                                            onclick='launchStudentsInProgramModal(<?php echo $studentIdToSearch; ?>)'
                                                             class='btn small-action-buttons student-contact-button'
                                                     >
-                                                        <i class='fa fa-phone'></i>
+                                                        <i class='fa fa-graduation-cap'></i>
                                                     </button>
                                                 </span>
                                             </div>
