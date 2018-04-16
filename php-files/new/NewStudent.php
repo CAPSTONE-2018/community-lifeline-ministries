@@ -7,6 +7,8 @@ $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $queryForExistingContacts = "SELECT DISTINCT Id, First_Name, Last_Name FROM Contacts";
 $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 ?>
+<script src="../../js/supressEnter.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -39,7 +41,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="firstName" class="mdl-textfield__input"
-                                                       name="studentFirstName" type="text"
+                                                       name="studentFirstName" type="text" onkeypress="return supressEnter()"
 						       pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="firstName">First Name</label>
                                                 <span class="mdl-textfield__error">Invalid First Name Data Entred</span>
@@ -49,7 +51,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="lastName" class="mdl-textfield__input" name="studentLastName"
-                                                       type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
+                                                       type="text" onkeypress="return supressEnter()" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="lastName">Last Name</label>
                                                 <span class="mdl-textfield__error">Invalide Last Name Data Entered</span>
                                             </div>
@@ -68,7 +70,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="suffix" class="mdl-textfield__input" name="studentSuffix"
-                                                       type="text" pattern="^[A-Z](([ \.]|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
+                                                       type="text" onkeypress="return supressEnter()"
+                                                       pattern="^[A-Z](([ \.]|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                 <label class="mdl-textfield__label" for="suffix">Suffix</label>
                                                 <span class="mdl-textfield__error">Invalid Suffix Data Entered</span>
                                             </div>
@@ -80,7 +83,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="dob" class="mdl-textfield__input" name="dob" type="text"
-						 pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\?[1-9][0-9]{3}$"/>
+                                                       onkeypress=" return supressEnter()"
+						       pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\?[1-9][0-9]{3}$"/>
                                                 <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                                 <span class="mdl-textfield__error">Invalid D.O.B. Data Entered</span>
                                             </div>
@@ -89,7 +93,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="ethnicity" class="mdl-textfield__input" name="ethnicity"
-                                                       type="text" pattern="^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$"/>
+                                                       type="text" onkeypress="return supressEnter()"
+                                                       pattern="^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
                                                 <span class="mdl-textfield__error">Invalid Ethnicity Data Entered</span>
                                             </div>
@@ -116,7 +121,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentAddressOne" class="mdl-textfield__input"
-                                                       name="studentAddressOne" type="text"
+                                                       name="studentAddressOne" type="text" onkeypress="return supressEnter()"
 						       pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"/>
                                                 <label class="mdl-textfield__label"
                                                        for="studentAddressOne">Address</label>
@@ -126,7 +131,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentAddressTwo" class="mdl-textfield__input"
-                                                       name="studentAddressTwo" type="text" pattern="^[a-zA-Z0-9]+(([\- \.]|(\. ))[a-zA-Z0-9]+)*$"/>
+                                                       name="studentAddressTwo" type="text" onkeypress="return supressEnter()"
+                                                       pattern="^[a-zA-Z0-9]+(([\- \.]|(\. ))[a-zA-Z0-9]+)*$"/>
                                                 <label class="mdl-textfield__label"
                                                        for="studentAddressTwo">Apt/Suite</label>
                                                 <span class="mdl-textfield__error">Invalid Apt/Suite Data Entered</span>
@@ -137,7 +143,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentCity" class="mdl-textfield__input" name="studentCity"
-                                                       type="text" pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
+                                                       type="text" onkeypress="return supressEnter()"
+                                                       pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                 <label class="mdl-textfield__label" for="studentCity">City</label>
                                                 <span class="mdl-textfield__error">Invalid City Data Entered</span>
                                             </div>
@@ -161,7 +168,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentZip" class="mdl-textfield__input" name="studentZip"
-                                                       type="text" pattern="^[0-9]{5}(-[0-9]{4})?$"/>
+                                                       type="text" onkeypress="return supressEnter()"
+                                                       pattern="^[0-9]{5}(-[0-9]{4})?$"/>
                                                 <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
                                                 <span class="mdl-textfield__error">Invalid Zip Code Data Entered</span>
                                             </div>
@@ -175,7 +183,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentSchool" class="mdl-textfield__input"
-                                                       name="studentSchool" type="text"/>
+                                                       name="studentSchool" type="text" onkeypress="return supressEnter()"/>
                                                 <label class="mdl-textfield__label" for="studentSchool">School Currently
                                                     Attending</label>
                                             </div>
@@ -250,7 +258,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="medicalConcernName" class="mdl-textfield__input"
-                                                       name="medicalConcernName" type="text"/>
+                                                       name="medicalConcernName" type="text" onkeypress="return supressEnter()"/>
                                                 <label class="mdl-textfield__label"
                                                        for="medicalConcernName">Name</label>
                                             </div>
@@ -346,8 +354,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                         <div id="floatingFirstName"
                                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                             <input id="contactFirstName" class="mdl-textfield__input"
-                                                                   name="contactFirstName"
-                                                                   type="text"/>
+                                                                   name="contactFirstName" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
+                                                                   type="text" onkeypress="return supressEnter()"/>
                                                             <label class="mdl-textfield__label" for="contactFirstName">First
                                                                 Name</label>
                                                         </div>
@@ -357,7 +365,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                         <div id="floatingLastName"
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactLastName' class='mdl-textfield__input'
-                                                                   name='contactLastName' type='text'/>
+                                                                   name='contactLastName' type='text' onkeypress="return supressEnter()"
+                                                                   pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                             <label class='mdl-textfield__label' for='contactLastName'>Last
                                                                 Name</label>
                                                             <span class='mdl-textfield__error'>Last Name is Required</span>
@@ -369,7 +378,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                         <div id="floatingPrimaryPhone"
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactPrimaryPhone' class='mdl-textfield__input'
-                                                                   name='contactPrimaryPhone' type='text'/>
+                                                                   name='contactPrimaryPhone' type='text' onkeypress="return supressEnter()"
+                                                                   pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
                                                             <label class='mdl-textfield__label'
                                                                    for='contactPrimaryPhone'>Primary Phone</label>
                                                         </div>
@@ -380,7 +390,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactSecondaryPhone'
                                                                    class='mdl-textfield__input'
-                                                                   name='contactSecondaryPhone' type='text'/>
+                                                                   name='contactSecondaryPhone' type='text' onkeypress="return supreeEnter()"
+                                                                   pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
                                                             <label class='mdl-textfield__label'
                                                                    for='contactSecondaryPhone'>Secondary Phone</label>
                                                         </div>
@@ -391,7 +402,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                         <div id="floatingEmail"
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactEmail' class='mdl-textfield__input'
-                                                                   name='contactEmail' type='text'/>
+                                                                   name='contactEmail' type='text' onkeypress="return supressEnter()"
+                                                                   pattern="^(?!\.).+@.+\..{2,5}$"/>
                                                             <label class='mdl-textfield__label'
                                                                    for='contactEmail'>Email</label>
                                                         </div>
@@ -402,7 +414,7 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactRelationToStudent'
                                                                    class='mdl-textfield__input'
-                                                                   name='contactRelationToStudent' type='text'/>
+                                                                   name='contactRelationToStudent' type='text' onkeypress="return supressEnter()"/>
                                                             <label class='mdl-textfield__label'
                                                                    for='contactRelationToStudent'>Relationship To
                                                                 Student</label>
@@ -417,7 +429,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                         <div id="floatingAddressOne"
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactAddressOne' class='mdl-textfield__input'
-                                                                   name='contactAddressOne' type='text'/>
+                                                                   name='contactAddressOne' type='text' onkeypress="return supressEnter()"
+                                                                   pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-ZZ0-9]+)*\.?$"/>
                                                             <label class='mdl-textfield__label' for='contactAddressOne'>Address</label>
                                                         </div>
                                                     </div>
@@ -425,7 +438,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                         <div id="floatingAddressTwo"
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactAddressTwo' class='mdl-textfield__input'
-                                                                   name='contactAddressTwo' type='text'/>
+                                                                   name='contactAddressTwo' type='text' onkeypress="return supressEnter()"
+                                                                   pattern="^[a-zA-Z0-9]+(([ \-\.]|(\. ))[a-zA-Z0-9]+)*$"/>
                                                             <label class='mdl-textfield__label' for='contactAddressTwo'>Apt/Suite</label>
                                                         </div>
                                                     </div>
@@ -433,7 +447,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                 <div class='form-group'>
                                                     <div class='col-sm-4'>
                                                         <div id="floatingCity" class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                                            <input id='contactCity' class='mdl-textfield__input' name='contactCity' type='text'/>
+                                                            <input id='contactCity' class='mdl-textfield__input' name='contactCity' type='text'
+                                                                   onkeypress="return supressEnter()" pattern="^[A-Z](([ \-\.\,']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                             <label class='mdl-textfield__label' for='contactCity'>City</label>
                                                         </div>
                                                     </div>
@@ -454,7 +469,8 @@ $existingContactsResult = mysqli_query($db, $queryForExistingContacts);
                                                     <div class='col-sm-4'>
                                                         <div id="floatingZipCode"
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                                            <input id='contactZip' class='mdl-textfield__input' name='contactZip' type='text'/>
+                                                            <input id='contactZip' class='mdl-textfield__input' name='contactZip' type='text'
+                                                             pattern="^[0-9]{5}(-[0-9]{4})?$" onkeypress="return supressEnter()"/>
                                                             <label class='mdl-textfield__label' for='contactZip'>Zip Code</label>
                                                         </div>
                                                     </div>
