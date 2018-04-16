@@ -182,16 +182,6 @@ $studentTableToLookUp = "Students";
             </div>
         </div>
     </div>
-
-    <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
-    <!--    <script src="../../scripts/print.js"></script>-->
-
-<!--    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>-->
-<!--    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>-->
-<!--    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>-->
-<!--    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>-->
-<!--    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>-->
-
 <?php
 include("../scripts/footer.php");
 ?>

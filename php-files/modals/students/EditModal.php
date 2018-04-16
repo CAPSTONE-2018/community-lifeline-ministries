@@ -1,6 +1,6 @@
 <?php
-include("../../db/config.php");
-include("../scripts/States.php");
+include("../../../db/config.php");
+include("../../scripts/States.php");
 $studentId = $_POST['studentId'];
 
 $queryForStudentInfo = "SELECT * FROM Students WHERE Id = '$studentId';";

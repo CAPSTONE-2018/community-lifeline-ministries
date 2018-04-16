@@ -1,5 +1,5 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 $studentIdToArchive = $_POST['studentIdToArchive'];
 $tableToLookUp = $_POST['tableToLookUp'];
 $nameToDisplay = $_POST['nameToDisplay'];
@@ -27,7 +27,7 @@ $archiveUserResponse = '
             data: {studentId: studentId},
             success: function (output) {
                 if (output == 0) {
-                    window.location.href = "../show/ShowStudents.php"
+                    window.location.href = "../../show/ShowStudents.php"
                 } else {
                     alert("Whoops! There is an issue connecting to database");
                 }
