@@ -46,6 +46,7 @@ CREATE TABLE Medical_Concerns (
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Name                   VARCHAR(60),
+  Type                   VARCHAR(60),
   Note                   VARCHAR(500)
 );
 
