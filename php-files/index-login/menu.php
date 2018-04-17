@@ -1,11 +1,11 @@
 <?php
-include("../../scripts/header.php");
+include("../scripts/header.php");
 
-include("../menu/AttendanceCard.php");
+include("./AttendanceCard.php");
 
 ?>
 
-<script defer src="../../../js/forms/PrettyDropdowns.js"></script>
+<script defer src="../../js/forms/PrettyDropdowns.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $dropdown = $('select').prettyDropdown({
@@ -18,5 +18,5 @@ include("../menu/AttendanceCard.php");
     $dropdown.refresh();
 </script>
 <?php
-include("../../scripts/footer.php");
+include("../scripts/footer.php");
 ?>

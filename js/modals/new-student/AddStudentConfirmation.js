@@ -14,7 +14,7 @@ function launchStudentConfirmationModal(serializedForm) {
             var homePageButtonTitle = document.createTextNode("Back to Home Page");
             homePageButton.appendChild(homePageButtonTitle);
             homePageButton.onclick = function () {
-                location.href = "../../../php-files/index-login/menu/menu.php";
+                location.href = "../../../php-files/index-login/menu.php";
             };
 
             var newStudentButton = document.createElement("BUTTON");
@@ -30,7 +30,7 @@ function launchStudentConfirmationModal(serializedForm) {
                 '</div>';
 
             $.ajax({
-                url: '../../php-files/modals/ConfirmationModal.php',
+                url: '../modals/students/ConfirmationModal.php',
                 method: "POST",
                 data: {
                     student: studentConfirmation,
@@ -39,6 +39,7 @@ function launchStudentConfirmationModal(serializedForm) {
                     studentContact: studentToContactConfirmation
                 },
                 success: function (response) {
+                    alert("inside second ajax success");
                     $('#custom-modal').removeClass().addClass('modal fade');
                     $('#custom-size').removeClass().addClass('modal-dialog');
                     $('#custom-title').removeClass().addClass('modal-header successful-entry-modal-header');

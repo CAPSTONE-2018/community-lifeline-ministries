@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var txt = "";
-    $('#buttonTrigger').click(function () {
+    $('#confirmationButton').click(function () {
 
         // var submitButton = document.createElement("BUTTON");
         // var buttonTitle = document.createTextNode("Submit");
@@ -73,6 +73,7 @@ $(document).ready(function () {
 });
 
 function sendNewStudentForm() {
+    alert("send new student");
     var serializedForm = $('#newStudentForm').serialize();
     $('#custom-modal').modal('hide');
     launchStudentConfirmationModal(serializedForm);
