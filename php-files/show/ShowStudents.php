@@ -97,7 +97,7 @@ $studentTableToLookUp = "Students";
                                         <?php
                                         if (($activeStudentsRow['Permission_Slip'] == 1)) {
                                             echo "<td class='col-sm-1 align-middle text-center'>
-                                                <button class='btn permission-slip-button'><i class='green-check fa fa-check-square-o'></i>
+                                                <button class='btn permission-slip-button'><i class='green-check fa fa-check-square-o'></i></button>
                                             </td>";
                                         } else {
                                             echo "
