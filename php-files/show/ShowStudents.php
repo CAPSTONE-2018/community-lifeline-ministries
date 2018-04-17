@@ -183,6 +183,27 @@ $studentTableToLookUp = "Students";
         </div>
     </div>
 
+<script>
+    function EditTestScores(){
+        $(".testScores").prop('readonly', false);
+    }
+
+    function UpdateTestScores(){
+        var numItems = $('.testScores').length;
+        numItems /= 4;
+
+        for(var i = 1; i < numItems+1; i++){
+            $.ajax({
+                url: "../update/UpdateTestScores.php",
+                method: "POST",
+                data: {StudentId: <?php echo $studentIdToSearch; ?>,schoolYear: document.getElementById('schoolYear'+i).value,term:document.getElementById('schoolYear'+i).value },
+                success: function (output) {
+                }
+            });
+        }
+    }
+</script>
+
     <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
     <!--    <script src="../../scripts/print.js"></script>-->
 
