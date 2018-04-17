@@ -106,9 +106,11 @@ $studentTableToLookUp = "Students";
                                             </td>
                                         <?php } else { ?>
                                             <td class='col-sm-1 align-middle text-center'>
-                                                <a data-toggle='collapse' data-target='.collapseDocumentsRow$dynamicRowId'>
+                                                <button type="button"
+                                                        onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
+                                                        class='btn permission-slip-button'>
                                                     <i class='red-circle fa fa-ban'></i>
-                                                </a>
+                                                </button>
                                             </td>
                                         <?php } ?>
                                         <td class='col-sm-6 text-center'>
