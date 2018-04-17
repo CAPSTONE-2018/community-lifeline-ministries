@@ -56,5 +56,5 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
     </div>
 </div>
 
-<script type="text/javascript" src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+<script type="text/javascript" src="../../js/modals/new-student/DynamicInputStyles.js"></script>
+<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>

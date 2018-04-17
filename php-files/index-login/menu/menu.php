@@ -5,7 +5,7 @@ include("../menu/AttendanceCard.php");
 
 ?>
 
-<script defer src="../../../js/PrettyDropdowns.js"></script>
+<script defer src="../../../js/forms/PrettyDropdowns.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $dropdown = $('select').prettyDropdown({
