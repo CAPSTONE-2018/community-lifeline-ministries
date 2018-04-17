@@ -28,17 +28,7 @@ if ($row['Active_Class'] == 1) {
     $classIsNotActive = "selected=\"selected\"";
 }
 
-$output = "<div id=\"form_wrapper\">
-    <form class=\"form - horizontal\" action=\"../update/UpdateClass.php\" method=\"POST\" id=\"form2\">
-
-        <h1>Update $classNameToDisplay's Information:</h1>
-        <br />
-        <div class=\"row\">
-    
-            <div class=\"form-group\">
-                <div class=\"col-lg-6\">
-                    <label class=\"control-label\" for=\"name\">Class Name:</label>
-                    <input id=\"name\" class=\"form-control\" value='".$row['Class_Name']."' placeholder=\"Class Name\" type=\"text\" name=\"name\">
+$output = " value='" .$row['Class_Name']."' placeholder=\"Class Name\" type=\"text\" name=\"name\">
                 </div>  
                                
                 <div class=\"col-lg-6\">

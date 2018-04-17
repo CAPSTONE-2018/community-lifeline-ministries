@@ -19,6 +19,11 @@ include("../widgets/TimeZoneFormat.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Community Lifeline Ministries</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
     <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
@@ -36,22 +41,17 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/toggle-switch.css"/>
     <link rel="stylesheet" href="../../css/table-styles.css"/>
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
 
 </head>
 
 
 <body>
 <!-- Top Nav -->
-<!-- Top Nav -->
 <nav class="navbar-default navbar-fixed-top">
     <div class="navbar-user">
         Signed In As: <?php echo $userMakingChanges ?>
-        <div class="">
-            <? echo $timeToDisplay ?>
-        </div>
+        <div id="timer"></div>
     </div>
 
     <div class="navbar-collapse collapse">
@@ -165,20 +165,6 @@ include("../widgets/TimeZoneFormat.php");
                         <li><a href="../create/createStudentAttendanceReport.php">Student Attendance Report</a></li>
                     </ul>
                 </li>
-
-<!--                do we want to get rid of this drop down all together??? we have the searching capability in the view all tables-->
-
-
-<!--                <li>-->
-<!--                    <a href="#searchSubmenu" data-toggle="collapse" aria-expanded="false">-->
-<!--                        <i class="glyphicon glyphicon-search"></i> Search-->
-<!--                    </a>-->
-<!--                    <ul class="collapse list-unstyled" id="searchSubmenu">-->
-<!--                        <li><a href="../search/SearchStudentInfo.php">Student Info</a></li>-->
-<!--                        <li><a href="../search/SearchVolunteerEmployee.php">Volunteer Info</a></li>-->
-<!--                        <li><a href="../search/SearchSchedule.php">Schedules</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
                 <li>
                     <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="fa fa-cogs"></i> Admin
@@ -230,6 +216,10 @@ include("../widgets/TimeZoneFormat.php");
                         </div>
 
                         <div class="modal-body">
+
+                        </div>
+
+                        <div class="modal-footer">
 
                         </div>
                     </div>

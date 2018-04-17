@@ -10,7 +10,12 @@ $duplicateEntryResponse = '
         Please Enter A New Program Or Go Back And Edit.
     </div>
     <div class="modal-footer">
+        <button onclick="routeToHome()">Home Page</button>
+        <button>Add Another Program</button>
+        <button>View All Programs</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
     </div>
 </div>
+
 <?php echo $duplicateEntryResponse; ?>

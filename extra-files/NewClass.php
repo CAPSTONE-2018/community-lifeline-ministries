@@ -11,7 +11,7 @@ $result = mysqli_query($db, $query);
 
 <div class="container">
     <div id="form_wrapper">
-        <form class="form-horizontal" action="../add/AddClass.php" method="POST" id="form2">
+        <form class="form-horizontal" action="AddClass.php" method="POST" id="form2">
             <h1>Add Class Information:</h1>
             <br/>
             <div class="row">

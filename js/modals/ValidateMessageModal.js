@@ -18,13 +18,19 @@ function launchDuplicateEntryModal(duplicateEntryTitleToPassThrough, submissionT
     });
 }
 
-function launchSuccessfulEntryModal(successfulEntryTitle, submissionType) {
+function launchSuccessfulEntryModal(successfulEntryTitle, submissionType,
+                                    viewAllRoute, viewAllButtonTitle,
+                                    newEntryRoute, newEntryButtonTitle) {
     $.ajax({
         url: '../modals/SuccessfulEntryModal.php',
         type: 'post',
         data: {
             successfulEntryTitle: successfulEntryTitle,
-            submissionType: submissionType
+            submissionType: submissionType,
+            viewAllRoute: viewAllRoute,
+            viewAllButtonTitle: viewAllButtonTitle,
+            newEntryRoute: newEntryRoute,
+            newEntryButtonTitle: newEntryButtonTitle
         },
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal fade');

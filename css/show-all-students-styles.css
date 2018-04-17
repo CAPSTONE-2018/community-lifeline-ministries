@@ -4,13 +4,15 @@
 
 .large-action-buttons {
     display: inline-block;
+    height: 34px;
     width: 30%;
-    margin: 7px auto;
+    margin: 3px auto;
     color: #fff;
 }
 
 .small-action-buttons {
     display: inline-block;
+    height: 34px;
     margin: auto;
     color: #fff;
 }
@@ -56,6 +58,13 @@
     background-color: #1697A6;
 }
 
+.permission-slip-button {
+    height: 34px;
+    margin: auto;
+    background-color: transparent;
+    border-color: #2EA6A2;
+}
+
 .left-action-buttons-container {
     display: inline-block;
     width: 58%;
@@ -71,6 +80,11 @@
     text-align: center;
 }
 
+.permission-slip-button:hover {
+    color: #fff;
+    background-color: #2EA6A2;
+}
+
 .side-by-side {
     display: inline-block;
     width: 48%;
@@ -78,9 +92,12 @@
 }
 
 
-.green-check {
-    color: green;
-}
+/*.green-check {*/
+    /*color: #2EA6A2;*/
+/*}*/
+/*.permission-slip-button:hover.green-check {*/
+    /*color: #fff;*/
+/*}*/
 
 .red-circle {
     color: #d50000;

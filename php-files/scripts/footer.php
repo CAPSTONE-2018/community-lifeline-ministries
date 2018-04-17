@@ -16,6 +16,7 @@
         $('[data-toggle="tooltip"]').tooltip({trigger: "hover"});
     });
 
+
 </script>
 
 <script src="../../js/CapitalizeFirstLetter.js"></script>
@@ -23,10 +24,16 @@
 <script src="../../js/FilterFields.js"></script>
 <script src="../../js/modals/StudentSlideDownModal.js"></script>
 <script src="../../js/modals/ShowStudentsModalScripts.js"></script>
-<script src="../../js/modals/ArchiveUserModals.js"></script>
-
+<script src="../../js/modals/ArchiveModals.js"></script>
+<script src="../../js/new-student-scripts/StudentConfirmation.js"></script>
 <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>
 <script src="../../js/input-styling.min.js"></script>
+<script src="../../js/modals/ConfirmStudentEntriesModal.js"></script>
+<script src="../../js/MdlSelect.js"></script>
+<script src="../../js/modals/ModalFooterRoutes.js"></script>
+<script src="../../js/modals/ValidateMessageModal.js"></script>
+<script src="../../scripts/print.js"></script>
+<script src="../../js/modals/ShowProgramsModalScripts.js"></script>
 
 </div>
 </div>

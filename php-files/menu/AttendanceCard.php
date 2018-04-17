@@ -1,7 +1,7 @@
 <?php
 //connect to database
 include("../../db/config.php");
-include ("../widgets/TimeZoneFormat.php");
+include("../widgets/TimeZoneFormat.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = '$dateToSubmit'";
 $programResults = mysqli_query($db, $queryForAllPrograms);
@@ -10,25 +10,30 @@ $attendanceRecordResult = mysqli_query($db, $queryDoesAttendanceRecordExist);
 $programsWithAttendanceRecordArray = [];
 while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
-}
-?>
-<!--<link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>-->
+} ?>
 
 <div class="container-fluid col-sm-8">
     <div class="card text-center">
         <div class="card-header">
-            Message On If Attendance Was Taken Today
+            Attendance Center
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+        <div class="card-body col-sm-12">
+            <div class="form-group row text-center">
+                <div class="col-sm-6 m-auto">
+                    <input id="datePicker" name="datePicker" onchange="checkForDate()" placeholder="Search By Date" />
+                </div>
+            </div>
+            <div class="form-group row text-center">
+                <div id="programsToDisplay" class="m-auto"></div>
+            </div>
         </div>
         <div class="card-footer text-muted align-content-center">
             <div class="nav nav-pills card-header-pills align-content-center">
-                <div class="nav-item col-sm-4">
+                <div class="nav-item col-sm-6">
                     <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
-                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-plus'></span>"
+                            <option data-prefix="<span aria-hidden='true' class='fa fa-plus'></span>"
                                     readonly selected> Start New Record
                             </option>
 
@@ -45,11 +50,16 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                                     $iconToDisplay = "fa fa-book";
                                 }
                                 if (in_array($programId, $programsWithAttendanceRecordArray)) { ?>
-                                        <option disabled data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
-                                <?php
-                                } else {?>
-                                        <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
-                                <?php
+                                    <option disabled
+                                            data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                    <?php
+                                } else { ?>
+                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programId; ?>'> <?php echo $programNameToDisplay; ?></option>
+                                    <?php
                                 }
                             } ?>
                         </select>
@@ -57,16 +67,11 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                     </form>
                 </div>
 
-                <div class="nav-item col-sm-4">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-search"></i> Look Up
-                    </a>
-                </div>
-
-                <div class="nav-item col-sm-4">
+                <div class="nav-item col-sm-6">
                     <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
+                        <input type="hidden" name="programDateToSearch" value="<?php echo $dateToSubmit; ?>"/>
                         <select onchange="this.form.submit()" name="programIdToEdit">
-                            <option data-prefix="<span aria-hidden='true' class='glyphicon glyphicon-pencil'></span>"
+                            <option data-prefix="<span aria-hidden='true' class='fa fa-pencil'></span>"
                                     readonly selected> Edit
                             </option>
                             <?php
@@ -81,11 +86,16 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                                 } else if ($programIdToEdit == 3) {
                                     $iconToDisplay = "fa fa-book";
                                 }
-                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) {?>
-                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons' value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                if (in_array($programIdToEdit, $programsWithAttendanceRecordArray)) { ?>
+                                    <option data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
                                     <?php
-                                } else {?>
-                                    <option disabled data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>" class='custom-size program-select-buttons'  value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
+                                } else { ?>
+                                    <option disabled
+                                            data-prefix="<span aria-hidden='true' class='<?php echo $iconToDisplay; ?>'></span>"
+                                            class='custom-size program-select-buttons'
+                                            value='<?php echo $programIdToEdit; ?>'> <?php echo $programEditNameToDisplay; ?></option>
                                     <?php
                                 }
                             } ?>
@@ -97,3 +107,21 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
         </div>
     </div>
 </div>
+
+<script>
+    $('#datePicker').datepicker();
+
+    function checkForDate() {
+        var dateToSearch = $('#datePicker').val();  //grabs value from calendar
+        $.ajax({
+            url: "../scripts/AjaxDatePicker.php",
+            method: "Post",
+            data: {dateToSearch: dateToSearch},
+            success: function (output) {
+                $('#programsToDisplay').slideDown().html(output);
+            }
+
+        });
+    }
+
+</script>

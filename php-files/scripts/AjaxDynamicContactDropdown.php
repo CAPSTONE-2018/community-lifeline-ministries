@@ -10,7 +10,7 @@ $dynamicContactId = $_POST['dynamicContactId'];
                class="mdl-textfield__input"
                readonly>
         <input type="hidden" name="studentContact<?php echo $dynamicContactId; ?>">
-        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+        <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
         <label for="studentContact<?php echo $dynamicContactId; ?>" class="mdl-textfield__label">Select From Existing Contact</label>
         <ul for="studentContact<?php echo $dynamicContactId; ?>" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
             <?php

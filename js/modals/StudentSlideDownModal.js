@@ -91,6 +91,26 @@ function checkForInputs() {
         $('div[id=floatingStudentSchool]').removeClass("is-focused").addClass("is-focused is-dirty");
     }
 
+    var programNameInputValue = $('#programName').val();
+    if (programNameInputValue === "") {
+        $('div[id=floatingProgramName]').removeClass("is-focused is-dirty");
+    } else {
+        $('div[id=floatingProgramName]').removeClass("is-focused").addClass("is-focused is-dirty");
+    }
+
+    var programVolunteerInputValue = $('#volunteerName').val();
+    if (programVolunteerInputValue === "") {
+        $('div[id=floatingVolunteerName]').removeClass("is-focused is-dirty");
+    } else {
+        $('div[id=floatingVolunteerName]').removeClass("is-focused").addClass("is-focused is-dirty");
+    }
+
+    var studentsEnrolledInProgram = $('#studentsEnrolledInProgram').val();
+    if (studentsEnrolledInProgram === "") {
+        $('div[id=floatingStudentsEnrolledInProgram]').removeClass("is-focused is-dirty");
+    } else {
+        $('div[id=floatingStudentsEnrolledInProgram]').removeClass("is-focused").addClass("is-focused is-dirty");
+    }
 }
 
 function addStudentFirstNameFocus() {
@@ -153,4 +173,17 @@ function removeGenderFocus() {
     } else {
         $(activeId).removeClass("is-focused").addClass("is-dirty");
     }
+}
+
+function addProgramNameFocus() {
+    $('div[id=floatingProgramName]').addClass("is-focused");
+}
+
+
+function addVolunteerNameFocus() {
+    $('div[id=floatingVolunteerName]').addClass("is-focused");
+}
+
+function addStudentsEnrolledFocus() {
+    $('div[id=floatingStudentsEnrolledInProgram]').addClass("is-focused");
 }

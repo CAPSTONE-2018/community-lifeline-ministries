@@ -1,0 +1,23 @@
+.attendance-contact-button {
+
+    background-color: #6640B4;
+    color: #fff;
+}
+
+.attendance-contact-button:hover {
+    background-color: #5133A5;
+}
+
+.attendance-action-buttons {
+    display: inline-block;
+    height: 34px;
+    margin: auto;
+}
+
+.right-action-buttons-container {
+    display: inline-block;
+    width: 40%;
+    margin: auto;
+    vertical-align: top;
+    text-align: center;
+}
