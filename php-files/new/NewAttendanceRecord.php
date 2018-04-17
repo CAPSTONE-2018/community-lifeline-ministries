@@ -73,10 +73,10 @@ $dynamicRowId = 0;
                                     <?php echo $studentName; ?>
                                 </td>
                                 <td class='hidden align-middle'>
-                                    <input type='hidden' name='studentId[<?php echo $firstRowId; ?>$dynamicRowId]'
-                                           value=<?php echo $firstRowId; ?>$studentIdToSearch/>
-                                    <input type='hidden' name='programId[<?php echo $firstRowId; ?>$dynamicRowId]'
-                                           value=<?php echo $firstRowId; ?>$programId/>
+                                    <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
+                                           value=<?php echo $studentIdToSearch; ?>/>
+                                    <input type='hidden' name='programId[<?php echo $dynamicRowId; ?>]'
+                                           value=<?php echo $programId; ?>/>
                                 </td>
                                 <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
                                     <label class='radio-label' for='radio<?php echo $firstRowId; ?>'>
