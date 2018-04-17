@@ -13,32 +13,20 @@ include("../../db/config.php");
 session_start();
 
 $userMakingChanges = $_SESSION['loggedIn'];
-$id = $_POST['testScoreId'];
+$id = $_POST['id'];
 $term = $_POST['term'];
-$year = intval($_POST['year']);
-$preTest = floatval($_POST['preTest']);
-$postTest = floatval($_POST['postTest']);
+$year = intval($_POST['SchoolYear']);
+$preTest = floatval($_POST['pre_Test']);
+$postTest = floatval($_POST['post_Test']);
 
 $sql = "
 UPDATE Student_Test_Scores SET 
   Author_Username = '$userMakingChanges',
-  Last_Updated_Timestamp = NULL,
+  Last_Updated_Timestamp = GETDATE(),
   Term = '$term', 
   School_Year = '$year', 
   Pre_Test = '$preTest', 
   Post_Test = '$postTest'  
   WHERE Id = $id;";
-
-if ($db->query($sql) === TRUE) {
-    echo "
-        <div class='alert alert-success'>
-            <strong>Success! </strong>Test Scores has been successfully Updated.
-        </div>";
-} else {
-    echo "
-        <div class='alert alert-danger'>
-            <strong>Failure! </strong>Test Scores could not be updated, please try again.
-        </div>";
-}
 include("../scripts/footer.php");
 ?>
