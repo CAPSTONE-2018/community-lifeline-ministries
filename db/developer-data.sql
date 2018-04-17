@@ -76,6 +76,7 @@
 
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 1, 3, 'Uncle');
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 2, 2, 'Father');
+  INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 2, 5, 'Aunt');
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 3, 4, 'Aunt');
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 4, 5, 'Mother');
   INSERT INTO Student_To_Contacts(Author_Username, Student_Id, Contact_Id, Relationship) VALUES ('Developer', 5, 1, 'Neighbor');

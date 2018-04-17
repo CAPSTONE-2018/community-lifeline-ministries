@@ -21,7 +21,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
     $contactState = $contactRow['State'];
     $contactZip = $contactRow['Zip'];
 
-    $response = '
+    $response .= '
 <div class="contact-modal">'; ?>
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">

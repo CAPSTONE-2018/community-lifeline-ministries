@@ -95,20 +95,21 @@ $studentTableToLookUp = "Students";
                                             <?php echo $numberOfPrograms ?>
                                         </td>
                                         <?php
-                                        if (($activeStudentsRow['Permission_Slip'] == 1)) {
-                                            echo "<td class='col-sm-1 align-middle text-center'>
-                                                <button class='btn permission-slip-button'><i class='green-check fa fa-check-square-o'></i></button>
-                                            </td>";
-                                        } else {
-                                            echo "
+                                        if (($activeStudentsRow['Permission_Slip'] == 1)) { ?>
+                                            <td class='col-sm-1 align-middle text-center'>
+                                                <button
+                                                    onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
+                                                    class='btn permission-slip-button'>
+                                                    <i class='green-check fa fa-check-square-o'></i>
+                                                 </button>
+                                            </td>
+                                        <?php } else { ?>
                                             <td class='col-sm-1 align-middle text-center'>
                                                 <a data-toggle='collapse' data-target='.collapseDocumentsRow$dynamicRowId'>
                                                     <i class='red-circle fa fa-ban'></i>
                                                 </a>
-                                            </td>";
-                                        }
-
-                                        ?>
+                                            </td>
+                                        <?php } ?>
                                         <td class='col-sm-6 text-center'>
                                             <div class='left-action-buttons-container d-inline m-auto'>
                                                 <div class=' d-inline'>

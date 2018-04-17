@@ -89,3 +89,20 @@ function launchArchiveUserModal(studentIdToArchive, tableToLookUp, nameToDisplay
         }
     });
 }
+
+function launchDocumentsModal(studentId) {
+    $.ajax({
+       url: '../modals/students/DocumentsModal.php',
+       type: 'POST',
+       data: {studentId: studentId},
+        success: function (response) {
+            $('#custom-modal').removeClass().addClass('modal fade');
+            $('#custom-size').removeClass().addClass('modal-dialog');
+            $('#custom-title').removeClass().addClass('modal-header documents-modal-header');
+            $('#custom-icon').removeClass().addClass('m-auto fa fa-file fa-2x');
+            $('#dynamic-title').text("Student Documents on File");
+            $('.modal-body').html(response);
+            $('#custom-modal').modal('show');
+        }
+    });
+}
