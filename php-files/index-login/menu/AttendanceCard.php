@@ -1,7 +1,7 @@
 <?php
 //connect to database
-include("../../db/config.php");
-include("../widgets/TimeZoneFormat.php");
+include("../../../db/config.php");
+include("../../widgets/TimeZoneFormat.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = '$dateToSubmit'";
 $programResults = mysqli_query($db, $queryForAllPrograms);
@@ -31,7 +31,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
         <div class="card-footer text-muted align-content-center">
             <div class="nav nav-pills card-header-pills align-content-center">
                 <div class="nav-item col-sm-6">
-                    <form id="attendanceProgramToSelect" action="../new/NewAttendanceRecord.php" method="POST">
+                    <form id="attendanceProgramToSelect" action="../../new/NewAttendanceRecord.php" method="POST">
                         <select onchange="this.form.submit()" name="programId">
                             <option data-prefix="<span aria-hidden='true' class='fa fa-plus'></span>"
                                     readonly selected> Start New Record
@@ -68,7 +68,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                 </div>
 
                 <div class="nav-item col-sm-6">
-                    <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
+                    <form id="attendanceProgramToEdit" action="../../edit/EditAttendanceRecord.php" method="POST">
                         <input type="hidden" name="programDateToSearch" value="<?php echo $dateToSubmit; ?>"/>
                         <select onchange="this.form.submit()" name="programIdToEdit">
                             <option data-prefix="<span aria-hidden='true' class='fa fa-pencil'></span>"

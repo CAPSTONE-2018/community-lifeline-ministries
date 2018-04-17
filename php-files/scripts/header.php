@@ -63,7 +63,7 @@ include("../widgets/TimeZoneFormat.php");
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="../index-login/menu.php"><img src="../../images/new-logo.png" alt="CLM Logo" height="25px"></a>
+            <li><a href="../index-login/menu/menu.php"><img src="../../images/new-logo.png" alt="CLM Logo" height="25px"></a>
             </li>
         </ul>
     </div>
@@ -84,7 +84,7 @@ include("../widgets/TimeZoneFormat.php");
             <ul class="list-unstyled components">
 
                 <li class="Closed">
-                    <a href="../index-login/menu.php">
+                    <a href="../index-login/menu/menu.php">
                         <i class="fa fa-home"></i> Home
                     </a>
                 </li>

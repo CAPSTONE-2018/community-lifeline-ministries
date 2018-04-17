@@ -14,7 +14,7 @@ function launchStudentConfirmationModal(serializedForm) {
             var homePageButtonTitle = document.createTextNode("Back to Home Page");
             homePageButton.appendChild(homePageButtonTitle);
             homePageButton.onclick = function () {
-                location.href = "../../php-files/index-login/menu.php";
+                location.href = "../../php-files/index-login/menu/menu.php";
             };
 
             var newStudentButton = document.createElement("BUTTON");

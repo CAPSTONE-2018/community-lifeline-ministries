@@ -1,7 +1,7 @@
 
 
 function routeToHomePage() {
-    location.href = "../../php-files/index-login/menu.php";
+    location.href = "../../php-files/index-login/menu/menu.php";
 }
 
 
