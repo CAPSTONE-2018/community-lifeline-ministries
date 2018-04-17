@@ -94,14 +94,15 @@ $studentTableToLookUp = "Students";
                                         <td class='col-sm-1 align-middle text-center text-align-middle'>
                                             <?php echo $numberOfPrograms ?>
                                         </td>
+
                                         <?php
                                         if (($activeStudentsRow['Permission_Slip'] == 1)) { ?>
                                             <td class='col-sm-1 align-middle text-center'>
-                                                <button
-                                                    onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
-                                                    class='btn permission-slip-button'>
+                                                <button type="button"
+                                                        onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
+                                                        class='btn permission-slip-button'>
                                                     <i class='green-check fa fa-check-square-o'></i>
-                                                 </button>
+                                                </button>
                                             </td>
                                         <?php } else { ?>
                                             <td class='col-sm-1 align-middle text-center'>
