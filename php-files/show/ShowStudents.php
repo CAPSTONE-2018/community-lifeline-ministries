@@ -22,7 +22,7 @@ $studentTableToLookUp = "Students";
         <div class="card">
             <div class="card-header">
                 <div class="col-12 text-center">
-                    <h3><i class="fa fa-graduation-cap"></i> All Students</h3>
+                    <h3>All Students</h3>
                 </div>
 
                 <div class="row">
@@ -178,6 +178,81 @@ $studentTableToLookUp = "Students";
             </div>
         </div>
     </div>
+
+<script>
+    function EditTestScores(){
+        $(".testScores").prop('readonly', false);
+        document.getElementById('updateButton') .disabled= false;
+    }
+
+    function UpdateTestScores(){
+        var numItems = $('.testScores').length;
+        numItems /= 5;
+
+        for(var i = 1; i < numItems+1; i++){
+            $.ajax({
+                url: "../update/UpdateTestScores.php",
+                method: "POST",
+                data: {id:document.getElementById('testId'+i).value,schoolYear: document.getElementById('schoolYear'+i).value,term:document.getElementById('term'+i).value,term:document.getElementById('pre_Test'+i).value,term:document.getElementById('post_Test'+i).value },
+                success: function (output) {
+                }
+            });
+        }
+    }
+
+    function NewTestScore(){
+        document.getElementById('addTestScore').style.display = "";
+
+        var divsToHide = document.getElementsByClassName("currentTestScores");
+        for(var i = 0; i < divsToHide.length; i++){
+            divsToHide[i].style.display = "none";
+        }
+
+    }
+
+    function AddTestScore(){
+        var divsToHide = document.getElementsByClassName("currentTestScores");
+        var studentId = document.getElementById('hdnStudentId').value;
+        var newYear = document.getElementById('newSchoolYear').value;
+        var newTerm = document.getElementById('newTerm').value;
+        var newpre_test = document.getElementById('newPre_test').value;
+        var newpost_test = document.getElementById('newPost_test').value;
+
+        var parsedTerm = "'" + newTerm + "'";
+        $.ajax({
+            url: "../new/newTestScores.php",
+            method: "POST",
+            data: {StudentId: studentId,NewYear: newYear, NewTerm: parsedTerm, NewPre_Test: newpre_test, NewPost_Test: newpost_test },
+            success: function (output) {
+                document.getElementById('addTestScore').style.display = "none";
+                for(var i = 0; i < divsToHide.length; i++){
+                    divsToHide[i].style.display = "";
+                }
+            }
+        });
+    }
+
+    function DeleteTestScore(TestScoreId){
+        $.ajax({
+            url: "../Delete/DeleteTestScore.php",
+            method: "POST",
+            data: {TestScoreId: TestScoreId },
+            success: function (output) {
+
+            }
+        });
+    }
+</script>
+
+    <!--    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>-->
+    <!--    <script src="../../scripts/print.js"></script>-->
+
+<!--    <script type="text/javascript" src="../../js/NumberTableRows.js"></script>-->
+<!--    <script type="text/javascript" src="../../js/modals/ShowStudentsModalScripts.js"></script>-->
+<!--    <script src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>-->
+<!--    <script src="../../js/new-student-scripts/ToggleSwitchValues.js"></script>-->
+<!--    <script type="text/javascript" src="../../js/modals/ArchiveUserModals.js"></script>-->
+
 <?php
 include("../scripts/footer.php");
 ?>
