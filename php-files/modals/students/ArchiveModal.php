@@ -27,7 +27,7 @@ $archiveUserResponse = '
             data: {studentId: studentId},
             success: function (output) {
                 if (output == 0) {
-                    window.location.href = "../../show/ShowStudents.php"
+                    window.location.href = "../show/ShowStudents.php"
                 } else {
                     alert("Whoops! There is an issue connecting to database");
                 }

@@ -1,8 +1,7 @@
 <?php
 include("../scripts/header.php");
 include("../../db/config.php");
-$query = "SELECT DISTINCT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
-$studentsResult = mysqli_query($db, $query);
+
 ?>
 <link rel="stylesheet" href="../../css/form-styles.css"/>
 <link rel="stylesheet" href="../../css/toggle-switch.css"/>
@@ -18,23 +17,10 @@ $studentsResult = mysqli_query($db, $query);
                             <div class="tab-content">
                                 <button id="show-filters" style="float:right"> Show Filters</button>
                                 <div class="tab-pane active " id="studentInfo">
-                                    <div class="header">Attendance Report</div>
+                                    <div class="header"> Student/Program Report</div>
                                     <div id="as" class="collapse2">
-                                        <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report</h4>
                                         <div class="blue-line-color"></div>
-                                        <div class="form-group">
-                                            <select id="student">
-                                                <option value="0">All Students</option>
-                                                <?php
-                                                while ($studentsRow = mysqli_fetch_assoc($studentsResult)) {
-                                                    $studentId = $studentsRow['Id'];
-                                                    $studentNameInDropDown = $studentsRow['First_Name'] . ' ' . $studentsRow['Last_Name'];
-                                                    echo "<option class='mdl-menu__item' " . " value='" . $studentsRow['Id'] . "'>" . $studentNameInDropDown . "</option>";
-                                                }
-
-                                                ?>
-                                            </select>
-                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -70,34 +56,36 @@ $studentsResult = mysqli_query($db, $query);
         });
     });
 
+    var dynamicSearchFilter = 1;
     $(document).ready(function () {
-        $('#generateReport').click(function () {
+        $('.collapse2').collapse("show");
+        $('#add-new-searchFilter-Button').click(function () {
+            if(dynamicSearchFilter < 3) {
+                dynamicSearchFilter++;
 
-            var searchFilters = 'WHERE';
-            var studentId = 0;
-            if(document.getElementById('student') != null) {
-                studentId = document.getElementById('student').value;
+                $.ajax({
+                    url: "../scripts/AjaxDynamicVolunteerSearchFilter.php",
+                    method: "POST",
+                    data: {dynamicSearchFilter: dynamicSearchFilter},
+                    success: function (output) {
+                        $('.add-new-searchFilter-dropdown').slideDown().append(output);
+                    }
+                })
             }
+        });
+    });
 
-            if(studentId != 0){
-                searchFilters += " students.Id = " + studentId;
-                searchFilters += " AND ";
-            }
-            searchFilters += " attendance.Program_Id = programs.Id AND students.id = attendance.Student_Id";
-
+    $(document).ready(function () {
             $('#print_div').remove();
-            $('.collapse2').collapse("hide");
             $.ajax({
-                url: "../Generate/GenerateStudentAttendanceReport.php",
+                url: "../Generate/GenerateStudentToProgramReport.php",
                 method: "POST",
-                data: {searchFilters: searchFilters},
                 success: function (output) {
                     $('.add-new-report').slideDown().append(output);
                 }
             });
         });
-    });
 
 </script>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->

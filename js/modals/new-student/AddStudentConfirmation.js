@@ -14,14 +14,14 @@ function launchStudentConfirmationModal(serializedForm) {
             var homePageButtonTitle = document.createTextNode("Back to Home Page");
             homePageButton.appendChild(homePageButtonTitle);
             homePageButton.onclick = function () {
-                location.href = "../../php-files/index-login/menu.php";
+                location.href = "../../../php-files/index-login/menu.php";
             };
 
             var newStudentButton = document.createElement("BUTTON");
             var newStudentButtonTitle = document.createTextNode("Add New Student");
             newStudentButton.appendChild(newStudentButtonTitle);
             newStudentButton.onclick = function () {
-                location.href = "../../php-files/new/NewStudent.php";
+                location.href = "../../../php-files/new/NewStudent.php";
             };
 
             var footerRow = '<div id="footerButtons" class="text-center">' +
@@ -30,7 +30,7 @@ function launchStudentConfirmationModal(serializedForm) {
                 '</div>';
 
             $.ajax({
-                url: '../../php-files/modals/ConfirmationModal.php',
+                url: '../modals/students/ConfirmationModal.php',
                 method: "POST",
                 data: {
                     student: studentConfirmation,
