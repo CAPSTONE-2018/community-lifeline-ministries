@@ -39,7 +39,6 @@ function launchStudentConfirmationModal(serializedForm) {
                     studentContact: studentToContactConfirmation
                 },
                 success: function (response) {
-                    alert("inside second ajax success");
                     $('#custom-modal').removeClass().addClass('modal fade');
                     $('#custom-size').removeClass().addClass('modal-dialog');
                     $('#custom-title').removeClass().addClass('modal-header successful-entry-modal-header');

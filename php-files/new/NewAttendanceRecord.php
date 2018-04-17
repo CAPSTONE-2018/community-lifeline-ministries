@@ -11,7 +11,7 @@ $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Progr
                             Student_To_Programs.Student_Id, Students.First_Name, Students.Last_Name FROM
                             (Student_To_Programs JOIN Students ON Student_To_Programs.Student_Id = Students.Id)
                             JOIN Programs ON Student_To_Programs.Program_Id = Programs.Id
-                            WHERE Student_To_Programs.Program_Id = $programIdToSearch;";
+                            WHERE Student_To_Programs.Program_Id = $programIdToSearch && Students.Active_Student = 1;";
 
 $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);

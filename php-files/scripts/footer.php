@@ -20,11 +20,11 @@
 </script>
 
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
-<script src="../../js/modals/show-tables/NumberTableRows.js"></script>
+<script src="../../js/NumberTableRows.js"></script>
 <script src="../../js/forms/FilterFields.js"></script>
 <script src="../../js/modals/show-tables/InputOnFocus.js"></script>
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
-<script src="../../js/modals/ArchiveModals.js"></script>
+<script src="../../js/modals/show-tables/ToggleStudentTable.js"></script>
 <script src="../../js/modals/new-student/AddStudentConfirmation.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
 <script src="../../js/input-styling.min.js"></script>

@@ -114,7 +114,6 @@
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 2, 3);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 2, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 3, 3);
-  INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 4, 2);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 5, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 6, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id) VALUES ('Developer', 7, 2);
