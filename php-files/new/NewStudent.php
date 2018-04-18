@@ -87,7 +87,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="dob" class="mdl-textfield__input" name="dob" type="text"
                                                        onkeypress="return supressEnter()"
-                                                       pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\?[1-9][0-9]{3}$"/>
+                                                       pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\/[1-9][0-9]{3}$"/>
                                                 <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                                 <span class="mdl-textfield__error">Invalid D.O.B. Data Entered</span>
                                             </div>
