@@ -187,14 +187,25 @@ $studentTableToLookUp = "Students";
 
     function UpdateTestScores(){
         var numItems = $('.testScores').length;
-        numItems /= 5;
-
+        numItems /= 4;
+        var studentId = document.getElementById('hdnStudentId').value;
         for(var i = 1; i < numItems+1; i++){
             $.ajax({
                 url: "../update/UpdateTestScores.php",
                 method: "POST",
-                data: {id:document.getElementById('testId'+i).value,schoolYear: document.getElementById('schoolYear'+i).value,term:document.getElementById('term'+i).value,term:document.getElementById('pre_Test'+i).value,term:document.getElementById('post_Test'+i).value },
+                data: {id:document.getElementById('testId'+i).value,schoolYear: document.getElementById('schoolYear'+i).value,term:document.getElementById('term'+i).value, pre_Test:document.getElementById('pre_test'+i).value, post_Test:document.getElementById('post_test'+i).value },
                 success: function (output) {
+                    $('.currentTestScores').remove();
+                    $('.addTestScores').remove();
+
+                    $.ajax({
+                        url: '../modals/students/TestScoresModal.php',
+                        type: 'post',
+                        data: {studentId: studentId},
+                        success: function (response) {
+                            $('.modal-body').html(response);
+                        }
+                    });
                 }
             });
         }

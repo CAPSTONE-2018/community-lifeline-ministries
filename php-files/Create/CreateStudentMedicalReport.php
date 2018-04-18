@@ -170,6 +170,7 @@ include("../../db/config.php");
             if(searchFilters != "WHERE"){
                 searchFilters += " AND students.id = student_to_medical_concerns.Student_Id";
             }
+            searchFilters += " ORDER BY students.Last_Name";
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
             $.ajax({

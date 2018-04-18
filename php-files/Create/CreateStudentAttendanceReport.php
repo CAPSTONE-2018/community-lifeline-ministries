@@ -84,6 +84,7 @@ $studentsResult = mysqli_query($db, $query);
                 searchFilters += " AND ";
             }
             searchFilters += " attendance.Program_Id = programs.Id AND students.id = attendance.Student_Id";
+            searchFilters += " ORDER BY students.Last_Name";
 
             $('#print_div').remove();
             $('.collapse2').collapse("hide");

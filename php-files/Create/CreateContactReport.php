@@ -238,7 +238,7 @@ include("../../db/config.php");
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
             $.ajax({
-                url: "../Generate/GenerateStudentReport.php",
+                url: "../Generate/GenerateContactsReport.php",
                 method: "POST",
                 data: {searchFilters: searchFilters},
                 success: function (output) {
