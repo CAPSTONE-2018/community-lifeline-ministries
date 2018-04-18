@@ -20,7 +20,7 @@ while ($testScoreResults = mysqli_fetch_assoc($studentTestResults)) {
 <div id="currentTest" class="medical-concern-modal">';?>
     <input id="hdnStudentId" style="display:none " value="<?php echo $studentId; ?>" />
 <div id="currentTestScores" class="currentTestScores">
-    <div class="row form-group">
+    <div class="row form-group" style="display:none">
         <div class="col-2 text-center mt-auto mb-auto">
             <i class="fa fa-bullhorn"></i>
         </div>
@@ -89,7 +89,7 @@ while ($testScoreResults = mysqli_fetch_assoc($studentTestResults)) {
     </div>
     <hr>
     </div>
-    <input id="deleteButton" type="button" class="btn btn-primary pull-right" onclick="DeleteTestScore(<?php echo $testId; ?>)" value="Delete" />
+    <input id="deleteButton" type="button" class="btn btn-primary pull-right deleteButton" onclick="DeleteTestScore(<?php echo $testId; ?>)" value="Delete" />
 <?php }
 $response .= '</div><div id="addTestScore" class="addTestScores" style="display:none">
         <div class="row form-group" >

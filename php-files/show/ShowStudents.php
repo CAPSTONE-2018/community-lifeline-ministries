@@ -218,7 +218,7 @@ $studentTableToLookUp = "Students";
         for(var i = 0; i < divsToHide.length; i++){
             divsToHide[i].style.display = "none";
         }
-
+        $('.deleteButton').remove();
     }
 
     function AddTestScore(){
@@ -239,6 +239,19 @@ $studentTableToLookUp = "Students";
                 for(var i = 0; i < divsToHide.length; i++){
                     divsToHide[i].style.display = "";
                 }
+
+
+                $('.currentTestScores').remove();
+                $('.addTestScores').remove();
+
+                $.ajax({
+                    url: '../modals/students/TestScoresModal.php',
+                    type: 'post',
+                    data: {studentId: studentId},
+                    success: function (response) {
+                        $('.modal-body').html(response);
+                    }
+                });
             }
         });
     }
