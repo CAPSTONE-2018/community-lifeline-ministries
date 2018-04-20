@@ -16,6 +16,7 @@ if (mysqli_num_rows($datePickerResults) > 0) {
             <button form="attendanceLookupButton<?php echo $dynamicId ?>">
                 <?php echo $programNameToDisplay; ?>
             </button>
+            <script type="text/javascript">alert("hey")</script>
         </form>
     <?php }
 } else { ?>

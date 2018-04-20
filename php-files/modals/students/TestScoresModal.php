@@ -20,13 +20,13 @@ while ($testScoreResults = mysqli_fetch_assoc($studentTestResults)) {
 <div id="currentTest" class="medical-concern-modal">';?>
     <input id="hdnStudentId" style="display:none " value="<?php echo $studentId; ?>" />
 <div id="currentTestScores" class="currentTestScores">
-    <div class="row form-group">
+    <div class="row form-group" style="display:none">
         <div class="col-2 text-center mt-auto mb-auto">
             <i class="fa fa-bullhorn"></i>
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="testId<?php echo $dynamicRowId; ?>" class="mdl-textfield__input testScores" readonly
+                <input id="testId<?php echo $dynamicRowId; ?>" class="mdl-textfield__input" readonly
                        value="<?php echo $testId; ?>"
                        type="text"/>
                 <label class="mdl-textfield__label" for="contactName">Test Id</label>
@@ -89,16 +89,16 @@ while ($testScoreResults = mysqli_fetch_assoc($studentTestResults)) {
     </div>
     <hr>
     </div>
-    <input id="deleteButton" type="button" class="btn btn-primary pull-right" onclick="DeleteTestScore(<?php echo $testId; ?>)" value="Delete" />
+    <input id="deleteButton" type="button" class="btn btn-primary pull-right deleteButton" onclick="DeleteTestScore(<?php echo $testId; ?>)" value="Delete" />
 <?php }
-$response .= '</div><div id="addTestScore" style="display:none">
+$response .= '</div><div id="addTestScore" class="addTestScores" style="display:none">
         <div class="row form-group" >
             <div class="col-2 text-center mt-auto mb-auto">
                 <i class="fa fa-bullhorn"></i>
             </div>
             <div class="col-10" >
                 <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="newSchoolYear" class="mdl-textfield__input testScores"
+                    <input id="newSchoolYear" class="mdl-textfield__input"
                            value=""
                            type="text"/>
                     <label class="mdl-textfield__label" for="contactName">School Year</label>
@@ -112,7 +112,7 @@ $response .= '</div><div id="addTestScore" style="display:none">
             </div>
             <div class="col-10">
                 <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="newTerm" class="mdl-textfield__input testScores"
+                    <input id="newTerm" class="mdl-textfield__input"
                            value=""
                            type="text"/>
                     <label class="mdl-textfield__label" for="primaryPhone">Term</label>
@@ -126,7 +126,7 @@ $response .= '</div><div id="addTestScore" style="display:none">
             </div>
             <div class="col-10">
                 <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="newPre_test" class="mdl-textfield__input testScores" 
+                    <input id="newPre_test" class="mdl-textfield__input" 
                            value=""
                            type="text"/>
                     <label class="mdl-textfield__label" for="contactEmail">Pre-Test</label>
@@ -139,7 +139,7 @@ $response .= '</div><div id="addTestScore" style="display:none">
             </div>
             <div class="col-10">
                 <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="newPost_test" class="mdl-textfield__input testScores"
+                    <input id="newPost_test" class="mdl-textfield__input"
                            value=""
                            type="text"/>
                     <label class="mdl-textfield__label" for="contactEmail">Post-Test</label>

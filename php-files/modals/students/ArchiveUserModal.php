@@ -1,5 +1,5 @@
 <?php
-include("../../../db/config.php");
+include("../../db/config.php");
 $studentIdToArchive = $_POST['studentIdToArchive'];
 $tableToLookUp = $_POST['tableToLookUp'];
 $nameToDisplay = $_POST['nameToDisplay'];

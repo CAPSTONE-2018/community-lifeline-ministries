@@ -437,7 +437,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                             <input id='contactEmail' class='mdl-textfield__input'
                                                                    name='contactEmail' type='text'
                                                                    onkeypress="return supressEnter()"
-                                                                   pattern="^(?!\.).+@.+\..{2,5}$"/>
+                                                                   pattern="^(?!\.)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"/>
                                                             <label class='mdl-textfield__label' for='contactEmail'>Email</label>
                                                             <span class='mdl-textfield__error'>Invalid Email</span>
                                                         </div>
@@ -531,8 +531,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
                     <div class="card-footer">
                         <div class="right-align">
-                            <button id="confirmationButton" type="button" class="btn btn-right btn-primary"
-                                    data-toggle="modal">
+                            <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
+                                    data-toggle="modal" data-target="#verifyEntryModal">
                                 Verify Info
                             </button>
                         </div>

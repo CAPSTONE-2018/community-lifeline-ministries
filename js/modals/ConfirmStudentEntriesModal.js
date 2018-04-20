@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var txt = "";
-    $('#confirmationButton').click(function () {
+    $('#buttonTrigger').click(function () {
 
         // var submitButton = document.createElement("BUTTON");
         // var buttonTitle = document.createTextNode("Submit");
@@ -12,7 +12,15 @@ $(document).ready(function () {
         submitButton.appendChild(buttonTitle);
         submitButton.setAttribute("onClick", "sendNewStudentForm()");
 
+        var numOfPresentLabels = $('mdl-textfield__error').length;
+        var flagPresent = false;
         var i;
+
+        for(i = 0; i < numOfPresentLabels.length; i++ ){
+            
+        }
+
+
         for (i = 0; i < x.length; i++) {
 //                txt = txt + x.elements[i].value + "<br>";
             var firstName = "First Name: " + x.elements[0].value + "<br>";

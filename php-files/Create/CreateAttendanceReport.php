@@ -17,9 +17,9 @@ include("../../db/config.php");
                             <div class="tab-content">
                                 <button id="show-filters" style="float:right"> Show Filters</button>
                                 <div class="tab-pane active " id="studentInfo">
-                                    <div class="header"> Student Medical Report</div>
+                                    <div class="header">Attendance Report</div>
                                     <div id="as" class="collapse2">
-                                        <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report <button type="button" id="add-new-searchFilter-Button">Add</button></h4>
+                                        <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report</h4>
                                         <div class="blue-line-color"></div>
                                         <div class="form-group">
                                             <div class="col-sm-6">
@@ -33,16 +33,9 @@ include("../../db/config.php");
 
                                                 <p style="width:100%;">Filter Type</p>
                                                 <select style="width:100%;" id="FilterType1">
-                                                    <option value="First_Name">First_Name</option>
-                                                    <option value="Last_Name">Last_Name</option>
-                                                    <option value="Name">Name</option>
-                                                    <option value="Type">Type</option>
-                                                    <option value="Note">Note</option>
+                                                    <option value="Program">Date</option>
                                                 </select>
                                             </div>
-
-                                        </div>
-                                        <div class="add-new-searchFilter-dropdown">
 
                                         </div>
                                     </div>
@@ -62,9 +55,9 @@ include("../../db/config.php");
                 </div>
             </div>
         </div>
-        <div class="add-new-report">
+    </div>
+    <div class="add-new-report">
 
-        </div>
     </div>
 </div>
 
@@ -81,30 +74,11 @@ include("../../db/config.php");
         });
     });
 
-    var dynamicSearchFilter = 1;
-    $(document).ready(function () {
-        $('.collapse2').collapse("show");
-        $('#add-new-searchFilter-Button').click(function () {
-            if(dynamicSearchFilter < 5) {
-                dynamicSearchFilter++;
-
-                $.ajax({
-                    url: "../scripts/AjaxDynamicVolunteerSearchFilter.php",
-                    method: "POST",
-                    data: {dynamicSearchFilter: dynamicSearchFilter},
-                    success: function (output) {
-                        $('.add-new-searchFilter-dropdown').slideDown().append(output);
-                    }
-                })
-            }
-        });
-    });
-
     $(document).ready(function () {
         $('#generateReport').click(function () {
-            var searchInputs = new Array(5);
-            var searchTypes = new Array(5);
-            for(var i =1; i < 6; i++){
+            var searchInputs = new Array(1);
+            var searchTypes = new Array(1);
+            for(var i =1; i <= 1; i++){
                 if(document.getElementById("FilterType" + i) != null && document.getElementById("searchInput" + i) != null ){
                     searchInputs[i-1] = document.getElementById("searchInput" + i).value;
                     searchTypes[i-1] = document.getElementById("FilterType" + i).value;
@@ -126,54 +100,16 @@ include("../../db/config.php");
             }
             var searchFilters = 'WHERE';
 
-            for(var i =0; i < searchTypes.length; i++) {
-
-
-                switch (searchTypes[i]) {
-                    case "First_Name":
-                        if(i != 0) {
-                            searchFilters += " AND";
-                        }
-                        searchFilters += " students.First_Name LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    case "First_Name":
-                        if(i != 0) {
-                            searchFilters += " AND";
-                        }
-                        searchFilters += " students.First_Name LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    case "Name":
-                        if(i != 0) {
-                            searchFilters += " AND";
-                        }
-                        searchFilters += " Medical_concerns.Name LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    case "Type":
-
-                        if(i != 0) {
-                            searchFilters += " AND";
-                        }
-                        searchFilters += " Medical_concern_types.Type LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    case "Note":
-
-                        if(i != 0) {
-                            searchFilters += " AND";
-                        }
-                        searchFilters += " Medical_concerns.Note LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    default:
-                        break;
-                }
+            if(searchInputs[0] != ""){
+                searchFilters += " Date = '" + searchInputs[0]+"'";
+                searchFilters += " AND";
             }
+            searchFilters += " attendance.Program_Id = programs.Id";
 
-            if(searchFilters != "WHERE"){
-                searchFilters += " AND students.id = student_to_medical_concerns.Student_Id";
-            }
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
             $.ajax({
-                url: "../Generate/GenerateStudentMedicalReport.php",
+                url: "../Generate/GenerateAttendanceReport.php",
                 method: "POST",
                 data: {searchFilters: searchFilters},
                 success: function (output) {
@@ -184,5 +120,5 @@ include("../../db/config.php");
     });
 
 </script>
-<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
+<script type="text/javascript" src="../../js/MdlSelect.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->

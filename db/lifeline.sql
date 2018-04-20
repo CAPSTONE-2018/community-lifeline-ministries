@@ -5,9 +5,7 @@
     Howard about gaining access to the MYSQL database on the server
 *********************************************************************************
 */
-DROP DATABASE community_lifeline;
-CREATE DATABASE community_lifeline;
-use community_lifeline;
+
 CREATE TABLE Logins (
   username     VARCHAR(30),
   password     VARCHAR(32),

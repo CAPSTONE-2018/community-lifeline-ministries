@@ -71,6 +71,7 @@ $volunteerResults = mysqli_query($db, $queryForVolunteerInfo);
         var viewAllButtonTitle = "View All Programs";
         var newEntryRoute = "routeToNewProgram()";
         var newEntryButtonTitle = "New Program";
+        alert(volunteerId);
         $.ajax({
             url: "../add/AddProgram.php",
             method: "POST",
