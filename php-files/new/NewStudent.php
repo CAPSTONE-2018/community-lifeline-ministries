@@ -531,7 +531,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
                     <div class="card-footer">
                         <div class="right-align">
-                            <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
+                            <button id="confirmationButton" type="button" class="btn btn-right btn-primary"
                                     data-toggle="modal" data-target="#verifyEntryModal">
                                 Verify Info
                             </button>

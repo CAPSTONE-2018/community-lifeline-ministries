@@ -17,9 +17,9 @@ include("../../db/config.php");
                             <div class="tab-content">
                                 <button id="show-filters" style="float:right"> Show Filters</button>
                                 <div class="tab-pane active " id="studentInfo">
-                                    <div class="header">Attendance Report</div>
+                                    <div class="header">Medical Report</div>
                                     <div id="as" class="collapse2">
-                                        <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report</h4>
+                                        <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report <button type="button" id="add-new-searchFilter-Button">Add</button></h4>
                                         <div class="blue-line-color"></div>
                                         <div class="form-group">
                                             <div class="col-sm-6">
@@ -33,9 +33,14 @@ include("../../db/config.php");
 
                                                 <p style="width:100%;">Filter Type</p>
                                                 <select style="width:100%;" id="FilterType1">
-                                                    <option value="Program">Date</option>
+                                                    <option value="Name">Name</option>
+                                                    <option value="Type">Type</option>
+                                                    <option value="Note">Note</option>
                                                 </select>
                                             </div>
+
+                                        </div>
+                                        <div class="add-new-searchFilter-dropdown">
 
                                         </div>
                                     </div>
@@ -74,11 +79,30 @@ include("../../db/config.php");
         });
     });
 
+    var dynamicSearchFilter = 1;
+    $(document).ready(function () {
+        $('.collapse2').collapse("show");
+        $('#add-new-searchFilter-Button').click(function () {
+            if(dynamicSearchFilter < 3) {
+                dynamicSearchFilter++;
+
+                $.ajax({
+                    url: "../scripts/AjaxDynamicVolunteerSearchFilter.php",
+                    method: "POST",
+                    data: {dynamicSearchFilter: dynamicSearchFilter},
+                    success: function (output) {
+                        $('.add-new-searchFilter-dropdown').slideDown().append(output);
+                    }
+                })
+            }
+        });
+    });
+
     $(document).ready(function () {
         $('#generateReport').click(function () {
-            var searchInputs = new Array(1);
-            var searchTypes = new Array(1);
-            for(var i =1; i <= 1; i++){
+            var searchInputs = new Array(3);
+            var searchTypes = new Array(3);
+            for(var i =1; i < 3; i++){
                 if(document.getElementById("FilterType" + i) != null && document.getElementById("searchInput" + i) != null ){
                     searchInputs[i-1] = document.getElementById("searchInput" + i).value;
                     searchTypes[i-1] = document.getElementById("FilterType" + i).value;
@@ -100,16 +124,38 @@ include("../../db/config.php");
             }
             var searchFilters = 'WHERE';
 
-            if(searchInputs[0] != ""){
-                searchFilters += " Date = '" + searchInputs[0]+"'";
-                searchFilters += " AND";
-            }
-            searchFilters += " attendance.Program_Id = programs.Id";
+            for(var i =0; i < searchTypes.length; i++) {
 
+
+                switch (searchTypes[i]) {
+                    case "Name":
+                        if(i != 0) {
+                            searchFilters += " AND";
+                        }
+                        searchFilters += " Name LIKE '%" + searchInputs[i]+"%'";
+                        break;
+                    case "Type":
+
+                        if(i != 0) {
+                            searchFilters += " AND";
+                        }
+                        searchFilters += " Type LIKE '%" + searchInputs[i]+"%'";
+                        break;
+                    case "Note":
+
+                        if(i != 0) {
+                            searchFilters += " AND";
+                        }
+                        searchFilters += " Note LIKE '%" + searchInputs[i]+"%'";
+                        break;
+                    default:
+                        break;
+                }
+            }
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
             $.ajax({
-                url: "../Generate/GenerateAttendanceReport.php",
+                url: "../Generate/GenerateMedicalReport.php",
                 method: "POST",
                 data: {searchFilters: searchFilters},
                 success: function (output) {
@@ -120,5 +166,5 @@ include("../../db/config.php");
     });
 
 </script>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->

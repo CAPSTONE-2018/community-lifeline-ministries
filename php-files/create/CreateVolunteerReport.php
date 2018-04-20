@@ -17,7 +17,7 @@ include("../../db/config.php");
                             <div class="tab-content">
                                 <button id="show-filters" style="float:right"> Show Filters</button>
                                 <div class="tab-pane active " id="studentInfo">
-                                    <div class="header">Contacts Report</div>
+                                    <div class="header"> Volunteer Report</div>
                                     <div id="as" class="collapse2">
                                         <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report <button type="button" id="add-new-searchFilter-Button">Add</button></h4>
                                         <div class="blue-line-color"></div>
@@ -37,12 +37,13 @@ include("../../db/config.php");
                                                     <option value="Last_Name">Last_Name</option>
                                                     <option value="Address_one">Address_One</option>
                                                     <option value="Address_two">Address_Two</option>
+                                                    <option value="Primary_Phone">Primary_Phone</option>
+                                                    <option value="Secondary_Phone">Secondary_Phone</option>
                                                     <option value="City">City</option>
                                                     <option value="State">State</option>
                                                     <option value="Zip">Zip</option>
-                                                    <option value="Ethnicity">Ethnicity</option>
-                                                    <option value="Birth_Date">Birth Date</option>
-                                                    <option value="School">School</option>
+                                                    <option value="Email">Email</option>
+                                                    <option value="Type">Type</option>
                                                 </select>
                                             </div>
 
@@ -66,7 +67,7 @@ include("../../db/config.php");
                                                 </div>-->
                                                 <p>Active/Inactive</p>
                                                 <select id="Active">
-                                                    <option value="1">All Contacts</option>
+                                                    <option value="1">All Volunteers</option>
                                                     <option value="2">Active</option>
                                                     <option value="3">Inactive</option>
                                                 </select>
@@ -112,11 +113,11 @@ include("../../db/config.php");
     $(document).ready(function () {
         $('.collapse2').collapse("show");
         $('#add-new-searchFilter-Button').click(function () {
-            if(dynamicSearchFilter >= 11) {
+            if(dynamicSearchFilter < 12) {
                 dynamicSearchFilter++;
 
                 $.ajax({
-                    url: "../scripts/AjaxDynamicSearchFilter.php",
+                    url: "../scripts/AjaxDynamicVolunteerSearchFilter.php",
                     method: "POST",
                     data: {dynamicSearchFilter: dynamicSearchFilter},
                     success: function (output) {
@@ -125,14 +126,13 @@ include("../../db/config.php");
                 })
             }
         });
-
     });
 
     $(document).ready(function () {
         $('#generateReport').click(function () {
-            var searchInputs = new Array(12);
-            var searchTypes = new Array(11);
-            for(var i =1; i < 11; i++){
+            var searchInputs = new Array(13);
+            var searchTypes = new Array(12);
+            for(var i =1; i < 13; i++){
                 if(document.getElementById("FilterType" + i) != null && document.getElementById("searchInput" + i) != null ){
                     searchInputs[i-1] = document.getElementById("searchInput" + i).value;
                     searchTypes[i-1] = document.getElementById("FilterType" + i).value;
@@ -187,6 +187,20 @@ include("../../db/config.php");
                         }
                         searchFilters += " Address_two LIKE '%" + searchInputs[i]+"%'";
                         break;
+                    case "Primary_Phone":
+
+                        if(i != 0) {
+                            searchFilters += " AND";
+                        }
+                        searchFilters += " Primary_Phone LIKE '%" + searchInputs[i]+"%'";
+                        break;
+                    case "Secondary_Phone":
+
+                        if(i != 0) {
+                            searchFilters += " AND";
+                        }
+                        searchFilters += " Secondary_Phone LIKE '%" + searchInputs[i]+"%'";
+                        break;
                     case "City":
 
                         if(i != 0) {
@@ -209,23 +223,30 @@ include("../../db/config.php");
                         searchFilters += " Zip = " + searchInputs[i];
                         break;
                     case "Email":
+
                         if(i != 0) {
                             searchFilters += " AND";
                         }
                         searchFilters += " Email LIKE '%" + searchInputs[i]+"%'";
+                        break;
+                    case "Type":
+
+                        if(i != 0) {
+                            searchFilters += " AND";
+                        }
+                        searchFilters += " TYPE = " + searchInputs[i];
                         break;
                     default:
                         break;
                 }
             }
 
-
-            if(searchInputs[9] == 2){
+            if(searchInputs[12] == 2){
                 if(searchFilters != "WHERE") {
                     searchFilters += " AND";
                 }
                 searchFilters += " Active_Student = 1"
-            }else if(searchInputs[9] == 3){
+            }else if(searchInputs[12] == 3){
                 if(searchFilters != "WHERE") {
                     searchFilters += " AND";
                 }
@@ -238,7 +259,7 @@ include("../../db/config.php");
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
             $.ajax({
-                url: "../Generate/GenerateContactsReport.php",
+                url: "../Generate/GenerateVolunteerReport.php",
                 method: "POST",
                 data: {searchFilters: searchFilters},
                 success: function (output) {
@@ -249,5 +270,5 @@ include("../../db/config.php");
     });
 
 </script>
-<script type="text/javascript" src="../../js/MdlSelect.js"></script>
+<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->

@@ -11,7 +11,7 @@ $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Progr
                             Student_To_Programs.Student_Id, Students.First_Name, Students.Last_Name FROM
                             (Student_To_Programs JOIN Students ON Student_To_Programs.Student_Id = Students.Id)
                             JOIN Programs ON Student_To_Programs.Program_Id = Programs.Id
-                            WHERE Student_To_Programs.Program_Id = $programIdToSearch;";
+                            WHERE Student_To_Programs.Program_Id = $programIdToSearch && Students.Active_Student = 1;";
 
 $currentStudentsInProgram = mysqli_query($db, $queryStudentsInProgram);
 $getInfo = mysqli_fetch_array($currentStudentsInProgram, MYSQLI_ASSOC);
@@ -73,10 +73,10 @@ $dynamicRowId = 0;
                                     <?php echo $studentName; ?>
                                 </td>
                                 <td class='hidden align-middle'>
-                                    <input type='hidden' name='studentId[<?php echo $firstRowId; ?>$dynamicRowId]'
-                                           value=<?php echo $firstRowId; ?>$studentIdToSearch/>
-                                    <input type='hidden' name='programId[<?php echo $firstRowId; ?>$dynamicRowId]'
-                                           value=<?php echo $firstRowId; ?>$programId/>
+                                    <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
+                                           value=<?php echo $studentIdToSearch; ?>/>
+                                    <input type='hidden' name='programId[<?php echo $dynamicRowId; ?>]'
+                                           value=<?php echo $programId; ?>/>
                                 </td>
                                 <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
                                     <label class='radio-label' for='radio<?php echo $firstRowId; ?>'>
