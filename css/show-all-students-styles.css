@@ -92,12 +92,12 @@
 }
 
 
-/*.green-check {*/
-    /*color: #2EA6A2;*/
-/*}*/
-/*.permission-slip-button:hover.green-check {*/
-    /*color: #fff;*/
-/*}*/
+.green-check {
+    color: #2EA6A2;
+}
+.permission-slip-button:hover .green-check {
+    color: #fff;
+}
 
 .red-circle {
     color: #d50000;

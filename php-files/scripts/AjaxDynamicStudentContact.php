@@ -92,4 +92,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../../js/new-student-scripts/AjaxDynamicInputStyles.js"></script>
+<script type="text/javascript" src="../../js/modals/show-tables/DynamicInputStyles.js"></script>

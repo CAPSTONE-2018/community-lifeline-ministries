@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var txt = "";
-    $('#buttonTrigger').click(function () {
+    $('#confirmationButton').click(function () {
 
         // var submitButton = document.createElement("BUTTON");
         // var buttonTitle = document.createTextNode("Submit");
