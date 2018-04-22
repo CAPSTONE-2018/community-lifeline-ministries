@@ -44,8 +44,20 @@ else{
     $fridayAvail = 0;
 }
 
+$queryVolunteerAvailabilityExist = "SELECT COUNT(Id) FROM volunteer_employees_availability WHERE volunteer_employees_availability.Volunteer_EmployeeId = ".$volunteerId;
 $queryTypeVolunteers = "INSERT INTO Volunteer_employees_availability (Volunteer_EmployeeId, Monday_Available, Tuesday_Available, Wednesday_Available, Thursday_Available, Friday_Available ) VALUES ($volunteerId, $mondayAvail, $tuesdayAvail, $wednesdayAvail, $thursdayAvail, $fridayAvail)";
-$volunteersCurrent = mysqli_query($db, $queryTypeVolunteers);
+$queryUpdateVolunteers = "UPDATE volunteer_employees_availability SET Monday_Available = '.$mondayAvail.', Tuesday_Available = '.$tuesdayAvail', Wednesday_Available ='.$wednesdayAvail', Thursday_Available = '.$thursdayAvail', Friday_Available = '.$fridayAvail' WHERE Volunteer_EmployeeId = ".$volunteerId;
+
+$NumOfVolunteers = mysqli_query($db, $queryVolunteerAvailabilityExist);
+$NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
+echo $NumOfVolunteersResult[0];
+if($NumOfVolunteersResult[0] > 0){
+    $volunteersCurrent = mysqli_query($db, $queryUpdateVolunteers);
+}
+else{
+    $volunteersCurrent = mysqli_query($db, $queryTypeVolunteers);
+
+}
 
 
 ?>

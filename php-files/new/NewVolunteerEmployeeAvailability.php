@@ -49,41 +49,48 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                         while ($row = mysqli_fetch_array($volunteers, MYSQLI_ASSOC)) {
                             $dynamicRowId++;
 
+                            $monday = '';
+                            $tuesday = '';
+                            $wednesday = '';
+                            $thursday = '';
+                            $friday = '';
+
                             $queryTypeVolunteers = "SELECT volunteer_employees_availability.Monday_Available,volunteer_employees_availability.Tuesday_Available,
       volunteer_employees_availability.Wednesday_Available,volunteer_employees_availability.Thursday_Available, volunteer_employees_availability.Friday_Available FROM  volunteer_employees_availability WHERE volunteer_employees_availability.Volunteer_EmployeeId = ".$row['Id'];
                             $volunteersCurrent = mysqli_query($db, $queryTypeVolunteers);
                             $row2 = mysqli_fetch_array($volunteersCurrent, MYSQLI_ASSOC);
+                            $rowCount = mysqli_num_rows($volunteersCurrent);
+                            if($rowCount > 0) {
+                                if ($row2['Monday_Available'] == 1) {
+                                    $monday = "checked = 'checked'";
+                                } else {
+                                    $monday = '';
+                                }
 
-                            if($row2['Monday_Available'] == 1){
-                                $monday = "checked = 'checked'";
-                            }else{
-                                $monday = '';
+                                if ($row2['Tuesday_Available'] == 1) {
+                                    $tuesday = "checked = 'checked'";
+                                } else {
+                                    $tuesday = '';
+                                }
+
+                                if ($row2['Wednesday_Available'] == 1) {
+                                    $wednesday = "checked = 'checked'";
+                                } else {
+                                    $wednesday = '';
+                                }
+
+                                if ($row2['Thursday_Available'] == 1) {
+                                    $thursday = "checked = 'checked'";
+                                } else {
+                                    $thursday = '';
+                                }
+
+                                if ($row2['Friday_Available'] == 1) {
+                                    $friday = "checked = 'checked'";
+                                } else {
+                                    $friday = '';
+                                }
                             }
-
-                            if($row2['Tuesday_Available'] == 1){
-                                $tuesday = "checked = 'checked'";
-                            }else{
-                                $tuesday = '';
-                            }
-
-                            if($row2['Wednesday_Available'] == 1){
-                                $wednesday = "checked = 'checked'";
-                            }else{
-                                $wednesday = '';
-                            }
-
-                            if($row2['Thursday_Available'] == 0){
-                                $thursday = "checked = 'checked'";
-                            }else{
-                                $thursday = '';
-                            }
-
-                            if($row2['Friday_Available'] == 1){
-                                $friday = "checked = 'checked'";
-                            }else{
-                                $friday = '';
-                            }
-
                             $studentName = $row['First_Name'] . " " . $row['Last_Name']; ?>
                             <tr class='number-row'>
                                 <td class='col-sm-1 align-middle'></td>
@@ -158,43 +165,6 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
 </div>
 
 <script type="text/javascript">
-
-    $(document).ready(function () {
-
-        <?php
-        while ($row2 = mysqli_fetch_array($volunteers, MYSQLI_ASSOC)) {?>
-        for(var i =1; i < <?php echo $NumOfVolunteersResult[0]+1; ?>; i++) {
-            if (document.getElementById('VolunteerId' + i).value == <?php echo $row2['Id'] ?>) {
-                if (<?php echo $row2['Monday_Available'] ?> == 1
-            )
-                {
-                    document.getElementById('Monday' + i).checked = true;
-                }
-                if (<?php echo $row2['Tuesday_Available'] ?> == 1
-            )
-                {
-                    document.getElementById('Tuesday' + i).checked = true;
-                }
-                if (<?php echo $row2['Wednesday_Available'] ?> == 1
-            )
-                {
-                    document.getElementById('Wednesday' + i).checked = true;
-                }
-                if (<?php echo $row2['Thursday_Available'] ?> == 1
-            )
-                {
-                    document.getElementById('Thursday' + i).checked = true;
-                }
-                if (<?php echo $row2['Friday_Available'] ?> == 1
-            )
-                {
-                    document.getElementById('Friday' + i).checked = true;
-                }
-
-            }
-        }
-        <?php } ?>
-    });
     function ChangeVolunteerAvailability() {
         var mondayInput, tuesdayInput, wednesdayInput, thursdayInput, fridayInput =0;
 
@@ -211,7 +181,7 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                 method: "POST",
                 data: {volunteerId: volunteerId,monday:monday,tuesday:tuesday,wednesday:wednesday,thursday:thursday,friday:friday},
                 success: function (output) {
-
+                    alert(output);
                 }
             });
         }
