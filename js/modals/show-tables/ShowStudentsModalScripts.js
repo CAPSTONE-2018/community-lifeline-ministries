@@ -6,7 +6,7 @@ function launchEditStudentModal(studentId) {
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal fade');
             $('#custom-size').removeClass().addClass('modal-dialog modal-lg');
-            $('#custom-title').removeClass().addClass('modal-header edit-student-modal-header');
+            $('#custom-title').removeClass().addClass('modal-header edit-modal-header');
             $('#custom-icon').removeClass().addClass('m-auto fa fa-pencil ');
             $('#dynamic-title').text("Edit Student Info");
             $('#title-wrapper').find('h4').addClass("large-font");
