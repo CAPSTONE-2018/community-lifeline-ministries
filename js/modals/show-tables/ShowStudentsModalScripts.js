@@ -11,7 +11,7 @@ function launchEditStudentModal(studentId) {
             $('#dynamic-title').text("Edit Student Info");
             $('#title-wrapper').find('h4').addClass("large-font");
             $('.modal-body').html(response);
-            checkForInputs();
+            componentHandler.upgradeDom();
             $('#custom-modal').modal("show");
         }
     });

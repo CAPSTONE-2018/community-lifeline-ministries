@@ -22,7 +22,6 @@
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
 <script src="../../js/NumberTableRows.js"></script>
 <script src="../../js/forms/FilterFields.js"></script>
-<script src="../../js/modals/show-tables/InputOnFocus.js"></script>
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowProgramsModalScripts.js"></script>
