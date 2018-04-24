@@ -25,7 +25,7 @@ $studentsResult = mysqli_query($db, $query);
                                         <input type="hidden" name="student">
                                         <i class="mdl-icon-toggle__label fa fa-sort-down"></i>
                                         <label for="student" class="mdl-textfield__label">Student</label>
-                                        <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                        <ul for="student" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                             <?php
                                             while ($studentsRow = mysqli_fetch_assoc($studentsResult)) {
                                                 $studentId = $studentsRow['Id'];
