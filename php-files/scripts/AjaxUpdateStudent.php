@@ -81,11 +81,15 @@ $output = "<div id=\"form_wrapper\">
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"firstName\">First Name:</label>
-                                <input id=\"firstName\" class=\"form-control\" value='" . $row['First_Name'] . "' placeholder=\"First\" type=\"text\" name=\"firstName\">
+                                <input id=\"firstName\" class=\"form-control\" value='" . $row['First_Name'] . "' placeholder=\"First\" type=\"text\"
+                                       pattern=\"^[A-Z]([ \-']?[a-zA-Z]+)*$\" onkeypress=\"return supressEnter()\" name=\"firstName\">
+                                <span class=\"mdl-textfield__error\">Invalid First Name Data Entered</span>
                             </div>
                             <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"lastName\">Last Name:</label>
-                                <input id=\"lastName\" class=\"form-control\" value='" . $row['Last_Name'] . "' placeholder=\"Last\" type=\"text\" name=\"lastName\">
+                                <input id=\"lastName\" class=\"form-control\" value='" . $row['Last_Name'] . "' placeholder=\"Last\" type=\"text\"
+                                       pattern=\"^[A-Z]([ \-']?[a-zA-Z]+)*$\" onkeypress=\"return supressEnter()\" name=\"lastName\">
+                                <span class=\"mdl-textfield__error\">Invalid Last Name Data Entered</span>
                             </div>
                         </div>
                     </div>
@@ -95,11 +99,15 @@ $output = "<div id=\"form_wrapper\">
                     <div class=\"form-group\">
                         <div class=\"col-lg-6\">
                             <label class=\"control-label\" for=\"middleName\">Middle Name:</label>
-                            <input id=\"middleName\" class=\"form-control\" value='" . $row['Middle_Name'] . "' placeholder=\"Middle\" type=\"text\" name=\"middleName\">
+                            <input id=\"middleName\" class=\"form-control\" value='" . $row['Middle_Name'] . "' placeholder=\"Middle\" type=\"text\"
+                                   pattern=\"^[A-Z]([ \-']?[a-zA-Z]+)*$\" onkeypress=\"supressEnter()\" name=\"middleName\">
+                            <span class=\"mdl-textfield__error\">Invalid Middle Name Data Entered</span>
                         </div>
                         <div class=\"col-lg-6\">
                             <label class=\"control-label\" for=\"suffix\">Suffix:</label>
-                            <input id=\"suffix\" class=\"form-control\" value='" . $row['Suffix'] . "' placeholder=\"Suffix\" type=\"text\" name=\"suffix\">
+                            <input id=\"suffix\" class=\"form-control\" value='" . $row['Suffix'] . "' placeholder=\"Suffix\" type=\"text\"
+                                   pattern=\"^[A-Z](([ \.]|(\, )|(\. ))?[a-zA-Z]+)*\.?$\" onkeypress=\"return supressEnter()\" name=\"suffix\">
+                            <span class=\"mdl-textfield__error\">Invalid Suffix Data Entered</span>
                         </div>
                     </div>
                   </div>
@@ -109,11 +117,15 @@ $output = "<div id=\"form_wrapper\">
                         <div class=\"form-group\">
                             <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"dob\">Date of Birth:</label>
-                                <input id=\"dob\" class=\"form-control\" value='" . $row['Birth_Date'] . "' placeholder=\"YYYY/MM/DD\" type=\"text\" name=\"dob\">
+                                <input id=\"dob\" class=\"form-control\" value='" . $row['Birth_Date'] . "' placeholder=\"YYYY/MM/DD\" type=\"text\"
+                                       pattern=\"^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\/[1-9][0-9]{3}$\" onkeypress=\"return supressEnter()\" name=\"dob\">
+                                <span class=\"mdl-textfield__error\">Invalid D.O.B. Data Entered</span>
                             </div>
                             <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"ethnic\">Ethnicity:</label>
-                                <input id=\"ethnic\" class=\"form-control\" value='" . $row['Ethnicity'] . "' placeholder=\"Ethnicity\" type=\"text\" name=\"ethnicity\">
+                                <input id=\"ethnic\" class=\"form-control\" value='" . $row['Ethnicity'] . "' placeholder=\"Ethnicity\" type=\"text\"
+                                       pattern=\"^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$\" onkeypress=\"return supressEnter()\"  name=\"ethnicity\">
+                                <span class=\"mdl-textfield__error\">Invalid Ethnicity Data Entered</span>
                             </div>
                             <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"gend\">Gender:</label>
@@ -130,18 +142,24 @@ $output = "<div id=\"form_wrapper\">
                         <div class=\"form-group\">
                             <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"addressOne\">Address:</label>
-                                <input id=\"addressOne\" class=\"form-control\" value='" . $row['Address_One'] . "' placeholder=\"Address\" type=\"text\" name=\"addressOne\">
+                                <input id=\"addressOne\" class=\"form-control\" value='" . $row['Address_One'] . "' placeholder=\"Address\" type=\"text\"
+                                       pattern=\"^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$\" onkeypress=\"return supressEnter()\" name=\"addressOne\">
+                                <span class=\"mdl-textfield__error\">Invalid Address Data Entered</span>
                             </div>
                             <div class=\"col-lg-6\">
                                 <label class=\"control-label\" for=\"addressTwo\">Apt/Suite:</label>
-                                <input id=\"addressTwo\" class=\"form-control\" value='" . $row['Address_Two'] . "' placeholder=\"Apt/Suite\" type=\"text\" name=\"addressTwo\">
+                                <input id=\"addressTwo\" class=\"form-control\" value='" . $row['Address_Two'] . "' placeholder=\"Apt/Suite\" type=\"text\"
+                                       pattern=\"^[a-zA-Z0-9]+(([ \-\.]|(\. ))[a-zA-Z0-9]+)*$\" onkeypress=\"return supressEnter()\" name=\"addressTwo\">
+                                <span class=\"mdl-textfield__error\">Invalid Apt/Suite Data Entered</span>
                             </div>
                         </div>
 
                         <div class=\"form-group\">
                             <div class=\"col-lg-4\">
                                 <label class=\"control-label\" for=\"city\">City:</label>
-                                <input id=\"city\" class=\"form-control\" value='" . $row['City'] . "' placeholder=\"City\" type=\"text\" name=\"city\">
+                                <input id=\"city\" class=\"form-control\" value='" . $row['City'] . "' placeholder=\"City\" type=\"text\"
+                                       pattern=\"^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*\.?$\" onkeypress=\"return supressEnter()\" name=\"city\">
+                                <span class=\"mdl-textfield__error\">Invalid City Data Entered</span>
                             </div>
 
                             <div class=\"col-lg-4\">
@@ -151,7 +169,9 @@ $output = "<div id=\"form_wrapper\">
 
                         <div class=\"col-lg-4\">
                             <label class=\"control-label\" for=\"zip\">Zip Code:</label>
-                            <input id=\"zip\" class=\"form-control\" value='" . $row['Zip'] . "' placeholder=\"Zip Code\" type=\"text\" name=\"zip\">
+                            <input id=\"zip\" class=\"form-control\" value='" . $row['Zip'] . "' placeholder=\"Zip Code\" type=\"text\"
+                                   pattern=\"^[0-9]{5}(-[0-9]{4})?$\" onkeypress=\"return supressEnter()\" name=\"zip\">
+                            <span class=\"mdl-textfield__error\">Invalid Zip Code Data Entered</span>
                         </div>
                     </div>
                 
@@ -161,7 +181,8 @@ $output = "<div id=\"form_wrapper\">
 
                             <div class=\"col-lg-8\">
                                 <label class=\"control-label\" for=\"school\">School:</label>
-                                <input id=\"school\" class=\"form-control\" value='" . $row['School'] . "' placeholder=\"School\" type=\"text\" name=\"school\">
+                                <input id=\"school\" class=\"form-control\" value='" . $row['School'] . "' placeholder=\"School\" type=\"text\"
+                                       onkeypress=\"supressEnter()\" name=\"school\">
                             </div>
                         </div>
                     </div>
