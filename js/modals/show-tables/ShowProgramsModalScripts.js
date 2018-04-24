@@ -11,7 +11,7 @@ function launchEditProgramModal(programId) {
             $('#dynamic-title').text("Edit Program Info");
             $('#title-wrapper').find('h4').addClass("large-font");
             $('.modal-body').html(response);
-            checkForInputs();
+            componentHandler.upgradeDom();
             $('#custom-modal').modal("show");
         }
     });
