@@ -80,7 +80,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                                 <span title='Volunteers' data-toggle='tooltip'
                                                       class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick='launchVolunteersInProgramModal(<?php echo $volunteerId; ?>)'
+                                                            onclick=''
                                                             class='btn small-action-buttons test-scores-button'
                                                     >
                                                         <i class='fa fa-star'></i>
@@ -89,7 +89,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                             <span title='Students In Program' data-toggle='tooltip'
                                                   class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick='launchStudentsInProgramModal(<?php echo $studentIdToSearch; ?>)'
+                                                            onclick=''
                                                             class='btn small-action-buttons student-contact-button'
                                                     >
                                                         <i class='fa fa-graduation-cap'></i>
