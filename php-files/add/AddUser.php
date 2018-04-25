@@ -16,8 +16,8 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $encryptPass = md5($password);
 $account = $_POST['account'];
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
+$fname = $_POST['firstName'];
+$lname = $_POST['lastName'];
 $email = $_POST['email'];
 
 //connect to database
