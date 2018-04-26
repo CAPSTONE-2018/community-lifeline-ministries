@@ -1,10 +1,11 @@
 <?php
 include("../../../db/config.php");
 
-$volunteerId = $_POST['volunteerId'];
+$programId = $_POST['programId'];
 
-$queryForVolunteers = "SELECT Volunteer_Employees.First_Name, Volunteer_Employees.Last_Name FROM Volunteer_Employees 
-                        WHERE Volunteer_To_Programs.Program_Id = '$volunteerId';";
+$queryForVolunteers = "SELECT * FROM Volunteer_Employees 
+                        JOIN Volunteer_To_Programs ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id
+                        WHERE Volunteer_To_Programs.Program_Id = '$programId';";
 
 $volunteerResults = mysqli_query($db, $queryForVolunteers);
 $response = '';
@@ -13,8 +14,14 @@ $dynamicRowId = 0;
 while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
     $dynamicRowId++;
     $volunteerName = $volunteerRow['First_Name'] . " " . $volunteerRow['Last_Name'];
-
-    $response = '
+    $volunteerPhone = $volunteerRow['Primary_Phone'];
+    $volunteerEmail = $volunteerRow['Email'];
+    $volunteerAddressOne = $volunteerRow['Address_One'];
+    $volunteerAddressTwo = $volunteerRow['Address_Two'];
+    $volunteerCity = $volunteerRow['City'];
+    $volunteerState = $volunteerRow['State'];
+    $volunteerZip = $volunteerRow['Zip'];
+    $response .= '
 <div class="contact-modal">'; ?>
     <div class="row form-group">
         <div class="col-2 text-center mt-auto mb-auto">
@@ -22,10 +29,10 @@ while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="contactName" class="mdl-textfield__input" readonly
+                <input id="volunteerName" class="mdl-textfield__input" readonly
                        value="<?php echo $volunteerName; ?>"
                        type="text"/>
-                <label class="mdl-textfield__label" for="contactName">Contact Name</label>
+                <label class="mdl-textfield__label" for="volunteerName">Contact Name</label>
             </div>
         </div>
     </div>
@@ -36,24 +43,10 @@ while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
         </div>
         <div class="col-10">
             <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="contactPrimaryPhone" class="mdl-textfield__input" readonly
-                       value="<?php echo $contactPhone; ?>"
+                <input id="volunteerPrimaryPhone" class="mdl-textfield__input" readonly
+                       value="<?php echo $volunteerPhone; ?>"
                        type="text"/>
-                <label class="mdl-textfield__label" for="primaryPhone">Primary Phone</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row form-group">
-        <div class="col-2 text-center mt-auto mb-auto">
-            <i class="fa fa-envelope"></i>
-        </div>
-        <div class="col-10">
-            <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="floatingContactEmail" class="mdl-textfield__input" readonly="readonly"
-                       value="<?php echo $contactEmail; ?>"
-                       type="email"/>
-                <label class="mdl-textfield__label" for="contactEmail">Contact Email</label>
+                <label class="mdl-textfield__label" for="volunteerPrimaryPhone">Primary Phone</label>
             </div>
         </div>
     </div>
@@ -70,17 +63,30 @@ while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
     <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
         <div class="row form-group">
             <div class="col-2 text-center mt-auto mb-auto">
+                <i class="fa fa-envelope"></i>
+            </div>
+            <div class="col-10">
+                <div class="is-dirty mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input id="volunteerContactEmail" class="mdl-textfield__input" readonly="readonly"
+                           value="<?php echo $volunteerEmail; ?>"
+                           type="email"/>
+                    <label class="mdl-textfield__label" for="volunteerContactEmail">Contact Email</label>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2 text-center mt-auto mb-auto">
                 <i class="fa fa-address-book-o"></i>
             </div>
             <div class="col-10">
                 <div class="">
-                    <?php echo $contactAddressOne . " " . $contactAddressTwo; ?>
+                    <?php echo $volunteerAddressOne . " " . $volunteerAddressTwo; ?>
                 </div>
                 <div class="">
-                    <?php echo $contactCity . ", " . $contactState; ?>
+                    <?php echo $volunteerCity . ", " . $volunteerState; ?>
                 </div>
                 <div class="">
-                    <?php echo $contactZip; ?>
+                    <?php echo $volunteerZip; ?>
                 </div>
             </div>
         </div>

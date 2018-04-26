@@ -39,12 +39,11 @@ function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisp
 }
 
 
-function launchVolunteersInProgramModal(volunteerId) {
-    alert(volunteerId);
+function launchVolunteersInProgramModal(programId) {
     $.ajax({
         url: '../modals/programs/VolunteersToProgramModal.php',
         type: 'post',
-        data: {volunteerId: volunteerId},
+        data: {programId: programId},
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal right fade');
             $('#custom-size').removeClass().addClass('modal-dialog');
