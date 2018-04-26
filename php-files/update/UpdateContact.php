@@ -1,35 +1,27 @@
 <?php
-include("../scripts/header.php");
-?>
-
-<h1>Update Contact Information:</h1>
-<br/>
-
-
-<?php
-//connect to database
 include("../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $isActiveFlag = $_POST['activeFlag'];
 $id = $_SESSION['contactId'];
-$prefix = $_POST['prefix'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
+$prefix = $_POST['contactPrefix'];
+$firstName = $_POST['contactFirstName'];
+$lastName = $_POST['contactLastName'];
 $middleName = $_POST['middleName'];
 $suffix = $_POST['suffix'];
 $primaryPhone = $_POST['primaryPhone'];
 $secondaryPhone = $_POST['secondaryPhone'];
-$addressOne = $_POST['addressOne'];
-$addressTwo = $_POST['addressTwo'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$zip = intval($_POST['zip']);
-$email = $_POST['email'];
+$addressOne = $_POST['contactAddressOne'];
+$addressTwo = $_POST['contactAddressTwo'];
+$city = $_POST['contactCity'];
+$state = $_POST['contactState'];
+$zip = intval($_POST['contactZip']);
+$email = $_POST['contactEmail'];
 $relationship = $_POST['relationship'];
 
+$contactUpdateConfirmation = false;
 
-$sql = "
+$updateContactQuery = "
 UPDATE Contacts SET 
   Last_Updated_Timestamp = NULL,
   Author_Username = '$userMakingChanges',
@@ -48,16 +40,16 @@ UPDATE Contacts SET
 
   WHERE Id = '$id' ;";
 
-if ($db->query($sql) === TRUE) {
-    echo "
-        <div class='alert alert-success'>
-            <strong>Success! </strong>Contact has been successfully Updated.
-        </div>";
+if ($db->query($updateContactQuery) === TRUE) {
+    $contactUpdateConfirmation = true;
 } else {
-    echo "
-        <div class='alert alert-danger'>
-            <strong>Failure! </strong>Contact could not be updated, please try again.
-        </div>";
+    $contactUpdateConfirmation = false;
 }
-include("../scripts/footer.php");
-?>
+
+
+$jsonConfirmationObject = array(
+    'contact-confirmation' => $contactUpdateConfirmation
+
+);
+
+echo json_encode($jsonConfirmationObject);

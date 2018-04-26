@@ -39,7 +39,7 @@ include("../../db/config.php");
 		$serialized =htmlspecialchars(serialize($records));
 		?>
 
-        <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
+        <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
 			<form class="form-horizontal" action="../../scripts/exportReport.php" method="POST">
 				<input type="hidden" name="Records" value="<?php echo $serialized ?>"/>
 				<input type="hidden" name="filename"  value="Students_Enrolled_Report"/>

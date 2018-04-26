@@ -71,7 +71,7 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                                         <div class='left-action-buttons-container d-inline m-auto'>
                                             <div class=' d-inline'>
                                                 <button type='button'
-                                                        class='btn large-action-buttons edit-student-button'
+                                                        class='btn large-action-buttons edit-button'
                                                         onclick=''
                                                 >
                                                     <i class='fa fa-pencil'></i> Edit
@@ -93,7 +93,7 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                                                   class='small-action-buttons'>
                                                     <button type='button'
                                                             onclick=''
-                                                            class='btn small-action-buttons student-contact-button'
+                                                            class='btn small-action-buttons contact-button'
                                                     >
                                                         <i class='fa fa-graduation-cap'></i>
                                                     </button>

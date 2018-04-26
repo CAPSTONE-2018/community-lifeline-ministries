@@ -30,7 +30,7 @@ function launchStudentConfirmationModal(serializedForm) {
                 '</div>';
 
             $.ajax({
-                url: '../../php-files/modals/ConfirmationModal.php',
+                url: '../../php-files/modals/students/ConfirmationModal.php',
                 method: "POST",
                 data: {
                     student: studentConfirmation,
@@ -47,6 +47,9 @@ function launchStudentConfirmationModal(serializedForm) {
                     $('.modal-body').html(response);
                     $('.modal-footer').html(footerRow);
                     $('#custom-modal').modal('show');
+                    $('#custom-modal').on('hidden.bs.modal', function (e) {
+                        window.location.href = '../../php-files/new/NewStudent.php';
+                    });
                 }
             });
         }

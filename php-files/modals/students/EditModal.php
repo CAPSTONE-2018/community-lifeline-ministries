@@ -50,6 +50,18 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     } else {
         $iepChecked = "checked";
     }
+
+    if ($studentGender == "F") {
+        $selectedStudentGender = "Female";
+    } else {
+        $selectedStudentGender = "Male";
+    }
+
+    if ($studentState == "IL") {
+        $selectedStudentState = "Illinois";
+    }
+
+
     ?>
     <div>
         <form>
@@ -131,9 +143,10 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="col-sm-4">
                                         <div id="floatingGender"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                            <input type="text" value="" class="mdl-textfield__input" id="gender"
+                                            <input type="text" value="<?php echo $selectedStudentGender; ?>"
+                                                   class="mdl-textfield__input" id="gender"
                                                    readonly>
-                                            <input type="hidden" value="" name="gender">
+                                            <input type="hidden" value="<?php echo $studentGender; ?>" name="gender">
                                             <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                                             <label for="gender" class="mdl-textfield__label">Gender</label>
                                             <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
@@ -182,9 +195,11 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="col-sm-4">
                                         <div id="floatingStudentState"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                            <input type="text" value="" class="mdl-textfield__input" id="studentState"
+                                            <input type="text" value="<?php echo $selectedStudentState; ?>"
+                                                   class="mdl-textfield__input" id="studentState"
                                                    readonly>
-                                            <input type="hidden" value="" name="studentState">
+                                            <input type="hidden" value="<?php echo $studentState; ?>"
+                                                   name="studentState">
                                             <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                                             <label for="studentState"
                                                    class="mdl-textfield__label">State</label>

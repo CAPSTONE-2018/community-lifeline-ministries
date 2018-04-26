@@ -68,12 +68,6 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                     $programName = $programsRow['Program_Name'];
                                     $programId = $programsRow['Id'];
                                     $tableToLookUp = "Programs";
-                                    $queryForVolunteers = "SELECT Volunteer_Employees.Id FROM Volunteer_Employees 
-                                                            JOIN Volunteer_To_Programs ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id
-                                                            WHERE Volunteer_To_Programs.Program_Id = '$programId';";
-                                    $volunteerResults = mysqli_query($db, $queryForVolunteers);
-                                    $volunteersRow = mysqli_fetch_assoc($volunteerResults);
-                                    $volunteerId = $volunteersRow['Id'];
                                     ?>
                                     <tr class='number-row'>
                                         <td class='col-sm-1 align-middle'></td>
@@ -86,7 +80,7 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                             <div class='left-action-buttons-container d-inline m-auto'>
                                                 <div class=' d-inline'>
                                                     <button type='button'
-                                                            class='btn large-action-buttons edit-student-button'
+                                                            class='btn large-action-buttons edit-button'
                                                             onclick='launchEditProgramModal(<?php echo $programId; ?>)'
                                                     >
                                                         <i class='fa fa-pencil'></i> Edit
@@ -98,7 +92,7 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                                 <span title='Volunteers' data-toggle='tooltip'
                                                       class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick='launchVolunteersInProgramModal(<?php echo $volunteerId; ?>)'
+                                                            onclick='launchVolunteersInProgramModal(<?php echo $programId; ?>)'
                                                             class='btn small-action-buttons test-scores-button'
                                                     >
                                                         <i class='fa fa-star'></i>
@@ -107,8 +101,8 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                                 <span title='Students In Program' data-toggle='tooltip'
                                                       class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick='launchStudentsInProgramModal(<?php echo $studentIdToSearch; ?>)'
-                                                            class='btn small-action-buttons student-contact-button'
+                                                            onclick='launchStudentsInProgramModal(<?php echo $programId; ?>)'
+                                                            class='btn small-action-buttons contact-button'
                                                     >
                                                         <i class='fa fa-graduation-cap'></i>
                                                     </button>
