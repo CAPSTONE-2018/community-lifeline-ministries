@@ -3,7 +3,11 @@ include("../../../db/config.php");
 $contactId = $_POST['contactId'];
 
 $queryForContact = "SELECT * FROM Contacts WHERE Id = '$contactId';";
+$queryForStudentContact = "SELECT Student_To_Contacts.Student_Id, Student_To_Contacts.Relationship, Students.First_Name, Students.Last_Name 
+                            FROM Student_To_Contacts JOIN Students on Students.Id = Student_To_Contacts.Id 
+                            WHERE Student_To_Contacts.Contact_Id = '$contactId';";
 $contactInfoResults = mysqli_query($db, $queryForContact);
+$studentInfoResults = mysqli_query($db, $queryForStudentContact);
 $response = '';
 
 while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
@@ -21,6 +25,15 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     $state = $contactInfoRow['State'];
     $zip = $contactInfoRow['Zip'];
     $email = $contactInfoRow['Email'];
+
+    $studentInfoRow = mysqli_fetch_assoc($studentInfoResults);
+    $relationship = $studentInfoRow['Relationship'];
+    $studentName = $studentInfoRow['First_Name'] . ' ' . $studentInfoRow['Last_Name'];
+    $studentId = $studentInfoRow['Student_Id'];
+
+    if ($state == 'IL') {
+        $selectedState = 'Illinois';
+    }
     ?>
     <div>
         <form>
@@ -31,8 +44,8 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
                 <div class="form-group">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" class="mdl-textfield__input" id="student" readonly/>
-                            <input type="hidden" name="student"/>
+                            <input type="text" value="<?php echo $studentName; ?>" class="mdl-textfield__input" id="student" readonly/>
+                            <input type="hidden" value="<?php echo $studentId; ?>" name="student"/>
                             <i class="mdl-icon-toggle__label fa fa-sort-down"></i>
                             <label for="student" class="mdl-textfield__label">Student</label>
                             <ul for="student" class="mdl-menu mdl-menu--bottom-left mdl-js-menu"></ul>
@@ -41,7 +54,7 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
 
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="relationToStudent" class="mdl-textfield__input"
+                            <input id="relationToStudent" value="<?php echo $relationship; ?>" class="mdl-textfield__input"
                                    name="relationToStudent" type="text"/>
                             <label class="mdl-textfield__label"
                                    for="relationToStudent">Relation to Student</label>
@@ -170,9 +183,9 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
 
                     <div class="col-sm-4">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" value="" class="mdl-textfield__input"
+                            <input type="text" value="<?php echo $selectedState; ?>" class="mdl-textfield__input"
                                    id="contactState" readonly>
-                            <input type="hidden" value="" name="contactState">
+                            <input type="hidden" value="<?php echo $state; ?>" name="contactState">
                             <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                             <label for="contactState" class="mdl-textfield__label">State</label>
                             <ul id="contactState" class="overflow mdl-menu mdl-menu--bottom-left mdl-js-menu">
