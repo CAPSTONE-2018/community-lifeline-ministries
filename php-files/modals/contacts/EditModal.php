@@ -1,5 +1,6 @@
 <?php
 include("../../../db/config.php");
+include("../../scripts/States.php");
 $contactId = $_POST['contactId'];
 
 $queryForContact = "SELECT * FROM Contacts WHERE Id = '$contactId';";
@@ -36,7 +37,7 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     }
     ?>
     <div>
-        <form>
+        <form name="editContactForm" id="editContactForm">
             <div class="card">
 
                 <h4 class="heading m-4"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
@@ -195,7 +196,19 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
                     </div>
 
                 </div>
+
+                <div class="card-footer">
+                    <input type="button" onclick="sendEditContactForm()" value="Submit" class="btn btn-primary btn-lg btn-block"/>
+                </div>
+
             </div>
         </form>
     </div>
 <?php } ?>
+
+<script type="text/javascript">
+    function sendEditContactForm() {
+        var serializedForm = $('#editContactForm').serialize();
+        launchContactConfirmationModal(serializedForm);
+    }
+</script>
