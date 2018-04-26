@@ -69,7 +69,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                             <div class=' d-inline'>
                                                 <button type='button'
                                                         class='btn large-action-buttons edit-button'
-                                                        onclick='launchEditMedicalConcernsModal(<?php echo $programId; ?>)'
+                                                        onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
                                                 >
                                                     <i class='fa fa-pencil'></i> Edit
                                                 </button>
@@ -79,7 +79,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                         <div class='right-action-buttons-container d-inline'>
                                             <span title='Students With Concern' data-toggle='tooltip' class='small-action-buttons'>
                                                 <button type='button'
-                                                        onclick='launchStudentsWithMedicalConcernsModal(<?php echo $programId; ?>)'
+                                                        onclick='launchStudentsWithMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
                                                         class='btn small-action-buttons test-scores-button'>
                                                         <i class='fa fa-graduation-cap'></i>
                                                 </button>

@@ -106,8 +106,6 @@ include("../widgets/TimeZoneFormat.php");
                         <li><a href="../new/NewStudent.php">Add New</a></li>
                         <li><a href="../show/ShowStudents.php">View All</a></li>
                         <li><a href="../new/NewStudentToProgram.php">Register To Program</a></li>
-<!--                        <li><a href="../new/NewTestScores.php">Test Scores</a></li>-->
-<!--                        <li><a href="#">Medical Concerns</a></li>-->
                     </ul>
                 </li>
                 <li>
@@ -146,7 +144,6 @@ include("../widgets/TimeZoneFormat.php");
                     <ul class="collapse list-unstyled" id="allergySubmenu">
                         <li><a href="#">Add Student Allergy</a></li>
                         <li><a href="../new/NewMedicalConcern.php">Add New</a></li>
-                        <li><a href="../edit/EditMedicalConcern.php">Update</a></li>
                         <li><a href="../show/ShowMedicalConcerns.php">Display All</a></li>
                     </ul>
                 </li>
