@@ -44,7 +44,7 @@ include("../../db/config.php");
                 </div>
 
                 <div class="row col-sm-12">
-                    <input id="submitButton" class="btn large-action-buttons edit-student-button"
+                    <input id="submitButton" class="btn large-action-buttons edit-button"
                            form="newMedicalConcernForm" type="submit" value="Enter"><br><br>
                 </div>
             </form>

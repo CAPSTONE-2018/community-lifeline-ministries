@@ -80,7 +80,7 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                             <div class='left-action-buttons-container d-inline m-auto'>
                                                 <div class=' d-inline'>
                                                     <button type='button'
-                                                            class='btn large-action-buttons edit-student-button'
+                                                            class='btn large-action-buttons edit-button'
                                                             onclick='launchEditProgramModal(<?php echo $programId; ?>)'
                                                     >
                                                         <i class='fa fa-pencil'></i> Edit
@@ -102,7 +102,7 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                                       class='small-action-buttons'>
                                                     <button type='button'
                                                             onclick='launchStudentsInProgramModal(<?php echo $programId; ?>)'
-                                                            class='btn small-action-buttons student-contact-button'
+                                                            class='btn small-action-buttons contact-button'
                                                     >
                                                         <i class='fa fa-graduation-cap'></i>
                                                     </button>

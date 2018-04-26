@@ -5,86 +5,100 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$query = "SELECT * FROM Medical_Concerns;";
-$result = mysqli_query($db, $query);
+$queryForMedicalConcerns = "SELECT * FROM Medical_Concerns;";
+$medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
-<h1>Displaying All Medical Concerns:</h1>
-<div class="col-lg">
+<div class="print_div">
+    <div class="card">
+        <div class="card-header">
+            <div class="col-12 text-center">
+                <h3><i class="fa fa-warning"></i> All Medical Concerns</h3>
+            </div>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input id="searchInput" class="mdl-textfield__input" name="searchInput" onkeyup="FilterFields();"
-               type="text"/>
-        <label class="mdl-textfield__label" for="searchInput">Search Medical Conditions</label>
+            <div class="row">
+                <div class="search-input-wrapper col-6">
+                    <input id="search-input" type="text" placeholder="Search" onkeyup="FilterFields()">
+                    <i class="align-middle fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+
+                <div class="align-middle m-auto text-right col-6">
+                    <div class="btn-group btn-toggle">
+                        <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible2">
+                            Show All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-content">
+                <form method="POST" action="#" name="allProgramsTable"
+                      id="allProgramsTable">
+                    <div class="table-responsive">
+                        <table id="search-table" class="table table-striped table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th class="col-sm-1">#</th>
+                                <th class="col-sm-3">Medical Concerns</th>
+                                <th class="col-sm-2 text-center">Concern Type</th>
+                                <th class="col-sm-2 text-center">Students With Concern</th>
+                                <th class="col-sm-4 text-center">Actions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <?php
+                            while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
+                                $medicalConcernId = $medicalConcernsRow['Id'];
+                                $medicalConcernName = $medicalConcernsRow['Name'];
+                                $medicalConcernType = $medicalConcernsRow['Type'];
+                                $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
+                                $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
+                                $studentTotals = '';
+                                while($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
+                                    $studentTotals = $studentsWithMedicalConcernsRow['Count'];
+                                }
+                                ?>
+                                <tr class='number-row'>
+                                    <td class='col-sm-1 align-middle'></td>
+                                    <td class='col-sm-3 align-middle'><?php echo $medicalConcernName; ?></td>
+                                    <td class='col-sm-2 text-center align-middle'><?php echo $medicalConcernType; ?></td>
+                                    <td class='col-sm-2 text-center align-middle'><?php echo $studentTotals; ?></td>
+                                    <td class='col-sm-4 text-center'>
+                                        <div class='left-action-buttons-container d-inline m-auto'>
+                                            <div class=' d-inline'>
+                                                <button type='button'
+                                                        class='btn large-action-buttons edit-button'
+                                                        onclick='launchEditMedicalConcernsModal(<?php echo $programId; ?>)'
+                                                >
+                                                    <i class='fa fa-pencil'></i> Edit
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class='right-action-buttons-container d-inline'>
+                                            <span title='Students With Concern' data-toggle='tooltip' class='small-action-buttons'>
+                                                <button type='button'
+                                                        onclick='launchStudentsWithMedicalConcernsModal(<?php echo $programId; ?>)'
+                                                        class='btn small-action-buttons test-scores-button'>
+                                                        <i class='fa fa-graduation-cap'></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
     </div>
 </div>
-<br/>
-
-<div id="print_div" class="table-wrapper">
-    <table id="allergy-table" class="table table-condensed table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Note</th>
-            <th>Students Affected</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-
-            $search = $row['Id'];
-            $studentToAllergyQuery = ("SELECT COUNT(Medical_Concern_Id) from Student_To_Medical_Concerns Where Medical_Concern_Id = $search;");
-            $rs = mysqli_query($db, $studentToAllergyQuery);
-            $result2 = mysqli_fetch_array($rs);
-
-            echo "<tr><td>";
-            echo $row['Id'];
-            echo "</td><td>";
-            echo $row['NAME'];
-            echo "</td><td>";
-            echo $row['Note'];
-            echo "</td><td>";
-            echo "$result2[0]";
-            echo "</td><td>";
-            echo "<button class='table-update-button' type='button' value='$search' >Update</button>";
-        }
-        ?>
-        </tbody>
-    </table>
-</div>
-<input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-<input type="button" id="show-all-button" class="btn btn-primary pull-right" value="Show All"/>
-
-<script src="../../scripts/print.js"></script>
-
-<div id="show-medical-info"></div>
 <?php
 include("../scripts/footer.php");
 ?>
-
-
-<script>
-    $('#show-all-button').on('click', function (e) {
-        $('.table-wrapper').slideDown();
-        $('#show-all-button').hide();
-        $('#show-medical-info').slideUp();
-        e.preventDefault();
-    });
-
-    $(document).ready(function () {
-        $('.table-update-button').click(function () {
-            var medicalConcernId = $(this).attr('value');
-            $.ajax({
-                url: "../scripts/AjaxUpdateMedicalConcerns.php",
-                method: "POST",
-                data: {medicalConcernId: medicalConcernId},
-                success: function (output) {
-                    $('#show-medical-info').slideDown().html(output);
-                    $('#show-all-button').show();
-                    $('.table-wrapper').slideUp();
-                }
-            })
-        });
-    });
-</script>

@@ -17,36 +17,36 @@
     color: #fff;
 }
 
-.edit-student-button {
+.edit-button {
     /*background-color: #3CA8F7;*/
     background-color: #1EAAF1;
 }
 
-.edit-student-button:hover {
+.edit-button:hover {
     background-color: #1689CF;
 }
 
-.delete-student-button {
+.delete-button {
     background-color: #F2453D;
 }
 
-.delete-student-button:hover {
+.delete-button:hover {
     background-color: #D13135;
 }
 
-.student-contact-button {
+.contact-button {
     background-color: #6640B4;
 }
 
-.student-contact-button:hover {
+.contact-button:hover {
     background-color: #5133A5;
 }
 
 
-.view-allergies-button {
+.allergies-button {
     background-color: #4055B2;
 }
-.view-allergies-button:hover {
+.allergies-button:hover {
     background-color: #32429C;
 }
 
@@ -90,7 +90,6 @@
     width: 48%;
     margin: auto;
 }
-
 
 .green-check {
     color: #2EA6A2;

@@ -36,7 +36,7 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
     <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
-    <link rel="stylesheet" href="../../css/show-all-students-styles.css"/>
+    <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
     <link rel="stylesheet" href="../../css/form-styles.css"/>
     <link rel="stylesheet" href="../../css/toggle-switch.css"/>
     <link rel="stylesheet" href="../../css/table-styles.css"/>

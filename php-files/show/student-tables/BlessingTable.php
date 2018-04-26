@@ -66,7 +66,7 @@ $dynamicRowId = 0;
                                 <div class='left-action-buttons-container d-inline m-auto'>
                                     <div class=' d-inline'>
                                         <button type='button'
-                                                class='btn large-action-buttons edit-student-button'
+                                                class='btn large-action-buttons edit-button'
                                                 onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'
                                         >
                                             <i class='fa fa-pencil'></i> Edit
@@ -75,7 +75,7 @@ $dynamicRowId = 0;
 
                                     <div class='d-inline'>
                                         <button type='button'
-                                                class='btn large-action-buttons delete-student-button'
+                                                class='btn large-action-buttons delete-button'
                                                 onclick='launchArchiveUserModal(
                                                     "<?php echo $studentIdToSearch; ?>",
                                                     "<?php echo $studentTableToLookUp; ?>",
@@ -99,7 +99,7 @@ $dynamicRowId = 0;
                                           class='small-action-buttons'>
                                         <button type='button'
                                                 onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
-                                                class='btn small-action-buttons view-allergies-button'>
+                                                class='btn small-action-buttons allergies-button'>
                                             <i class='fa fa-warning'></i>
                                         </button>
                                     </span>
@@ -107,7 +107,7 @@ $dynamicRowId = 0;
                                           class='small-action-buttons'>
                                         <button type='button'
                                                 onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
-                                                class='btn small-action-buttons student-contact-button'>
+                                                class='btn small-action-buttons contact-button'>
                                             <i class='fa fa-phone'></i>
                                         </button>
                                     </span>
