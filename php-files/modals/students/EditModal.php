@@ -9,6 +9,7 @@ $studentInfoResults = mysqli_query($db, $queryForStudentInfo);
 while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     $dynamicRowId++;
 
+    $studentId = $studentInfoRow['Id'];
     $studentFirstName = $studentInfoRow['First_Name'];
     $studentLastName = $studentInfoRow['Last_Name'];
     $studentMiddleName = $studentInfoRow['Middle_Name'];
@@ -64,7 +65,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
     ?>
     <div>
-        <form>
+        <form name="editStudentForm" id="editStudentForm">
             <div class="card">
                 <div class="card-body">
                     <div class="form-content">
@@ -74,6 +75,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 </h4>
                                 <div class="edit-blue-line-color"></div>
                                 <div class="form-group">
+                                    <input type="hidden" name="studentId" value="<?php echo $studentId; ?>"/>
                                     <div class="col-sm-6">
                                         <div id="floatingStudentFirstName"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -299,8 +301,19 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         </div>
                     </div>
                 </div>
+
+                <div class="card-footer">
+                    <input type="button" onclick="sendEditStudentForm()" value="Submit" class="btn btn-primary btn-lg btn-block"/>
+                </div>
             </div>
         </form>
     </div>
 
 <?php } ?>
+
+<script type="text/javascript">
+    function sendEditStudentForm() {
+        var serializedForm = $('#editStudentForm').serialize();
+        launchEditStudentConfirmationModal(serializedForm);
+    }
+</script>

@@ -1,40 +1,31 @@
 <?php
-
-include("../scripts/header.php");
-?>
-
-<h1>Update Student Information:</h1>
-<br/>
-
-<?php
-
-//connect to database
 include("../../db/config.php");
-
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $id = $_POST['studentId'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$middleName = $_POST['middleName'];
-$suffix = $_POST['suffix'];
+$firstName = $_POST['studentFirstName'];
+$lastName = $_POST['studentLastName'];
+$middleName = $_POST['studentMiddleName'];
+$suffix = $_POST['studentSuffix'];
 $gender = $_POST['gender'];
 $dob = $_POST['dob'];
 $ethnicity = $_POST['ethnicity'];
-$addressOne = $_POST['addressOne'];
-$addressTwo = $_POST['addressTwo'];
-$zip = intval($_POST['zip']);
-$city = $_POST['city'];
-$state = $_POST['state'];
-$school = $_POST['school'];
-$permissionSlip = intval($_POST['permissionSlip']);
-$birthCertificate = intval($_POST['birthCertificate']);
-$reducedLunchEligibility = intval($_POST['reducedLunchEligibility']);
-$iep = intval($_POST['iep']);
+$addressOne = $_POST['studentAddressOne'];
+$addressTwo = $_POST['studentAddressTwo'];
+$zip = intval($_POST['studentZip']);
+$city = $_POST['studentCity'];
+$state = $_POST['studentState'];
+$school = $_POST['studentSchool'];
+$permissionSlip = intval($_POST['permissionSlipCheckbox']);
+$birthCertificate = intval($_POST['birthCertificateCheckbox']);
+$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
+$iep = intval($_POST['iepCheckbox']);
 
 $medicalConcernName = $_POST['medicalConcernName'];
 $medicalConcernType = $_POST['medicalConcernType'];
 $medicalConcernNote = $_POST['medicalConcernNote'];
+
+$studentUpdateConfirmation = false;
 
 $sql = "
 UPDATE Students SET 
@@ -60,15 +51,9 @@ UPDATE Students SET
   WHERE Id = '$id' ;";
 
 if ($db->query($sql) === TRUE) {
-    echo "
-        <div class='alert alert-success'>
-            <strong>Success! </strong>Student has been successfully Updated.
-        </div>";
+   $studentUpdateConfirmation = true;
 } else {
-    echo "
-        <div class='alert alert-danger'>
-            <strong>Failure! </strong>Student could not be updated, please try again.
-        </div>";
+    $studentUpdateConfirmation = false;
 }
 //
 //
@@ -83,6 +68,8 @@ if ($db->query($sql) === TRUE) {
 //            <strong>Failure! </strong>Student Allergy could not be updated, please try again.
 //        </div>";
 //}
+$jsonConfirmationObject = array(
+  'student-confirmation' => $studentUpdateConfirmation
+);
 
-include("../scripts/footer.php");
-?>
+echo json_encode($jsonConfirmationObject);

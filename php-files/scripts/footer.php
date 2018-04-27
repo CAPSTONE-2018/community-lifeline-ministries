@@ -27,14 +27,16 @@
 <script src="../../js/modals/show-tables/ShowProgramsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ToggleStudentTable.js"></script>
 <script src="../../js/modals/show-tables/ShowMedicalConcernsModalScripts.js"></script>
-<script src="../../js/modals/new-student/AddStudentConfirmation.js"></script>
+<script src="../../js/modals/student/AddNewStudentConfirmation.js"></script>
+<script src="../../js/modals/student/EditStudentConfirmation.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
 <script src="../../js/input-styling.min.js"></script>
-<script src="../../js/modals/new-student/ConfirmStudentEntries.js"></script>
+<script src="../../js/modals/student/ConfirmStudentEntries.js"></script>
 <script src="../../js/forms/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
 <script src="../../js/modals/ValidateMessageModal.js"></script>
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
+<script src="../../js/modals/ClearModalsOnClose.js"></script>
 <script src="../../scripts/print.js"></script>
 
 </div>

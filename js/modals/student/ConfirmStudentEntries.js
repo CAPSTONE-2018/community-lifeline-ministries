@@ -83,5 +83,5 @@ $(document).ready(function () {
 function sendNewStudentForm() {
     var serializedForm = $('#newStudentForm').serialize();
     $('#custom-modal').modal('hide');
-    launchStudentConfirmationModal(serializedForm);
+    launchAddNewStudentConfirmationModal(serializedForm);
 }

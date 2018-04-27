@@ -1,4 +1,4 @@
-function launchStudentConfirmationModal(serializedForm) {
+function launchAddNewStudentConfirmationModal(serializedForm) {
     $.ajax({
         url: "../../php-files/add/AddStudent.php",
         method: "POST",
