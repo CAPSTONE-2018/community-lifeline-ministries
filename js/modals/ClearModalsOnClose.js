@@ -3,6 +3,6 @@ $(function () {
     $('#custom-modal').on('hidden.bs.modal', function () {
         $(".modal-header").val("");
         $(".modal-body input").val("");
-        $(".modal-footer").val("");
+        $("#modal-button-footer-row").empty();
     });
 });

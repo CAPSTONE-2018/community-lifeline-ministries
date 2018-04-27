@@ -217,6 +217,9 @@ include("../widgets/TimeZoneFormat.php");
                         </div>
 
                         <div class="modal-footer">
+                            <div id="modal-button-footer-row" class="text-center col-sm-12">
+
+                            </div>
 
                         </div>
                     </div>
