@@ -20,9 +20,11 @@ function launchEditStudentConfirmationModal(serializedForm) {
             $('#custom-title').removeClass().addClass('modal-header successful-entry-modal-header');
             $('#custom-icon').removeClass().addClass('m-auto fa fa-check fa-2x');
             $('#dynamic-title').text("Edit Student Confirmation");
+            $('.modal-body').addClass('text-center');
             $('.modal-body').html(successText);
             $('#custom-modal').modal('show');
             $('#custom-modal').on('hidden.bs.modal', function (e) {
+                $('.modal-body').removeClass('text-center');
                 window.location.href = '../../php-files/show/ShowStudents.php';
             });
 

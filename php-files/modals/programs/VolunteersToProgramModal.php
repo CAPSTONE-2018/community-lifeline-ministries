@@ -21,77 +21,76 @@ while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
     $volunteerCity = $volunteerRow['City'];
     $volunteerState = $volunteerRow['State'];
     $volunteerZip = $volunteerRow['Zip'];
-    $response .= '
-<div class="contact-modal">'; ?>
-    <div class="row form-group">
-        <div class="col-2 text-center mt-auto mb-auto">
-            <i class="fa fa-users"></i>
-        </div>
-        <div class="col-10">
-            <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="volunteerName" class="mdl-textfield__input" readonly
-                       value="<?php echo $volunteerName; ?>"
-                       type="text"/>
-                <label class="mdl-textfield__label" for="volunteerName">Contact Name</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row form-group">
-        <div class="col-2 text-center mt-auto mb-auto">
-            <i class="fa fa-phone"></i>
-        </div>
-        <div class="col-10">
-            <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="volunteerPrimaryPhone" class="mdl-textfield__input" readonly
-                       value="<?php echo $volunteerPhone; ?>"
-                       type="text"/>
-                <label class="mdl-textfield__label" for="volunteerPrimaryPhone">Primary Phone</label>
-            </div>
-        </div>
-    </div>
-
-    <p>
-        <button class="btn btn-outline" type="button" data-toggle="collapse"
-                aria-controls="collapseAddress<?php echo $dynamicRowId; ?>"
-                data-target="#collapseAddress<?php echo $dynamicRowId; ?>"
-        >
-            View Address Info <i class="fa fa-toggle-down"></i>
-        </button>
-    </p>
-
-    <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
+    ?>
+    <div class="contact-modal">
         <div class="row form-group">
             <div class="col-2 text-center mt-auto mb-auto">
-                <i class="fa fa-envelope"></i>
+                <i class="fa fa-users"></i>
             </div>
             <div class="col-10">
-                <div class="is-dirty mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="volunteerContactEmail" class="mdl-textfield__input" readonly="readonly"
-                           value="<?php echo $volunteerEmail; ?>"
-                           type="email"/>
-                    <label class="mdl-textfield__label" for="volunteerContactEmail">Contact Email</label>
+                <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input id="volunteerName" class="mdl-textfield__input" readonly
+                           value="<?php echo $volunteerName; ?>"
+                           type="text"/>
+                    <label class="mdl-textfield__label" for="volunteerName">Contact Name</label>
                 </div>
             </div>
         </div>
+
         <div class="row form-group">
             <div class="col-2 text-center mt-auto mb-auto">
-                <i class="fa fa-address-book-o"></i>
+                <i class="fa fa-phone"></i>
             </div>
             <div class="col-10">
-                <div class="">
-                    <?php echo $volunteerAddressOne . " " . $volunteerAddressTwo; ?>
-                </div>
-                <div class="">
-                    <?php echo $volunteerCity . ", " . $volunteerState; ?>
-                </div>
-                <div class="">
-                    <?php echo $volunteerZip; ?>
+                <div class="is-focused mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input id="volunteerPrimaryPhone" class="mdl-textfield__input" readonly
+                           value="<?php echo $volunteerPhone; ?>"
+                           type="text"/>
+                    <label class="mdl-textfield__label" for="volunteerPrimaryPhone">Primary Phone</label>
                 </div>
             </div>
         </div>
+
+        <p>
+            <button class="btn btn-outline" type="button" data-toggle="collapse"
+                    aria-controls="collapseAddress<?php echo $dynamicRowId; ?>"
+                    data-target="#collapseAddress<?php echo $dynamicRowId; ?>"
+            >
+                View Address Info <i class="fa fa-toggle-down"></i>
+            </button>
+        </p>
+
+        <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
+            <div class="row form-group">
+                <div class="col-2 text-center mt-auto mb-auto">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="col-10">
+                    <div class="is-dirty mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input id="volunteerContactEmail" class="mdl-textfield__input" readonly="readonly"
+                               value="<?php echo $volunteerEmail; ?>"
+                               type="email"/>
+                        <label class="mdl-textfield__label" for="volunteerContactEmail">Contact Email</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-2 text-center mt-auto mb-auto">
+                    <i class="fa fa-address-book-o"></i>
+                </div>
+                <div class="col-10">
+                    <div class="">
+                        <?php echo $volunteerAddressOne . " " . $volunteerAddressTwo; ?>
+                    </div>
+                    <div class="">
+                        <?php echo $volunteerCity . ", " . $volunteerState; ?>
+                    </div>
+                    <div class="">
+                        <?php echo $volunteerZip; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
     </div>
-    <hr>
-    </div>
-<?php }
-echo $response; ?>
+<?php } ?>

@@ -34,7 +34,7 @@
 <script src="../../js/modals/student/ConfirmStudentEntries.js"></script>
 <script src="../../js/forms/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
-<script src="../../js/modals/ValidateMessageModal.js"></script>
+<!--<script src="../../js/modals/ValidateMessageModal.js"></script>-->
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
 <script src="../../js/modals/ClearModalsOnClose.js"></script>
 <script src="../../scripts/print.js"></script>

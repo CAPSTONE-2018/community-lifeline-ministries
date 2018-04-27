@@ -61,8 +61,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     if ($studentState == "IL") {
         $selectedStudentState = "Illinois";
     }
-
-
     ?>
     <div>
         <form name="editStudentForm" id="editStudentForm">

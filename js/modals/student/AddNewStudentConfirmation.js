@@ -30,7 +30,7 @@ function launchAddNewStudentConfirmationModal(serializedForm) {
                 '</div>';
 
             $.ajax({
-                url: '../../php-files/modals/students/ConfirmationModal.php',
+                url: '../../php-files/modals/students/AddNewStudentConfirmation.php',
                 method: "POST",
                 data: {
                     student: studentConfirmation,

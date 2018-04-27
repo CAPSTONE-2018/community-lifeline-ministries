@@ -9,7 +9,6 @@ $queryForStudentContact = "SELECT Student_To_Contacts.Student_Id, Student_To_Con
                             WHERE Student_To_Contacts.Contact_Id = '$contactId';";
 $contactInfoResults = mysqli_query($db, $queryForContact);
 $studentInfoResults = mysqli_query($db, $queryForStudentContact);
-$response = '';
 
 while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     $dynamicRowId++;
