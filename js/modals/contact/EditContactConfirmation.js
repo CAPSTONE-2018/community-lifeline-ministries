@@ -1,7 +1,7 @@
 function launchContactConfirmationModal(serializedForm) {
     $('#custom-modal').modal('hide');
     $.ajax({
-        url: '../../php-files/update/UpdateContact.php',
+        url: '../update/UpdateContact.php',
         method: "POST",
         data: serializedForm,
         success: function (response) {

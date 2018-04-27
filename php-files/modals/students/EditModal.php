@@ -80,7 +80,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentFirstName" class="mdl-textfield__input"
                                                    name="studentFirstName" type="text"
                                                    value="<?php echo $studentFirstName; ?>"/>
-                                            <label class="mdl-textfield__label" for="firstName">First Name</label>
+                                            <label class="mdl-textfield__label" for="studentFirstName">First Name</label>
                                         </div>
                                     </div>
 
@@ -90,7 +90,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentLastName" class="mdl-textfield__input"
                                                    name="studentLastName" type="text"
                                                    value="<?php echo $studentLastName; ?>"/>
-                                            <label class="mdl-textfield__label" for="lastName">Last Name</label>
+                                            <label class="mdl-textfield__label" for="studentLastName">Last Name</label>
                                             <span class="mdl-textfield__error">Last Name is Required</span>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentMiddleName" class="mdl-textfield__input"
                                                    name="studentMiddleName" type="text"
                                                    value="<?php echo $studentMiddleName; ?>"/>
-                                            <label class="mdl-textfield__label" for="middleName">Middle Name</label>
+                                            <label class="mdl-textfield__label" for="studentMiddleName">Middle Name</label>
                                         </div>
                                     </div>
 
@@ -112,7 +112,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentSuffix" class="mdl-textfield__input"
                                                    name="studentSuffix" type="text"
                                                    value="<?php echo $studentSuffix; ?>"/>
-                                            <label class="mdl-textfield__label" for="suffix">Suffix</label>
+                                            <label class="mdl-textfield__label" for="studentSuffix">Suffix</label>
                                         </div>
                                     </div>
                                 </div>
