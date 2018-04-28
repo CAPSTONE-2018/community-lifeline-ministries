@@ -152,14 +152,14 @@ include("../widgets/TimeZoneFormat.php");
                         <i class="fa fa-line-chart"></i> Reports
                     </a>
                     <ul class="collapse list-unstyled" id="reportsSubmenu">
-                        <li><a href="../create/createstudentreport.php">Students Report</a></li>
-                        <li><a href="../create/createContactreport.php">Contacts Report</a></li>
-                        <li><a href="../create/createVolunteerReport.php">Volunteer Report</a></li>
-                        <li><a href="../create/createMedicalReport.php">Medical Report</a></li>
-                        <li><a href="../create/createStudentMedicalReport.php">Student Medical Report</a></li>
-                        <li><a href="../create/createStudentToProgramReport.php">Programs Report</a></li>
-                        <li><a href="../create/createAttendanceReport.php">Attendance Report</a></li>
-                        <li><a href="../create/createStudentAttendanceReport.php">Student Attendance Report</a></li>
+                        <li><a href="../create/CreateStudentReport.php">Students Report</a></li>
+                        <li><a href="../create/CreateContactReport.php">Contacts Report</a></li>
+                        <li><a href="../create/CreateVolunteerReport.php">Volunteer Report</a></li>
+                        <li><a href="../create/CreateMedicalReport.php">Medical Report</a></li>
+                        <li><a href="../create/CreateStudentMedicalReport.php">Student Medical Report</a></li>
+                        <li><a href="../create/CreateStudentToProgramReport.php">Programs Report</a></li>
+                        <li><a href="../create/CreateAttendanceReport.php">Attendance Report</a></li>
+                        <li><a href="../create/CreateStudentAttendanceReport.php">Student Attendance Report</a></li>
                     </ul>
                 </li>
                 <li>
