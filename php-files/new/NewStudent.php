@@ -566,9 +566,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
         });
     });
 
-    $(document).on('click', '.remove-medical-concern'+dynamicMedicalConcernId, function () {
-        var button_id = $(this).attr("id");
-        $('#row' + button_id + '').remove();
+    $(document).on('click', '.remove-medical-concern', function (event) {
+        event.preventDefault();
+        var button_id = this.id;
+        $('#dynamic-medical-concern' + button_id).remove();
     });
 </script>
 

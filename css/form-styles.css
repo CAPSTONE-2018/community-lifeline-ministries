@@ -81,7 +81,7 @@ form{
     border-color: #007bff;
 }
 
-.add-new-medical-concern-button:hover {
+#add-new-medical-concern-button:hover {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
