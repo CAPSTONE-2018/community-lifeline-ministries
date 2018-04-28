@@ -73,6 +73,20 @@ form{
     border-top: 1px solid #3EA6A2;
 }
 
+#add-new-medical-concern-button {
+    width: 55%;
+    height: 7%;
+    color: #007bff;
+    background-color: transparent;
+    border-color: #007bff;
+}
+
+.add-new-medical-concern-button:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
 .add-student-contact-button {
     width: 55%;
     height: 7%;
