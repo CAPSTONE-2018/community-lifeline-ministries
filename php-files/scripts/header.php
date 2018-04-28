@@ -23,7 +23,7 @@ include("../widgets/TimeZoneFormat.php");
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+    <script src="../../js/modals/ClearModalsOnClose.js"></script>
     <link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
     <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
@@ -217,6 +217,9 @@ include("../widgets/TimeZoneFormat.php");
                         </div>
 
                         <div class="modal-footer">
+                            <div id="modal-button-footer-row" class="text-center col-sm-12">
+
+                            </div>
 
                         </div>
                     </div>

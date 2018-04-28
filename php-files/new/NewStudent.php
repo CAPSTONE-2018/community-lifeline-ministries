@@ -386,7 +386,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name="contactFirstName"
                                                                    pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
                                                                    type="text" onkeypress="return supressEnter()"/>
-                                                            <label class="mdl-textfield__label" for="contactFirstName">First Name</label>
+                                                            <label class="mdl-textfield__label" for="contactFirstName">First
+                                                                Name</label>
                                                             <span class="mdl-textfield__error">Invalid First Name</span>
                                                         </div>
                                                     </div>
@@ -412,7 +413,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactPrimaryPhone' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
-                                                            <label class='mdl-textfield__label' for='contactPrimaryPhone'>Primary Phone</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactPrimaryPhone'>Primary Phone</label>
                                                             <span class='mdl-textfield__error'>Invalid Primary Phone Number</span>
                                                         </div>
                                                     </div>
@@ -425,7 +427,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactSecondaryPhone' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
-                                                            <label class='mdl-textfield__label' for='contactSecondaryPhone'>Secondary Phone</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactSecondaryPhone'>Secondary Phone</label>
                                                             <span class='mdl-textfield__error'>Invalid Secondary Phone Number</span>
                                                         </div>
                                                     </div>
@@ -438,7 +441,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactEmail' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^(?!\.)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"/>
-                                                            <label class='mdl-textfield__label' for='contactEmail'>Email</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactEmail'>Email</label>
                                                             <span class='mdl-textfield__error'>Invalid Email</span>
                                                         </div>
                                                     </div>
@@ -491,7 +495,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactCity' type='text'
                                                                    onkeypress="return supressEnter()"
                                                                    pattern="^[A-Z](([ \-\.\,']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
-                                                            <label class='mdl-textfield__label' for='contactCity'>City</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactCity'>City</label>
                                                             <span class='mdl-textfield__error'>Invalid City</span>
                                                         </div>
                                                     </div>
@@ -516,7 +521,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                                    name='contactZip' type='text'
                                                                    pattern="^[0-9]{5}(-[0-9]{4})?$"
                                                                    onkeypress="return supressEnter()"/>
-                                                            <label class='mdl-textfield__label' for='contactZip'>Zip Code</label>
+                                                            <label class='mdl-textfield__label' for='contactZip'>Zip
+                                                                Code</label>
                                                             <span class='mdl-textfield__error'>Invalid Zip Code</span>
                                                         </div>
                                                     </div>
@@ -531,7 +537,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
                     <div class="card-footer">
                         <div class="right-align">
-                            <button id="confirmationButton" type="button" class="btn btn-right btn-primary"
+                            <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
                                     data-toggle="modal" data-target="#verifyEntryModal">
                                 Verify Info
                             </button>

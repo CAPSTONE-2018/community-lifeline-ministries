@@ -3,7 +3,7 @@ include("../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $isActiveFlag = $_POST['activeFlag'];
-$id = $_SESSION['contactId'];
+$id = $_POST['contactId'];
 $prefix = $_POST['contactPrefix'];
 $firstName = $_POST['contactFirstName'];
 $lastName = $_POST['contactLastName'];
