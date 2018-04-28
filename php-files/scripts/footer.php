@@ -1,8 +1,6 @@
 <!-- Bootstrap Js CDN -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <script type="text/javascript">
-
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('closed');
@@ -29,14 +27,16 @@
 <script src="../../js/modals/show-tables/ShowMedicalConcernsModalScripts.js"></script>
 <script src="../../js/modals/student/AddNewStudentConfirmation.js"></script>
 <script src="../../js/modals/student/EditStudentConfirmation.js"></script>
+<script src="../../js/modals/contact/ConfirmNewContactEntries.js"></script>
+<script src="../../js/modals/contact/AddNewContactConfirmation.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
 <script src="../../js/input-styling.min.js"></script>
-<script src="../../js/modals/student/ConfirmStudentEntries.js"></script>
+<script src="../../js/modals/student/ConfirmNewStudentEntries.js"></script>
 <script src="../../js/forms/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
 <!--<script src="../../js/modals/ValidateMessageModal.js"></script>-->
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
-<script src="../../js/modals/ClearModalsOnClose.js"></script>
+
 <script src="../../scripts/print.js"></script>
 
 </div>

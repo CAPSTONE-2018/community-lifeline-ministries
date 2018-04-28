@@ -129,6 +129,3 @@ $jsonConfirmationObject = array(
 );
 
 echo json_encode($jsonConfirmationObject);
-
-
-?>

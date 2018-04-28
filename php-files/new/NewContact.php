@@ -6,14 +6,13 @@ include("../scripts/States.php");
 $query = "SELECT DISTINCT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
 $studentsResult = mysqli_query($db, $query);
 ?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <form class="form-horizontal" action="../add/AddContact.php" method="POST"
-                          name="newStudentContactForm" id="newStudentContactForm">
+                          name="newContactForm" id="newContactForm">
                         <div class="form-content">
                             <div class="header">Guardian Info</div>
                             <h4 class="heading"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
@@ -176,45 +175,12 @@ $studentsResult = mysqli_query($db, $query);
                     <div class="card-footer">
                         <div class="right-align">
                             <!--   Button trigger modal -->
-                            <button id="buttonTrigger" type="button" class="btn btn-right btn-primary"
+                            <button id="newContactConfirmationButton" type="button" class="btn btn-right btn-primary"
                                     data-toggle="modal" data-target="#exampleModalCenter">
                                 Verify Info
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <div class="card">
-                    <div class="card-body" id="modalBody">
-
-                    </div>
-                </div>
-
-            </div>
-            x
-            <div class="modal-footer">
-                <div class="right-align">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" id="formSubmitButton" form="newStudentContactForm" class="btn btn-primary">
-                        Submit
-                    </button>
                 </div>
             </div>
         </div>

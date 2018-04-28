@@ -79,11 +79,11 @@ $volunteerResults = mysqli_query($db, $queryForVolunteerInfo);
                 volunteerId: volunteerId
             },
             success: function (data) {
-                if (data == 1) {
+                if (data === 1) {
                     launchDuplicateEntryModal(programName, submissionType);
-                } else if (data == 001) {
+                } else if (data === 001) {
                     alert("something went wrong with the database");
-                } else if (data == 0) {
+                } else if (data === 0) {
                     launchSuccessfulEntryModal(programName, submissionType,
                         viewAllRoute, viewAllButtonTitle, newEntryRoute, newEntryButtonTitle);
                 }
