@@ -6,54 +6,84 @@ include("../scripts/header.php");
         <div class="row">
             <div class="col-sm-12">
                 <h1>Table of contents</h1>
-                <hr/>
-                <div class="list-group">
-                    <a href="#addnewuser" class="list-group-item list-group-item-action">Adding a New User</a><br>
-                    <a href="#addnewobject" class="list-group-item list-group-item-action">Adding Objects to the
-                        Database</a><br>
-                    <a href="#updateobject" class="list-group-item list-group-item-action">Updating Objects in the
-                        Database</a><br>
-                    <a href="#searchingobject" class="list-group-item list-group-item-action">Searching For an Object in
-                        the
-                        Database</a><br>
-                    <a href="#displayingobject" class="list-group-item list-group-item-action">Displaying Objects in the
-                        Database</a><br>
-                    <a href="#creatingreport" class="list-group-item list-group-item-action">Creating a Report</a><br>
-                    <a href="#printobject" class="list-group-item list-group-item-action">Printing Reports/Lists</a>
-                </div>
-                <br/>
+                    <div id="accordion">
 
-                <div class="help-page">
-                    <h1 id="addnewuser">Adding a New User</h1>
-                    <hr/>
-                    <ol>
-                        <li>Make sure you have administrator privileges.</li>
-                        <li>Click on the Register new user sub-tab under the administrative tools tab.</li>
-                        <li>Populate the input fields with the appropriate information.</li>
-                        <li>Click the submit button.</li>
-                        <li>Assuming the newly entered user does not already exists in the database, you should have
-                            successfully added
-                            a new user.
-                        </li>
-                    </ol>
-                    <br/>
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                        Adding a New User
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ol>
+                                        <li>Make sure you have administrator privileges.</li>
+                                        <li>Click on the Register new user sub-tab under the administrative tools tab.</li>
+                                        <li>Populate the input fields with the appropriate information.</li>
+                                        <li>Click the submit button.</li>
+                                        <li>Assuming the newly entered user does not already exists in the database, you
+                                            should have
+                                            successfully added
+                                            a new user.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                        Add Student/Contact/Volunteer/Program
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ol>
+                                        <li>Click on the Students/Contacts/Volunteers/Programs drop down on the left side menu
+                                        </li>
+                                        <li>Click on 'Add New'</li>
+                                        <li>Fill out the form with the pertinent information</li>
+                                        <li>Click the verify button at the bottom right.</li>
+                                        <li>If the information in the window displayed is not correct, hit the 'X' at the top right corner of the pop up window and edit the information/reverify</li>
+                                        <li>If the information is correct, click Submit. Your new Student/Contact/Volunteer/Program was added to the database.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h1 id="addnewobject">Adding Objects to the Database</h1>
-                    <hr/>
-                    <ol>
-                        <li>Click on the student/contact/volunteer/employee/class/student to class/student test score
-                            sub-tab under the
-                            New tab.
-                        </li>
-                        <li>Populate the fields with the appropriate information.</li>
-                        <li>Click the submit button.</li>
-                        <li>Assuming the newly entered object does not already exists in the database, you should have
-                            successfully
-                            added a new object.
-                        </li>
-                    </ol>
-                    <br/>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                        Generating Reports
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                 data-parent="#accordion">
+                                <div class="card-body">
+                                    <ol>
+                                        <li>Click on the Generate Reports sub-tab under the Reports tab.</li>
+                                        <li>Select the type of report you would like to generate.</li>
+                                        <li>Enter the requested information in the form that appears.</li>
+                                        <li>Click the Generate button.</li>
+                                        <li>To export the generated report as a CSV file, click the Export button.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<!--
 
                     <h1 id="updateobject">Updating Objects in the Database</h1>
                     <hr/>
@@ -119,6 +149,8 @@ include("../scripts/header.php");
             </div>
         </div>
     </div>
+
+-->
 
 <?php
 include("../scripts/footer.php");
