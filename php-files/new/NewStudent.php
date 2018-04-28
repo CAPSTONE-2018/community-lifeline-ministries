@@ -278,7 +278,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                     <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
                                     <div>
                                         <!--Create button to add another medical condition field-->
-                                        <button type="button" id="add-new-medical-concern-button">Add</button>
+                                        <button type="button" id="add-new-medical-concern-button"
+                                                class="add-new-medical-concern-button">Add Medical Concern</button>
                                     </div>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
@@ -332,10 +333,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                     <div class="blue-line-color"></div>
                                     <h4 class="heading"></h4>
                                     <!--Create button to add another contact drop down-->
-                                    <div>
-                                        <button type="button" id="add-new-contact-dropdown-button">Add</button>
+<!--                                    <div>
+                                        <button type="button" id="add-new-contact-dropdown-button">Add Contact</button>
                                     </div>
-
+-->
 
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -367,7 +368,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                         data-toggle="collapse"
                                                         data-target="#collapseContactOne" aria-expanded="false"
                                                         aria-controls="collapseContactOne">
-                                                    Add New Contact
+                                                    Create New Contact
                                                 </button>
                                             </div>
                                         </div>
