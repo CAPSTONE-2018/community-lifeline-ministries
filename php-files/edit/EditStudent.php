@@ -49,4 +49,4 @@ include("../scripts/footer.php");
     });
 </script>
 
-<script src="../../js/supressEnter.js"></script>
+<script src="../../js/suppressEnter.js"></script>

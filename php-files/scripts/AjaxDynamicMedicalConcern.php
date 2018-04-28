@@ -12,9 +12,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             <input type="text"
                    id="medicalConcernName<?php echo $dynamicMedicalConcernId; ?>"
                    class="mdl-textfield__input"
-                   name="medicalConcernName<?php echo $dynamicMedicalConcernId; ?>"
-                   onfocus="addMedicalConcernNameFocus(<?php echo $dynamicMedicalConcernId; ?>)"
-                   onblur="removeMedicalConcernNameFocus(<?php echo $dynamicMedicalConcernId; ?>)"/>
+                   name="medicalConcernName<?php echo $dynamicMedicalConcernId; ?>"/>
             <label class="mdl-textfield__label" for="medicalConcernName">Name</label>
         </div>
     </div>
@@ -25,9 +23,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             <input type="text"
                    class="mdl-textfield__input"
                    id="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"
-                   readonly
-                   onfocus="addMedicalConcernTypeFocus(<?php echo $dynamicMedicalConcernId; ?>)"
-                   onblur="removeMedicalConcernTypeFocus(<?php echo $dynamicMedicalConcernId; ?>)"/>
+                   readonly />
             <input type="hidden"
                    name="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"/>
             <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
@@ -42,6 +38,8 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             </ul>
         </div>
     </div>
+</div>
+<div class="form-group">
     <div class="col-sm-10">
         <div id="floatingConcernNote<?php echo $dynamicMedicalConcernId; ?>"
              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -49,12 +47,12 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                       class="mdl-textfield__input"
                       name="medicalConcernNote<?php echo $dynamicMedicalConcernId; ?>"
                       type="text"
-                      onfocus="addMedicalConcernNoteFocus(<?php echo $dynamicMedicalConcernId; ?>)"
-                      onblur="removeMedicalConcernNoteFocus(<?php echo $dynamicMedicalConcernId; ?>)"></textarea>
+            ></textarea>
             <label class="mdl-textfield__label" for="medicalConcernNote<?php echo $dynamicMedicalConcernId; ?>">Note</label>
         </div>
     </div>
+    <div class="col-sm-2">
+        <button class="btn btn-danger" id="remove-medical-concern<?php echo $dynamicMedicalConcernId; ?>">x Remove</button>
+    </div>
 </div>
 
-<script type="text/javascript" src="../../js/modals/show-tables/DynamicInputStyles.js"></script>
-<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>

@@ -4,7 +4,7 @@ include("../scripts/States.php");
 //connect to database
 include("../../db/config.php");
 ?>
-<script src="../../js/supressEnter.js"></script>
+<script src="../../js/suppressEnter.js"></script>
 
 <div class="container-fluid">
     <div class="row">
@@ -37,7 +37,7 @@ include("../../db/config.php");
                                         <input id="volunteerFirstName" class="mdl-textfield__input"
                                                name="volunteerFirstName"
                                                type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerFirstName">First
                                             Name</label>
                                         <span class="mdl-textfield__error">Invalid First Name Entered</span>
@@ -48,7 +48,7 @@ include("../../db/config.php");
                                         <input id="volunteerLastName" class="mdl-textfield__input"
                                                name="volunteerLastName"
                                                type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerLastName">Last
                                             Name</label>
                                         <span class="mdl-textfield__error">Invalid Last Name Entered</span>
@@ -61,7 +61,7 @@ include("../../db/config.php");
                                         <input id="volunteerPrimaryPhone" class="mdl-textfield__input"
                                                name="volunteerPrimaryPhone" type="text"
                                                pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerPrimaryPhone">Primary
                                             Phone</label>
                                         <span class="mdl-textfield__error">Invalid Phone Number Entered</span>
@@ -72,7 +72,7 @@ include("../../db/config.php");
                                         <input id="volunteerSecondaryPhone" class="mdl-textfield__input"
                                                name="volunteerSecondaryPhone"
                                                type="text" pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerSecondaryPhone">Secondary
                                             Phone</label>
                                         <span class="mdl-textfield__error">Invalid Phone Number Entered</span>
@@ -82,7 +82,7 @@ include("../../db/config.php");
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="volunteerEmail" class="mdl-textfield__input" name="volunteerEmail"
                                                type="text" pattern="^(?!\.).+@.+\..{2,5}$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerEmail">Email</label>
                                         <span class="mdl-textfield__error">Invalid Email Entered</span>
                                     </div>
@@ -124,7 +124,7 @@ include("../../db/config.php");
                                         <input id="volunteerAddressOne" class="mdl-textfield__input"
                                                name="volunteerAddressOne" type="text"
                                                pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label"
                                                for="volunteerAddressOne">Address</label>
                                         <span class="mdl-textfield__error">Invalid Address Entered</span>
@@ -135,7 +135,7 @@ include("../../db/config.php");
                                         <input id="volunteerAddressTwo" class="mdl-textfield__input"
                                                name="volunteerAddressTwo" type="text"
                                                pattern="^[a-zA-Z0-9]+(([\- \.]|[(\. ))[a-zA-Z0-9]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label"
                                                for="volunteerAddressTwo">Apt/Suite</label>
                                         <span class="mdl-textfield__error">Invalid Apt/Suite Entered</span>
@@ -147,7 +147,7 @@ include("../../db/config.php");
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="volunteerCity" class="mdl-textfield__input" name="volunteerCity"
                                                type="text" pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerCity">City</label>
                                         <span class="mdl-textfield__error">Invalid City Entered</span>
                                     </div>
@@ -169,7 +169,7 @@ include("../../db/config.php");
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="volunteerZip" class="mdl-textfield__input" name="volunteerZip"
                                                type="text" pattern="^[0-9]{5}(-[0-9]{4})?$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerZip">Zip Code</label>
                                         <span class="mdl-textfield__error">Invalid Zip Code Entered</span>
                                     </div>

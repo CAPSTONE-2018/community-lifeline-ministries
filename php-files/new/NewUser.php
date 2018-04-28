@@ -69,7 +69,7 @@ include("../scripts/header.php");
                                         <input id="firstName" class="mdl-textfield__input"
                                                name="firstName"
                                                type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="firstName">First Name</label>
                                         <span class="mdl-textfield__error">Invalid First Name Entered</span>
                                     </div>
@@ -79,7 +79,7 @@ include("../scripts/header.php");
                                         <input id="lastName" class="mdl-textfield__input"
                                                name="lastName"
                                                type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="lastName">Last Name</label>
                                         <span class="mdl-textfield__error">Invalid Last Name Entered</span>
                                     </div>
