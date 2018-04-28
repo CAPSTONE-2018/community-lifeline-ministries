@@ -45,7 +45,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                        onkeypress="return supressEnter()"
                                                        pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="firstName">First Name</label>
-                                                <span class="mdl-textfield__error">First Name is Required</span>
+                                                <span class="mdl-textfield__error">Invalid First Name Data Entered</span>
                                             </div>
                                         </div>
 
@@ -55,7 +55,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                        type="text" onkeypress="return supressEnter()"
                                                        pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="lastName">Last Name</label>
-                                                <span class="mdl-textfield__error">Last Name is Required</span>
+                                                <span class="mdl-textfield__error">Invalid Last Name Data Entered</span>
                                             </div>
                                         </div>
                                     </div>

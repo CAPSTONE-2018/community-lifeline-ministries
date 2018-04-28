@@ -50,3 +50,5 @@ include("../scripts/footer.php");
         });
     });
 </script>
+
+<script src="../../js/supressEnter.js"></script>

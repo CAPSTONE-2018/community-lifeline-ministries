@@ -13,7 +13,7 @@ $archiveUserResponse = '
         <?php echo $nameToDisplay; ?>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="archiveUser(<?php echo $studentIdToArchive; ?>)">Yes, Im Sure</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="archiveUser(<?php echo $studentIdToArchive; ?>)">Yes, Im Sure</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go Back</button>
     </div>
     </div>

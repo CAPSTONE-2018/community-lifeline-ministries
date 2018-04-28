@@ -6,12 +6,12 @@ function launchEditProgramModal(programId) {
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal fade');
             $('#custom-size').removeClass().addClass('modal-dialog modal-lg');
-            $('#custom-title').removeClass().addClass('modal-header edit-student-modal-header');
+            $('#custom-title').removeClass().addClass('modal-header edit-modal-header');
             $('#custom-icon').removeClass().addClass('m-auto fa fa-pencil ');
             $('#dynamic-title').text("Edit Program Info");
             $('#title-wrapper').find('h4').addClass("large-font");
             $('.modal-body').html(response);
-            checkForInputs();
+            componentHandler.upgradeDom();
             $('#custom-modal').modal("show");
         }
     });
@@ -39,12 +39,11 @@ function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisp
 }
 
 
-function launchVolunteersInProgramModal(volunteerId) {
-    alert(volunteerId);
+function launchVolunteersInProgramModal(programId) {
     $.ajax({
         url: '../modals/programs/VolunteersToProgramModal.php',
         type: 'post',
-        data: {volunteerId: volunteerId},
+        data: {programId: programId},
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal right fade');
             $('#custom-size').removeClass().addClass('modal-dialog');

@@ -15,7 +15,7 @@
 }
 
 .modal.right .modal-body {
-    padding: 15px 15px 80px;
+    /*padding: 15px 15px 80px;*/
 }
 
 /*Right*/
@@ -55,7 +55,7 @@
     height: 75px;
 }
 
-.edit-student-modal-header {
+.edit-modal-header {
     background: #1EAAF1;
     color: #fff;
     font-size: 50px;
@@ -68,7 +68,7 @@
     /*text-transform: capitalize;*/
 /*}*/
 
-.edit-student-blue-line-color {
+.edit-blue-line-color {
     margin-top: 20px;
     margin-bottom: 20px;
     border: 0;
