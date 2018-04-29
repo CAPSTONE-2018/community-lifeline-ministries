@@ -23,6 +23,7 @@
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowProgramsModalScripts.js"></script>
+<script src="../../js/modals/show-tables/ShowVolunteerEmployees.js"></script>
 <script src="../../js/modals/show-tables/ToggleStudentTable.js"></script>
 <script src="../../js/modals/show-tables/ShowMedicalConcernsModalScripts.js"></script>
 <script src="../../js/modals/student/AddNewStudentConfirmation.js"></script>
