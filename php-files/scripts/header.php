@@ -124,7 +124,7 @@ include("../widgets/TimeZoneFormat.php");
                     </a>
                     <ul class="collapse list-unstyled" id="volunteerSubmenu">
                         <li><a href="../new/NewVolunteerEmployee.php">Add New</a></li>
-                        <li><a href="../edit/EditVolunteerEmployee.php">View All</a></li>
+                        <li><a href="../show/ShowVolunteersEmployees.php">View All</a></li>
                     </ul>
                 </li>
                 <li>

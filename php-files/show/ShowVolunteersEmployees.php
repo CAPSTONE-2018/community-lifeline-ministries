@@ -80,26 +80,17 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                                         </div>
 
                                         <div class='right-action-buttons-container d-inline'>
-                                                <span title='Volunteers' data-toggle='tooltip'
-                                                      class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick=''
-                                                            class='btn small-action-buttons test-scores-button'
-                                                    >
-                                                        <i class='fa fa-star'></i>
-                                                    </button>
-                                                </span>
-                                            <span title='Students In Program' data-toggle='tooltip'
-                                                  class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick=''
-                                                            class='btn small-action-buttons contact-button'
-                                                    >
-                                                        <i class='fa fa-graduation-cap'></i>
-                                                    </button>
-                                                </span>
+                                            <span title='Volunteers' data-toggle='tooltip' class='small-action-buttons'>
+                                                <button type='button' onclick='' class='btn small-action-buttons test-scores-button'>
+                                                    <i class='fa fa-star'></i>
+                                                </button>
+                                            </span>
+                                            <span title='Students In Program' data-toggle='tooltip' class='small-action-buttons'>
+                                                <button type='button' onclick='' class='btn small-action-buttons contact-button'>
+                                                    <i class='fa fa-graduation-cap'></i>
+                                                </button>
+                                            </span>
                                         </div>
-
                                     </td>
                                 </tr>
                             <?php } ?>

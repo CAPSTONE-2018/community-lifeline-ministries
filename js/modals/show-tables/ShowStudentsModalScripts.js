@@ -70,14 +70,13 @@ function launchMedicalConcernsModal(studentId) {
     });
 }
 
-function launchArchiveUserModal(studentIdToArchive, tableToLookUp, nameToDisplay) {
+function launchArchiveStudentModal(studentIdToArchive, studentName) {
     $.ajax({
-        url: '../modals/students/ArchiveModal.php',
+        url: '../modals/students/ArchiveStudent.php',
         type: 'POST',
         data: {
             studentIdToArchive: studentIdToArchive,
-            tableToLookUp: tableToLookUp,
-            nameToDisplay: nameToDisplay
+            studentName: studentName
         },
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal fade');
