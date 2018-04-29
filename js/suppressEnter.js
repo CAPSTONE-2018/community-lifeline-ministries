@@ -1,5 +1,5 @@
 //supresses the enter key from submitting a form
-function supressEnter(evt)
+function suppressEnter(evt)
 {
     var evt = (evt) ? evt : ((event) ? event : null);
     var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
