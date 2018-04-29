@@ -5,6 +5,9 @@
     Howard about gaining access to the MYSQL database on the server
 *********************************************************************************
 */
+DROP DATABASE community_lifeline;
+CREATE DATABASE community_lifeline;
+use community_lifeline;
 
 CREATE TABLE Logins (
   username     VARCHAR(30),
@@ -40,22 +43,22 @@ CREATE TABLE Students (
   IEP                    TINYINT(1)
 );
 
-CREATE TABLE Medical_Concerns (
-  Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Author_Username        VARCHAR(30),
-  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Name                   VARCHAR(60),
-  Type                   VARCHAR(60),
-  Note                   VARCHAR(500)
-);
+# CREATE TABLE Medical_Concerns (
+#   Created_Timestamp      TIMESTAMP DEFAULT now(),
+#   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#   Author_Username        VARCHAR(30),
+#   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+#   Name                   VARCHAR(60),
+#   Type                   VARCHAR(60),
+#   Note                   VARCHAR(500)
+# );
 
 CREATE TABLE Medical_Concern_Types (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Type                   VARCHAR(60),
+  Type_Name              VARCHAR(60),
   Note                   VARCHAR(500)
 );
 
@@ -65,13 +68,11 @@ CREATE TABLE Student_To_Medical_Concerns (
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
-  Medical_Concern_Id     INT(10),
+  Medical_Concern_Name   VARCHAR(50),
   Medical_Type_Id        INT(10),
   Note                   VARCHAR(500),
   CONSTRAINT FK_Student_Id_Medical_Concerns FOREIGN KEY (Student_Id)
   REFERENCES Students (Id),
-  CONSTRAINT FK_Medical_Id_Medical_Concerns FOREIGN KEY (Medical_Concern_Id)
-  REFERENCES Medical_Concerns (Id),
   CONSTRAINT FK_Medical_Type_Id_Medical_Concerns FOREIGN KEY (Medical_Type_Id)
   REFERENCES Medical_Concern_Types (Id)
 );
@@ -142,7 +143,14 @@ CREATE TABLE Volunteer_Employees (
   State                  CHAR(5),
   Zip                    INT(5),
   Email                  VARCHAR(50),
-  Type                   VARCHAR(10)
+  User_Type              VARCHAR(30),
+  Monday_Availability    TINYINT(1),
+  Tuesday_Availability   TINYINT(1),
+  Wednesday_Availability TINYINT(1),
+  Thursday_Availability  TINYINT(1),
+  Friday_Availability    TINYINT(1),
+  Saturday_Availability  TINYINT(1),
+  Sunday_Availability    TINYINT(1)
 );
 
 CREATE TABLE Classes (

@@ -539,7 +539,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                     <div class="card-footer">
                         <div class="right-align">
                             <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
-                                    data-toggle="modal" data-target="#verifyEntryModal">
+                                    data-toggle="modal" data-target="#verifyEntryModal" onclick="launchConfirmStudentEntriesModal()">
                                 Verify Info
                             </button>
                         </div>

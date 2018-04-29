@@ -19,7 +19,7 @@ function launchEditProgramModal(programId) {
 
 function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisplay) {
     $.ajax({
-        url: '../modals/programs/ArchiveModal.php',
+        url: '../modals/programs/ArchiveStudent.php',
         type: 'POST',
         data: {
             programIdToArchive: programIdToArchive,

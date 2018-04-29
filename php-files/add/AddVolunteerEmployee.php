@@ -1,13 +1,4 @@
 <?php
-include("../scripts/header.php");
-?>
-
-<h1>Add Volunteer/Employee:</h1>
-<br/>
-
-<?php
-
-//connect to database
 include("../../db/config.php");
 
 $userMakingChanges = $_SESSION['loggedIn'];
@@ -26,25 +17,33 @@ $state = $_POST['volunteerState'];
 $zip = intval($_POST['volunteerZip']);
 $email = $_POST['volunteerEmail'];
 $type = $_POST['volunteerType'];
+$mondayAvailability = $_POST['mondayCheckBox'];
+$tuesdayAvailability = $_POST['tuesdayCheckBox'];
+$wednesdayAvailability = $_POST['wednesdayCheckBox'];
+$thursdayAvailability = $_POST['thursdayCheckBox'];
+$fridayAvailability = $_POST['fridayCheckBox'];
+$saturdayAvailability = $_POST['saturdayCheckBox'];
+$sundayAvailability = $_POST['sundayCheckBox'];
 $isActiveFlag = $_POST['volunteerActiveFlag'];
-
-$stmt = $db->prepare("INSERT INTO Volunteer_Employees (Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Middle_Name, Suffix, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email, Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('sisssssssssssiss', $userMakingChanges, $isActiveFlag, $prefix, $firstName, $lastName, $middleName, $suffix, $primaryPhone, $secondaryPhone, $addressOne, $addressTwo, $city, $state, $zip, $email, $type);
-$stmt->execute();
+$contactConfirmation = false;
 
 
-if ($stmt->affected_rows == -1) {
-    echo "
-            <div class='alert alert-danger'>
-                <strong>Failure! </strong>Volunteer/Employee could not be added to the database, please try again.
-            </div>";
-} else {
-    echo "
-            <div class='alert alert-success'>
-                <strong>Success! </strong>Volunteer/Employee has been successfully added to the database.
-            </div>";
-    $stmt->close();
+if (isset($firstName)) {
+    $stmt = $db->prepare("INSERT INTO Volunteer_Employees (Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Middle_Name, Suffix, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email, User_Type, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('sisssssssssssissiiiiiii', $userMakingChanges, $isActiveFlag, $prefix, $firstName, $lastName, $middleName, $suffix, $primaryPhone, $secondaryPhone, $addressOne, $addressTwo, $city, $state, $zip, $email, $type, $mondayAvailability, $tuesdayAvailability, $wednesdayAvailability, $thursdayAvailability, $fridayAvailability, $saturdayAvailability, $sundayAvailability);
+    $stmt->execute();
+
+    if ($stmt->affected_rows == -1) {
+        $contactConfirmation = false;
+        $stmt->close();
+    } else {
+        $contactConfirmation = true;
+        $stmt->close();
+    }
 }
 
-include("../scripts/footer.php");
-?>
+$jsonConfirmation = array(
+        'contact-confirmation' => $contactConfirmation
+);
+
+echo json_encode($jsonConfirmation);
