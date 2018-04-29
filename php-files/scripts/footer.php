@@ -30,6 +30,7 @@
 <script src="../../js/modals/student/EditStudentConfirmation.js"></script>
 <script src="../../js/modals/contact/ConfirmNewContactEntries.js"></script>
 <script src="../../js/modals/contact/AddNewContactConfirmation.js"></script>
+<script src="../../js/modals/employee/ConfirmNewEmployeeEntries.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
 <script src="../../js/input-styling.min.js"></script>
 <script src="../../js/modals/student/ConfirmNewStudentEntries.js"></script>

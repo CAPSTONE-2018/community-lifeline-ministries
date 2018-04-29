@@ -11,8 +11,7 @@ include("../../db/config.php");
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal" action="../add/AddVolunteerEmployee.php" method="POST"
-                          id="NewVolunteerEmployee">
+                    <form class="form-horizontal" id="newVolunteerEmployeeForm" name="newVolunteerEmployeeForm">
                         <div class="form-content">
                             <div class="header">Volunteer / Employee Info</div>
                             <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
@@ -182,11 +181,13 @@ include("../../db/config.php");
                                    class="table table-condensed table-hover table-responsive">
                                 <thead>
                                 <tr>
-                                    <th class="col-sm-2.4 text-center text-muted small">Monday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Tuesday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Wednesday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Thursday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Friday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Monday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Tuesday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Wednesday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Thursday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Friday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Saturday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Sunday</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -226,10 +227,24 @@ include("../../db/config.php");
                                             <span class="custom-check-mark blue-check"></span>
                                         </label>
                                     </td>
+                                    <td class="radio-input-wrapper col-sm-1 align-middle text-center">
+                                        <label class="radio-label" for="saturdayCheckBox">
+                                            <input type="checkbox" name="saturdayCheckBox" value="1"
+                                                   id="saturdayCheckBox"/>
+                                            <span class="custom-check-mark blue-check"></span>
+                                        </label>
+                                    </td>
+                                    <td class="radio-input-wrapper col-sm-1 align-middle text-center">
+                                        <label class="radio-label" for="sundayCheckBox">
+                                            <input type="checkbox" name="sundayCheckBox" value="1"
+                                                   id="sundayCheckBox"/>
+                                            <span class="custom-check-mark blue-check"></span>
+                                        </label>
+                                    </td>
                                 </tbody>
                             </table>
 
-                            <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit"
+                            <input id="submit" class="btn btn-primary btn-lg btn-block" type="button" onclick="sendNewEmployeeForm()"
                                    value="Submit"/><br><br>
                     </form>
                 </div>
@@ -237,4 +252,12 @@ include("../../db/config.php");
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    function sendNewEmployeeForm() {
+        var serializedForm = $('#newVolunteerEmployeeForm').serialize();
+        launchConfirmVolunteerEntriesModal(serializedForm);
+    }
+</script>
 <?php include("../scripts/footer.php"); ?>
