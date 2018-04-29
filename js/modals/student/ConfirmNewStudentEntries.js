@@ -61,6 +61,9 @@ function launchConfirmStudentEntriesModal() {
 
 function sendNewStudentForm() {
     var serializedForm = $('#newStudentForm').serialize();
+    var serializedStudentMedicalForm = $('#newStudentMedicalConcernsForm').serialize();
+    var serializedStudentContactForm = $('#newStudentContactForm').serialize();
+
     $('#custom-modal').modal('hide');
-    launchAddNewStudentConfirmationModal(serializedForm);
+    launchAddNewStudentConfirmationModal(serializedForm, serializedStudentMedicalForm, serializedStudentContactForm);
 }

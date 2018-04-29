@@ -11,9 +11,9 @@ function launchEditContactModal(contactId) {
             $('#dynamic-title').text("Edit Contact Info");
             $('#title-wrapper').find('h4').addClass("large-font");
             $('.modal-body').html(response);
+            $('#custom-modal').modal("show");
             getmdlSelect.init(".getmdl-select");
             componentHandler.upgradeDom();
-            $('#custom-modal').modal("show");
         }
     });
 }
