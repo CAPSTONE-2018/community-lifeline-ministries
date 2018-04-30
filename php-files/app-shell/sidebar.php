@@ -2,9 +2,10 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
     <div class="app-sidebar__user">
-        <img class="app-sidebar__user-avatar"
-             src="../../images/new-logo.png"
-             alt="CLM Logo"/>
+        <div>
+            <p class="app-sidebar__user-name">Community Lifeline</p>
+            <p class="app-sidebar__user-designation">Ministries</p>
+        </div>
     </div>
     <ul class="app-menu">
         <li><a class="app-menu__item active" href="#">

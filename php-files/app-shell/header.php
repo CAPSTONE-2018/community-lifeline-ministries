@@ -53,9 +53,9 @@ include("../widgets/TimeZoneFormat.php");
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Main CLM Logo -->
     <!--    <a class="app-header__logo" href="#">CLM</a>-->
-    <a class="app-header__logo" href="../index-login/menu.php">
-        <img src="../../images/new-logo.png" alt="CLM Logo" height="25px">
-    </a>
+<!--    <a class="app-header__logo" href="../index-login/menu.php">-->
+<!--        <img src="../../images/new-logo.png" alt="CLM Logo" height="25px">-->
+<!--    </a>-->
     <div class="navbar-user">
         Signed In As: <?php echo $userMakingChanges ?>
         <div id="timer"></div>
