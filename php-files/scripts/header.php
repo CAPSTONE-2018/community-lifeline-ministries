@@ -21,7 +21,7 @@ include("../widgets/TimeZoneFormat.php");
 
     <!-- Local CSS Plugins -->
     <link rel="stylesheet" type="text/css" href="../../css/plugins/application-shell/main.min.css">
-    <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
+<!--    <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>-->
     <link rel="stylesheet" href="../../css/plugins/pretty-drop-downs/pretty-drop-downs.css"/>
     <!--    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-4.min.css"/>-->
     <!--    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-3.3.7.min.css">-->
