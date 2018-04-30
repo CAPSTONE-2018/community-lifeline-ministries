@@ -12,8 +12,8 @@ function launchConfirmVolunteerEntriesModal(serializedForm) {
             $('#custom-icon').removeClass().addClass('m-auto fa fa-check fa-2x');
             $('#dynamic-title').text("Confirm Contact Info");
             $('.modal-body').html(output);
-            componentHandler.upgradeDom();
             $('#custom-modal').modal('show');
+            componentHandler.upgradeDom();
         }
     })
 }

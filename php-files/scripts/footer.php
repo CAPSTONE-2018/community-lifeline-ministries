@@ -17,6 +17,9 @@
 
 </script>
 
+
+<script src="../../node_modules/popper.js/dist/popper.min.js"></script>
+<script src="../../node_modules/izimodal/js/iziModal.min.js"></script>
 <script src="../../js/suppressEnter.js"></script>
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
 <script src="../../js/NumberTableRows.js"></script>
@@ -37,7 +40,7 @@
 <script src="../../js/modals/student/ConfirmNewStudentEntries.js"></script>
 <script src="../../js/forms/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
-<!--<script src="../../js/modals/ValidateMessageModal.js"></script>-->
+<script src="../../js/modals/program/ValidateProgramEntry.js"></script>
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
 
 <script src="../../scripts/print.js"></script>

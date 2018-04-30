@@ -32,6 +32,9 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../node_modules/izimodal/css/iziModal.min.css">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
     <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>

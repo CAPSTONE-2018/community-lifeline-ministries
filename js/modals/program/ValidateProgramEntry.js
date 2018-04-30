@@ -1,6 +1,6 @@
 function launchDuplicateEntryModal(duplicateEntryTitleToPassThrough, submissionType) {
     $.ajax({
-        url: '../modals/DuplicateEntryModal.php',
+        url: '../modals/programs/DuplicateProgramEntry.php',
         type: 'post',
         data: {
             duplicateEntryTitle: duplicateEntryTitleToPassThrough,
