@@ -17,6 +17,7 @@
 
 </script>
 
+<script src="../../js/suppressEnter.js"></script>
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
 <script src="../../js/NumberTableRows.js"></script>
 <script src="../../js/forms/FilterFields.js"></script>

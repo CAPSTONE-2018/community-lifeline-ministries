@@ -590,6 +590,5 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
     });
 </script>
 
-<script src="../../js/suppressEnter.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
 <?php include("../scripts/footer.php"); ?>
