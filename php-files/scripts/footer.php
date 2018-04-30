@@ -1,6 +1,9 @@
 <!-- Bootstrap Js CDN -->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
+
+
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
@@ -43,7 +46,7 @@
 <!--Employee Related Scripts-->
 <script src="../../js/modals/employee/ConfirmNewEmployeeEntries.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
-<script src="../../js/input-styling.min.js"></script>
+<script src="../../js/plugins/mdl-inputs/input-styling.min.js"></script>
 <script src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
 <script src="../../js/modals/program/ValidateProgramEntry.js"></script>
