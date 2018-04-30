@@ -23,7 +23,7 @@ include("../widgets/TimeZoneFormat.php");
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+    <script src="../../js/modals/ClearModalsOnClose.js"></script>
     <link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
     <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
@@ -42,6 +42,7 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/table-styles.css"/>
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
     <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
+    <link rel="stylesheet" href="../../css/dashboard.css"/>
 
 </head>
 
@@ -124,7 +125,7 @@ include("../widgets/TimeZoneFormat.php");
                     </a>
                     <ul class="collapse list-unstyled" id="volunteerSubmenu">
                         <li><a href="../new/NewVolunteerEmployee.php">Add New</a></li>
-                        <li><a href="../edit/EditVolunteerEmployee.php">View All</a></li>
+                        <li><a href="../show/ShowVolunteerEmployees.php">View All</a></li>
                     </ul>
                 </li>
                 <li>
@@ -152,14 +153,14 @@ include("../widgets/TimeZoneFormat.php");
                         <i class="fa fa-line-chart"></i> Reports
                     </a>
                     <ul class="collapse list-unstyled" id="reportsSubmenu">
-                        <li><a href="../create/createstudentreport.php">Students Report</a></li>
-                        <li><a href="../create/createContactreport.php">Contacts Report</a></li>
-                        <li><a href="../create/createVolunteerReport.php">Volunteer Report</a></li>
-                        <li><a href="../create/createMedicalReport.php">Medical Report</a></li>
-                        <li><a href="../create/createStudentMedicalReport.php">Student Medical Report</a></li>
-                        <li><a href="../create/createStudentToProgramReport.php">Programs Report</a></li>
-                        <li><a href="../create/createAttendanceReport.php">Attendance Report</a></li>
-                        <li><a href="../create/createStudentAttendanceReport.php">Student Attendance Report</a></li>
+                        <li><a href="../create/CreateStudentReport.php">Students Report</a></li>
+                        <li><a href="../create/CreateContactReport.php">Contacts Report</a></li>
+                        <li><a href="../create/CreateVolunteerReport.php">Volunteer Report</a></li>
+                        <li><a href="../create/CreateMedicalReport.php">Medical Report</a></li>
+                        <li><a href="../create/CreateStudentMedicalReport.php">Student Medical Report</a></li>
+                        <li><a href="../create/CreateStudentToProgramReport.php">Programs Report</a></li>
+                        <li><a href="../create/CreateAttendanceReport.php">Attendance Report</a></li>
+                        <li><a href="../create/CreateStudentAttendanceReport.php">Student Attendance Report</a></li>
                     </ul>
                 </li>
                 <li>
@@ -217,6 +218,9 @@ include("../widgets/TimeZoneFormat.php");
                         </div>
 
                         <div class="modal-footer">
+                            <div id="modal-button-footer-row" class="text-center col-sm-12">
+
+                            </div>
 
                         </div>
                     </div>

@@ -4,15 +4,13 @@ include("../scripts/States.php");
 //connect to database
 include("../../db/config.php");
 ?>
-<script src="../../js/supressEnter.js"></script>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal" action="../add/AddVolunteerEmployee.php" method="POST"
-                          id="NewVolunteerEmployee">
+                    <form class="form-horizontal" id="newVolunteerEmployeeForm" name="newVolunteerEmployeeForm">
                         <div class="form-content">
                             <div class="header">Volunteer / Employee Info</div>
                             <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
@@ -37,7 +35,7 @@ include("../../db/config.php");
                                         <input id="volunteerFirstName" class="mdl-textfield__input"
                                                name="volunteerFirstName"
                                                type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerFirstName">First
                                             Name</label>
                                         <span class="mdl-textfield__error">Invalid First Name Entered</span>
@@ -48,7 +46,7 @@ include("../../db/config.php");
                                         <input id="volunteerLastName" class="mdl-textfield__input"
                                                name="volunteerLastName"
                                                type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerLastName">Last
                                             Name</label>
                                         <span class="mdl-textfield__error">Invalid Last Name Entered</span>
@@ -61,7 +59,7 @@ include("../../db/config.php");
                                         <input id="volunteerPrimaryPhone" class="mdl-textfield__input"
                                                name="volunteerPrimaryPhone" type="text"
                                                pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerPrimaryPhone">Primary
                                             Phone</label>
                                         <span class="mdl-textfield__error">Invalid Phone Number Entered</span>
@@ -72,7 +70,7 @@ include("../../db/config.php");
                                         <input id="volunteerSecondaryPhone" class="mdl-textfield__input"
                                                name="volunteerSecondaryPhone"
                                                type="text" pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerSecondaryPhone">Secondary
                                             Phone</label>
                                         <span class="mdl-textfield__error">Invalid Phone Number Entered</span>
@@ -82,7 +80,7 @@ include("../../db/config.php");
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="volunteerEmail" class="mdl-textfield__input" name="volunteerEmail"
                                                type="text" pattern="^(?!\.).+@.+\..{2,5}$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerEmail">Email</label>
                                         <span class="mdl-textfield__error">Invalid Email Entered</span>
                                     </div>
@@ -124,7 +122,7 @@ include("../../db/config.php");
                                         <input id="volunteerAddressOne" class="mdl-textfield__input"
                                                name="volunteerAddressOne" type="text"
                                                pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label"
                                                for="volunteerAddressOne">Address</label>
                                         <span class="mdl-textfield__error">Invalid Address Entered</span>
@@ -135,7 +133,7 @@ include("../../db/config.php");
                                         <input id="volunteerAddressTwo" class="mdl-textfield__input"
                                                name="volunteerAddressTwo" type="text"
                                                pattern="^[a-zA-Z0-9]+(([\- \.]|[(\. ))[a-zA-Z0-9]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label"
                                                for="volunteerAddressTwo">Apt/Suite</label>
                                         <span class="mdl-textfield__error">Invalid Apt/Suite Entered</span>
@@ -147,7 +145,7 @@ include("../../db/config.php");
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="volunteerCity" class="mdl-textfield__input" name="volunteerCity"
                                                type="text" pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerCity">City</label>
                                         <span class="mdl-textfield__error">Invalid City Entered</span>
                                     </div>
@@ -169,7 +167,7 @@ include("../../db/config.php");
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="volunteerZip" class="mdl-textfield__input" name="volunteerZip"
                                                type="text" pattern="^[0-9]{5}(-[0-9]{4})?$"
-                                               onkeypress="return supressEnter()"/>
+                                               onkeypress="return suppressEnter()"/>
                                         <label class="mdl-textfield__label" for="volunteerZip">Zip Code</label>
                                         <span class="mdl-textfield__error">Invalid Zip Code Entered</span>
                                     </div>
@@ -182,11 +180,13 @@ include("../../db/config.php");
                                    class="table table-condensed table-hover table-responsive">
                                 <thead>
                                 <tr>
-                                    <th class="col-sm-2.4 text-center text-muted small">Monday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Tuesday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Wednesday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Thursday</th>
-                                    <th class="col-sm-2.4 text-center text-muted small">Friday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Monday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Tuesday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Wednesday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Thursday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Friday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Saturday</th>
+                                    <th class="col-sm-1 text-center text-muted small">Sunday</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -226,10 +226,24 @@ include("../../db/config.php");
                                             <span class="custom-check-mark blue-check"></span>
                                         </label>
                                     </td>
+                                    <td class="radio-input-wrapper col-sm-1 align-middle text-center">
+                                        <label class="radio-label" for="saturdayCheckBox">
+                                            <input type="checkbox" name="saturdayCheckBox" value="1"
+                                                   id="saturdayCheckBox"/>
+                                            <span class="custom-check-mark blue-check"></span>
+                                        </label>
+                                    </td>
+                                    <td class="radio-input-wrapper col-sm-1 align-middle text-center">
+                                        <label class="radio-label" for="sundayCheckBox">
+                                            <input type="checkbox" name="sundayCheckBox" value="1"
+                                                   id="sundayCheckBox"/>
+                                            <span class="custom-check-mark blue-check"></span>
+                                        </label>
+                                    </td>
                                 </tbody>
                             </table>
 
-                            <input id="submit" class="btn btn-primary btn-lg btn-block" type="submit"
+                            <input id="submit" class="btn btn-primary btn-lg btn-block" type="button" onclick="sendNewEmployeeForm()"
                                    value="Submit"/><br><br>
                     </form>
                 </div>
@@ -237,4 +251,12 @@ include("../../db/config.php");
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    function sendNewEmployeeForm() {
+        var serializedForm = $('#newVolunteerEmployeeForm').serialize();
+        launchConfirmVolunteerEntriesModal(serializedForm);
+    }
+</script>
 <?php include("../scripts/footer.php"); ?>

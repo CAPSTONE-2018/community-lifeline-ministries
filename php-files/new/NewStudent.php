@@ -2,7 +2,7 @@
 include("../scripts/header.php");
 include("../scripts/States.php");
 include("../../db/config.php");
-$queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
+$queryForMedicalConcernTypes = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $queryForPrograms = "SELECT Id, Program_Name FROM Programs";
 //$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
@@ -29,10 +29,12 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                         </ul>
                     </div>
 
-                    <form class="form-horizontal" method="POST" name="newStudentForm" id="newStudentForm">
-                        <div class="form-content">
-                            <div class="tab-content">
-                                <div class="tab-pane active " id="studentInfo">
+
+                    <div class="form-content">
+                        <div class="tab-content">
+                            <div class="tab-pane active " id="studentInfo">
+
+                                <form id="newStudentForm" name="newStudentForm">
                                     <div class="header"><i class="fa fa-graduation-cap"></i> Student Info</div>
 
                                     <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
@@ -42,7 +44,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="firstName" class="mdl-textfield__input"
                                                        name="studentFirstName" type="text"
-                                                       onkeypress="return supressEnter()"
+                                                       onkeypress="return suppressEnter()"
                                                        pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="firstName">First Name</label>
                                                 <span class="mdl-textfield__error">Invalid First Name Data Entered</span>
@@ -52,7 +54,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="lastName" class="mdl-textfield__input" name="studentLastName"
-                                                       type="text" onkeypress="return supressEnter()"
+                                                       type="text" onkeypress="return suppressEnter()"
                                                        pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="lastName">Last Name</label>
                                                 <span class="mdl-textfield__error">Invalid Last Name Data Entered</span>
@@ -73,7 +75,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                         <div class="col-sm-6">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="suffix" class="mdl-textfield__input" name="studentSuffix"
-                                                       type="text" onkeypress="return supressEnter()"
+                                                       type="text" onkeypress="return suppressEnter()"
                                                        pattern="^[A-Z](([ \.]|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                 <label class="mdl-textfield__label" for="suffix">Suffix</label>
                                                 <span class="mdl-textfield__error">Invalid Suffix Data Entered</span>
@@ -86,7 +88,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="dob" class="mdl-textfield__input" name="dob" type="text"
-                                                       onkeypress="return supressEnter()"
+                                                       onkeypress="return suppressEnter()"
                                                        pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\/[1-9][0-9]{3}$"/>
                                                 <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                                 <span class="mdl-textfield__error">Invalid D.O.B. Data Entered</span>
@@ -96,7 +98,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="ethnicity" class="mdl-textfield__input" name="ethnicity"
-                                                       type="text" onkeypress="return supressEnter()"
+                                                       type="text" onkeypress="return suppressEnter()"
                                                        pattern="^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$"/>
                                                 <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
                                                 <span class="mdl-textfield__error">Invalid Ethnicity Data Entered</span>
@@ -125,7 +127,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentAddressOne" class="mdl-textfield__input"
                                                        name="studentAddressOne" type="text"
-                                                       onkeypress="return supressEnter()"
+                                                       onkeypress="return suppressEnter()"
                                                        pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"/>
                                                 <label class="mdl-textfield__label"
                                                        for="studentAddressOne">Address</label>
@@ -136,7 +138,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentAddressTwo" class="mdl-textfield__input"
                                                        name="studentAddressTwo" type="text"
-                                                       onkeypress="return supressEnter()"
+                                                       onkeypress="return suppressEnter()"
                                                        pattern="^[a-zA-Z0-9]+(([\- \.]|(\. ))[a-zA-Z0-9]+)*$"/>
                                                 <label class="mdl-textfield__label"
                                                        for="studentAddressTwo">Apt/Suite</label>
@@ -148,7 +150,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                         <div class="col-sm-4">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentCity" class="mdl-textfield__input" name="studentCity"
-                                                       type="text" onkeypress="return supressEnter()"
+                                                       type="text" onkeypress="return suppressEnter()"
                                                        pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                                                 <label class="mdl-textfield__label" for="studentCity">City</label>
                                                 <span class="mdl-textfield__error">Invalid City Data Entered</span>
@@ -171,7 +173,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentZip" class="mdl-textfield__input" name="studentZip"
-                                                       type="text" onkeypress="return supressEnter()"
+                                                       type="text" onkeypress="return suppressEnter()"
                                                        pattern="^[0-9]{5}(-[0-9]{4})?$"/>
                                                 <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
                                                 <span class="mdl-textfield__error">Invalid Zip Code Data Entered</span>
@@ -186,7 +188,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="studentSchool" class="mdl-textfield__input"
                                                        name="studentSchool" type="text"
-                                                       onkeypress="return supressEnter()"/>
+                                                       onkeypress="return suppressEnter()"/>
                                                 <label class="mdl-textfield__label" for="studentSchool">School Currently
                                                     Attending</label>
                                             </div>
@@ -272,13 +274,17 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <!--Medical concern tab-->
-                                <div class="tab-pane" id="studentMedicalConcerns">
+                                </form>
+                            </div>
+                            <!--Medical concern tab-->
+                            <div class="tab-pane" id="studentMedicalConcerns">
+                                <form id="newStudentMedicalConcernsForm" name="newStudentMedicalConcernsForm">
                                     <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
                                     <div>
                                         <!--Create button to add another medical condition field-->
-                                        <button type="button" id="add-new-medical-concern-button">Add</button>
+                                        <button type="button" id="add-new-medical-concern-button"
+                                                class="add-new-medical-concern-button">Add Medical Concern
+                                        </button>
                                     </div>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
@@ -286,7 +292,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input id="medicalConcernName" class="mdl-textfield__input"
                                                        name="medicalConcernName" type="text"
-                                                       onkeypress="return supressEnter()"/>
+                                                       onkeypress="return suppressEnter()"/>
                                                 <label class="mdl-textfield__label"
                                                        for="medicalConcernName">Name</label>
                                             </div>
@@ -305,7 +311,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                     class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
-                                                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
+                                                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type_Name'] . "</li>";
                                                     }
 
                                                     ?>
@@ -321,21 +327,17 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="new-medical-concern-layer"></div>
-                                </div>
-                                <!--Ends the medical concern portion-->
+                                    <div id="new-medical-concern-layer" class="new-medical-concern-layer"></div>
+                                </form>
+                            </div>
+                            <!--Ends the medical concern portion-->
 
-                                <div class="tab-pane" id="studentContact">
-
+                            <div class="tab-pane" id="studentContact">
+                                <form name="newStudentContactForm" id="newStudentContactForm">
                                     <div class="header"><i class="fa fa-address-book"></i> Contact Info</div>
 
                                     <div class="blue-line-color"></div>
                                     <h4 class="heading"></h4>
-                                    <!--Create button to add another contact drop down-->
-                                    <div>
-                                        <button type="button" id="add-new-contact-dropdown-button">Add</button>
-                                    </div>
-
 
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -367,7 +369,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                         data-toggle="collapse"
                                                         data-target="#collapseContactOne" aria-expanded="false"
                                                         aria-controls="collapseContactOne">
-                                                    Add New Contact
+                                                    Create New Contact
                                                 </button>
                                             </div>
                                         </div>
@@ -385,8 +387,9 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                             <input id="contactFirstName" class="mdl-textfield__input"
                                                                    name="contactFirstName"
                                                                    pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                                                   type="text" onkeypress="return supressEnter()"/>
-                                                            <label class="mdl-textfield__label" for="contactFirstName">First Name</label>
+                                                                   type="text" onkeypress="return suppressEnter()"/>
+                                                            <label class="mdl-textfield__label" for="contactFirstName">First
+                                                                Name</label>
                                                             <span class="mdl-textfield__error">Invalid First Name</span>
                                                         </div>
                                                     </div>
@@ -395,7 +398,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactLastName' class='mdl-textfield__input'
                                                                    name='contactLastName' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                                                             <label class='mdl-textfield__label' for='contactLastName'>Last
                                                                 Name</label>
@@ -410,9 +413,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                             <input id='contactPrimaryPhone'
                                                                    class='mdl-textfield__input'
                                                                    name='contactPrimaryPhone' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
-                                                            <label class='mdl-textfield__label' for='contactPrimaryPhone'>Primary Phone</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactPrimaryPhone'>Primary Phone</label>
                                                             <span class='mdl-textfield__error'>Invalid Primary Phone Number</span>
                                                         </div>
                                                     </div>
@@ -423,9 +427,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                             <input id='contactSecondaryPhone'
                                                                    class='mdl-textfield__input'
                                                                    name='contactSecondaryPhone' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
-                                                            <label class='mdl-textfield__label' for='contactSecondaryPhone'>Secondary Phone</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactSecondaryPhone'>Secondary Phone</label>
                                                             <span class='mdl-textfield__error'>Invalid Secondary Phone Number</span>
                                                         </div>
                                                     </div>
@@ -436,9 +441,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactEmail' class='mdl-textfield__input'
                                                                    name='contactEmail' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^(?!\.)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"/>
-                                                            <label class='mdl-textfield__label' for='contactEmail'>Email</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactEmail'>Email</label>
                                                             <span class='mdl-textfield__error'>Invalid Email</span>
                                                         </div>
                                                     </div>
@@ -449,7 +455,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                             <input id='contactRelationToStudent'
                                                                    class='mdl-textfield__input'
                                                                    name='contactRelationToStudent' type='text'
-                                                                   onkeypress="return supressEnter()"/>
+                                                                   onkeypress="return suppressEnter()"/>
                                                             <label class='mdl-textfield__label'
                                                                    for='contactRelationToStudent'>Relationship To
                                                                 Student</label>
@@ -465,7 +471,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactAddressOne' class='mdl-textfield__input'
                                                                    name='contactAddressOne' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-ZZ0-9]+)*\.?$"/>
                                                             <label class='mdl-textfield__label' for='contactAddressOne'>Address</label>
                                                             <span class='mdl-textfield__error'>Invalid Address</span>
@@ -476,7 +482,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactAddressTwo' class='mdl-textfield__input'
                                                                    name='contactAddressTwo' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^[a-zA-Z0-9]+(([ \-\.]|(\. ))[a-zA-Z0-9]+)*$"/>
                                                             <label class='mdl-textfield__label' for='contactAddressTwo'>Apt/Suite</label>
                                                             <span class='mdl-textfield__error'>Invalid Apt or Suite</span>
@@ -489,9 +495,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                              class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                                             <input id='contactCity' class='mdl-textfield__input'
                                                                    name='contactCity' type='text'
-                                                                   onkeypress="return supressEnter()"
+                                                                   onkeypress="return suppressEnter()"
                                                                    pattern="^[A-Z](([ \-\.\,']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
-                                                            <label class='mdl-textfield__label' for='contactCity'>City</label>
+                                                            <label class='mdl-textfield__label'
+                                                                   for='contactCity'>City</label>
                                                             <span class='mdl-textfield__error'>Invalid City</span>
                                                         </div>
                                                     </div>
@@ -515,8 +522,9 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                             <input id='contactZip' class='mdl-textfield__input'
                                                                    name='contactZip' type='text'
                                                                    pattern="^[0-9]{5}(-[0-9]{4})?$"
-                                                                   onkeypress="return supressEnter()"/>
-                                                            <label class='mdl-textfield__label' for='contactZip'>Zip Code</label>
+                                                                   onkeypress="return suppressEnter()"/>
+                                                            <label class='mdl-textfield__label' for='contactZip'>Zip
+                                                                Code</label>
                                                             <span class='mdl-textfield__error'>Invalid Zip Code</span>
                                                         </div>
                                                     </div>
@@ -524,15 +532,16 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
 
                     <div class="card-footer">
                         <div class="right-align">
-                            <button id="confirmationButton" type="button" class="btn btn-right btn-primary"
-                                    data-toggle="modal" data-target="#verifyEntryModal">
+                            <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
+                                    data-toggle="modal" data-target="#verifyEntryModal"
+                                    onclick="launchConfirmStudentEntriesModal()">
                                 Verify Info
                             </button>
                         </div>
@@ -553,10 +562,17 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                 method: "POST",
                 data: {dynamicMedicalConcernId: dynamicMedicalConcernId},
                 success: function (output) {
-                    $('.new-medical-concern-layer').slideDown().append(output);
+                    $('.new-medical-concern-layer').append(output);
+                    componentHandler.upgradeDom();
                 }
             })
         });
+    });
+
+    $(document).on('click', '.remove-medical-concern', function (event) {
+        event.preventDefault();
+        var button_id = this.id;
+        $('#dynamic-medical-concern' + button_id).remove();
     });
 </script>
 
@@ -577,6 +593,5 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
     });
 </script>
 
-<script src="../../js/supressEnter.js"></script>
 <!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
 <?php include("../scripts/footer.php"); ?>

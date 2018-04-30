@@ -20,3 +20,7 @@ function routeToNewProgram() {
 function routeToViewAllPrograms() {
     location.href = "../../php-files/show/ShowPrograms.php";
 }
+
+function routeToNewContact() {
+    location.href = "../../php-files/new/NewContact.php";
+}

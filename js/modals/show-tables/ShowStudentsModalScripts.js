@@ -38,7 +38,7 @@ function launchTestScoresModal(studentId) {
 
 function launchContactsModal(studentId) {
     $.ajax({
-        url: '../modals/students/ContactsModal.php',
+        url: '../modals/students/DisplayStudentContactsModal.php',
         type: 'post',
         data: {studentId: studentId},
         success: function (response) {
@@ -70,14 +70,13 @@ function launchMedicalConcernsModal(studentId) {
     });
 }
 
-function launchArchiveUserModal(studentIdToArchive, tableToLookUp, nameToDisplay) {
+function launchArchiveStudentModal(studentIdToArchive, studentName) {
     $.ajax({
-        url: '../modals/students/ArchiveModal.php',
+        url: '../modals/students/ArchiveStudent.php',
         type: 'POST',
         data: {
             studentIdToArchive: studentIdToArchive,
-            tableToLookUp: tableToLookUp,
-            nameToDisplay: nameToDisplay
+            studentName: studentName
         },
         success: function (response) {
             $('#custom-modal').removeClass().addClass('modal fade');

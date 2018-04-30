@@ -22,7 +22,7 @@ function launchSuccessfulEntryModal(successfulEntryTitle, submissionType,
                                     viewAllRoute, viewAllButtonTitle,
                                     newEntryRoute, newEntryButtonTitle) {
     $.ajax({
-        url: '../modals/SuccessfulEntryModal.php',
+        url: '../modals/AddNewStudentConfirmation.php',
         type: 'post',
         data: {
             successfulEntryTitle: successfulEntryTitle,

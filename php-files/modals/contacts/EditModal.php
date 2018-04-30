@@ -9,7 +9,6 @@ $queryForStudentContact = "SELECT Student_To_Contacts.Student_Id, Student_To_Con
                             WHERE Student_To_Contacts.Contact_Id = '$contactId';";
 $contactInfoResults = mysqli_query($db, $queryForContact);
 $studentInfoResults = mysqli_query($db, $queryForStudentContact);
-$response = '';
 
 while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     $dynamicRowId++;
@@ -43,6 +42,7 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
                 <h4 class="heading m-4"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
                 <div class="edit-blue-line-color"></div>
                 <div class="form-group">
+                    <input type="hidden" name="contactId" value="<?php echo $contactId; ?>"/>
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                             <input type="text" value="<?php echo $studentName; ?>" class="mdl-textfield__input" id="student" readonly/>

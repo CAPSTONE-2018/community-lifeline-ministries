@@ -1,14 +1,11 @@
-function launchStudentConfirmationModal(serializedForm) {
+function launchAddNewContactConfirmationModal(serializedForm) {
     $.ajax({
-        url: "../../php-files/add/AddStudent.php",
+        url: "../../php-files/add/AddContact.php",
         method: "POST",
         data: serializedForm,
         success: function(output) {
             var parsedOutput = JSON.parse(output);
-            var studentConfirmation = parsedOutput['student-confirmation'];
-            var programConfirmation = parsedOutput['program-confirmation'];
-            var newContactConfirmation = parsedOutput['new-contact-confirmation'];
-            var studentToContactConfirmation = parsedOutput['student-to-contact'];
+            var contactConfirmation = parsedOutput['contact-confirmation'];
 
             var homePageButton = document.createElement("BUTTON");
             var homePageButtonTitle = document.createTextNode("Back to Home Page");
@@ -18,25 +15,22 @@ function launchStudentConfirmationModal(serializedForm) {
             };
 
             var newStudentButton = document.createElement("BUTTON");
-            var newStudentButtonTitle = document.createTextNode("Add New Student");
+            var newStudentButtonTitle = document.createTextNode("Add New Contact");
             newStudentButton.appendChild(newStudentButtonTitle);
             newStudentButton.onclick = function () {
-                location.href = "../../../php-files/new/NewStudent.php";
+                location.href = "../../../php-files/new/NewContact.php";
             };
 
             var footerRow = '<div id="footerButtons" class="text-center">' +
-                    '<button onclick="routeToHomePage()">Back to Home Page</button>' +
-                    '<button onclick="routeToNewStudent()">Add New Student</button>' +
+                '<button onclick="routeToHomePage()">Back to Home Page</button>' +
+                '<button onclick="routeToNewContact()">Add New Contact</button>' +
                 '</div>';
 
             $.ajax({
-                url: '../../php-files/modals/students/ConfirmationModal.php',
+                url: '../../php-files/modals/contacts/AddNewContactConfirmation.php',
                 method: "POST",
                 data: {
-                    student: studentConfirmation,
-                    program: programConfirmation,
-                    contact: newContactConfirmation,
-                    studentContact: studentToContactConfirmation
+                    contact: contactConfirmation
                 },
                 success: function (response) {
                     $('#custom-modal').removeClass().addClass('modal fade');
@@ -48,7 +42,7 @@ function launchStudentConfirmationModal(serializedForm) {
                     $('.modal-footer').html(footerRow);
                     $('#custom-modal').modal('show');
                     $('#custom-modal').on('hidden.bs.modal', function (e) {
-                        window.location.href = '../../php-files/new/NewStudent.php';
+                        window.location.href = '../../php-files/new/NewContact.php';
                     });
                 }
             });

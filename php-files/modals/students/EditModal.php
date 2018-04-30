@@ -9,6 +9,7 @@ $studentInfoResults = mysqli_query($db, $queryForStudentInfo);
 while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     $dynamicRowId++;
 
+    $studentId = $studentInfoRow['Id'];
     $studentFirstName = $studentInfoRow['First_Name'];
     $studentLastName = $studentInfoRow['Last_Name'];
     $studentMiddleName = $studentInfoRow['Middle_Name'];
@@ -60,11 +61,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     if ($studentState == "IL") {
         $selectedStudentState = "Illinois";
     }
-
-
     ?>
     <div>
-        <form>
+        <form name="editStudentForm" id="editStudentForm">
             <div class="card">
                 <div class="card-body">
                     <div class="form-content">
@@ -74,13 +73,14 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 </h4>
                                 <div class="edit-blue-line-color"></div>
                                 <div class="form-group">
+                                    <input type="hidden" name="studentId" value="<?php echo $studentId; ?>"/>
                                     <div class="col-sm-6">
                                         <div id="floatingStudentFirstName"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input id="studentFirstName" class="mdl-textfield__input"
                                                    name="studentFirstName" type="text"
                                                    value="<?php echo $studentFirstName; ?>"/>
-                                            <label class="mdl-textfield__label" for="firstName">First Name</label>
+                                            <label class="mdl-textfield__label" for="studentFirstName">First Name</label>
                                         </div>
                                     </div>
 
@@ -90,7 +90,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentLastName" class="mdl-textfield__input"
                                                    name="studentLastName" type="text"
                                                    value="<?php echo $studentLastName; ?>"/>
-                                            <label class="mdl-textfield__label" for="lastName">Last Name</label>
+                                            <label class="mdl-textfield__label" for="studentLastName">Last Name</label>
                                             <span class="mdl-textfield__error">Last Name is Required</span>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentMiddleName" class="mdl-textfield__input"
                                                    name="studentMiddleName" type="text"
                                                    value="<?php echo $studentMiddleName; ?>"/>
-                                            <label class="mdl-textfield__label" for="middleName">Middle Name</label>
+                                            <label class="mdl-textfield__label" for="studentMiddleName">Middle Name</label>
                                         </div>
                                     </div>
 
@@ -112,7 +112,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                             <input id="studentSuffix" class="mdl-textfield__input"
                                                    name="studentSuffix" type="text"
                                                    value="<?php echo $studentSuffix; ?>"/>
-                                            <label class="mdl-textfield__label" for="suffix">Suffix</label>
+                                            <label class="mdl-textfield__label" for="studentSuffix">Suffix</label>
                                         </div>
                                     </div>
                                 </div>
@@ -299,8 +299,19 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         </div>
                     </div>
                 </div>
+
+                <div class="card-footer">
+                    <input type="button" onclick="sendEditStudentForm()" value="Submit" class="btn btn-primary btn-lg btn-block"/>
+                </div>
             </div>
         </form>
     </div>
 
 <?php } ?>
+
+<script type="text/javascript">
+    function sendEditStudentForm() {
+        var serializedForm = $('#editStudentForm').serialize();
+        launchEditStudentConfirmationModal(serializedForm);
+    }
+</script>

@@ -50,9 +50,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                             <?php
                             while ($activeContactsRow = mysqli_fetch_assoc($activeContactsResults)) {
                                 $contactId = $activeContactsRow['Id'];
-                                $contactFirstName = $activeContactsRow['First_Name'];
-                                $contactLastName = $activeContactsRow['Last_Name'];
-                                $nameToDisplay = $contactFirstName . " " . $contactLastName;
+                                $nameToDisplay  = $activeContactsRow['First_Name'] . ' ' . $activeContactsRow['Last_Name'];;
                                 $contactEmail = $activeContactsRow['Email'];
                                 $contactPhoneNumber = $activeContactsRow['Primary_Phone'];
                                 ?>
@@ -74,6 +72,17 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                                     <i class='fa fa-pencil'></i> Edit
                                                 </button>
                                             </div>
+                                            <div class='d-inline'>
+                                                <button type='button'
+                                                        class='btn large-action-buttons delete-button'
+                                                        onclick='launchArchiveContactModal(
+                                                                "<?php echo $contactId; ?>",
+                                                                "<?php echo $nameToDisplay; ?>"
+                                                                )'
+                                                >
+                                                    <i class='fa fa-archive'></i> Archive
+                                                </button>
+                                            </div>
                                         </div>
 
                                         <div class='right-action-buttons-container d-inline'>
@@ -86,10 +95,10 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                                         <i class='fa fa-star'></i>
                                                     </button>
                                                 </span>
-                                            <span title='Students In Program' data-toggle='tooltip'
+                                            <span title='Students For Contact' data-toggle='tooltip'
                                                   class='small-action-buttons'>
                                                     <button type='button'
-                                                            onclick=''
+                                                            onclick='launchStudentsToContactModal(<?php echo $contactId; ?>)'
                                                             class='btn small-action-buttons contact-button'
                                                     >
                                                         <i class='fa fa-graduation-cap'></i>

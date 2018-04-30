@@ -53,9 +53,7 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                             <?php
                             while ($activeVolunteersRow = mysqli_fetch_assoc($activeVolunteerResults)) {
                                 $volunteerId = $activeVolunteersRow['Id'];
-                                $volunteerFirstName = $activeVolunteersRow['First_Name'];
-                                $volunteerLastName = $activeVolunteersRow['Last_Name'];
-                                $nameToDisplay = $volunteerFirstName . " " . $volunteerLastName;
+                                $nameToDisplay = $activeVolunteersRow['First_Name'] . ' ' . $activeVolunteersRow['Last_Name'];
                                 $volunteerEmail = $activeVolunteersRow['Email'];
                                 $volunteerPhoneNumber = $activeVolunteersRow['Primary_Phone'];
                                 ?>
@@ -77,29 +75,34 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                                                     <i class='fa fa-pencil'></i> Edit
                                                 </button>
                                             </div>
+                                            <div class='d-inline'>
+                                                <button type='button'
+                                                        class='btn large-action-buttons delete-button'
+                                                        onclick='launchArchiveEmployeeModal(
+                                                                "<?php echo $volunteerId; ?>",
+                                                                "<?php echo $nameToDisplay; ?>"
+                                                                )'
+                                                >
+                                                    <i class='fa fa-archive'></i> Archive
+                                                </button>
+                                            </div>
                                         </div>
 
                                         <div class='right-action-buttons-container d-inline'>
-                                                <span title='Volunteers' data-toggle='tooltip'
-                                                      class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick=''
-                                                            class='btn small-action-buttons test-scores-button'
-                                                    >
-                                                        <i class='fa fa-star'></i>
-                                                    </button>
-                                                </span>
-                                            <span title='Students In Program' data-toggle='tooltip'
+                                            <span title='Availability' data-toggle='tooltip' class='small-action-buttons'>
+                                                <button type='button' onclick=''
+                                                        class='btn small-action-buttons test-scores-button'>
+                                                    <i class='fa fa-star'></i>
+                                                </button>
+                                            </span>
+                                            <span title='Programs' data-toggle='tooltip'
                                                   class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick=''
-                                                            class='btn small-action-buttons contact-button'
-                                                    >
-                                                        <i class='fa fa-graduation-cap'></i>
-                                                    </button>
-                                                </span>
+                                                <button type='button' onclick=''
+                                                        class='btn small-action-buttons contact-button'>
+                                                    <i class='fa fa-pencil'></i>
+                                                </button>
+                                            </span>
                                         </div>
-
                                     </td>
                                 </tr>
                             <?php } ?>
