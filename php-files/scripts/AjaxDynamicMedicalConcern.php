@@ -1,7 +1,7 @@
 <?php
 $dynamicMedicalConcernId = $_POST['dynamicMedicalConcernId'];
 include("../../db/config.php");
-$queryForMedicalConcerns = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
+$queryForMedicalConcerns = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
 <div id="dynamic-medical-concern<?php echo $dynamicMedicalConcernId; ?>">
@@ -33,7 +33,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                 <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                     <?php
                     while ($medicalConcernRow = mysqli_fetch_assoc($medicalConcernsResults)) {
-                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernRow['Id'] . "' value=" . $medicalConcernRow['Id'] . ">" . $medicalConcernRow['Type'] . "</li>";
+                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernRow['Id'] . "' value=" . $medicalConcernRow['Id'] . ">" . $medicalConcernRow['Type_Name'] . "</li>";
                     }
 
                     ?>

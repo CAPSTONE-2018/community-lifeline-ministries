@@ -2,7 +2,7 @@
 include("../scripts/header.php");
 include("../scripts/States.php");
 include("../../db/config.php");
-$queryForMedicalConcernTypes = "SELECT Id, Type, Note FROM Medical_Concern_Types;";
+$queryForMedicalConcernTypes = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $queryForPrograms = "SELECT Id, Program_Name FROM Programs";
 //$medicalConcernTypeRow = mysqli_fetch_array($medicalConcernTypesResult);
@@ -29,10 +29,12 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                         </ul>
                     </div>
 
-                    <form class="form-horizontal" method="POST" name="newStudentForm" id="newStudentForm">
-                        <div class="form-content">
-                            <div class="tab-content">
-                                <div class="tab-pane active " id="studentInfo">
+
+                    <div class="form-content">
+                        <div class="tab-content">
+                            <div class="tab-pane active " id="studentInfo">
+
+                                <form id="newStudentForm" name="newStudentForm">
                                     <div class="header"><i class="fa fa-graduation-cap"></i> Student Info</div>
 
                                     <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
@@ -272,14 +274,17 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <!--Medical concern tab-->
-                                <div class="tab-pane" id="studentMedicalConcerns">
+                                </form>
+                            </div>
+                            <!--Medical concern tab-->
+                            <div class="tab-pane" id="studentMedicalConcerns">
+                                <form id="newStudentMedicalConcernsForm" name="newStudentMedicalConcernsForm">
                                     <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
                                     <div>
                                         <!--Create button to add another medical condition field-->
                                         <button type="button" id="add-new-medical-concern-button"
-                                                class="add-new-medical-concern-button">Add Medical Concern</button>
+                                                class="add-new-medical-concern-button">Add Medical Concern
+                                        </button>
                                     </div>
                                     <div class="blue-line-color"></div>
                                     <div class="form-group">
@@ -306,7 +311,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                                     class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                                     <?php
                                                     while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
-                                                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type'] . "</li>";
+                                                        echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type_Name'] . "</li>";
                                                     }
 
                                                     ?>
@@ -323,20 +328,16 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                         </div>
                                     </div>
                                     <div id="new-medical-concern-layer" class="new-medical-concern-layer"></div>
-                                </div>
-                                <!--Ends the medical concern portion-->
+                                </form>
+                            </div>
+                            <!--Ends the medical concern portion-->
 
-                                <div class="tab-pane" id="studentContact">
-
+                            <div class="tab-pane" id="studentContact">
+                                <form name="newStudentContactForm" id="newStudentContactForm">
                                     <div class="header"><i class="fa fa-address-book"></i> Contact Info</div>
 
                                     <div class="blue-line-color"></div>
                                     <h4 class="heading"></h4>
-                                    <!--Create button to add another contact drop down-->
-<!--                                    <div>
-                                        <button type="button" id="add-new-contact-dropdown-button">Add Contact</button>
-                                    </div>
--->
 
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -531,15 +532,16 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
 
                     <div class="card-footer">
                         <div class="right-align">
                             <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
-                                    data-toggle="modal" data-target="#verifyEntryModal" onclick="launchConfirmStudentEntriesModal()">
+                                    data-toggle="modal" data-target="#verifyEntryModal"
+                                    onclick="launchConfirmStudentEntriesModal()">
                                 Verify Info
                             </button>
                         </div>
@@ -560,7 +562,8 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                 method: "POST",
                 data: {dynamicMedicalConcernId: dynamicMedicalConcernId},
                 success: function (output) {
-                    $('.new-medical-concern-layer').slideDown().append(output);
+                    $('.new-medical-concern-layer').append(output);
+                    componentHandler.upgradeDom();
                 }
             })
         });
