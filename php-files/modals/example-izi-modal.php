@@ -1,5 +1,6 @@
 <?php
-include("../../../db/config.php");
+include("../scripts/header.php");
+//include("../../../db/config.php");
 $studentIdToArchive = $_POST['studentIdToArchive'];
 $tableToLookUp = $_POST['tableToLookUp'];
 $nameToDisplay = $_POST['nameToDisplay'];
@@ -18,7 +19,31 @@ $userType = substr(trim($tableToLookUp), 0, -1);
     </div>
 </div>
 
+<div>
+
+    <button class="open-options button">options</button>
+    <div id="modal-options" data-izimodal-group="group1" data-izimodal-loop="" data-izimodal-title="オプション設定モーダル" data-izimodal-subtitle="サブタイトル">
+        <p>このモーダルはオプション設定をしています<br>iframeモーダルとグループ設定しています</p>
+    </div>
+
+</div>
+
 <script type="text/javascript">
+
+    $(document).on('click', '.open-options', function(event) {
+        event.preventDefault();
+        $('#modal-options').iziModal('open');
+    });
+    $('#modal-options').iziModal({
+        headerColor: '#26A69A', //ヘッダー部分の色
+        width: '50%', //横幅
+        overlayColor: 'rgba(0, 0, 0, 0.5)', //モーダルの背景色
+        fullscreen: true, //全画面表示
+        transitionIn: 'fadeInUp', //表示される時のアニメーション
+        transitionOut: 'fadeOutDown' //非表示になる時のアニメーション
+    });
+
+
     function archiveUser(studentId) {
         $.ajax({
             url: "../archive/ArchiveStudent.php",
@@ -34,3 +59,6 @@ $userType = substr(trim($tableToLookUp), 0, -1);
         });
     }
 </script>
+
+<?php
+include("../scripts/footer.php");

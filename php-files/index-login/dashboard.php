@@ -66,11 +66,11 @@
                 </div>
             </div>
             <!----Calender -------->
-            <link rel="stylesheet" href="../../css/clndr.css" type="text/css"/>
-            <script src="../../js/calendar/underscore-min.js" type="text/javascript"></script>
-            <script src="../../js/calendar/moment-2.2.1.js" type="text/javascript"></script>
-            <script src="../../js/calendar/clndr.js" type="text/javascript"></script>
-            <script src="../../js/calendar/site.js" type="text/javascript"></script>
+            <link rel="stylesheet" href="../../css/plugins/calendar/calendar.css" type="text/css"/>
+            <script src="../../js/plugins/calendar/underscore-min.js" type="text/javascript"></script>
+            <script src="../../js/plugins/calendar/moment-2.2.1.js" type="text/javascript"></script>
+            <script src="../../js/plugins/calendar/clndr.js" type="text/javascript"></script>
+            <script src="../../js/plugins/calendar/site.js" type="text/javascript"></script>
             <!----End Calender -------->
         </div>
     </div>

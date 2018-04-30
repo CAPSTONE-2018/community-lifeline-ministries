@@ -18,8 +18,8 @@
 </script>
 
 
-<script src="../../node_modules/popper.js/dist/popper.min.js"></script>
-<script src="../../node_modules/izimodal/js/iziModal.min.js"></script>
+
+
 <script src="../../js/suppressEnter.js"></script>
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
 <script src="../../js/NumberTableRows.js"></script>

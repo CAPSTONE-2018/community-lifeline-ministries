@@ -1,5 +1,5 @@
 <script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
-<link type="text/css" href="../../css/mdl-input-styles.css" />
+<link type="text/css" href="../../css/plugins/mdl-inputs/mdl-input-styles.css" />
 
 <?php
 

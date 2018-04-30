@@ -20,24 +20,24 @@ include("../widgets/TimeZoneFormat.php");
 
     <title>Community Lifeline Ministries</title>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../../js/plugins/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <script src="../../js/modals/ClearModalsOnClose.js"></script>
-    <link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
+<!--    <script src="../../js/modals/ClearModalsOnClose.js"></script>-->
+    <link rel="stylesheet" href="../../css/plugins/pretty-drop-downs/pretty-drop-downs.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
-    <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
+    <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Local Bootstrap -->
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="../../node_modules/izimodal/css/iziModal.min.css">
+    <link rel="stylesheet" href="../../css/plugins/izi-modal/iziModal.min.css">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
-    <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
+    <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
     <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
     <link rel="stylesheet" href="../../css/form-styles.css"/>
@@ -46,6 +46,9 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
     <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
     <link rel="stylesheet" href="../../css/dashboard.css"/>
+
+    <script src="../../js/plugins/popper.js/popper.min.js"></script>
+    <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
 
 </head>
 
