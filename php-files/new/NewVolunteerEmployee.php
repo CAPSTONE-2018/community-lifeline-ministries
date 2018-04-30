@@ -4,7 +4,6 @@ include("../scripts/States.php");
 //connect to database
 include("../../db/config.php");
 ?>
-<script src="../../js/suppressEnter.js"></script>
 
 <div class="container-fluid">
     <div class="row">

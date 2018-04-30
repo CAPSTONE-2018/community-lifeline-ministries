@@ -50,4 +50,3 @@ include("../scripts/footer.php");
     });
 </script>
 
-<script src="../../js/suppressEnter.js"></script>
