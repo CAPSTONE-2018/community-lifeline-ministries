@@ -1,4 +1,4 @@
-<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
+<script type="text/javascript" src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 <link type="text/css" href="../../css/plugins/mdl-inputs/mdl-input-styles.css" />
 
 <?php

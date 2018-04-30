@@ -28,15 +28,13 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
     <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Local Bootstrap -->
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <!-- Local Plugins -->
+    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-4.min.css"/>
+    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-3.3.7.min.css">
     <link rel="stylesheet" href="../../css/plugins/izi-modal/iziModal.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
+    <link rel="stylesheet" href="../../css/clm.css"/>
     <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
     <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
@@ -47,7 +45,9 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
     <link rel="stylesheet" href="../../css/dashboard.css"/>
 
-    <script src="../../js/plugins/popper.js/popper.min.js"></script>
+<!--    <script src="../../js/plugins/popper.js/popper.min.js"></script>-->
+
+    <script src="../../js/plugins/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
 
 </head>
