@@ -18,6 +18,21 @@ CREATE TABLE Logins (
   email        VARCHAR(30)
 );
 
+CREATE TABLE Volunteer_Employees_Availability (
+  Created_Timestamp      TIMESTAMP DEFAULT now(),
+  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Author_Username        VARCHAR(30),
+  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Volunteer_EmployeeId   INT(10),
+  Monday_Available       INT(10),
+  Tuesday_Available      INT(10),
+  Wednesday_Available    INT(10),
+  Thursday_Available     INT(10),
+  Friday_Available       INT(10),
+  CONSTRAINT FK_Volunteer_EmployeeId FOREIGN KEY (Volunteer_EmployeeId)
+  REFERENCES Volunteer_Employees (Id)
+);
+
 CREATE TABLE Students (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
