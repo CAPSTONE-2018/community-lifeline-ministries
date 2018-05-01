@@ -3,7 +3,7 @@ include("../../../db/config.php");
 $medicalConcernId = $_POST['medicalConcernId'];
 $queryForMedicalConcerns = "SELECT * FROM Medical_Concerns WHERE Id = '$medicalConcernId'";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
-
+$dynamicRowId = 0;
 while ($medicalConcernRow = mysqli_fetch_assoc($medicalConcernsResults)) {
     $dynamicRowId++;
     $medicalConcernName = $medicalConcernRow['Name'];
@@ -19,14 +19,16 @@ while ($medicalConcernRow = mysqli_fetch_assoc($medicalConcernsResults)) {
                 <div class="form-group">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="medicalConcernName" class="mdl-textfield__input" value="<?php echo $medicalConcernName; ?>" name="name" type="text"/>
+                            <input id="medicalConcernName" class="mdl-textfield__input"
+                                   value="<?php echo $medicalConcernName; ?>" name="name" type="text"/>
                             <label class="mdl-textfield__label" for="medicalConcernName">Name</label>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="medicalConcernType" class="mdl-textfield__input" value="<?php echo $medicalConcernType; ?>" name="type" type="text"/>
+                            <input id="medicalConcernType" class="mdl-textfield__input"
+                                   value="<?php echo $medicalConcernType; ?>" name="type" type="text"/>
                             <label class="mdl-textfield__label" for="medicalConcernType">Type</label>
                         </div>
                     </div>

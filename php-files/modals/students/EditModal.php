@@ -5,7 +5,7 @@ $studentId = $_POST['studentId'];
 
 $queryForStudentInfo = "SELECT * FROM Students WHERE Id = '$studentId';";
 $studentInfoResults = mysqli_query($db, $queryForStudentInfo);
-
+$dynamicRowId = 0;
 while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     $dynamicRowId++;
 
