@@ -68,7 +68,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
                 </div>
 
                 <div class="nav-item col-sm-6">
-                    <form id="attendanceProgramToEdit" action="../edit/EditAttendanceRecord.php" method="POST">
+                    <form id="attendanceProgramToEdit" action="../mysql-statements/edit/EditAttendanceRecord.php" method="POST">
                         <input type="hidden" name="programDateToSearch" value="<?php echo $dateToSubmit; ?>"/>
                         <select onchange="this.form.submit()" name="programIdToEdit">
                             <option data-prefix="<span aria-hidden='true' class='fa fa-pencil'></span>"

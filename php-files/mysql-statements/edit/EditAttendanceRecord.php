@@ -36,7 +36,7 @@ $dynamicRowId = 0;
         </div>
         <div class="card-body">
             <div class="card-content">
-                <form class="form-horizontal col-sm-12 container-fluid" method="POST" action="../update/UpdateAttendanceRecord.php"
+                <form class="form-horizontal col-sm-12 container-fluid" method="POST" action="../../update/UpdateAttendanceRecord.php"
                       name="editAttendanceRecordForm" id="editAttendanceRecordForm">
 
                     <input type='hidden' name='attendanceDate' value='<?php echo $dateToSearch; ?>'/>
