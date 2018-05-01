@@ -1,4 +1,4 @@
-function launchDuplicateEntryModal(duplicateEntryTitleToPassThrough, submissionType) {
+function launchDuplicateProgramEntryModal(duplicateEntryTitleToPassThrough, submissionType) {
     $.ajax({
         url: '../modals/programs/DuplicateProgramEntry.php',
         type: 'post',
@@ -18,11 +18,11 @@ function launchDuplicateEntryModal(duplicateEntryTitleToPassThrough, submissionT
     });
 }
 
-function launchSuccessfulEntryModal(successfulEntryTitle, submissionType,
+function launchSuccessfulProgramEntryModal(successfulEntryTitle, submissionType,
                                     viewAllRoute, viewAllButtonTitle,
                                     newEntryRoute, newEntryButtonTitle) {
     $.ajax({
-        url: '../modals/AddNewStudentConfirmation.php',
+        url: '../modals/programs/AddNewStudentConfirmation.php',
         type: 'post',
         data: {
             successfulEntryTitle: successfulEntryTitle,

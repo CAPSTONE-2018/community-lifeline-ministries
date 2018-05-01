@@ -1,6 +1,7 @@
 <?php
+include("../app-shell/header.php");
+include("../app-shell/sidebar.php");
 
-include("../scripts/header.php");
 
 //connect to database
 include("../../db/config.php");
@@ -67,7 +68,7 @@ $volunteerResults = mysqli_query($db, $query);
         var newEntryRoute = "routeToNewProgram()";
         var newEntryButtonTitle = "New Program";
         $.ajax({
-            url: "../add/AddProgram.php",
+            url: "../mysql-statements/add/AddProgram.php",
             method: "POST",
             data: {
                 programName: programName,
@@ -75,11 +76,11 @@ $volunteerResults = mysqli_query($db, $query);
             },
             success: function (data) {
                 if (data == 1) {
-                    launchDuplicateEntryModal(programName, submissionType);
+                    launchDuplicateProgramEntryModal(programName, submissionType);
                 } else if (data == 001) {
                     alert("something went wrong with the database");
                 } else if (data == 0) {
-                    launchSuccessfulEntryModal(programName, submissionType,
+                    launchSuccessfulProgramEntryModal(programName, submissionType,
                         viewAllRoute, viewAllButtonTitle, newEntryRoute, newEntryButtonTitle);
                 }
             }
@@ -87,4 +88,4 @@ $volunteerResults = mysqli_query($db, $query);
     }
 </script>
 
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/footer.php"); ?>
