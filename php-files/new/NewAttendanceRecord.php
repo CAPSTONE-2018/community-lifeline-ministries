@@ -2,7 +2,7 @@
 include("../app-shell/header.php");
 include("../app-shell/sidebar.php");
 include("../../db/config.php");
-include("../widgets/TimeZoneFormat.php");
+include("../app-shell/TimeZoneFormat.php");
 $programIdToSearch = $_POST['programId'];
 $queryStudentsInProgram = "SELECT DISTINCT Student_To_Programs.Program_Id, Programs.Program_Name,
                             Student_To_Programs.Student_Id, Students.First_Name, Students.Last_Name FROM

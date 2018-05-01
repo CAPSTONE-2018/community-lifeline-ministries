@@ -1,7 +1,7 @@
 <?php
 //connect to database
 include("../../db/config.php");
-include("../widgets/TimeZoneFormat.php");
+include("../app-shell/TimeZoneFormat.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = '$dateToSubmit'";
 $programResults = mysqli_query($db, $queryForAllPrograms);
