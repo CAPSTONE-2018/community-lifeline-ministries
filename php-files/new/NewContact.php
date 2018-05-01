@@ -1,6 +1,6 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 include("../../db/config.php");
 include("../scripts/States.php");
 $query = "SELECT DISTINCT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
@@ -11,7 +11,7 @@ $studentsResult = mysqli_query($db, $query);
         <h1><i class="fa fa-address-book"></i> Add New Contact</h1>
     </div>
     <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item"><a href="../index-login/main-menu.php"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
         <li class="breadcrumb-item"> New Contact</li>
     </ul>
 </div>
@@ -21,7 +21,7 @@ $studentsResult = mysqli_query($db, $query);
             <div class="header">Guardian Info</div>
             <h4 class="heading"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
             <div class="blue-line-color"></div>
-            <form action="../add/AddContact.php" method="POST" name="newContactForm" id="newContactForm">
+            <form action="../mysql-statements/add/AddContact.php" method="POST" name="newContactForm" id="newContactForm">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
@@ -198,4 +198,4 @@ $studentsResult = mysqli_query($db, $query);
     </div>
 </div>
 
-<?php include("../app-shell/footer.php") ?>
+<?php include("../app-shell/Footer.php") ?>
