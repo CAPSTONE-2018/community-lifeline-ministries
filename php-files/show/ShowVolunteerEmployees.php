@@ -8,6 +8,15 @@ include("../../db/config.php");
 $queryForActiveVolunteers = "SELECT * FROM Volunteer_Employees WHERE Active_Volunteer = 1;";
 $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
 ?>
+<div class="app-title">
+    <div>
+        <h3><i class="fa fa-bookmark-o"></i> Volunteers</h3>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"> All Volunteers</li>
+    </ul>
+</div>
 <div class="print_div">
     <div class="card">
         <div class="card-header">

@@ -18,11 +18,20 @@ $dynamicRowId = 0;
 
 $studentTableToLookUp = "Students";
 ?>
+<div class="app-title">
+    <div>
+        <h3><i class="fa fa-bookmark-o"></i> Students</h3>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"> All Students</li>
+    </ul>
+</div>
 <div class="print_div">
     <div class="card">
         <div class="card-header">
             <div class="col-12 text-center">
-                <h3 id="studentsTableTitle">All Students</h3>
+                <h2 id="studentsTableTitle">All Students</h2>
             </div>
 
             <div class="row">
