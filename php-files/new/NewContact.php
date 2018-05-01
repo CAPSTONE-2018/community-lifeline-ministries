@@ -21,7 +21,8 @@ $studentsResult = mysqli_query($db, $query);
             <div class="header">Contact Info</div>
             <h4 class="heading"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
             <div class="blue-line-color"></div>
-            <form action="../mysql-statements/add/AddContact.php" method="POST" name="newContactForm" id="newContactForm">
+            <form action="../mysql-statements/add/AddContact.php" method="POST" name="newContactForm"
+                  id="newContactForm">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">

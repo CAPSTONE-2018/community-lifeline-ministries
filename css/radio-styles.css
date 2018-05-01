@@ -3,7 +3,7 @@
     opacity: 1;
 }
 .radio-input-wrapper .custom-check-mark {
-    position: relative;
+    /*position: absolute;*/
 }
 
 .radio-input-wrapper input {
@@ -11,9 +11,7 @@
 }
 
 .custom-check-mark {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
     height: 30px;
     width: 30px;
     background-color: #eee;

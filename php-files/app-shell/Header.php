@@ -36,7 +36,8 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
     <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
     <link rel="stylesheet" href="../../css/dashboard.css"/>
-    <link rel="stylesheet" href="../../css/plugins/application-shell/main.min.css">
+    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-4.min.css"/>
+    <link rel="stylesheet" href="../../css/plugins/application-shell/main.min.css"/>
 <!--        <script src="../../js/plugins/popper.js/popper.min.js"></script>-->
     <script src="../../js/plugins/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js"></script>
