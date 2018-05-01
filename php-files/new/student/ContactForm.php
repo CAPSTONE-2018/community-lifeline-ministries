@@ -1,10 +1,8 @@
 <div class="tab-pane" role="tabpanel" id="studentContact">
     <form name="newStudentContactForm" id="newStudentContactForm">
         <div class="header"><i class="fa fa-address-book"></i> Contact Info</div>
-
         <div class="blue-line-color"></div>
         <h4 class="heading"></h4>
-
         <div class="row">
             <div class="col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
@@ -40,8 +38,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="collapse" id="collapseContactOne">
             <div class="card card-body">
                 <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
@@ -198,6 +194,5 @@
                 </div>
             </div>
         </div>
-
     </form>
 </div>

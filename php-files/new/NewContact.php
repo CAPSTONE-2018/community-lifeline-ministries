@@ -8,7 +8,7 @@ $studentsResult = mysqli_query($db, $query);
 ?>
 <div class="app-title">
     <div>
-        <h1><i class="fa fa-address-book"></i> Add New Contact</h1>
+        <h3><i class="fa fa-plus"></i> Add New Contact</h3>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
@@ -18,7 +18,7 @@ $studentsResult = mysqli_query($db, $query);
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            <div class="header">Guardian Info</div>
+            <div class="header">Contact Info</div>
             <h4 class="heading"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
             <div class="blue-line-color"></div>
             <form action="../mysql-statements/add/AddContact.php" method="POST" name="newContactForm" id="newContactForm">

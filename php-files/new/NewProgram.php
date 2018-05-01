@@ -1,17 +1,20 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
-
-
-//connect to database
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 include("../../db/config.php");
-
-
 $query = "SELECT * FROM Volunteer_Employees ORDER BY Last_Name, First_Name;";
 $volunteerResults = mysqli_query($db, $query);
 ?>
-
-<div class="container-fluid col-sm-10">
+<div class="app-title">
+    <div>
+        <h3><i class="fa fa-plus"></i> Add New Program</h3>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"> New Program</li>
+    </ul>
+</div>
+<div class="container-fluid">
     <div class="card text-center">
         <div class="card-header">
             <h1><i class="fa fa-pencil"></i>  New Program Info</h1>
@@ -20,7 +23,7 @@ $volunteerResults = mysqli_query($db, $query);
         <div class="card-body">
             <form id="newProgramForm">
 
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-6 m-auto">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="programName" class="mdl-textfield__input" name="name" type="text"/>
@@ -88,4 +91,4 @@ $volunteerResults = mysqli_query($db, $query);
     }
 </script>
 
-<?php include("../app-shell/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

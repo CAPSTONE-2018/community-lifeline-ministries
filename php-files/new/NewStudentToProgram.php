@@ -1,13 +1,9 @@
 <?php
-
-include("../scripts/header.php");
-
-//connect to database
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 include("../../db/config.php");
-
 $queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
 $allActiveStudentsResults = mysqli_query($db, $queryForAllActiveStudents);
-
 $queryForAllActivePrograms = "SELECT * FROM Programs WHERE Active_Program = 1 ORDER BY Program_Name";
 $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
 ?>
@@ -19,7 +15,7 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
 
         <div class="card-body">
             <form action="../add/AddStudentToProgram.php" method="post" id="newStudentToProgramForm">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-6 ">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                             <input type="text" class="mdl-textfield__input" readonly>
@@ -39,7 +35,7 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
                         </div>
                     </div>
 
-                    <div class="col-sm-6 ">
+                    <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                             <input type="text" class="mdl-textfield__input" readonly>
                             <input type="hidden" id="programId" name="programId">
@@ -67,5 +63,4 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
         </div>
     </div>
 </div>
-
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

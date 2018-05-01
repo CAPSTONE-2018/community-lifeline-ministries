@@ -8,7 +8,8 @@ $account = $_SESSION['account'];
 if ($account != "administrator") {
     header("Location: index.html");
 }
-include("../scripts/header.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -22,7 +23,7 @@ include("../scripts/header.php");
 
                             <h4 class="heading"><i class="fa fa-key"></i> User Account Info</h4>
                             <div class="blue-line-color"></div>
-                            <div class="form-group">
+                            <div class="row">
 
                                 <div class="col-sm-6">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -38,6 +39,9 @@ include("../scripts/header.php");
                                         <label class="mdl-textfield__label" for="password">Password</label>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                         <input type="text" class="mdl-textfield__input" id="account" readonly>
@@ -61,9 +65,10 @@ include("../scripts/header.php");
                                     </div>
                                 </div>
                             </div>
+
                             <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
                             <div class="blue-line-color"></div>
-                            <div class="form-group">
+                            <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="firstName" class="mdl-textfield__input"
@@ -102,4 +107,4 @@ include("../scripts/header.php");
     </div>
 </div>
 
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

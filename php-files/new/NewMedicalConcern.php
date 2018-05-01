@@ -1,23 +1,30 @@
 <?php
 
-include("../scripts/header.php");
-
-//connect to database
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 include("../../db/config.php");
 
 ?>
-
-<div class="container-fluid col-sm-10">
+<div class="app-title">
+    <div>
+        <h3><i class="fa fa-plus"></i> Add New Medical Concern</h3>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"> New Employee</li>
+    </ul>
+</div>
+<div class="container-fluid">
     <div class="card text-center">
         <div class="card-header">
-            <h1><i class="fa fa-warning"></i> Add New Medical Concern</h1>
+            <h2><i class="fa fa-warning"></i> Add New Medical Concern</h2>
         </div>
 
         <div class="card-body">
             <form action="../add/AddMedicalConcern.php" method="POST" id="newMedicalConcernForm">
                 <h4 class="heading text-left"><i class="fa fa-bullhorn"></i> General Info</h4>
                 <div class="blue-line-color"></div>
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="medicalConcernName" class="mdl-textfield__input" name="name" type="text"/>
@@ -34,7 +41,7 @@ include("../../db/config.php");
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-10">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <textarea id="medicalConcernNote" class="mdl-textfield__input" name="note" type="text"></textarea>
@@ -51,4 +58,4 @@ include("../../db/config.php");
         </div>
     </div>
 </div>
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

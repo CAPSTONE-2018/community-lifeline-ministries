@@ -1,6 +1,6 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 include("../scripts/States.php");
 include("../../db/config.php");
 $queryForMedicalConcernTypes = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
@@ -13,7 +13,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 ?>
 <div class="app-title">
     <div>
-        <h1><i class="fa fa-plus"></i> Add New Student</h1>
+        <h3><i class="fa fa-plus"></i> Add New Student</h3>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
@@ -97,4 +97,4 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
     });
 </script>
 
-<?php include("../app-shell/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>
