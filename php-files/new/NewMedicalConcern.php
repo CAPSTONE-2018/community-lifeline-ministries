@@ -21,7 +21,7 @@ include("../../db/config.php");
         </div>
 
         <div class="card-body">
-            <form action="../add/AddMedicalConcern.php" method="POST" id="newMedicalConcernForm">
+            <form action="../mysql-statements/add/AddMedicalConcern.php" method="POST" id="newMedicalConcernForm">
                 <h4 class="heading text-left"><i class="fa fa-bullhorn"></i> General Info</h4>
                 <div class="blue-line-color"></div>
                 <div class="row">

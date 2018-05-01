@@ -1,6 +1,6 @@
 <?php
 include("../../../db/config.php");
-
+session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $id = intval($_POST['id']);
 $prefix = $_POST['volunteerPrefix'];

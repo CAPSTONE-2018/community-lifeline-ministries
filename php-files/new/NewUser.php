@@ -16,7 +16,7 @@ include("../app-shell/Sidebar.php");
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal" action="../add/AddUser.php" method="POST" id="newUserForm"
+                    <form class="form-horizontal" action="../mysql-statements/add/AddUser.php" method="POST" id="newUserForm"
                           name="newUserForm">
                         <div class="form-content">
                             <div class="header">Register User For Access</div>

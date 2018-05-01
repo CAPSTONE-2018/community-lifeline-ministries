@@ -40,7 +40,7 @@ $dynamicRowId = 0;
                 ?>
             </div>
 
-            <form class="container-fluid" method="POST" action="../add/AddAttendanceRecord.php"
+            <form class="container-fluid" method="POST" action="../mysql-statements/add/AddAttendanceRecord.php"
                   name="newAttendanceRecordForm" id="newAttendanceRecordForm">
                 <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                 <div class="table-responsive col-sm-12">

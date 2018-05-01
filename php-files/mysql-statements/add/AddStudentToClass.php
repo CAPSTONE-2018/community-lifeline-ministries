@@ -1,23 +1,13 @@
 <?php
-
-include("../scripts/header.php");
-?>
-
-<h1>Add Student to Program Information:</h1>
-<br/>
-
-<?php
-//connect to database
-include("../../db/config.php");
-
+include("../../../db/config.php");
+session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $studentId = intval($_POST['studentId']);
-$programId = $_POST['programId'];
+$classId = $_POST['classId'];
 
-$stmt = $db->prepare("INSERT INTO Student_To_Programs (Author_Username, Student_Id, Program_Id) VALUES (?, ?, ?)");
-$stmt->bind_param('sii', $userMakingChanges, $studentId, $programId);
+$stmt = $db->prepare("INSERT INTO Student_To_Classes (Author_Username, Student_Id, Class_Id) VALUES (?, ?, ?)");
+$stmt->bind_param('sii', $userMakingChanges, $studentId, $classId);
 $stmt->execute();
-
 
 if ($stmt->affected_rows == -1) {
     echo "
@@ -31,5 +21,3 @@ if ($stmt->affected_rows == -1) {
         </div>";
     $stmt->close();
 }
-include("../scripts/footer.php");
-?>

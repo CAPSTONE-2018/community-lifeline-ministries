@@ -1,15 +1,6 @@
 <?php
-
-include("../scripts/header.php");
-?>
-
-<h1>Add Volunteer to Program Information:</h1>
-<br/>
-
-<?php
-//connect to database
-include("../../db/config.php");
-
+include("../../../db/config.php");
+session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $volunteerId = intval($_POST['volunteerId']);
 $programId = $_POST['programId'];
@@ -28,5 +19,3 @@ if ($stmt->affected_rows == -1) {
                       </div>";
     $stmt->close();
 }
-include("../scripts/footer.php");
-?>

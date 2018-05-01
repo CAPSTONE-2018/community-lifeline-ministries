@@ -1,5 +1,4 @@
 <?php
-//connect to database
 include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];

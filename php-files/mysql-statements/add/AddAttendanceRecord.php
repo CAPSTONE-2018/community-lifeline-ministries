@@ -1,13 +1,6 @@
 <?php
-include("../scripts/header.php");
-?>
-    <h1>Add Attendance Record:</h1>
-    <br/>
-
-<?php
-//connect to database
-include("../../db/config.php");
-
+include("../../../db/config.php");
+session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $i = 0;
 
@@ -22,6 +15,3 @@ foreach ($_POST as $key){
     $stmt->bind_param('ssiii',$userMakingChanges, $date, $studentId, $programId, $checkboxValue);
     $stmt->execute();
 }
-
-include("../scripts/footer.php");
-?>

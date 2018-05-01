@@ -1,15 +1,6 @@
 <?php
-
-include("../scripts/header.php");
-?>
-
-<h1>Add Medical Information:</h1>
-<br/>
-
-<?php
-//connect to database
-include("../../db/config.php");
-
+include("../../../db/config.php");
+session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $medicalConcernName = $_POST['name'];
 $medicalConcernType = $_POST['type'];
@@ -31,5 +22,3 @@ if ($stmt->affected_rows == -1) {
         </div>";
     $stmt->close();
 }
-include("../scripts/footer.php");
-?>

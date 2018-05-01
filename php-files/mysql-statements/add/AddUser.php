@@ -1,32 +1,17 @@
 <?php
-    include("../scripts/header.php");
-    if ($_SESSION['account'] != "administrator") {
-        header("Location: index.html");
-}
-
-?>
-
-
-<h1>Add Information:</h1>
-<br/>
-
-
-<?php
+include("../../../db/config.php");
+session_start();
 $username = $_POST['username'];
 $password = $_POST['password'];
 $encryptPass = md5($password);
 $account = $_POST['account'];
-$fname = $_POST['firstName'];
-$lname = $_POST['lastName'];
+$firstName = $_POST['firstName'];
+$lastName = $_POST['lastName'];
 $email = $_POST['email'];
-
-//connect to database
-include("../../db/config.php");
-
 
 $stmt = $db->prepare("INSERT INTO Logins VALUES (?, ?, ?, ?, ?, ?)");
 
-$stmt->bind_param('ssssss', $username, $encryptPass, $account, $fname, $lname, $email);
+$stmt->bind_param('ssssss', $username, $encryptPass, $account, $firstName, $lastName, $email);
 
 $stmt->execute();
 
@@ -40,6 +25,3 @@ if ($stmt->affected_rows == -1) {
                       </div>";
     $stmt->close();
 }
-
-include("../scripts/footer.php");
-?>

@@ -14,7 +14,7 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
         </div>
 
         <div class="card-body">
-            <form action="../add/AddStudentToProgram.php" method="post" id="newStudentToProgramForm">
+            <form action="../mysql-statements/add/AddStudentToProgram.php" method="post" id="newStudentToProgramForm">
                 <div class="row">
                     <div class="col-sm-6 ">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
