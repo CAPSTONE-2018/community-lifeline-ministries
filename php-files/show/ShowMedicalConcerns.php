@@ -3,7 +3,7 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../../db/config.php");
 
-$queryForMedicalConcerns = "SELECT * FROM Medical_Concerns;";
+$queryForMedicalConcerns = "SELECT * FROM Student_To_Medical_Concerns;";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
     <div class="app-title">
@@ -15,7 +15,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             <li class="breadcrumb-item"> Medical Concerns</li>
         </ul>
     </div>
-    <div class="print_div">
+    <div class="container-fluid">
         <div class="card">
             <div class="card-header">
                 <div class="col-12 text-center">
@@ -37,53 +37,51 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="card-content">
-                    <form method="POST" action="#" name="allProgramsTable"
-                          id="allProgramsTable">
-                        <div class="table-responsive">
-                            <table id="search-table" class="table table-striped table-condensed table-hover">
-                                <thead>
-                                <tr>
-                                    <th class="col-sm-1">#</th>
-                                    <th class="col-sm-3">Medical Concerns</th>
-                                    <th class="col-sm-2 text-center">Concern Type</th>
-                                    <th class="col-sm-2 text-center">Students With Concern</th>
-                                    <th class="col-sm-4 text-center">Actions</th>
-                                </tr>
-                                </thead>
 
-                                <tbody>
-                                <?php
-                                while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
-                                    $medicalConcernId = $medicalConcernsRow['Id'];
-                                    $medicalConcernName = $medicalConcernsRow['Name'];
-                                    $medicalConcernType = $medicalConcernsRow['Type'];
-                                    $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
-                                    $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
-                                    $studentTotals = '';
-                                    while ($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
-                                        $studentTotals = $studentsWithMedicalConcernsRow['Count'];
-                                    }
-                                    ?>
-                                    <tr class='number-row'>
-                                        <td class='col-sm-1 align-middle'></td>
-                                        <td class='col-sm-3 align-middle'><?php echo $medicalConcernName; ?></td>
-                                        <td class='col-sm-2 text-center align-middle'><?php echo $medicalConcernType; ?></td>
-                                        <td class='col-sm-2 text-center align-middle'><?php echo $studentTotals; ?></td>
-                                        <td class='col-sm-4 text-center'>
-                                            <div class='left-action-buttons-container d-inline m-auto'>
-                                                <div class=' d-inline'>
-                                                    <button type='button'
-                                                            class='btn large-action-buttons edit-button'
-                                                            onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
-                                                    >
-                                                        <i class='fa fa-pencil'></i> Edit
-                                                    </button>
-                                                </div>
-                                            </div>
+            <form class="container-fluid" method="POST" action="#" name="allProgramsTable" id="allProgramsTable">
+                <div class="table-responsive col-sm-12">
+                    <table id="search-table" class="table table-striped table-hover">
+                        <thead>
+                        <tr class="row">
+                            <th class="col-sm-1">#</th>
+                            <th class="col-sm-3">Medical Concerns</th>
+                            <th class="col-sm-2 text-center">Concern Type</th>
+                            <th class="col-sm-2 text-center">Students With Concern</th>
+                            <th class="col-sm-4 text-center">Actions</th>
+                        </tr>
+                        </thead>
 
-                                            <div class='right-action-buttons-container d-inline'>
+                        <tbody>
+                        <?php
+                        while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
+                            $medicalConcernId = $medicalConcernsRow['Id'];
+                            $medicalConcernName = $medicalConcernsRow['Medical_Concern_Name'];
+                            $medicalConcernType = $medicalConcernsRow['Type'];
+                            $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
+                            $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
+                            $studentTotals = '';
+                            while ($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
+                                $studentTotals = $studentsWithMedicalConcernsRow['Count'];
+                            }
+                            ?>
+                            <tr class='row'>
+                                <td class='col-sm-1 align-middle'></td>
+                                <td class='col-sm-3 align-middle'><?php echo $medicalConcernName; ?></td>
+                                <td class='col-sm-2 text-center align-middle'><?php echo $medicalConcernType; ?></td>
+                                <td class='col-sm-2 text-center align-middle'><?php echo $studentTotals; ?></td>
+                                <td class='col-sm-4 text-center'>
+                                    <div class='left-action-buttons-container d-inline m-auto'>
+                                        <div class=' d-inline'>
+                                            <button type='button'
+                                                    class='btn large-action-buttons edit-button'
+                                                    onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
+                                            >
+                                                <i class='fa fa-pencil'></i> Edit
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class='right-action-buttons-container d-inline'>
                                             <span title='Students With Concern' data-toggle='tooltip'
                                                   class='small-action-buttons'>
                                                 <button type='button'
@@ -92,19 +90,19 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                                         <i class='fa fa-graduation-cap'></i>
                                                 </button>
                                             </span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="card-footer">
+            </form>
 
-                </div>
+            <div class="card-footer">
+
             </div>
+
         </div>
     </div>
 <?php

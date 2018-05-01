@@ -77,7 +77,7 @@ $programResults = mysqli_query($db, $queryForPrograms);
                             <td class='col-sm-1 align-middle'></td>
                             <td class='col-sm-5 align-middle'>
                                 <?php echo $programName; ?>
-                                <input type='hidden' value=<?php echo $programId; ?>/>
+                                <input type='hidden' value='<?php echo $programId; ?>'/>
                             </td>
                             <td class='col-sm-6 text-center'>
                                 <div class='left-action-buttons-container d-inline m-auto'>

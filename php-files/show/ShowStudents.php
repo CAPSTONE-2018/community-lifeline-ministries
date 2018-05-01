@@ -25,7 +25,7 @@ $studentTableToLookUp = "Students";
     <div class="card">
         <div class="card-header">
             <div class="col-12 text-center">
-                <h2><i class="fa fa-graduation-cap"></i>All Students</h2>
+                <h2><i class="fa fa-graduation-cap"></i> All Students</h2>
             </div>
             <div class="row">
                 <div class="search-input-wrapper col-6">
@@ -77,8 +77,8 @@ $studentTableToLookUp = "Students";
                         <th class="col-sm-1">#</th>
                         <th class="col-sm-3">Student Name</th>
                         <th class="col-sm-1">Programs</th>
-                        <th class="col-sm-1 text-center">Permission Slip</th>
-                        <th class="col-sm-6 text-center">Actions</th>
+                        <th class="col-sm-2 text-center">Permission Slip</th>
+                        <th class="col-sm-5 text-center">Actions</th>
                     </tr>
                     </thead>
 
@@ -105,7 +105,7 @@ $studentTableToLookUp = "Students";
 
                             <?php
                             if (($activeStudentsRow['Permission_Slip'] == 1)) { ?>
-                                <td class='col-sm-1 align-middle text-center'>
+                                <td class='col-sm-2 align-middle text-center'>
                                     <button type="button"
                                             onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
                                             class='btn permission-slip-button'>
@@ -113,7 +113,7 @@ $studentTableToLookUp = "Students";
                                     </button>
                                 </td>
                             <?php } else { ?>
-                                <td class='col-sm-1 align-middle text-center'>
+                                <td class='col-sm-2 align-middle text-center'>
                                     <button type="button"
                                             onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
                                             class='btn permission-slip-button'>
@@ -121,7 +121,7 @@ $studentTableToLookUp = "Students";
                                     </button>
                                 </td>
                             <?php } ?>
-                            <td class='col-sm-6 text-center'>
+                            <td class='col-sm-5 text-center'>
                                 <div class='left-action-buttons-container d-inline m-auto'>
                                     <div class=' d-inline'>
                                         <button type='button'
@@ -145,35 +145,31 @@ $studentTableToLookUp = "Students";
                                 </div>
 
                                 <div class='right-action-buttons-container d-inline'>
-                                                <span title='Test Scores' data-toggle='tooltip'
-                                                      class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick='launchTestScoresModal(<?php echo $studentIdToSearch; ?>)'
-                                                            class='btn small-action-buttons test-scores-button'
-                                                    >
-                                                        <i class='fa fa-bar-chart mr-0'></i>
-                                                    </button>
-                                                </span>
-                                    <span title='Student Allergies' data-toggle='tooltip'
-                                          class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
-                                                            class='btn small-action-buttons allergies-button'
-                                                    >
-                                                        <i class='fa fa-warning mr-0'></i>
-                                                    </button>
-                                                </span>
-                                    <span title='Student Contacts' data-toggle='tooltip'
-                                          class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
-                                                            class='btn small-action-buttons contact-button'
-                                                    >
-                                                        <i class='fa fa-phone mr-0'></i>
-                                                    </button>
-                                                </span>
+                                    <span title='Test Scores' data-toggle='tooltip' class='small-action-buttons'>
+                                        <button type='button'
+                                                onclick='launchTestScoresModal(<?php echo $studentIdToSearch; ?>)'
+                                                class='btn small-action-buttons test-scores-button'
+                                        >
+                                            <i class='fa fa-bar-chart mr-0'></i>
+                                        </button>
+                                    </span>
+                                    <span title='Student Allergies' data-toggle='tooltip' class='small-action-buttons'>
+                                        <button type='button'
+                                                onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
+                                                class='btn small-action-buttons allergies-button'
+                                        >
+                                            <i class='fa fa-warning mr-0'></i>
+                                        </button>
+                                    </span>
+                                    <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
+                                        <button type='button'
+                                                onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
+                                                class='btn small-action-buttons contact-button'
+                                        >
+                                            <i class='fa fa-phone mr-0'></i>
+                                        </button>
+                                    </span>
                                 </div>
-
                             </td>
                         </tr>
                     <?php } ?>
@@ -181,11 +177,9 @@ $studentTableToLookUp = "Students";
                 </table>
             </div>
         </form>
-
         <div class="card-footer">
 
         </div>
-
     </div>
 </div>
 

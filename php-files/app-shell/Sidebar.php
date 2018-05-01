@@ -75,13 +75,13 @@
             </a>
             <ul class="treeview-menu">
                 <li>
-                    <a class="treeview-item" href="../new/NewProgram.php">
+                    <a class="treeview-item" href="../new/NewVolunteerEmployee.php">
                         <i class="icon fa fa-plus"></i>
                         Add New Volunteer
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="../show/ShowPrograms.php">
+                    <a class="treeview-item" href="../show/ShowVolunteerEmployees.php">
                         <i class="icon fa fa-folder-open"></i>
                         View All
                     </a>
