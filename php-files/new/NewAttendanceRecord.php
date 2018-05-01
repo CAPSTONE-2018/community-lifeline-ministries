@@ -44,7 +44,7 @@ $dynamicRowId = 0;
                   name="newAttendanceRecordForm" id="newAttendanceRecordForm">
                 <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
                 <div class="table-responsive col-sm-12">
-                    <table id="attendance-table" class="table table-hover">
+                    <table id="attendance-table" class="table table-striped table-hover">
                         <thead>
                         <tr class="row">
                             <th class="col-sm-1">#</th>
