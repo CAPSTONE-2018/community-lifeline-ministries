@@ -1,6 +1,6 @@
 <div class="tab-pane" role="tabpanel" id="studentContact">
     <form name="newStudentContactForm" id="newStudentContactForm">
-        <div class="header"><i class="fa fa-address-book"></i> Contact Info</div>
+        <div class="header"><i class="fa fa-address-card-o"></i> Contact Info</div>
         <div class="blue-line-color"></div>
         <h4 class="heading"></h4>
         <div class="row">

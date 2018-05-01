@@ -18,7 +18,7 @@ $studentsResult = mysqli_query($db, $query);
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            <div class="header">Contact Info</div>
+            <div class="header"><i class="fa fa-address-card-o"></i> Contact Info</div>
             <h4 class="heading"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
             <div class="blue-line-color"></div>
             <form action="../mysql-statements/add/AddContact.php" method="POST" name="newContactForm"

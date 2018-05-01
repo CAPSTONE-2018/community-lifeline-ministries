@@ -92,26 +92,24 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                 </div>
 
                                 <div class='right-action-buttons-container d-inline'>
-                                                <span title='Volunteers' data-toggle='tooltip'
-                                                      class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick='launchVolunteersInProgramModal(<?php echo $programId; ?>)'
-                                                            class='btn small-action-buttons test-scores-button'
-                                                    >
-                                                        <i class='fa fa-star mr-0'></i>
-                                                    </button>
-                                                </span>
+                                    <span title='Volunteers' data-toggle='tooltip' class='small-action-buttons'>
+                                        <button type='button'
+                                                onclick='launchVolunteersInProgramModal(<?php echo $programId; ?>)'
+                                                class='btn small-action-buttons test-scores-button'
+                                        >
+                                            <i class='fa fa-star mr-0'></i>
+                                        </button>
+                                    </span>
                                     <span title='Students In Program' data-toggle='tooltip'
                                           class='small-action-buttons'>
-                                                    <button type='button'
-                                                            onclick='launchStudentsInProgramModal(<?php echo $programId; ?>)'
-                                                            class='btn small-action-buttons contact-button'
-                                                    >
-                                                        <i class='fa fa-graduation-cap mr-0'></i>
-                                                    </button>
-                                                </span>
+                                        <button type='button'
+                                                onclick='launchStudentsInProgramModal(<?php echo $programId; ?>)'
+                                                class='btn small-action-buttons contact-button'
+                                        >
+                                            <i class='fa fa-graduation-cap mr-0'></i>
+                                        </button>
+                                    </span>
                                 </div>
-
                             </td>
                         </tr>
                     <?php } ?>
@@ -119,11 +117,7 @@ $programResults = mysqli_query($db, $queryForPrograms);
                 </table>
             </div>
         </form>
-
-
-        <div class="card-footer">
-
-        </div>
+        <div class="card-footer"></div>
     </div>
 </div>
 
