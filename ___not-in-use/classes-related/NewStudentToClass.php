@@ -13,7 +13,7 @@ $result2 = mysqli_query($db, $query2);
 ?>
 
 <div id="form_wrapper">
-    <form class="form-horizontal" action="../php-files/mysql-statements/add/AddStudentToClass.php" method="POST" id="form2">
+    <form class="form-horizontal" action="../../php-files/mysql-statements/add/AddStudentToClass.php" method="POST" id="form2">
 
         <h1>Add Student and Class Information:</h1>
         <br/>

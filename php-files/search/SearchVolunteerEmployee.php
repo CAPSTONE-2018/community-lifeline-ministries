@@ -12,7 +12,7 @@ $result = mysqli_query($db, $query);
 ?>
 
             <div id="form_wrapper">
-                <form action="../find/FindVolunteerEmployee.php" method="POST" id="form2">
+                <form action="../../___not-in-use/find/FindVolunteerEmployee.php" method="POST" id="form2">
                     <br>
                     <h1>Search Volunteer/Employee Information:</h1>
                     <br />
