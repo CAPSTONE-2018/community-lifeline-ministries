@@ -9,7 +9,7 @@ $result = mysqli_query($db, $query);
 ?>
 
 <div id="form_wrapper">
-    <form action="../../___not-in-use/find/FindSchedule.php" method="POST" id="form2">
+    <form action="../find/FindSchedule.php" method="POST" id="form2">
 
         <h1>Search Schedule Information:</h1>
         <br/>

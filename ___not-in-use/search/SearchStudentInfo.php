@@ -11,7 +11,7 @@ $result = mysqli_query($db, $query);
 ?>
 
 <div id="form_wrapper">
-    <form action="../../___not-in-use/find/FindStudentInfo.php" method="POST" id="form2">
+    <form action="../find/FindStudentInfo.php" method="POST" id="form2">
 
         <h1>Search Student/Contact/Emergency Contact Information:</h1>
         <br/>
