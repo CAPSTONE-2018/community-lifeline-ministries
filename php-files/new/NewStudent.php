@@ -43,14 +43,14 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                 <!-- New Contact Tab -->
                 <?php include("./student/ContactForm.php"); ?>
             </div>
-            <div class="card-footer">
-                <div class="right-align">
-                    <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
-                            data-toggle="modal" data-target="#verifyEntryModal"
-                            onclick="launchConfirmStudentEntriesModal()">
-                        Verify Info
-                    </button>
-                </div>
+        </div>
+        <div class="card-footer">
+            <div class="right-align">
+                <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
+                        data-toggle="modal" data-target="#verifyEntryModal"
+                        onclick="launchConfirmStudentEntriesModal()">
+                    Verify Info
+                </button>
             </div>
         </div>
     </div>

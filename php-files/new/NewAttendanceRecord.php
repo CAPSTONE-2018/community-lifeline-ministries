@@ -1,9 +1,7 @@
 <?php
-include("../scripts/header.php");
-
-//connect to database
+include("../app-shell/header.php");
+include("../app-shell/sidebar.php");
 include("../../db/config.php");
-
 include("../widgets/TimeZoneFormat.php");
 
 $programIdToSearch = $_POST['programId'];
@@ -152,12 +150,5 @@ $dynamicRowId = 0;
 </script>
 
 <?php
-include("../scripts/footer.php");
+include("../app-shell/footer.php");
 ?>
-<!--$studentIdToSearch = $row['Student_Id'];-->
-<!--$queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone-->
-<!--FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch";-->
-<!--$currentContactForStudent = mysqli_query($db, $queryForContacts);-->
-<!--while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {-->
-<!--$contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];-->
-<!--$contactPhone = $contactRow['Primary_Phone'];-->
