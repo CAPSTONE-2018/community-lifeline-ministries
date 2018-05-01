@@ -57,10 +57,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     } else {
         $selectedStudentGender = "Male";
     }
-
-    if ($studentState == "IL") {
-        $selectedStudentState = "Illinois";
-    }
     ?>
     <div>
         <form name="editStudentForm" id="editStudentForm">

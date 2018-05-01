@@ -30,10 +30,6 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     $relationship = $studentInfoRow['Relationship'];
     $studentName = $studentInfoRow['First_Name'] . ' ' . $studentInfoRow['Last_Name'];
     $studentId = $studentInfoRow['Student_Id'];
-
-    if ($state == 'IL') {
-        $selectedState = 'Illinois';
-    }
     ?>
     <div>
         <form name="editContactForm" id="editContactForm">
