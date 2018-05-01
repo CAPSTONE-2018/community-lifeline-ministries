@@ -1,5 +1,5 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $studentActiveFlag = 1;

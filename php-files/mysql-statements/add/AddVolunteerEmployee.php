@@ -1,5 +1,5 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 
 $userMakingChanges = $_SESSION['loggedIn'];
 $id = intval($_POST['id']);

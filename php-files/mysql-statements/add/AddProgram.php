@@ -1,6 +1,6 @@
 <?php
 //connect to database
-include("../../db/config.php");
+include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $programName = $_POST['programName'];
