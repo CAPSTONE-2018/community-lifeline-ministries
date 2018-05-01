@@ -1,14 +1,5 @@
 <?php
-include("../scripts/header.php");
-?>
-<h1>Update Program Information:</h1>
-<br />
-
-<?php
-
-//connect to database
-include("../../db/config.php");
-
+include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $id = $_SESSION['programId'];
@@ -34,5 +25,3 @@ if ($db->query($sql) === TRUE){
                 <strong>Failure! </strong>Program Name could not be updated, please try again.
             </div>";
 }
-include("../scripts/footer.php");
-?>

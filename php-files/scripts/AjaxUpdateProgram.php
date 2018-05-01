@@ -28,10 +28,7 @@ if ($row['Active_Class'] == 1) {
     $programIsNotActive = "selected=\"selected\"";
 }
 
-$output = "<div id=\"form_wrapper\">
-    <form class=\"form - horizontal\" action=\"../update/UpdateProgram.php\" method=\"POST\" id=\"form2\">
-
-        <h1>Update \"" .$row['Program_Name']."'s Information:</h1>
+$output = " .$row['Program_Name']."'s Information:</h1>
         <br />
         <div class=\"row\">
     

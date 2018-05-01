@@ -1,7 +1,7 @@
 <?php
 
 //connect to database
-include("../../db/config.php");
+include("../../../db/config.php");
 
 session_start();
 

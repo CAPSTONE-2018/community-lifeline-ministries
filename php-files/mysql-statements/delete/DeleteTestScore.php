@@ -1,5 +1,5 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 
 $testScoreId = $_POST['TestScoreId'];
 

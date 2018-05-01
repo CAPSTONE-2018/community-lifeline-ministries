@@ -1,5 +1,5 @@
 <?php
-include("../../db/config.php");
+include("../../../db/config.php");
 
 $volunteerId = $_POST['volunteerId'];
 $updateSqlStatement = "UPDATE Volunteer_Employees SET Active_Volunteer = 0 WHERE Id = $volunteerId;";
