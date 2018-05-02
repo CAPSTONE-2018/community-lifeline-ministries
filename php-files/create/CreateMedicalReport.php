@@ -60,9 +60,9 @@ include("../../db/config.php");
                 </div>
             </div>
         </div>
-        <div class="add-new-report">
+    </div>
+    <div class="add-new-report">
 
-        </div>
     </div>
 </div>
 
@@ -132,35 +132,25 @@ include("../../db/config.php");
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        if(searchInputs[i] != '') {
-                            searchFilters += " Name LIKE '%" + searchInputs[i] + "%'";
-                        }
+                        searchFilters += " Name LIKE '%" + searchInputs[i]+"%'";
                         break;
                     case "Type":
 
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        if(searchInputs[i] != '') {
-                            searchFilters += " Type LIKE '%" + searchInputs[i] + "%'";
-                        }
+                        searchFilters += " Type LIKE '%" + searchInputs[i]+"%'";
                         break;
                     case "Note":
 
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        if(searchInputs[i] != ''){
-                            searchFilters += " Note LIKE '%" + searchInputs[i]+"%'";
-                        }
-
+                        searchFilters += " Note LIKE '%" + searchInputs[i]+"%'";
                         break;
                     default:
                         break;
                 }
-            }
-            if( searchFilters == "WHERE"){
-                searchFilters = '';
             }
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
