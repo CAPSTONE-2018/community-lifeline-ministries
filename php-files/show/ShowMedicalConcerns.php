@@ -3,11 +3,9 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-
 $queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name FROM Medical_Concern_Types 
 JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
 WHERE Medical_Concern_Types.Active_Id = 1;";
-
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
     <div class="app-title">
@@ -87,11 +85,11 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                             <button type='button'
                                                     class='btn large-action-buttons delete-button'
                                                     onclick='launchConfirmArchiveModal(
-                                                            "<?php echo $medicalConcernTypeId; ?>",
-                                                            "ArchiveMedicalConcern.php",
-                                                            "Medical Concern Type",
-                                                            "<?php echo $medicalConcernType; ?>",
-                                                            "ShowMedicalConcerns.php")'
+                                                        "<?php echo $medicalConcernTypeId; ?>",
+                                                        "ArchiveMedicalConcern.php",
+                                                        "Medical Concern Type",
+                                                        "<?php echo $medicalConcernType; ?>",
+                                                        "ShowMedicalConcerns.php")'
                                             >
                                                 <i class='fa fa-archive'></i> Archive
                                             </button>
