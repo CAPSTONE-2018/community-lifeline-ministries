@@ -14,21 +14,16 @@ include("../app-shell/TimeZoneFormat.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CLM</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
-    <!--    <script src="../../js/modals/ClearModalsOnClose.js"></script>-->
-    <!-- Local CSS Plugins -->
-
+    <!-- CDN Link to Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" href="../../css/plugins/gijgo/gijgo.min.css"/>
+    <link rel="stylesheet" href="../../css/plugins/application-shell/main.min.css"/>
     <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/plugins/pretty-drop-downs/pretty-drop-downs.css"/>
     <link rel="stylesheet" href="../../css/plugins/izi-modal/iziModal.min.css">
-    <!-- CDN Link to Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Our Custom Stylesheet -->
-    <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
-<!--    <link rel="stylesheet" href="../../css/clm.css"/>-->
+    <!-- Our Custom Stylesheets -->
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
-
     <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
     <link rel="stylesheet" href="../../css/form-styles.css"/>
     <link rel="stylesheet" href="../../css/toggle-switch.css"/>
@@ -36,11 +31,10 @@ include("../app-shell/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
     <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
     <link rel="stylesheet" href="../../css/dashboard.css"/>
-    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-4.min.css"/>
-    <link rel="stylesheet" href="../../css/plugins/application-shell/main.min.css"/>
-<!--        <script src="../../js/plugins/popper.js/popper.min.js"></script>-->
+
+    <!-- Our Custom Stylesheets -->
     <script src="../../js/plugins/jquery/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js"></script>
+    <script src="../../js/plugins/gijgo/gijgo.min.js"></script>
     <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
 </head>
 <body class="app sidebar-mini rtl pace-done ">
@@ -50,9 +44,9 @@ include("../app-shell/TimeZoneFormat.php");
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Main CLM Logo -->
     <!--    <a class="app-header__logo" href="#">CLM</a>-->
-<!--    <a class="app-header__logo" href="../index-login/menu.php">-->
-<!--        <img src="../../images/new-logo.png" alt="CLM Logo" height="25px">-->
-<!--    </a>-->
+    <!--    <a class="app-header__logo" href="../index-login/menu.php">-->
+    <!--        <img src="../../images/new-logo.png" alt="CLM Logo" height="25px">-->
+    <!--    </a>-->
     <div class="navbar-user">
         Signed In As: <?php echo $userMakingChanges ?>
         <div id="timer"></div>

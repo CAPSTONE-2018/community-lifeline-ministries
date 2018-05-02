@@ -15,7 +15,6 @@ include("../widgets/TimeZoneFormat.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CLM</title>
 
-
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <!--    <script src="../../js/modals/ClearModalsOnClose.js"></script>-->
 
@@ -44,7 +43,7 @@ include("../widgets/TimeZoneFormat.php");
 <!--    <script src="../../js/plugins/popper.js/popper.min.js"></script>-->
 
     <script src="../../js/plugins/jquery/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js"></script>
     <script src="../../js/plugins/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
 

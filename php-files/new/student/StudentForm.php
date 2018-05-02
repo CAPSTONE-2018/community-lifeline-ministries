@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="middleName" class="mdl-textfield__input"
                            name="studentMiddleName" type="text"
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="suffix" class="mdl-textfield__input" name="studentSuffix"
                            type="text" onkeypress="return suppressEnter()"
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-6 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="ethnicity" class="mdl-textfield__input" name="ethnicity"
                            type="text" onkeypress="return suppressEnter()"
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-6 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                     <input type="text" class="mdl-textfield__input" id="gender"
                            readonly>
@@ -87,7 +87,7 @@
         <h4 class="heading"><i class="fa fa-home"></i> Address</h4>
         <div class="blue-line-color"></div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-8 col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="studentAddressOne" class="mdl-textfield__input"
                            name="studentAddressOne" type="text"
@@ -98,7 +98,7 @@
                     <span class="mdl-textfield__error">Invalid Address Data Entered</span>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-4 col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="studentAddressTwo" class="mdl-textfield__input"
                            name="studentAddressTwo" type="text"
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-12 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="studentCity" class="mdl-textfield__input" name="studentCity"
                            type="text" onkeypress="return suppressEnter()"
@@ -120,7 +120,7 @@
                     <span class="mdl-textfield__error">Invalid City Data Entered</span>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-6 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                     <input type="text" value="" class="mdl-textfield__input"
                            id="studentState" readonly>
@@ -133,7 +133,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-6 col-sm-4">
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="studentZip" class="mdl-textfield__input" name="studentZip"

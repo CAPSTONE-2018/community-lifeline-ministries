@@ -1,9 +1,6 @@
 <!-- Bootstrap Js CDN -->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
-
-
-
 <script type="text/javascript">
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
@@ -12,19 +9,21 @@
             $('#content').toggleClass('col-sm-11');
         });
     });
-
     //    needed for all tooltips
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip({trigger: "hover"});
     });
-
-
 </script>
+
+
+<script src="../../js/plugins/mdl-inputs/input-styling.min.js"></script>
+<script src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 
 <script src="../../js/suppressEnter.js"></script>
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
 <script src="../../js/NumberTableRows.js"></script>
 <script src="../../js/forms/FilterFields.js"></script>
+<script src="../../js/forms/ToggleSwitchValues.js"></script>
 
 <!--Show All Table Scripts-->
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
@@ -45,9 +44,6 @@
 
 <!--Employee Related Scripts-->
 <script src="../../js/modals/employee/ConfirmNewEmployeeEntries.js"></script>
-<script src="../../js/forms/ToggleSwitchValues.js"></script>
-<script src="../../js/plugins/mdl-inputs/input-styling.min.js"></script>
-<script src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
 <script src="../../js/modals/program/ValidateProgramEntry.js"></script>
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>

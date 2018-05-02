@@ -21,7 +21,7 @@
     // Set initial active toggle
     $("[data-toggle='treeview.'].is-expanded").parent().toggleClass('is-expanded');
 
-    //Activate bootstrip tooltips
-    $("[data-toggle='tooltip']").tooltip();
+    //Activate all Bootstrap tooltips
+    $("[data-toggle='tooltip']").tooltip({trigger: "hover"});
 
 })();

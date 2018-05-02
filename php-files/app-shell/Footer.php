@@ -1,11 +1,18 @@
 </main>
 
 
+
+<!--<script src="../../js/plugins/popper.js/popper.min.js"></script>-->
+<script src="../../js/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/plugins/mdl-inputs/input-styling.min.js"></script>
+<script src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 <script src="../../js/suppressEnter.js"></script>
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
 <script src="../../js/NumberTableRows.js"></script>
 <script src="../../js/forms/FilterFields.js"></script>
-
+<script src="../../js/forms/ToggleSwitchValues.js"></script>
 <!--Show All Table Scripts-->
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
@@ -13,29 +20,19 @@
 <script src="../../js/modals/show-tables/ShowVolunteerEmployees.js"></script>
 <script src="../../js/modals/show-tables/ToggleStudentTable.js"></script>
 <script src="../../js/modals/show-tables/ShowMedicalConcernsModalScripts.js"></script>
-
 <!--Student Related Scripts-->
 <script src="../../js/modals/student/AddNewStudentConfirmation.js"></script>
 <script src="../../js/modals/student/EditStudentConfirmation.js"></script>
 <script src="../../js/modals/student/ConfirmNewStudentEntries.js"></script>
-
 <!--Contact Related Scripts-->
 <script src="../../js/modals/contact/ConfirmNewContactEntries.js"></script>
 <script src="../../js/modals/contact/AddNewContactConfirmation.js"></script>
-
 <!--Employee Related Scripts-->
 <script src="../../js/modals/employee/ConfirmNewEmployeeEntries.js"></script>
-<script src="../../js/forms/ToggleSwitchValues.js"></script>
-<script src="../../js/plugins/mdl-inputs/input-styling.min.js"></script>
-<script src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
 <script src="../../js/modals/program/ValidateProgramEntry.js"></script>
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
-<!-- Essential javascripts for application to work-->
-<script src="../../js/plugins/jquery/jquery.min.js"></script>
-<!--<script src="js/popper.min.js"></script>-->
-<script src="../../js/plugins/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="../../js/main.js"></script>
+
 <!-- The javascript plugin to display page loading on top-->
 <!--<script src="js/plugins/pace.min.js"></script>-->
 <!-- Page specific javascripts-->

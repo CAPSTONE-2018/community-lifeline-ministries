@@ -46,9 +46,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
         </div>
         <div class="card-footer">
             <div class="right-align">
-                <button id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary"
-                        data-toggle="modal" data-target="#verifyEntryModal"
-                        onclick="launchConfirmStudentEntriesModal()">
+                <button data-izimodal-open="#newStudentConfirmationModal" id="newStudentConfirmationButton" type="button" class="btn btn-right btn-primary">
                     Verify Info
                 </button>
             </div>
@@ -56,7 +54,43 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
     </div>
 </div>
 
-<script>
+<div id="newStudentConfirmationModal"
+     data-izimodal-group="group1"
+     data-izimodal-loop=""
+     data-izimodal-title=""
+     data-izimodal-subtitle="">
+
+
+    <p><br></p>
+</div>
+<script type="text/javascript">
+    // $(document).on('click', '#newStudentConfirmationButton', function(event) {
+    //     event.preventDefault();
+    //     $('#newStudentConfirmationModal').iziModal('open');
+    // });
+    $('#newStudentConfirmationModal').iziModal({
+
+        headerColor: '#26A69A',
+        width: '50%',
+        overlayColor: 'rgba(0, 0, 0, 0.5)',
+        transitionIn: 'fadeInUp',
+        transitionOut: 'fadeOutDown',
+
+
+        onOpening: function(modal){
+
+            modal.startLoading();
+
+            $.get('./NewUser.php', function(data) {
+                $("#newStudentConfirmationModal .iziModal-content").html(data);
+                modal.stopLoading();
+            });
+        }
+
+    });
+
+
+
     var dynamicMedicalConcernId = 0;
     $(document).ready(function () {
         $('#add-new-medical-concern-button').click(function () {

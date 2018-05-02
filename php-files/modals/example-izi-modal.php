@@ -1,5 +1,8 @@
 <?php
-include("../scripts/header.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+
+
 //include("../../../db/config.php");
 $studentIdToArchive = $_POST['studentIdToArchive'];
 $tableToLookUp = $_POST['tableToLookUp'];
@@ -22,8 +25,13 @@ $userType = substr(trim($tableToLookUp), 0, -1);
 <div>
 
     <button class="open-options button">options</button>
-    <div id="modal-options" data-izimodal-group="group1" data-izimodal-loop="" data-izimodal-title="オプション設定モーダル" data-izimodal-subtitle="サブタイトル">
-        <p>このモーダルはオプション設定をしています<br>iframeモーダルとグループ設定しています</p>
+    <div id="modal-options"
+         data-izimodal-group="group1"
+         data-izimodal-loop=""
+         data-izimodal-title=""
+         data-izimodal-subtitle="">
+        <p><br></p>
+        Hello world
     </div>
 
 </div>
@@ -35,12 +43,12 @@ $userType = substr(trim($tableToLookUp), 0, -1);
         $('#modal-options').iziModal('open');
     });
     $('#modal-options').iziModal({
-        headerColor: '#26A69A', //ヘッダー部分の色
-        width: '50%', //横幅
-        overlayColor: 'rgba(0, 0, 0, 0.5)', //モーダルの背景色
-        fullscreen: true, //全画面表示
-        transitionIn: 'fadeInUp', //表示される時のアニメーション
-        transitionOut: 'fadeOutDown' //非表示になる時のアニメーション
+        headerColor: '#26A69A',
+        width: '50%',
+        overlayColor: 'rgba(0, 0, 0, 0.5)',
+        fullscreen: true,
+        transitionIn: 'fadeInUp',
+        transitionOut: 'fadeOutDown'
     });
 
 
@@ -61,4 +69,4 @@ $userType = substr(trim($tableToLookUp), 0, -1);
 </script>
 
 <?php
-include("../scripts/footer.php");
+include("../app-shell/Footer.php");
