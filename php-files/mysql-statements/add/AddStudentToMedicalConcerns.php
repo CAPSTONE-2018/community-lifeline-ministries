@@ -12,11 +12,7 @@ $stmt->bind_param('sisis', $userMakingChanges, $lastStudentInsertID, $medicalCon
 $stmt->execute();
 
 if ($stmt->affected_rows == -1) {
-
     $stmt->close();
 } else {
-
     $stmt->close();
 }
-
-?>
