@@ -5,7 +5,7 @@ include("../scripts/header.php");
 //connect to database
 include("../../db/config.php");
 
-$queryForMedicalConcerns = "SELECT * FROM Medical_Concerns;";
+$queryForMedicalConcerns = "SELECT * FROM medical_concern_types;";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
 <div class="print_div">
@@ -40,7 +40,6 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                             <tr>
                                 <th class="col-sm-1">#</th>
                                 <th class="col-sm-3">Medical Concerns</th>
-                                <th class="col-sm-2 text-center">Concern Type</th>
                                 <th class="col-sm-2 text-center">Students With Concern</th>
                                 <th class="col-sm-4 text-center">Actions</th>
                             </tr>
@@ -50,9 +49,8 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                             <?php
                             while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
                                 $medicalConcernId = $medicalConcernsRow['Id'];
-                                $medicalConcernName = $medicalConcernsRow['Name'];
-                                $medicalConcernType = $medicalConcernsRow['Type'];
-                                $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
+                                $medicalConcernName = $medicalConcernsRow['Type_Name'];
+                                $queryForStudentsWithMedicalConcerns = "SELECT COUNT(Medical_Type_Id) as Count from Student_To_Medical_Concerns Where Medical_Type_Id = ".$medicalConcernId;
                                 $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
                                 $studentTotals = '';
                                 while($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
@@ -62,7 +60,6 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                 <tr class='number-row'>
                                     <td class='col-sm-1 align-middle'></td>
                                     <td class='col-sm-3 align-middle'><?php echo $medicalConcernName; ?></td>
-                                    <td class='col-sm-2 text-center align-middle'><?php echo $medicalConcernType; ?></td>
                                     <td class='col-sm-2 text-center align-middle'><?php echo $studentTotals; ?></td>
                                     <td class='col-sm-4 text-center'>
                                         <div class='left-action-buttons-container d-inline m-auto'>
