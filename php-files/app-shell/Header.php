@@ -51,7 +51,7 @@ include("../app-shell/TimeZoneFormat.php");
                     <div class="d-inline col-2">
                         <i id="customIcon"></i>
                     </div>
-                    <div id="title-wrapper" class="col-10">
+                    <div id="titleWrapper" class="col-10">
                         <h4 id="customHeaderText" class="d-inline align-middle"></h4>
                     </div>
                 </div>

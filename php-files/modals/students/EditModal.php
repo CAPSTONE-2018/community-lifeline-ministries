@@ -68,7 +68,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 <h4 class="heading "><i class="fa fa-user"></i> Personal Info
                                 </h4>
                                 <div class="edit-blue-line-color"></div>
-                                <div class="form-group">
+                                <div class="row">
                                     <input type="hidden" name="studentId" value="<?php echo $studentId; ?>"/>
                                     <div class="col-sm-6">
                                         <div id="floatingStudentFirstName"
@@ -91,7 +91,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
                                     <div class="col-sm-6 col-lg">
                                         <div id="floatingStudentMiddleName"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -113,7 +113,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="row">
 
                                     <div class="col-sm-4">
                                         <div id="floatingDob"
@@ -155,7 +155,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
                                 <h4 class="heading"><i class="fa fa-home"></i> Address</h4>
                                 <div class="edit-blue-line-color"></div>
-                                <div class="form-group">
+                                <div class="row">
                                     <div class="col-sm-6">
                                         <div id="floatingStudentAddressOne"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -177,7 +177,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
                                     <div class="col-sm-4">
 
                                         <div id="floatingStudentCity"
@@ -216,14 +216,9 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     </div>
                                 </div>
 
-                                <div class="row col-12">
-
-                                    <i class="fa fa-file"></i>
-                                    <h4 class="col-3 heading"> Documents</h4>
-                                </div>
-
+                                <h4 class="heading"><i class="fa fa-file"></i> Documents</h4>
                                 <div class="edit-blue-line-color"></div>
-                                <div class="form-group">
+                                <div class="row">
                                     <div class="col-sm-10">
                                         <div id="floatingStudentSchool"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

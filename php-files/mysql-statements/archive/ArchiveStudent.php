@@ -5,8 +5,8 @@ $studentId = $_POST['studentId'];
 $updateSqlStatement = "UPDATE Students SET Active_Student = 0 WHERE Id = $studentId;";
 
 if ($db->query($updateSqlStatement) === TRUE) {
-    echo 0;
+    echo "success";
 } else {
-    echo 1;
+    echo "database-error";
 }
 ?>
