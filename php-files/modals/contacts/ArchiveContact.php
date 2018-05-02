@@ -24,7 +24,7 @@ $nameToDisplay = $_POST['contactName'];
                 data: {contactId: contactId},
                 success: function (output) {
                     if (output == 0) {
-                        launchSuccessfulArchive();
+                        launchGenericSuccessfulArchive();
                         window.location.href = "../show/ShowContacts.php"
                     } else {
                         alert("Whoops! There is an issue connecting to database");

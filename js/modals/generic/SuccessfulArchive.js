@@ -1,4 +1,4 @@
-function launchSuccessfulArchive() {
+function launchGenericSuccessfulArchive() {
 
     $('#customModal').removeClass().addClass('modal fade generic-modal');
     $('#customSize').removeClass().addClass('modal-dialog');

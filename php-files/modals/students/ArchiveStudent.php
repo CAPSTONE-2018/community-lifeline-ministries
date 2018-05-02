@@ -22,7 +22,7 @@ $studentName = $_POST['studentName'];
             data: {studentId: studentId},
             success: function (output) {
                 if (output == 0) {
-                    launchSuccessfulArchive();
+                    launchGenericSuccessfulArchive();
                     window.location.href = "../show/ShowStudents.php"
                 } else {
                     alert("Whoops! There is an issue connecting to database");

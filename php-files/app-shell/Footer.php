@@ -14,7 +14,12 @@
 <script src="../../js/forms/FilterFields.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
 <script src="../../js/modals/ClearModalsOnClose.js"></script>
+
+<!--Generic Modal Scripts-->
 <script src="../../js/modals/generic/SuccessfulArchive.js"></script>
+<script src="../../js/modals/generic/SuccessfulEntry.js"></script>
+<script src="../../js/modals/generic/DuplicateEntry.js"></script>
+<script src="../../js/modals/generic/DatabaseError.js"></script>
 <!--Show All Table Scripts-->
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
@@ -32,7 +37,7 @@
 <!--Employee Related Scripts-->
 <script src="../../js/modals/employee/ConfirmNewEmployeeEntries.js"></script>
 <script src="../../js/modals/ModalFooterRoutes.js"></script>
-<script src="../../js/modals/program/ValidateProgramEntry.js"></script>
+<!--<script src="../../js/modals/program/ValidateProgramEntry.js"></script>-->
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
 
 <!-- The javascript plugin to display page loading on top-->

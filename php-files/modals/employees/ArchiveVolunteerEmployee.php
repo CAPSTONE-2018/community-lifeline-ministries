@@ -25,7 +25,7 @@ $nameToDisplay = $_POST['volunteerName'];
                 data: {volunteerId: volunteerId},
                 success: function (output) {
                     if (output == 0) {
-                        launchSuccessfulArchive();
+                        launchGenericSuccessfulArchive();
                         window.location.href = "../show/ShowVolunteerEmployees.php"
                     } else {
                         alert("Whoops! There was an issue connecting to database");

@@ -9,25 +9,27 @@ $queryForAllExistingPrograms = "SELECT * FROM Programs WHERE Program_Name = '$pr
 $existingProgramResults = mysqli_query($db, $queryForAllExistingPrograms);
 $doesProgramExist = mysqli_num_rows($existingProgramResults);
 
-if ($doesProgramExist > 0) {
-    echo 1;
-} else {
-    $stmtPrograms = $db->prepare("INSERT INTO Programs (Author_Username, Active_Program, Program_Name) VALUES (?, ?, ?)");
-    $stmtPrograms->bind_param('sis', $userMakingChanges, $isActiveFlag, $programName);
-    $stmtPrograms->execute();
-    $lastProgramInsertId = $stmtPrograms->insert_id;
+if (isset($programName)) {
 
 
-    $stmtVolunteers = $db->prepare("INSERT INTO Volunteer_To_Programs (Author_Username, Program_Id, Volunteer_Id) VALUES (?, ?, ?)");
-    $stmtVolunteers->bind_param('sii', $userMakingChanges, $lastProgramInsertId, $volunteerIdToProgram);
-    $stmtVolunteers->execute();
-
-
-    if ($stmtPrograms->affected_rows == -1) {
-        echo 001;
-        $stmtPrograms->close();
+    if ($doesProgramExist > 0) {
+        echo "entry-exists";
     } else {
-        echo 0;
-        $stmtPrograms->close();
+        $stmtPrograms = $db->prepare("INSERT INTO Programs (Author_Username, Active_Program, Program_Name) VALUES (?, ?, ?)");
+        $stmtPrograms->bind_param('sis', $userMakingChanges, $isActiveFlag, $programName);
+        $stmtPrograms->execute();
+        $lastProgramInsertId = $stmtPrograms->insert_id;
+
+
+//    $stmtVolunteers = $db->prepare("INSERT INTO Volunteer_To_Programs (Author_Username, Program_Id, Volunteer_Id) VALUES (?, ?, ?)");
+//    $stmtVolunteers->bind_param('sii', $userMakingChanges, $lastProgramInsertId, $volunteerIdToProgram);
+//    $stmtVolunteers->execute();
+
+        if (mysqli_affected_rows($db) >= 1) {
+            echo "success";
+            $stmtPrograms->close();
+        } else {
+            $stmtPrograms->close();
+        }
     }
 }

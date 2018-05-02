@@ -66,10 +66,11 @@ $volunteerResults = mysqli_query($db, $query);
         var programName = document.getElementById("programName").value;
         var volunteerId = document.getElementById("volunteerId").value;
         var submissionType = "Program";
-        var viewAllRoute = "routeToViewAllPrograms()";
+        var viewAllRoute = "../../php-files/show/ShowPrograms.php";
         var viewAllButtonTitle = "View All Programs";
-        var newEntryRoute = "routeToNewProgram()";
+        var newEntryRoute = "../../php-files/new/NewProgram.php";
         var newEntryButtonTitle = "New Program";
+        var afterModalDisplaysRoute = "../../php-files/new/NewProgram.php";
         $.ajax({
             url: "../mysql-statements/add/AddProgram.php",
             method: "POST",
@@ -77,14 +78,13 @@ $volunteerResults = mysqli_query($db, $query);
                 programName: programName,
                 volunteerId: volunteerId
             },
-            success: function (data) {
-                if (data == 1) {
-                    launchDuplicateProgramEntryModal(programName, submissionType);
-                } else if (data == 001) {
-                    alert("something went wrong with the database");
-                } else if (data == 0) {
-                    launchSuccessfulProgramEntryModal(programName, submissionType,
-                        viewAllRoute, viewAllButtonTitle, newEntryRoute, newEntryButtonTitle);
+            success: function (response) {
+                if (response === 'entry-exists') {
+                    launchGenericDuplicateEntryModal(programName, submissionType);
+                } else if (response === 'database-error') {
+                    launchGenericDatabaseErrorModal();
+                } else if (response === 'success') {
+                    launchGenericSuccessfulEntryModal(programName, submissionType, afterModalDisplaysRoute);
                 }
             }
         });
