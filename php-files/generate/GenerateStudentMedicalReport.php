@@ -5,9 +5,8 @@ include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
 
-$queryForStudentAllergies = "SELECT students.First_Name,students.Last_Name,Medical_Concerns.Name, Medical_Concern_Types.Type, medical_concerns.Note
-                              FROM (Medical_Concerns JOIN students JOIN Student_To_Medical_Concerns ON Medical_Concerns.Id = Student_To_Medical_Concerns.Medical_Concern_Id)
-                              JOIN Medical_Concern_Types ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id ".$searchFilters;
+$queryForStudentAllergies = "SELECT students.First_Name,students.Last_Name, Medical_Concern_Types.Type_Name, medical_concern_types.Note
+                              FROM medical_concern_types JOIN students WHERE medical_concern_types.Id = students.Id ";
 $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
 ?>
 <div id="print_div">
@@ -19,11 +18,10 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
                         <tr>
-                            <th class="col-sm-2 text-center">First Name</th>
-                            <th class="col-sm-2 text-center">Last Name</th>
+                            <th class="col-sm-2 text-left">First Name</th>
+                            <th class="col-sm-2 text-left" >Last Name</th>
                             <th class="col-sm-3">Name</th>
-                            <th class="col-sm-3">Type</th>
-                            <th class="col-sm-3 text-center">Note</th>
+                            <th class="col-sm-3 text-left">Note</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -34,9 +32,7 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
                             echo "</td><td>";
                             echo $row['Last_Name'];
                             echo "</td><td>";
-                            echo $row['Name'];
-                            echo "</td><td>";
-                            echo $row['Type'];
+                            echo $row['Type_Name'];
                             echo "</td><td>";
                             echo $row['Note'];
                             echo "</td></tr>";
