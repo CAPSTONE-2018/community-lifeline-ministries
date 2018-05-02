@@ -59,13 +59,13 @@ function launchMedicalConcernsModal(studentId) {
         type: 'post',
         data: {studentId: studentId},
         success: function (response) {
-            $('#custom-modal').removeClass().addClass('modal right fade');
-            $('#custom-size').removeClass().addClass('modal-dialog');
-            $('#custom-title').removeClass().addClass('modal-header medical-concern-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-warning fa-2x');
-            $('#dynamic-title').text("Medical Concerns");
+            $('#customModal').removeClass().addClass('modal right fade');
+            $('#customSize').removeClass().addClass('modal-dialog');
+            $('#customTitle').removeClass().addClass('modal-header medical-concern-modal-header');
+            $('#customIcon').removeClass().addClass('m-auto fa fa-warning fa-2x');
+            $('#customHeaderText').text("Medical Concerns");
             $('.modal-body').html(response);
-            $('#custom-modal').modal('show');
+            $('#customModal').modal('show');
         }
     });
 }
@@ -79,13 +79,16 @@ function launchArchiveStudentModal(studentIdToArchive, studentName) {
             studentName: studentName
         },
         success: function (response) {
-            $('#custom-modal').removeClass().addClass('modal fade');
-            $('#custom-size').removeClass().addClass('modal-dialog');
-            $('#custom-title').removeClass().addClass('modal-header warning-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-            $('#dynamic-title').text("Archive User");
+            $('#customModal').removeClass().addClass('modal fade');
+            $('#customSize').removeClass().addClass('modal-dialog');
+            $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
+            $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
+            $('#customHeaderText').text("Archive User");
             $('.modal-body').html(response);
-            $('#custom-modal').modal('show');
+            $('#customModal').modal('show');
+
+
+
         }
     });
 }

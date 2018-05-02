@@ -13,6 +13,8 @@
 <script src="../../js/NumberTableRows.js"></script>
 <script src="../../js/forms/FilterFields.js"></script>
 <script src="../../js/forms/ToggleSwitchValues.js"></script>
+<script src="../../js/modals/ClearModalsOnClose.js"></script>
+<script src="../../js/modals/generic/SuccessfulArchive.js"></script>
 <!--Show All Table Scripts-->
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
