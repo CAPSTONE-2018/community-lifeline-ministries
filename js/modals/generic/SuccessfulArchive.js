@@ -9,11 +9,4 @@ function launchSuccessfulArchive() {
     $('.modal-body').addClass('text-center');
     $('.modal-body').text("Has Been Archived Successfully.");
     $('#customModal').modal('show');
-
-
-
-    // $('#custom-modal').on('hidden.bs.modal', function (e) {
-    //     $('.modal-body').removeClass('text-center');
-    //     window.location.href = '../../php-files/show/ShowStudents.php';
-    // });
 }
