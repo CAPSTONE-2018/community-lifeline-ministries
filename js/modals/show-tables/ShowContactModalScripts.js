@@ -40,7 +40,7 @@ function launchStudentsToContactModal(contactId) {
 function launchArchiveContactModal(contactId, contactName) {
     var modalBodyMessage =
         '<div class="text-center">' +
-        'Are you sure you want to archive the Contact, ' + contactName + '?' +
+        'Are you sure you want to archive the Contact, <br/>' + contactName + '?' +
         '</div>';
 
     var yesButton = '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#customModal" data-dismiss="modal" onclick="archiveContact('+contactId+')">Yes, Im Sure</button>';

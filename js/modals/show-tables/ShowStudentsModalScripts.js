@@ -70,29 +70,6 @@ function launchMedicalConcernsModal(studentId) {
     });
 }
 
-function launchArchiveStudentModal(studentIdToArchive, studentName) {
-    $.ajax({
-        url: '../modals/students/ArchiveStudent.php',
-        type: 'POST',
-        data: {
-            studentIdToArchive: studentIdToArchive,
-            studentName: studentName
-        },
-        success: function (response) {
-            $('#customModal').removeClass().addClass('modal fade');
-            $('#customSize').removeClass().addClass('modal-dialog');
-            $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-            $('#customHeaderText').text("Archive User");
-            $('.modal-body').html(response);
-            $('#customModal').modal('show');
-
-
-
-        }
-    });
-}
-
 function launchDocumentsModal(studentId) {
     $.ajax({
         url: '../modals/students/DocumentsModal.php',
@@ -109,3 +86,53 @@ function launchDocumentsModal(studentId) {
         }
     });
 }
+
+
+function launchArchiveStudentModal(studentId, studentName) {
+    var modalBodyMessage =
+        '<div class="text-center">' +
+        'Are you sure you want to archive the Student,  <br/>' + studentName + '?' +
+        '</div>';
+
+    var yesButton = '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#customModal" data-dismiss="modal" onclick="archiveStudent('+studentId+')">Yes, Im Sure</button>';
+    var noButton = '<button type="button" class="btn btn-secondary"  data-toggle="modal" data-target="#customModal" data-dismiss="modal">No, Go Back</button>';
+
+    $('#customModal').removeClass().addClass('modal fade');
+    $('#customSize').removeClass().addClass('modal-dialog');
+    $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
+    $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
+    $('#customHeaderText').text("Archive Student");
+    $('#customModal').find('#customFooterActions').append(yesButton, noButton);
+    $('.modal-body').html(modalBodyMessage);
+    $('#customModal').modal('show');
+}
+
+function archiveStudent(studentId) {
+    $.ajax({
+        url: "../mysql-statements/archive/ArchiveStudent.php",
+        method: "POST",
+        data: {studentId: studentId},
+        success: function (output) {
+            if (output == 0) {
+                launchGenericSuccessfulArchive();
+                window.location.href = "../show/ShowStudents.php"
+            } else {
+                launchGenericDatabaseErrorModal();
+            }
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
