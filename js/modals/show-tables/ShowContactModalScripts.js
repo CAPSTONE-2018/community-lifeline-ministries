@@ -25,7 +25,7 @@ function launchStudentsToContactModal(contactId) {
         data: {
             contactId: contactId
         },
-        success: function(response) {
+        success: function (response) {
             $('#custom-modal').removeClass().addClass('modal right fade');
             $('#custom-size').removeClass().addClass('modal-dialog');
             $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
@@ -38,21 +38,36 @@ function launchStudentsToContactModal(contactId) {
 }
 
 function launchArchiveContactModal(contactId, contactName) {
+    var modalBodyMessage =
+        '<div class="text-center">' +
+        'Are you sure you want to archive the Contact, ' + contactName + '?' +
+        '</div>';
+
+    var yesButton = '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#customModal" data-dismiss="modal" onclick="archiveContact('+contactId+')">Yes, Im Sure</button>';
+    var noButton = '<button type="button" class="btn btn-secondary"  data-toggle="modal" data-target="#customModal" data-dismiss="modal">No, Go Back</button>';
+
+    $('#customModal').removeClass().addClass('modal fade');
+    $('#customSize').removeClass().addClass('modal-dialog');
+    $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
+    $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
+    $('#customHeaderText').text("Archive Contact");
+    $('#customModal').find('#customFooterActions').append(yesButton, noButton);
+    $('.modal-body').html(modalBodyMessage);
+    $('#customModal').modal('show');
+}
+
+function archiveContact(contactId) {
     $.ajax({
-        url: '../modals/contacts/ArchiveContact.php',
-        type: 'POST',
-        data: {
-            contactId: contactId,
-            contactName: contactName
-        },
-        success: function(response) {
-            $('#customModal').removeClass().addClass('modal fade');
-            $('#customSize').removeClass().addClass('modal-dialog');
-            $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-            $('#customHeaderText').text("Archive User");
-            $('.modal-body').html(response);
-            $('#customModal').modal('show');
+        url: "../mysql-statements/archive/ArchiveContact.php",
+        method: "POST",
+        data: {contactId: contactId},
+        success: function (output) {
+            if (output === "success") {
+                launchGenericSuccessfulArchive();
+                window.location.href = "../show/ShowContacts.php"
+            } else {
+                launchGenericDatabaseErrorModal();
+            }
         }
-    })
+    });
 }

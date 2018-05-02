@@ -9,9 +9,7 @@ $queryForAllExistingPrograms = "SELECT * FROM Programs WHERE Program_Name = '$pr
 $existingProgramResults = mysqli_query($db, $queryForAllExistingPrograms);
 $doesProgramExist = mysqli_num_rows($existingProgramResults);
 
-if (isset($programName)) {
-
-
+if (trim($programName) !== '') {
     if ($doesProgramExist > 0) {
         echo "entry-exists";
     } else {
@@ -29,7 +27,10 @@ if (isset($programName)) {
             echo "success";
             $stmtPrograms->close();
         } else {
+            echo "database-error";
             $stmtPrograms->close();
         }
     }
+} else {
+    echo "need to fill in";
 }

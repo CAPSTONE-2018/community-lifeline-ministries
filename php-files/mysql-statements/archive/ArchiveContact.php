@@ -5,7 +5,7 @@ $contactId = $_POST['contactId'];
 $updateSqlStatement = "UPDATE Contacts SET Active_Contact = 0 WHERE Id = $contactId;";
 
 if ($db->query($updateSqlStatement) === TRUE) {
-    echo 0;
+    echo "success";
 } else {
-    echo 1;
+    echo "database-error";
 }
