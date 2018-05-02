@@ -13,17 +13,18 @@ $nameToDisplay = $_POST['contactName'];
         var yesButton = '<button type="button" class="btn btn-danger" onclick="archiveContact(<?php echo $contactIdToArchive; ?>)" data-dismiss="modal">Yes, Im Sure</button>';
         var noButton = '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go Back</button>';
 
-        $('#custom-modal').find('#modal-button-footer-row').append(yesButton, noButton);
+        $('#customModal').find('#customFooterActions').append(yesButton, noButton);
     </script>
 
     <script type="text/javascript">
         function archiveContact(contactId) {
             $.ajax({
-                url: "../archive/ArchiveContact.php",
+                url: "../mysql-statements/archive/ArchiveContact.php",
                 method: "POST",
                 data: {contactId: contactId},
                 success: function (output) {
                     if (output == 0) {
+                        launchSuccessfulArchive();
                         window.location.href = "../show/ShowContacts.php"
                     } else {
                         alert("Whoops! There is an issue connecting to database");
