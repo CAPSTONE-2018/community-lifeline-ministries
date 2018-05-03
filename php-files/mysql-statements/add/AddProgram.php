@@ -32,5 +32,5 @@ if (trim($programName) !== '') {
         }
     }
 } else {
-    echo "need to fill in";
+    echo "fill-required-inputs";
 }

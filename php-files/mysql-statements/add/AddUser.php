@@ -30,5 +30,5 @@ if (trim($username) !== '' && trim($password) !== '' && $employeeId !== '' && $a
         }
     }
 } else {
-    echo "need to fill generic modal";
+    echo "fill-required-inputs";
 }

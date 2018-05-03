@@ -135,7 +135,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="#">
+                    <a class="treeview-item" href="../new/NewStudentToMedicalConcern.php">
                         <i class="icon fa fa-graduation-cap"></i>
                          Add Student Concern
                     </a>

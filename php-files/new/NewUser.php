@@ -122,6 +122,8 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
                     launchGenericDatabaseErrorModal();
                 } else if (response === 'success') {
                     launchGenericSuccessfulEntryModal(username, submissionType, afterModalDisplaysRoute);
+                } else if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
                 }
             }
         });

@@ -20,7 +20,7 @@ include("../../db/config.php");
         </div>
 
         <div class="card-body">
-            <form action="" method="POST" id="newMedicalConcernForm">
+            <form method="POST" id="newMedicalConcernForm">
                 <h4 class="heading text-left"><i class="fa fa-bullhorn"></i> General Info</h4>
                 <div class="blue-line-color"></div>
                 <div class="row">
@@ -66,6 +66,8 @@ include("../../db/config.php");
                     launchGenericDatabaseErrorModal();
                 } else if (response === 'success') {
                     launchGenericSuccessfulEntryModal(medicalTypeName, submissionType, afterModalDisplaysRoute);
+                } else if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
                 }
             }
         });

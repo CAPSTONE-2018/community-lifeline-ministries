@@ -29,5 +29,5 @@ if (trim($medicalConcernTypeName) !== '') {
     }
 
 } else {
-    echo "need to fill generic modal";
+    echo "fill-required-inputs";
 }

@@ -2,22 +2,29 @@
 include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$studentId = intval($_POST['studentId']);
+$studentId = $_POST['studentId'];
 $programId = $_POST['programId'];
+$isActiveFlag = 1;
+$queryForStudentToProgram = "SELECT * FROM Student_To_Programs WHERE Student_Id = '$studentId' AND Program_Id = '$programId';";
+$existingStudentsToProgramsResults = mysqli_query($db, $queryForStudentToProgram);
+$doesStudentToProgramExist = mysqli_num_rows($existingStudentsToProgramsResults);
 
-$stmt = $db->prepare("INSERT INTO Student_To_Programs (Author_Username, Student_Id, Program_Id) VALUES (?, ?, ?)");
-$stmt->bind_param('sii', $userMakingChanges, $studentId, $programId);
-$stmt->execute();
+if ($studentId !== '' && $programId !== '') {
+    if ($doesStudentToProgramExist > 0) {
+        echo "entry-exists";
+    } else {
+        $stmt = $db->prepare("INSERT INTO Student_To_Programs (Author_Username, Active_Id, Student_Id, Program_Id) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param('siii', $userMakingChanges, $isActiveFlag, $studentId, $programId);
+        $stmt->execute();
 
-if ($stmt->affected_rows == -1) {
-    echo "
-        <div class='alert alert-danger'>
-            <strong>Failure! </strong>Student could not be added to the class, please try again.
-        </div>";
+        if (mysqli_affected_rows($db) >= 1) {
+            echo "success";
+            $stmt->close();
+        } else {
+            echo "database-error";
+            $stmt->close();
+        }
+    }
 } else {
-    echo "
-        <div class='alert alert-success'>
-            <strong>Success! </strong>Student has been successfully added to the class.
-        </div>";
-    $stmt->close();
+    echo "fill-required-inputs";
 }
