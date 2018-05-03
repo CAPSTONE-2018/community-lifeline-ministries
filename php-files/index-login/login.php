@@ -2,28 +2,28 @@
 $enteredUsername = $_POST['username'];
 $enteredPassword = $_POST['password'];
 
-if ($enteredUsername == '' || $enteredPassword == '') {
-    header("Location: index.html");
+if (!isset($enteredUsername) && !isset($enteredPassword)) {
+    header("Location: /community-lifeline-ministries/index.html");
 } else {
     $encryptPass = md5($enteredPassword);
     //Retrieve database credentials and connect to database
     include("../../db/config.php");
-    if ($stmt = $db->prepare("SELECT * FROM Account_Login WHERE Username = ? AND Password = ?")) {
+    if ($stmt = $db->prepare("SELECT Username, Password, Account_Type FROM Account_Login WHERE Username = ? AND Password = ?")) {
         $stmt->bind_param('ss', $enteredUsername, $encryptPass);
         $stmt->execute();
-        $stmt->bind_result($foundUsername, $foundPassword, $account, $employeeId);
+        $stmt->bind_result($foundUsername, $foundPassword, $account);
         $stmt->fetch();
         $stmt->close();
 
         //check if the credentials match an account in the database
-        if ($foundUsername == $enteredUsername and $foundPassword == $encryptPass) {
+        if ($foundUsername === $enteredUsername && $foundPassword === $encryptPass) {
             session_start();
             $_SESSION['loggedIn'] = "$enteredUsername";
             $_SESSION['account'] = "$account";
 
-            header("Location: main-menu.php");
+            header("Location: /community-lifeline-ministries/php-files/index-login/main-menu.php");
         } else {
-            header("Location: index.html");
+            header("Location: /community-lifeline-ministries/index.html");
         }
     }
 }
