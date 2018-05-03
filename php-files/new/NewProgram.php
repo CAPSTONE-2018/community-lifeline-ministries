@@ -1,6 +1,7 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 $query = "SELECT * FROM Volunteer_Employees ORDER BY Last_Name, First_Name;";
 $volunteerResults = mysqli_query($db, $query);
@@ -70,9 +71,9 @@ $volunteerResults = mysqli_query($db, $query);
         var viewAllButtonTitle = "View All Programs";
         var newEntryRoute = "../../php-files/new/NewProgram.php";
         var newEntryButtonTitle = "New Program";
-        var afterModalDisplaysRoute = "../../php-files/new/NewProgram.php";
+        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewProgram.php";
         $.ajax({
-            url: "../mysql-statements/add/AddProgram.php",
+            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddProgram.php",
             method: "POST",
             data: {
                 programName: programName,

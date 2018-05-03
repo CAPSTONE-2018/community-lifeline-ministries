@@ -168,7 +168,7 @@
                         Enroll</label>
                     <ul for="programToEnroll"
                         class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                        <?php while ($existingProgramsRow = mysqli_fetch_assoc($existingProgramResults)) { ?>
+                        <?php while ($existingProgramsRow = mysqli_fetch_assoc($existingMedicalConcernsResults)) { ?>
                             <li class="mdl-menu__item"
                                 data-val="<?php echo $existingProgramsRow['Id']; ?>"><?php echo $existingProgramsRow['Program_Name']; ?></li>
                             <?php

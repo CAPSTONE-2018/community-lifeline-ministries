@@ -123,7 +123,7 @@
             </a>
             <ul class="treeview-menu">
                 <li>
-                    <a class="treeview-item" href="../new/NewMedicalConcern.php">
+                    <a class="treeview-item" href="../new/NewMedicalConcernType.php">
                         <i class="icon fa fa-plus"></i>
                         Add New Concern
                     </a>
