@@ -37,6 +37,10 @@
     border: none;
 }
 
+#customHeaderText {
+    color: #fff;
+}
+
 .contact-modal-header {
     background-color: #6640B4;
     height: 75px;

@@ -18,7 +18,6 @@ function launchEditStudentModal(studentId) {
     });
 }
 
-
 function launchTestScoresModal(studentId) {
     $.ajax({
         url: '../modals/students/TestScoresModal.php',
@@ -86,16 +85,3 @@ function launchDocumentsModal(studentId) {
         }
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

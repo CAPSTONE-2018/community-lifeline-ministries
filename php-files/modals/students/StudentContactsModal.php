@@ -107,7 +107,6 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
 
 <script type="text/javascript">
     function closeAndLaunchArchiveStudentContact() {
-        alert();
         $('#customModal').modal('hide').toggle( "slide" );
         setTimeout(function () {
             launchConfirmArchiveModal(
