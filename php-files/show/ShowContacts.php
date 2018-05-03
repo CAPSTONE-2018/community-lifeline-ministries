@@ -1,6 +1,7 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 
 $queryForActiveContacts = "SELECT * FROM Contacts WHERE Active_Contact = 1 ORDER BY Last_Name;";
@@ -86,10 +87,12 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                     <div class='d-inline'>
                                         <button type='button'
                                                 class='btn large-action-buttons delete-button'
-                                                onclick='launchArchiveContactModal(
+                                                onclick='launchConfirmArchiveModal(
                                                         "<?php echo $contactId; ?>",
-                                                        "<?php echo $nameToDisplay; ?>"
-                                                        )'
+                                                        "ArchiveContact.php",
+                                                        "Contact",
+                                                        "<?php echo $nameToDisplay; ?>",
+                                                        "ShowContacts.php")'
                                         >
                                             <i class='fa fa-archive'></i> Archive
                                         </button>

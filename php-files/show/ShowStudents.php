@@ -136,10 +136,14 @@ $studentTableToLookUp = "Students";
                                     <div class='d-inline'>
                                         <button type='button'
                                                 class='btn large-action-buttons delete-button'
-                                                onclick='launchArchiveStudentModal(
+                                                onclick='launchConfirmArchiveModal(
                                                         "<?php echo $studentIdToSearch; ?>",
-                                                        "<?php echo $studentName; ?>"
-                                                        )'>
+                                                        "ArchiveStudent.php",
+                                                        "Student",
+                                                        "<?php echo $studentName; ?>",
+                                                        "ShowStudents.php"
+                                                        )'
+                                        >
                                             <i class='fa fa-archive mr-0'></i> Archive
                                         </button>
                                     </div>

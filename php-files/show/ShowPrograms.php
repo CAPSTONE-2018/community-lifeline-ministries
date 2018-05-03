@@ -89,6 +89,16 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                             <i class='fa fa-pencil'></i> Edit
                                         </button>
                                     </div>
+                                    <div class='d-inline'>
+                                        <button type='button'
+                                                class='btn large-action-buttons delete-button'
+                                                onclick='launchArchiveProgramModal(
+                                                        "<?php echo $programId; ?>",
+                                                        "<?php echo $programName; ?>"
+                                                        )'>
+                                            <i class='fa fa-archive mr-0'></i> Archive
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <div class='right-action-buttons-container d-inline'>

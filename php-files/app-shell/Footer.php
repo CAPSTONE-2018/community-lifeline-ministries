@@ -20,6 +20,7 @@
 <script src="../../js/modals/generic/SuccessfulEntry.js"></script>
 <script src="../../js/modals/generic/DuplicateEntry.js"></script>
 <script src="../../js/modals/generic/DatabaseError.js"></script>
+<script src="../../js/modals/generic/ConfirmArchiveModal.js"></script>
 <!--Show All Table Scripts-->
 <script src="../../js/modals/show-tables/ShowStudentsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
