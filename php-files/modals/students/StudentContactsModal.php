@@ -76,12 +76,11 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
             </div>
             <div class='col-6'>
                 <button type='button' class='btn btn-secondary'
-                        onclick='closeAndLaunchArchive()'
+                        onclick='closeAndLaunchArchiveStudentContact()'
                 >
                     <i class='fa fa-archive'></i> Archive Contact
                 </button>
             </div>
-
         </div>
 
         <div class="collapse" id="collapseAddress<?php echo $dynamicRowId; ?>">
@@ -107,7 +106,7 @@ while ($contactRow = mysqli_fetch_assoc($studentContactResults)) {
 <?php } ?>
 
 <script type="text/javascript">
-    function closeAndLaunchArchive() {
+    function closeAndLaunchArchiveStudentContact() {
         alert();
         $('#customModal').modal('hide').toggle( "slide" );
         setTimeout(function () {
