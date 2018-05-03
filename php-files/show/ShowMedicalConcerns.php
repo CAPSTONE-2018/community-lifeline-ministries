@@ -1,9 +1,13 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 
-$queryForMedicalConcerns = "SELECT * FROM Student_To_Medical_Concerns;";
+$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name FROM Medical_Concern_Types 
+JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
+WHERE Medical_Concern_Types.Active_Id = 1;";
+
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
     <div class="app-title">
@@ -19,7 +23,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
         <div class="card">
             <div class="card-header">
                 <div class="col-12 text-center">
-                    <h2><i class="fa fa-warning"></i> All Medical Concerns</h2>
+                    <h2><i class="fa fa-warning"></i> All Medical Concern Types</h2>
                 </div>
 
                 <div class="row">
@@ -54,11 +58,11 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                         <tbody>
                         <?php
                         while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
-                            $medicalConcernId = $medicalConcernsRow['Id'];
+                            $medicalConcernTypeId = $medicalConcernsRow['Id'];
                             $medicalConcernName = $medicalConcernsRow['Medical_Concern_Name'];
-                            $medicalConcernType = $medicalConcernsRow['Type'];
-                            $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
-                            $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
+                            $medicalConcernType = $medicalConcernsRow['Type_Name'];
+//                            $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
+//                            $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
                             $studentTotals = '';
                             while ($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
                                 $studentTotals = $studentsWithMedicalConcernsRow['Count'];
@@ -74,9 +78,22 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                         <div class=' d-inline'>
                                             <button type='button'
                                                     class='btn large-action-buttons edit-button'
-                                                    onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
+                                                    onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernTypeId; ?>)'
                                             >
                                                 <i class='fa fa-pencil'></i> Edit
+                                            </button>
+                                        </div>
+                                        <div class='d-inline'>
+                                            <button type='button'
+                                                    class='btn large-action-buttons delete-button'
+                                                    onclick='launchConfirmArchiveModal(
+                                                            "<?php echo $medicalConcernTypeId; ?>",
+                                                            "ArchiveMedicalConcern.php",
+                                                            "Medical Concern Type",
+                                                            "<?php echo $medicalConcernType; ?>",
+                                                            "ShowMedicalConcerns.php")'
+                                            >
+                                                <i class='fa fa-archive'></i> Archive
                                             </button>
                                         </div>
                                     </div>
@@ -87,7 +104,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                                 <button type='button'
                                                         onclick='launchStudentsWithMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
                                                         class='btn small-action-buttons test-scores-button'>
-                                                        <i class='fa fa-graduation-cap'></i>
+                                                        <i class='fa fa-graduation-cap mr-0'></i>
                                                 </button>
                                             </span>
                                     </div>

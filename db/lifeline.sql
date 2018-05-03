@@ -58,6 +58,7 @@ CREATE TABLE Medical_Concern_Types (
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Id              TINYINT(1),
   Type_Name              VARCHAR(60),
   Note                   VARCHAR(500)
 );
@@ -67,6 +68,7 @@ CREATE TABLE Student_To_Medical_Concerns (
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Id              TINYINT(1),
   Student_Id             INT(10),
   Medical_Concern_Name   VARCHAR(50),
   Medical_Type_Id        INT(10),
@@ -167,6 +169,7 @@ CREATE TABLE Student_Test_Scores (
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Id              TINYINT(1),
   Student_Id             INT(10),
   School_Year            INT(10),
   Term                   VARCHAR(20),
@@ -176,38 +179,12 @@ CREATE TABLE Student_Test_Scores (
   REFERENCES Students (Id)
 );
 
-
-CREATE TABLE Class_To_Programs (
-  Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Author_Username        VARCHAR(30),
-  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Program_Id             INT(10),
-  Class_Id               INT(10),
-  CONSTRAINT FK_Program_Id_Classes FOREIGN KEY (Program_Id)
-  REFERENCES Programs (Id),
-  CONSTRAINT FK_Class_Id_Classes FOREIGN KEY (Class_Id)
-  REFERENCES Classes (Id)
-);
-
-CREATE TABLE Student_To_Classes (
-  Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Author_Username        VARCHAR(30),
-  Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
-  Student_Id             INT(10),
-  Class_Id               INT(10),
-  CONSTRAINT FK_Student_Id_Enrolled FOREIGN KEY (Student_Id)
-  REFERENCES Students (Id),
-  CONSTRAINT FK_Class_Id_Enrolled FOREIGN KEY (Class_Id)
-  REFERENCES Classes (Id)
-);
-
 CREATE TABLE Student_To_Contacts (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Id              TINYINT(1),
   Student_Id             INT(10),
   Contact_Id             INT(10),
   Relationship           VARCHAR(100),
@@ -222,6 +199,7 @@ CREATE TABLE Volunteer_To_Programs (
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Id              TINYINT(1),
   Program_Id             INT(10),
   Volunteer_Id           INT(10),
   CONSTRAINT FK_Program_Id_Programs FOREIGN KEY (Program_Id)
@@ -252,6 +230,7 @@ CREATE TABLE Student_To_Programs (
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
+  Active_Id              TINYINT(1),
   Student_Id             INT(10),
   Program_Id             INT(10),
   CONSTRAINT FK_Student_Id_Program FOREIGN KEY (Student_Id)

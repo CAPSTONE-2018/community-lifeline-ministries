@@ -17,27 +17,6 @@ function launchEditProgramModal(programId) {
     });
 }
 
-function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisplay) {
-    $.ajax({
-        url: '../modals/programs/ArchiveStudent.php',
-        type: 'POST',
-        data: {
-            programIdToArchive: programIdToArchive,
-            tableToLookUp: tableToLookUp,
-            nameToDisplay: nameToDisplay
-        },
-        success: function (response) {
-            $('#customModal').removeClass().addClass('modal fade');
-            $('#customSize').removeClass().addClass('modal-dialog');
-            $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-            $('#customHeaderText').text("Archive Program");
-            $('.modal-body').html(response);
-            $('#customModal').modal('show');
-        }
-    });
-}
-
 function launchVolunteersInProgramModal(programId) {
     $.ajax({
         url: '../modals/programs/VolunteersToProgramModal.php',
