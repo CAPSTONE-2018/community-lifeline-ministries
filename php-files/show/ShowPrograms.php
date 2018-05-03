@@ -1,8 +1,9 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-$queryForPrograms = "SELECT * FROM Programs;";
+$queryForPrograms = "SELECT * FROM Programs WHERE Active_Program = 1;";
 $programResults = mysqli_query($db, $queryForPrograms);
 ?>
 <div class="app-title">
@@ -92,9 +93,12 @@ $programResults = mysqli_query($db, $queryForPrograms);
                                     <div class='d-inline'>
                                         <button type='button'
                                                 class='btn large-action-buttons delete-button'
-                                                onclick='launchArchiveProgramModal(
+                                                onclick='launchConfirmArchiveModal(
                                                         "<?php echo $programId; ?>",
-                                                        "<?php echo $programName; ?>"
+                                                        "ArchiveProgram.php",
+                                                        "Program",
+                                                        "<?php echo $programName; ?>",
+                                                        "ShowPrograms.php"
                                                         )'>
                                             <i class='fa fa-archive mr-0'></i> Archive
                                         </button>
