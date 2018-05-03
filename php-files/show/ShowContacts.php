@@ -77,7 +77,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                             <td class='col-sm-4 text-center'>
                                 <div class='left-action-buttons-container d-inline m-auto'>
                                     <div class='d-inline'>
-                                        <button type='button'
+                                        <button type='button' data-toggle='modal' data-target='#customModal' data-dismiss='modal'
                                                 class='btn large-action-buttons edit-button'
                                                 onclick='launchEditContactModal(<?php echo $contactId; ?>)'
                                         >
@@ -85,7 +85,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                         </button>
                                     </div>
                                     <div class='d-inline'>
-                                        <button type='button'
+                                        <button type='button' data-toggle='modal' data-target='#customModal' data-dismiss='modal'
                                                 class='btn large-action-buttons delete-button'
                                                 onclick='launchConfirmArchiveModal(
                                                         "<?php echo $contactId; ?>",

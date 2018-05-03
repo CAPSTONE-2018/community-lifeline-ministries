@@ -38,7 +38,7 @@ function launchTestScoresModal(studentId) {
 
 function launchContactsModal(studentId) {
     $.ajax({
-        url: '../modals/students/DisplayStudentContactsModal.php',
+        url: '/community-lifeline-ministries/php-files/modals/students/StudentContactsModal.php',
         type: 'post',
         data: {studentId: studentId},
         success: function (response) {

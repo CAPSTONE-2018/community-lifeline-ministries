@@ -190,7 +190,7 @@ $studentsResult = mysqli_query($db, $query);
             <div class="right-align">
                 <!--   Button trigger modal -->
                 <button id="newContactConfirmationButton" type="button" class="btn btn-right btn-primary"
-                        data-toggle="modal" data-target="#exampleModalCenter">
+                        data-toggle="modal">
                     Verify Info
                 </button>
             </div>
