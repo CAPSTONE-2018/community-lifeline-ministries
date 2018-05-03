@@ -1,16 +1,21 @@
 <?php
-
-include("../scripts/header.php");
-
-//connect to database
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-
-
 $query = "SELECT * FROM Volunteer_Employees ORDER BY Last_Name, First_Name;";
 $volunteerResults = mysqli_query($db, $query);
 ?>
-
-<div class="container-fluid col-sm-10">
+<div class="app-title">
+    <div>
+        <h3><i class="fa fa-plus"></i> Add New Program</h3>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"> New Program</li>
+    </ul>
+</div>
+<div class="container-fluid">
     <div class="card text-center">
         <div class="card-header">
             <h1><i class="fa fa-pencil"></i>  New Program Info</h1>
@@ -19,7 +24,7 @@ $volunteerResults = mysqli_query($db, $query);
         <div class="card-body">
             <form id="newProgramForm">
 
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-6 m-auto">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="programName" class="mdl-textfield__input" name="name" type="text"/>
@@ -62,29 +67,31 @@ $volunteerResults = mysqli_query($db, $query);
         var programName = document.getElementById("programName").value;
         var volunteerId = document.getElementById("volunteerId").value;
         var submissionType = "Program";
-        var viewAllRoute = "routeToViewAllPrograms()";
+        var viewAllRoute = "../../php-files/show/ShowPrograms.php";
         var viewAllButtonTitle = "View All Programs";
-        var newEntryRoute = "routeToNewProgram()";
+        var newEntryRoute = "../../php-files/new/NewProgram.php";
         var newEntryButtonTitle = "New Program";
+        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewProgram.php";
         $.ajax({
-            url: "../add/AddProgram.php",
+            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddProgram.php",
             method: "POST",
             data: {
                 programName: programName,
                 volunteerId: volunteerId
             },
-            success: function (data) {
-                if (data == 1) {
-                    launchDuplicateEntryModal(programName, submissionType);
-                } else if (data == 001) {
-                    alert("something went wrong with the database");
-                } else if (data == 0) {
-                    launchSuccessfulEntryModal(programName, submissionType,
-                        viewAllRoute, viewAllButtonTitle, newEntryRoute, newEntryButtonTitle);
+            success: function (response) {
+                if (response === 'entry-exists') {
+                    launchGenericDuplicateEntryModal(programName, submissionType);
+                } else if (response === 'database-error') {
+                    launchGenericDatabaseErrorModal();
+                } else if (response === 'success') {
+                    launchGenericSuccessfulEntryModal(programName, submissionType, afterModalDisplaysRoute);
+                } else if (response === 'fill-inputs-required') {
+                    launchGenericRequiredInputsModal();
                 }
             }
         });
     }
 </script>
 
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

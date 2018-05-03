@@ -67,9 +67,9 @@ $volunteerResults = mysqli_query($db, $queryForVolunteerInfo);
         var programName = document.getElementById("programName").value;
         var volunteerId = document.getElementById("volunteerId").value;
         var submissionType = "Program";
-        var viewAllRoute = "routeToViewAllPrograms()";
+        var viewAllRoute = "../../php-files/show/ShowPrograms.php";
         var viewAllButtonTitle = "View All Programs";
-        var newEntryRoute = "routeToNewProgram()";
+        var newEntryRoute = "../../php-files/new/NewProgram.php";
         var newEntryButtonTitle = "New Program";
         $.ajax({
             url: "../add/AddProgram.php",

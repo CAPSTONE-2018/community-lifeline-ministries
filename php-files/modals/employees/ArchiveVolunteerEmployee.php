@@ -14,20 +14,21 @@ $nameToDisplay = $_POST['volunteerName'];
         var yesButton = '<button type="button" class="btn btn-danger" onclick="archiveEmployee(<?php echo $volunteerIdToArchive; ?>)" data-dismiss="modal">Yes, Im Sure</button>';
         var noButton = '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go Back</button>';
 
-        $('#custom-modal').find('#modal-button-footer-row').append(yesButton, noButton);
+        $('#customModal').find('#customFooterActions').append(yesButton, noButton);
     </script>
 
     <script type="text/javascript">
         function archiveEmployee(volunteerId) {
             $.ajax({
-                url: "../archive/ArchiveVolunteerEmployee.php",
+                url: "../mysql-statements/archive/ArchiveVolunteerEmployee.php",
                 method: "POST",
                 data: {volunteerId: volunteerId},
                 success: function (output) {
                     if (output == 0) {
+                        launchGenericSuccessfulArchive();
                         window.location.href = "../show/ShowVolunteerEmployees.php"
                     } else {
-                        alert("Whoops! There is an issue connecting to database");
+                        alert("Whoops! There was an issue connecting to database");
                     }
                 }
             });

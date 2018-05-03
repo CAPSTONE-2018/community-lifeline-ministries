@@ -3,9 +3,6 @@ include("../scripts/header.php");
 include("../../db/config.php");
 
 ?>
-<link rel="stylesheet" href="../../css/form-styles.css"/>
-<link rel="stylesheet" href="../../css/toggle-switch.css"/>
-
 <div class="container-fluid">
     <div id = "FilterReport" class="row">
         <div class="col-lg">
@@ -60,9 +57,6 @@ include("../../db/config.php");
 
     </div>
 </div>
-
-<?php include("../scripts/footer.php"); ?>
-<script src="../../js/input-styling.min.js"></script>
 
 
 <script type="text/javascript">
@@ -120,5 +114,5 @@ include("../../db/config.php");
     });
 
 </script>
-<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
-<!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
+
+<?php include("../scripts/footer.php"); ?>

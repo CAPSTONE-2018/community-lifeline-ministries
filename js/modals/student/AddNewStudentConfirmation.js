@@ -1,18 +1,18 @@
 function launchAddNewStudentConfirmationModal(serializedForm, serializedStudentMedicalForm, serializedStudentContactForm) {
     $.ajax({
-        url: "../../php-files/add/AddStudent.php",
+        url: "../../php-files/mysql-statements/add/AddStudent.php",
         method: "POST",
         data: serializedForm,
         success: function(output) {
+            alert(serializedStudentMedicalForm);
             $.ajax({
-                url: '../../php-files/add/AddStudentToMedicalConcerns.php',
+                url: '../../php-files/mysql-statements/add/AddStudentToMedicalConcerns.php',
                 type: 'POST',
                 data: serializedStudentMedicalForm,
                 success: function(output) {
-
-
+                    alert(serializedStudentContactForm);
                     $.ajax({
-                        url: '../../php-files/add/AddContact.php',
+                        url: '../../php-files/mysql-statements/add/AddContact.php',
                         type: 'POST',
                         data: serializedStudentContactForm,
 

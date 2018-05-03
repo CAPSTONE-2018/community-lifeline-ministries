@@ -4,19 +4,19 @@ $dynamicRowId = 0;
 
 $studentId = $_POST['studentId'];
 
-$queryForStudentAllergies = "SELECT Medical_Concerns.Name, Medical_Concern_Types.Type, medical_concerns.Note
-                              FROM (Medical_Concerns JOIN Student_To_Medical_Concerns ON Medical_Concerns.Id = Student_To_Medical_Concerns.Medical_Concern_Id)
-                              JOIN Medical_Concern_Types ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id WHERE Student_Id = 1;";
+$queryForStudentAllergies = "
+SELECT Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name, Student_To_Medical_Concerns.Note FROM Medical_Concern_Types JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
+WHERE Student_To_Medical_Concerns.Student_Id = '$studentId' AND Student_To_Medical_Concerns.Active_Id = 1;";
 $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
 
 while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
-    $medicalConcernName = $medicalConcernRow['Name'];
-    $medicalConcernType = $medicalConcernRow['Type'];
+    $medicalConcernName = $medicalConcernRow['Medical_Concern_Name'];
+    $medicalConcernType = $medicalConcernRow['Type_Name'];
     $medicalConcernNotes = $medicalConcernRow['Note'];
 
     ?>
     <div class="medical-concern-modal">
-        <div class="row form-group">
+        <div class="row">
             <div class="col-2 text-center mt-auto mb-auto">
                 <i class="fa fa-bullhorn"></i>
             </div>
@@ -30,7 +30,7 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
             </div>
         </div>
 
-        <div class="row form-group">
+        <div class="row">
             <div class="col-2 text-center mt-auto mb-auto">
                 <i class="fa fa-pencil-square-o"></i>
             </div>
@@ -44,7 +44,7 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
             </div>
         </div>
 
-        <div class="row form-group">
+        <div class="row">
             <div class="col-2 text-center mt-auto mb-auto">
                 <i class="fa fa-comments-o"></i>
             </div>
@@ -58,6 +58,37 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
                 </div>
             </div>
         </div>
-        <hr>
+        <div class="row">
+            <div class='col-6'>
+                <button type='button' class='btn btn-secondary'
+                        onclick='closeAndLaunchArchiveMedicalConcern()'
+                >
+                    <i class='fa fa-archive'></i> Archive Contact
+                </button>
+            </div>
+        </div>
+        <hr/>
     </div>
 <?php } ?>
+
+
+<script type="text/javascript">
+    function closeAndLaunchArchiveMedicalConcern() {
+        alert();
+        $('#customModal').modal('hide').toggle( "slide" );
+        setTimeout(function () {
+            launchConfirmArchiveModal(
+                "<?php echo $studentId; ?>",
+                "ArchiveStudentToMedicalConcern.php",
+                "Student Medical Concern",
+                "<?php echo $medicalConcernName; ?>",
+                "ShowStudents.php"
+            )
+        }, 1000);
+        // reference to set timeout on success modals
+        // setTimeout(function() {
+        //     $('#customModal').modal('hide');
+        // }, 100);
+    }
+</script>
+

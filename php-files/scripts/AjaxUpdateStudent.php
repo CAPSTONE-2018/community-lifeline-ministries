@@ -68,11 +68,9 @@ if ($row['IEP'] == 1) {
 
 $stateSelect = stateDropdown($row['State']);
 
-$output = "<div id=\"form_wrapper\">
+$output = ">
 
-                <form class=\"form-horizontal\" action=\"../update/UpdateStudent.php\" method=\"POST\" id=\"form2\">
-
-                    <h1>Update " . $row['First_Name'] . " " . $row["Last_Name"] . "'s Information:</h1>
+                    <h1>Update \"" . $row['First_Name'] . " " . $row["Last_Name"] . "'s Information:</h1>
                     <br />
 
                     <div class=\"row\">

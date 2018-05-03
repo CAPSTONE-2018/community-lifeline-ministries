@@ -11,8 +11,8 @@ function launchEditMedicalConcernsModal(medicalConcernId) {
            $('#dynamic-title').text("Edit Medical Concern Info");
            $('#title-wrapper').find('h4').addClass("large-font");
            $('.modal-body').html(response);
-           componentHandler.upgradeDom();
            $('#custom-modal').modal("show");
+           componentHandler.upgradeDom();
        }
     });
 }
@@ -30,8 +30,8 @@ function launchStudentsWithMedicalConcernsModal(medicalConcernId) {
             $('#dynamic-title').text("Edit Medical Concern Info");
             $('#title-wrapper').find('h4').addClass("large-font");
             $('.modal-body').html(response);
-            componentHandler.upgradeDom();
             $('#custom-modal').modal("show");
+            componentHandler.upgradeDom();
         }
     });
 }

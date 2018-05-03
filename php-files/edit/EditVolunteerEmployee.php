@@ -1,12 +1,10 @@
 <?php
 
 //connect to database
-include("../../db/config.php");
+include("../../../db/config.php");
 
 $query = "SELECT * FROM Volunteer_Employees ORDER BY Last_Name, First_Name;";
 $result = mysqli_query($db, $query);
-
-include("../scripts/header.php");
 ?>
 <div class="row">
 
@@ -30,10 +28,6 @@ include("../scripts/header.php");
 </div>
 
 <div id="showVolunteerInfo"></div>
-
-<?php
-include("../scripts/footer.php");
-?>
 
 <script>
     $(document).ready(function () {

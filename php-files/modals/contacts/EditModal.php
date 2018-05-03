@@ -2,13 +2,13 @@
 include("../../../db/config.php");
 include("../../scripts/States.php");
 $contactId = $_POST['contactId'];
-
 $queryForContact = "SELECT * FROM Contacts WHERE Id = '$contactId';";
 $queryForStudentContact = "SELECT Student_To_Contacts.Student_Id, Student_To_Contacts.Relationship, Students.First_Name, Students.Last_Name 
                             FROM Student_To_Contacts JOIN Students on Students.Id = Student_To_Contacts.Id 
                             WHERE Student_To_Contacts.Contact_Id = '$contactId';";
 $contactInfoResults = mysqli_query($db, $queryForContact);
 $studentInfoResults = mysqli_query($db, $queryForStudentContact);
+$dynamicRowId = 0;
 
 while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     $dynamicRowId++;
@@ -30,10 +30,6 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     $relationship = $studentInfoRow['Relationship'];
     $studentName = $studentInfoRow['First_Name'] . ' ' . $studentInfoRow['Last_Name'];
     $studentId = $studentInfoRow['Student_Id'];
-
-    if ($state == 'IL') {
-        $selectedState = 'Illinois';
-    }
     ?>
     <div>
         <form name="editContactForm" id="editContactForm">

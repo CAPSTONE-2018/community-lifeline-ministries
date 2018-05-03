@@ -4,37 +4,33 @@ if (!isset($_SESSION['loggedIn'])) {
     header("Location: ../../index.html");
 }
 $account = $_SESSION['account'];
-
-
 $userMakingChanges = $_SESSION['loggedIn'];
 include("../widgets/TimeZoneFormat.php");
 ?>
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CLM</title>
 
-    <title>Community Lifeline Ministries</title>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <script src="../../js/modals/ClearModalsOnClose.js"></script>
-    <link rel="stylesheet" href="../../css/pretty-dropdowns.css"/>
-    <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
-    <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
+<!--    <script src="../../js/modals/ClearModalsOnClose.js"></script>-->
+
+    <!-- Local CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../../css/plugins/application-shell/main.min.css">
+<!--    <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>-->
+    <link rel="stylesheet" href="../../css/plugins/pretty-drop-downs/pretty-drop-downs.css"/>
+    <!--    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-4.min.css"/>-->
+    <!--    <link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap-3.3.7.min.css">-->
+    <link rel="stylesheet" href="../../css/plugins/izi-modal/iziModal.min.css">
+    <!-- CDN Link to Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Local Bootstrap -->
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="../../css/clm.css"/>
-    <link rel="stylesheet" href="../../css/mdl-input-styles.css"/>
+    <!-- Our Custom Stylesheet -->
+    <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
+    <link rel="stylesheet" href="../../css/clm.css"/>
+    <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
     <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
     <link rel="stylesheet" href="../../css/form-styles.css"/>
@@ -42,11 +38,19 @@ include("../widgets/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/table-styles.css"/>
     <link rel="stylesheet" href="../../css/radio-styles.css"/>
     <link rel="stylesheet" href="../../css/attendance-page-styles.css"/>
+    <link rel="stylesheet" href="../../css/dashboard.css"/>
+
+<!--    <script src="../../js/plugins/popper.js/popper.min.js"></script>-->
+
+    <script src="../../js/plugins/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js"></script>
+    <script src="../../js/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
 
 </head>
 
 
-<body>
+<body class="app">
 <!-- Top Nav -->
 <nav class="navbar-default navbar-fixed-top">
     <div class="navbar-user">
@@ -143,7 +147,7 @@ include("../widgets/TimeZoneFormat.php");
                     </a>
                     <ul class="collapse list-unstyled" id="allergySubmenu">
                         <li><a href="#">Add Student Allergy</a></li>
-                        <li><a href="../new/NewMedicalConcern.php">Add New</a></li>
+                        <li><a href="../new/NewMedicalConcernType.php">Add New</a></li>
                         <li><a href="../show/ShowMedicalConcerns.php">Display All</a></li>
                     </ul>
                 </li>

@@ -32,9 +32,8 @@ if ($row['Active_Contact'] == 1) {
 }
 
 
-$output = "<div id=\"form_wrapper\">
-    <form class=\"form-horizontal\" action=\"../update/UpdateContact.php\" method=\"POST\" id=\"form2\">
-        <h1>Update " . $row['First_Name'] . " " . $row["Last_Name"] . "'s Information:</h1>
+$output = ">
+        <h1>Update \"" . $row['First_Name'] . " " . $row["Last_Name"] . "'s Information:</h1>
         <br/>
         <div class=\"row\">
             <div class=\"form-group\">

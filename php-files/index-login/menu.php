@@ -1,6 +1,8 @@
 <?php
 include("../scripts/header.php");
 
+include("./Dashboard.php");
+
 include("./AttendanceCard.php");
 
 ?>
