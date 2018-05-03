@@ -9,15 +9,6 @@ DROP DATABASE community_lifeline;
 CREATE DATABASE community_lifeline;
 use community_lifeline;
 
-CREATE TABLE Logins (
-  username     VARCHAR(30),
-  password     VARCHAR(32),
-  account_type VARCHAR(30),
-  first_name   VARCHAR(30),
-  last_name    VARCHAR(30),
-  email        VARCHAR(30)
-);
-
 CREATE TABLE Students (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -237,6 +228,19 @@ CREATE TABLE Student_To_Programs (
   REFERENCES Students (Id),
   CONSTRAINT FK_Program_Id_Program FOREIGN KEY (Program_Id)
   REFERENCES Programs (Id)
+);
+
+CREATE TABLE Account_Login (
+  Created_Timestamp      TIMESTAMP DEFAULT now(),
+  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Author_Username        VARCHAR(30),
+  Active_Id              TINYINT(1),
+  Username               VARCHAR(30),
+  Password               VARCHAR(32),
+  Account_Type           VARCHAR(30),
+  Employee_Id            INT(10),
+  CONSTRAINT FK_User_Login_To_Volunteer_Employees FOREIGN KEY (Employee_Id)
+  REFERENCES Volunteer_Employees (Id)
 );
 
 CREATE USER 'clm_user'@'localhost'

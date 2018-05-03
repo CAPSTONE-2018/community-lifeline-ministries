@@ -1,27 +1,34 @@
 <?php
 include("../../../db/config.php");
 session_start();
+$userMakingChanges = $_SESSION['loggedIn'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 $encryptPass = md5($password);
 $account = $_POST['account'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$email = $_POST['email'];
+$employeeId = $_POST['volunteer'];
+$isActiveFlag = 1;
 
-$stmt = $db->prepare("INSERT INTO Logins VALUES (?, ?, ?, ?, ?, ?)");
+$queryForAllExistingUserNames = "SELECT * FROM Account_Login WHERE Username = '".$username."';";
+$existingUserNameResults = mysqli_query($db, $queryForAllExistingUserNames);
+$doesUserNameExist = mysqli_num_rows($existingUserNameResults);
 
-$stmt->bind_param('ssssss', $username, $encryptPass, $account, $firstName, $lastName, $email);
+if (trim($username) !== '' && trim($password) !== '' && $employeeId !== '' && $account !== '') {
+    if ($doesUserNameExist > 0) {
+        echo "entry-exists";
+    } else {
+        $stmt = $db->prepare("INSERT INTO Account_Login(Author_Username, Active_Id, Username, Password, Account_Type, Employee_Id) VALUES (?, ?, ?, ?, ?, ?);");
+        $stmt->bind_param('sisssi', $userMakingChanges, $isActiveFlag, $username, $encryptPass, $account, $employeeId);
+        $stmt->execute();
 
-$stmt->execute();
-
-if ($stmt->affected_rows == -1) {
-    echo "<div class='alert alert-danger'>
-                        <strong>Failure! </strong>User could not be added to the database, please try again.
-                      </div>";
+        if (mysqli_affected_rows($db) >= 1) {
+            echo "success";
+            $stmt->close();
+        } else {
+            echo "database-error";
+            $stmt->close();
+        }
+    }
 } else {
-    echo "<div class='alert alert-success'>
-                        <strong>Success! </strong>User successfully added to the database.
-                      </div>";
-    $stmt->close();
+    echo "need to fill generic modal";
 }

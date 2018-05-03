@@ -1,5 +1,3 @@
-  INSERT INTO Logins (username, password, account_type, first_name, last_name, email) VALUES('admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 'Developer', 'Developer',  'Developer@gmail.com');
-
   INSERT INTO Medical_Concern_Types(Author_Username, Type_Name, Note, Active_Id) VALUES ('Developer', 'Allergy', '', 1);
   INSERT INTO Medical_Concern_Types(Author_Username, Type_Name, Note, Active_Id) VALUES ('Developer', 'Mental Health', '', 1);
   INSERT INTO Medical_Concern_Types(Author_Username, Type_Name, Note, Active_Id) VALUES ('Developer', 'Medical Concern', '', 1);
@@ -22,6 +20,7 @@
   INSERT INTO Students(Author_Username, Active_Student, First_Name, Last_Name, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES ('Developer', 0, 'Brian', 'Miller', 'M', '03/15/2004' , '612 S Woodland Ave', 'Apt 2D', 'Wooddale', 'IL', 60107, 'Blackhawk Middle School', 1, 1, 1, 0);
   INSERT INTO Students(Author_Username, Active_Student, First_Name, Last_Name, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES ('Developer', 0, 'Nick', 'Miller', 'M', '11/12/2006' , '111 E Washington St', 'Suite 4D', 'Bensenville', 'IL', 60107, 'Blackhawk Middle School', 1, 1, 1, 0);
 
+  INSERT INTO Volunteer_Employees(Author_Username, Active_Volunteer, First_Name) VALUES ('Developer', 1, 'Developer');
   INSERT INTO Volunteer_Employees(Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Middle_Name, Suffix, Primary_Phone, Address_One, Address_Two, City, State, Zip, Email, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability) VALUES ('Developer', 1, 'Mrs.', 'Anna', 'Smith', 'Sam' , 'Sr.', '773-345-6372', '101 Woodlawn Ave', 'Condo 4', 'Glen Ellyn', 'IL', 60143, 'smith43@gmail.com', 1, 0, 1, 0, 0, 0, 1);
   INSERT INTO Volunteer_Employees(Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Middle_Name, Suffix, Primary_Phone, Address_One, City, State, Zip, Email, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability) VALUES ('Developer', 1, 'Mr.', 'Johnny', 'Donofrio', 'Sam' , 'Sr.', '847-532-2135', '727 Howard Dr', 'Elmhurst', 'IL', 60107, 'donofrio@gmail.com', 0, 1, 0, 1, 1, 1, 0);
   INSERT INTO Volunteer_Employees(Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Middle_Name, Suffix, Primary_Phone, Address_One, City, State, Zip, Email, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability) VALUES ('Developer', 1, 'Mrs.', 'Catherine', 'Lake', 'Sam', 'Sr.', '630-943-1254', '612 Forest View Dr', 'Addison', 'IL', 60101, 'lake@gmail.com', 1, 1, 1, 0, 0, 0 , 0);
@@ -82,3 +81,5 @@
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id, Active_Id) VALUES ('Developer', 5, 1, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id, Active_Id) VALUES ('Developer', 6, 1, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id, Active_Id) VALUES ('Developer', 7, 2, 1);
+
+  INSERT INTO Account_Login (Author_Username, Active_Id, Username, Password, Account_Type, Employee_Id) VALUES('Developer', 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator', 1);
