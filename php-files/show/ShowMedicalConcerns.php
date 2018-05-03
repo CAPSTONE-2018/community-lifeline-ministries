@@ -6,6 +6,11 @@ include("../../db/config.php");
 $queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name FROM Medical_Concern_Types 
 JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
 WHERE Medical_Concern_Types.Active_Id = 1;";
+
+$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name FROM Medical_Concern_Types 
+JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
+WHERE Medical_Concern_Types.Active_Id = 1;";
+
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
     <div class="app-title">
@@ -90,6 +95,48 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                                                         "Medical Concern Type",
                                                         "<?php echo $medicalConcernType; ?>",
                                                         "ShowMedicalConcerns.php")'
+                                            >
+                                                <i class='fa fa-archive'></i> Archive
+                                            </button>
+                                        </div>
+                                    </div>
+                        <tbody>
+                        <?php
+                        while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
+                            $medicalConcernTypeId = $medicalConcernsRow['Id'];
+                            $medicalConcernName = $medicalConcernsRow['Medical_Concern_Name'];
+                            $medicalConcernType = $medicalConcernsRow['Type_Name'];
+//                            $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
+//                            $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
+                            $studentTotals = '';
+                            while ($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
+                                $studentTotals = $studentsWithMedicalConcernsRow['Count'];
+                            }
+                            ?>
+                            <tr class='row'>
+                                <td class='col-sm-1 align-middle'></td>
+                                <td class='col-sm-3 align-middle'><?php echo $medicalConcernName; ?></td>
+                                <td class='col-sm-2 text-center align-middle'><?php echo $medicalConcernType; ?></td>
+                                <td class='col-sm-2 text-center align-middle'><?php echo $studentTotals; ?></td>
+                                <td class='col-sm-4 text-center'>
+                                    <div class='left-action-buttons-container d-inline m-auto'>
+                                        <div class=' d-inline'>
+                                            <button type='button'
+                                                    class='btn large-action-buttons edit-button'
+                                                    onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernTypeId; ?>)'
+                                            >
+                                                <i class='fa fa-pencil'></i> Edit
+                                            </button>
+                                        </div>
+                                        <div class='d-inline'>
+                                            <button type='button'
+                                                    class='btn large-action-buttons delete-button'
+                                                    onclick='launchConfirmArchiveModal(
+                                                            "<?php echo $medicalConcernTypeId; ?>",
+                                                            "ArchiveMedicalConcern.php",
+                                                            "Medical Concern Type",
+                                                            "<?php echo $medicalConcernType; ?>",
+                                                            "ShowMedicalConcerns.php")'
                                             >
                                                 <i class='fa fa-archive'></i> Archive
                                             </button>
