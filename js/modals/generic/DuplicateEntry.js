@@ -11,4 +11,8 @@ function launchGenericDuplicateEntryModal(duplicateEntryTitleToPassThrough, subm
     $('.modal-body').addClass('text-center');
     $('.modal-body').text(duplicateParagraphText);
     $('#customModal').modal('show');
+
+    $('#customModal').on('hidden.bs.modal', function () {
+        document.getElementsByTagName('form')[0].reset();
+    });
 }
