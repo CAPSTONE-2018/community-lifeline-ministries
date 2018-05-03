@@ -9,6 +9,11 @@ function launchGenericSuccessfulEntryModal(successfulEntryTitle, submissionType,
     $('.modal-body').text(successfulEntryText);
     // $('#customFooterActions').html(footerRow);
     $('#customModal').modal('show');
+
+    setTimeout(function() {
+        $('#customModal').modal('hide');
+    }, 2000);
+
     $('#customModal').on('hidden.bs.modal', function (e) {
         window.location.href = ''+afterDisplayRoute+'';
     });

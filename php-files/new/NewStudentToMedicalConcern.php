@@ -11,7 +11,7 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
 
 <div class="app-title">
     <div>
-        <h3><i class="fa fa-plus"></i> Medical Concern Type</h3>
+        <h4><i class="fa fa-plus"></i> Student Medical Concern</h4>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>

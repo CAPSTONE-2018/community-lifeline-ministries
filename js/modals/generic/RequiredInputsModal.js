@@ -11,4 +11,8 @@ function launchGenericRequiredInputsModal() {
     $('.modal-body').addClass('text-center');
     $('.modal-body').text(requireInputText);
     $('#customModal').modal('show');
+
+    setTimeout(function() {
+        $('#customModal').modal('hide');
+    }, 2000);
 }

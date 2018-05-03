@@ -38,6 +38,12 @@
                         Register In Program
                     </a>
                 </li>
+                <li>
+                    <a class="treeview-item" href="../new/NewStudentToMedicalConcern.php">
+                        <i class="icon fa fa-warning"></i>
+                        Add Medical Concern
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="treeview">
@@ -125,7 +131,7 @@
                 <li>
                     <a class="treeview-item" href="../new/NewMedicalConcernType.php">
                         <i class="icon fa fa-plus"></i>
-                        Add New Concern
+                        Add New Concern Type
                     </a>
                 </li>
                 <li>

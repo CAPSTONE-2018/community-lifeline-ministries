@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "animate.css": "^3.6.1",
-    "gijgo": "^1.9.6",
-    "izimodal": "^1.5.1"
+    "gijgo": "^1.9.6"
   },
   "devDependencies": {},
   "scripts": {
