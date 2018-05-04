@@ -1,6 +1,8 @@
 <?php
-include("../scripts/header.php");
+include("../app-shell/header.php");
+include("../app-shell/sidebar.php");
 include("../../db/config.php");
+include("../app-shell/TimeZoneFormat.php");
 ?>
 <div class="container-fluid">
     <div id = "FilterReport" class="row">
@@ -56,10 +58,11 @@ include("../../db/config.php");
                 </div>
             </div>
         </div>
-    </div>
-    <div class="add-new-report">
+        <div class="add-new-report">
 
+        </div>
     </div>
+
 </div>
 
 <script type="text/javascript">
@@ -124,25 +127,25 @@ include("../../db/config.php");
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        searchFilters += " Name LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    case "Type":
-
-                        if(i != 0) {
-                            searchFilters += " AND";
+                        if(searchInputs[i] != '') {
+                            searchFilters += " Type_Name LIKE '%" + searchInputs[i] + "%'";
                         }
-                        searchFilters += " Type LIKE '%" + searchInputs[i]+"%'";
                         break;
                     case "Note":
 
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        searchFilters += " Note LIKE '%" + searchInputs[i]+"%'";
+                        if(searchInputs[i] != '') {
+                            searchFilters += " Note LIKE '%" + searchInputs[i] + "%'";
+                        }
                         break;
                     default:
                         break;
                 }
+            }
+            if( searchFilters == "WHERE"){
+                searchFilters = '';
             }
             $('#print_div').remove();
             $('.collapse2').collapse("hide");
@@ -159,4 +162,4 @@ include("../../db/config.php");
 
 </script>
 
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

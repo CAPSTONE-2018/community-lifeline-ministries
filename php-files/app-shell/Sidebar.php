@@ -87,6 +87,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php.php">
+                        <i class="icon fa fa-plus"></i>
+                        Add/Update Volunteer Availability
+                    </a>
+                </li>
+                <li>
                     <a class="treeview-item" href="../show/ShowVolunteerEmployees.php">
                         <i class="icon fa fa-folder-open"></i>
                         View All
@@ -157,41 +163,49 @@
             <ul class="treeview-menu">
                 <li>
                     <a class="treeview-item" href="../create/CreateStudentReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Student Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateContactReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Contact Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateVolunteerReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Volunteer Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateMedicalReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Medical Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateStudentMedicalReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Student Medical Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateStudentToProgramReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Program Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateAttendanceReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Attendance Reports
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../create/CreateStudentAttendanceReport.php">
+                        <i class="icon fa fa-folder-open"></i>
                         Student Attendance Reports
                     </a>
                 </li>
@@ -206,6 +220,7 @@
             <ul class="treeview-menu">
                 <li>
                     <a class="treeview-item" href="../new/NewUser.php">
+                        <i class="icon fa fa-plus"></i>
                         Add New User
                     </a>
                 </li>
