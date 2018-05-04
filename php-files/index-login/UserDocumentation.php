@@ -1,6 +1,6 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 ?>
 
 <div class="container-fluid">
@@ -142,5 +142,5 @@ include("../app-shell/sidebar.php");
 </div>
 
 <?php
-include("../scripts/footer.php");
+include("../scripts/Footer.php");
 ?>
