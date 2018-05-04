@@ -1,7 +1,8 @@
 <?php
-include("../scripts/header.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-
 ?>
 <div class="container-fluid">
     <div id = "FilterReport" class="row">
@@ -179,4 +180,4 @@ include("../../db/config.php");
 
 </script>
 
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

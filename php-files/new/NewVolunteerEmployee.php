@@ -1,7 +1,6 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
-include("../scripts/States.php");
 include("../../db/config.php");
 ?>
 <div class="app-title">

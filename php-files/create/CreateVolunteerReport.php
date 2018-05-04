@@ -1,6 +1,8 @@
 <?php
-include("../scripts/header.php");
+include("../app-shell/header.php");
+include("../app-shell/sidebar.php");
 include("../../db/config.php");
+include("../app-shell/TimeZoneFormat.php");
 
 ?>
 <div class="container-fluid">
@@ -266,4 +268,4 @@ include("../../db/config.php");
     });
 
 </script>
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>

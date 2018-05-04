@@ -1,7 +1,7 @@
 <?php
 
-include("../scripts/header.php");
-
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 //connect to database
 include("../../db/config.php");
 
