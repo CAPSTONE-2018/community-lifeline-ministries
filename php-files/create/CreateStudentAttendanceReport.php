@@ -4,9 +4,6 @@ include("../../db/config.php");
 $query = "SELECT DISTINCT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
 $studentsResult = mysqli_query($db, $query);
 ?>
-<link rel="stylesheet" href="../../css/form-styles.css"/>
-<link rel="stylesheet" href="../../css/toggle-switch.css"/>
-
 <div class="container-fluid">
     <div id = "FilterReport" class="row">
         <div class="col-lg">
@@ -57,10 +54,6 @@ $studentsResult = mysqli_query($db, $query);
     </div>
 </div>
 
-<?php include("../scripts/footer.php"); ?>
-<script src="../../js/input-styling.min.js"></script>
-
-
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -100,5 +93,5 @@ $studentsResult = mysqli_query($db, $query);
     });
 
 </script>
-<script type="text/javascript" src="../../js/forms/MdlSelect.js"></script>
-<!--<script src="../../js/new-student-scripts/NewStudentMed.js"></script>-->
+
+<?php include("../scripts/footer.php"); ?>

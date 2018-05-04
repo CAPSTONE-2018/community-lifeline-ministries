@@ -11,33 +11,11 @@ function launchEditProgramModal(programId) {
             $('#dynamic-title').text("Edit Program Info");
             $('#title-wrapper').find('h4').addClass("large-font");
             $('.modal-body').html(response);
-            componentHandler.upgradeDom();
             $('#custom-modal').modal("show");
+            componentHandler.upgradeDom();
         }
     });
 }
-
-function launchArchiveProgramModal(programIdToArchive, tableToLookUp, nameToDisplay) {
-    $.ajax({
-        url: '../modals/programs/ArchiveStudent.php',
-        type: 'POST',
-        data: {
-            programIdToArchive: programIdToArchive,
-            tableToLookUp: tableToLookUp,
-            nameToDisplay: nameToDisplay
-        },
-        success: function (response) {
-            $('#custom-modal').removeClass().addClass('modal fade');
-            $('#custom-size').removeClass().addClass('modal-dialog');
-            $('#custom-title').removeClass().addClass('modal-header warning-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-            $('#dynamic-title').text("Archive Program");
-            $('.modal-body').html(response);
-            $('#custom-modal').modal('show');
-        }
-    });
-}
-
 
 function launchVolunteersInProgramModal(programId) {
     $.ajax({

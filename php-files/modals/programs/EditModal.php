@@ -9,6 +9,7 @@ $programInfoResults = mysqli_query($db, $queryProgramInfo);
 $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
 $numberOfStudentsInProgram = "SELECT COUNT(Student_Id) as Students_Enrolled FROM Student_To_Programs WHERE Program_Id = '$programId';";
 $numberOfStudentsResults = mysqli_query($db, $numberOfStudentsInProgram);
+$dynamicRowId = 0;
 
 while ($programInfoRow = mysqli_fetch_assoc($programInfoResults)) {
     $dynamicRowId++;
@@ -16,50 +17,47 @@ while ($programInfoRow = mysqli_fetch_assoc($programInfoResults)) {
     ?>
     <div class="card">
         <div class="card-body">
-
-            <div class="tab-pane active " id="studentInfo">
-                <div class="form-group col-sm-12">
-                    <h4 class="heading "><i class="fa fa-pencil"></i> Program Info</h4>
-                    <div class="edit-blue-line-color"></div>
-                    <div class="col-sm-6 m-auto">
-                        <div id="floatingProgramName"
-                             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="programName" class="mdl-textfield__input"
-                                   value="<?php echo $programName; ?>" name="name" type="text" readonly/>
-                            <label class="mdl-textfield__label" for="programName">Program Name</label>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 m-auto">
-                        <div id="floatingStudentsEnrolledInProgram"
-                             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="studentsEnrolledInProgram" class="mdl-textfield__input"
-                                   value="<?php while ($enrolledStudents = mysqli_fetch_assoc($numberOfStudentsResults)) {
-                                       echo $enrolledStudents['Students_Enrolled'];
-                                   } ?>" name="enrolledStudents" type="text" readonly/>
-                            <label class="mdl-textfield__label" for="studentsEnrolledInProgram">Students
-                                Enrolled</label>
-                        </div>
+            <div class="row col-sm-12">
+                <h4 class="heading "><i class="fa fa-pencil"></i> Program Info</h4>
+                <div class="edit-blue-line-color"></div>
+                <div class="col-sm-6 m-auto">
+                    <div id="floatingProgramName"
+                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input id="programName" class="mdl-textfield__input"
+                               value="<?php echo $programName; ?>" name="name" type="text" readonly/>
+                        <label class="mdl-textfield__label" for="programName">Program Name</label>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <h4 class="heading "><i class="fa fa-star"></i> Volunteers</h4>
-                    <div class="edit-blue-line-color"></div>
-                    <?php while ($volunteerRow = mysqli_fetch_assoc($volunteerInfoResults)) {
-                        $volunteerName = $volunteerRow['First_Name'] . ' ' . $volunteerRow['Last_Name'];
-                        ?>
-                        <div class="col-sm-6 m-auto">
-                            <div id="floatingVolunteerName"
-                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input id="volunteerName" class="mdl-textfield__input"
-                                       value="<?php echo $volunteerName; ?>" name="volunteerName" type="text"
-                                       readonly/>
-                                <label class="mdl-textfield__label" for="volunteerName">Volunteer</label>
-                            </div>
-                        </div>
-                    <?php } ?>
+                <div class="col-sm-6 m-auto">
+                    <div id="floatingStudentsEnrolledInProgram"
+                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input id="studentsEnrolledInProgram" class="mdl-textfield__input"
+                               value="<?php while ($enrolledStudents = mysqli_fetch_assoc($numberOfStudentsResults)) {
+                                   echo $enrolledStudents['Students_Enrolled'];
+                               } ?>" name="enrolledStudents" type="text" readonly/>
+                        <label class="mdl-textfield__label" for="studentsEnrolledInProgram">Students
+                            Enrolled</label>
+                    </div>
                 </div>
+            </div>
+
+            <div class="row">
+                <h4 class="heading "><i class="fa fa-star"></i> Volunteers</h4>
+                <div class="edit-blue-line-color"></div>
+                <?php while ($volunteerRow = mysqli_fetch_assoc($volunteerInfoResults)) {
+                    $volunteerName = $volunteerRow['First_Name'] . ' ' . $volunteerRow['Last_Name'];
+                    ?>
+                    <div class="col-sm-6 m-auto">
+                        <div id="floatingVolunteerName"
+                             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="volunteerName" class="mdl-textfield__input"
+                                   value="<?php echo $volunteerName; ?>" name="volunteerName" type="text"
+                                   readonly/>
+                            <label class="mdl-textfield__label" for="volunteerName">Volunteer</label>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
 

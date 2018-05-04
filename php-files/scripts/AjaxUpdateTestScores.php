@@ -31,17 +31,7 @@ if ($row['Term'] == "Winter"){
     $winterselected = "selected=\"selected\"";
 }
 
-$output = "<div id=\"form_wrapper\">
-                <form class=\"form-horizontal\" action=\"../update/UpdateTestScores.php\" method=\"POST\" id=\"form2\">
-                    <h1>Update Test Score Information:</h1>
-                    <br />
-                    <div class=\"row\">
-                        <input id=\"testScoreId\" type=\"hidden\" name=\"testScoreId\" value=$id />
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-6\">
-                                <label class=\"control-label\" for=\"term\">Term:</label>
-                                <select id=\"term\" class=\"form-control\" name=\"term\">
-                                    <option value=\"Spring\" ". $springselected .">Spring</option>
+$output = " \"" . $springselected .">Spring</option>
                                     <option value=\"Summer\" ". $summerselected .">Summer</option>
                                     <option value=\"Fall\" ". $fallselected .">Fall</option>
                                     <option value=\"Winter\" ". $winterselected .">Winter</option>

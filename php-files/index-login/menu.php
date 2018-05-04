@@ -1,7 +1,7 @@
 <?php
 include("../scripts/header.php");
 
-include ("./dashboard.php");
+include("./Dashboard.php");
 
 include("./AttendanceCard.php");
 

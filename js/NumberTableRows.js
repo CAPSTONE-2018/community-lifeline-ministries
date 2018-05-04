@@ -1,7 +1,6 @@
 var table = document.getElementsByTagName('table')[0],
-    rows = table.getElementsByClassName('number-row'),
+    rows = table.getElementsByTagName('tr'),
     text = 'textContent' in document ? 'textContent' : 'innerText';
-for (var i = 0, len = rows.length; i < len; i++) {
-    var numberToDisplay = i + 1;
-    rows[i].children[0][text] = numberToDisplay + ".";
+for (var i = 1, len = rows.length; i < len; i++) {
+    rows[i].children[0][text] = i + ".";
 }

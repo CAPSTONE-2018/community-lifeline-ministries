@@ -1,12 +1,16 @@
-.form-bg{
-    background: #e4e6e6;
-}
-
-form{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
-.form-horizontal .header{
+.form-bg {
+    background: #e4e6e6;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
     background: #60C2CB;
     padding: 15px 25px;
     font-size: 30px;
@@ -16,19 +20,19 @@ form{
     border-radius: 3px 3px 0 0;
 }
 
-.form-horizontal .heading{
+.heading {
     font-size: 16px;
     color: #60C2CB;
     margin: 10px 0 20px 0;
     text-transform: capitalize;
 }
 
-.form-horizontal .form-content{
-    padding: 25px;
-    background: #fff;
-}
+/*.form-horizontal .form-content{*/
+/*padding: 25px;*/
+/*background: #fff;*/
+/*}*/
 
-.form-horizontal .form-control{
+.form-horizontal .form-control {
     padding: 12px 16px 12px 0;
     height: 50px;
     font-size: 17px;
@@ -41,12 +45,12 @@ form{
     margin-bottom: 15px;
 }
 
-.form-horizontal .form-control:focus{
+.form-horizontal .form-control:focus {
     border-color: #7fc6a6;
     box-shadow: none;
 }
 
-.form-horizontal .btn{
+.form-horizontal .btn {
     font-size: 18px;
     color: #4e4e4e;
     float: right;

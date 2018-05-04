@@ -13,7 +13,7 @@ $result2 = mysqli_query($db, $query2);
 ?>
 
 <div id="form_wrapper">
-    <form class="form-horizontal" action="../add/AddVolunteerEmployeeToProgram.php" method="POST" id="form2">
+    <form action="../mysql-statements/add/AddVolunteerEmployeeToProgram.php" method="POST" id="form2">
 
         <h1>Add Volunteer and Program Information:</h1>
         <br/>
