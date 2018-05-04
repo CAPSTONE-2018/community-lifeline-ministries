@@ -1,5 +1,6 @@
 <?php
-include("../scripts/header.php");
+include("../app-shell/header.php");
+include("../app-shell/sidebar.php");
 ?>
 
 <div class="container-fluid">
