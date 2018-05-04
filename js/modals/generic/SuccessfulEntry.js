@@ -1,5 +1,7 @@
-function launchGenericSuccessfulEntryModal(successfulEntryTitle, submissionType, afterDisplayRoute) {
-    var successfulEntryText = "Success! the " + submissionType + ", " + successfulEntryTitle + " was submitted.";
+function launchGenericSuccessfulEntryModal(modalMessageToDisplay, afterDisplayRoute) {
+
+    var successfulEntryText = "Success! " + modalMessageToDisplay;
+
     $('#customModal').removeClass().addClass('modal fade generic-modal');
     $('#customSize').removeClass().addClass('modal-dialog modal-lg');
     $('#customTitle').removeClass().addClass('modal-header successful-entry-modal-header');
@@ -7,20 +9,14 @@ function launchGenericSuccessfulEntryModal(successfulEntryTitle, submissionType,
     $('#customHeaderText').text("Successful Entry!");
     $('.modal-body').addClass('text-center');
     $('.modal-body').text(successfulEntryText);
-    // $('#customFooterActions').html(footerRow);
     $('#customModal').modal('show');
 
     setTimeout(function() {
         $('#customModal').modal('hide');
-    }, 2000);
+    }, 4000);
 
-    $('#customModal').on('hidden.bs.modal', function (e) {
+    $('#customModal').on('hidden.bs.modal', function () {
+        document.getElementsByTagName('form')[0].reset();
         window.location.href = ''+afterDisplayRoute+'';
     });
-
-}
-
-
-function customRoutes(locationToRoute) {
-    location.href = locationToRoute;
 }

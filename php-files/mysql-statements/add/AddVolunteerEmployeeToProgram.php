@@ -2,20 +2,30 @@
 include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$volunteerId = intval($_POST['volunteerId']);
+$volunteerId = $_POST['volunteerId'];
 $programId = $_POST['programId'];
+$isActiveFlag = 1;
 
-$stmt = $db->prepare("INSERT INTO Volunteer_To_Programs (Author_Username, Volunteer_Id, Program_Id) VALUES (?, ?, ?)");
-$stmt->bind_param('sii', $userMakingChanges, $volunteerId, $programId);
-$stmt->execute();
+$queryForAllExistingVolunteersToPrograms = "SELECT * FROM Volunteer_To_Programs WHERE Volunteer_Id = '$volunteerId' AND Program_Id = '$programId';";
+$existingVolunteerToProgramResults = mysqli_query($db, $queryForAllExistingVolunteersToPrograms);
+$doesVolunteerToProgramExist = mysqli_num_rows($existingVolunteerToProgramResults);
 
-if ($stmt->affected_rows == -1) {
-    echo "<div class='alert alert-danger'>
-                        <strong>Failure! </strong>Volunteer could not be added to the class, please try again.
-                      </div>";
+if ($volunteerId !== '' && $programId !== '') {
+    if ($doesVolunteerToProgramExist > 0) {
+        echo "entry-exists";
+    } else {
+        $stmt = $db->prepare("INSERT INTO Volunteer_To_Programs (Author_Username, Active_Id, Volunteer_Id, Program_Id) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param('siii', $userMakingChanges, $isActiveFlag, $volunteerId, $programId);
+        $stmt->execute();
+
+        if (mysqli_affected_rows($db) >= 1) {
+            echo "success";
+            $stmt->close();
+        } else {
+            echo "database-error";
+            $stmt->close();
+        }
+    }
 } else {
-    echo "<div class='alert alert-success'>
-                        <strong>Success! </strong>Volunteer has been successfully added to the class.
-                      </div>";
-    $stmt->close();
+    echo "fill-required-inputs";
 }

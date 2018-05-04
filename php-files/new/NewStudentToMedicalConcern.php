@@ -100,17 +100,12 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
     function validateStudentToMedicalConcern() {
         var concernTypeId = document.getElementById("medicalTypeId").value;
         var studentId = document.getElementById("studentId").value;
-        var concernTypeName = document.getElementById("medicalTypeIdName").value;
         var concernNote = document.getElementById("medicalConcernNote").value;
-
         var studentName = document.getElementById("studentName").value;
         var concernName = document.getElementById("medicalConcernName").value;
-
-        var textForModal = concernName + ", and " + studentName;
-
-        var submissionType = "Student to Medical Concern";
         var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudentToMedicalConcern.php";
-
+        var successModalMessage = "The Student, " + studentName + " has been updated as having " + concernName + ".";
+        var duplicateModalMessage = "the record for " + studentName + " having " + concernName + " already exist.";
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudentToMedicalConcerns.php",
             method: "POST",
@@ -122,11 +117,11 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
             },
             success: function (response) {
                 if (response === 'entry-exists') {
-                    launchGenericDuplicateEntryModal(textForModal, submissionType);
+                    launchGenericDuplicateEntryModal(duplicateModalMessage);
                 } else if (response === 'database-error') {
                     launchGenericDatabaseErrorModal();
                 } else if (response === 'success') {
-                    launchGenericSuccessfulEntryModal(textForModal, submissionType, afterModalDisplaysRoute);
+                    launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
                 } else if (response === 'fill-required-inputs') {
                     launchGenericRequiredInputsModal();
                 }

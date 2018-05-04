@@ -18,29 +18,28 @@ $volunteerResults = mysqli_query($db, $query);
 <div class="container-fluid">
     <div class="card text-center">
         <div class="card-header">
-            <h1><i class="fa fa-pencil"></i>  New Program Info</h1>
+            <h1><i class="fa fa-pencil"></i> New Program Info</h1>
         </div>
 
         <div class="card-body">
             <form id="newProgramForm">
-
                 <div class="row">
-                    <div class="col-sm-6 m-auto">
+                    <div class="col-12 col-sm-6 m-auto">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="programName" class="mdl-textfield__input" name="name" type="text"/>
                             <label class="mdl-textfield__label" for="programName">Program Name</label>
                         </div>
                     </div>
 
-                    <div class="col-sm-6 ">
+                    <div class="col-12 col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                             <input type="text" class="mdl-textfield__input" readonly>
                             <input type="hidden" id="volunteerId" name="volunteerId">
                             <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                             <label for="volunteerId" class="mdl-textfield__label">Volunteer</label>
                             <ul for="volunteerId" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                <?php while($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
-                                        $volunteerName = $volunteerRow['First_Name'] . ' ' . $volunteerRow['Last_Name'];
+                                <?php while ($volunteerRow = mysqli_fetch_assoc($volunteerResults)) {
+                                    $volunteerName = $volunteerRow['First_Name'] . ' ' . $volunteerRow['Last_Name'];
                                     ?>
                                     <li class="mdl-menu__item"
                                         data-val="<?php echo $volunteerRow['Id']; ?>"><?php echo $volunteerName; ?></li>
@@ -55,7 +54,7 @@ $volunteerResults = mysqli_query($db, $query);
                 <div class="row col-sm-12">
                     <input id="submitButton" onclick="validateProgramName()"
                            class="btn large-action-buttons edit-button"
-                           type="button" value="Enter"><br><br>
+                           type="button" value="Enter"/><br><br>
                 </div>
             </form>
         </div>
@@ -66,11 +65,8 @@ $volunteerResults = mysqli_query($db, $query);
     function validateProgramName() {
         var programName = document.getElementById("programName").value;
         var volunteerId = document.getElementById("volunteerId").value;
-        var submissionType = "Program";
-        var viewAllRoute = "../../php-files/show/ShowPrograms.php";
-        var viewAllButtonTitle = "View All Programs";
-        var newEntryRoute = "../../php-files/new/NewProgram.php";
-        var newEntryButtonTitle = "New Program";
+        var successModalMessage = "The Program, " + programName + " has been entered successfully.";
+        var duplicateModalMessage = "the Program, " + programName + " already exists.";
         var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewProgram.php";
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddProgram.php",
@@ -81,11 +77,11 @@ $volunteerResults = mysqli_query($db, $query);
             },
             success: function (response) {
                 if (response === 'entry-exists') {
-                    launchGenericDuplicateEntryModal(programName, submissionType);
+                    launchGenericDuplicateEntryModal(duplicateModalMessage);
                 } else if (response === 'database-error') {
                     launchGenericDatabaseErrorModal();
                 } else if (response === 'success') {
-                    launchGenericSuccessfulEntryModal(programName, submissionType, afterModalDisplaysRoute);
+                    launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
                 } else if (response === 'fill-inputs-required') {
                     launchGenericRequiredInputsModal();
                 }
