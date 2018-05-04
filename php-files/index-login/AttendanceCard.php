@@ -1,7 +1,4 @@
 <?php
-//connect to database
-include("../../db/config.php");
-include("../app-shell/TimeZoneFormat.php");
 $queryForAllPrograms = "SELECT * FROM Programs ORDER BY Program_Name;";
 $queryDoesAttendanceRecordExist = "SELECT DISTINCT Program_Id FROM Attendance WHERE Date = '$dateToSubmit'";
 $programResults = mysqli_query($db, $queryForAllPrograms);
@@ -12,7 +9,7 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 } ?>
 
-<div class="container-fluid col-sm-8">
+<div class="container-fluid col-7">
     <div class="card text-center">
         <div class="card-header">
             Attendance Center

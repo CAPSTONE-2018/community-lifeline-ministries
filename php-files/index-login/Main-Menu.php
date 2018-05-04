@@ -1,10 +1,11 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
-include("../index-login/Dashboard.php");
-include ("./AttendanceCard.php");
+include("../../db/config.php");
+include("../app-shell/TimeZoneFormat.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("./Dashboard.php");
+//include ("./AttendanceCard.php");
 ?>
-
 
     <script defer src="../../js/forms/PrettyDropdowns.js"></script>
     <script type="text/javascript">
@@ -19,4 +20,4 @@ include ("./AttendanceCard.php");
         $dropdown.refresh();
     </script>
 <?php
-include("../app-shell/footer.php");
+include("../app-shell/Footer.php");

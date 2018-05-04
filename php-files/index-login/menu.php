@@ -1,5 +1,5 @@
 <?php
-include("../scripts/header.php");
+include("../scripts/Header.php");
 
 include("./Dashboard.php");
 
@@ -20,5 +20,5 @@ include("./AttendanceCard.php");
     $dropdown.refresh();
 </script>
 <?php
-include("../scripts/footer.php");
+include("../scripts/Footer.php");
 ?>
