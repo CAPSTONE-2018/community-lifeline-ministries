@@ -86,7 +86,6 @@ $activeProgramResults = mysqli_query($db, $queryForActivePrograms);
         var programId = document.getElementById("programId").value;
         var programName = document.getElementById("programName").value;
         var volunteerName = document.getElementById("volunteerName").value;
-        alert(volunteerName);
         var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewVolunteerEmployeeToProgram.php";
         var successModalMessage = "The Volunteer, " + volunteerName + " has been added to, " + programName + ".";
         var duplicateModalMessage = "the record for " + programName + ", and " + volunteerName + " already exist.";

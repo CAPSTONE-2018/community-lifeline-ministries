@@ -92,12 +92,6 @@
                         View All
                     </a>
                 </li>
-                <li>
-                    <a class="treeview-item" href="../new/NewVolunteerEmployeeToProgram.php">
-                        <i class="icon fa fa-pencil-square-o"></i>
-                        Add Volunteer to Program
-                    </a>
-                </li>
             </ul>
         </li>
         <li class="treeview">
@@ -122,7 +116,7 @@
                 <li>
                     <a class="treeview-item" href="#">
                         <i class="icon fa fa-calendar-check-o"></i>
-                         Attendance
+                        Attendance
                     </a>
                 </li>
             </ul>
@@ -149,7 +143,7 @@
                 <li>
                     <a class="treeview-item" href="../new/NewStudentToMedicalConcern.php">
                         <i class="icon fa fa-graduation-cap"></i>
-                         Add Student Concern
+                        Add Student Concern
                     </a>
                 </li>
             </ul>
