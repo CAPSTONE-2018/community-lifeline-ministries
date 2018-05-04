@@ -182,9 +182,9 @@ include("../app-shell/TimeZoneFormat.php");
                 </div>
             </div>
         </div>
-    </div>
-    <div class="add-new-report">
+        <div class="add-new-report">
 
+        </div>
     </div>
 </div>
 

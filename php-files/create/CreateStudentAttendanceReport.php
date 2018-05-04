@@ -50,9 +50,9 @@ $studentsResult = mysqli_query($db, $query);
                 </div>
             </div>
         </div>
-    </div>
-    <div class="add-new-report">
+        <div class="add-new-report">
 
+        </div>
     </div>
 </div>
 

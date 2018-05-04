@@ -32,7 +32,6 @@ include("../app-shell/TimeZoneFormat.php");
                                                 <p style="width:100%;">Filter Type</p>
                                                 <select style="width:100%;" id="FilterType1">
                                                     <option value="Name">Name</option>
-                                                    <option value="Type">Type</option>
                                                     <option value="Note">Note</option>
                                                 </select>
                                             </div>

@@ -5,8 +5,9 @@ include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
 
-$queryForStudentAllergies = "SELECT students.First_Name,students.Last_Name, Medical_Concern_Types.Type_Name, medical_concern_types.Note
-                              FROM medical_concern_types JOIN students WHERE medical_concern_types.Id = students.Id ";$studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
+$queryForStudentAllergies = "SELECT Students.First_Name,Students.Last_Name, Medical_Concern_Types.Type_Name, Medical_Concern_Types.Note
+                              FROM Medical_Concern_Types JOIN Students WHERE Medical_Concern_Types.Id = Students.Id ";
+$studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
 ?>
 <div id="print_div">
     <div class="card-body">
@@ -16,23 +17,23 @@ $queryForStudentAllergies = "SELECT students.First_Name,students.Last_Name, Medi
                 <div class="table-responsive">
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr>
-                            <th class="col-sm-4 text-left">First Name</th>
-                            <th class="col-sm-4 text-left">Last Name</th>
-                            <th class="col-sm-4">Name</th>
-                            <th class="col-sm-4 text-left">Note</th>
+                        <tr class="row">
+                            <th class="col-sm-3 text-center">First Name</th>
+                            <th class="col-sm-3 text-center">Last Name</th>
+                            <th class="col-sm-3 text-center">Name</th>
+                            <th class="col-sm-3 text-center">Note</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentMedicalConcernResults, MYSQLI_ASSOC)) {
-                            echo "<tr><td>";
+                            echo "<tr class=\"row\"><td class=\"col-sm-3 text-center\">";
                             echo $row['First_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-3 text-center\">";
                             echo $row['Last_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-3 text-center\">";
                             echo $row['Type_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-3 text-center\">";
                             echo $row['Note'];
                             echo "</td></tr>";
                         }
