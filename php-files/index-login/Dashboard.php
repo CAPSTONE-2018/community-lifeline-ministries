@@ -6,6 +6,18 @@ $queryForStudentsPresent = "SELECT COUNT(*) AS studentsPresentCount
                                   Date = '$dateToSubmit';";
 $resultsForStudentsPresent = mysqli_query($db, $queryForStudentsPresent);
 $studentsPresent = mysqli_fetch_assoc($resultsForStudentsPresent);
+
+$queryForVolunteersPresent = "SELECT COUNT(*) AS volunteersPresentCount
+			      FROM Volunteer_Employees
+			      WHERE (Monday_Availability = 1 AND '$dayOfWeek' = 1) OR
+                                    (Tuesday_Availability = 1 AND '$dayOfWeek' = 2) OR
+                                    (Wednesday_Availability = 1 AND '$dayOfWeek' = 3) OR
+                                    (Thursday_Availability = 1 AND '$dayOfWeek' = 4) OR
+                                    (Friday_Availability = 1 AND '$dayOfWeek' = 5) OR
+                                    (Saturday_Availability = 1 AND '$dayOfWeek' = 6) OR
+                                    (Sunday_Availability = 1 AND '$dayOfWeek' = 7);";
+$resultsForVolunteersPresent = mysqli_query($db, $queryForVolunteersPresent);
+$volunteersPresent = mysqli_fetch_assoc($resultsForVolunteersPresent);
 ?>
 
 <div class="app-title">
@@ -24,7 +36,7 @@ $studentsPresent = mysqli_fetch_assoc($resultsForStudentsPresent);
         <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
                 <h4>Students Present</h4>
-                <p> <!-- <b><?php echo $studentsPresent['studentsPresentCount']; ?> -->0</b></p>
+                <p><?php echo $studentsPresent['studentsPresentCount']; ?></b></p>
             </div>
         </div>
     </div>
@@ -32,7 +44,7 @@ $studentsPresent = mysqli_fetch_assoc($resultsForStudentsPresent);
         <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
             <div class="info">
                 <h4>Volunteers Scheduled</h4>
-                <p><b>25</b></p>
+                <p><b><?php echo $volunteersPresent['volunteersPresentCount']; ?></b></p>
             </div>
         </div>
     </div>
@@ -40,7 +52,6 @@ $studentsPresent = mysqli_fetch_assoc($resultsForStudentsPresent);
 
 
 <div class="row form-group">
-
         <div class="col-5">
             <div class="cal1 cal_2">
                 <div class="clndr">
