@@ -2,7 +2,7 @@
 
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
-//connect to database
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 
 $query = "SELECT * FROM Volunteer_Employees ORDER BY Last_Name, First_Name;";
