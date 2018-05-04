@@ -1,124 +1,145 @@
 <?php
-include("../scripts/header.php");
+include("../app-shell/header.php");
+include("../app-shell/sidebar.php");
 ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>Table of contents</h1>
-                <hr/>
-                <div class="list-group">
-                    <a href="#addnewuser" class="list-group-item list-group-item-action">Adding a New User</a><br>
-                    <a href="#addnewobject" class="list-group-item list-group-item-action">Adding Objects to the
-                        Database</a><br>
-                    <a href="#updateobject" class="list-group-item list-group-item-action">Updating Objects in the
-                        Database</a><br>
-                    <a href="#searchingobject" class="list-group-item list-group-item-action">Searching For an Object in
-                        the
-                        Database</a><br>
-                    <a href="#displayingobject" class="list-group-item list-group-item-action">Displaying Objects in the
-                        Database</a><br>
-                    <a href="#creatingreport" class="list-group-item list-group-item-action">Creating a Report</a><br>
-                    <a href="#printobject" class="list-group-item list-group-item-action">Printing Reports/Lists</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Table of contents</h1>
+                <div id="accordion">
+
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="false" aria-controls="collapseOne">
+                                    Adding a New User
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    <strong>This action can only be done by administrative users </strong></br>
+                                    Click on 'Admin' in the sidebar menu</br>
+                                    Click on 'New User' in the sidebar menu</br>
+                                    Fill out the form on the next page with the appropriate informatio
+                                    paying attention to the selection for 'Account Type'</br>
+                                    Click on 'Submit User'</br>
+                                    Assuming the newly entered user does not already exists in the database, you
+                                    will have successfully added a new user.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                    Add Student/Contact/Volunteer/Program
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    Click on the Students/Contacts/Volunteers/Programs drop down on the left side menu</br>
+                                    Click on 'Add New'</br>
+                                    Fill out the form with the pertinent information</br>
+                                    Click the verify button at the bottom right.</br>
+                                    If the information in the window displayed is not correct, hit the 'X' at
+                                        the top right corner of the pop up window and edit the information/reverify</br>
+                                    If the information is correct, click Submit. Your new
+                                        Student/Contact/Volunteer/Program was added to the database.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                    Generating Reports
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                             data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    Click on 'Reports' in the left sidebar menu</br>
+                                    Select the type of report you would like to generate.</br>
+                                    Fill out the form on the next page with your report criteria</br>
+                                    Click the 'Generate Report' button.</br>
+                                    A 'Print' Button is located on the bottom right of the screen.</br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                Attendance Tracking
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                         data-parent="#accordion">
+                        <div class="card-body">
+                            <p>
+                                The Home page contains the 'Attendance Center' section</br>
+                                Choose an option in here - either to create a new record of attendance or to
+                                edit attendance for a class that has already been entered for the day</br>
+                                Choosing a class in the dropdown will bring you to the page for that class'
+                                attendance</br>
+                                Mark each student as 'Present' 'Absent' or 'Tardy</br>
+                                Click the 'Submit' button to enter attendance.</br>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <br/>
 
-                <div class="help-page">
-                    <h1 id="addnewuser">Adding a New User</h1>
-                    <hr/>
-                    <ol>
-                        <li>Make sure you have administrator privileges.</li>
-                        <li>Click on the Register new user sub-tab under the administrative tools tab.</li>
-                        <li>Populate the input fields with the appropriate information.</li>
-                        <li>Click the submit button.</li>
-                        <li>Assuming the newly entered user does not already exists in the database, you should have
-                            successfully added
-                            a new user.
-                        </li>
-                    </ol>
-                    <br/>
-
-
-                    <h1 id="addnewobject">Adding Objects to the Database</h1>
-                    <hr/>
-                    <ol>
-                        <li>Click on the student/contact/volunteer/employee/class/student to class/student test score
-                            sub-tab under the
-                            New tab.
-                        </li>
-                        <li>Populate the fields with the appropriate information.</li>
-                        <li>Click the submit button.</li>
-                        <li>Assuming the newly entered object does not already exists in the database, you should have
-                            successfully
-                            added a new object.
-                        </li>
-                    </ol>
-                    <br/>
-
-                    <h1 id="updateobject">Updating Objects in the Database</h1>
-                    <hr/>
-                    <ol>
-                        <li>Click on the student/contact/volunteer/employee/class/student test score sub-tab under the
-                            Update tab.
-                        </li>
-                        <li>Select Object you want to update from the drop down list.</li>
-                        <li>On selection of an Object, a form will be displayed with the Object's information. Any blank
-                            fields indicate
-                            no data was entered previously for that field.
-                        </li>
-                        <li>Update the fields with the appropriate information.</li>
-                        <li>Click the submit button.</li>
-                        <li>You should have successfully updated the object and pushed the changes to the database.</li>
-                    </ol>
-                    <br/>
-
-                    <h1 id="searchingobject">Searching For an Object in the Database</h1>
-                    <hr/>
-                    <ol>
-                        <li>Click on the information/volunteer/employee/schedule sub-tab under the search tab.</li>
-                        <li>Select the name of the person whose information is desired from the dropdown box.</li>
-                        <li>Click the submit button.</li>
-                        <li>A list of the appropreate information associated with the person whose name is selected will
-                            be displayed.
-                        </li>
-                    </ol>
-                    <br/>
-
-                    <h1 id="displayingobject">Displaying Objects in the Database</h1>
-                    <hr/>
-                    <ol>
-                        <li>Click on the students/volunteer/employee/classes sub-tab under the display all tab.</li>
-                        <li>A list of all the entries in the database of the type specified by the sub-tab will be
-                            displayed.
-                        </li>
-                    </ol>
-                    <br/>
-
-                    <h1 id="creatingreport">Creating a Report</h1>
-                    <hr/>
-                    <ol>
-                        <li>Click on the Generate Reports sub-tab under the Reports tab.</li>
-                        <li>Select the type of report you would like to generate.</li>
-                        <li>Enter the requested information in the form that appears.</li>
-                        <li>Click the Generate button.</li>
-                        <li>To export the generated report as a CSV file, click the Export button.</li>
-                    </ol>
-                    <br/>
-
-                    <h1 id="printobject">Printing Reports/Lists</h1>
-                    <hr/>
-                    <ol>
-                        <li>Ensure that you are on the page of the report/list you wish to print.</li>
-                        <li>Click the print button beneath the report/list.</li>
-                        <li>Select the printer that you want to print the report from on the popup.</li>
-                        <li>Edit the print settings as necessary.</li>
-                        <li>Click the print button on the popup.</li>
-                    </ol>
-                    <br/>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                Past Attendance Records
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                         data-parent="#accordion">
+                        <div class="card-body">
+                            <p>
+                                The Home page contains the 'Attendance Center' section</br>
+                                Within the 'Attendance Center' you will find a calendar with a 'Search by Date' option</br>
+                                The calendar on the right side of the 'Search by Date' line will allow you to choose a
+                                past date to edit attendance for.</br>
+                                Select your date. If attendance records exist, they will show up as class name buttons underneath
+                                the date selector.</br>
+                                Choose the class you would like the edit the attendance for. This brings you to the page
+                                to populate the students status for the class.</br>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                </div>
+
         </div>
     </div>
+</div>
 
 <?php
 include("../scripts/footer.php");
