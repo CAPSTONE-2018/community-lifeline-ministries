@@ -87,6 +87,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php.php">
+                        <i class="icon fa fa-plus"></i>
+                        Add/Update Volunteer Availability
+                    </a>
+                </li>
+                <li>
                     <a class="treeview-item" href="../show/ShowVolunteerEmployees.php">
                         <i class="icon fa fa-folder-open"></i>
                         View All
