@@ -57,6 +57,8 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     } else {
         $selectedStudentGender = "Male";
     }
+
+    $selectedStudentState = stateSelect($studentState);
     ?>
     <div>
         <form name="editStudentForm" id="editStudentForm">

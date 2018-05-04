@@ -9,66 +9,72 @@
  * @uses check_select
  * @return string
  */
+
+/**
+ * @return string
+ */
+
+
+
 function stateDropdown()
 {
     $states = array(
-        array('AL', 'Alabama'),
-        array('AK', 'Alaska'),
-        array('AR', 'Arkansas'),
-        array('AZ', 'Arizona'),
-        array('CA', 'California'),
-        array('CO', 'Colorado'),
-        array('CT', 'Connecticut'),
-        array('DC', 'District of Columbia'),
-        array('DE', 'Delaware'),
-        array('FL', 'Florida'),
-        array('GA', 'Georgia'),
-        array('HI', 'Hawaii'),
-        array('ID', 'Idaho'),
-        array('IL', 'Illinois'),
-        array('IN', 'Indiana'),
-        array('IA', 'Iowa'),
-        array('KS', 'Kansas'),
-        array('KY', 'Kentucky'),
-        array('LA', 'Louisiana'),
-        array('ME', 'Maine'),
-        array('MD', 'Maryland'),
-        array('MA', 'Massachusetts'),
-        array('MI', 'Michigan'),
-        array('MN', 'Minnesota'),
-        array('MS', 'Mississippi'),
-        array('MO', 'Missouri'),
-        array('MT', 'Montana'),
-        array('NC', 'North Carolina'),
-        array('ND', 'North Dakota'),
-        array('NE', 'Nebraska'),
-        array('NV', 'Nevada'),
-        array('NH', 'New Hampshire'),
-        array('NJ', 'New Jersey'),
-        array('NM', 'New Mexico'),
-        array('NY', 'New York'),
-        array('OH', 'Ohio'),
-        array('OK', 'Oklahoma'),
-        array('OR', 'Oregon'),
-        array('PA', 'Pennsylvania'),
-        array('PR', 'Puerto Rico'),
-        array('RI', 'Rhode Island'),
-        array('SC', 'South Carolina'),
-        array('SD', 'South Dakota'),
-        array('TN', 'Tennessee'),
-        array('TX', 'Texas'),
-        array('UT', 'Utah'),
-        array('VA', 'Virginia'),
-        array('VT', 'Vermont'),
-        array('WA', 'Washington'),
-        array('WI', 'Wisconsin'),
-        array('WV', 'West Virginia'),
-        array('WY', 'Wyoming')
+        'AL'=>'Alabama',
+        'AK'=>'Alaska',
+        'AZ'=>'Arizona',
+        'AR'=>'Arkansas',
+        'CA'=>'California',
+        'CO'=>'Colorado',
+        'CT'=>'Connecticut',
+        'DE'=>'Delaware',
+        'DC'=>'District of Columbia',
+        'FL'=>'Florida',
+        'GA'=>'Georgia',
+        'HI'=>'Hawaii',
+        'ID'=>'Idaho',
+        'IL'=>'Illinois',
+        'IN'=>'Indiana',
+        'IA'=>'Iowa',
+        'KS'=>'Kansas',
+        'KY'=>'Kentucky',
+        'LA'=>'Louisiana',
+        'ME'=>'Maine',
+        'MD'=>'Maryland',
+        'MA'=>'Massachusetts',
+        'MI'=>'Michigan',
+        'MN'=>'Minnesota',
+        'MS'=>'Mississippi',
+        'MO'=>'Missouri',
+        'MT'=>'Montana',
+        'NE'=>'Nebraska',
+        'NV'=>'Nevada',
+        'NH'=>'New Hampshire',
+        'NJ'=>'New Jersey',
+        'NM'=>'New Mexico',
+        'NY'=>'New York',
+        'NC'=>'North Carolina',
+        'ND'=>'North Dakota',
+        'OH'=>'Ohio',
+        'OK'=>'Oklahoma',
+        'OR'=>'Oregon',
+        'PA'=>'Pennsylvania',
+        'RI'=>'Rhode Island',
+        'SC'=>'South Carolina',
+        'SD'=>'South Dakota',
+        'TN'=>'Tennessee',
+        'TX'=>'Texas',
+        'UT'=>'Utah',
+        'VT'=>'Vermont',
+        'VA'=>'Virginia',
+        'WA'=>'Washington',
+        'WV'=>'West Virginia',
+        'WI'=>'Wisconsin',
+        'WY'=>'Wyoming',
     );
 
     $options = '';
-    foreach ($states as $state) {
-        $options .= '<li class="mdl-menu__item" data-val="' . $state[0] . '" >' . $state[1] . '</li>';
+    foreach ($states as $k => $v) {
+        $options .= '<li class="mdl-menu__item" data-val="' . $k . '" >' . $v . '</li>';
     }
 
     $options .= '';
@@ -86,13 +92,66 @@ function stateDropdown()
  * @internal param string $m , input element's value
  * @internal param string $e , return=false, echo=true
  */
-function check_select($selected, $state)
+
+function stateSelect($studentState)
 {
-    if ($selected == $state) {
-        $val = ' selected="selected" ';
-    } else {
-        $val = '';
+
+    $states = array(
+        'AL'=>'Alabama',
+        'AK'=>'Alaska',
+        'AZ'=>'Arizona',
+        'AR'=>'Arkansas',
+        'CA'=>'California',
+        'CO'=>'Colorado',
+        'CT'=>'Connecticut',
+        'DE'=>'Delaware',
+        'DC'=>'District of Columbia',
+        'FL'=>'Florida',
+        'GA'=>'Georgia',
+        'HI'=>'Hawaii',
+        'ID'=>'Idaho',
+        'IL'=>'Illinois',
+        'IN'=>'Indiana',
+        'IA'=>'Iowa',
+        'KS'=>'Kansas',
+        'KY'=>'Kentucky',
+        'LA'=>'Louisiana',
+        'ME'=>'Maine',
+        'MD'=>'Maryland',
+        'MA'=>'Massachusetts',
+        'MI'=>'Michigan',
+        'MN'=>'Minnesota',
+        'MS'=>'Mississippi',
+        'MO'=>'Missouri',
+        'MT'=>'Montana',
+        'NE'=>'Nebraska',
+        'NV'=>'Nevada',
+        'NH'=>'New Hampshire',
+        'NJ'=>'New Jersey',
+        'NM'=>'New Mexico',
+        'NY'=>'New York',
+        'NC'=>'North Carolina',
+        'ND'=>'North Dakota',
+        'OH'=>'Ohio',
+        'OK'=>'Oklahoma',
+        'OR'=>'Oregon',
+        'PA'=>'Pennsylvania',
+        'RI'=>'Rhode Island',
+        'SC'=>'South Carolina',
+        'SD'=>'South Dakota',
+        'TN'=>'Tennessee',
+        'TX'=>'Texas',
+        'UT'=>'Utah',
+        'VT'=>'Vermont',
+        'VA'=>'Virginia',
+        'WA'=>'Washington',
+        'WV'=>'West Virginia',
+        'Wi'=>'Wisconsin',
+        'WY'=>'Wyoming',
+    );
+
+    if (array_key_exists($studentState, $states)){
+        return $states[$studentState];
     }
 
-    return $val;
 }
