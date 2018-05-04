@@ -21,7 +21,7 @@ if (!isset($enteredUsername) && !isset($enteredPassword)) {
             $_SESSION['loggedIn'] = "$enteredUsername";
             $_SESSION['account'] = "$account";
 
-            header("Location: /community-lifeline-ministries/php-files/index-login/main-menu.php");
+            header("Location: /community-lifeline-ministries/php-files/index-login/Main-Menu.php");
         } else {
             header("Location: /community-lifeline-ministries/index.html");
         }

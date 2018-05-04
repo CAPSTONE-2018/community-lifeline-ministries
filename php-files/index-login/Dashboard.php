@@ -1,3 +1,13 @@
+<?php
+$queryForStudentsPresent = "SELECT COUNT(*) AS studentsPresentCount 
+                            FROM Attendance 
+                            WHERE (Attendance_Value = 1 OR 
+                                  Attendance_Value = 3) AND
+                                  Date = '$dateToSubmit';";
+$resultsForStudentsPresent = mysqli_query($db, $queryForStudentsPresent);
+$studentsPresent = mysqli_fetch_assoc($resultsForStudentsPresent);
+?>
+
 <div class="app-title">
     <div>
         <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
@@ -14,7 +24,7 @@
         <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
                 <h4>Students Present</h4>
-                <p><b>5</b></p>
+                <p> <!-- <b><?php echo $studentsPresent['studentsPresentCount']; ?> -->0</b></p>
             </div>
         </div>
     </div>
@@ -26,29 +36,12 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-            <div class="info">
-                <h4>Programs Occurring</h4>
-                <p><b>10</b></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
-            <div class="info">
-                <h4>You tell me</h4>
-                <p><b>500</b></p>
-            </div>
-        </div>
-    </div>
 </div>
 
 
 <div class="row form-group">
-    <div class="content-mid">
 
-        <div class="col-md-5">
+        <div class="col-5">
             <div class="cal1 cal_2">
                 <div class="clndr">
                     <div class="clndr-controls">
@@ -83,6 +76,6 @@
             <script src="../../js/plugins/calendar/clndr.js" type="text/javascript"></script>
             <script src="../../js/plugins/calendar/site.js" type="text/javascript"></script>
             <!----End Calender -------->
-        </div>
     </div>
+	<?php include("./AttendanceCard.php"); ?>
 </div>
