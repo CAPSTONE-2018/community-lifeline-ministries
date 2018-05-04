@@ -3,7 +3,7 @@ include("../../../db/config.php");
 
 $studentId = $_POST['studentId'];
 
-$queryForContacts = "SELECT Contacts.Id, Contacts.First_Name, Contacts.Last_Name, Contacts.Email, Contacts.Address_One, Contacts.Address_Two,
+$queryForContacts = "SELECT Contacts.Id, Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone, Contacts.Email, Contacts.Address_One, Contacts.Address_Two,
               Contacts.City, Contacts.State, Contacts.Zip FROM Contacts
             JOIN Student_To_Contacts ON Contacts.Id = Student_To_Contacts.Contact_Id
             WHERE Student_To_Contacts.Student_Id = '$studentId' AND Student_To_Contacts.Active_Id = 1;";

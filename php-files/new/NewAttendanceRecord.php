@@ -1,6 +1,7 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 include("../app-shell/TimeZoneFormat.php");
 $programIdToSearch = $_POST['programId'];
@@ -126,19 +127,21 @@ $dynamicRowId = 0;
         </div>
     </div>
 
+
     <script type="text/javascript">
         function validateAttendanceRows() {
 
             var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
             var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
             if (numberOfCheckBoxes < numberOfTableRows) {
-                alert("NEED MODAL STATING NOT EVERY KID WAS SELECTED");
+                launchAttendanceWarningModal();
             } else {
                 document.forms["newAttendanceRecordForm"].submit();
             }
         }
     </script>
 
+    <script src="../../js/modals/attendance/AttendanceWarning.js"></script>
 <?php
 include("../app-shell/footer.php");
 ?>
