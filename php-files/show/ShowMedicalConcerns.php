@@ -3,7 +3,9 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-$queryForMedicalConcerns = "SELECT * FROM medical_concern_types;";
+$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name FROM Medical_Concern_Types 
+JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
+WHERE Medical_Concern_Types.Active_Id = 1;";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
     <div class="app-title">
