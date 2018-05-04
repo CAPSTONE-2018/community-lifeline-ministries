@@ -92,6 +92,12 @@
                         View All
                     </a>
                 </li>
+                <li>
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeToProgram.php">
+                        <i class="icon fa fa-pencil-square-o"></i>
+                        Add Volunteer to Program
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="treeview">

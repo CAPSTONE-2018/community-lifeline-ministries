@@ -28,7 +28,7 @@ include("../../db/config.php");
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="medicalConcernType" class="mdl-textfield__input" name="type" type="text"/>
                             <label class="mdl-textfield__label" for="medicalConcernType">Type of Concern</label>
-                            <span class="mdl-textfield__error">Last Name is Required</span>
+                            <span class="mdl-textfield__error">Type Name is Required</span>
                         </div>
                     </div>
 
@@ -52,7 +52,8 @@ include("../../db/config.php");
 <script type="text/javascript">
     function validateMedicalType() {
         var medicalTypeName = document.getElementById("medicalConcernType").value;
-        var submissionType = "Medical Concern Type";
+        var successModalMessage = "Medical Concern Type, " + medicalTypeName + " has been entered successfully.";
+        var duplicateModalMessage = "Medical Concern Type, " + medicalTypeName + " already exists.";
         var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewMedicalConcernType.php";
 
         $.ajax({
@@ -61,11 +62,11 @@ include("../../db/config.php");
             data: {name: medicalTypeName},
             success: function (response) {
                 if (response === 'entry-exists') {
-                    launchGenericDuplicateEntryModal(medicalTypeName, submissionType);
+                    launchGenericDuplicateEntryModal(duplicateModalMessage);
                 } else if (response === 'database-error') {
                     launchGenericDatabaseErrorModal();
                 } else if (response === 'success') {
-                    launchGenericSuccessfulEntryModal(medicalTypeName, submissionType, afterModalDisplaysRoute);
+                    launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
                 } else if (response === 'fill-required-inputs') {
                     launchGenericRequiredInputsModal();
                 }

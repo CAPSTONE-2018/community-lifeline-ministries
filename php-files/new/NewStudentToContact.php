@@ -5,27 +5,27 @@ include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 $queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
 $allActiveStudentsResults = mysqli_query($db, $queryForAllActiveStudents);
-$queryForAllActivePrograms = "SELECT * FROM Programs WHERE Active_Program = 1 ORDER BY Program_Name";
-$allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
+$queryForAllActiveContacts = "SELECT * FROM Contacts WHERE Active_Contact = 1 ORDER BY Last_Name, First_Name";
+$allActiveContactsResults = mysqli_query($db, $queryForAllActiveContacts);
 ?>
 <div class="app-title">
     <div>
-        <h3><i class="fa fa-plus"></i> Student to Program</h3>
+        <h5><i class="fa fa-plus"></i> New Student to Contact</h5>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="breadcrumb-item"> Student to Program</li>
+        <li class="breadcrumb-item"> Student to Contact</li>
     </ul>
 </div>
 <div class="container-fluid">
     <div class="card text-center">
         <div class="card-header">
-            <h1><i class="fa fa-pencil"></i> Register Student to Program</h1>
+            <h1><i class="fa fa-pencil"></i> Add Student to Contact</h1>
         </div>
 
         <div class="card-body">
-            <form method="post" id="newStudentToProgramForm">
-                <h4 class="heading text-left"><i class="fa fa-bullhorn"></i> General Info</h4>
+            <form method="post" id="newStudentToContactForm">
+                <h4 class="heading text-left"><i class="fa fa-graduation-cap"></i> Student to Contact Info</h4>
                 <div class="blue-line-color"></div>
                 <div class="row">
                     <div class="col-12 col-sm-6">
@@ -47,25 +47,34 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
 
                     <div class="col-12 col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" id="programName" class="mdl-textfield__input" readonly>
-                            <input type="hidden" id="programId" name="programId">
+                            <input autocomplete="off" type="text" id="contactName" class="mdl-textfield__input" readonly>
+                            <input autocomplete="off" type="hidden" id="contactId" name="contactId">
                             <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
-                            <label for="programId" class="mdl-textfield__label">Program to Enroll</label>
-                            <ul for="programId" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                <?php while ($programsRow = mysqli_fetch_assoc($allActiveProgramsResults)) {
-                                    $programName = $programsRow['Program_Name'];
+                            <label for="contactId" class="mdl-textfield__label">Active Contacts</label>
+                            <ul for="contactId" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <?php while ($contactsRow = mysqli_fetch_assoc($allActiveContactsResults)) {
+                                    $contactName = $contactsRow['First_Name'] . ' ' . $contactsRow['Last_Name'];
                                     ?>
                                     <li class="mdl-menu__item"
-                                        data-val="<?php echo $programsRow['Id']; ?>"><?php echo $programName; ?></li>
+                                        data-val="<?php echo $contactsRow['Id']; ?>"><?php echo $contactName; ?></li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
                 </div>
 
+                <div class="row text-center">
+                    <div class="col-12 col-sm-6 m-auto">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="relationship" class="mdl-textfield__input" name="relationship" type="text"/>
+                            <label class="mdl-textfield__label" for="relationship">Relationship to Student</label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row col-sm-12">
                     <input id="submitButton" class="btn large-action-buttons edit-button" type="button"
-                           onclick="validateStudentToProgram()" value="Enter"/><br><br>
+                           onclick="validateStudentToContact()" value="Enter"/><br><br>
                 </div>
             </form>
         </div>
@@ -73,20 +82,22 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
 </div>
 
 <script type="text/javascript">
-    function validateStudentToProgram() {
+    function validateStudentToContact() {
         var studentId = document.getElementById("studentId").value;
-        var programId = document.getElementById("programId").value;
+        var contactId = document.getElementById("contactId").value;
         var studentName = document.getElementById("studentName").value;
-        var programName = document.getElementById("programName").value;
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudentToProgram.php";
-        var successModalMessage = studentName + " has been registered to the Program, " + programName + ".";
-        var duplicateModalMessage = "the record for " + studentName + ", and " + programName + " already exist.";
+        var contactName = document.getElementById("contactName").value;
+        var relationship = document.getElementById("relationship").value;
+        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudentToContact.php";
+        var successModalMessage = "The Student, " + studentName + " and contact, " + contactName + " have been added.";
+        var duplicateModalMessage = "the record for " + studentName + ", and " + contactName + " already exist.";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudentToProgram.php",
+            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudentToContact.php",
             method: "POST",
             data: {
                 studentId: studentId,
-                programId: programId
+                contactId: contactId,
+                relationship: relationship
             },
             success: function (response) {
                 if (response === 'entry-exists') {
