@@ -4,7 +4,6 @@ include("../app-shell/TimeZoneFormat.php");
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("./Dashboard.php");
-//include ("./AttendanceCard.php");
 ?>
 
     <script defer src="../../js/forms/PrettyDropdowns.js"></script>
