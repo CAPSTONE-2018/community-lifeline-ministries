@@ -63,6 +63,7 @@ $volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $se
                             </table>
                     </div>
                 </form>
+
             </div>
             <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
             <script src="../../scripts/print.js"></script>
@@ -71,6 +72,4 @@ $volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $se
             </div>
         </div>
     </div>
-</div>
-
 </div>
