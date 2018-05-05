@@ -1,6 +1,7 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 $queryForActiveVolunteers = "SELECT * FROM Volunteer_Employees WHERE Active_Volunteer = 1;";
 $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
@@ -83,9 +84,12 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                                         <div class='d-inline'>
                                             <button type='button'
                                                     class='btn large-action-buttons delete-button'
-                                                    onclick='launchArchiveEmployeeModal(
+                                                    onclick='launchConfirmArchiveModal(
                                                             "<?php echo $volunteerId; ?>",
-                                                            "<?php echo $nameToDisplay; ?>"
+                                                            "ArchiveVolunteerEmployee.php",
+                                                            "Volunteer",
+                                                            "<?php echo $nameToDisplay; ?>",
+                                                            "ShowVolunteerEmployees.php"
                                                             )'
                                             >
                                                 <i class='fa fa-archive'></i> Archive
