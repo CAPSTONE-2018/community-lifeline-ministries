@@ -32,9 +32,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                     </div>
                                                 </div>
                                                 <div class="row">
-
                                                     <div class="col-sm-6">
-
                                                         <p style="width:100%;">Search Input Type
                                                             <select style="width:100%;" id="FilterType1">
                                                                 <option value="First_Name">First Name</option>
