@@ -82,6 +82,3 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students " . $searchFilters)
         </div>
     </div>
 </div>
-</div>
-
-</div>
