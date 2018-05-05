@@ -15,7 +15,7 @@ $volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $se
                       id="allStudentsTable">
                     <div class="table-responsive">
                         <thead>
-                        <table class="table">
+                        <table id="test" class="table">
                             <thead class="thead-dark">
 
                             <tr>
@@ -67,7 +67,11 @@ $volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $se
             <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
             <script src="../../scripts/print.js"></script>
             <div class="card-footer">
-
+                <script>
+                    $(document).ready(function () {
+                        $('#test').DataTable();
+                    });
+                </script>
             </div>
         </div>
     </div>
