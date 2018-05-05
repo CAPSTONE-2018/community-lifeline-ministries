@@ -16,7 +16,7 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees ".$searc
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
                         <tr class="row">
-                            <th class="col-sm-1  text-center" >Prefix</th>
+                            <th class="col-sm-1 text-center" >Prefix</th>
                             <th class="col-sm-1 text-center">First Name</th>
                             <th class="col-sm-1 text-center">Last Name</th>
                             <th class="col-sm-1 text-center">Primary Phone</th>
