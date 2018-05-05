@@ -138,7 +138,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                         <li class="mdl-menu__item" data-val="2">Yes</li>
                                                         <li class="mdl-menu__item" data-val="3">No</li>
                                                     </ul>-->
-                                                        <p>IEP
+                                                        <p>IEP </br>
                                                             <select id="IEP">
                                                                 <option value="1">All Students</option>
                                                                 <option value="2">Yes</option>
@@ -157,7 +157,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                         <li class="mdl-menu__item" data-val="2">Yes</li>
                                                         <li class="mdl-menu__item" data-val="3">No</li>
                                                     </ul>-->
-                                                        <p>Gender
+                                                        <p>Gender</br>
                                                             <select id="Gender">
                                                                 <option value="1">All Students</option>
                                                                 <option value="2">M</option>
