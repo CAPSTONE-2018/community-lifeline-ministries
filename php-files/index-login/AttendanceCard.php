@@ -9,8 +9,8 @@ while ($attendanceAssociation = mysqli_fetch_assoc($attendanceRecordResult)) {
     array_push($programsWithAttendanceRecordArray, $attendanceAssociation['Program_Id']);
 } ?>
 
-<div class="container-fluid col-7">
-    <div class="card text-center">
+<div class="container-fluid col-12 col-sm-7" style="height: 375px;">
+    <div class="card h-100 text-center">
         <div class="card-header">
             Attendance Center
         </div>

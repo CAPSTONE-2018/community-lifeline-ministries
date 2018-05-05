@@ -14,5 +14,5 @@ function launchGenericRequiredInputsModal() {
 
     setTimeout(function() {
         $('#customModal').modal('hide');
-    }, 2000);
+    }, 3000);
 }

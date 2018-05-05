@@ -11,6 +11,6 @@ function launchAttendanceWarningModal() {
 
     setTimeout(function() {
         $('#customModal').modal('hide');
-    }, 4000);
+    }, 3000);
 
 }

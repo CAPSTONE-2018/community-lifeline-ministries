@@ -13,7 +13,7 @@ function launchGenericSuccessfulEntryModal(modalMessageToDisplay, afterDisplayRo
 
     setTimeout(function() {
         $('#customModal').modal('hide');
-    }, 4000);
+    }, 3000);
 
     $('#customModal').on('hidden.bs.modal', function () {
         document.getElementsByTagName('form')[0].reset();

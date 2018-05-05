@@ -4,7 +4,7 @@ if (!isset($_SESSION['loggedIn'])) {
     header("Location: ../../index.html");
 }
 $account = $_SESSION['account'];
-$userMakingChanges = $_SESSION['loggedIn'];
+$userLoggedIn = $_SESSION['loggedIn'];
 include("../app-shell/TimeZoneFormat.php");
 ?>
 <!DOCTYPE html>
@@ -16,12 +16,16 @@ include("../app-shell/TimeZoneFormat.php");
     <title>CLM</title>
     <!-- CDN Link to Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.6/combined/css/gijgo.min.css">
+
+
+
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="../../css/plugins/gijgo/gijgo.min.css"/>
     <link rel="stylesheet" href="../../css/plugins/application-shell/main.min.css"/>
     <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/plugins/pretty-drop-downs/pretty-drop-downs.css"/>
-    <link rel="stylesheet" href="../../css/plugins/izi-modal/iziModal.min.css">
     <!-- Our Custom Stylesheets -->
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
     <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
@@ -33,27 +37,29 @@ include("../app-shell/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/dashboard.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
 
-    <!-- Our Custom Stylesheets -->
+    <!-- Scripts that must remain in the header -->
     <script src="../../js/plugins/jquery/jquery.min.js"></script>
-    <script src="../../js/plugins/gijgo/gijgo.min.js"></script>
-    <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.6/combined/js/gijgo.min.js"></script>
 </head>
 <body class="app sidebar-mini rtl pace-done ">
 <!-- Nav-bar-->
-<header class="app-header">
+<header class="app-header col-12">
     <!-- Sidebar toggle button -->
-    <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    <a class="app-sidebar__toggle col-2" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Main CLM Logo -->
     <!--    <a class="app-header__logo" href="#">CLM</a>-->
     <!--    <a class="app-header__logo" href="../index-login/menu.php">-->
     <!--        <img src="../../images/new-logo.png" alt="CLM Logo" height="25px">-->
     <!--    </a>-->
-    <div class="navbar-user">
-        Signed In As: <?php echo $userMakingChanges ?>
-        <div id="timer"></div>
+    <div class="text-center col-8">
+
+        <div class="navbar-user text-white">
+            Signed In As: <?php echo $userLoggedIn ?>
+            <div id="timer"></div>
+        </div>
     </div>
     <!-- Nav-bar Right Menu-->
-    <ul class="app-nav">
+    <ul class="app-nav col-2">
         <!--Notification Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i
                         class="fa fa-bell-o fa-lg"></i></a>
