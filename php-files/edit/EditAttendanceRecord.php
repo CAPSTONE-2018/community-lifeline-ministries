@@ -34,6 +34,7 @@ $dynamicRowId = 0;
         </ul>
     </div>
     <div class="container-fluid">
+        <input type='hidden' value='<?php echo $programNameToDisplay; ?>' id='programNameToDisplay'/>
         <div class="card">
             <div class="card-header text-center">
                 <?php
@@ -50,9 +51,7 @@ $dynamicRowId = 0;
                 ?>
             </div>
 
-            <form class="container-fluid" method="POST" action="../mysql-statements/update/UpdateAttendanceRecord.php"
-                  name="editAttendanceRecordForm" id="editAttendanceRecordForm">
-                <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
+            <form class="container-fluid" name="editAttendanceRecordForm" id="editAttendanceRecordForm">
                 <div class="table-responsive col-sm-12">
                     <table id="attendance-table" class="table table-striped table-hover">
                         <thead>
@@ -82,9 +81,9 @@ $dynamicRowId = 0;
                             $absentCheckMark = '';
                             $tardyCheckMark = '';
 
-                            if ($attendanceValue == 1) {
+                            if ($attendanceValue === "Present") {
                                 $presentCheckMark = "checked";
-                            } else if ($attendanceValue == 2) {
+                            } else if ($attendanceValue === "Absent") {
                                 $absentCheckMark = "checked";
                             } else {
                                 $tardyCheckMark = "checked";
@@ -97,12 +96,14 @@ $dynamicRowId = 0;
                                            value='<?php echo $studentIdToSearch; ?>'/>
                                     <input type='hidden' name='programId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $programId; ?>'/>
+                                    <input type='hidden' name='attendanceDate[<?php echo $dynamicRowId; ?>]'
+                                           value='<?php echo $dateToSubmit; ?>'/>
                                 </td>
                                 <td class='radio-input-wrapper col-2 align-middle text-center'>
                                     <label class='radio-label' for='<?php echo $firstRowId; ?>'>
                                         <input type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $presentCheckMark; ?>
-                                               value='1' id='<?php echo $firstRowId; ?>'/>
+                                               value='Present' id='<?php echo $firstRowId; ?>'/>
                                         <span class='custom-check-mark green-check align-middle'></span>
                                     </label>
                                 </td>
@@ -111,7 +112,7 @@ $dynamicRowId = 0;
                                     <label class='radio-label' for='<?php echo $secondRowId; ?>'>
                                         <input class='hover-checkbox' type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $absentCheckMark; ?>
-                                               value='2' id='<?php echo $secondRowId; ?>'/>
+                                               value='Absent' id='<?php echo $secondRowId; ?>'/>
                                         <span class='custom-check-mark red-check align-middle'></span>
                                     </label>
                                 </td>
@@ -120,7 +121,7 @@ $dynamicRowId = 0;
                                     <label class='radio-label' for='<?php echo $thirdRowId; ?>'>
                                         <input type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $tardyCheckMark; ?>
-                                               value='3' id='<?php echo $thirdRowId; ?>'/>
+                                               value='Tardy' id='<?php echo $thirdRowId; ?>'/>
                                         <span class='custom-check-mark blue-check align-middle'></span>
                                     </label>
                                 </td>
@@ -133,26 +134,7 @@ $dynamicRowId = 0;
                                     </button>
                                 </td>
                             </tr>
-                            <?php
-//                            $studentIdToSearch = $row['Student_Id'];
-                            $queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone
-                                  FROM Student_To_Contacts JOIN Contacts On Student_To_Contacts.Contact_Id = Contacts.Id WHERE Student_Id = $studentIdToSearch;";
-                            $currentContactForStudent = mysqli_query($db, $queryForContacts);
-                            while ($contactRow = mysqli_fetch_array($currentContactForStudent, MYSQLI_ASSOC)) {
-                                $contactName = $contactRow['First_Name'] . " " . $contactRow['Last_Name'];
-                                $contactPhone = $contactRow['Primary_Phone'];
-                                echo "
-                                    <tr class='collapse smooth collapseRow$dynamicRowId'>
-                                    <td></td>
-                                    <td colspan='12'>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-user'></i> $contactName</span>
-                                        <span class='hidden-row-width'><i class='glyphicon glyphicon-earphone'></i> $contactPhone</span>
-                                    </td>
-                                    
-                                </tr>";
-                            }
-                        }
-                        ?>
+                        <? } ?>
                         </tbody>
                     </table>
                 </div>
@@ -160,8 +142,8 @@ $dynamicRowId = 0;
 
             <div class="card-footer">
                 <div class="text-center">
-                    <button id="submitAttendance" form="newAttendanceRecordForm" type="button"
-                            onclick="validateAttendanceRows()"
+                    <button id="submitAttendance" type="button"
+                            onclick="sendEditAttendanceRecord()"
                             class="btn btn-primary attendance-submit-button">
                         Submit
                     </button>
@@ -172,16 +154,30 @@ $dynamicRowId = 0;
 
 
     <script type="text/javascript">
-        function validateAttendanceRows() {
-
-            var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
+        function sendEditAttendanceRecord() {
+            var attendanceForm = $("#editAttendanceRecordForm").serialize();
+            var programName = document.getElementById("programNameToDisplay").value;
             var numberOfTableRows = $("#editAttendanceRecordForm tr").length - 1;
-            if (numberOfCheckBoxes < numberOfTableRows) {
-                launchAttendanceWarningModal();
-            } else {
-                document.forms["editAttendanceRecordForm"].submit();
-            }
+            var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
+            var successModalMessage = "The Attendance Record for, " + programName + " has been updated successfully.";
+            $.ajax({
+                url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateAttendanceRecord.php",
+                method: "POST",
+                data: {
+                    formData: attendanceForm,
+                    numberOfStudentsToSubmit: numberOfTableRows
+                },
+                success: function (response) {
+                    alert(response);
+                    if (response === 'database-error') {
+                        launchGenericDatabaseErrorModal();
+                    } else if (response === 'success') {
+                        launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
+                    }
+                }
+            });
         }
+
     </script>
 
     <script src="../../js/modals/attendance/AttendanceWarning.js"></script>
