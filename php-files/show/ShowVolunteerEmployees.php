@@ -106,7 +106,7 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                                         </span>
                                         <span title='Programs' data-toggle='tooltip'
                                               class='small-action-buttons'>
-                                            <button type='button' onclick=''
+                                            <button type='button' onclick='launchProgramsForVolunteerModal(<?php echo $volunteerId; ?>)'
                                                     class='btn small-action-buttons contact-button'>
                                                 <i class='fa fa-pencil mr-0'></i>
                                             </button>
