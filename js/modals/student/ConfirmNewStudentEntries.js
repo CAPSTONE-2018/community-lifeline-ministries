@@ -21,28 +21,29 @@ $(document).ready(function () {
             var zipCode = "Zip Code: " + formInputFields.elements[13].value + "<br>";
             var school = "School: " + formInputFields.elements[14].value + "<br>";
 
-            if(formInputFields.elements[18].value === "On" || formInputFields.elements[18].value === 0)
-            {
-                var permissionSlip = "Permission Slip on File: No" + "<br>";
-            } else {
-                permissionSlip = "Permission Slip on File: Yes" + "<br>";
-            }
 
-            if(formInputFields.elements[19].value === "On" || formInputFields.elements[19].value === 0)
-            {
-                var birthCertificate = "Birth Certificate on File: No" + "<br>";
-            } else {
-                birthCertificate = "Birth Certificate on File: Yes" + "<br>";
-            }
-
-            if(formInputFields.elements[17].value === "On" || formInputFields.elements[17].value === 0)
+            if(formInputFields.elements[17].value === "on" || formInputFields.elements[17].value === 0)
             {
                 var reducedLunch = "Reduced Lunch Eligible: No" + "<br>";
             } else {
                 reducedLunch = "Reduced Lunch Eligible: Yes" + "<br>";
             }
 
-            if(formInputFields.elements[20].value === "On" || formInputFields.elements[20].value === 0)
+            if(formInputFields.elements[18].value === "on" || formInputFields.elements[18].value === 0)
+            {
+                var permissionSlip = "Permission Slip on File: No" + "<br>";
+            } else {
+                permissionSlip = "Permission Slip on File: Yes" + "<br>";
+            }
+
+            if(formInputFields.elements[19].value === "on" || formInputFields.elements[19].value === 0)
+            {
+                var birthCertificate = "Birth Certificate on File: No" + "<br>";
+            } else {
+                birthCertificate = "Birth Certificate on File: Yes" + "<br>";
+            }
+
+            if(formInputFields.elements[20].value === "on" || formInputFields.elements[20].value === 0)
             {
                 var emotionalProblems = "Immediate Emotional Problem: No" + "<br>";
             } else {
