@@ -16,7 +16,6 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Contacts ".$searchFilters);
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
                         <tr class="row">
-                            <th class="col-sm-1 text-center">Active</th>
                             <th class="col-sm-1  text-center">Prefix</th>
                             <th class="col-sm-1  text-center">First Name</th>
                             <th class="col-sm-1 text-center">Last Name</th>
@@ -34,8 +33,6 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Contacts ".$searchFilters);
                         <?php
                         while($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
                             echo "<tr class=\"row\"><td class=\"col-sm-1 text-center\">";
-                            echo $row['Active_Contact'];
-                            echo "</td><td class=\"col-sm-1 text-center\">";
                             echo $row['Prefix'];
                             echo "</td><td class=\"col-sm-1 text-center\">";
                             echo $row['First_Name'];
