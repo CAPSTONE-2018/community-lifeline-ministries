@@ -348,17 +348,16 @@ include("../app-shell/TimeZoneFormat.php");
                     searchFilters += " Reduced_Lunch_Eligible = 0"
                 }
 
-
                 if (searchInputs[10] == 2) {
                     if (searchFilters != "WHERE") {
                         searchFilters += " AND";
                     }
-                    searchFilters += " BirthCertificate = 1"
+                    searchFilters += " Birth_Certificate = 1"
                 } else if (searchInputs[10] == 3) {
                     if (searchFilters != "WHERE") {
                         searchFilters += " AND";
                     }
-                    searchFilters += " BirthCertificate = 0"
+                    searchFilters += " Birth_Certificate = 0"
                 }
 
                 if (searchInputs[11] == 2) {
