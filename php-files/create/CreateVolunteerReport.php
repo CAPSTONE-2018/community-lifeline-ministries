@@ -1,6 +1,6 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
 include("../../db/config.php");
 include("../app-shell/TimeZoneFormat.php");
 
