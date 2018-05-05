@@ -1,8 +1,8 @@
 <?php
 $queryForStudentsPresent = "SELECT COUNT(*) AS studentsPresentCount 
                             FROM Attendance 
-                            WHERE (Attendance_Value = 1 OR 
-                                  Attendance_Value = 3) AND
+                            WHERE (Attendance_Value = 'Present' OR 
+                                  Attendance_Value = 'Tardy') AND
                                   Date = '$dateToSubmit';";
 $resultsForStudentsPresent = mysqli_query($db, $queryForStudentsPresent);
 $studentsPresent = mysqli_fetch_assoc($resultsForStudentsPresent);
