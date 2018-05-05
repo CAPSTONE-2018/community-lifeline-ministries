@@ -59,13 +59,29 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students " . $searchFilters)
                             echo "</td><td>";
                             echo $row['School'];
                             echo "</td><td>";
-                            echo $row['Permission_Slip'];
+                            if($row['Permission_Slip'] == 0){
+                                echo "No";
+                            } else{
+                                echo "Yes";
+                            }
                             echo "</td><td>";
-                            echo $row['Birth_Certificate'];
+                            if($row['Birth_Certificate'] == 0){
+                                echo "No";
+                            } else{
+                                echo "Yes";
+                            }
                             echo "</td><td>";
-                            echo $row['Reduced_Lunch_Eligible'];
+                            if($row['Reduced_Lunch_Eligible'] == 0){
+                                echo "No";
+                            } else{
+                                echo "Yes";
+                            }
                             echo "</td><td>";
-                            echo $row['IEP'];
+                            if($row['IEP'] == 0){
+                                echo "No";
+                            } else{
+                                echo "Yes";
+                            }
                             echo "</td></tr>";
                         }
                         ?>
