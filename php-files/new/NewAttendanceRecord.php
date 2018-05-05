@@ -1,6 +1,7 @@
 <?php
-include("../app-shell/header.php");
-include("../app-shell/sidebar.php");
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 include("../app-shell/TimeZoneFormat.php");
 $programIdToSearch = $_POST['programId'];
@@ -25,6 +26,7 @@ $dynamicRowId = 0;
         </ul>
     </div>
     <div class="container-fluid">
+        <input type='hidden' value='<?php echo $programNameToDisplay; ?>' id='programNameToDisplay'/>
         <div class="card">
             <div class="card-header text-center">
                 <?php
@@ -40,19 +42,17 @@ $dynamicRowId = 0;
                 ?>
             </div>
 
-            <form class="container-fluid" method="POST" action="../mysql-statements/add/AddAttendanceRecord.php"
-                  name="newAttendanceRecordForm" id="newAttendanceRecordForm">
-                <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
+            <form class="container-fluid" name="newAttendanceRecordForm" id="newAttendanceRecordForm">
                 <div class="table-responsive col-sm-12">
                     <table id="attendance-table" class="table table-striped table-hover">
                         <thead>
                         <tr class="row">
-                            <th class="col-sm-1">#</th>
-                            <th class="col-sm-3">Student Name</th>
-                            <th class="col-sm-2 text-center">Present</th>
-                            <th class="col-sm-2 text-center">Absent</th>
-                            <th class="col-sm-2 text-center">Tardy</th>
-                            <th class="col-sm-2 text-center">Actions</th>
+                            <th class="col-1">#</th>
+                            <th class="col-3">Student Name</th>
+                            <th class="col-2 text-center">Present</th>
+                            <th class="col-2 text-center">Absent</th>
+                            <th class="col-2 text-center">Tardy</th>
+                            <th class="col-2 text-center">Actions</th>
                         </tr>
                         </thead>
 
@@ -68,39 +68,40 @@ $dynamicRowId = 0;
                             $studentIdToSearch = $row['Student_Id'];
                             $studentName = $row['First_Name'] . " " . $row['Last_Name']; ?>
                             <tr class="row">
-                                <td class="col-sm-1"></td>
-                                <td class="col-sm-3">
+                                <td class="col-1"></td>
+                                <td class="col-3">
                                     <?php echo $studentName; ?>
                                     <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $studentIdToSearch; ?>'/>
                                     <input type='hidden' name='programId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $programId; ?>'/>
+                                    <input type='hidden' name='attendanceDate[<?php echo $dynamicRowId; ?>]' value='<?php echo $dateToSubmit; ?>'/>
                                 </td>
-                                <td class='radio-input-wrapper col-sm-2 align-middle text-center'>
+                                <td class='radio-input-wrapper col-2 align-middle text-center'>
                                     <label class='radio-label' for='radio<?php echo $firstRowId; ?>'>
-                                        <input type='radio' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
-                                               value='1'
+                                        <input type='radio' value='Present'
+                                               name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
                                                id='radio<?php echo $firstRowId; ?>'/>
                                         <span class='custom-check-mark green-check'></span>
                                     </label>
                                 </td>
-                                <td class='radio-input-wrapper col-sm-2 align-middle text-center'>
+                                <td class='radio-input-wrapper col-2 align-middle text-center'>
                                     <label class='radio-label' for='radio<?php echo $secondRowId; ?>'>
-                                        <input class='hover-checkbox' type='radio'
-                                               name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' value='2'
+                                        <input type='radio' value='Absent'
+                                               name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
                                                id='radio<?php echo $secondRowId; ?>'/>
                                         <span class='custom-check-mark red-check'></span>
                                     </label>
                                 </td>
-                                <td class='radio-input-wrapper col-sm-2 align-middle text-center'>
+                                <td class='radio-input-wrapper col-2 align-middle text-center'>
                                     <label class='radio-label' for='radio<?php echo $thirdRowId; ?>'>
-                                        <input type='radio' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
-                                               value='3'
+                                        <input type='radio' value='Tardy'
+                                               name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]'
                                                id='radio<?php echo $thirdRowId; ?>'/>
                                         <span class='custom-check-mark blue-check'></span>
                                     </label>
                                 </td>
-                                <td class="col-sm-2 text-center">
+                                <td class="col-2 text-center">
                                     <button type='button'
                                             onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
                                             class='btn attendance-contact-button'>
@@ -113,12 +114,10 @@ $dynamicRowId = 0;
                     </table>
                 </div>
             </form>
-
             <div class="card-footer">
-                <div>
-                    <button id="submitAttendance" form="newAttendanceRecordForm" type="button"
-                            onclick="validateAttendanceRows()"
-                            class="btn btn-right btn-primary">
+                <div class="text-center">
+                    <button id="submitAttendance" type="button" onclick="validateAttendanceRows()"
+                            class="btn btn-primary attendance-submit-button">
                         Submit
                     </button>
                 </div>
@@ -126,19 +125,40 @@ $dynamicRowId = 0;
         </div>
     </div>
 
+
     <script type="text/javascript">
         function validateAttendanceRows() {
-
+            var attendanceForm = $("#newAttendanceRecordForm").serialize();
+            var programName = document.getElementById("programNameToDisplay").value;
             var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
             var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
             if (numberOfCheckBoxes < numberOfTableRows) {
-                alert("NEED MODAL STATING NOT EVERY KID WAS SELECTED");
+                launchAttendanceWarningModal();
             } else {
-                document.forms["newAttendanceRecordForm"].submit();
+
+                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
+                var successModalMessage = "The Attendance Record for, " + programName +" has been entered successfully.";
+                $.ajax({
+                    url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddAttendanceRecord.php",
+                    method: "POST",
+                    data: {
+                        formData: attendanceForm,
+                        numberOfStudentsToSubmit: numberOfTableRows
+                    },
+                    success: function (response) {
+                        if (response === 'database-error') {
+                            launchGenericDatabaseErrorModal();
+                        } else if (response === 'success') {
+                            launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
+                        }
+                    }
+                });
             }
         }
     </script>
 
+    <script src="../../js/modals/attendance/AttendanceWarning.js"></script>
+
 <?php
-include("../app-shell/footer.php");
+include("../app-shell/Footer.php");
 ?>

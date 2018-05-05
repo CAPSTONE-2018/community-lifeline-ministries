@@ -4,8 +4,8 @@
 include("../../db/config.php");
 
 
-$studentsResults = mysqli_query($db, "SELECT students.First_Name,students.Last_Name, student_to_programs.Program_Id FROM students JOIN student_to_programs ON students.Id = student_to_programs.Student_Id");
-$volunteerResults = mysqli_query($db, "SELECT volunteer_employees.First_Name,volunteer_employees.Last_Name, volunteer_to_programs.Program_Id FROM volunteer_employees JOIN volunteer_to_programs  ON volunteer_employees.Id = volunteer_to_programs.Volunteer_Id");
+$studentsResults = mysqli_query($db, "SELECT DISTINCT Students.First_Name,Students.Last_Name, Student_To_Programs.Program_Id FROM students JOIN Student_To_Programs ON Students.Id = Student_To_Programs.Student_Id");
+$volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First_Name,Volunteer_Employees.Last_Name, Volunteer_To_Programs.Program_Id FROM Volunteer_Employees JOIN Volunteer_To_Programs  ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id");
 
 ?>
 
@@ -17,23 +17,23 @@ $volunteerResults = mysqli_query($db, "SELECT volunteer_employees.First_Name,vol
                 <div class="table-responsive">
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr>
-                            <th class="col-sm-2 text-center">Student First Name</th>
-                            <th class="col-sm-3">Student Last Name</th>
-                            <th class="col-sm-3">Program</th>
+                        <tr class="row">
+                            <th class="col-sm-4 text-center">Student First Name</th>
+                            <th class="col-sm-4  text-center">Student Last Name</th>
+                            <th class="col-sm-4  text-center">Program</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
-                            $rs = mysqli_query($db, "SELECT programs.Program_NAME from programs WHERE programs.Id = ".$row['Program_Id']);
+                            $rs = mysqli_query($db, "SELECT Programs.Program_NAME from Programs WHERE Programs.Id = " . $row['Program_Id']);
                             $result2 = mysqli_fetch_array($rs);
 
-                            echo "<tr><td>";
+                            echo "<tr class=\"row\"><td class=\"col-sm-4 text-center\">";
                             echo $row['First_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-4 text-center\">";
                             echo $row['Last_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-4 text-center\">";
                             echo $result2[0];
                             echo "</td></tr>";
                         }
@@ -42,23 +42,23 @@ $volunteerResults = mysqli_query($db, "SELECT volunteer_employees.First_Name,vol
                     </table>
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr>
-                            <th class="col-sm-2 text-center">Volunteer First Name</th>
-                            <th class="col-sm-3">Volunteer Last Name</th>
-                            <th class="col-sm-3">Program</th>
+                        <tr class="row">
+                            <th class="col-sm-4  text-center">Volunteer First Name</th>
+                            <th class="col-sm-4  text-center">Volunteer Last Name</th>
+                            <th class="col-sm-4 text-center">Program</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        while ($row = mysqli_fetch_array($volunteerResults  , MYSQLI_ASSOC)) {
-                            $rs = mysqli_query($db, "SELECT Programs.Program_NAME from programs WHERE programs.Id = ".$row['Program_Id']);
+                        while ($row = mysqli_fetch_array($volunteerResults, MYSQLI_ASSOC)) {
+                            $rs = mysqli_query($db, "SELECT Programs.Program_NAME from Programs WHERE Programs.Id = " . $row['Program_Id']);
                             $result2 = mysqli_fetch_array($rs);
 
-                            echo "<tr><td>";
+                            echo "<tr  class=\"row\"><td class=\"col-sm-4 text-center\">";
                             echo $row['First_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-4 text-center\">";
                             echo $row['Last_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-4 text-center\">";
                             echo $result2[0];
                             echo "</td></tr>";
                         }
@@ -67,13 +67,11 @@ $volunteerResults = mysqli_query($db, "SELECT volunteer_employees.First_Name,vol
                     </table>
                 </div>
             </form>
-        </div>    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print" />
+        </div>
+        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
         <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
         </div>
     </div>
-</div>
-</div>
-
 </div>

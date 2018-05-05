@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="#">
+                    <a class="treeview-item" href="../new/NewStudentToContact.php">
                         <i class="icon fa fa-pencil-square-o"></i>
                         Add Student to Contact
                     </a>
@@ -87,9 +87,15 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php.php">
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php">
                         <i class="icon fa fa-plus"></i>
                         Add/Update Volunteer Availability
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeToProgram.php">
+                        <i class="icon fa fa-plus"></i>
+                        Add Volunteer to Program
                     </a>
                 </li>
                 <li>
@@ -120,7 +126,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="#">
+                    <a class="treeview-item" href="../index-login/Main-Menu.php">
                         <i class="icon fa fa-calendar-check-o"></i>
                         Attendance
                     </a>
@@ -192,6 +198,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="treeview-item" href="../create/CreateStudentTestScores.php.php">
+                        <i class="icon fa fa-folder-open"></i>
+                        Student Test Scores
+                    </a>
+                </li>
+                <li>
                     <a class="treeview-item" href="../create/CreateStudentToProgramReport.php">
                         <i class="icon fa fa-folder-open"></i>
                         Program Reports
@@ -222,6 +234,12 @@
                     <a class="treeview-item" href="../new/NewUser.php">
                         <i class="icon fa fa-plus"></i>
                         Add New User
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item" href="../show/ShowUsers.php">
+                        <i class="icon fa fa-folder-open"></i>
+                        View All Users
                     </a>
                 </li>
             </ul>

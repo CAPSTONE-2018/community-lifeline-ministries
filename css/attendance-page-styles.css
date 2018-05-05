@@ -21,3 +21,8 @@
     vertical-align: top;
     text-align: center;
 }
+
+.attendance-submit-button {
+    width: 45%;
+    height: 5%;
+}

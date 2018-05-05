@@ -1,19 +1,16 @@
-function launchArchiveEmployeeModal(volunteerId, volunteerName) {
+function launchProgramsForVolunteerModal(volunteerId) {
     $.ajax({
-        url: '../modals/employees/ArchiveVolunteerEmployee.php',
+        url: '/community-lifeline-ministries/php-files/modals/employees/ProgramsForEmployeeModal.php',
         type: 'POST',
-        data: {
-            volunteerId: volunteerId,
-            volunteerName: volunteerName
-        },
-        success: function(response) {
-            $('#customModal').removeClass().addClass('modal fade');
+        data: {volunteerId: volunteerId},
+        success: function (response) {
+            $('#customModal').removeClass().addClass('modal right fade');
             $('#customSize').removeClass().addClass('modal-dialog');
-            $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-            $('#customHeaderText').text("Archive User");
+            $('#customTitle').removeClass().addClass('modal-header contact-modal-header');
+            $('#customIcon').removeClass().addClass('m-auto fa fa-pencil-square-o fa-2x');
+            $('#customHeaderText').text("Programs");
             $('.modal-body').html(response);
             $('#customModal').modal('show');
         }
-    })
+    });
 }

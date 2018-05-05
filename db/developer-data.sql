@@ -57,13 +57,13 @@
   INSERT INTO Student_Test_Scores(Author_Username, Student_Id, School_Year, Term, Pre_Test, Post_Test, Active_Id) VALUES ('Developer', 3, 2018, 'Spring', 55, 65, 1);
   INSERT INTO Student_Test_Scores(Author_Username, Student_Id, School_Year, Term, Pre_Test, Post_Test, Active_Id) VALUES ('Developer', 3, 2018, 'Summer', 55, 65, 1);
 
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 1,  1, '02/12/2018', 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  2, '02/12/2018', 2);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 1,  3, '02/12/2018', 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 1,  2, '02/12/2018', 3);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  3, '02/12/2018', 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  5, '02/12/2018', 1);
-  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  5, '02/12/2018', 2);
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 1,  1, '02/12/2018', 'Present');
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  2, '02/12/2018', 'Present');
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 1,  3, '02/12/2018', 'Present');
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 1,  2, '02/12/2018', 'Present');
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  3, '02/12/2018', 'Present');
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  5, '02/12/2018', 'Present');
+  INSERT INTO Attendance(Author_Username,Program_Id, Student_Id, Date, Attendance_Value) VALUES ('Developer', 2,  5, '02/12/2018', 'Present');
 
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id, Active_Id) VALUES ('Developer', 1, 1, 1);
   INSERT INTO Student_To_Programs(Author_Username, Student_Id, Program_Id, Active_Id) VALUES ('Developer', 1, 2, 1);

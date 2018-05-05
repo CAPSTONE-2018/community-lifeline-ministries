@@ -27,10 +27,19 @@ function archiveEvent(idToArchive, urlRouteToArchive, newLocationToRoute) {
         success: function (response) {
             if (response === "success") {
                 launchGenericSuccessfulArchive();
-                window.location.href = '../show/' + newLocationToRoute + ''
+                setTimeout(function() {
+                    $('#customModal').modal('hide');
+                    sendToNewLocation(newLocationToRoute);
+                }, 3000);
+
+
             } else {
                 launchGenericDatabaseErrorModal();
             }
         }
     });
+}
+
+function sendToNewLocation(newLocationToRoute) {
+    window.location.href = '../show/' + newLocationToRoute + ''
 }

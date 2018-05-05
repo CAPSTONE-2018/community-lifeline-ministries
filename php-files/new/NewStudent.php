@@ -2,6 +2,7 @@
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../scripts/States.php");
+include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 $queryForMedicalConcernTypes = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
