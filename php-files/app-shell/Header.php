@@ -4,7 +4,7 @@ if (!isset($_SESSION['loggedIn'])) {
     header("Location: ../../index.html");
 }
 $account = $_SESSION['account'];
-$userMakingChanges = $_SESSION['loggedIn'];
+$userLoggedIn = $_SESSION['loggedIn'];
 include("../app-shell/TimeZoneFormat.php");
 ?>
 <!DOCTYPE html>
@@ -43,20 +43,23 @@ include("../app-shell/TimeZoneFormat.php");
 </head>
 <body class="app sidebar-mini rtl pace-done ">
 <!-- Nav-bar-->
-<header class="app-header">
+<header class="app-header col-12">
     <!-- Sidebar toggle button -->
-    <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    <a class="app-sidebar__toggle col-2" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Main CLM Logo -->
     <!--    <a class="app-header__logo" href="#">CLM</a>-->
     <!--    <a class="app-header__logo" href="../index-login/menu.php">-->
     <!--        <img src="../../images/new-logo.png" alt="CLM Logo" height="25px">-->
     <!--    </a>-->
-    <div class="navbar-user">
-        Signed In As: <?php echo $userMakingChanges ?>
-        <div id="timer"></div>
+    <div class="text-center col-8">
+
+        <div class="navbar-user text-white">
+            Signed In As: <?php echo $userLoggedIn ?>
+            <div id="timer"></div>
+        </div>
     </div>
     <!-- Nav-bar Right Menu-->
-    <ul class="app-nav">
+    <ul class="app-nav col-2">
         <!--Notification Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i
                         class="fa fa-bell-o fa-lg"></i></a>
