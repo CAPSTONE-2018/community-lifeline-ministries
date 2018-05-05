@@ -87,7 +87,7 @@ CREATE TABLE Attendance (
   Student_Id             INT(10),
   Program_Id             INT(10),
   Date                   VARCHAR(100),
-  Attendance_Value       TINYINT(1),
+  Attendance_Value       VARCHAR(20),
   TardyTime              VARCHAR(50),
   Note                   VARCHAR(500),
   CONSTRAINT FK_Student_Id_Attendance FOREIGN KEY (Student_Id)
