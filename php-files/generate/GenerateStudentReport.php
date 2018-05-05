@@ -15,7 +15,7 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students " . $searchFilters)
                   id="allStudentsTable">
                 <div class="table-responsive">
                     <thead>
-                    <table class="table">
+                    <table id="test" class="table">
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">First Name</th>
@@ -59,27 +59,27 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students " . $searchFilters)
                             echo "</td><td>";
                             echo $row['School'];
                             echo "</td><td>";
-                            if($row['Permission_Slip'] == 0){
+                            if ($row['Permission_Slip'] == 0) {
                                 echo "No";
-                            } else{
+                            } else {
                                 echo "Yes";
                             }
                             echo "</td><td>";
-                            if($row['Birth_Certificate'] == 0){
+                            if ($row['Birth_Certificate'] == 0) {
                                 echo "No";
-                            } else{
+                            } else {
                                 echo "Yes";
                             }
                             echo "</td><td>";
-                            if($row['Reduced_Lunch_Eligible'] == 0){
+                            if ($row['Reduced_Lunch_Eligible'] == 0) {
                                 echo "No";
-                            } else{
+                            } else {
                                 echo "Yes";
                             }
                             echo "</td><td>";
-                            if($row['IEP'] == 0){
+                            if ($row['IEP'] == 0) {
                                 echo "No";
-                            } else{
+                            } else {
                                 echo "Yes";
                             }
                             echo "</td></tr>";
@@ -93,6 +93,12 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students " . $searchFilters)
         <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
         <script src="../../scripts/print.js"></script>
         <div class="card-footer">
+
+            <script>
+                $(document).ready(function () {
+                    $('#test').DataTable();
+                });
+            </script>
 
         </div>
     </div>
