@@ -69,6 +69,13 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
             <script src="../../scripts/print.js"></script>
             <div class="card-footer">
 
+                <script>
+                    $(document).ready(function() {
+                        $('#test').DataTable();
+                    });
+                </script>
+
+
             </div>
         </div>
     </div>
