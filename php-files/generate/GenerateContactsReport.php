@@ -5,7 +5,7 @@ include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
 
-$contactResults = mysqli_query($db, "SELECT * FROM Contacts ".$searchFilters);
+$contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
 ?>
 <div id="print_div">
     <div class="card-body">
@@ -31,7 +31,7 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts ".$searchFilters);
                         </thead>
                         <tbody>
                         <?php
-                        while($row = mysqli_fetch_array($contactResults, MYSQLI_ASSOC)) {
+                        while ($row = mysqli_fetch_array($contactResults, MYSQLI_ASSOC)) {
                             echo "<tr class=\"row\"><td class=\"col-sm-1 text-center\">";
                             echo $row['Prefix'];
                             echo "</td><td class=\"col-sm-1 text-center\">";
@@ -61,7 +61,8 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts ".$searchFilters);
                     </table>
                 </div>
             </form>
-        </div>    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print" />
+        </div>
+        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
         <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
