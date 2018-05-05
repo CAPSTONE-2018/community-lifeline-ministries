@@ -6,7 +6,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
 <div id="dynamic-medical-concern<?php echo $dynamicMedicalConcernId; ?>">
     <div class="blue-line-color"></div>
-    <div class="form-group">
+    <div class="form-group row">
         <div class="col-sm-6">
             <div id="floatingConcernName<?php echo $dynamicMedicalConcernId; ?>"
                  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -41,7 +41,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             </div>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
         <div class="col-sm-10">
             <div id="floatingConcernNote<?php echo $dynamicMedicalConcernId; ?>"
                  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
