@@ -17,48 +17,53 @@ $volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First
                 <div class="table-responsive">
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr class="row">
-                            <th class="col-sm-4 text-center">Student First Name</th>
-                            <th class="col-sm-4  text-center">Student Last Name</th>
-                            <th class="col-sm-4  text-center">Program</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                        <table id="test" class="table">
+                            <thead class="thead-dark">
+
+                            <tr>
+                                <th scope="col">Student First Name</th>
+                                <th scope="col">Student Last Name</th>
+                                <th scope="col">Program</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
                             $rs = mysqli_query($db, "SELECT Programs.Program_NAME from Programs WHERE Programs.Id = " . $row['Program_Id']);
                             $result2 = mysqli_fetch_array($rs);
 
-                            echo "<tr class=\"row\"><td class=\"col-sm-4 text-center\">";
+                            echo "<tr scope=\"row\"><td>";
                             echo $row['First_Name'];
-                            echo "</td><td class=\"col-sm-4 text-center\">";
+                            echo "</td><td>";
                             echo $row['Last_Name'];
-                            echo "</td><td class=\"col-sm-4 text-center\">";
+                            echo "</td><td>";
                             echo $result2[0];
                             echo "</td></tr>";
                         }
                         ?>
                         </tbody>
                     </table>
-                    <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr class="row">
-                            <th class="col-sm-4  text-center">Volunteer First Name</th>
-                            <th class="col-sm-4  text-center">Volunteer Last Name</th>
-                            <th class="col-sm-4 text-center">Program</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                        <table id="test" class="table">
+                            <thead class="thead-dark">
+
+                            <tr>
+                                <th scope="col">Volunteer First Name</th>
+                                <th scope="col">Volunteer Last Name</th>
+                                <th scope="col">Program</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($volunteerResults, MYSQLI_ASSOC)) {
                             $rs = mysqli_query($db, "SELECT Programs.Program_NAME from Programs WHERE Programs.Id = " . $row['Program_Id']);
                             $result2 = mysqli_fetch_array($rs);
 
-                            echo "<tr  class=\"row\"><td class=\"col-sm-4 text-center\">";
+                            echo "<tr scope=\"row\"><td>";
                             echo $row['First_Name'];
-                            echo "</td><td class=\"col-sm-4 text-center\">";
+                            echo "</td><td>";
                             echo $row['Last_Name'];
-                            echo "</td><td class=\"col-sm-4 text-center\">";
+                            echo "</td><td>";
                             echo $result2[0];
                             echo "</td></tr>";
                         }

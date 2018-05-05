@@ -3,10 +3,12 @@
 //connect to database
 include("../../db/config.php");
 
+
 $searchFilters = $_POST['searchFilters'];
 
 $contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
 ?>
+
 <div class="container-fluid">
     <div id="print_div">
         <div class="card-body">
@@ -16,7 +18,7 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
                     <div class="table-responsive">
                         <table id="search-table" class="table table-striped table-condensed table-hover">
                             <thead>
-                            <table class="table">
+                            <table id="test" class="table">
                                 <thead class="thead-dark">
 
                                 <tr>

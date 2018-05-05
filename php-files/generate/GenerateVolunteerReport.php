@@ -5,7 +5,7 @@ include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
 
-$studentsResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $searchFilters);
+$volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $searchFilters);
 ?>
 <div class="container-fluid">
     <div id="print_div">
@@ -16,50 +16,54 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $sea
                     <div class="table-responsive">
                         <table id="search-table" class="table table-striped table-condensed table-hover">
                             <thead>
-                            <tr class="row">
-                                <th class="col-sm text-center">Type</th>
-                                <th class="col-sm-2 text-center">First Name</th>
-                                <th class="col-sm-2 text-center">Last Name</th>
-                                <th class="col-sm-2 text-center">Phone 1</th>
-                                <th class="col-sm-2 text-center">Phone 2</th>
-                                <th class="col-sm-3 text-center">Address </th>
-                                <th class="col-sm-2 text-center">City</th>
-                                <th class="col-sm-1 text-center">State</th>
-                                <th class="col-sm-1 text-center">Zip</th>
-                                <th class="col-sm-3 text-center">Email</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
-                                echo "<tr class='row'><td  class=\"col-sm text-center\">";
-                                echo $row['User_Type'];
-                                echo "</td><td  class=\"col-sm-2 text-center\">";
-                                echo $row['First_Name'];
-                                echo "</td><td  class=\"col-sm-2 text-center\">";
-                                echo $row['Last_Name'];
-                                echo "</td><td  class=\"col-sm-2 text-center\">";
-                                echo $row['Primary_Phone'];
-                                echo "</td><td  class=\"col-sm-2 text-center\">";
-                                echo $row['Secondary_Phone'];
-                                echo "</td><td  class=\"col-sm-3 text-center\">";
-                                echo $row['Address_One'];
-                                echo "</br> " . $row['Address_Two'];
-                                echo "</td><td  class=\"col-sm-2 text-center\">";
-                                echo $row['City'];
-                                echo "</td><td  class=\"col-sm-1 text-center\">";
-                                echo $row['State'];
-                                echo "</td><td  class=\"col-sm-1 text-center\">";
-                                echo $row['Zip'];
-                                echo "</td><td  class=\"col-sm-3 text-center\">";
-                                echo $row['Email'];
-                                echo "</td></tr>";
-                            }
-                            ?>
-                            </tbody>
-                        </table>
+                            <table class="table">
+                                <thead class="thead-dark">
+
+                                <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col" style="width: 15%">Primary Phone</th>
+                                    <th scope="col" style="width: 15%">Secondary Phone</th>
+                                    <th scope="col" style="width: 15%">Address</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col" style="width: 5%">State</th>
+                                    <th scope="col">Zip</th>
+                                    <th scope="col">Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                while ($row = mysqli_fetch_array($volunteerResults, MYSQLI_ASSOC)) {
+                                    echo "<tr scope=\"row\"><td>";
+                                    echo $row['User_Type'];
+                                    echo "</td><td>";
+                                    echo $row['First_Name'];
+                                    echo "</td><td>";
+                                    echo $row['Last_Name'];
+                                    echo "</td><td>";
+                                    echo $row['Primary_Phone'];
+                                    echo "</td><td>";
+                                    echo $row['Secondary_Phone'];
+                                    echo "</td><td>";
+                                    echo $row['Address_One'];
+                                    echo "</br> " . $row['Address_Two'];
+                                    echo "</td><td>";
+                                    echo $row['City'];
+                                    echo "</td><td>";
+                                    echo $row['State'];
+                                    echo "</td><td>";
+                                    echo $row['Zip'];
+                                    echo "</td><td>";
+                                    echo $row['Email'];
+                                    echo "</td></tr>";
+                                }
+                                ?>
+                                </tbody>
+                            </table>
                     </div>
                 </form>
+
             </div>
             <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
             <script src="../../scripts/print.js"></script>
@@ -68,6 +72,4 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $sea
             </div>
         </div>
     </div>
-</div>
-
 </div>
