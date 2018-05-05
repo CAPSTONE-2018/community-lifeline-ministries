@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="#">
+                    <a class="treeview-item" href="../new/NewStudentToContact.php">
                         <i class="icon fa fa-pencil-square-o"></i>
                         Add Student to Contact
                     </a>
@@ -87,9 +87,15 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php.php">
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php">
                         <i class="icon fa fa-plus"></i>
                         Add/Update Volunteer Availability
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item" href="../new/NewVolunteerEmployeeToProgram.php">
+                        <i class="icon fa fa-plus"></i>
+                        Add Volunteer to Program
                     </a>
                 </li>
                 <li>
@@ -120,7 +126,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="#">
+                    <a class="treeview-item" href="../index-login/Main-Menu.php">
                         <i class="icon fa fa-calendar-check-o"></i>
                         Attendance
                     </a>
