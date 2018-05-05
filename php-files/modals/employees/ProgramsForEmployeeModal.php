@@ -30,22 +30,3 @@ while ($volunteerRow = mysqli_fetch_assoc($studentContactResults)) {
         <hr>
     </div>
 <?php } ?>
-
-<script type="text/javascript">
-    function closeAndLaunchArchiveStudentContact() {
-        $('#customModal').modal('hide').toggle( "slide" );
-        setTimeout(function () {
-            launchConfirmArchiveModal(
-                "<?php echo $contactId; ?>",
-                "ArchiveStudentToContact.php",
-                "Student Contact",
-                "<?php echo $contactName; ?>",
-                "ShowStudents.php"
-            )
-        }, 1000);
-        // reference to set timeout on success modals
-        // setTimeout(function() {
-        //     $('#customModal').modal('hide');
-        // }, 100);
-    }
-</script>
