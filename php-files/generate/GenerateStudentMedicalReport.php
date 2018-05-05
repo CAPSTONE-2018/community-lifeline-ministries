@@ -15,19 +15,18 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
             <form method="POST" action="#" name="allStudentsTable"
                   id="allStudentsTable">
                 <div class="table-responsive">
-                    <table id="search-table" class="table table-striped table-condensed table-hover">
-                        <thead>
-                        <table class="table">
-                            <thead class="thead-dark">
+                    <thead>
+                    <table class="table">
+                        <thead class="thead-dark">
 
-                            <tr>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Note</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Note</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentMedicalConcernResults, MYSQLI_ASSOC)) {
                             echo "<tr scope=\"row\"><td>";
@@ -45,7 +44,8 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
                     </table>
                 </div>
             </form>
-        </div>    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print" />
+        </div>
+        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
         <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 

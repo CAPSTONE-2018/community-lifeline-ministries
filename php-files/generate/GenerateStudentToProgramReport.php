@@ -15,18 +15,17 @@ $volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First
             <form method="POST" action="#" name="allStudentsTable"
                   id="allStudentsTable">
                 <div class="table-responsive">
-                    <table id="search-table" class="table table-striped table-condensed table-hover">
-                        <thead>
-                        <table id="test" class="table">
-                            <thead class="thead-dark">
+                    <thead>
+                    <table id="test" class="table">
+                        <thead class="thead-dark">
 
-                            <tr>
-                                <th scope="col">Student First Name</th>
-                                <th scope="col">Student Last Name</th>
-                                <th scope="col">Program</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        <tr>
+                            <th scope="col">Student First Name</th>
+                            <th scope="col">Student Last Name</th>
+                            <th scope="col">Program</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
                             $rs = mysqli_query($db, "SELECT Programs.Program_NAME from Programs WHERE Programs.Id = " . $row['Program_Id']);
@@ -43,17 +42,17 @@ $volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First
                         ?>
                         </tbody>
                     </table>
-                        <thead>
-                        <table id="test" class="table">
-                            <thead class="thead-dark">
+                    <thead>
+                    <table id="test" class="table">
+                        <thead class="thead-dark">
 
-                            <tr>
-                                <th scope="col">Volunteer First Name</th>
-                                <th scope="col">Volunteer Last Name</th>
-                                <th scope="col">Program</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        <tr>
+                            <th scope="col">Volunteer First Name</th>
+                            <th scope="col">Volunteer Last Name</th>
+                            <th scope="col">Program</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($volunteerResults, MYSQLI_ASSOC)) {
                             $rs = mysqli_query($db, "SELECT Programs.Program_NAME from Programs WHERE Programs.Id = " . $row['Program_Id']);

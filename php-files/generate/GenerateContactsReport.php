@@ -16,53 +16,52 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
                 <form method="POST" action="#" name="allStudentsTable"
                       id="allStudentsTable">
                     <div class="table-responsive">
-                        <table id="search-table" class="table table-striped table-condensed table-hover">
-                            <thead>
-                            <table id="test" class="table">
-                                <thead class="thead-dark">
+                        <thead>
+                        <table id="test" class="table">
+                            <thead class="thead-dark">
 
-                                <tr>
-                                    <th scope="col">Prefix</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Primary Phone</th>
-                                    <th scope="col">Secondary Phone</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">City</th>
-                                    <th scope="col">State</th>
-                                    <th scope="col">Zip</th>
-                                    <th scope="col">Email</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                while ($row = mysqli_fetch_array($contactResults, MYSQLI_ASSOC)) {
-                                    echo "<tr scope=\"row\"><td>";
-                                    echo $row['Prefix'];
-                                    echo "</td><td>";
-                                    echo $row['First_Name'];
-                                    echo "</td><td>";
-                                    echo $row['Last_Name'];
-                                    echo "</td><td>";
-                                    echo $row['Primary_Phone'];
-                                    echo "</td><td>";
-                                    echo $row['Secondary_Phone'];
-                                    echo "</td><td>";
-                                    echo $row['Address_One'];
-                                    echo "</br" . $row['Address_Two'];
-                                    echo "</td><td>";
-                                    echo $row['City'];
-                                    echo "</td><td>";
-                                    echo $row['State'];
-                                    echo "</td><td>";
-                                    echo $row['Zip'];
-                                    echo "</td><td>";
-                                    echo $row['Email'];
-                                    echo "</td></tr>";
-                                }
-                                ?>
-                                </tbody>
-                            </table>
+                            <tr>
+                                <th scope="col">Prefix</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Primary Phone</th>
+                                <th scope="col">Secondary Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Zip</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_array($contactResults, MYSQLI_ASSOC)) {
+                                echo "<tr scope=\"row\"><td>";
+                                echo $row['Prefix'];
+                                echo "</td><td>";
+                                echo $row['First_Name'];
+                                echo "</td><td>";
+                                echo $row['Last_Name'];
+                                echo "</td><td>";
+                                echo $row['Primary_Phone'];
+                                echo "</td><td>";
+                                echo $row['Secondary_Phone'];
+                                echo "</td><td>";
+                                echo $row['Address_One'];
+                                echo "</br" . $row['Address_Two'];
+                                echo "</td><td>";
+                                echo $row['City'];
+                                echo "</td><td>";
+                                echo $row['State'];
+                                echo "</td><td>";
+                                echo $row['Zip'];
+                                echo "</td><td>";
+                                echo $row['Email'];
+                                echo "</td></tr>";
+                            }
+                            ?>
+                            </tbody>
+                        </table>
                     </div>
                 </form>
             </div>
