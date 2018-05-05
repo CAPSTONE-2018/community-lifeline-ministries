@@ -28,6 +28,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <p style="width:100%;">Search Input Type
@@ -45,7 +46,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                             </select></p>
                                                     </div>
 
-                                                    <div class="col-sm-1">
+                                                    <div class="col-sm">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
                                                             <input type="hidden" value="" name="Active">
@@ -57,7 +58,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                                 <li class="mdl-menu__item" data-val="3">Inactive Students</li>
                                                             </ul>
                                                         </div>-->
-                                                        <p>Active/Inactive
+                                                        <p>Active/Inactive</br>
                                                             <select id="Active">
                                                                 <option value="1">All Contacts</option>
                                                                 <option value="2">Active</option>

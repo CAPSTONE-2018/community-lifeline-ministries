@@ -45,8 +45,10 @@ include("../app-shell/TimeZoneFormat.php");
                                                                 <option value="School">School</option>
                                                             </select></p>
                                                     </div>
+                                                </div>
+                                                <div class="row">
 
-                                                    <div class="col-sm-1">
+                                                <div class="col-sm-2">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
                                                             <input type="hidden" value="" name="Active">
@@ -65,7 +67,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                                 <option value="3">Inactive</option>
                                                             </select></p>
                                                     </div>
-                                                    <div class="col-sm-1">
+                                                    <div class="col-sm-2">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="ReduceLunch" readonly>
                                                             <input type="hidden" value="" name="ReduceLunch">
@@ -85,7 +87,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                             </select></p>
                                                     </div>
 
-                                                    <div class="col-sm-1">
+                                                    <div class="col-sm-2">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
                                                             <input type="hidden" value="" name="Active">
@@ -105,7 +107,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                             </select></p>
                                                     </div>
 
-                                                    <div class="col-sm-1">
+                                                    <div class="col-sm-2">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="BirthCertificate" readonly>
                                                             <input type="hidden" value="" name="BirthCertificate">
@@ -125,7 +127,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                             </select></p>
                                                     </div>
 
-                                                    <div class="col-sm-1">
+                                                    <div class="col-sm-2">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
                                                             <input type="hidden" value="" name="IEP">
@@ -136,7 +138,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                         <li class="mdl-menu__item" data-val="2">Yes</li>
                                                         <li class="mdl-menu__item" data-val="3">No</li>
                                                     </ul>-->
-                                                        <p>IEP
+                                                        <p>IEP </br>
                                                             <select id="IEP">
                                                                 <option value="1">All Students</option>
                                                                 <option value="2">Yes</option>
@@ -144,7 +146,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                             </select>
                                                         </p>
                                                     </div>
-                                                    <div class="col-sm-1">
+                                                    <div class="col-sm-2">
                                                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                                             <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
                                                             <input type="hidden" value="" name="IEP">
@@ -155,7 +157,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                         <li class="mdl-menu__item" data-val="2">Yes</li>
                                                         <li class="mdl-menu__item" data-val="3">No</li>
                                                     </ul>-->
-                                                        <p>Gender
+                                                        <p>Gender</br>
                                                             <select id="Gender">
                                                                 <option value="1">All Students</option>
                                                                 <option value="2">M</option>
@@ -346,17 +348,16 @@ include("../app-shell/TimeZoneFormat.php");
                     searchFilters += " Reduced_Lunch_Eligible = 0"
                 }
 
-
                 if (searchInputs[10] == 2) {
                     if (searchFilters != "WHERE") {
                         searchFilters += " AND";
                     }
-                    searchFilters += " BirthCertificate = 1"
+                    searchFilters += " Birth_Certificate = 1"
                 } else if (searchInputs[10] == 3) {
                     if (searchFilters != "WHERE") {
                         searchFilters += " AND";
                     }
-                    searchFilters += " BirthCertificate = 0"
+                    searchFilters += " Birth_Certificate = 0"
                 }
 
                 if (searchInputs[11] == 2) {
