@@ -216,21 +216,22 @@ include("../app-shell/TimeZoneFormat.php");
                 }
 
 
-                if (searchInputs[9] == 2) {
+                if (searchInputs[11] == 2) {
                     if (searchFilters != "WHERE") {
                         searchFilters += " AND";
                     }
-                    searchFilters += " Active_Student = 1"
-                } else if (searchInputs[9] == 3) {
+                    searchFilters += " Active_Contact = 1"
+                } else if (searchInputs[11] == 3) {
                     if (searchFilters != "WHERE") {
                         searchFilters += " AND";
                     }
-                    searchFilters += " Active_Student = 0"
+                    searchFilters += " Active_Contact = 0"
                 }
 
                 if (searchFilters == "WHERE") {
                     searchFilters = "";
                 }
+
                 $('#print_div').remove();
                 $('.collapse2').collapse("hide");
                 $.ajax({
