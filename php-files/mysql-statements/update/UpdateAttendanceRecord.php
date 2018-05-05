@@ -1,18 +1,33 @@
 <?php
 include("../../../db/config.php");
+session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $i = 0;
+$affectedRows = "";
+$numberOfSubmissions = $_POST['numberOfStudentsToSubmit'];
+parse_str($_POST['formData'], $searchArray);
+for ($i = 0; $i <= sizeof($searchArray); $i++) {
 
-foreach ($_POST as $key){
-    $i++;
-    $studentId = $_POST['studentId'][$i];
-    $programId = $_POST['programId'][$i];
-    $checkboxValue = $_POST['attendanceCheckbox'][$i];
-    $date = $_POST['attendanceDate'];
+    $studentId = $searchArray['studentId'][$i];
+    $programId = $searchArray['programId'][$i];
+    $checkboxValue = $searchArray['attendanceCheckbox'][$i];
+    $date = $searchArray['attendanceDate'][$i];
 
-    $updateStatement = $db->prepare("UPDATE Attendance SET Author_Username = '$userMakingChanges', Last_Updated_Timestamp = NULL, 
+    if (isset($studentId) && isset($programId)) {
+        $updateStatement = $db->prepare("UPDATE Attendance SET Author_Username = '$userMakingChanges', Last_Updated_Timestamp = NULL, 
                     Date = '$date', Student_Id = '$studentId', Program_Id = '$programId', Attendance_Value = '$checkboxValue'
                     WHERE Student_Id = '$studentId' AND Program_Id = '$programId' AND Date = '$date'
                     ");
-    $updateStatement->execute();
+        $updateStatement->execute();
+
+        $affectedRows += mysqli_affected_rows($db);
+    }
+}
+
+if ($affectedRows == $numberOfSubmissions) {
+    echo "success";
+    $stmt->close();
+} else {
+    echo "database-error";
+    $stmt->close();
 }
