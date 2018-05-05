@@ -4,7 +4,7 @@
 include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
-$studentsResults = mysqli_query($db, "SELECT  Students.First_Name, Students.Last_Name,Student_Test_Scores.School_Year,Student_Test_Scores.Term,Student_Test_Scores.Pre_Test,Student_Test_Scores.Post_Test FROM Students JOIN Student_Test_Scores ".$searchFilters);
+$studentsResults = mysqli_query($db, "SELECT  Students.First_Name, Students.Last_Name,Student_Test_Scores.School_Year,Student_Test_Scores.Term,Student_Test_Scores.Pre_Test,Student_Test_Scores.Post_Test FROM Students JOIN Student_Test_Scores " . $searchFilters);
 ?>
 
 <div id="print_div">
@@ -13,21 +13,20 @@ $studentsResults = mysqli_query($db, "SELECT  Students.First_Name, Students.Last
             <form method="POST" action="#" name="allStudentsTable"
                   id="allStudentsTable">
                 <div class="table-responsive">
-                    <table id="search-table" class="table table-striped table-condensed table-hover">
-                        <thead>
-                        <table class="table">
-                            <thead class="thead-dark">
+                    <thead>
+                    <table class="table">
+                        <thead class="thead-dark">
 
-                            <tr>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">School Year</th>
-                                <th scope="col">Term</th>
-                                <th scope="col">Pre-Test</th>
-                                <th scope="col">Post-Test</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">School Year</th>
+                            <th scope="col">Term</th>
+                            <th scope="col">Pre-Test</th>
+                            <th scope="col">Post-Test</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
 
@@ -50,7 +49,8 @@ $studentsResults = mysqli_query($db, "SELECT  Students.First_Name, Students.Last
                     </table>
                 </div>
             </form>
-        </div>    <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print" />
+        </div>
+        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
         <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
