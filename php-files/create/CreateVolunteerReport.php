@@ -18,8 +18,6 @@ include("../app-shell/TimeZoneFormat.php");
                                     <div class="tab-pane active " id="studentInfo">
                                         <div class="header"> Volunteer Report</div>
                                         <div id="as" class="collapse2">
-                                            <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report
-                                            </h4>
                                             <div class="blue-line-color"></div>
                                             <div class="form-group">
                                                 <div class="row">

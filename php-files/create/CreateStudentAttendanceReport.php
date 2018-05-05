@@ -19,7 +19,6 @@ $studentsResult = mysqli_query($db, $query);
                                     <div class="tab-pane active " id="studentInfo">
                                         <div class="header">Attendance Report</div>
                                         <div id="as" class="collapse2">
-                                            <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report</h4>
                                             <div class="blue-line-color"></div>
                                             <div class="form-group">
                                                 <select id="student">

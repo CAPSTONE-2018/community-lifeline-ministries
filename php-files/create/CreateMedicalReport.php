@@ -17,9 +17,6 @@ include("../app-shell/TimeZoneFormat.php");
                                     <div class="tab-pane active " id="studentInfo">
                                         <div class="header">Medical Report</div>
                                         <div id="as" class="collapse2">
-                                            <h4 class="heading"><i class="glyphicon glyphicon-user"></i> New Report
-                                                <button type="button" id="add-new-searchFilter-Button">Add</button>
-                                            </h4>
                                             <div class="blue-line-color"></div>
                                             <div class="form-group">
                                                 <div class="col-sm-6">
