@@ -168,7 +168,7 @@
                         Enroll</label>
                     <ul for="programToEnroll"
                         class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                        <?php while ($existingProgramsRow = mysqli_fetch_assoc($existingUserNameResults)) { ?>
+                        <?php while ($existingProgramsRow = mysqli_fetch_assoc($existingProgramResults)) { ?>
                             <li class="mdl-menu__item"
                                 data-val="<?php echo $existingProgramsRow['Id']; ?>"><?php echo $existingProgramsRow['Program_Name']; ?></li>
                             <?php
@@ -179,22 +179,6 @@
 
         </div>
         <div class="row">
-
-            <div class="col-sm-3">
-                <div class="toggle-title">Reduced Lunch Eligible</div>
-                <ul class="tg-list">
-                    <div class="toggle-side-label">No</div>
-                    <li class="tg-list-item">
-                        <input class="tgl tgl-flat" id="cb1"
-                               name="reducedLunchEligibilityCheckbox"
-                               type="checkbox"
-                        />
-                        <label class="tgl-btn" for="cb1"></label>
-                    </li>
-                    <div class="toggle-side-label">Yes</div>
-                </ul>
-            </div>
-
             <div class="col-sm-3">
                 <div class="toggle-title">Permission Slip On File</div>
                 <ul class="tg-list">
@@ -220,6 +204,21 @@
                                name="birthCertificateCheckbox"
                                type="checkbox"/>
                         <label class="tgl-btn" for="cb3"></label>
+                    </li>
+                    <div class="toggle-side-label">Yes</div>
+                </ul>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="toggle-title">Reduced Lunch Eligible</div>
+                <ul class="tg-list">
+                    <div class="toggle-side-label">No</div>
+                    <li class="tg-list-item">
+                        <input class="tgl tgl-flat" id="cb1"
+                               name="reducedLunchEligibilityCheckbox"
+                               type="checkbox"
+                        />
+                        <label class="tgl-btn" for="cb1"></label>
                     </li>
                     <div class="toggle-side-label">Yes</div>
                 </ul>

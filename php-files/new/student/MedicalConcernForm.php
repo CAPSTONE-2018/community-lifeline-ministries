@@ -23,7 +23,7 @@
                     <input type="text" class="mdl-textfield__input"
                            id="medicalConcernType"
                            readonly>
-                    <input type="hidden" name="medicalConcernType">
+                    <input type="hidden" name="medicalConcernType"/>
                     <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                     <label for="medicalConcernType"
                            class="mdl-textfield__label">Type</label>
