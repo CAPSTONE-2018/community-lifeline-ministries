@@ -32,7 +32,7 @@ $volunteersPresent = mysqli_fetch_assoc($resultsForVolunteersPresent);
 
 
 <div class="row">
-    <div class="col-md-6 col-lg-3">
+    <div class="col-sm-6 col-12">
         <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
                 <h4>Students Present</h4>
@@ -40,7 +40,7 @@ $volunteersPresent = mysqli_fetch_assoc($resultsForVolunteersPresent);
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-3">
+    <div class="col-sm-6 col-12">
         <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
             <div class="info">
                 <h4>Volunteers Scheduled</h4>
@@ -52,7 +52,7 @@ $volunteersPresent = mysqli_fetch_assoc($resultsForVolunteersPresent);
 
 
 <div class="row form-group">
-        <div class="col-5">
+        <div class="col-12 col-sm-5">
             <div class="cal1 cal_2">
                 <div class="clndr">
                     <div class="clndr-controls">

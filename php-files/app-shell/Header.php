@@ -16,12 +16,16 @@ include("../app-shell/TimeZoneFormat.php");
     <title>CLM</title>
     <!-- CDN Link to Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.6/combined/css/gijgo.min.css">
+
+
+
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="../../css/plugins/gijgo/gijgo.min.css"/>
     <link rel="stylesheet" href="../../css/plugins/application-shell/main.min.css"/>
     <link rel="stylesheet" href="../../css/plugins/mdl-inputs/mdl-input-styles.css"/>
     <link rel="stylesheet" href="../../css/plugins/pretty-drop-downs/pretty-drop-downs.css"/>
-    <link rel="stylesheet" href="../../css/plugins/izi-modal/iziModal.min.css">
     <!-- Our Custom Stylesheets -->
     <link rel="stylesheet" href="../../css/search-bar-styles.css"/>
     <link rel="stylesheet" href="../../css/show-all-table-styles.css"/>
@@ -33,10 +37,9 @@ include("../app-shell/TimeZoneFormat.php");
     <link rel="stylesheet" href="../../css/dashboard.css"/>
     <link rel="stylesheet" href="../../css/slide-out-modal.css"/>
 
-    <!-- Our Custom Stylesheets -->
+    <!-- Scripts that must remain in the header -->
     <script src="../../js/plugins/jquery/jquery.min.js"></script>
-    <script src="../../js/plugins/gijgo/gijgo.min.js"></script>
-    <script src="../../js/plugins/izi-modal/iziModal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.6/combined/js/gijgo.min.js"></script>
 </head>
 <body class="app sidebar-mini rtl pace-done ">
 <!-- Nav-bar-->
