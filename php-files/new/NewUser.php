@@ -6,7 +6,11 @@ if (!isset($_SESSION['loggedIn'])) {
 $account = $_SESSION['account'];
 
 if ($account != "administrator") {
-    header("Location: index.html");
+    ?>
+    <script type="text/javascript">
+        window.location.href = "../index-login/Main-Menu.php"
+    </script>
+    <?php
 }
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
@@ -84,7 +88,7 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
                 </div>
                 <div class="row col-sm-12">
                     <input id="submitButton" onclick="validateNewUser()" type="button" value="Enter"
-                           class="btn large-action-buttons edit-button" />
+                           class="btn large-action-buttons edit-button"/>
                 </div>
             </form>
         </div>
@@ -101,7 +105,7 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
         var volunteerName = document.getElementById("volunteerName").value;
         var successModalMessage = "The username, " + username + " has been entered successfully.";
         var duplicateModalMessage = "the username, " + username + " for " + volunteerName + "already exists.";
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/main-menu.php";
+        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
 
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddUser.php",
@@ -113,7 +117,6 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
                 volunteer: volunteerId
             },
             success: function (response) {
-                alert(response);
                 if (response === 'entry-exists') {
                     launchGenericDuplicateEntryModal(duplicateModalMessage);
                 } else if (response === 'database-error') {

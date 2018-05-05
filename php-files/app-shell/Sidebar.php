@@ -236,6 +236,12 @@
                         Add New User
                     </a>
                 </li>
+                <li>
+                    <a class="treeview-item" href="../show/ShowUsers.php">
+                        <i class="icon fa fa-folder-open"></i>
+                        View All Users
+                    </a>
+                </li>
             </ul>
         </li>
         <li>

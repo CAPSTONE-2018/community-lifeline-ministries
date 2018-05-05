@@ -1,11 +1,11 @@
 <?php
 include("../../../db/config.php");
 
-$volunteerId = $_POST['volunteerId'];
+$volunteerId = $_POST['idToArchive'];
 $updateSqlStatement = "UPDATE Volunteer_Employees SET Active_Volunteer = 0 WHERE Id = $volunteerId;";
 
 if ($db->query($updateSqlStatement) === TRUE) {
-    echo 0;
+    echo "success";
 } else {
-    echo 1;
+    echo "database-error";
 }
