@@ -3,9 +3,9 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name FROM Medical_Concern_Types 
+$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name, Students.First_Name, Students.Last_Name FROM Medical_Concern_Types
 JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
-WHERE Medical_Concern_Types.Active_Id = 1;";
+    JOIN Students ON Student_To_Medical_Concerns.Student_Id = Students.Id WHERE Medical_Concern_Types.Active_Id = 1;";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
     <div class="app-title">
@@ -48,8 +48,8 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                             <th class="col-sm-1">#</th>
                             <th class="col-sm-3">Medical Concerns</th>
                             <th class="col-sm-2 text-center">Concern Type</th>
-                            <th class="col-sm-2 text-center">Students With Concern</th>
-                            <th class="col-sm-4 text-center">Actions</th>
+                            <th class="col-sm-3 text-center">Students With Concern</th>
+                            <th class="col-sm-3 text-center">Actions</th>
                         </tr>
                         </thead>
 
@@ -59,19 +59,14 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                             $medicalConcernTypeId = $medicalConcernsRow['Id'];
                             $medicalConcernName = $medicalConcernsRow['Medical_Concern_Name'];
                             $medicalConcernType = $medicalConcernsRow['Type_Name'];
-//                            $queryForStudentsWithMedicalConcerns = ("SELECT COUNT(Medical_Concern_Id) as Count from Student_To_Medical_Concerns Where Medical_Concern_Id = $medicalConcernId;");
-//                            $studentsWithMedicalConcernsResults = mysqli_query($db, $queryForStudentsWithMedicalConcerns);
-                            $studentTotals = '';
-                            while ($studentsWithMedicalConcernsRow = mysqli_fetch_assoc($studentsWithMedicalConcernsResults)) {
-                                $studentTotals = $studentsWithMedicalConcernsRow['Count'];
-                            }
+                            $studentWithAllergy = $medicalConcernsRow['First_Name'] . " " . $medicalConcernsRow['Last_Name'];
                             ?>
                             <tr class='row'>
                                 <td class='col-sm-1 align-middle'></td>
                                 <td class='col-sm-3 align-middle'><?php echo $medicalConcernName; ?></td>
                                 <td class='col-sm-2 text-center align-middle'><?php echo $medicalConcernType; ?></td>
-                                <td class='col-sm-2 text-center align-middle'><?php echo $studentTotals; ?></td>
-                                <td class='col-sm-4 text-center'>
+                                <td class='col-sm-3 text-center align-middle'><?php echo $studentWithAllergy; ?></td>
+                                <td class='col-sm-3 text-center'>
                                     <div class='left-action-buttons-container d-inline m-auto'>
                                         <div class=' d-inline'>
                                             <button type='button'
