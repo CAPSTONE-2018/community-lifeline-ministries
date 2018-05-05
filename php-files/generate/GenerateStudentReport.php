@@ -20,7 +20,7 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students " . $searchFilters)
                         <tr>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
-                            <th scope="col">Address</th>
+                            <th scope="col" style="width: 25%">Address</th>
                             <th scope="col">City</th>
                             <th scope="col">State</th>
                             <th scope="col">Zip</th>
