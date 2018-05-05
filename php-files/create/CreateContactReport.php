@@ -31,10 +31,10 @@ include("../app-shell/TimeZoneFormat.php");
 
                                                 <p style="width:100%;">Filter Type</p>
                                                 <select style="width:100%;" id="FilterType1">
-                                                    <option value="First_Name">First_Name</option>
-                                                    <option value="Last_Name">Last_Name</option>
-                                                    <option value="Address_one">Address_One</option>
-                                                    <option value="Address_two">Address_Two</option>
+                                                    <option value="First_Name">First Name</option>
+                                                    <option value="Last_Name">Last Name</option>
+                                                    <option value="Address_one">Address One</option>
+                                                    <option value="Address_two">Address Two</option>
                                                     <option value="City">City</option>
                                                     <option value="State">State</option>
                                                     <option value="Zip">Zip</option>
