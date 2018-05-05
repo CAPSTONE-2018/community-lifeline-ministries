@@ -126,7 +126,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="#">
+                    <a class="treeview-item" href="../index-login/Main-Menu.php">
                         <i class="icon fa fa-calendar-check-o"></i>
                         Attendance
                     </a>
