@@ -17,23 +17,26 @@ $studentMedicalConcernResults = mysqli_query($db, $queryForStudentAllergies);
                 <div class="table-responsive">
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr class="row">
-                            <th class="col-sm-3 text-center">First Name</th>
-                            <th class="col-sm-3 text-center">Last Name</th>
-                            <th class="col-sm-3 text-center">Name</th>
-                            <th class="col-sm-3 text-center">Note</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                        <table class="table">
+                            <thead class="thead-dark">
+
+                            <tr>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Note</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentMedicalConcernResults, MYSQLI_ASSOC)) {
-                            echo "<tr class=\"row\"><td class=\"col-sm-3 text-center\">";
+                            echo "<tr scope=\"row\"><td>";
                             echo $row['First_Name'];
-                            echo "</td><td class=\"col-sm-3 text-center\">";
+                            echo "</td><td>";
                             echo $row['Last_Name'];
-                            echo "</td><td class=\"col-sm-3 text-center\">";
+                            echo "</td><td>";
                             echo $row['Type_Name'];
-                            echo "</td><td class=\"col-sm-3 text-center\">";
+                            echo "</td><td>";
                             echo $row['Note'];
                             echo "</td></tr>";
                         }
