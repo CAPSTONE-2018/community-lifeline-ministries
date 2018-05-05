@@ -142,5 +142,5 @@ include("../app-shell/Sidebar.php");
 </div>
 
 <?php
-include("../scripts/Footer.php");
-?>
+include("../app-shell/Footer.php");
+
