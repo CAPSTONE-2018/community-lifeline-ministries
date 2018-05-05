@@ -13,7 +13,6 @@ include("../app-shell/TimeZoneFormat.php");
                               id="newStudentForm">
                             <div class="form-content">
                                 <div class="tab-content">
-                                    <button id="show-filters" style="float:right"> Show Filters</button>
                                     <div class="tab-pane active " id="studentInfo">
                                         <div class="header"> Student/Program Report</div>
                                         <div id="as" class="collapse2">
@@ -24,14 +23,7 @@ include("../app-shell/TimeZoneFormat.php");
                                 </div>
                         </form>
 
-                        <div class="card-footer">
-                            <div class="right-align">
-                                <!--   Button trigger modal -->
-                                <button id="generateReport" type="button" class="btn btn-right btn-primary">
-                                    Generate Report
-                                </button>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
