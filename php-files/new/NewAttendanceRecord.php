@@ -146,7 +146,6 @@ $dynamicRowId = 0;
                         numberOfStudentsToSubmit: numberOfTableRows
                     },
                     success: function (response) {
-                        alert(response);
                         if (response === 'database-error') {
                             launchGenericDatabaseErrorModal();
                         } else if (response === 'success') {
