@@ -26,6 +26,7 @@ $dynamicRowId = 0;
         </ul>
     </div>
     <div class="container-fluid">
+        <input type='hidden' value='<?php echo $programNameToDisplay; ?>' id='programNameToDisplay'/>
         <div class="card">
             <div class="card-header text-center">
                 <?php
@@ -74,7 +75,7 @@ $dynamicRowId = 0;
                                            value='<?php echo $studentIdToSearch; ?>'/>
                                     <input type='hidden' name='programId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $programId; ?>'/>
-                                    <input type='hidden' name='attendanceDate' value='<?php echo $dateToSubmit; ?>'/>
+                                    <input type='hidden' name='attendanceDate[<?php echo $dynamicRowId; ?>]' value='<?php echo $dateToSubmit; ?>'/>
                                 </td>
                                 <td class='radio-input-wrapper col-2 align-middle text-center'>
                                     <label class='radio-label' for='radio<?php echo $firstRowId; ?>'>
@@ -128,21 +129,21 @@ $dynamicRowId = 0;
     <script type="text/javascript">
         function validateAttendanceRows() {
             var attendanceForm = $("#newAttendanceRecordForm").serialize();
-
-            alert(attendanceForm);
+            var programName = document.getElementById("programNameToDisplay").value;
             var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
             var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
             if (numberOfCheckBoxes < numberOfTableRows) {
                 launchAttendanceWarningModal();
             } else {
 
-                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewProgram.php";
-                var successModalMessage = "The Program, has been entered successfully.";
+                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
+                var successModalMessage = "The Attendance Record for, " + programName +" has been entered successfully.";
                 $.ajax({
                     url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddAttendanceRecord.php",
                     method: "POST",
                     data: {
-                        formData: attendanceForm
+                        formData: attendanceForm,
+                        numberOfStudentsToSubmit: numberOfTableRows
                     },
                     success: function (response) {
                         alert(response);
