@@ -13,6 +13,8 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
             <div class="card-content">
                 <form method="POST" action="#" name="allStudentsTable"
                       id="allStudentsTable">
+
+
                     <div class="table-responsive">
                         <table id="search-table" class="table table-striped table-condensed table-hover">
                             <thead>
@@ -31,6 +33,29 @@ $contactResults = mysqli_query($db, "SELECT * FROM Contacts " . $searchFilters);
                             </tr>
                             </thead>
                             <tbody>
+
+                            <table class="table">
+                                <thead class="thead-dark">
+
+                                <tr>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">State</th>
+                                    <th scope="col">Zip</th>
+                                    <th scope="col">Ethnicity</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Birth Date</th>
+                                    <th scope="col">School</th>
+                                    <th scope="col">Permission Slip</th>
+                                    <th scope="col">Birth Certificate</th>
+                                    <th scope="col">Reduced Lunch Eligible</th>
+                                    <th scope="col">IEP</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
                             <?php
                             while ($row = mysqli_fetch_array($contactResults, MYSQLI_ASSOC)) {
                                 echo "<tr class=\"row\"><td class=\"col-sm text-center\">";

@@ -28,6 +28,7 @@ include("../app-shell/TimeZoneFormat.php");
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <p style="width:100%;">Search Input Type
