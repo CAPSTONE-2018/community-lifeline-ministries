@@ -34,7 +34,6 @@ include("../../db/config.php");
                                                     <option value="First_Name">First_Name</option>
                                                     <option value="Last_Name">Last_Name</option>
                                                     <option value="Name">Name</option>
-                                                    <option value="Type">Type</option>
                                                     <option value="Note">Note</option>
                                                 </select>
                                             </div>
@@ -140,21 +139,14 @@ include("../../db/config.php");
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        searchFilters += " Medical_concerns.Name LIKE '%" + searchInputs[i]+"%'";
-                        break;
-                    case "Type":
-
-                        if(i != 0) {
-                            searchFilters += " AND";
-                        }
-                        searchFilters += " Medical_concern_types.Type LIKE '%" + searchInputs[i]+"%'";
+                        searchFilters += " Medical_Concern_Types.Type_Name LIKE '%" + searchInputs[i]+"%'";
                         break;
                     case "Note":
 
                         if(i != 0) {
                             searchFilters += " AND";
                         }
-                        searchFilters += " Medical_concerns.Note LIKE '%" + searchInputs[i]+"%'";
+                        searchFilters += " Medical_Concern_Types.Note LIKE '%" + searchInputs[i]+"%'";
                         break;
                     default:
                         break;

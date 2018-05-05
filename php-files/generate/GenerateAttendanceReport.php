@@ -4,7 +4,7 @@
 include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
-$studentsResults = mysqli_query($db, "SELECT DISTINCT attendance.DATE,attendance.Program_Id, programs.Program_Name FROM attendance JOIN programs ".$searchFilters);
+$studentsResults = mysqli_query($db, "SELECT DISTINCT Attendance.DATE,Attendance.Program_Id, Programs.Program_Name FROM Attendance JOIN Programs ".$searchFilters);
 ?>
 
 <div id="print_div">
@@ -15,33 +15,33 @@ $studentsResults = mysqli_query($db, "SELECT DISTINCT attendance.DATE,attendance
                 <div class="table-responsive">
                     <table id="search-table" class="table table-striped table-condensed table-hover">
                         <thead>
-                        <tr>
+                        <tr class='row'>
                             <th class="col-sm-2 text-center">Attendance Date</th>
-                            <th class="col-sm-3">Program Name</th>
-                            <th class="col-sm-3">Present Count</th>
-                            <th class="col-sm-3">Absent Count</th>
-                            <th class="col-sm-3">Tardy Count</th>
+                            <th class="col-sm-2 text-center">Program Name</th>
+                            <th class="col-sm-2 text-center">Present Count</th>
+                            <th class="col-sm-2 text-center">Absent Count</th>
+                            <th class="col-sm-2 text-center">Tardy Count</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
-                            $present = mysqli_query($db, "SELECT COUNT(Id) FROM attendance WHERE attendance.Attendance_Value = 1 AND attendance.Program_Id = ".$row['Program_Id']);
+                            $present = mysqli_query($db, "SELECT COUNT(Id) FROM Attendance WHERE Attendance.Attendance_Value = 1 AND Attendance.Program_Id = ".$row['Program_Id']);
                             $present2 = mysqli_fetch_array($present);
-                            $absent = mysqli_query($db, "SELECT COUNT(Id) FROM attendance WHERE attendance.Attendance_Value = 2 AND attendance.Program_Id = ".$row['Program_Id']);
+                            $absent = mysqli_query($db, "SELECT COUNT(Id) FROM Attendance WHERE Attendance.Attendance_Value = 2 AND Attendance.Program_Id = ".$row['Program_Id']);
                             $absent2 = mysqli_fetch_array($absent);
-                            $tardy = mysqli_query($db, "SELECT COUNT(Id) FROM attendance WHERE attendance.Attendance_Value = 3 AND attendance.Program_Id = ".$row['Program_Id']);
+                            $tardy = mysqli_query($db, "SELECT COUNT(Id) FROM Attendance WHERE Attendance.Attendance_Value = 3 AND Attendance.Program_Id = ".$row['Program_Id']);
                             $tardy2 = mysqli_fetch_array($tardy);
 
-                            echo "<tr><td>";
+                            echo "<tr class='row'><td class=\"col-sm-2 text-center\">";
                             echo $row['DATE'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-2 text-center\">";
                             echo $row['Program_Name'];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-2 text-center\">";
                             echo $present2[0];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-2 text-center\">";
                             echo $absent2[0];
-                            echo "</td><td>";
+                            echo "</td><td class=\"col-sm-2 text-center\">";
                             echo $tardy2[0];
                             echo "</td></tr>";
                         }
