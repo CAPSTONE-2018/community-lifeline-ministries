@@ -5,7 +5,7 @@ include("../../db/config.php");
 
 $searchFilters = $_POST['searchFilters'];
 
-$studentsResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $searchFilters);
+$volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $searchFilters);
 ?>
 <div class="container-fluid">
     <div id="print_div">
@@ -31,7 +31,7 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $sea
                             </thead>
                             <tbody>
                             <?php
-                            while ($row = mysqli_fetch_array($studentsResults, MYSQLI_ASSOC)) {
+                            while ($row = mysqli_fetch_array($volunteerResults, MYSQLI_ASSOC)) {
                                 echo "<tr class='row'><td  class=\"col-sm text-center\">";
                                 echo $row['User_Type'];
                                 echo "</td><td  class=\"col-sm-2 text-center\">";
