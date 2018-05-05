@@ -22,156 +22,154 @@ include("../app-shell/TimeZoneFormat.php");
                                             </h4>
                                             <div class="blue-line-color"></div>
                                             <div class="form-group">
-                                                <div class="col-sm-6">
-                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <input id="searchInput1" class="mdl-textfield__input"
-                                                               name="searchInput1" type="text"
-                                                               placeholder="Search Input"/>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                            <input id="searchInput1" class="mdl-textfield__input"
+                                                                   name="searchInput1" type="text"
+                                                                   placeholder="Search Input"/>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
 
-                                                <div class="col-sm-2">
+                                                    <div class="col-sm-6">
+                                                        <p style="width:100%;">Search Input Type
+                                                            <select style="width:100%;" id="FilterType1">
+                                                                <option value="First_Name">First Name</option>
+                                                                <option value="Last_Name">Last Name</option>
+                                                                <option value="Address_one">Address One</option>
+                                                                <option value="Address_two">Address Two</option>
+                                                                <option value="City">City</option>
+                                                                <option value="State">State</option>
+                                                                <option value="Zip">Zip</option>
+                                                                <option value="Ethnicity">Ethnicity</option>
+                                                                <option value="Birth_Date">Birth Date</option>
+                                                                <option value="School">School</option>
+                                                            </select></p>
+                                                    </div>
 
-                                                    <p style="width:100%;">Filter Type</p>
-                                                    <select style="width:100%;" id="FilterType1">
-                                                        <option value="First_Name">First Name</option>
-                                                        <option value="Last_Name">Last Name</option>
-                                                        <option value="Address_one">Address One</option>
-                                                        <option value="Address_two">Address Two</option>
-                                                        <option value="City">City</option>
-                                                        <option value="State">State</option>
-                                                        <option value="Zip">Zip</option>
-                                                        <option value="Ethnicity">Ethnicity</option>
-                                                        <option value="Birth_Date">Birth Date</option>
-                                                        <option value="School">School</option>
-                                                    </select>
-                                                </div>
+                                                    <div class="col-sm-1">
+                                                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
+                                                            <input type="hidden" value="" name="Active">
+                                                            <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                            <label for="Active" class="mdl-textfield__label">Active/Inactive</label>
+                                                            <ul for="Active" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                                <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                                <li class="mdl-menu__item" data-val="2">Active Students</li>
+                                                                <li class="mdl-menu__item" data-val="3">Inactive Students</li>
+                                                            </ul>
+                                                        </div>-->
+                                                        <p>Active/Inactive
+                                                            <select id="Active">
+                                                                <option value="1">All Students</option>
+                                                                <option value="2">Active</option>
+                                                                <option value="3">Inactive</option>
+                                                            </select></p>
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="All Students" class="mdl-textfield__input" id="ReduceLunch" readonly>
+                                                            <input type="hidden" value="" name="ReduceLunch">
+                                                            <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                            <label for="Active" class="mdl-textfield__label">Reduced Lunch Eligible</label>
+                                                            <ul for="ReduceLunch" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                                <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                                <li class="mdl-menu__item" data-val="2">Yes</li>
+                                                                <li class="mdl-menu__item" data-val="3">No</li>
+                                                            </ul>
+                                                        </div>-->
+                                                        <p>Reduced Lunch
+                                                            <select id="ReduceLunch">
+                                                                <option value="1">All Students</option>
+                                                                <option value="2">Active</option>
+                                                                <option value="3">Inactive</option>
+                                                            </select></p>
+                                                    </div>
 
-                                            </div>
-                                            <div class="add-new-searchFilter-dropdown">
+                                                    <div class="col-sm-1">
+                                                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
+                                                            <input type="hidden" value="" name="Active">
+                                                            <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                            <label for="Active" class="mdl-textfield__label">Active/Inactive</label>
+                                                            <ul for="Active" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                                <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                                <li class="mdl-menu__item" data-val="2">Active Students</li>
+                                                                <li class="mdl-menu__item" data-val="3">Inactive Students</li>
+                                                            </ul>
+                                                        </div>-->
+                                                        <p>Permission Slip
+                                                            <select id="PermissionSlip">
+                                                                <option value="1">All Students</option>
+                                                                <option value="2">Yes</option>
+                                                                <option value="3">No</option>
+                                                            </select></p>
+                                                    </div>
 
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-2">
-                                                    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                        <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
-                                                        <input type="hidden" value="" name="Active">
-                                                        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                        <label for="Active" class="mdl-textfield__label">Active/Inactive</label>
-                                                        <ul for="Active" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                            <li class="mdl-menu__item" data-val="1">All Students</li>
-                                                            <li class="mdl-menu__item" data-val="2">Active Students</li>
-                                                            <li class="mdl-menu__item" data-val="3">Inactive Students</li>
-                                                        </ul>
-                                                    </div>-->
-                                                    <p>Active/Inactive</p>
-                                                    <select id="Active">
-                                                        <option value="1">All Students</option>
-                                                        <option value="2">Active</option>
-                                                        <option value="3">Inactive</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                        <input type="text" value="All Students" class="mdl-textfield__input" id="ReduceLunch" readonly>
-                                                        <input type="hidden" value="" name="ReduceLunch">
-                                                        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                        <label for="Active" class="mdl-textfield__label">Reduced Lunch Eligible</label>
-                                                        <ul for="ReduceLunch" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                            <li class="mdl-menu__item" data-val="1">All Students</li>
-                                                            <li class="mdl-menu__item" data-val="2">Yes</li>
-                                                            <li class="mdl-menu__item" data-val="3">No</li>
-                                                        </ul>
-                                                    </div>-->
-                                                    <p>Reduced Lunch</p>
-                                                    <select id="ReduceLunch">
-                                                        <option value="1">All Students</option>
-                                                        <option value="2">Active</option>
-                                                        <option value="3">Inactive</option>
-                                                    </select>
-                                                </div>
+                                                    <div class="col-sm-1">
+                                                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="All Students" class="mdl-textfield__input" id="BirthCertificate" readonly>
+                                                            <input type="hidden" value="" name="BirthCertificate">
+                                                            <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                            <label for="BirthCertificate" class="mdl-textfield__label">Birth Certificate On File</label>
+                                                            <ul for="BirthCertificate" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                                <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                                <li class="mdl-menu__item" data-val="2">Yes</li>
+                                                                <li class="mdl-menu__item" data-val="3">No</li>
+                                                            </ul>
+                                                        </div>-->
+                                                        <p>Birth Certificate
+                                                            <select id="BirthCertificate">
+                                                                <option value="1">All Students</option>
+                                                                <option value="2">Yes</option>
+                                                                <option value="3">No</option>
+                                                            </select></p>
+                                                    </div>
 
-                                                <div class="col-sm-2">
-                                                    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                        <input type="text" value="All Students" class="mdl-textfield__input" id="Active" readonly>
-                                                        <input type="hidden" value="" name="Active">
-                                                        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                        <label for="Active" class="mdl-textfield__label">Active/Inactive</label>
-                                                        <ul for="Active" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                            <li class="mdl-menu__item" data-val="1">All Students</li>
-                                                            <li class="mdl-menu__item" data-val="2">Active Students</li>
-                                                            <li class="mdl-menu__item" data-val="3">Inactive Students</li>
-                                                        </ul>
-                                                    </div>-->
-                                                    <p>Permission Slip</p>
-                                                    <select id="PermissionSlip">
-                                                        <option value="1">All Students</option>
-                                                        <option value="2">Yes</option>
-                                                        <option value="3">No</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="col-sm-2">
-                                                    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                        <input type="text" value="All Students" class="mdl-textfield__input" id="BirthCertificate" readonly>
-                                                        <input type="hidden" value="" name="BirthCertificate">
-                                                        <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                        <label for="BirthCertificate" class="mdl-textfield__label">Birth Certificate On File</label>
-                                                        <ul for="BirthCertificate" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                            <li class="mdl-menu__item" data-val="1">All Students</li>
-                                                            <li class="mdl-menu__item" data-val="2">Yes</li>
-                                                            <li class="mdl-menu__item" data-val="3">No</li>
-                                                        </ul>
-                                                    </div>-->
-                                                    <p>Birth Certificate</p>
-                                                    <select id="BirthCertificate">
-                                                        <option value="1">All Students</option>
-                                                        <option value="2">Yes</option>
-                                                        <option value="3">No</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="col-sm-2">
-                                                    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                        <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
-                                                        <input type="hidden" value="" name="IEP">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="IEP" class="mdl-textfield__label">IEP</label>
-                                                <ul for="IEP" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <li class="mdl-menu__item" data-val="1">All Students</li>
-                                                    <li class="mdl-menu__item" data-val="2">Yes</li>
-                                                    <li class="mdl-menu__item" data-val="3">No</li>
-                                                </ul>-->
-                                                    <p>IEP</p>
-                                                    <select id="IEP">
-                                                        <option value="1">All Students</option>
-                                                        <option value="2">Yes</option>
-                                                        <option value="3">No</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                                                        <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
-                                                        <input type="hidden" value="" name="IEP">
-                                                <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
-                                                <label for="IEP" class="mdl-textfield__label">IEP</label>
-                                                <ul for="IEP" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                                    <li class="mdl-menu__item" data-val="1">All Students</li>
-                                                    <li class="mdl-menu__item" data-val="2">Yes</li>
-                                                    <li class="mdl-menu__item" data-val="3">No</li>
-                                                </ul>-->
-                                                    <p>Gender</p>
-                                                    <select id="Gender">
-                                                        <option value="1">All Students</option>
-                                                        <option value="2">M</option>
-                                                        <option value="3">F</option>
-                                                    </select>
+                                                    <div class="col-sm-1">
+                                                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
+                                                            <input type="hidden" value="" name="IEP">
+                                                    <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                    <label for="IEP" class="mdl-textfield__label">IEP</label>
+                                                    <ul for="IEP" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                        <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                        <li class="mdl-menu__item" data-val="2">Yes</li>
+                                                        <li class="mdl-menu__item" data-val="3">No</li>
+                                                    </ul>-->
+                                                        <p>IEP
+                                                            <select id="IEP">
+                                                                <option value="1">All Students</option>
+                                                                <option value="2">Yes</option>
+                                                                <option value="3">No</option>
+                                                            </select>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                                            <input type="text" value="All Students" class="mdl-textfield__input" id="IEP" readonly>
+                                                            <input type="hidden" value="" name="IEP">
+                                                    <i class="mdl-icon-toggle__label glyphicon glyphicon-chevron-down"></i>
+                                                    <label for="IEP" class="mdl-textfield__label">IEP</label>
+                                                    <ul for="IEP" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                                        <li class="mdl-menu__item" data-val="1">All Students</li>
+                                                        <li class="mdl-menu__item" data-val="2">Yes</li>
+                                                        <li class="mdl-menu__item" data-val="3">No</li>
+                                                    </ul>-->
+                                                        <p>Gender
+                                                            <select id="Gender">
+                                                                <option value="1">All Students</option>
+                                                                <option value="2">M</option>
+                                                                <option value="3">F</option>
+                                                            </select></p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>
+                                    </div>
                         </form>
 
                         <div class="card-footer">

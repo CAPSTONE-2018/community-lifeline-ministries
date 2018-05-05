@@ -17,9 +17,9 @@ $studentsResults = mysqli_query($db, "SELECT * FROM Students ".$searchFilters);
                         <table id="search-table" class="table table-striped table-condensed table-hover">
                             <thead>
                             <tr class="row">
-                                <th class="col-sm-1 text-center">Active/Inactive</th>
-                                <th class="col-sm-1 text-center">First Name</th>
-                                <th class="col-sm-1 text-center">Last Name</th>
+                                <th class="col-sm-2 text-center">Active/Inactive</th>
+                                <th class="col-sm-2 text-center">First Name</th>
+                                <th class="col-sm-2 text-center">Last Name</th>
                                 <th class="col-sm-2 text-center">Address One</th>
                                 <th class="col-sm-2 text-center">Address Two</th>
                                 <th class="col-sm-2 text-center">City</th>
