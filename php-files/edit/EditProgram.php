@@ -14,11 +14,9 @@ $programName = $programRow['Program_Name'];
 $programId = $programRow['Id'];
 $queryForVolunteerInfo = "SELECT Volunteer_Employees.Id, Volunteer_Employees.First_Name, Volunteer_Employees.Last_Name FROM Volunteer_Employees 
                           JOIN Volunteer_To_Programs ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id
-                          WHERE Volunteer_To_Programs.Program_Id = '$programId' AND Active_Id = 1;";
+                          WHERE Volunteer_To_Programs.Program_Id = '$programId' AND Volunteer_To_Programs.Active_Id = 1;";
 $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
-
 ?>
-
 <div class="app-title">
     <div>
         <h3><i class="fa fa-pencil"></i> Edit Program</h3>
@@ -34,7 +32,6 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
         <div class="card-body">
             <div class="row col-sm-12">
                 <input type="hidden" id="programId" value="<?php echo $programId; ?>"/>
-
                 <div class="col-6 d-inline">
                     <div class="col-12">
                         <h4 class="heading "><i class="fa fa-pencil"></i> Edit Program Info</h4>
@@ -47,6 +44,10 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
                                    value="<?php echo $programName; ?>" name="name" type="text"/>
                             <label class="mdl-textfield__label" for="programName">Program Name</label>
                         </div>
+                    </div>
+
+                    <div class="col-12">
+                        <input type="submit" form="programForm" onclick="validateEditProgramInfo()" value="Edit Program Info" class="btn btn-primary btn-lg btn-block"/>
                     </div>
                 </div>
 
@@ -85,17 +86,11 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
                 </div>
             </div>
         </div>
-        <div class="card-footer">
-            <input type="submit" form="programForm" value="Edit Program Info" class="btn btn-primary btn-lg btn-block"/>
-        </div>
-
     </form>
 </div>
 
 <script type="text/javascript">
-
     var buttonIdToRemove;
-
     function archiveVolunteerFromProgramMessageModal(dynamicButtonId) {
         buttonIdToRemove = dynamicButtonId;
         event.preventDefault();
@@ -126,39 +121,42 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
             }
         });
     }
-
-
 </script>
 
 <script type="text/javascript">
     function validateEditProgramInfo() {
-
-
         var programName = document.getElementById("programName").value;
-        var volunteerId = document.getElementById("volunteerId").value;
-        var submissionType = "Program";
-        var viewAllRoute = "../../php-files/show/ShowPrograms.php";
-        var viewAllButtonTitle = "View All Programs";
-        var newEntryRoute = "../../php-files/new/NewProgram.php";
-        var newEntryButtonTitle = "New Program";
+        var programId = document.getElementById("programId").value;
+        var successModalMessage = "The Program, " + programName + " has been entered successfully.";
+        var duplicateModalMessage = "the Program, " + programName + " already exists.";
+        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowPrograms.php";
         $.ajax({
-            url: "",
+            url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateProgram.php",
             method: "POST",
             data: {
-
-                volunteerId: volunteerId
+                programId: programId,
+                programName: programName
             },
-            success: function (data) {
-                if (data === 1) {
-                    launchDuplicateEntryModal(programName, submissionType);
-                } else if (data === 001) {
-                    alert("something went wrong with the database");
-                } else if (data === 0) {
-                    launchSuccessfulEntryModal(programName, submissionType,
-                        viewAllRoute, viewAllButtonTitle, newEntryRoute, newEntryButtonTitle);
+            success: function (response) {
+                alert(response);
+                if (response === 'entry-exists') {
+                    launchGenericDuplicateEntryModal(duplicateModalMessage);
+                } else if (response === 'database-error') {
+                    launchGenericDatabaseErrorModal();
+                } else if (response == 'success') {
+                    launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
+                } else if (response === 'fill-inputs-required') {
+                    launchGenericRequiredInputsModal();
                 }
             }
         });
+    }
+</script>
+
+<script type="text/javascript">
+    function rerouteToShowProgramsPage() {
+        window.location = "/community-lifeline-ministries/php-files/show/ShowPrograms.php";
+
     }
 </script>
 

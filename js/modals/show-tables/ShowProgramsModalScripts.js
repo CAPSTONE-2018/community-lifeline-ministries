@@ -19,6 +19,8 @@ function launchVolunteersInProgramModal(programId) {
         success: function (response) {
             $('#showVolunteersInProgramModalModalBody').html(response);
             $('#showVolunteersInProgramModal').modal('show');
+
+
         }
     });
 }

@@ -4,7 +4,7 @@ $programId = $_POST['programId'];
 $queryProgramInfo = "SELECT * FROM Programs WHERE Id = '$programId';";
 $queryForVolunteerInfo = "SELECT Volunteer_Employees.Id, Volunteer_Employees.First_Name, Volunteer_Employees.Last_Name FROM
   Volunteer_Employees JOIN Volunteer_To_Programs ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id
- WHERE Volunteer_To_Programs.Program_Id = '$programId';";
+ WHERE Volunteer_To_Programs.Program_Id = '$programId' AND Active_Id = 1;";
 $programInfoResults = mysqli_query($db, $queryProgramInfo);
 $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
 $numberOfStudentsInProgram = "SELECT COUNT(Student_Id) as Students_Enrolled FROM Student_To_Programs WHERE Program_Id = '$programId';";

@@ -3,9 +3,11 @@ include("../../../db/config.php");
 
 $programId = $_POST['programId'];
 
-$queryForVolunteers = "SELECT * FROM Volunteer_Employees 
+$queryForVolunteers = "SELECT Volunteer_Employees.First_Name, Volunteer_Employees.Last_Name, Volunteer_Employees.Primary_Phone, Volunteer_Employees.Email,
+                        Volunteer_Employees.Address_One, Volunteer_Employees.Address_Two, Volunteer_Employees.City, Volunteer_Employees.State, 
+                        Volunteer_Employees.Zip, Volunteer_To_Programs.Active_Id FROM Volunteer_Employees 
                         JOIN Volunteer_To_Programs ON Volunteer_Employees.Id = Volunteer_To_Programs.Volunteer_Id
-                        WHERE Volunteer_To_Programs.Program_Id = '$programId';";
+                        WHERE Volunteer_To_Programs.Program_Id = '$programId' AND Volunteer_To_Programs.Active_Id = 1;";
 
 $volunteerResults = mysqli_query($db, $queryForVolunteers);
 $response = '';
