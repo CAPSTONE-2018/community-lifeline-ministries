@@ -9,6 +9,8 @@ $tuesdayAvail = $_POST['tuesday'];
 $wednesdayAvail = $_POST['wednesday'];
 $thursdayAvail = $_POST['thursday'];
 $fridayAvail = $_POST['friday'];
+$saturdayAvail = $_POST['saturday'];
+$sundayAvail = $_POST['sunday'];
 
 if($mondayAvail == "true"){
     $mondayAvail = 1;
@@ -45,9 +47,23 @@ else{
     $fridayAvail = 0;
 }
 
-$queryVolunteerAvailabilityExist = "SELECT COUNT(Id) FROM volunteer_employees_availability WHERE volunteer_employees_availability.Volunteer_EmployeeId = ".$volunteerId;
-$queryTypeVolunteers = "INSERT INTO Volunteer_employees_availability (Volunteer_EmployeeId, Monday_Available, Tuesday_Available, Wednesday_Available, Thursday_Available, Friday_Available ) VALUES ($volunteerId, $mondayAvail, $tuesdayAvail, $wednesdayAvail, $thursdayAvail, $fridayAvail)";
-$queryUpdateVolunteers = "UPDATE Volunteer_employees_availability SET Monday_Available = '$mondayAvail', Tuesday_Available = '$tuesdayAvail', Wednesday_Available ='$wednesdayAvail', Thursday_Available = '$thursdayAvail', Friday_Available = '$fridayAvail' WHERE Volunteer_EmployeeId = ".$volunteerId;
+if($saturdayAvail == "true"){
+    $saturdayAvail = 1;
+}
+else{
+    $saturdayAvail = 0;
+}
+
+if($sundayAvail == "true"){
+    $sundayAvail = 1;
+}
+else{
+    $sundayAvail = 0;
+}
+
+$queryVolunteerAvailabilityExist = "SELECT COUNT(Id) FROM Volunteer_Employees WHERE Volunteer_Employees.Id = ".$volunteerId;
+$queryTypeVolunteers = "INSERT INTO Volunteer_Employees (Id, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability ) VALUES ($volunteerId, $mondayAvail, $tuesdayAvail, $wednesdayAvail, $thursdayAvail, $fridayAvail)";
+$queryUpdateVolunteers = "UPDATE Volunteer_Employees SET Monday_Availability = '$mondayAvail', Tuesday_Availability = '$tuesdayAvail', Wednesday_Availability ='$wednesdayAvail', Thursday_Availability = '$thursdayAvail', Friday_Availability = '$fridayAvail', Saturday_Availability = '$saturdayAvail', Sunday_Availability = '$sundayAvail' WHERE Id = ".$volunteerId;
 
 $NumOfVolunteers = mysqli_query($db, $queryVolunteerAvailabilityExist);
 $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
