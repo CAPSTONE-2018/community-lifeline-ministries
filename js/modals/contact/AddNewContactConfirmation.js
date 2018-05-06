@@ -27,7 +27,7 @@ function launchAddNewContactConfirmationModal(serializedForm) {
                 '</div>';
 
             $.ajax({
-                url: '../../php-files/modals/contacts/AddNewContactConfirmation.php',
+                url: '../../php-files/modals/contacts/VerifyNewContact.php',
                 method: "POST",
                 data: {
                     contact: contactConfirmation
