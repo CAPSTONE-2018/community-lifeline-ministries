@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactFirstName" class="mdl-textfield__input"
                        name="contactFirstName" type="text"
@@ -57,13 +57,23 @@
             </div>
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactLastName" class="mdl-textfield__input" name="contactLastName"
                        type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
                        onkeypress="return suppressEnter()"/>
                 <label class="mdl-textfield__label" for="contactLastName">Last Name</label>
                 <span class="mdl-textfield__error">Invalid Last Name Entered</span>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="contactSuffix" class="mdl-textfield__input" name="contactSuffix"
+                       type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
+                       onkeypress="return suppressEnter()"/>
+                <label class="mdl-textfield__label" for="contactSuffix">Suffix</label>
+                <span class="mdl-textfield__error">Invalid Suffix Entered</span>
             </div>
         </div>
     </div>
