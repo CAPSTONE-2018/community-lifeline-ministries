@@ -13,10 +13,38 @@ $studentZip = intval($_POST['studentZip']);
 $studentCity = $_POST['studentCity'];
 $studentState = $_POST['studentState'];
 $studentSchool = $_POST['studentSchool'];
-$studentPermissionSlip = intval($_POST['permissionSlipCheckbox']);
-$studentBirthCertificate = intval($_POST['birthCertificateCheckbox']);
-$studentReducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
-$studentIep = intval($_POST['iepCheckbox']);
+if (isset($_POST["permissionSlipCheckbox"]))
+{
+    $studentPermissionSlip = intval($_POST['permissionSlipCheckbox']);
+}
+else
+{
+    $studentPermissionSlip = 0;
+}
+if (isset($_POST["birthCertificateCheckbox"]))
+{
+    $studentBirthCertificate = intval($_POST['birthCertificateCheckbox']);
+}
+else
+{
+    $studentBirthCertificate = 0;
+}
+if (isset($_POST["reducedLunchEligibilityCheckbox"]))
+{
+    $studentReducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
+}
+else
+{
+    $studentReducedLunchEligibility = 0;
+}
+if (isset($_POST["iepCheckbox"]))
+{
+    $studentIep = intval($_POST['iepCheckbox']);
+}
+else
+{
+    $studentIep = 0;
+}
 $programId = $_POST['programToEnroll'];
 $addressToDisplay = $studentAddressOne . " " . $studentAddressTwo;
 $printPermissionSlipOnFile = "";

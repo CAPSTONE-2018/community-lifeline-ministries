@@ -2,7 +2,14 @@
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
 $contactActiveFlag = 1;
-$prefix = $_POST['contactPrefix'];
+if (isset($_POST["contactPrefix"]))
+{
+    $prefix = $_POST['contactPrefix'];
+}
+else
+{
+    $prefix = null;
+}
 $firstName = $_POST['contactFirstName'];
 $middleName = $_POST['middleName'];
 $lastName = $_POST['contactLastName'];
