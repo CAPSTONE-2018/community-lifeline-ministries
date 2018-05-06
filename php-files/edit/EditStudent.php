@@ -5,7 +5,6 @@ include("../app-shell/EmptyModalShell.php");
 include("../scripts/States.php");
 //include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-session_start();
 $queryForMedicalConcernTypes = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $queryForPrograms = "SELECT Id, Program_Name FROM Programs";
@@ -19,8 +18,6 @@ $queryForStudentInfo = "SELECT * FROM Students WHERE Id = '$studentIdToSearch';"
 $studentInfoResults = mysqli_query($db, $queryForStudentInfo);
 
 while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
-    $dynamicRowId++;
-
     $studentId = $studentInfoRow['Id'];
     $studentFirstName = $studentInfoRow['First_Name'];
     $studentLastName = $studentInfoRow['Last_Name'];
@@ -72,8 +69,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
     $selectedStudentState = stateSelect($studentState);
     ?>
-    <div id="showStudentModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-         aria-labelledby="myLargeModalLabel"
+    <div id="showEditStudentModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -85,7 +81,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         </button>
                     </div>
                 </div>
-                <div id="studentModalBody" class="modal-body">
+                <div id="editStudentModalBody" class="modal-body">
 
                     <div id="studentVerifyContent">
                         <div>
@@ -97,7 +93,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             </ul>
                             <div class="tab-content mt-2">
                                 <div class="tab-pane fade show active" id="studentInfoPanel" role="tabpanel">
-                                    <div id="placeHolderForVerifyStudentInfo" class="form-group"></div>
+                                    <div id="placeHolderForVerifyEditStudentInfo" class="form-group"></div>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +101,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="sendNewStudentForm()">Submit Student</button>
+                    <button type="button" class="btn btn-primary" onclick="sendEditStudentForm()">Submit Student</button>
                 </div>
             </div>
         </div>
@@ -133,7 +129,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             <div class="card-body">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="studentInfo">
-                        <form id="newStudentForm" name="newStudentForm">
+                        <form id="editStudentForm" name="editStudentForm">
                             <div class="header"><i class="fa fa-graduation-cap"></i> Edit Student Info</div>
                             <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
                             <div class="blue-line-color"></div>
@@ -373,7 +369,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             </div>
             <div class="card-footer">
                 <button id="newStudentConfirmationButton" type="button" class="btn btn-primary btn-block btn-lg"
-                        onclick="launchVerifyStudentInfoWizard()">
+                        onclick="launchVerifyEditStudentInfoWizard()">
                     Verify Info
                 </button>
             </div>
@@ -383,24 +379,26 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 <?php } ?>
 
 <script type="text/javascript">
-    function sendNewStudentForm() {
-        var allForms = $('#newStudentForm,#newStudentMedicalConcernsForm, #newStudentContactForm').serialize();
-        $('#showStudentModal').modal('hide');
+    function sendEditStudentForm() {
+        var editStudentForm = $('#editStudentForm').serialize();
+        $('#showEditStudentModal').modal('hide');
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateStudent.php",
             method: "POST",
-            data: allForms,
+            data: editStudentForm,
             success: function (response) {
-                if (response === 'fill-required-inputs') {
-                    launchGenericRequiredInputsModal();
-                }
+
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var newContactConfirmation = parsedOutput['new-contact-confirmation'];
                 var modalMessage = "The Student Was Updated Successfully";
                 var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowStudents.php";
 
-                if (newStudentConfirmation === true) {
+                if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
+                }
+
+                if (newStudentConfirmation == true) {
                     launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
                 }
             }
@@ -409,77 +407,13 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 </script>
 
 <script type="text/javascript">
-    var dynamicMedicalConcernId = 0;
-    $(document).ready(function () {
-        $('#add-new-medical-concern-button').click(function () {
-            dynamicMedicalConcernId++;
-            $.ajax({
-                url: "../scripts/AjaxDynamicMedicalConcern.php",
-                method: "POST",
-                data: {dynamicMedicalConcernId: dynamicMedicalConcernId},
-                success: function (output) {
-                    $('.new-medical-concern-layer').append(output);
-                    componentHandler.upgradeDom();
-                }
-            })
-        });
-    });
+    function launchVerifyEditStudentInfoWizard() {
+        var serializedStudentInfoForm = $('#editStudentForm').serialize();
 
-    $(document).on('click', '.remove-medical-concern', function (event) {
-        event.preventDefault();
-        var button_id = this.id;
-        $('#dynamic-medical-concern' + button_id).remove();
-    });
-</script>
-
-<script type="text/javascript">
-    var dynamicContactId = 0;
-    $(document).ready(function () {
-        $('#add-new-contact-dropdown-button').click(function () {
-            dynamicContactId++;
-            $.ajax({
-                url: "../scripts/AjaxDynamicContactDropdown.php",
-                method: "POST",
-                data: {dynamicContactId: dynamicContactId},
-                success: function (output) {
-                    $('.add-new-contact-dropdown').slideDown().append(output);
-                }
-            })
-        });
-    });
-</script>
-
-<script type="text/javascript">
-
-
-    function launchVerifyStudentInfoWizard() {
-        var serializedStudentInfoForm = $('#newStudentForm').serialize();
-
-        launchConfirmStudentEntriesModal(serializedStudentInfoForm);
+        launchConfirmEditStudentEntriesModal(serializedStudentInfoForm);
         $('#modal').modal({
             backdrop: 'static'
         });
     }
-
-    $(function () {
-        $('#infoContinue').click(function (e) {
-            var serializedMedicalConcernsForm = $('#newStudentMedicalConcernsForm').serialize();
-            launchVerifyMedicalInfoForStudent(serializedMedicalConcernsForm);
-            e.preventDefault();
-            $('.progress-bar').css('width', '66%');
-            $('.progress-bar').html('Step 2 of 3');
-            $('#myTab a[href="#studentMedicalConcernsPanel"]').tab('show');
-
-        });
-
-        $('#adsContinue').click(function (e) {
-            var serializedStudentContactForm = $('#newStudentContactForm').serialize();
-            e.preventDefault();
-            $('.progress-bar').css('width', '100%');
-            $('.progress-bar').html('Step 3 of 3');
-            $('#myTab a[href="#studentContactInfoPanel"]').tab('show');
-            launchVerifyContactInfoForStudent(serializedStudentContactForm);
-        });
-    })
 </script>
 <?php include("../app-shell/Footer.php"); ?>
