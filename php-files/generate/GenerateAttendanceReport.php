@@ -53,11 +53,20 @@ $studentsResults = mysqli_query($db, "SELECT DISTINCT Attendance.DATE,Attendance
                 </div>
             </form>
         </div>
-        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-        <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
         </div>
+        <script type="text/javascript">
+            $('#test').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        </script>
     </div>
 </div>
 </div>

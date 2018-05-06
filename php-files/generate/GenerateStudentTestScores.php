@@ -14,7 +14,7 @@ $studentsResults = mysqli_query($db, "SELECT  Students.First_Name, Students.Last
                   id="allStudentsTable">
                 <div class="table-responsive">
                     <thead>
-                    <table class="table">
+                    <table id="test" class="table">
                         <thead class="thead-dark">
 
                         <tr>
@@ -50,11 +50,20 @@ $studentsResults = mysqli_query($db, "SELECT  Students.First_Name, Students.Last
                 </div>
             </form>
         </div>
-        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-        <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
         </div>
+        <script type="text/javascript">
+            $('#test').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        </script>
     </div>
 </div>
 </div>
