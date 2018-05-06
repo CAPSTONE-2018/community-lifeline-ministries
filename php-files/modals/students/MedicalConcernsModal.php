@@ -74,7 +74,7 @@ while ($medicalConcernRow = mysqli_fetch_assoc($studentMedicalConcernResults)) {
 
 <script type="text/javascript">
     function closeAndLaunchArchiveMedicalConcern() {
-        alert();
+
         $('#customModal').modal('hide').toggle( "slide" );
         setTimeout(function () {
             launchConfirmArchiveModal(

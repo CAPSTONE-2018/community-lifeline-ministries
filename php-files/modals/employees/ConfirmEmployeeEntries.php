@@ -279,13 +279,13 @@ if ($sunday == 1) {
 
     function sendEmployeeForm() {
         var serializedForm = $('#confirmNewVolunteerEmployee');
-        alert(serializedForm);
+
         $.ajax({
             url: '../../add/AddVolunteerEmployee.php',
             type: 'POST',
             data: serializedForm
             success: function () {
-                alert("hello");
+
             }
         })
     }

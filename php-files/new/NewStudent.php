@@ -1,6 +1,7 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../scripts/States.php");
 //include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
@@ -123,16 +124,21 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 <script type="text/javascript">
     function sendNewStudentForm() {
         var allForms = $('#newStudentForm,#newStudentMedicalConcernsForm, #newStudentContactForm').serialize();
-        // var serializedStudentInfoForm = $('#newStudentForm').serialize();
-        // var serializedMedicalConcernsForm = $('#newStudentMedicalConcernsForm').serialize();
-        // var serializedStudentContactForm = $('#newStudentContactForm').serialize();
         $('#showStudentModal').modal('hide');
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudent.php",
             method: "POST",
             data: allForms,
             success: function (response) {
-                alert("first response" + response);
+                var parsedOutput = JSON.parse(response);
+                var newStudentConfirmation = parsedOutput['student-confirmation'];
+                var newContactConfirmation = parsedOutput['new-contact-confirmation'];
+                var modalMessage = "The Student Was Added Successfully";
+                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudent.php";
+
+                if (newStudentConfirmation === true) {
+                    launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
+                }
             }
         });
     }
