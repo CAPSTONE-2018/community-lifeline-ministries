@@ -17,6 +17,7 @@ while ($programInfoRow = mysqli_fetch_assoc($programInfoResults)) {
     ?>
     <div class="card">
         <form name="programForm" id="programForm" method="POST" action="../edit/EditProgram.php">
+            <input type="hidden" value="<?php echo $programId; ?>" name="programId"/>
             <div class="card-body">
                 <div class="row col-sm-12">
                     <div class="col-6 d-inline">

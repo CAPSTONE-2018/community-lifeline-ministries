@@ -10,5 +10,9 @@ function launchGenericSuccessfulArchive() {
     $('.modal-body').text("Has Been Archived Successfully.");
     $('#customModal').modal('show');
 
+    setTimeout(function() {
+        $('#customModal').modal('hide');
+    }, 3000);
+
 
 }
