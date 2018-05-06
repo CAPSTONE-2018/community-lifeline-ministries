@@ -16,7 +16,7 @@ $volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First
                   id="allStudentsTable">
                 <div class="table-responsive">
                     <thead>
-                    <table id="test" class="table">
+                    <table id="test1" class="table">
                         <thead class="thead-dark">
 
                         <tr>
@@ -43,7 +43,7 @@ $volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First
                         </tbody>
                     </table>
                     <thead>
-                    <table id="test" class="table">
+                    <table id="test2" class="table">
                         <thead class="thead-dark">
 
                         <tr>
@@ -72,10 +72,28 @@ $volunteerResults = mysqli_query($db, "SELECT DISTINCT Volunteer_Employees.First
                 </div>
             </form>
         </div>
-        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-        <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
         </div>
+        <script type="text/javascript">
+            $('#test1').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+            $('#test2').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        </script>
     </div>
 </div>

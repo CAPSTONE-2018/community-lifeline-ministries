@@ -16,7 +16,7 @@ $medicalResults = mysqli_query($db, "SELECT * FROM Medical_Concern_Types " . $se
                   id="allStudentsTable">
                 <div class="table-responsive col-sm-12">
                     <thead>
-                    <table class="table">
+                    <table id="test" class="table">
                         <thead class="thead-dark">
 
                         <tr>
@@ -48,11 +48,20 @@ $medicalResults = mysqli_query($db, "SELECT * FROM Medical_Concern_Types " . $se
                 </div>
             </form>
         </div>
-        <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-        <script src="../../scripts/print.js"></script>
         <div class="card-footer">
 
         </div>
+        <script type="text/javascript">
+            $('#test').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        </script>
     </div>
 </div>
 </div>

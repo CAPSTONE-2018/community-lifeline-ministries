@@ -60,19 +60,38 @@ $volunteerResults = mysqli_query($db, "SELECT * FROM Volunteer_Employees " . $se
                             ?>
                             </tbody>
                         </table>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#test').DataTable({
+                                    dom: '<lf<t>iBp>',
+                                    buttons: [
+                                        'copyHtml5',
+                                        'excelHtml5',
+                                        'csvHtml5',
+                                        'pdfHtml5'
+                                    ]
+                                });
+                            });
+                        </script>
                     </div>
                 </form>
 
             </div>
-            <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')" value="Print"/>
-            <script src="../../scripts/print.js"></script>
             <div class="card-footer">
-                <script>
-                    $(document).ready(function () {
-                        $('#test').DataTable();
-                    });
-                </script>
+
             </div>
+            <script type="text/javascript">
+                $('#test').DataTable({
+                    dom: '<lf<t>iBp>',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5'
+                    ]
+                });
+            </script>
+        </div>
         </div>
     </div>
 </div>
