@@ -111,8 +111,6 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
     function removeVolunteerFromProgram() {
         var volunteerId = document.getElementById("volunteerId").value;
         var programId = document.getElementById("programId").value;
-        alert(volunteerId);
-        alert(programId);
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/archive/ArchiveVolunteerToProgram.php",
             type: "POST",
@@ -122,7 +120,7 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
             },
             success: function(response) {
                 $('#archiveVolunteerFromProgram').modal('hide');
-                alert(response);
+                $('#archiveVolunteerFromProgramModalBody').html();
                 launchGenericSuccessfulArchive();
                 $('#dynamicVolunteerRow'+buttonIdToRemove).remove();
             }
