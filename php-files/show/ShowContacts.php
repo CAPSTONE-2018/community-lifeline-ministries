@@ -18,88 +18,70 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
     </ul>
 </div>
 
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <div class="col-12 text-center">
-                <h2><i class="fa fa-address-book-o"></i> All Contacts</h2>
-            </div>
 
-            <div class="row">
-                <div class="search-input-wrapper col-6">
-                    <input id="search-input" type="text" placeholder="Search" onkeyup="FilterFields()">
-                    <i class="align-middle fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
-                </div>
-
-                <div class="align-middle m-auto text-right col-6">
-                    <div class="btn-group btn-toggle">
-                        <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible2">
-                            Active
-                        </button>
-
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#collapsible2">
-                            In-Active
-                        </button>
-                    </div>
-                </div>
-            </div>
+<div class="card">
+    <div class="card-header">
+        <div class="col-12 text-center">
+            <h2><i class="fa fa-address-card-o"></i> All Contacts</h2>
         </div>
+    </div>
 
-        <form class="container-fluid" method="POST" action="#" name="allContactsTable" id="allContactsTable">
-            <div class="table-responsive col-sm-12">
-                <table id="search-table" class="table table-striped table-hover">
-                    <thead>
-                    <tr class="row">
-                        <th class="col-sm-1">#</th>
-                        <th class="col-sm-2">Name</th>
-                        <th class="col-sm-3 text-center">Email</th>
-                        <th class="col-sm-2 text-center">Phone</th>
-                        <th class="col-sm-4 text-center">Actions</th>
-                    </tr>
-                    </thead>
+    <div class="container">
+        <table id="showContactsTable" class="table table-striped table-bordered table-hover" style="width:100%">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Phone</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </thead>
 
-                    <tbody>
-                    <?php
-                    while ($activeContactsRow = mysqli_fetch_assoc($activeContactsResults)) {
-                        $contactId = $activeContactsRow['Id'];
-                        $nameToDisplay = $activeContactsRow['First_Name'] . ' ' . $activeContactsRow['Last_Name'];;
-                        $contactEmail = $activeContactsRow['Email'];
-                        $contactPhoneNumber = $activeContactsRow['Primary_Phone'];
-                        ?>
-                        <tr class='row'>
-                            <td class='col-sm-1 align-middle'></td>
-                            <td class='col-sm-2 align-middle'>
-                                <?php echo $nameToDisplay; ?>
-                                <input type='hidden' value='<?php echo $contactId; ?>'/>
-                            </td>
-                            <td class='col-sm-3 align-middle text-center'><?php echo $contactEmail; ?></td>
-                            <td class='col-sm-2 align-middle text-center'><?php echo $contactPhoneNumber; ?></td>
-                            <td class='col-sm-4 text-center'>
-                                <div class='left-action-buttons-container d-inline m-auto'>
-                                    <div class='d-inline'>
-                                        <button type='button' data-toggle='modal' data-target='#customModal' data-dismiss='modal'
-                                                class='btn large-action-buttons edit-button'
-                                                onclick='launchEditContactModal(<?php echo $contactId; ?>)'
-                                        >
-                                            <i class='fa fa-pencil'></i> Edit
-                                        </button>
-                                    </div>
-                                    <div class='d-inline'>
-                                        <button type='button' data-toggle='modal' data-target='#customModal' data-dismiss='modal'
-                                                class='btn large-action-buttons delete-button'
-                                                onclick='launchConfirmArchiveModal(
-                                                        "<?php echo $contactId; ?>",
-                                                        "ArchiveContact.php",
-                                                        "Contact",
-                                                        "<?php echo $nameToDisplay; ?>",
-                                                        "ShowContacts.php")'
-                                        >
-                                            <i class='fa fa-archive'></i> Archive
-                                        </button>
-                                    </div>
-                                </div>
+            <tbody>
+            <?php
+            while ($activeContactsRow = mysqli_fetch_assoc($activeContactsResults)) {
+                $contactId = $activeContactsRow['Id'];
+                $nameToDisplay = $activeContactsRow['First_Name'] . ' ' . $activeContactsRow['Last_Name'];;
+                $contactEmail = $activeContactsRow['Email'];
+                $contactPhoneNumber = $activeContactsRow['Primary_Phone'];
+                ?>
+                <tr>
+                    <td></td>
+                    <td>
+                        <?php echo $nameToDisplay; ?>
+                        <input type='hidden' value='<?php echo $contactId; ?>'/>
+                    </td>
+                    <td class='text-center'><?php echo $contactEmail; ?></td>
+                    <td class='text-center'><?php echo $contactPhoneNumber; ?></td>
+                    <td class='text-center'>
+                        <div class='left-action-buttons-container d-inline m-auto'>
+                            <div class='d-inline'>
+                                <button type='button' data-toggle='modal' data-target='#customModal'
+                                        data-dismiss='modal'
+                                        class='btn large-action-buttons edit-button'
+                                        onclick='launchEditContactModal(<?php echo $contactId; ?>)'
+                                >
+                                    <i class='fa fa-pencil'></i> Edit
+                                </button>
+                            </div>
+                            <div class='d-inline'>
+                                <button type='button' data-toggle='modal' data-target='#customModal'
+                                        data-dismiss='modal'
+                                        class='btn large-action-buttons delete-button'
+                                        onclick='launchConfirmArchiveModal(
+                                                "<?php echo $contactId; ?>",
+                                                "ArchiveContact.php",
+                                                "Contact",
+                                                "<?php echo $nameToDisplay; ?>",
+                                                "ShowContacts.php")'
+                                >
+                                    <i class='fa fa-archive'></i> Archive
+                                </button>
+                            </div>
+                        </div>
 
-                                <div class='right-action-buttons-container d-inline'>
+                        <div class='right-action-buttons-container d-inline'>
                                     <span title='Volunteers' data-toggle='tooltip' class='small-action-buttons'>
                                         <button type='button' onclick=''
                                                 class='btn small-action-buttons test-scores-button'
@@ -107,8 +89,8 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                             <i class='fa fa-star mr-0'></i>
                                         </button>
                                     </span>
-                                    <span title='Students For Contact' data-toggle='tooltip'
-                                          class='small-action-buttons'>
+                            <span title='Students For Contact' data-toggle='tooltip'
+                                  class='small-action-buttons'>
                                         <button type='button'
                                                 onclick='launchStudentsToContactModal(<?php echo $contactId; ?>)'
                                                 class='btn small-action-buttons contact-button'
@@ -116,20 +98,30 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                             <i class='fa fa-graduation-cap mr-0'></i>
                                         </button>
                                     </span>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </form>
-        <div class="card-footer">
-            <input type="button" class="btn btn-primary pull-right" onclick="printReport('print_div')"
-                   value="Print"/>
-        </div>
+                        </div>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Phone</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </tfoot>
+        </table>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#showContactsTable').DataTable();
+        });
+    </script>
 </div>
+
 <?php
 include("../app-shell/Footer.php");
 ?>

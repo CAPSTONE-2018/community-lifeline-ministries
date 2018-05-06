@@ -33,7 +33,7 @@ $studentTableToLookUp = "Students";
     </div>
 
     <div class="container">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <table id="showStudentsTable" class="table table-striped table-bordered table-hover" style="width:100%">
             <thead>
             <tr>
                 <th>#</th>
@@ -139,7 +139,7 @@ $studentTableToLookUp = "Students";
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#showStudentsTable').DataTable();
         });
     </script>
 </div>
