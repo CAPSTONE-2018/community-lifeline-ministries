@@ -103,11 +103,11 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                             }
                             $studentName = $row['First_Name'] . " " . $row['Last_Name']; ?>
                             <tr class='row'>
-                                <td scope="col"></td>
-                                <td scope="col">
+                                <td ></td>
+                                <td >
                                     <?php echo $studentName; ?>
                                 </td>
-                                <td scope="col">
+                                <td >
                                     <input id = 'VolunteerId<?php echo $dynamicRowId; ?>'type='hidden' name='VolunteerId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $row['Id']; ?>'/>
                                 </td>
