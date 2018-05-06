@@ -1,3 +1,6 @@
+<?php
+$dynamicRowId = 0;
+?>
 <div class="tab-pane" role="tabpanel" id="studentMedicalConcerns">
     <form id="newStudentMedicalConcernsForm" name="newStudentMedicalConcernsForm">
         <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
@@ -21,7 +24,8 @@
             <div class="col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                     <input type="text" class="mdl-textfield__input"
-                           id="medicalConcernType"
+                           id="medicalConcernType<?php echo $dynamicRowId;
+                           $dynamicRowId++; ?>"
                            readonly>
                     <input type="hidden" name="medicalConcernType"/>
                     <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
@@ -39,7 +43,8 @@
         </div>
         <div class="col-sm-10">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <textarea id="medicalConcernNote" class="mdl-textfield__input" name="medicalConcernNote" type="text"></textarea>
+                <textarea id="medicalConcernNote" class="mdl-textfield__input" name="medicalConcernNote"
+                          type="text"></textarea>
                 <label class="mdl-textfield__label" for="medicalConcernNote">Note</label>
             </div>
         </div>
