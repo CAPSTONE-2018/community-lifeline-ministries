@@ -1,6 +1,7 @@
 <?php
-include("../scripts/header.php");
-
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 //connect to database
 include("../../db/config.php");
 $programId = $_GET['programId'];
@@ -92,5 +93,5 @@ $volunteerResults = mysqli_query($db, $queryForVolunteerInfo);
     }
 </script>
 
-<?php include("../scripts/footer.php"); ?>
+<?php include("../app-shell/Footer.php"); ?>
 

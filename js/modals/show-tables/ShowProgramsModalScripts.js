@@ -1,17 +1,11 @@
 function launchEditProgramModal(programId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/modals/programs/EditModal.php',
+        url: '/community-lifeline-ministries/php-files/modals/programs/EditProgramModalContent.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {
-            $('#custom-modal').removeClass().addClass('modal fade');
-            $('#custom-size').removeClass().addClass('modal-dialog modal-lg');
-            $('#custom-title').removeClass().addClass('modal-header edit-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-pencil ');
-            $('#dynamic-title').text("Edit Program Info");
-            $('#title-wrapper').find('h4').addClass("large-font");
-            $('.modal-body').html(response);
-            $('#custom-modal').modal("show");
+            $('#editProgramModalModalBody').html(response);
+            $('#showEditProgramModal').modal("show");
             componentHandler.upgradeDom();
         }
     });

@@ -1,4 +1,4 @@
-<!-- Volunteers in Program Modal -->
+<!-- Volunteers in Program Modal Shell -->
 <div class="modal right fade" id="showVolunteersInProgramModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" id="customSize" role="document">
         <div class="modal-content">
