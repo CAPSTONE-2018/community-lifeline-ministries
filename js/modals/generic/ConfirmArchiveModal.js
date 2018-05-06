@@ -1,7 +1,7 @@
 function launchConfirmArchiveModal(idToArchive, urlRouteToArchive, typeToDisplay, nameToDisplay, newLocationToRoute) {
     var modalBodyMessage =
         '<div class="text-center">' +
-        'Are you sure you want to archive the ' + typeToDisplay + ', <br/>' + nameToDisplay + '?' +
+        'Are you sure you want to archive the ' + typeToDisplay + ' <br/>' + nameToDisplay + '?' +
         '</div>';
 
     var yesButton = '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#customModal" data-dismiss="modal" onclick="archiveEvent(\'' + idToArchive + '\',\'' + urlRouteToArchive + '\',\'' + newLocationToRoute + '\')">Yes, Im Sure</button>';
