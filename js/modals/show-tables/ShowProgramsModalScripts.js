@@ -19,7 +19,7 @@ function launchEditProgramModal(programId) {
 
 function launchVolunteersInProgramModal(programId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/programs/VolunteersToProgramModal.php',
+        url: '/community-lifeline-ministries/php-files/modals/programs/VolunteersToProgramModalContent.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {
@@ -32,7 +32,7 @@ function launchVolunteersInProgramModal(programId) {
 
 function launchStudentsInProgramModal(programId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/programs/StudentsEnrolledModal.php',
+        url: '/community-lifeline-ministries/php-files/modals/programs/StudentsEnrolledModalContent.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {
