@@ -1,6 +1,3 @@
-<?php
-$dynamicRowId = 0;
-?>
 <div class="tab-pane" role="tabpanel" id="studentMedicalConcerns">
     <form id="newStudentMedicalConcernsForm" name="newStudentMedicalConcernsForm">
         <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
@@ -24,9 +21,7 @@ $dynamicRowId = 0;
             <div class="col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                     <input type="text" class="mdl-textfield__input"
-                           id="medicalConcernType<?php echo $dynamicRowId;
-                           $dynamicRowId++; ?>"
-                           readonly>
+                           id="medicalConcernType" readonly>
                     <input type="hidden" name="medicalConcernType"/>
                     <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                     <label for="medicalConcernType"
@@ -52,3 +47,30 @@ $dynamicRowId = 0;
         <div id="new-medical-concern-layer" class="new-medical-concern-layer"></div>
     </form>
 </div>
+
+
+<script type="text/javascript">
+    var dynamicMedicalConcernId = 0;
+    $(document).ready(function () {
+        $('#add-new-medical-concern-button').click(function () {
+            dynamicMedicalConcernId++;
+            $.ajax({
+                url: "../scripts/AjaxDynamicMedicalConcern.php",
+                method: "POST",
+                data: {
+                    dynamicMedicalConcernId: dynamicMedicalConcernId
+                },
+                success: function (output) {
+                    $('.new-medical-concern-layer').append(output);
+                    componentHandler.upgradeDom();
+                }
+            })
+        });
+    });
+
+    $(document).on('click', '.remove-medical-concern', function (event) {
+        event.preventDefault();
+        var button_id = this.id;
+        $('#dynamic-medical-concern' + button_id).remove();
+    });
+</script>

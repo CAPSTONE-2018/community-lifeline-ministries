@@ -144,29 +144,6 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
     }
 </script>
 
-<script type="text/javascript">
-    var dynamicMedicalConcernId = 0;
-    $(document).ready(function () {
-        $('#add-new-medical-concern-button').click(function () {
-            dynamicMedicalConcernId++;
-            $.ajax({
-                url: "../scripts/AjaxDynamicMedicalConcern.php",
-                method: "POST",
-                data: {dynamicMedicalConcernId: dynamicMedicalConcernId},
-                success: function (output) {
-                    $('.new-medical-concern-layer').append(output);
-                    componentHandler.upgradeDom();
-                }
-            })
-        });
-    });
-
-    $(document).on('click', '.remove-medical-concern', function (event) {
-        event.preventDefault();
-        var button_id = this.id;
-        $('#dynamic-medical-concern' + button_id).remove();
-    });
-</script>
 
 <script type="text/javascript">
     var dynamicContactId = 0;
@@ -186,8 +163,6 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 </script>
 
 <script type="text/javascript">
-
-
     function launchVerifyStudentInfoWizard() {
         var serializedStudentInfoForm = $('#newStudentForm').serialize();
 

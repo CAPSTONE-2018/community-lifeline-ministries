@@ -8,8 +8,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
     <div class="blue-line-color"></div>
     <div class="form-group row">
         <div class="col-sm-6">
-            <div id="floatingConcernName<?php echo $dynamicMedicalConcernId; ?>"
-                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input type="text"
                        id="medicalConcernName<?php echo $dynamicMedicalConcernId; ?>"
                        class="mdl-textfield__input"
@@ -19,18 +18,16 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
         </div>
 
         <div class="col-sm-6">
-            <div id="floatingConcernType<?php echo $dynamicMedicalConcernId; ?>"
-                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                 <input type="text"
                        class="mdl-textfield__input"
                        id="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"
                        readonly/>
-                <input type="hidden"
-                       name="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"/>
+                <input type="hidden" name="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"/>
                 <i class="mdl-icon-toggle__label fa fa-caret-down"></i>
                 <label for="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>"
                        class="mdl-textfield__label">Type</label>
-                <ul for="medicalConcernType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                <ul for="medicalConcernType<?php echo $dynamicMedicalConcernId; ?>" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                     <?php
                     while ($medicalConcernRow = mysqli_fetch_assoc($medicalConcernsResults)) {
                         echo "<li class='mdl-menu__item' data-val='" . $medicalConcernRow['Id'] . "' value=" . $medicalConcernRow['Id'] . ">" . $medicalConcernRow['Type_Name'] . "</li>";
