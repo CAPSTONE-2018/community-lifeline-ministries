@@ -406,7 +406,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
 <script type="text/javascript">
     function launchVerifyEditStudentInfoWizard() {
-        alert();
         var serializedStudentInfoForm = $('#editStudentForm').serialize();
 
         launchConfirmEditStudentEntriesModal(serializedStudentInfoForm);
