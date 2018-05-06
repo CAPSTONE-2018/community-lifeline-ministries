@@ -30,9 +30,9 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
         <table id="showContactsTable" class="table table-striped table-bordered table-hover" style="width:100%">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th class="text-center">Email</th>
+                <th class="text-center align-middle">#</th>
+                <th class="align-middle">Name</th>
+                <th class="text-center align-middle">Email</th>
                 <th class="text-center">Phone</th>
                 <th class="text-center">Actions</th>
             </tr>
@@ -47,14 +47,14 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                 $contactPhoneNumber = $activeContactsRow['Primary_Phone'];
                 ?>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td class="text-center align-middle"></td>
+                    <td class="align-middle">
                         <?php echo $nameToDisplay; ?>
                         <input type='hidden' value='<?php echo $contactId; ?>'/>
                     </td>
-                    <td class='text-center'><?php echo $contactEmail; ?></td>
-                    <td class='text-center'><?php echo $contactPhoneNumber; ?></td>
-                    <td class='text-center'>
+                    <td class='text-center align-middle'><?php echo $contactEmail; ?></td>
+                    <td class='text-center align-middle'><?php echo $contactPhoneNumber; ?></td>
+                    <td class='text-center align-middle'>
                         <div class='left-action-buttons-container d-inline m-auto'>
                             <div class='d-inline'>
                                 <button type='button' data-toggle='modal' data-target='#customModal'
@@ -105,8 +105,8 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
             </tbody>
             <tfoot>
             <tr>
-                <th></th>
-                <th>Name</th>
+                <th class="text-center align-middle"></th>
+                <th class="align-middle">Name</th>
                 <th class="text-center">Email</th>
                 <th class="text-center">Phone</th>
                 <th class="text-center">Actions</th>

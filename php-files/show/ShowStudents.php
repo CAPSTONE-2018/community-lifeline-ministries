@@ -13,8 +13,6 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
 $dynamicRowId = 0;
 $studentTableToLookUp = "Students";
 ?>
-
-
 <div class="app-title">
     <div>
         <h3><i class="fa fa-bookmark-o"></i> Students</h3>
@@ -36,10 +34,10 @@ $studentTableToLookUp = "Students";
         <table id="showStudentsTable" class="table table-striped table-bordered table-hover" style="width:100%">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Student Name</th>
-                <th class="text-center">Permission Slip</th>
-                <th class="text-center">Actions</th>
+                <th class="text-center align-middle">#</th>
+                <th class="align-middle">Student Name</th>
+                <th class="text-center align-middle">Permission Slip</th>
+                <th class="text-center align-middle">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -53,8 +51,8 @@ $studentTableToLookUp = "Students";
                 $numberOfPrograms = $numberOfProgramsRow['Enrolled_Programs'];
                 ?>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td class="text-center align-middle"></td>
+                    <td class="align-middle">
                         <?php echo $studentName; ?>
                         <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                value='<?php echo $studentIdToSearch; ?>'/>
@@ -76,7 +74,7 @@ $studentTableToLookUp = "Students";
                         </td>
                     <?php } ?>
 
-                    <td class='text-center'>
+                    <td class='text-center align-middle'>
                         <div class='left-action-buttons-container d-inline m-auto'>
                             <div class=' d-inline'>
                                 <button type='button'
@@ -128,10 +126,10 @@ $studentTableToLookUp = "Students";
             </tbody>
             <tfoot>
             <tr>
-                <th></th>
-                <th>Student Name</th>
-                <th class="text-center">Permission Slip</th>
-                <th class="text-center">Actions</th>
+                <th class="text-center align-middle"></th>
+                <th class="align-middle">Student Name</th>
+                <th class="text-center align-middle">Permission Slip</th>
+                <th class="text-center align-middle">Actions</th>
             </tr>
             </tfoot>
         </table>
