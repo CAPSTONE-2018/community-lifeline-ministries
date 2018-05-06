@@ -13,6 +13,8 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
 $dynamicRowId = 0;
 $studentTableToLookUp = "Students";
 ?>
+
+
 <div class="app-title">
     <div>
         <h3><i class="fa fa-bookmark-o"></i> Students</h3>
@@ -22,134 +24,90 @@ $studentTableToLookUp = "Students";
         <li class="breadcrumb-item"> All Students</li>
     </ul>
 </div>
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <div class="col-12 text-center">
-                <h2><i class="fa fa-graduation-cap"></i> All Students</h2>
-            </div>
-            <div class="row">
-                <div class="search-input-wrapper col-6">
-                    <input id="search-input" type="text" placeholder="Search" onkeyup="FilterFields()">
-                    <i class="align-middle fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
-                </div>
 
-                <div class="align-middle m-auto text-right col-6">
-                    <div class="btn-group btn-toggle">
-                        <span title='All Students' data-toggle='tooltip'>
-                            <button class="btn btn-default" onclick="toggleActiveStudents()">
-                                <i class="fa fa-graduation-cap"></i>
-                            </button>
-                        </span>
-
-                        <span title='G.E.M.' data-toggle='tooltip'>
-                            <button class="btn btn-default" onclick="toggleGem()">
-                                <i class="fa fa-diamond"></i>
-                            </button>
-                        </span>
-
-                        <span title='Sons of Thunder' data-toggle='tooltip'>
-                            <button class="btn btn-default" onclick="toggleSonsOfThunder()">
-                                <i class="fa fa-bolt"></i>
-                            </button>
-                        </span>
-
-                        <span title='Blessing Table' data-toggle='tooltip'>
-                            <button class="btn btn-default" onclick="toggleBlessingTable()">
-                                <i class="fa fa-book"></i>
-                            </button>
-                        </span>
-
-                        <span title='Past Students' data-toggle='tooltip'>
-                            <button class="btn btn-default" onclick="toggleInactiveStudents()">
-                                <i class="fa fa-folder-open"></i>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-            </div>
+<div class="card">
+    <div class="card-header">
+        <div class="col-12 text-center">
+            <h2><i class="fa fa-graduation-cap"></i> All Students</h2>
         </div>
+    </div>
 
-        <form class="container-fluid" method="POST" action="#" name="activeStudentsTable" id="activeStudentsTable">
-            <div class="table-responsive col-sm-12">
-                <table id="search-table" class="table table-striped table-condensed table-hover">
-                    <thead>
-                    <tr class="row">
-                        <th class="col-sm-1">#</th>
-                        <th class="col-sm-3">Student Name</th>
-                        <th class="col-sm-1">Programs</th>
-                        <th class="col-sm-2 text-center">Permission Slip</th>
-                        <th class="col-sm-5 text-center">Actions</th>
-                    </tr>
-                    </thead>
+    <div class="container">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Student Name</th>
+                <th>Programs</th>
+                <th>Permission Slip</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            while ($activeStudentsRow = mysqli_fetch_array($activeStudentResults, MYSQLI_ASSOC)) {
+            $numberOfProgramsRow = mysqli_fetch_array($enrolledProgramResults, MYSQLI_ASSOC);
+            $studentDocumentFlag = false;
+            $dynamicRowId++;
+            $studentIdToSearch = $activeStudentsRow['Id'];
+            $studentName = $activeStudentsRow['First_Name'] . " " . $activeStudentsRow['Last_Name'];
+            $numberOfPrograms = $numberOfProgramsRow['Enrolled_Programs'];
+            ?>
+            <tr>
+                <td></td>
+                <td>
+                    <?php echo $studentName; ?>
+                    <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
+                           value='<?php echo $studentIdToSearch; ?>'/>
+                </td>
+                <td>
+                    <?php echo $numberOfPrograms ?>
+                </td>
+                <?php
+                if (($activeStudentsRow['Permission_Slip'] == 1)) { ?>
+                <td>
+                    <button type="button"
+                            onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
+                            class='btn permission-slip-button'>
+                        <i class='green-check fa fa-check-square-o mr-0'></i>
+                    </button>
+                    <?php } else { ?>
+                    <button type="button"
+                            onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
+                            class='btn permission-slip-button'>
+                        <i class='red-circle fa fa-ban mr-0'></i>
+                    </button>
+                </td>
+                <?php } ?>
 
-                    <tbody>
-                    <?php
-                    while ($activeStudentsRow = mysqli_fetch_array($activeStudentResults, MYSQLI_ASSOC)) {
-                        $numberOfProgramsRow = mysqli_fetch_array($enrolledProgramResults, MYSQLI_ASSOC);
-                        $studentDocumentFlag = false;
-                        $dynamicRowId++;
-                        $studentIdToSearch = $activeStudentsRow['Id'];
-                        $studentName = $activeStudentsRow['First_Name'] . " " . $activeStudentsRow['Last_Name'];
-                        $numberOfPrograms = $numberOfProgramsRow['Enrolled_Programs'];
-                        ?>
-                        <tr class='row'>
-                            <td class='col-sm-1 align-middle'></td>
-                            <td class='col-sm-3 align-middle'>
-                                <?php echo $studentName; ?>
-                                <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
-                                       value='<?php echo $studentIdToSearch; ?>'/>
-                            </td>
-                            <td class='col-sm-1 align-middle text-center text-align-middle'>
-                                <?php echo $numberOfPrograms ?>
-                            </td>
+                <td class='text-center'>
+                    <div class='left-action-buttons-container d-inline m-auto'>
+                        <div class=' d-inline'>
+                            <button type='button'
+                                    class='btn large-action-buttons edit-button'
+                                    onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'
+                            >
+                                <i class='fa fa-pencil mr-0'></i> Edit
+                            </button>
+                        </div>
 
-                            <?php
-                            if (($activeStudentsRow['Permission_Slip'] == 1)) { ?>
-                                <td class='col-sm-2 align-middle text-center'>
-                                    <button type="button"
-                                            onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
-                                            class='btn permission-slip-button'>
-                                        <i class='green-check fa fa-check-square-o mr-0'></i>
-                                    </button>
-                                </td>
-                            <?php } else { ?>
-                                <td class='col-sm-2 align-middle text-center'>
-                                    <button type="button"
-                                            onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
-                                            class='btn permission-slip-button'>
-                                        <i class='red-circle fa fa-ban mr-0'></i>
-                                    </button>
-                                </td>
-                            <?php } ?>
-                            <td class='col-sm-5 text-center'>
-                                <div class='left-action-buttons-container d-inline m-auto'>
-                                    <div class=' d-inline'>
-                                        <button type='button'
-                                                class='btn large-action-buttons edit-button'
-                                                onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'
-                                        >
-                                            <i class='fa fa-pencil mr-0'></i> Edit
-                                        </button>
-                                    </div>
+                        <div class='d-inline'>
+                            <button type='button'
+                                    class='btn large-action-buttons delete-button'
+                                    onclick='launchConfirmArchiveModal(
+                                            "<?php echo $studentIdToSearch; ?>",
+                                            "ArchiveStudent.php",
+                                            "Student",
+                                            "<?php echo $studentName; ?>",
+                                            "ShowStudents.php"
+                                            )'
+                            >
+                                <i class='fa fa-archive mr-0'></i> Archive
+                            </button>
+                        </div>
+                    </div>
 
-                                    <div class='d-inline'>
-                                        <button type='button'
-                                                class='btn large-action-buttons delete-button'
-                                                onclick='launchConfirmArchiveModal(
-                                                        "<?php echo $studentIdToSearch; ?>",
-                                                        "ArchiveStudent.php",
-                                                        "Student",
-                                                        "<?php echo $studentName; ?>",
-                                                        "ShowStudents.php"
-                                                        )'
-                                        >
-                                            <i class='fa fa-archive mr-0'></i> Archive
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class='right-action-buttons-container d-inline'>
+                    <div class='right-action-buttons-container d-inline'>
                                     <span title='Test Scores' data-toggle='tooltip' class='small-action-buttons'>
                                         <button type='button'
                                                 onclick='launchTestScoresModal(<?php echo $studentIdToSearch; ?>)'
@@ -158,7 +116,7 @@ $studentTableToLookUp = "Students";
                                             <i class='fa fa-bar-chart mr-0'></i>
                                         </button>
                                     </span>
-                                    <span title='Student Allergies' data-toggle='tooltip' class='small-action-buttons'>
+                        <span title='Student Allergies' data-toggle='tooltip' class='small-action-buttons'>
                                         <button type='button'
                                                 onclick='launchMedicalConcernsModal(<?php echo $studentIdToSearch; ?>)'
                                                 class='btn small-action-buttons allergies-button'
@@ -166,7 +124,7 @@ $studentTableToLookUp = "Students";
                                             <i class='fa fa-warning mr-0'></i>
                                         </button>
                                     </span>
-                                    <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
+                        <span title='Student Contacts' data-toggle='tooltip' class='small-action-buttons'>
                                         <button type='button'
                                                 onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
                                                 class='btn small-action-buttons contact-button'
@@ -174,19 +132,38 @@ $studentTableToLookUp = "Students";
                                             <i class='fa fa-phone mr-0'></i>
                                         </button>
                                     </span>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </form>
-        <div class="card-footer">
+                    </div>
+                </td>
 
-        </div>
+            </tr>
+            <?php } ?>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th></th>
+                <th>Student Name</th>
+                <th>Programs</th>
+                <th>Permission Slip</th>
+                <th>Actions</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+
+
+    <div class="card-footer">
+
     </div>
 </div>
+
 
 <script>
     function EditTestScores() {
