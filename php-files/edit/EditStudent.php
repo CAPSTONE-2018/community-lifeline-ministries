@@ -94,36 +94,12 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <a class="nav-link active" data-toggle="tab" href="#studentInfoPanel" role="tab">Student
                                         Info</a>
                                 <li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#studentMedicalConcernsPanel"
-                                       role="tab">Medical
-                                        Concern</a>
-                                <li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#studentContactInfoPanel" role="tab">Contact
-                                        Info</a>
-                                <li>
                             </ul>
                             <div class="tab-content mt-2">
                                 <div class="tab-pane fade show active" id="studentInfoPanel" role="tabpanel">
                                     <div id="placeHolderForVerifyStudentInfo" class="form-group"></div>
-                                    <button class="btn btn-secondary" id="infoContinue">Continue</button>
-                                </div>
-                                <div class="tab-pane fade" id="studentMedicalConcernsPanel" role="tabpanel">
-                                    <div id="placeHolderForVerifyMedicalConcernsInfo"></div>
-                                    <button class="btn btn-secondary" id="adsContinue">Continue</button>
-                                </div>
-                                <div class="tab-pane fade" id="studentContactInfoPanel" role="tabpanel">
-                                    <div id="placeHolderForStudentContactsInfo"></div>
-                                    <button class="btn btn-secondary" id="placementContinue">Continue</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="progress mt-5">
-                        <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="20"
-                             aria-valuemin="0"
-                             aria-valuemax="100">Step 1 of 3
                         </div>
                     </div>
                 </div>
@@ -137,11 +113,11 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
     <div class="app-title">
         <div>
-            <h3><i class="fa fa-plus"></i> Add New Student</h3>
+            <h3><i class="fa fa-pencil"></i> Edit Student</h3>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><a href="../index-login/Main-Menu.php"><i class="fa fa-home fa-lg"></i></a></li>
-            <li class="breadcrumb-item"> New Student</li>
+            <li class="breadcrumb-item"> Edit Student</li>
         </ul>
     </div>
     <div class="container-fluid">
@@ -152,25 +128,17 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                         <a style="cursor: pointer" data-target="#studentInfo" data-toggle="tab" class="nav-link active">Student
                             Info</a>
                     </li>
-                    <li class="nav-item">
-                        <a style="cursor: pointer" data-target="#studentMedicalConcerns" data-toggle="tab"
-                           class="nav-link">Medical
-                            Concerns</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="cursor: pointer" data-target="#studentContact" data-toggle="tab" class="nav-link">Student
-                            Contact</a>
-                    </li>
                 </ul>
             </div>
             <div class="card-body">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="studentInfo">
                         <form id="newStudentForm" name="newStudentForm">
-                            <div class="header"><i class="fa fa-graduation-cap"></i> Student Info</div>
+                            <div class="header"><i class="fa fa-graduation-cap"></i> Edit Student Info</div>
                             <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
                             <div class="blue-line-color"></div>
                             <div class="row">
+                                <input type="hidden" name="studentId" value="<?php echo $studentId; ?>"/>
                                 <div class="col-sm-6">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input id="firstName" class="mdl-textfield__input"
@@ -401,10 +369,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                             </div>
                         </form>
                     </div>
-                    <!-- Medical Concern Tab -->
-                    <?php include("./student/EditMedicalConcernForm.php"); ?>
-                    <!-- New Contact Tab -->
-                    <?php include("./student/EditContactForm.php"); ?>
                 </div>
             </div>
             <div class="card-footer">
@@ -430,7 +394,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                 if (response === 'fill-required-inputs') {
                     launchGenericRequiredInputsModal();
                 }
-                alert(response);
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var newContactConfirmation = parsedOutput['new-contact-confirmation'];
