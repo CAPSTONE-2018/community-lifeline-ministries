@@ -24,11 +24,11 @@ include("../../db/config.php");
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" class="mdl-textfield__input" id="volunteerPrefix" readonly>
-                            <input type="hidden" name="volunteerPrefix">
+                            <input type="text" class="mdl-textfield__input" id="contactPrefix" readonly>
+                            <input type="hidden" name="contactPrefix">
                             <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
-                            <label for="volunteerPrefix" class="mdl-textfield__label">Prefix</label>
-                            <ul for="volunteerPrefix" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                            <label for="contactPrefix" class="mdl-textfield__label">Prefix</label>
+                            <ul for="contactPrefix" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                 <li class="mdl-menu__item" data-val="Mr.">Mr.</li>
                                 <li class="mdl-menu__item" data-val="Ms.">Ms.</li>
                                 <li class="mdl-menu__item" data-val="Mrs.">Mrs.</li>
@@ -36,26 +36,34 @@ include("../../db/config.php");
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+
+                    <div class="col-sm-4">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="volunteerFirstName" class="mdl-textfield__input"
-                                   name="volunteerFirstName"
-                                   type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                   onkeypress="return suppressEnter()"/>
-                            <label class="mdl-textfield__label" for="volunteerFirstName">First
-                                Name</label>
-                            <span class="mdl-textfield__error">Invalid First Name Entered</span>
+                            <input id="contactFirstName" class="mdl-textfield__input"
+                                   name="contactFirstName" type="text"
+                                   pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$" onkeypress="return suppressEnter()"/>
+                            <label class="mdl-textfield__label" for="contactFirstName">First Name</label>
+                            <span class="mdl-textfield__error">Invalid First Name Enterd</span>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+
+                    <div class="col-sm-4">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="volunteerLastName" class="mdl-textfield__input"
-                                   name="volunteerLastName"
+                            <input id="contactLastName" class="mdl-textfield__input" name="contactLastName"
                                    type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
                                    onkeypress="return suppressEnter()"/>
-                            <label class="mdl-textfield__label" for="volunteerLastName">Last
-                                Name</label>
+                            <label class="mdl-textfield__label" for="contactLastName">Last Name</label>
                             <span class="mdl-textfield__error">Invalid Last Name Entered</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="contactSuffix" class="mdl-textfield__input" name="contactSuffix"
+                                   type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
+                                   onkeypress="return suppressEnter()"/>
+                            <label class="mdl-textfield__label" for="contactSuffix">Suffix</label>
+                            <span class="mdl-textfield__error">Invalid Suffix Entered</span>
                         </div>
                     </div>
                 </div>
