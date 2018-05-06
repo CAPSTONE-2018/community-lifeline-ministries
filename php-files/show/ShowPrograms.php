@@ -10,6 +10,10 @@ $queryForStudentsAndEnrolledPrograms = "SELECT COUNT(Student_To_Programs.Program
                                           Students JOIN Student_To_Programs ON Students.Id = Student_To_Programs.Student_Id GROUP BY Students.Id;";
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 ?>
+<?php include("./program-functions/VolunteersToProgramModal.php"); ?>
+<?php include("./program-functions/StudentsToProgramModal.php"); ?>
+
+
 <div class="app-title">
     <div>
         <h3><i class="fa fa-bookmark-o"></i> Programs</h3>
