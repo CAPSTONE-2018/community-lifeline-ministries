@@ -61,7 +61,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     $selectedStudentState = stateSelect($studentState);
     ?>
     <div>
-        <form action="../../edit/EditStudent.php" method="POST" name="editStudentForm" id="editStudentForm">
+        <form action="../edit/EditStudent.php" method="POST" name="editStudentForm" id="editStudentForm">
             <div class="card">
                 <div class="card-body">
                     <div class="form-content">
@@ -221,7 +221,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                 <h4 class="heading"><i class="fa fa-file"></i> Documents</h4>
                                 <div class="edit-blue-line-color"></div>
                                 <div class="row">
-                                    <div class="col-sm-10">
+                                    <div class="col-12">
                                         <div id="floatingStudentSchool"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input id="studentSchool" class="mdl-textfield__input"
@@ -294,7 +294,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                 </div>
 
                 <div class="card-footer">
-                    <input type="button" onclick="sendEditStudentForm()" value="Submit" class="btn btn-primary btn-lg btn-block"/>
+                    <input type="submit" form="editStudentForm" onclick="rerouteToEdit()" value="Submit" class="btn btn-primary btn-lg btn-block"/>
                 </div>
             </div>
         </form>
