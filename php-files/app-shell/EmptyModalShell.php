@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="modal-body">
+            <div id="customModalBody" class="modal-body">
 
             </div>
 

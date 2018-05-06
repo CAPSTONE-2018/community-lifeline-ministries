@@ -49,7 +49,12 @@ $studentTableToLookUp = "Students";
                 $studentIdToSearch = $activeStudentsRow['Id'];
                 $studentName = $activeStudentsRow['First_Name'] . " " . $activeStudentsRow['Last_Name'];
                 $numberOfPrograms = $numberOfProgramsRow['Enrolled_Programs'];
-                ?>
+                $buttonIcon = "";
+                if (($activeStudentsRow['Permission_Slip'] == 1)) {
+                    $buttonIcon = "green-check fa fa-check-square-o";
+                } else {
+                    $buttonIcon = "red-circle fa fa-ban";
+                } ?>
                 <tr>
                     <td class="text-center align-middle"></td>
                     <td class="align-middle">
@@ -57,24 +62,16 @@ $studentTableToLookUp = "Students";
                         <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                value='<?php echo $studentIdToSearch; ?>'/>
                     </td>
-                    <?php
-                    if (($activeStudentsRow['Permission_Slip'] == 1)) { ?>
-                        <td class="text-center">
+                    <td class="text-center">
                         <button type="button"
                                 onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
                                 class='btn permission-slip-button'>
-                            <i class='green-check fa fa-check-square-o mr-0'></i>
+                            <i class='<?php echo $buttonIcon; ?> mr-0'></i>
                         </button>
-                    <?php } else { ?>
-                        <button type="button"
-                                onclick='launchDocumentsModal(<?php echo $studentIdToSearch; ?>)'
-                                class='btn permission-slip-button'>
-                            <i class='red-circle fa fa-ban mr-0'></i>
-                        </button>
-                        </td>
-                    <?php } ?>
+                    </td>
 
-                    <td class='text-center align-middle'>
+
+                    <td class='text-center '>
                         <div class='left-action-buttons-container d-inline m-auto'>
                             <div class=' d-inline'>
                                 <button type='button'

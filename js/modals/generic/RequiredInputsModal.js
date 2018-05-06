@@ -8,11 +8,13 @@ function launchGenericRequiredInputsModal() {
     $('#customIcon').removeClass().addClass('m-auto fa fa-warning fa-2x');
     $('#customHeaderText').text("Wait!!");
     $('#customFooterActions').html('');
-    $('.modal-body').addClass('text-center');
-    $('.modal-body').text(requireInputText);
+    $('#customModalBody').addClass('text-center');
+    $('#customModalBody').text(requireInputText);
     $('#customModal').modal('show');
 
     setTimeout(function() {
         $('#customModal').modal('hide');
+        $('#customModal').clear();
+
     }, 3000);
 }

@@ -110,13 +110,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
             </div>
         </div>
         <div class="card-footer">
-            <div class="right-align">
-                <button id="newStudentConfirmationButton" type="button" class="btn btn-primary btn-block btn-lg"
-                        data-toggle="modal" data-target="#verifyEntryModal"
-                        onclick="launchVerifyStudentInfoWizard()">
-                    Verify Info
-                </button>
-            </div>
+            <button id="newStudentConfirmationButton" type="button" class="btn btn-primary btn-block btn-lg"
+                    onclick="launchVerifyStudentInfoWizard()">
+                Verify Info
+            </button>
         </div>
     </div>
 </div>
@@ -130,6 +127,9 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
             method: "POST",
             data: allForms,
             success: function (response) {
+                if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
+                }
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var newContactConfirmation = parsedOutput['new-contact-confirmation'];
