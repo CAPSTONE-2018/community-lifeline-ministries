@@ -1,19 +1,11 @@
 function launchConfirmVolunteerEntriesModal(serializedForm) {
     $.ajax({
-        url: '../../php-files/modals/employees/ConfirmEmployeeEntries.php',
+        url: '/community-lifeline-ministries/php-files/modals/employees/VerifyNewEmployee.php',
         type: 'POST',
         data: serializedForm,
-        success: function(output) {
-
-
-            $('#custom-modal').removeClass().addClass('modal fade');
-            $('#custom-size').removeClass().addClass('modal-dialog modal-lg');
-            $('#custom-title').removeClass().addClass('modal-header confirm-student-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-check fa-2x');
-            $('#dynamic-title').text("Confirm Contact Info");
-            $('.modal-body').html(output);
-            $('#custom-modal').modal('show');
-            componentHandler.upgradeDom();
+        success: function(response) {
+            $('#placeHolderForVerifyNewEmployeeInfo').html(response);
+            $('#showVolunteerEmployeeModal').modal({show: true});
         }
     })
 }

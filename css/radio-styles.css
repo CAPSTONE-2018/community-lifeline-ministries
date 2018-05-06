@@ -6,12 +6,26 @@
     /*position: absolute;*/
 }
 
+.radio-input-wrapper {
+    padding-right: 50%;
+}
+
 .radio-input-wrapper input {
     display: none;
 }
 
-.custom-check-mark {
-    position: fixed;
+.custom-check-mark-attendance-page {
+    position: absolute;
+    top: 40%;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+    border: 3px solid #585D65;
+}
+
+.custom-check-mark-new-volunteer-page {
+    position: absolute;
+    top: 60%;
     height: 30px;
     width: 30px;
     background-color: #eee;
@@ -37,23 +51,26 @@
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.custom-check-mark:after {
+.custom-check-mark-new-volunteer-page:after, .custom-check-mark-attendance-page:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.radio-input-wrapper input:checked ~ .custom-check-mark:after {
+.radio-input-wrapper input:checked ~ .custom-check-mark-new-volunteer-page:after {
+    display: block;
+}
+.radio-input-wrapper input:checked ~ .custom-check-mark-attendance-page:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.radio-input-wrapper .custom-check-mark:after {
+.radio-input-wrapper .custom-check-mark-new-volunteer-page:after, .custom-check-mark-attendance-page:after{
     left: 9px;
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid #ffffff;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);

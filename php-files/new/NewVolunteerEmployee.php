@@ -1,9 +1,49 @@
 <?php
 include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
 include("../scripts/States.php");
 include("../../db/config.php");
 ?>
+<div id="showVolunteerEmployeeModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row col-12">
+                    <h5 class="modal-title" id="wizard-title">Verify Volunteer Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div id="studentModalBody" class="modal-body">
+
+                <div id="studentVerifyContent">
+                    <div>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#employeeInfoPanel" role="tab">
+                                    Employee Info</a>
+                            <li>
+                        </ul>
+                        <div class="tab-content mt-2">
+                            <div class="tab-pane fade show active" id="employeeInfoPanel" role="tabpanel">
+                                <div id="placeHolderForVerifyNewEmployeeInfo" class="form-group"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-block btn-group-lg" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-block btn-group-lg" onclick="sendNewVolunteerEmployeeForm()">Submit New Volunteer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="app-title">
     <div>
         <h3><i class="fa fa-plus"></i> Add New Employee</h3>
@@ -17,7 +57,7 @@ include("../../db/config.php");
     <div class="card">
         <div class="card-body">
 
-            <div class="header">Volunteer / Employee Info</div>
+            <div class="header"><i class="fa fa-star-o"></i> Volunteer / Employee Info</div>
             <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
             <div class="blue-line-color"></div>
             <form id="newVolunteerEmployeeForm" name="newVolunteerEmployeeForm">
@@ -122,9 +162,9 @@ include("../../db/config.php");
                             <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                             <label for="volunteerProgram" class="mdl-textfield__label">Program</label>
                             <ul for="volunteerProgram" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                <li class="mdl-menu__item" data-val="G.E.M.S">G.E.M.S</li>
-                                <li class="mdl-menu__item" data-val="Sons of Thunder">Sons of Thunder</li>
-                                <li class="mdl-menu__item" data-val="Blessing Table">Blessing Table</li>
+                                <li class="mdl-menu__item" data-val="3">Blessing Table</li>
+                                <li class="mdl-menu__item" data-val="2">G.E.M.S</li>
+                                <li class="mdl-menu__item" data-val="1">Sons of Thunder</li>
                             </ul>
                         </div>
                     </div>
@@ -192,68 +232,69 @@ include("../../db/config.php");
 
                 <h4 class="heading"><i class="fa fa-calendar"></i> Availability</h4>
                 <div class="blue-line-color"></div>
-                <table id="volunteerAvailabilityTable"
-                       class="table table-hover table-responsive">
+                <table id="employeeAvailabilityTable" class="table table-hover table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th scope="col" class="text-center text-muted small">Monday</th>
-                        <th scope="col" class="text-center text-muted small">Tuesday</th>
-                        <th scope="col" class="text-center text-muted small">Wednesday</th>
-                        <th scope="col" class="text-center text-muted small">Thursday</th>
-                        <th scope="col" class="text-center text-muted small">Friday</th>
-                        <th scope="col" class="text-center text-muted small">Saturday</th>
-                        <th scope="col" class="text-center text-muted small">Sunday</th>
+                        <th class="text-center"></th>
+                        <th class="text-center text-muted small">Monday</th>
+                        <th class="text-center text-muted small">Tuesday</th>
+                        <th class="text-center text-muted small">Wednesday</th>
+                        <th class="text-center text-muted small">Thursday</th>
+                        <th class="text-center text-muted small">Friday</th>
+                        <th class="text-center text-muted small">Saturday</th>
+                        <th class="text-center text-muted small">Sunday</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row" class="radio-input-wrapper align-middle text-center">
+                        <td></td>
+                        <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="mondayCheckBox">
                                 <input type="checkbox" name="mondayCheckBox" value="1"
                                        id="mondayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
-                        </th>
+                        </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="tuesdayCheckBox">
                                 <input type="checkbox" name="tuesdayCheckBox" value="1"
                                        id="tuesdayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="wednesdayCheckBox">
                                 <input type="checkbox" name="wednesdayCheckBox" value="1"
                                        id="wednesdayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="thursdayCheckBox">
                                 <input type="checkbox" name="thursdayCheckBox" value="1"
                                        id="thursdayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="fridayCheckBox">
                                 <input type="checkbox" name="fridayCheckBox" value="1"
                                        id="fridayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="saturdayCheckBox">
                                 <input type="checkbox" name="saturdayCheckBox" value="1"
                                        id="saturdayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="sundayCheckBox">
                                 <input type="checkbox" name="sundayCheckBox" value="1"
                                        id="sundayCheckBox"/>
-                                <span class="custom-check-mark blue-check"></span>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
                     </tr>
@@ -261,7 +302,7 @@ include("../../db/config.php");
                 </table>
 
                 <input id="submit" class="btn btn-primary btn-lg btn-block" type="button"
-                       onclick="sendNewEmployeeForm()"
+                       onclick="launchVerifyNewEmployeeInfoWizard()"
                        value="Submit"/><br><br>
             </form>
         </div>
@@ -269,9 +310,54 @@ include("../../db/config.php");
 </div>
 
 <script type="text/javascript">
-    function sendNewEmployeeForm() {
-        var serializedForm = $('#newVolunteerEmployeeForm').serialize();
-        launchConfirmVolunteerEntriesModal(serializedForm);
+
+    $(document).ready(function() {
+        $('#employeeAvailabilityTable').DataTable({
+            paging: false,
+            searching: false
+        });
+    } );
+</script>
+
+
+<script type="text/javascript">
+    function sendNewVolunteerEmployeeForm() {
+        var employeeForm = $('#newVolunteerEmployeeForm').serialize();
+        $('#showVolunteerEmployeeModal').modal('hide');
+        $.ajax({
+            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddVolunteerEmployee.php",
+            method: "POST",
+            data: employeeForm,
+            success: function (response) {
+                if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
+                }
+                var parsedOutput = JSON.parse(response);
+                var newVolunteerConfirmation = parsedOutput['volunteer-confirmation'];
+
+                var modalMessage = "The Volunteer Was Added Successfully";
+                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewVolunteerEmployee.php";
+
+                if (newVolunteerConfirmation === true) {
+                    launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
+                } else if (newVolunteerConfirmation === false) {
+                    launchGenericDatabaseErrorModal();
+                }
+            }
+        });
+    }
+</script>
+
+
+<script type="text/javascript">
+    function launchVerifyNewEmployeeInfoWizard() {
+        var serializedEmployeeForm = $('#newVolunteerEmployeeForm').serialize();
+
+        alert(serializedEmployeeForm);
+        launchConfirmVolunteerEntriesModal(serializedEmployeeForm);
+        $('#modal').modal({
+            backdrop: 'static'
+        });
     }
 </script>
 <?php include("../app-shell/Footer.php"); ?>
