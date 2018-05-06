@@ -61,7 +61,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
     $selectedStudentState = stateSelect($studentState);
     ?>
     <div>
-        <form name="editStudentForm" id="editStudentForm">
+        <form action="../../edit/EditStudent.php" method="POST" name="editStudentForm" id="editStudentForm">
             <div class="card">
                 <div class="card-body">
                     <div class="form-content">
@@ -76,7 +76,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         <div id="floatingStudentFirstName"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input id="studentFirstName" class="mdl-textfield__input"
-                                                   name="studentFirstName" type="text"
+                                                   name="studentFirstName" type="text" readonly
                                                    value="<?php echo $studentFirstName; ?>"/>
                                             <label class="mdl-textfield__label" for="studentFirstName">First Name</label>
                                         </div>
@@ -86,7 +86,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         <div id="floatingStudentLastName"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input id="studentLastName" class="mdl-textfield__input"
-                                                   name="studentLastName" type="text"
+                                                   name="studentLastName" type="text" readonly
                                                    value="<?php echo $studentLastName; ?>"/>
                                             <label class="mdl-textfield__label" for="studentLastName">Last Name</label>
                                             <span class="mdl-textfield__error">Last Name is Required</span>
@@ -97,7 +97,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="col-sm-6 col-lg">
                                         <div id="floatingStudentMiddleName"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input id="studentMiddleName" class="mdl-textfield__input"
+                                            <input id="studentMiddleName" class="mdl-textfield__input" readonly
                                                    name="studentMiddleName" type="text"
                                                    value="<?php echo $studentMiddleName; ?>"/>
                                             <label class="mdl-textfield__label" for="studentMiddleName">Middle Name</label>
@@ -107,7 +107,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="col-sm-6">
                                         <div id="floatingStudentSuffix"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input id="studentSuffix" class="mdl-textfield__input"
+                                            <input id="studentSuffix" class="mdl-textfield__input" readonly
                                                    name="studentSuffix" type="text"
                                                    value="<?php echo $studentSuffix; ?>"/>
                                             <label class="mdl-textfield__label" for="studentSuffix">Suffix</label>
@@ -120,7 +120,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="col-sm-4">
                                         <div id="floatingDob"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input id="dob" class="mdl-textfield__input"
+                                            <input id="dob" class="mdl-textfield__input" readonly
                                                    name="dob" type="text" value="<?php echo $studentDob; ?>"/>
                                             <label class="mdl-textfield__label" for="dob">D.O.B.</label>
                                             <span class="mdl-textfield__error">Input is not a date!</span>
@@ -130,7 +130,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     <div class="col-sm-4">
                                         <div id="floatingEthnicity"
                                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input id="ethnicity" class="mdl-textfield__input"
+                                            <input id="ethnicity" class="mdl-textfield__input" readonly
                                                    name="ethnicity" type="text"
                                                    value="<?php echo $studentEthnicity; ?>"/>
                                             <label class="mdl-textfield__label"
