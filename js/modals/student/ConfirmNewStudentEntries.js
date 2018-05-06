@@ -11,6 +11,19 @@ function launchConfirmStudentEntriesModal(serializedStudentInfoForm) {
     })
 }
 
+function launchConfirmEditStudentEntriesModal(serializedStudentInfoForm) {
+
+    $.ajax({
+        url: "/community-lifeline-ministries/php-files/modals/students/VerifyNewStudent.php",
+        method: "POST",
+        data: serializedStudentInfoForm,
+        success: function (response) {
+            $('#placeHolderForVerifyEditStudentInfo').html(response);
+            $('#showEditStudentModal').modal({show: true});
+        }
+    })
+}
+
 function launchVerifyMedicalInfoForStudent(serializedMedicalConcernsForm) {
 
     $.ajax({
