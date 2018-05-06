@@ -198,7 +198,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item" href="../create/CreateStudentTestScores.php.php">
+                    <a class="treeview-item" href="../create/CreateStudentTestScores.php">
                         <i class="icon fa fa-folder-open"></i>
                         Student Test Scores
                     </a>
