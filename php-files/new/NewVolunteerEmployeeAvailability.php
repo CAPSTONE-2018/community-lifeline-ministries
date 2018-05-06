@@ -3,12 +3,12 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../../db/config.php");
 
-$queryVolunteers = "SELECT * FROM volunteer_employees WHERE volunteer_employees.Active_Volunteer = 1";
+$queryVolunteers = "SELECT * FROM Volunteer_employees WHERE Volunteer_Employees.Active_Volunteer = 1";
 
 $volunteers = mysqli_query($db, $queryVolunteers);
 $dynamicRowId = 0;
 
-$queryForNumOfVolunteers = "SELECT COUNT(volunteer_employees.Id) FROM volunteer_employees WHERE volunteer_employees.Active_Volunteer = 1";
+$queryForNumOfVolunteers = "SELECT COUNT(Volunteer_Employees.Id) FROM Volunteer_Employees WHERE Volunteer_Employees.Active_Volunteer = 1";
 
 $NumOfVolunteers = mysqli_query($db, $queryForNumOfVolunteers);
 $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
@@ -27,17 +27,18 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                 <form class="form-horizontal container-fluid" method="POST" action="../add/AddAttendanceRecord.php"
                       name="newAttendanceRecordForm" id="newAttendanceRecordForm">
 
-                    <table id="attendance-table" class="table table-condensed table-hover table-responsive">
-                        <thead>
+                    <table id="attendance-table" class="table table-hover table-striped table-bordered"  style="width:100%">
+                        <thead class="thead-dark">
 
-                        <tr>
-                            <th class="col-sm-1">#</th>
-                            <th class="col-sm-3">Volunteer Name</th>
-                            <th class="col-sm-2 text-center">Monday</th>
-                            <th class="col-sm-2 text-center">Tuesday</th>
-                            <th class="col-sm-2 text-center">Wednesday</th>
-                            <th class="col-sm-2 text-center">Thursday</th>
-                            <th class="col-sm-2 text-center">Friday</th>
+                        <tr class="row">
+                            <th class="text-center text-muted small col-sm-2">Student Name</th>
+                            <th class="text-center text-muted small">Monday</th>
+                            <th class="text-center text-muted small">Tuesday</th>
+                            <th class="text-center text-muted small">Wednesday</th>
+                            <th class="text-center text-muted small">Thursday</th>
+                            <th class="text-center text-muted small">Friday</th>
+                            <th class="text-center text-muted small">Saturday</th>
+                            <th class="text-center text-muted small">Sunday</th>
                         </tr>
                         </thead>
 
@@ -51,63 +52,76 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                             $wednesday = '';
                             $thursday = '';
                             $friday = '';
+                            $saturday = '';
+                            $sunday = '';
 
-                            $queryTypeVolunteers = "SELECT volunteer_employees_availability.Monday_Available,volunteer_employees_availability.Tuesday_Available,
-      volunteer_employees_availability.Wednesday_Available,volunteer_employees_availability.Thursday_Available, volunteer_employees_availability.Friday_Available FROM  volunteer_employees_availability WHERE volunteer_employees_availability.Volunteer_EmployeeId = ".$row['Id'];
+                            $queryTypeVolunteers = "SELECT Volunteer_Employees.Monday_Availability,Volunteer_Employees.Tuesday_Availability,
+                              Volunteer_Employees.Wednesday_Availability,Volunteer_Employees.Thursday_Availability, Volunteer_Employees.Friday_Availability, Volunteer_Employees.Saturday_Availability, Volunteer_Employees.Sunday_Availability FROM  Volunteer_Employees WHERE Volunteer_Employees.Id = ".$row['Id'];
                             $volunteersCurrent = mysqli_query($db, $queryTypeVolunteers);
                             $row2 = mysqli_fetch_array($volunteersCurrent, MYSQLI_ASSOC);
                             $rowCount = mysqli_num_rows($volunteersCurrent);
                             if($rowCount > 0) {
-                                if ($row2['Monday_Available'] == 1) {
+                                if ($row2['Monday_Availability'] == 1) {
                                     $monday = "checked = 'checked'";
                                 } else {
                                     $monday = '';
                                 }
 
-                                if ($row2['Tuesday_Available'] == 1) {
+                                if ($row2['Tuesday_Availability'] == 1) {
                                     $tuesday = "checked = 'checked'";
                                 } else {
                                     $tuesday = '';
                                 }
 
-                                if ($row2['Wednesday_Available'] == 1) {
+                                if ($row2['Wednesday_Availability'] == 1) {
                                     $wednesday = "checked = 'checked'";
                                 } else {
                                     $wednesday = '';
                                 }
 
-                                if ($row2['Thursday_Available'] == 1) {
+                                if ($row2['Thursday_Availability'] == 1) {
                                     $thursday = "checked = 'checked'";
                                 } else {
                                     $thursday = '';
                                 }
 
-                                if ($row2['Friday_Available'] == 1) {
+                                if ($row2['Friday_Availability'] == 1) {
                                     $friday = "checked = 'checked'";
                                 } else {
                                     $friday = '';
                                 }
+                                if ($row2['Saturday_Availability'] == 1) {
+                                    $saturday = "checked = 'checked'";
+                                } else {
+                                    $saturday = '';
+                                }
+                                if ($row2['Sunday_Availability'] == 1) {
+                                    $sunday = "checked = 'checked'";
+                                } else {
+                                    $sunday = '';
+                                }
                             }
                             $studentName = $row['First_Name'] . " " . $row['Last_Name']; ?>
-                            <tr class='number-row'>
-                                <td class='col-sm-1 align-middle'></td>
-                                <td class='col-sm-4 align-middle'>
+                            <tr class='row'>
+                                <td scope="col"></td>
+                                <td scope="col">
                                     <?php echo $studentName; ?>
                                 </td>
-                                <td class='hidden align-middle'>
+                                <td scope="col">
                                     <input id = 'VolunteerId<?php echo $dynamicRowId; ?>'type='hidden' name='VolunteerId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $row['Id']; ?>'/>
                                 </td>
-                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
                                     <label class='radio-label' for='Monday<?php echo $dynamicRowId; ?>'>
                                         <input type='checkbox' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]1'
                                                value='1' <?php echo $monday ?>
                                                id='Monday<?php echo $dynamicRowId; ?>'/>
-                                        <span class='custom-check-mark blue-check'></span>
+                                        <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                                     </label>
                                 </td>
-
-                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
                                     <label class='radio-label' for='Tuesday<?php echo $dynamicRowId; ?>'>
                                         <input class='hover-checkbox' type='checkbox'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]2' value='2'
@@ -115,8 +129,8 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                                         <span class='custom-check-mark blue-check'></span>
                                     </label>
                                 </td>
-
-                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
                                     <label class='radio-label' for='Wednesday<?php echo $dynamicRowId; ?>'>
                                         <input type='checkbox' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]3'
                                                value='3' <?php echo $wednesday ?>
@@ -124,7 +138,8 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                                         <span class='custom-check-mark blue-check'></span>
                                     </label>
                                 </td>
-                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
                                     <label class='radio-label' for='Thursday<?php echo $dynamicRowId; ?>'>
                                         <input type='checkbox' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]4'
                                                value='4' <?php echo $thursday ?>
@@ -132,11 +147,30 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
                                         <span class='custom-check-mark blue-check'></span>
                                     </label>
                                 </td>
-                                <td class='radio-input-wrapper col-sm-1 align-middle text-center'>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
                                     <label class='radio-label countForRows' for='Friday<?php echo $dynamicRowId; ?>'>
                                         <input type='checkbox' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]5'
                                                value='5' <?php echo $friday ?>
                                                id='Friday<?php echo $dynamicRowId; ?>'/>
+                                        <span class='custom-check-mark blue-check'></span>
+                                    </label>
+                                </td>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
+                                    <label class='radio-label countForRows' for='Saturday<?php echo $dynamicRowId; ?>'>
+                                        <input type='checkbox' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]5'
+                                               value='6' <?php echo $friday ?>
+                                               id='Saturday<?php echo $dynamicRowId; ?>'/>
+                                        <span class='custom-check-mark blue-check'></span>
+                                    </label>
+                                </td>
+                                <td></td>
+                                <td class="radio-input-wrapper align-middle text-center">
+                                    <label class='radio-label countForRows' for='Sunday<?php echo $dynamicRowId; ?>'>
+                                        <input type='checkbox' name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]5'
+                                               value='7' <?php echo $friday ?>
+                                               id='Sunday<?php echo $dynamicRowId; ?>'/>
                                         <span class='custom-check-mark blue-check'></span>
                                     </label>
                                 </td>
@@ -172,11 +206,13 @@ $NumOfVolunteersResult = mysqli_fetch_row($NumOfVolunteers);
             var wednesday = document.getElementById('Wednesday'+i).checked;
             var thursday = document.getElementById('Thursday'+i).checked;
             var friday = document.getElementById('Friday'+i).checked;
+            var saturday = document.getElementById('Saturday'+i).checked;
+            var sunday = document.getElementById('Sunday'+i).checked;
 
             $.ajax({
                 url: "../add/AddVolunteerAvailability.php",
                 method: "POST",
-                data: {volunteerId: volunteerId,monday:monday,tuesday:tuesday,wednesday:wednesday,thursday:thursday,friday:friday},
+                data: {volunteerId: volunteerId,monday:monday,tuesday:tuesday,wednesday:wednesday,thursday:thursday,friday:friday, saturday:saturday, sunday:sunday},
                 success: function (output) {
                 }
             });
