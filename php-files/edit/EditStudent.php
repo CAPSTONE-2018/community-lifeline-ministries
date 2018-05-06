@@ -5,7 +5,6 @@ include("../app-shell/EmptyModalShell.php");
 include("../scripts/States.php");
 //include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-session_start();
 $queryForMedicalConcernTypes = "SELECT Id, Type_Name, Note FROM Medical_Concern_Types;";
 $medicalConcernTypesResult = mysqli_query($db, $queryForMedicalConcernTypes);
 $queryForPrograms = "SELECT Id, Program_Name FROM Programs";
@@ -19,8 +18,6 @@ $queryForStudentInfo = "SELECT * FROM Students WHERE Id = '$studentIdToSearch';"
 $studentInfoResults = mysqli_query($db, $queryForStudentInfo);
 
 while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
-    $dynamicRowId++;
-
     $studentId = $studentInfoRow['Id'];
     $studentFirstName = $studentInfoRow['First_Name'];
     $studentLastName = $studentInfoRow['Last_Name'];
