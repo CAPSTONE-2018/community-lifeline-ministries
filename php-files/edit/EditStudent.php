@@ -387,16 +387,18 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             method: "POST",
             data: editStudentForm,
             success: function (response) {
-                if (response === 'fill-required-inputs') {
-                    launchGenericRequiredInputsModal();
-                }
+
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var newContactConfirmation = parsedOutput['new-contact-confirmation'];
                 var modalMessage = "The Student Was Updated Successfully";
                 var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowStudents.php";
 
-                if (newStudentConfirmation === true) {
+                if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
+                }
+
+                if (newStudentConfirmation == true) {
                     launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
                 }
             }
