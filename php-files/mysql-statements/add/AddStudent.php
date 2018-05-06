@@ -2,7 +2,6 @@
 include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$studentActiveFlag = 1;
 $studentFirstName = $_POST['studentFirstName'];
 $studentMiddleName = $_POST['studentMiddleName'];
 $studentLastName = $_POST['studentLastName'];
@@ -21,32 +20,63 @@ $studentBirthCertificate = intval($_POST['birthCertificateCheckbox']);
 $studentReducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
 $studentIep = intval($_POST['iepCheckbox']);
 $programId = $_POST['programToEnroll'];
+$studentActiveFlag = 1;
+$programActiveFlag = 1;
 $lastContactInsertId = 0;
 $lastStudentInsertId = 0;
-$studentConfirmation = false;
-$contactConfirmation = false;
+// End of student information
+
+// Student Medical Concerns
+$medicalConcernName = $_POST['medicalConcernName'];
+$medicalConcernTypeId = $_POST['medicalConcernTypeId'];
+$medicalConcernNote = $_POST['medicalConcernNote'];
+$medicalActiveFlag = 1;
+// End of Student Medical Concerns
+
+
+// Student Contact Info
+$contactPrefix = $_POST['contactPrefix'];
+$contactFirstName = $_POST['contactFirstName'];
+$contactMiddleName = $_POST['middleName'];
+$contactLastName = $_POST['contactLastName'];
+$contactSuffix = $_POST['suffix'];
+$contactPrimaryPhone = $_POST['contactPrimaryPhone'];
+$contactSecondaryPhone = $_POST['contactSecondaryPhone'];
+$contactAddressOne = $_POST['contactAddressOne'];
+$contactAddressTwo = $_POST['contactAddressTwo'];
+$contactCity = $_POST['contactCity'];
+$contactState = $_POST['contactState'];
+$contactZip = intval($_POST['contactZip']);
+$contactEmail = $_POST['contactEmail'];
+$relationToStudent = $_POST['relationToStudent'];
+$contactActiveFlag = 1;
+
+// Confirmation Objects To Send Back
+
+$newStudentConfirmation = false;
+$newContactConfirmation = false;
 $studentToProgramConfirmation = false;
 $studentToContactConfirmation = false;
-$medicalConcernConfirmation = false;
+$studentToMedicalConcernConfirmation = false;
+
 
 if ($studentFirstName != "") {
-    $stmtStudent = $db->prepare("INSERT INTO Students (Author_Username, Active_Student, First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmtStudent->bind_param('sissssssssssissiiii', $userMakingChanges, $studentActiveFlag, $studentFirstName, $studentMiddleName, $studentLastName, $studentSuffix, $studentGender, $studentDob, $studentAddressOne, $studentAddressTwo, $studentCity, $studentState, $studentZip, $studentEthnicity, $studentSchool, $studentPermissionSlip, $studentBirthCertificate, $studentReducedLunchEligibility, $studentIep);
-    $stmtStudent->execute();
-    $lastStudentInsertId = $stmtStudent->insert_id;
-    $_SESSION['lastStudentInsertId'] = $lastStudentInsertId;
-    if ($stmtStudent->affected_rows == -1) {
-        $studentConfirmation = false;
-        $stmtStudent->close();
+    $studentStmt = $db->prepare("INSERT INTO Students (Author_Username, Active_Student, First_Name , Middle_Name, Last_Name, Suffix, Gender, Birth_Date, Address_One, Address_Two, City, State, Zip, Ethnicity, School, Permission_Slip, Birth_Certificate, Reduced_Lunch_Eligible, IEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $studentStmt->bind_param('sissssssssssissiiii', $userMakingChanges, $studentActiveFlag, $studentFirstName, $studentMiddleName, $studentLastName, $studentSuffix, $studentGender, $studentDob, $studentAddressOne, $studentAddressTwo, $studentCity, $studentState, $studentZip, $studentEthnicity, $studentSchool, $studentPermissionSlip, $studentBirthCertificate, $studentReducedLunchEligibility, $studentIep);
+    $studentStmt->execute();
+    $lastStudentInsertId = $studentStmt->insert_id;
+    if ($studentStmt->affected_rows == -1) {
+        $newStudentConfirmation = false;
+        $studentStmt->close();
     } else {
-        $studentConfirmation = true;
-        $stmtStudent->close();
+        $newStudentConfirmation = true;
+        $studentStmt->close();
     }
 }
 
-if ($lastStudentInsertId != null && isset($programId)) {
-    $programStmt = $db->prepare("INSERT INTO Student_To_Programs (Author_Username, Student_Id, Program_Id) VALUES (?, ?, ?)");
-    $programStmt->bind_param('sii', $userMakingChanges, $lastStudentInsertId, $programId);
+if ($lastStudentInsertId != 0 && isset($programId)) {
+    $programStmt = $db->prepare("INSERT INTO Student_To_Programs (Author_Username, Active_Id, Student_Id, Program_Id) VALUES (?, ?, ?, ?)");
+    $programStmt->bind_param('siii', $userMakingChanges, $programActiveFlag, $lastStudentInsertId, $programId);
     $programStmt->execute();
 
     if ($programStmt->affected_rows == -1) {
@@ -58,9 +88,41 @@ if ($lastStudentInsertId != null && isset($programId)) {
     }
 }
 
+if (trim($contactFirstName !== '' )) {
+    $contactStmt = $db->prepare("INSERT INTO Contacts (Author_Username, Active_Contact, Prefix, First_Name, Middle_Name, Last_Name, Suffix , Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $contactStmt->bind_param('sisssssssssssis', $userMakingChanges, $contactActiveFlag, $contactPrefix, $contactFirstName, $contactMiddleName, $contactLastName, $contactSuffix, $contactPrimaryPhone, $contactSecondaryPhone, $contactAddressOne, $contactAddressTwo, $contactCity, $contactState, $contactZip, $contactEmail);
+    $contactStmt->execute();
+    $lastContactInsertId = $contactStmt->insert_id;
+    if ($contactStmt->affected_rows == -1) {
+        $newContactConfirmation = false;
+        $contactStmt->close();
+    } else {
+        $newContactConfirmation = true;
+        $contactStmt->close();
+    }
+}
+
+if (trim($medicalConcernName !== '')) {
+    $studentToMedicalStmt = $db->prepare("INSERT INTO Student_To_Medical_Concerns (Author_Username, Active_Id, Student_Id, Medical_Concern_Name, Medical_Type_Id, Note) VALUES (?, ?, ?, ?, ?, ?)");
+    $studentToMedicalStmt->bind_param('siisis', $userMakingChanges, $medicalActiveFlag, $lastStudentInsertId, $medicalConcernName, $medicalConcernTypeId, $medicalConcernNote);
+    $studentToMedicalStmt->execute();
+
+    if ($studentToMedicalStmt->affected_rows == -1) {
+        $studentToMedicalConcernConfirmation = false;
+        $studentToMedicalStmt->close();
+    } else {
+        $studentToMedicalConcernConfirmation = true;
+        $studentToMedicalStmt->close();
+    }
+}
+
+
 $jsonConfirmationObject = array(
-    'student-confirmation' => $studentConfirmation,
-    'program-confirmation' => $studentToProgramConfirmation
+    'student-confirmation' => $newStudentConfirmation,
+    'program-confirmation' => $studentToProgramConfirmation,
+    'new-contact-confirmation' => $newContactConfirmation,
+    'student-to-contact-confirmation' => $studentToContactConfirmation,
+    'student-to-medical-confirmation' => $studentToMedicalConcernConfirmation
 );
 
 echo json_encode($jsonConfirmationObject);

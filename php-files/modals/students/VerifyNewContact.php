@@ -15,11 +15,20 @@ $city = $_POST['contactCity'];
 $state = $_POST['contactState'];
 $zip = intval($_POST['contactZip']);
 $email = $_POST['contactEmail'];
-
+$relationship = $_POST['relationship'];
+$addressToDisplay = $addressOne . " " . $addressTwo;
 ?>
 
 
 <div>
-    prefix: <?php echo $prefix; ?> <br/>
-    first Name:  <?php echo $firstName; ?> <br/>
+    First Name:  <?php echo $firstName; ?> <br/>
+    Last Name:  <?php echo $lastName; ?> <br/>
+    Primary Phone:  <?php echo $primaryPhone; ?> <br/>
+    Secondary Phone:  <?php echo $secondaryPhone; ?> <br/>
+    Email:  <?php echo $email; ?> <br/>
+    Relationship to Student:  <?php echo $relationship; ?> <br/>
+    Address:  <?php echo $addressToDisplay; ?> <br/>
+    City: <?php echo $city; ?> <br/>
+    State: <?php echo $state; ?> <br/>
+    Zip:  <?php echo $zip; ?> <br/>
 </div>

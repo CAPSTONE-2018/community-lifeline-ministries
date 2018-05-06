@@ -30,13 +30,16 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                     <div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#studentInfoPanel" role="tab">Student Info</a>
+                                <a class="nav-link active" data-toggle="tab" href="#studentInfoPanel" role="tab">Student
+                                    Info</a>
                             <li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#studentMedicalConcernsPanel" role="tab">Medical Concern</a>
+                                <a class="nav-link" data-toggle="tab" href="#studentMedicalConcernsPanel" role="tab">Medical
+                                    Concern</a>
                             <li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#studentContactInfoPanel" role="tab">Contact Info</a>
+                                <a class="nav-link" data-toggle="tab" href="#studentContactInfoPanel" role="tab">Contact
+                                    Info</a>
                             <li>
                         </ul>
                         <div class="tab-content mt-2">
@@ -63,13 +66,12 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save for later</button>
+                <button type="button" class="btn btn-primary" onclick="sendNewStudentForm()">Submit Student</button>
             </div>
         </div>
     </div>
 </div>
 
-<!--<div id="showStudentModal"></div>-->
 <div class="app-title">
     <div>
         <h3><i class="fa fa-plus"></i> Add New Student</h3>
@@ -107,13 +109,10 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
             </div>
         </div>
         <div class="card-footer">
-
-            <!-- Large modal -->
             <div class="right-align">
                 <button id="newStudentConfirmationButton" type="button" class="btn btn-primary btn-block btn-lg"
                         data-toggle="modal" data-target="#verifyEntryModal"
-                        onclick="launchVerifyStudentInfoWizard()"
-                >
+                        onclick="launchVerifyStudentInfoWizard()">
                     Verify Info
                 </button>
             </div>
@@ -122,7 +121,21 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 </div>
 
 <script type="text/javascript">
-
+    function sendNewStudentForm() {
+        var allForms = $('#newStudentForm,#newStudentMedicalConcernsForm, #newStudentContactForm').serialize();
+        // var serializedStudentInfoForm = $('#newStudentForm').serialize();
+        // var serializedMedicalConcernsForm = $('#newStudentMedicalConcernsForm').serialize();
+        // var serializedStudentContactForm = $('#newStudentContactForm').serialize();
+        $('#showStudentModal').modal('hide');
+        $.ajax({
+            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudent.php",
+            method: "POST",
+            data: allForms,
+            success: function (response) {
+                alert("first response" + response);
+            }
+        });
+    }
 </script>
 
 <script type="text/javascript">
