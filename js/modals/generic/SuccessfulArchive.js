@@ -7,8 +7,13 @@ function launchGenericSuccessfulArchive() {
     $('#customHeaderText').text("Archive Complete");
     $('#customFooterActions').html('');
     $('.modal-body').addClass('text-center');
-    $('.modal-body').text("Has Been Archived Successfully.");
+    $('#customModalBody').text("Has Been Archived Successfully.");
     $('#customModal').modal('show');
+
+    setTimeout(function() {
+        $('#customModal').modal('hide');
+        $('#customModalBody').text();
+    }, 3000);
 
 
 }

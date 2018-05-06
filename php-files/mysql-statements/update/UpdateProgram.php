@@ -2,26 +2,25 @@
 include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$id = $_SESSION['programId'];
 $programName = $_POST['programName'];
-$isActiveFlag = $_POST['activeFlag'];
+$programId = $_POST['programId'];
 
-$sql = "
-UPDATE Programs SET 
-  Author_Username = '$userMakingChanges',
-  Last_Updated_Timestamp = NULL,
-  Program_Name = '$programName',
-  Active_Program = '$isActiveFlag'
-  WHERE Id = '$id' ;";
+$queryForAllExistingPrograms = "SELECT * FROM Programs WHERE Program_Name = '$programName';";
+$existingProgramResults = mysqli_query($db, $queryForAllExistingPrograms);
+$doesProgramExist = mysqli_num_rows($existingProgramResults);
 
-if ($db->query($sql) === TRUE){
-    echo "
-            <div class='alert alert-success'>
-                <strong>Success! </strong>Program Name has been successfully Updated.
-            </div>";
-}else{
-    echo "
-            <div class='alert alert-danger'>
-                <strong>Failure! </strong>Program Name could not be updated, please try again.
-            </div>";
+if (trim($programName) !== '') {
+    if ($doesProgramExist > 0) {
+        echo "entry-exists";
+    } else {
+        $sql = "UPDATE Programs SET Author_Username = '$userMakingChanges', Last_Updated_Timestamp = NULL, Program_Name = '$programName'
+                  WHERE Id = '$programId';";
+        if ($db->query($sql) === TRUE) {
+            echo "success";
+        } else {
+            echo "database-error";
+        }
+    }
+} else {
+    echo "fill-required-inputs";
 }

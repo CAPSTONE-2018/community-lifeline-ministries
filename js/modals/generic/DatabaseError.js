@@ -9,10 +9,11 @@ function launchGenericDatabaseErrorModal() {
     $('#customHeaderText').text("Database Error!");
     $('#customFooterActions').html('');
     $('.modal-body').addClass('text-center');
-    $('.modal-body').text(errorParagraphText);
+    $('#customModalBody').text(errorParagraphText);
     $('#customModal').modal('show');
 
     setTimeout(function() {
         $('#customModal').modal('hide');
+        $('#customModalBody').text();
     }, 3000);
 }
