@@ -68,6 +68,7 @@ $studentsResult = mysqli_query($db, $query);
 
 <script type="text/javascript">
     function sendSerializedNewContactForm() {
+
         $('#showContactModal').modal('hide');
         var serializedContactInfoForm = $('#newContactForm').serialize();
         $.ajax({
@@ -95,6 +96,9 @@ $studentsResult = mysqli_query($db, $query);
 
 <script type="text/javascript">
     function launchVerifyContactWizard() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var serializedContactInfoForm = $('#newContactForm').serialize();
         $('#modal').modal({
             backdrop: 'static'

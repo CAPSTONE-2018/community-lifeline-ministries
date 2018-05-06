@@ -83,6 +83,9 @@ $allActiveContactsResults = mysqli_query($db, $queryForAllActiveContacts);
 
 <script type="text/javascript">
     function validateStudentToContact() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var studentId = document.getElementById("studentId").value;
         var contactId = document.getElementById("contactId").value;
         var studentName = document.getElementById("studentName").value;

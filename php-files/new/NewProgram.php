@@ -63,6 +63,9 @@ $volunteerResults = mysqli_query($db, $query);
 
 <script type="text/javascript">
     function validateProgramName() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var programName = document.getElementById("programName").value;
         var volunteerId = document.getElementById("volunteerId").value;
         var successModalMessage = "The Program, " + programName + " has been entered successfully.";

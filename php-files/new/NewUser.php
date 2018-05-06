@@ -97,7 +97,9 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
 
 <script type="text/javascript">
     function validateNewUser() {
-
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var username = document.getElementById("username").value;
         var accountType = document.getElementById("accountType").value;
         var volunteerId = document.getElementById("volunteerId").value;

@@ -120,6 +120,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
 <script type="text/javascript">
     function sendNewStudentForm() {
+
         var allForms = $('#newStudentForm,#newStudentMedicalConcernsForm, #newStudentContactForm').serialize();
         $('#showStudentModal').modal('hide');
         $.ajax({
@@ -164,6 +165,9 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
 <script type="text/javascript">
     function launchVerifyStudentInfoWizard() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var serializedStudentInfoForm = $('#newStudentForm').serialize();
 
         launchConfirmStudentEntriesModal(serializedStudentInfoForm);
