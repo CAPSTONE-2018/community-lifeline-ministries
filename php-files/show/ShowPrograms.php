@@ -110,7 +110,15 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#showProgramsTable').DataTable();
+            $('#showProgramsTable').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
         });
     </script>
 </div>

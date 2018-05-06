@@ -112,7 +112,15 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
         </div>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#showVolunteerEmployeesTable').DataTable();
+                $('#showVolunteerEmployeesTable').DataTable({
+                    dom: '<lf<t>iBp>',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5'
+                    ]
+                });
             });
         </script>
     </div>

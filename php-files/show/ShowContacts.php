@@ -116,9 +116,18 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#showContactsTable').DataTable();
-        });
+
+        $(document).ready(function() {
+            $('#showContactsTable').DataTable({
+                dom: '<lf<t>iBp>',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        } );
     </script>
 </div>
 
