@@ -12,7 +12,7 @@ include("../../db/config.php");
         <div class="modal-content">
             <div class="modal-header">
                 <div class="row col-12">
-                    <h5 class="modal-title" id="wizard-title">Verify Student Info</h5>
+                    <h5 class="modal-title" id="wizard-title">Verify Volunteer Info</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -24,43 +24,21 @@ include("../../db/config.php");
                     <div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#studentInfoPanel" role="tab">Student
-                                    Info</a>
-                            <li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#studentMedicalConcernsPanel" role="tab">Medical
-                                    Concern</a>
-                            <li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#studentContactInfoPanel" role="tab">Contact
-                                    Info</a>
+                                <a class="nav-link active" data-toggle="tab" href="#employeeInfoPanel" role="tab">
+                                    Employee Info</a>
                             <li>
                         </ul>
                         <div class="tab-content mt-2">
-                            <div class="tab-pane fade show active" id="studentInfoPanel" role="tabpanel">
-                                <div id="placeHolderForVerifyStudentInfo" class="form-group"></div>
-                                <button class="btn btn-secondary" id="infoContinue">Continue</button>
-                            </div>
-                            <div class="tab-pane fade" id="studentMedicalConcernsPanel" role="tabpanel">
-                                <div id="placeHolderForVerifyMedicalConcernsInfo"></div>
-                                <button class="btn btn-secondary" id="adsContinue">Continue</button>
-                            </div>
-                            <div class="tab-pane fade" id="studentContactInfoPanel" role="tabpanel">
-                                <div id="placeHolderForStudentContactsInfo"></div>
-                                <button class="btn btn-secondary" id="placementContinue">Continue</button>
+                            <div class="tab-pane fade show active" id="employeeInfoPanel" role="tabpanel">
+                                <div id="placeHolderForVerifyNewEmployeeInfo" class="form-group"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="progress mt-5">
-                    <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="20" aria-valuemin="0"
-                         aria-valuemax="100">Step 1 of 3
-                    </div>
-                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="sendNewStudentForm()">Submit Student</button>
+                <button type="button" class="btn btn-secondary btn-block btn-group-lg" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-block btn-group-lg" onclick="sendNewVolunteerEmployeeForm()">Submit New Volunteer</button>
             </div>
         </div>
     </div>
@@ -176,9 +154,9 @@ include("../../db/config.php");
                             <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                             <label for="volunteerProgram" class="mdl-textfield__label">Program</label>
                             <ul for="volunteerProgram" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                <li class="mdl-menu__item" data-val="G.E.M.S">G.E.M.S</li>
-                                <li class="mdl-menu__item" data-val="Sons of Thunder">Sons of Thunder</li>
-                                <li class="mdl-menu__item" data-val="Blessing Table">Blessing Table</li>
+                                <li class="mdl-menu__item" data-val="3">Blessing Table</li>
+                                <li class="mdl-menu__item" data-val="2">G.E.M.S</li>
+                                <li class="mdl-menu__item" data-val="1">Sons of Thunder</li>
                             </ul>
                         </div>
                     </div>
@@ -326,47 +304,52 @@ include("../../db/config.php");
 <script type="text/javascript">
 
     $(document).ready(function() {
-        $('#employeeAvailabilityTable').DataTable();
+        $('#employeeAvailabilityTable').DataTable({
+            paging: false,
+            searching: false
+        });
     } );
 </script>
 
 
 <script type="text/javascript">
-    function launchVerifyNewEmployeeInfoWizard() {
-        var serializedStudentInfoForm = $('#newStudentForm').serialize();
+    function sendNewVolunteerEmployeeForm() {
+        var employeeForm = $('#newVolunteerEmployeeForm').serialize();
+        $('#showVolunteerEmployeeModal').modal('hide');
+        $.ajax({
+            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddVolunteerEmployee.php",
+            method: "POST",
+            data: employeeForm,
+            success: function (response) {
+                if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
+                }
+                var parsedOutput = JSON.parse(response);
+                var newVolunteerConfirmation = parsedOutput['volunteer-confirmation'];
 
-        launchConfirmStudentEntriesModal(serializedStudentInfoForm);
+                var modalMessage = "The Volunteer Was Added Successfully";
+                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewVolunteerEmployee.php";
+
+                if (newVolunteerConfirmation === true) {
+                    launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
+                } else if (newVolunteerConfirmation === false) {
+                    launchGenericDatabaseErrorModal();
+                }
+            }
+        });
+    }
+</script>
+
+
+<script type="text/javascript">
+    function launchVerifyNewEmployeeInfoWizard() {
+        var serializedEmployeeForm = $('#newVolunteerEmployeeForm').serialize();
+
+        alert(serializedEmployeeForm);
+        launchConfirmVolunteerEntriesModal(serializedEmployeeForm);
         $('#modal').modal({
             backdrop: 'static'
         });
-    }
-
-    $(function () {
-        $('#infoContinue').click(function (e) {
-            var serializedMedicalConcernsForm = $('#newStudentMedicalConcernsForm').serialize();
-            launchVerifyMedicalInfoForStudent(serializedMedicalConcernsForm);
-            e.preventDefault();
-            $('.progress-bar').css('width', '66%');
-            $('.progress-bar').html('Step 2 of 3');
-            $('#myTab a[href="#studentMedicalConcernsPanel"]').tab('show');
-
-        });
-
-        $('#adsContinue').click(function (e) {
-            var serializedStudentContactForm = $('#newStudentContactForm').serialize();
-            e.preventDefault();
-            $('.progress-bar').css('width', '100%');
-            $('.progress-bar').html('Step 3 of 3');
-            $('#myTab a[href="#studentContactInfoPanel"]').tab('show');
-            launchVerifyContactInfoForStudent(serializedStudentContactForm);
-        });
-    })
-</script>
-
-<script type="text/javascript">
-    function sendNewEmployeeForm() {
-        var serializedForm = $('#newVolunteerEmployeeForm').serialize();
-        launchConfirmVolunteerEntriesModal(serializedForm);
     }
 </script>
 <?php include("../app-shell/Footer.php"); ?>

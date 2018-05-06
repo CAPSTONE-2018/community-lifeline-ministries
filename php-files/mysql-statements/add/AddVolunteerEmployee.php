@@ -2,12 +2,9 @@
 include("../../../db/config.php");
 session_start();
 $userMakingChanges = $_SESSION['loggedIn'];
-$id = intval($_POST['id']);
 $prefix = $_POST['volunteerPrefix'];
 $firstName = $_POST['volunteerFirstName'];
 $lastName = $_POST['volunteerLastName'];
-$middleName = $_POST['volunteerMiddleName'];
-$suffix = $_POST['volunteerSuffix'];
 $primaryPhone = $_POST['volunteerPrimaryPhone'];
 $secondaryPhone = $_POST['volunteerSecondaryPhone'];
 $addressOne = $_POST['volunteerAddressOne'];
@@ -24,26 +21,38 @@ $thursdayAvailability = $_POST['thursdayCheckBox'];
 $fridayAvailability = $_POST['fridayCheckBox'];
 $saturdayAvailability = $_POST['saturdayCheckBox'];
 $sundayAvailability = $_POST['sundayCheckBox'];
-$isActiveFlag = $_POST['volunteerActiveFlag'];
-$contactConfirmation = false;
+$isActiveFlag = 1;
+$volunteerConfirmation = false;
+$lastVolunteerInsertId = 0;
+$programId = $_POST['volunteerProgram'];
 
-
-if (isset($firstName)) {
-    $stmt = $db->prepare("INSERT INTO Volunteer_Employees (Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Middle_Name, Suffix, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email, User_Type, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('sisssssssssssissiiiiiii', $userMakingChanges, $isActiveFlag, $prefix, $firstName, $lastName, $middleName, $suffix, $primaryPhone, $secondaryPhone, $addressOne, $addressTwo, $city, $state, $zip, $email, $type, $mondayAvailability, $tuesdayAvailability, $wednesdayAvailability, $thursdayAvailability, $fridayAvailability, $saturdayAvailability, $sundayAvailability);
+if (trim($firstName) !== '') {
+    $stmt = $db->prepare("INSERT INTO Volunteer_Employees (Author_Username, Active_Volunteer, Prefix, First_Name, Last_Name, Primary_Phone, Secondary_Phone, Address_One, Address_Two, City, State, Zip, Email, User_Type, Monday_Availability, Tuesday_Availability, Wednesday_Availability, Thursday_Availability, Friday_Availability, Saturday_Availability, Sunday_Availability) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('sisssssssssissiiiiiii', $userMakingChanges, $isActiveFlag, $prefix, $firstName, $lastName, $primaryPhone, $secondaryPhone, $addressOne, $addressTwo, $city, $state, $zip, $email, $type, $mondayAvailability, $tuesdayAvailability, $wednesdayAvailability, $thursdayAvailability, $fridayAvailability, $saturdayAvailability, $sundayAvailability);
     $stmt->execute();
+    $lastVolunteerInsertId = $stmt->insert_id;
+
+    if ($programId !== '') {
+        $volunteerToProgramStmt = $db->prepare("INSERT INTO Volunteer_To_Programs (Author_Username, Active_Id, Volunteer_Id, Program_Id) VALUES (?, ?, ?, ?)");
+        $volunteerToProgramStmt->bind_param('siii', $userMakingChanges, $isActiveFlag, $lastVolunteerInsertId, $programId);
+        $volunteerToProgramStmt->execute();
+    }
 
     if ($stmt->affected_rows == -1) {
-        $contactConfirmation = false;
+        $volunteerConfirmation = false;
         $stmt->close();
     } else {
-        $contactConfirmation = true;
+        $volunteerConfirmation = true;
         $stmt->close();
     }
+
+    $jsonConfirmation = array(
+        'volunteer-confirmation' => $volunteerConfirmation
+    );
+
+    echo json_encode($jsonConfirmation);
+
+} else {
+    echo "fill-required-inputs";
 }
 
-$jsonConfirmation = array(
-        'contact-confirmation' => $contactConfirmation
-);
-
-echo json_encode($jsonConfirmation);
