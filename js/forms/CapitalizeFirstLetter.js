@@ -25,16 +25,7 @@ $.fn.capitalize = function() {
                         return $0.substring(0,2).toUpperCase() + $0.substring(2).toLowerCase();
                     });
 
-                    if ( ! this.createTextRange) {
-                        var startpos = this.selectionStart;
-                        var endpos = this.selectionEnd;
-                        if ( ! $(this).attr('maxlength')
-                            ||
-                            this.value.length - (endpos - startpos) < $(this).attr('maxlength') )
-                        {
-                            this.setSelectionRange(startpos + 1, startpos + 1);
-                        }
-                    }
+
                 }
             });
         }
