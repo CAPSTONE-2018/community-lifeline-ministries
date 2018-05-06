@@ -28,7 +28,7 @@ $lastStudentInsertId = 0;
 
 // Student Medical Concerns
 $medicalConcernName = $_POST['medicalConcernName'];
-$medicalConcernTypeId = $_POST['medicalConcernTypeId'];
+$medicalConcernTypeId = $_POST['medicalConcernType'];
 $medicalConcernNote = $_POST['medicalConcernNote'];
 $medicalActiveFlag = 1;
 // End of Student Medical Concerns
@@ -48,9 +48,9 @@ $contactCity = $_POST['contactCity'];
 $contactState = $_POST['contactState'];
 $contactZip = intval($_POST['contactZip']);
 $contactEmail = $_POST['contactEmail'];
-$relationToStudent = $_POST['relationToStudent'];
+$relationToStudent = $_POST['contactRelationToStudent'];
 $contactActiveFlag = 1;
-
+$studentToContactActiveFlag = 1;
 // Confirmation Objects To Send Back
 
 $newStudentConfirmation = false;
@@ -113,6 +113,21 @@ if (trim($medicalConcernName !== '')) {
     } else {
         $studentToMedicalConcernConfirmation = true;
         $studentToMedicalStmt->close();
+    }
+}
+
+
+if ($lastContactInsertId !== NULL) {
+    $studentToContactStmt = $db->prepare("INSERT INTO Student_To_Contacts (Author_Username, Active_Id, Student_Id, Contact_Id, Relationship) VALUES (?, ?, ?, ?, ?)");
+    $studentToContactStmt->bind_param('siiis', $userMakingChanges, $studentToContactActiveFlag, $lastStudentInsertId, $lastContactInsertId, $relationship);
+    $studentToContactStmt->execute();
+
+    if ($studentToContactStmt->affected_rows == -1) {
+        $studentToContactConfirmation = false;
+        $contactStmt->close();
+    } else {
+        $studentToContactConfirmation = true;
+        $contactStmt->close();
     }
 }
 
