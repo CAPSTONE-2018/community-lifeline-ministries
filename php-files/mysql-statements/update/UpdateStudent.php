@@ -27,7 +27,8 @@ $medicalConcernNote = $_POST['medicalConcernNote'];
 
 $studentUpdateConfirmation = false;
 
-$sql = "
+if (trim($state) !== '' && trim($gender) !== '') {
+    $sql = "
 UPDATE Students SET 
   Author_Username = '$userMakingChanges',
   Last_Updated_Timestamp = NULL,
@@ -50,11 +51,11 @@ UPDATE Students SET
   IEP = '$iep' 
   WHERE Id = '$id' ;";
 
-if ($db->query($sql) === TRUE) {
-   $studentUpdateConfirmation = true;
-} else {
-    $studentUpdateConfirmation = false;
-}
+    if ($db->query($sql) === TRUE) {
+        $studentUpdateConfirmation = true;
+    } else {
+        $studentUpdateConfirmation = false;
+    }
 //
 //
 //$sql2 = "UPDATE Allergies SET Name = '$allergyName', Type = '$allergyType', Note = '$allergyNote' WHERE Id = '$id';";
@@ -68,8 +69,13 @@ if ($db->query($sql) === TRUE) {
 //            <strong>Failure! </strong>Student Allergy could not be updated, please try again.
 //        </div>";
 //}
-$jsonConfirmationObject = array(
-  'student-confirmation' => $studentUpdateConfirmation
-);
+    $jsonConfirmationObject = array(
+        'student-confirmation' => $studentUpdateConfirmation
+    );
 
-echo json_encode($jsonConfirmationObject);
+    echo json_encode($jsonConfirmationObject);
+
+} else {
+    echo "fill-required-inputs";
+}
+
