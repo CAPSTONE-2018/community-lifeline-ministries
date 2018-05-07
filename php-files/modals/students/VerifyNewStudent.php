@@ -45,7 +45,6 @@ else
 {
     $studentIep = 0;
 }
-$programId = $_POST['programToEnroll'];
 $addressToDisplay = $studentAddressOne . " " . $studentAddressTwo;
 $printPermissionSlipOnFile = "";
 $printBirthCertificateOnFile = "";

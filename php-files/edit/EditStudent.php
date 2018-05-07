@@ -310,7 +310,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         <div class="toggle-side-label">No</div>
                                         <li class="tg-list-item">
                                             <input class="tgl tgl-flat" id="cb2" name="permissionSlipCheckbox"
-                                                <?php echo $permissionChecked; ?>
+                                                <?php echo $permissionChecked; ?> value="<?php echo $studentPermissionSlip ?>"
                                                    type="checkbox"/>
                                             <label class="tgl-btn" for="cb2"></label>
                                         </li>
@@ -327,7 +327,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         <li class="tg-list-item">
                                             <input class="tgl tgl-flat" id="cb3"
                                                    name="birthCertificateCheckbox"
-                                                <?php echo $birthCertificateChecked; ?>
+                                                <?php echo $birthCertificateChecked; ?> value="<?php echo $studentBirthCertificate ?>"
                                                    type="checkbox"/>
                                             <label class="tgl-btn" for="cb3"></label>
                                         </li>
@@ -342,7 +342,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         <li class="tg-list-item">
                                             <input class="tgl tgl-flat" id="cb1"
                                                    name="reducedLunchEligibilityCheckbox"
-                                                   type="checkbox" <?php echo $reducedLunchChecked; ?>
+                                                   type="checkbox" <?php echo $reducedLunchChecked; ?> value="<?php echo $studentReducedLunch ?>"
                                             />
                                             <label class="tgl-btn" for="cb1"></label>
                                         </li>
@@ -356,7 +356,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                         <div class="toggle-side-label">No</div>
                                         <li class="tg-list-item">
                                             <input class="tgl tgl-flat" id="cb4" name="iepCheckbox"
-                                                <?php echo $iepChecked; ?> type="checkbox"/>
+                                                <?php echo $iepChecked; ?> type="checkbox" value="<?php echo $studentIep ?>"/>
                                             <label class="tgl-btn" for="cb4"></label>
                                         </li>
                                         <div class="toggle-side-label">Yes</div>
@@ -380,14 +380,19 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
 <script type="text/javascript">
     function sendEditStudentForm() {
-        var editStudentForm = $('#editStudentForm').serialize();
+        alert(<?php $studentBirthCertificate ?>);
+        var editStudentForm = $('#editStudentForm').serializeArray();
+        editStudentForm.push({ name: "Birth", value: "<?php $studentBirthCertificate?>" });
+        editStudentForm.push({ name: "Reduced", value: "<?php $studentReducedLunch?>" });
+        editStudentForm.push({ name: "Permission", value: "<?php $studentPermissionSlip?>" });
+        editStudentForm.push({ name: "IEP", value: "<?php $studentIep?>" });
         $('#showEditStudentModal').modal('hide');
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateStudent.php",
             method: "POST",
             data: editStudentForm,
             success: function (response) {
-
+                alert(response);
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var modalMessage = "The Student Was Updated Successfully";
