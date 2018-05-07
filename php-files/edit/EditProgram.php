@@ -47,7 +47,7 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
                     </div>
 
                     <div class="col-12">
-                        <input type="submit" form="programForm" onclick="validateEditProgramInfo()" value="Edit Program Info" class="btn btn-primary btn-lg btn-block"/>
+                        <input type="button" form="programForm" onclick="validateEditProgramInfo()" value="Edit Program Info" class="btn btn-primary btn-lg btn-block"/>
                     </div>
                 </div>
 

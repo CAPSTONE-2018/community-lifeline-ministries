@@ -101,3 +101,13 @@
 .red-circle {
     color: #d50000;
 }
+
+
+.medical-concerns-table-action-buttons {
+    display: inline-block;
+    height: 34px;
+    width: 40%;
+    margin: 3px auto;
+    color: #fff;
+
+}
