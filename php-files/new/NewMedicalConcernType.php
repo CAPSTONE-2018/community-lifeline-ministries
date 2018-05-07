@@ -51,6 +51,9 @@ include("../../db/config.php");
 
 <script type="text/javascript">
     function validateMedicalType() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var medicalTypeName = document.getElementById("medicalConcernType").value;
         var successModalMessage = "Medical Concern Type, " + medicalTypeName + " has been entered successfully.";
         var duplicateModalMessage = "Medical Concern Type, " + medicalTypeName + " already exists.";

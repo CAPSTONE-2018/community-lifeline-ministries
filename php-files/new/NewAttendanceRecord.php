@@ -145,6 +145,9 @@ $dynamicRowId = 0;
 
     <script type="text/javascript">
         function validateAttendanceRows() {
+            if(ErrorPromptCheck() == true){
+                return;
+            }
             var attendanceForm = $("#newAttendanceRecordForm").serialize();
             var programName = document.getElementById("programNameToDisplay").value;
             var numberOfCheckBoxes = $('input[type="radio"]:checked').length;

@@ -74,6 +74,9 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
 
 <script type="text/javascript">
     function validateStudentToProgram() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var studentId = document.getElementById("studentId").value;
         var programId = document.getElementById("programId").value;
         var studentName = document.getElementById("studentName").value;
