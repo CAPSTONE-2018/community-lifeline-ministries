@@ -53,7 +53,7 @@ $dynamicRowId = 0;
 
             <form class="container-fluid" name="editAttendanceRecordForm" id="editAttendanceRecordForm">
                 <div class="table-responsive col-sm-12">
-                    <table id="attendance-table" class="table table-striped table-bordered table-hover" style="width:100%">
+                    <table id="editAttendanceRecordTable" class="table table-striped table-bordered table-hover" style="width:100%">
                         <thead>
                         <tr>
                             <th class="align-middle text-center">#</th>
@@ -99,7 +99,7 @@ $dynamicRowId = 0;
                                     <input type='hidden' name='attendanceDate[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $dateToSubmit; ?>'/>
                                 </td>
-                                <td class='radio-input-wrapper col-2 align-middle text-center'>
+                                <td class='radio-input-wrapper align-middle text-center'>
                                     <label class='radio-label' for='<?php echo $firstRowId; ?>'>
                                         <input type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $presentCheckMark; ?>
@@ -108,7 +108,7 @@ $dynamicRowId = 0;
                                     </label>
                                 </td>
 
-                                <td class='radio-input-wrapper col-2 align-middle text-center'>
+                                <td class='radio-input-wrapper align-middle text-center'>
                                     <label class='radio-label' for='<?php echo $secondRowId; ?>'>
                                         <input class='hover-checkbox' type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $absentCheckMark; ?>
@@ -117,7 +117,7 @@ $dynamicRowId = 0;
                                     </label>
                                 </td>
 
-                                <td class='radio-input-wrapper col-2 align-middle text-center'>
+                                <td class='radio-input-wrapper align-middle text-center'>
                                     <label class='radio-label' for='<?php echo $thirdRowId; ?>'>
                                         <input type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $tardyCheckMark; ?>
@@ -126,7 +126,7 @@ $dynamicRowId = 0;
                                     </label>
                                 </td>
 
-                                <td class="col-2 text-center">
+                                <td class="text-center">
                                     <button type='button'
                                             onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
                                             class='btn attendance-contact-button'>
@@ -165,7 +165,7 @@ $dynamicRowId = 0;
     <script type="text/javascript">
 
         $(document).ready(function() {
-            $('#editAttendanceRecordForm').DataTable();
+            $('#editAttendanceRecordTable').DataTable();
         } );
     </script>
 
@@ -185,12 +185,7 @@ $dynamicRowId = 0;
                     numberOfStudentsToSubmit: numberOfTableRows
                 },
                 success: function (response) {
-
-                    if (response === 'database-error') {
-                        launchGenericDatabaseErrorModal();
-                    } else if (response === 'success') {
-                        launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
-                    }
+                    launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
                 }
             });
         }

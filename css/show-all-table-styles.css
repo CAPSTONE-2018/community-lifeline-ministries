@@ -5,9 +5,10 @@
 .large-action-buttons {
     display: inline-block;
     height: 34px;
-    width: 20%;
+    width: 25%;
     margin: 3px auto;
     color: #fff;
+    font-size: 12px;
 }
 
 .small-action-buttons {
@@ -105,9 +106,10 @@
 .program-action-buttons {
     display: inline-block;
     height: 34px;
-    width: 33%;
+    width: 45%;
     margin: 3px auto;
     color: #fff;
+    font-size: 13px;
 }
 
 .medical-concerns-table-action-buttons {
@@ -122,7 +124,15 @@
 .show-contacts-action-buttons {
     display: inline-block;
     height: 34px;
-    width: 40%;
+    width: 55%;
+    margin: 3px auto;
+    color: #fff;
+}
+
+.volunteer-action-buttons {
+    display: inline-block;
+    height: 34px;
+    width: 50%;
     margin: 3px auto;
     color: #fff;
 }

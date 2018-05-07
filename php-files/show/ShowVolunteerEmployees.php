@@ -55,17 +55,9 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                         <td class='align-middle text-center'><?php echo $volunteerPhoneNumber; ?></td>
                         <td class='align-middle text-center'>
                             <div class='left-action-buttons-container d-inline m-auto'>
-                                <div class=' d-inline'>
-                                    <button type='button'
-                                            class='btn large-action-buttons edit-button'
-                                            onclick=''
-                                    >
-                                        <i class='fa fa-pencil'></i> Edit
-                                    </button>
-                                </div>
                                 <div class='d-inline'>
                                     <button type='button'
-                                            class='btn large-action-buttons delete-button'
+                                            class='btn volunteer-action-buttons delete-button'
                                             onclick='launchConfirmArchiveModal(
                                                     "<?php echo $volunteerId; ?>",
                                                     "ArchiveVolunteerEmployee.php",
@@ -80,12 +72,6 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                             </div>
 
                             <div class='right-action-buttons-container d-inline'>
-                                        <span title='Availability' data-toggle='tooltip' class='small-action-buttons'>
-                                            <button type='button' onclick=''
-                                                    class='btn small-action-buttons test-scores-button'>
-                                                <i class='fa fa-star mr-0'></i>
-                                            </button>
-                                        </span>
                                 <span title='Programs' data-toggle='tooltip'
                                       class='small-action-buttons'>
                                             <button type='button'

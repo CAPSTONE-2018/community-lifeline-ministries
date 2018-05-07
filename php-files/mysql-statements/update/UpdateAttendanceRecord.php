@@ -23,11 +23,11 @@ for ($i = 0; $i <= sizeof($searchArray); $i++) {
         $affectedRows += mysqli_affected_rows($db);
     }
 }
-
-if ($affectedRows == $numberOfSubmissions) {
-    echo "success";
-    $stmt->close();
-} else {
-    echo "database-error";
-    $stmt->close();
-}
+//
+//if ($affectedRows === $numberOfSubmissions) {
+//    echo "success";
+//    $stmt->close();
+//} else {
+//    echo "database-error";
+//    $stmt->close();
+//}
