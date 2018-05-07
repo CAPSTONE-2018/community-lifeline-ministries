@@ -79,7 +79,7 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-10 m-auto">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <textarea id="medicalConcernNote" class="mdl-textfield__input" name="medicalConcernNote" type="text"></textarea>
                             <label class="mdl-textfield__label" for="medicalConcernNote">Note</label>
@@ -88,7 +88,7 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
                 </div>
 
                 <div class="row col-sm-12">
-                    <input id="submitButton" class="btn large-action-buttons edit-button"
+                    <input id="submitButton" class="btn btn-lg btn-primary btn-block"
                            onclick="validateStudentToMedicalConcern()" type="button" value="Enter"><br><br>
                 </div>
             </form>

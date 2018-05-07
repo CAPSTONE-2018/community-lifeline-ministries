@@ -15,6 +15,10 @@ function launchConfirmArchiveModal(idToArchive, urlRouteToArchive, typeToDisplay
     $('#customModal').find('#customFooterActions').append(yesButton, noButton);
     $('#customModalBody').html(modalBodyMessage);
     $('#customModal').modal('show');
+
+    $('#customModal').on('hidden.bs.modal', function (e) {
+        $('#customModalBody').html();
+    });
 }
 
 function archiveEvent(idToArchive, urlRouteToArchive, newLocationToRoute) {

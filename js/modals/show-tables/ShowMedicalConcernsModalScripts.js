@@ -1,5 +1,5 @@
 function launchEditMedicalConcernsModal(medicalConcernId) {
-    alert();
+
     $.ajax({
        url: '../modals/medical-concerns/EditModal.php',
        type: 'POST',

@@ -88,7 +88,7 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
                 </div>
                 <div class="row col-sm-12">
                     <input id="submitButton" onclick="validateNewUser()" type="button" value="Enter"
-                           class="btn large-action-buttons edit-button"/>
+                           class="btn btn-lg btn-primary btn-block"/>
                 </div>
             </form>
         </div>

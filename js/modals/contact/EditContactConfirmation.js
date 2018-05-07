@@ -1,7 +1,7 @@
 function launchContactConfirmationModal(serializedForm) {
-    $('#custom-modal').modal('hide');
+    $('#customModal').modal('hide');
     $.ajax({
-        url: '../update/UpdateContact.php',
+        url: '/community-lifeline-ministries/php-files/mysql-statements/update/UpdateContact.php',
         method: "POST",
         data: serializedForm,
         success: function (response) {
@@ -15,14 +15,14 @@ function launchContactConfirmationModal(serializedForm) {
                 successText = 'Whoops! There Was A Problem Submitting Your Request.'
             }
 
-            $('#custom-modal').removeClass().addClass('modal fade');
-            $('#custom-size').removeClass().addClass('modal-dialog');
-            $('#custom-title').removeClass().addClass('modal-header successful-entry-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-check fa-2x');
-            $('#dynamic-title').text("Edit Contact Confirmation");
-            $('.modal-body').html(successText);
-            $('#custom-modal').modal('show');
-            $('#custom-modal').on('hidden.bs.modal', function (e) {
+            $('#customModal').removeClass().addClass('modal fade');
+            $('#customSize').removeClass().addClass('modal-dialog');
+            $('#customTitle').removeClass().addClass('modal-header successful-entry-modal-header');
+            $('#customIcon').removeClass().addClass('m-auto fa fa-check fa-2x');
+            $('#customModal').find('#customHeaderText').text("Edit Contact Confirmation");
+            $('#customModalBody').html(successText);
+            $('#customModal').modal('show');
+            $('#customModal').on('hidden.bs.modal', function (e) {
                 window.location.href = '../../php-files/show/ShowContacts.php';
             });
 
