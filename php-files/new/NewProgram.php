@@ -53,7 +53,7 @@ $volunteerResults = mysqli_query($db, $query);
 
                 <div class="row col-sm-12">
                     <input id="submitButton" onclick="validateProgramName()"
-                           class="btn large-action-buttons edit-button"
+                           class="btn btn-lg large-action-buttons edit-button"
                            type="button" value="Enter"/><br><br>
                 </div>
             </form>

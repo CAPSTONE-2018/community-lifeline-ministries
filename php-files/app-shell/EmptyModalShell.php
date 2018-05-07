@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div id="customModalBody" class="modal-body">
+            <div style="overflow-y: scroll;" id="customModalBody" class="modal-body">
 
             </div>
 
