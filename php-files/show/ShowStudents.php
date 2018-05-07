@@ -75,7 +75,7 @@ $studentTableToLookUp = "Students";
                         <div class='left-action-buttons-container d-inline m-auto'>
                             <div class=' d-inline'>
                                 <button type='button'
-                                        class='btn large-action-buttons edit-button'
+                                        class='btn large-action-buttons edit-button text-sm-center'
                                         onclick='launchEditStudentModal(<?php echo $studentIdToSearch; ?>)'
                                 >
                                     <i class='fa fa-pencil mr-0'></i> Edit
@@ -83,7 +83,7 @@ $studentTableToLookUp = "Students";
                             </div>
 
                             <div class='d-inline'>
-                                <button type='button' class='btn large-action-buttons delete-button'
+                                <button type='button' class='btn large-action-buttons delete-button text-sm-center'
                                         onclick='launchConfirmArchiveModal(
                                                 "<?php echo $studentIdToSearch; ?>",
                                                 "ArchiveStudent.php",
@@ -98,7 +98,7 @@ $studentTableToLookUp = "Students";
 
                         <div class='right-action-buttons-container d-inline'>
                             <span title='Test Scores' data-toggle='tooltip' class='small-action-buttons'>
-                                <button type='button' class='btn small-action-buttons test-scores-button'
+                                <button type='button' class='btn small-action-buttons test-scores-button '
                                         onclick='launchTestScoresModal(<?php echo $studentIdToSearch; ?>)'>
                                     <i class='fa fa-bar-chart mr-0'></i>
                                 </button>

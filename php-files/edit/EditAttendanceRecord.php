@@ -185,12 +185,7 @@ $dynamicRowId = 0;
                     numberOfStudentsToSubmit: numberOfTableRows
                 },
                 success: function (response) {
-
-                    if (response === 'database-error') {
-                        launchGenericDatabaseErrorModal();
-                    } else if (response === 'success') {
-                        launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
-                    }
+                    launchGenericSuccessfulEntryModal(successModalMessage, afterModalDisplaysRoute);
                 }
             });
         }

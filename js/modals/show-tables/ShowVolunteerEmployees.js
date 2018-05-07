@@ -9,7 +9,7 @@ function launchProgramsForVolunteerModal(volunteerId) {
             $('#customTitle').removeClass().addClass('modal-header contact-modal-header');
             $('#customIcon').removeClass().addClass('m-auto fa fa-pencil-square-o fa-2x');
             $('#customHeaderText').text("Programs");
-            $('#customModalFBody').html(response);
+            $('#customModalBody').html(response);
             $('#customModal').modal('show');
 
             $('#customModal').on('hidden.bs.modal', function (e) {

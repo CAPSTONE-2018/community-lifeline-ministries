@@ -65,14 +65,6 @@ if ($account != "administrator") {
                         </td>
                         <td class='align-middle text-center'>
                             <div class='left-action-buttons-container d-inline m-auto'>
-                                <div class=' d-inline'>
-                                    <button type='button'
-                                            class='btn show-contacts-action-buttons edit-button'
-                                            onclick='launchEditUserModal(<?php echo $programId; ?>)'
-                                    >
-                                        <i class='fa fa-pencil'></i> Edit
-                                    </button>
-                                </div>
                                 <div class='d-inline'>
                                     <button type='button'
                                             class='btn show-contacts-action-buttons delete-button'

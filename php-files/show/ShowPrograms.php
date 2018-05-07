@@ -87,20 +87,6 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
                             </div>
                         </div>
 
-                        <div class='right-action-buttons-container d-inline'>
-                            <span title='Volunteers' data-toggle='tooltip' class='small-action-buttons'>
-                                <button type='button' class='btn small-action-buttons test-scores-button'
-                                        onclick='launchVolunteersInProgramModal(<?php echo $programId; ?>)'>
-                                    <i class='fa fa-star mr-0'></i>
-                                </button>
-                            </span>
-                            <span title='Students In Program' data-toggle='tooltip' class='small-action-buttons'>
-                                <button type='button' class='btn small-action-buttons contact-button'
-                                        onclick='launchStudentsInProgramModal(<?php echo $programId; ?>)'>
-                                    <i class='fa fa-graduation-cap mr-0'></i>
-                                </button>
-                            </span>
-                        </div>
                     </td>
                 </tr>
             <?php } ?>

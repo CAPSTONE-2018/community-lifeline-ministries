@@ -158,15 +158,6 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
             </tfoot>
         </table>
 
-        <div class="card-footer">
-            <div>
-                <button id="submitAttendance" form="newAttendanceRecordForm" type="button"
-                        onclick="ChangeVolunteerAvailability()"
-                        class="btn btn-right btn-primary">
-                    Submit
-                </button>
-            </div>
-        </div>
     </div>
 </div>
 
