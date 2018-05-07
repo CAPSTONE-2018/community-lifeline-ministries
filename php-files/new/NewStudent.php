@@ -165,7 +165,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
 
 <script type="text/javascript">
     function launchVerifyStudentInfoWizard() {
-        if(ErrorPromptCheck() == true){
+        if(ErrorPromptCheck() === true){
             return;
         }
         var serializedStudentInfoForm = $('#newStudentForm').serialize();

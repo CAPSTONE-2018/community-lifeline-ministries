@@ -1,5 +1,5 @@
 function ErrorPromptCheck() {
-    if($('.mdl-textfield__error').is(':visible')){
+    if($('.is-invalid').is(':visible')){
         launchGenericRequiredInputsModal();
         return true;
     }
