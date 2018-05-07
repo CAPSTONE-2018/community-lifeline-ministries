@@ -6,16 +6,16 @@ function launchGenericSuccessfulEntryModal(modalMessageToDisplay, afterDisplayRo
     $('#customSize').removeClass().addClass('modal-dialog modal-lg');
     $('#customTitle').removeClass().addClass('modal-header successful-entry-modal-header');
     $('#customIcon').removeClass().addClass('m-auto fa fa-check fa-2x');
-    $('#customHeaderText').text("Successful Entry!");
-    $('.modal-body').addClass('text-center');
-    $('.modal-body').text(successfulEntryText);
+    $('#customModal').find('#customHeaderText').text("Successful Entry!");
+    $('#modalBody').addClass('text-center');
+    $('#customModalBody').text(successfulEntryText);
     $('#customModal').modal('show');
 
-    setTimeout(function() {
-        $('#customModal').modal('hide');
+    setTimeout(function () {
+        $('#customModal').modal('hide').clear();
     }, 3000);
 
     $('#customModal').on('hidden.bs.modal', function () {
-        window.location.href = ''+afterDisplayRoute+'';
+        window.location.href = '' + afterDisplayRoute + '';
     });
 }

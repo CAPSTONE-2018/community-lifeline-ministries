@@ -53,15 +53,15 @@ $dynamicRowId = 0;
 
             <form class="container-fluid" name="editAttendanceRecordForm" id="editAttendanceRecordForm">
                 <div class="table-responsive col-sm-12">
-                    <table id="attendance-table" class="table table-striped table-hover">
+                    <table id="attendance-table" class="table table-striped table-bordered table-hover" style="width:100%">
                         <thead>
-                        <tr class="row">
-                            <th class="col-1">#</th>
-                            <th class="col-3">Student Name</th>
-                            <th class="col-2 text-center">Present</th>
-                            <th class="col-2 text-center">Absent</th>
-                            <th class="col-2 text-center">Tardy</th>
-                            <th class="col-2 text-center">Actions</th>
+                        <tr>
+                            <th class="align-middle text-center">#</th>
+                            <th class="align-middle">Student Name</th>
+                            <th class="align-middle text-center">Present</th>
+                            <th class="align-middle text-center">Absent</th>
+                            <th class="align-middle text-center">Tardy</th>
+                            <th class="align-middle text-center">Actions</th>
                         </tr>
                         </thead>
 
@@ -88,9 +88,9 @@ $dynamicRowId = 0;
                             } else {
                                 $tardyCheckMark = "checked";
                             } ?>
-                            <tr class='row'>
-                                <td class='col-1'></td>
-                                <td class='col-3'>
+                            <tr>
+                                <td class="text-center"></td>
+                                <td class="align-middle">
                                     <?php echo $studentName; ?>
                                     <input type='hidden' name='studentId[<?php echo $dynamicRowId; ?>]'
                                            value='<?php echo $studentIdToSearch; ?>'/>
@@ -104,7 +104,7 @@ $dynamicRowId = 0;
                                         <input type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $presentCheckMark; ?>
                                                value='Present' id='<?php echo $firstRowId; ?>'/>
-                                        <span class='custom-check-mark green-check align-middle'></span>
+                                        <span class='custom-check-mark-attendance-page green-check align-middle'></span>
                                     </label>
                                 </td>
 
@@ -113,7 +113,7 @@ $dynamicRowId = 0;
                                         <input class='hover-checkbox' type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $absentCheckMark; ?>
                                                value='Absent' id='<?php echo $secondRowId; ?>'/>
-                                        <span class='custom-check-mark red-check align-middle'></span>
+                                        <span class='custom-check-mark-attendance-page red-check align-middle'></span>
                                     </label>
                                 </td>
 
@@ -122,7 +122,7 @@ $dynamicRowId = 0;
                                         <input type='radio'
                                                name='attendanceCheckbox[<?php echo $dynamicRowId; ?>]' <?php echo $tardyCheckMark; ?>
                                                value='Tardy' id='<?php echo $thirdRowId; ?>'/>
-                                        <span class='custom-check-mark blue-check align-middle'></span>
+                                        <span class='custom-check-mark-attendance-page blue-check align-middle'></span>
                                     </label>
                                 </td>
 
@@ -130,12 +130,22 @@ $dynamicRowId = 0;
                                     <button type='button'
                                             onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
                                             class='btn attendance-contact-button'>
-                                        <i class='fa fa-phone'></i>
+                                        <i class='fa fa-phone mr-0'></i>
                                     </button>
                                 </td>
                             </tr>
                         <? } ?>
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <th class="text-center align-middle"></th>
+                            <th class="align-middle">Student Name</th>
+                            <th class="text-center">Present</th>
+                            <th class="text-center">Absent</th>
+                            <th class="text-center">Tardy</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                        </tfoot>
                     </table>
                 </div>
             </form>
@@ -151,6 +161,13 @@ $dynamicRowId = 0;
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#editAttendanceRecordForm').DataTable();
+        } );
+    </script>
 
 
     <script type="text/javascript">

@@ -6,14 +6,17 @@ function launchGenericSuccessfulArchive() {
     $('#customIcon').removeClass().addClass('m-auto fa fa-check fa-2x');
     $('#customHeaderText').text("Archive Complete");
     $('#customFooterActions').html('');
-    $('.modal-body').addClass('text-center');
+    $('#customModalBody').addClass('text-center');
     $('#customModalBody').text("Has Been Archived Successfully.");
     $('#customModal').modal('show');
 
     setTimeout(function() {
         $('#customModal').modal('hide');
-        $('#customModalBody').text();
     }, 3000);
+
+    $('#customModal').on('hidden.bs.modal', function (e) {
+        $('#customModal').modal('hide').clear();
+    });
 
 
 }

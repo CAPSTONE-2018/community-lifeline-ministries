@@ -15,6 +15,10 @@ function launchConfirmArchiveModal(idToArchive, urlRouteToArchive, typeToDisplay
     $('#customModal').find('#customFooterActions').append(yesButton, noButton);
     $('#customModalBody').html(modalBodyMessage);
     $('#customModal').modal('show');
+
+    $('#customModal').on('hidden.bs.modal', function (e) {
+        $('#customModal').modal('hide').clear();
+    });
 }
 
 function archiveEvent(idToArchive, urlRouteToArchive, newLocationToRoute) {
@@ -31,8 +35,6 @@ function archiveEvent(idToArchive, urlRouteToArchive, newLocationToRoute) {
                     $('#customModal').modal('hide');
                     sendToNewLocation(newLocationToRoute);
                 }, 3000);
-
-
             } else {
                 launchGenericDatabaseErrorModal();
             }

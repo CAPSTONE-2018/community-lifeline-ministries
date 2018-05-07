@@ -67,15 +67,15 @@ if ($account != "administrator") {
                             <div class='left-action-buttons-container d-inline m-auto'>
                                 <div class=' d-inline'>
                                     <button type='button'
-                                            class='btn large-action-buttons edit-button'
-                                            onclick='launchEditProgramModal(<?php echo $programId; ?>)'
+                                            class='btn show-contacts-action-buttons edit-button'
+                                            onclick='launchEditUserModal(<?php echo $programId; ?>)'
                                     >
                                         <i class='fa fa-pencil'></i> Edit
                                     </button>
                                 </div>
                                 <div class='d-inline'>
                                     <button type='button'
-                                            class='btn large-action-buttons delete-button'
+                                            class='btn show-contacts-action-buttons delete-button'
                                             onclick='launchConfirmArchiveModal(
                                                     "<?php echo $programId; ?>",
                                                     "ArchiveProgram.php",
@@ -86,17 +86,6 @@ if ($account != "administrator") {
                                         <i class='fa fa-archive mr-0'></i> Archive
                                     </button>
                                 </div>
-                            </div>
-
-                            <div class='right-action-buttons-container d-inline'>
-                                    <span title='Account Passwords' data-toggle='tooltip' class='small-action-buttons'>
-                                        <button type='button'
-                                                onclick='launchVolunteersInProgramModal(<?php echo $programId; ?>)'
-                                                class='btn small-action-buttons test-scores-button'
-                                        >
-                                            <i class='fa fa-star mr-0'></i>
-                                        </button>
-                                    </span>
                             </div>
                         </td>
                     </tr>

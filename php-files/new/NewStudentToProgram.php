@@ -64,7 +64,7 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
                 </div>
 
                 <div class="row col-sm-12">
-                    <input id="submitButton" class="btn large-action-buttons edit-button" type="button"
+                    <input id="submitButton" class="btn btn-lg btn-primary btn-block" type="button"
                            onclick="validateStudentToProgram()" value="Enter"/><br><br>
                 </div>
             </form>

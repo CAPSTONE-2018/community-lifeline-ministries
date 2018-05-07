@@ -13,10 +13,6 @@ $queryForStudentsAndEnrolledPrograms = "SELECT COUNT(Student_To_Programs.Program
                                           Students JOIN Student_To_Programs ON Students.Id = Student_To_Programs.Student_Id GROUP BY Students.Id;";
 $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms);
 ?>
-<?php ?>
-<?php ?>
-<?php ?>
-
 
 <div class="app-title">
     <div>
@@ -52,6 +48,11 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
                 $programName = $programsRow['Program_Name'];
                 $programId = $programsRow['Id'];
                 $tableToLookUp = "Programs";
+
+                $queryForAllVolunteersToProgram = "SELECT COUNT(Volunteer_To_Programs.Program_Id) AS Volunteers_To_Program FROM
+  Volunteer_To_Programs JOIN Volunteer_Employees ON Volunteer_To_Programs.Volunteer_Id = Volunteer_Employees.Id WHERE Program_Id = '$programId' AND Volunteer_To_Programs.Active_Id = 1;";
+                $volunteerNumberResults = mysqli_query($db, $queryForAllVolunteersToProgram);
+                $numberOfVolunteersRow = mysqli_fetch_array($volunteerNumberResults, MYSQLI_ASSOC);
                 ?>
                 <tr>
                     <td class="text-center align-middle"></td>
@@ -60,12 +61,12 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
                         <input type='hidden' value='<?php echo $programId; ?>'/>
                     </td>
                     <td class="text-center align-middle"><?php echo $numberOfProgramsRow['Enrolled_Programs']; ?></td>
-                    <td class="text-center align-middle">asdf</td>
+                    <td class="text-center align-middle"><?php echo $numberOfVolunteersRow['Volunteers_To_Program'] ;?></td>
                     <td class="text-center align-middle">
                         <div class='left-action-buttons-container d-inline m-auto'>
                             <div class=' d-inline'>
                                 <button type='button'
-                                        class='btn large-action-buttons edit-button'
+                                        class='btn program-action-buttons edit-button'
                                         onclick='launchEditProgramModal(<?php echo $programId; ?>)'
                                 >
                                     <i class='fa fa-pencil'></i> Edit
@@ -73,7 +74,7 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
                             </div>
                             <div class='d-inline'>
                                 <button type='button'
-                                        class='btn large-action-buttons delete-button'
+                                        class='btn program-action-buttons delete-button'
                                         onclick='launchConfirmArchiveModal(
                                                 "<?php echo $programId; ?>",
                                                 "ArchiveProgram.php",

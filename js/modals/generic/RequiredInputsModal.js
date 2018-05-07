@@ -13,8 +13,6 @@ function launchGenericRequiredInputsModal() {
     $('#customModal').modal('show');
 
     setTimeout(function() {
-        $('#customModal').modal('hide');
-        $('#customModal').clear();
-
+        $('#customModal').modal('hide').clear();
     }, 3000);
 }

@@ -33,35 +33,12 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
     ?>
     <div>
         <form name="editContactForm" id="editContactForm">
-            <div class="card">
-
-                <h4 class="heading m-4"><i class="fa fa-graduation-cap"></i> Student Contact</h4>
-                <div class="edit-blue-line-color"></div>
-                <div class="form-group">
-                    <input type="hidden" name="contactId" value="<?php echo $contactId; ?>"/>
-                    <div class="col-sm-6">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" value="<?php echo $studentName; ?>" class="mdl-textfield__input" id="student" readonly/>
-                            <input type="hidden" value="<?php echo $studentId; ?>" name="student"/>
-                            <i class="mdl-icon-toggle__label fa fa-sort-down"></i>
-                            <label for="student" class="mdl-textfield__label">Student</label>
-                            <ul for="student" class="mdl-menu mdl-menu--bottom-left mdl-js-menu"></ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="relationToStudent" value="<?php echo $relationship; ?>" class="mdl-textfield__input"
-                                   name="relationToStudent" type="text"/>
-                            <label class="mdl-textfield__label"
-                                   for="relationToStudent">Relation to Student</label>
-                        </div>
-                    </div>
-                </div>
+            <div class="card container-fluid">
+                <input type="hidden" name="contactId" value="<?php echo $contactId; ?>"/>
 
                 <h4 class="heading m-4"><i class="fa fa-user"></i> Personal Info</h4>
                 <div class="edit-blue-line-color"></div>
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-2">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                             <input type="text" class="mdl-textfield__input" id="contactPrefix"
@@ -98,7 +75,7 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="primaryPhone" class="mdl-textfield__input"
@@ -133,7 +110,7 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
 
                 <h4 class="heading m-4"><i class="fa fa-home"></i>Address</h4>
                 <div class="edit-blue-line-color"></div>
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-6">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="contactAddressOne" class="mdl-textfield__input"
@@ -157,7 +134,7 @@ while ($contactInfoRow = mysqli_fetch_assoc($contactInfoResults)) {
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-4">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input id="contactCity" class="mdl-textfield__input" name="contactCity"

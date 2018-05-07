@@ -385,28 +385,27 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
 <script type="text/javascript">
     function sendEditStudentForm() {
-        var editStudentForm = $('#editStudentForm').serializeArray();
-        editStudentForm.push({name: "Birth", value: "<?php $studentBirthCertificate?>"});
-        editStudentForm.push({name: "Reduced", value: "<?php $studentReducedLunch?>"});
-        editStudentForm.push({name: "Permission", value: "<?php $studentPermissionSlip?>"});
-        editStudentForm.push({name: "IEP", value: "<?php $studentIep?>"});
+        var editStudentForm = $('#editStudentForm').serialize();
+
+        //editStudentForm.push({name: "Birth", value: "<?php //$studentBirthCertificate?>//"});
+        //editStudentForm.push({name: "Reduced", value: "<?php //$studentReducedLunch?>//"});
+        //editStudentForm.push({name: "Permission", value: "<?php //$studentPermissionSlip?>//"});
+        //editStudentForm.push({name: "IEP", value: "<?php //$studentIep?>//"});
         $('#showEditStudentModal').modal('hide');
         $.ajax({
             url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateStudent.php",
             method: "POST",
             data: editStudentForm,
             success: function (response) {
-                var parsedOutput = JSON.parse(response);
-                var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var modalMessage = "The Student Was Updated Successfully";
                 var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowStudents.php";
 
                 if (response === 'fill-required-inputs') {
                     launchGenericRequiredInputsModal();
-                }
-
-                if (newStudentConfirmation === true) {
+                } else if (response === 'success') {
                     launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
+                } else if (response === 'error') {
+                    launchGenericDatabaseErrorModal();
                 }
             }
         });
@@ -416,11 +415,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 <script type="text/javascript">
     function launchVerifyEditStudentInfoWizard() {
         var serializedStudentInfoForm = $('#editStudentForm').serialize();
-
         launchConfirmEditStudentEntriesModal(serializedStudentInfoForm);
-        $('#modal').modal({
-            backdrop: 'static'
-        });
     }
 </script>
 <?php include("../app-shell/Footer.php"); ?>

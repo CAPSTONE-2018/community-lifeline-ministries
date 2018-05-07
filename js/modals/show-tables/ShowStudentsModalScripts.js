@@ -7,13 +7,21 @@ function launchEditStudentModal(studentId) {
             $('#customModal').removeClass().addClass('modal fade');
             $('#customSize').removeClass().addClass('modal-dialog modal-lg');
             $('#customTitle').removeClass().addClass('modal-header edit-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-pencil ');
-            $('#customHeaderText').text("Edit Student Info");
+            $('#customIcon').removeClass().addClass('m-auto');
+            $('#customModal').find('#customHeaderText').text("Edit Student Info");
             $('#titleWrapper').find('h4').addClass("large-font");
-            $('.modal-body').html(response);
+            $('#customModalBody').html(response);
             $('#customModal').modal("show");
             getmdlSelect.init(".getmdl-select");
             componentHandler.upgradeDom();
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customSize').removeClass();
+                $('#customIcon').removeClass();
+                $('#titleWrapper').removeClass();
+                // $('#customModalBody').text();
+            });
         }
     });
 }
@@ -28,9 +36,20 @@ function launchTestScoresModal(studentId) {
             $('#customSize').removeClass().addClass('modal-dialog');
             $('#customTitle').removeClass().addClass('modal-header test-scores-modal-header');
             $('#customIcon').removeClass().addClass('m-auto fa fa-area-chart fa-2x');
-            $('#customHeaderText').text("Test Score Info");
-            $('.modal-body').html(response);
-            $('#customModal').modal('show');
+            $('#customModal').find('#customHeaderText').text("Test Score Info");
+            $('#titleWrapper').find('h4').addClass("large-font");
+            $('#customModalBody').html(response);
+            $('#customModal').modal("show");
+            getmdlSelect.init(".getmdl-select");
+            componentHandler.upgradeDom();
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customSize').removeClass();
+                $('#customIcon').removeClass();
+                $('#titleWrapper').removeClass();
+                // $('#customModalBody').text();
+            });
         }
     });
 }
@@ -44,10 +63,21 @@ function launchContactsModal(studentId) {
             $('#customModal').removeClass().addClass('modal right fade');
             $('#customSize').removeClass().addClass('modal-dialog');
             $('#customTitle').removeClass().addClass('modal-header contact-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
-            $('#customHeaderText').text("Contact Info");
-            $('.modal-body').html(response);
-            $('#customModal').modal('show');
+            $('#customIcon').removeClass().addClass('m-auto');
+            $('#customModal').find('#customHeaderText').text("Contact Info");
+            $('#titleWrapper').find('h4').addClass("large-font d-inline align-middle");
+            $('#customModalBody').html(response);
+            $('#customModal').modal("show");
+            // getmdlSelect.init(".getmdl-select");
+            // componentHandler.upgradeDom();
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customSize').removeClass();
+                $('#customIcon').removeClass();
+                $('#titleWrapper').removeClass();
+                // $('#customModalBody').text();
+            });
         }
     });
 }
@@ -62,10 +92,18 @@ function launchMedicalConcernsModal(studentId) {
             $('#customModal').removeClass().addClass('modal right fade');
             $('#customSize').removeClass().addClass('modal-dialog');
             $('#customTitle').removeClass().addClass('modal-header medical-concern-modal-header');
-            $('#customIcon').removeClass().addClass('m-auto fa fa-warning fa-2x');
-            $('#customHeaderText').text("Medical Concerns");
-            $('.modal-body').html(response);
+            $('#customIcon').removeClass().addClass('m-auto ');
+            $('#customHeaderText').text("  Medical Concerns");
+            $('#titleWrapper').addClass("large-font d-inline align-middle");
+            $('#customModalBody').html(response);
             $('#customModal').modal('show');
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customSize').removeClass();
+                $('#customIcon').removeClass();
+                $('#customModalBody').text();
+            });
         }
     });
 }
@@ -81,8 +119,15 @@ function launchDocumentsModal(studentId) {
             $('#customTitle').removeClass().addClass('modal-header documents-modal-header');
             $('#customIcon').removeClass().addClass('m-auto fa fa-file fa-2x');
             $('#customHeaderText').text("Documents on File");
-            $('.modal-body').html(response);
+            $('#customModalBody').html(response);
             $('#customModal').modal('show');
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customSize').removeClass();
+                $('#customIcon').removeClass();
+                $('#customModalBody').text();
+            });
         }
     });
 }

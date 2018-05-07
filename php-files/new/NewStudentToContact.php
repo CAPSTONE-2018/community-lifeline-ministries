@@ -73,7 +73,7 @@ $allActiveContactsResults = mysqli_query($db, $queryForAllActiveContacts);
                 </div>
 
                 <div class="row col-sm-12">
-                    <input id="submitButton" class="btn large-action-buttons edit-button" type="button"
+                    <input id="submitButton" class="btn btn-primary btn-lg btn-block" type="button"
                            onclick="validateStudentToContact()" value="Enter"/><br><br>
                 </div>
             </form>

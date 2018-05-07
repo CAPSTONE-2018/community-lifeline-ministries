@@ -110,7 +110,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
             </div>
         </div>
         <div class="card-footer">
-            <button id="newStudentConfirmationButton" type="button" class="btn btn-primary btn-block btn-lg"
+            <button id="newStudentConfirmationButton" type="button" class="btn btn-primary btn-lg btn-block"
                     onclick="launchVerifyStudentInfoWizard()">
                 Verify Info
             </button>

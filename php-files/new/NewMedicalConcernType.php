@@ -41,7 +41,7 @@ include("../../db/config.php");
                 </div>
 
                 <div class="row col-sm-12">
-                    <input type="button" class="btn large-action-buttons edit-button"
+                    <input type="button" class="btn btn-primary btn-lg btn-block"
                            onclick="validateMedicalType()" value="Enter"><br><br>
                 </div>
             </form>
