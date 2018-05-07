@@ -35,8 +35,6 @@ function archiveEvent(idToArchive, urlRouteToArchive, newLocationToRoute) {
                     $('#customModal').modal('hide');
                     sendToNewLocation(newLocationToRoute);
                 }, 3000);
-
-
             } else {
                 launchGenericDatabaseErrorModal();
             }
