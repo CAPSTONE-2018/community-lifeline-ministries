@@ -13,7 +13,8 @@ function launchGenericDatabaseErrorModal() {
     $('#customModal').modal('show');
 
     setTimeout(function() {
-        $('#customModal').modal('hide');
-        $('#customModalBody').text();
+        $('#customModal').on('hidden.bs.modal', function (e) {
+            $('#customModal').modal('hide').clear();
+        });
     }, 3000);
 }

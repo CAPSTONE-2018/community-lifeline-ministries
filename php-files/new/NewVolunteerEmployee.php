@@ -64,8 +64,8 @@ include("../../db/config.php");
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input type="text" class="mdl-textfield__input" id="contactPrefix" readonly>
-                            <input type="hidden" name="contactPrefix">
+                            <input type="text" class="mdl-textfield__input" id="volunteerPrefix" readonly>
+                            <input type="hidden" name="volunteerPrefix">
                             <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                             <label for="contactPrefix" class="mdl-textfield__label">Prefix</label>
                             <ul for="contactPrefix" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
@@ -77,33 +77,23 @@ include("../../db/config.php");
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="contactFirstName" class="mdl-textfield__input"
-                                   name="contactFirstName" type="text"
+                            <input id="volunteerFirstName" class="mdl-textfield__input"
+                                   name="volunteerFirstName" type="text"
                                    pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$" onkeypress="return suppressEnter()"/>
                             <label class="mdl-textfield__label" for="contactFirstName">First Name</label>
                             <span class="mdl-textfield__error">Invalid First Name Enterd</span>
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="contactLastName" class="mdl-textfield__input" name="contactLastName"
+                            <input id="volunteerLastName" class="mdl-textfield__input" name="volunteerLastName"
                                    type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
                                    onkeypress="return suppressEnter()"/>
-                            <label class="mdl-textfield__label" for="contactLastName">Last Name</label>
+                            <label class="mdl-textfield__label" for="volunteerLastName">Last Name</label>
                             <span class="mdl-textfield__error">Invalid Last Name Entered</span>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="contactSuffix" class="mdl-textfield__input" name="contactSuffix"
-                                   type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                                   onkeypress="return suppressEnter()"/>
-                            <label class="mdl-textfield__label" for="contactSuffix">Suffix</label>
-                            <span class="mdl-textfield__error">Invalid Suffix Entered</span>
                         </div>
                     </div>
                 </div>
@@ -330,18 +320,13 @@ include("../../db/config.php");
             method: "POST",
             data: employeeForm,
             success: function (response) {
-                if (response === 'fill-required-inputs') {
-                    launchGenericRequiredInputsModal();
-                }
-                var parsedOutput = JSON.parse(response);
-                var newVolunteerConfirmation = parsedOutput['volunteer-confirmation'];
-
                 var modalMessage = "The Volunteer Was Added Successfully";
                 var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewVolunteerEmployee.php";
-
-                if (newVolunteerConfirmation === true) {
-                    launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
-                } else if (newVolunteerConfirmation === false) {
+                if (response === 'fill-required-inputs') {
+                    launchGenericRequiredInputsModal();
+                } else if (response === 'success') {
+                    launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute);
+                } else if (response === 'error') {
                     launchGenericDatabaseErrorModal();
                 }
             }
@@ -352,7 +337,7 @@ include("../../db/config.php");
 
 <script type="text/javascript">
     function launchVerifyNewEmployeeInfoWizard() {
-        if(ErrorPromptCheck() == true){
+        if(ErrorPromptCheck() === true){
             return;
         }
         var serializedEmployeeForm = $('#newVolunteerEmployeeForm').serialize();

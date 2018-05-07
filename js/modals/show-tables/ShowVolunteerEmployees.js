@@ -9,8 +9,14 @@ function launchProgramsForVolunteerModal(volunteerId) {
             $('#customTitle').removeClass().addClass('modal-header contact-modal-header');
             $('#customIcon').removeClass().addClass('m-auto fa fa-pencil-square-o fa-2x');
             $('#customHeaderText').text("Programs");
-            $('.modal-body').html(response);
+            $('#customModalFBody').html(response);
             $('#customModal').modal('show');
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customIcon').removeClass();
+                $('#customModalBody').text();
+            });
         }
     });
 }

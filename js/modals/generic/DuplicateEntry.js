@@ -12,6 +12,8 @@ function launchGenericDuplicateEntryModal(modalMessage) {
     $('#customModal').modal('show');
 
     setTimeout(function() {
-        $('#customModal').modal('hide');
+        $('#customModal').on('hidden.bs.modal', function (e) {
+            $('#customModal').modal('hide').clear();
+        });
     }, 3000);
 }

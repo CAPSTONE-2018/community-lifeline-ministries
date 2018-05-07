@@ -17,7 +17,7 @@ function launchConfirmArchiveModal(idToArchive, urlRouteToArchive, typeToDisplay
     $('#customModal').modal('show');
 
     $('#customModal').on('hidden.bs.modal', function (e) {
-        $('#customModalBody').html();
+        $('#customModal').modal('hide').clear();
     });
 }
 

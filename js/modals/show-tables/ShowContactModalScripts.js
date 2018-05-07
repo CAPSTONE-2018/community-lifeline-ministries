@@ -14,6 +14,13 @@ function launchEditContactModal(contactId) {
             $('#customModal').modal("show");
             getmdlSelect.init(".getmdl-select");
             componentHandler.upgradeDom();
+
+            $('#customModal').on('hidden.bs.modal', function (e) {
+                $('#customModal').removeClass();
+                $('#customSize').removeClass();
+                $('#customIcon').removeClass();
+                $('#customModalBody').text();
+            });
         }
     });
 }

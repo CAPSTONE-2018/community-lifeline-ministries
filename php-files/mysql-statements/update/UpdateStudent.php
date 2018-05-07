@@ -49,8 +49,6 @@ else
     $studentIep = 0;
 }
 
-$studentUpdateConfirmation = false;
-
 if (trim($state) !== '' && trim($gender) !== '') {
     $sql = "
 UPDATE Students SET 
@@ -75,29 +73,10 @@ UPDATE Students SET
   IEP = '$studentIep' 
   WHERE Id = '$id' ;";
     if ($db->query($sql) === TRUE) {
-        $studentUpdateConfirmation = true;
+        echo "success";
     } else {
-        $studentUpdateConfirmation = false;
+        echo "error";
     }
-//
-//
-//$sql2 = "UPDATE Allergies SET Name = '$allergyName', Type = '$allergyType', Note = '$allergyNote' WHERE Id = '$id';";
-//if ($db->query($sql2) === TRUE) {
-//    echo "<div class='alert alert-success'>
-//                        <strong>Success! </strong>Student Allergy has been successfully Updated.
-//                      </div>";
-//} else {
-//    echo "
-//        <div class='alert alert-danger'>
-//            <strong>Failure! </strong>Student Allergy could not be updated, please try again.
-//        </div>";
-//}
-    $jsonConfirmationObject = array(
-        'student-confirmation' => $studentUpdateConfirmation
-    );
-
-    echo json_encode($jsonConfirmationObject);
-
 } else {
     echo "fill-required-inputs";
 }

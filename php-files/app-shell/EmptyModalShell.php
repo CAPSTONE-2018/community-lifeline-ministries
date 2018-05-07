@@ -7,11 +7,11 @@
 
                 </div>
                 <div class="row modal-title m-auto text-center">
-                    <div class="d-inline col-2">
-                        <i id="customIcon"></i>
+                    <div class="d-inline col-1">
+
                     </div>
-                    <div id="titleWrapper" class="col-10">
-                        <h4 id="customHeaderText" class="d-inline align-middle"></h4>
+                    <div id="titleWrapper" class="col-11">
+                        <h4 id="customHeaderText" class="d-inline align-middle"><i id="customIcon"></i></h4>
                     </div>
                 </div>
                 <div class="col-1 align-middle">
