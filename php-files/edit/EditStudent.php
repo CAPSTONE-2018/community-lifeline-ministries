@@ -380,7 +380,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
 <script type="text/javascript">
     function sendEditStudentForm() {
-        alert(<?php $studentBirthCertificate ?>);
         var editStudentForm = $('#editStudentForm').serializeArray();
         editStudentForm.push({ name: "Birth", value: "<?php $studentBirthCertificate?>" });
         editStudentForm.push({ name: "Reduced", value: "<?php $studentReducedLunch?>" });
@@ -392,7 +391,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             method: "POST",
             data: editStudentForm,
             success: function (response) {
-                alert(response);
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var modalMessage = "The Student Was Updated Successfully";
