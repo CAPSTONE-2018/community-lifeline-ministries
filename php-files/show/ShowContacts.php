@@ -4,7 +4,7 @@ include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 
-$queryForActiveContacts = "SELECT * FROM Contacts WHERE Active_Contact = 1 ORDER BY Last_Name;";
+$queryForActiveContacts = "SELECT * FROM Contacts ORDER BY Last_Name;";
 $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
 ?>
 
@@ -31,6 +31,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
             <thead>
             <tr>
                 <th class="text-center align-middle">#</th>
+                <th class="text-center align-middle">Active</th>
                 <th class="align-middle">Name</th>
                 <th class="text-center align-middle">Email</th>
                 <th class="text-center">Phone</th>
@@ -48,6 +49,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                 ?>
                 <tr>
                     <td class="text-center align-middle"></td>
+                    <td class="text-center align-middle"><?php echo $activeContactsRow['Active_Contact'] ?></td>
                     <td class="align-middle">
                         <?php echo $nameToDisplay; ?>
                         <input type='hidden' value='<?php echo $contactId; ?>'/>
@@ -127,6 +129,31 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                     'pdfHtml5'
                 ]
             });
+            var table = $('#showContactsTable').DataTable();
+
+            table.columns().flatten().each( function ( colIdx ) {
+                // Create the select list and search operation
+                var select = $('<select />')
+                    .appendTo(
+                        table.column(colIdx).footer()
+                    )
+                    .on( 'change', function () {
+                        table
+                            .column( colIdx )
+                            .search( $(this).val() )
+                            .draw();
+                    } );
+
+                // Get the search data for the first column and add to the select list
+                table
+                    .column( colIdx )
+                    .cache( 'search' )
+                    .sort()
+                    .unique()
+                    .each( function ( d ) {
+                        select.append( $('<option value="'+d+'">'+d+'</option>') );
+                    } );
+            } );
         } );
     </script>
 </div>
