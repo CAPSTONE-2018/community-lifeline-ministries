@@ -16,7 +16,7 @@ function launchAttendanceWarningModal() {
 }
 
 function launchAttendanceStudentToContactsModal(studentId) {
-    alert();
+
     $.ajax({
         url: '/community-lifeline-ministries/php-files/modals/students/AttendanceFileStudentToContact.php',
         type: 'post',

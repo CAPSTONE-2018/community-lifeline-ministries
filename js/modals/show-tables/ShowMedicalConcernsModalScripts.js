@@ -5,7 +5,7 @@ function launchEditMedicalConcernsModal(medicalConcernId) {
        type: 'POST',
        data: {medicalConcernId: medicalConcernId},
        success: function (response) {
-           alert();
+
            $('#custom-modal').removeClass().addClass('modal fade');
            $('#custom-size').removeClass().addClass('modal-dialog modal-lg');
            $('#custom-title').removeClass().addClass('modal-header edit-modal-header');

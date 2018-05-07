@@ -138,7 +138,6 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
                 programName: programName
             },
             success: function (response) {
-                alert(response);
                 if (response === 'entry-exists') {
                     launchGenericDuplicateEntryModal(duplicateModalMessage);
                 } else if (response === 'database-error') {
