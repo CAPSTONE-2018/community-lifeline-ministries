@@ -352,8 +352,6 @@ include("../../db/config.php");
 <script type="text/javascript">
     function launchVerifyNewEmployeeInfoWizard() {
         var serializedEmployeeForm = $('#newVolunteerEmployeeForm').serialize();
-
-        alert(serializedEmployeeForm);
         launchConfirmVolunteerEntriesModal(serializedEmployeeForm);
         $('#modal').modal({
             backdrop: 'static'
