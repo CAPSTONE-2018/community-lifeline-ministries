@@ -16,10 +16,38 @@ $zip = intval($_POST['studentZip']);
 $city = $_POST['studentCity'];
 $state = $_POST['studentState'];
 $school = $_POST['studentSchool'];
-$permissionSlip = intval($_POST['permissionSlipCheckbox']);
-$birthCertificate = intval($_POST['birthCertificateCheckbox']);
-$reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
-$iep = 1;
+if (isset($_POST["permissionSlipCheckbox"]))
+{
+    $studentPermissionSlip = intval($_POST['permissionSlipCheckbox']);
+}
+else
+{
+    $studentPermissionSlip = 0;
+}
+if (isset($_POST["birthCertificateCheckbox"]))
+{
+    $studentBirthCertificate = intval($_POST['birthCertificateCheckbox']);
+}
+else
+{
+    $studentBirthCertificate = 0;
+}
+if (isset($_POST["reducedLunchEligibilityCheckbox"]))
+{
+    $studentReducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
+}
+else
+{
+    $studentReducedLunchEligibility = 0;
+}
+if (isset($_POST["iepCheckbox"]))
+{
+    $studentIep = intval($_POST['iepCheckbox']);
+}
+else
+{
+    $studentIep = 0;
+}
 
 $studentUpdateConfirmation = false;
 
@@ -41,10 +69,10 @@ UPDATE Students SET
   Zip = '$zip', 
   Ethnicity = '$ethnicity', 
   School = '$school', 
-  Permission_Slip = '$permissionSlip', 
-  Birth_Certificate = '$birthCertificate', 
-  Reduced_Lunch_Eligible = '$reducedLunchEligibility', 
-  IEP = '$iep' 
+  Permission_Slip = '$studentPermissionSlip', 
+  Birth_Certificate = '$studentBirthCertificate', 
+  Reduced_Lunch_Eligible = '$studentReducedLunchEligibility', 
+  IEP = '$studentIep' 
   WHERE Id = '$id' ;";
     if ($db->query($sql) === TRUE) {
         $studentUpdateConfirmation = true;
