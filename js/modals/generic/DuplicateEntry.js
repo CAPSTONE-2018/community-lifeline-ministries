@@ -8,20 +8,10 @@ function launchGenericDuplicateEntryModal(modalMessage) {
     $('#customIcon').removeClass().addClass('m-auto fa fa-warning fa-2x');
     $('#customHeaderText').text("Duplicate Entry!");
     $('.modal-body').addClass('text-center');
-    $('.modal-body').text(duplicateParagraphText);
+    $('#customModalBody').text(duplicateParagraphText);
     $('#customModal').modal('show');
 
     setTimeout(function() {
         $('#customModal').modal('hide');
     }, 3000);
-
-    $('#customModal').on('hidden.bs.modal', function () {
-        resetForms();
-    });
-}
-
-function resetForms() {
-    for (i = 0; i < document.forms.length; i++) {
-        document.forms[i].reset();
-    }
 }

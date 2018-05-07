@@ -14,3 +14,21 @@ function launchAttendanceWarningModal() {
     }, 3000);
 
 }
+
+function launchAttendanceStudentToContactsModal(studentId) {
+
+    $.ajax({
+        url: '/community-lifeline-ministries/php-files/modals/students/AttendanceFileStudentToContact.php',
+        type: 'post',
+        data: {studentId: studentId},
+        success: function (response) {
+            $('#customModal').removeClass().addClass('modal right fade');
+            $('#customSize').removeClass().addClass('modal-dialog');
+            $('#customTitle').removeClass().addClass('modal-header contact-modal-header');
+            $('#customIcon').removeClass().addClass('m-auto fa fa-address-card-o fa-2x');
+            $('#customHeaderText').text("Contact Info");
+            $('.modal-body').html(response);
+            $('#customModal').modal('show');
+        }
+    });
+}

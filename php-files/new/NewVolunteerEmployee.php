@@ -357,7 +357,6 @@ include("../../db/config.php");
         }
         var serializedEmployeeForm = $('#newVolunteerEmployeeForm').serialize();
 
-        alert(serializedEmployeeForm);
         launchConfirmVolunteerEntriesModal(serializedEmployeeForm);
         $('#modal').modal({
             backdrop: 'static'

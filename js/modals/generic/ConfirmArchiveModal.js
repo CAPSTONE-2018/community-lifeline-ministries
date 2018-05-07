@@ -11,9 +11,9 @@ function launchConfirmArchiveModal(idToArchive, urlRouteToArchive, typeToDisplay
     $('#customSize').removeClass().addClass('modal-dialog');
     $('#customTitle').removeClass().addClass('modal-header warning-modal-header');
     $('#customIcon').removeClass().addClass('m-auto fa fa-archive fa-2x');
-    $('#customHeaderText').text("Archive " + typeToDisplay);
+    $('#customModal').find('#customHeaderText').text("Archive " + typeToDisplay);
     $('#customModal').find('#customFooterActions').append(yesButton, noButton);
-    $('.modal-body').html(modalBodyMessage);
+    $('#customModalBody').html(modalBodyMessage);
     $('#customModal').modal('show');
 }
 

@@ -390,7 +390,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
 
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
-                var newContactConfirmation = parsedOutput['new-contact-confirmation'];
                 var modalMessage = "The Student Was Updated Successfully";
                 var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowStudents.php";
 
@@ -398,7 +397,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                     launchGenericRequiredInputsModal();
                 }
 
-                if (newStudentConfirmation == true) {
+                if (newStudentConfirmation === true) {
                     launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
                 }
             }
