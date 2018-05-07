@@ -98,6 +98,9 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
 
 <script type="text/javascript">
     function validateStudentToMedicalConcern() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var concernTypeId = document.getElementById("medicalTypeId").value;
         var studentId = document.getElementById("studentId").value;
         var concernNote = document.getElementById("medicalConcernNote").value;

@@ -3,9 +3,17 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id, Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name, Students.First_Name, Students.Last_Name FROM Medical_Concern_Types
+
+$medicalConcernTypeId = "";
+$uniqueIdToArchive = "";
+$studentId = "";
+$medicalConcernName = "";
+$medicalConcernType = "";
+$studentWithAllergy = "";
+$dynamicId = 0;
+$queryForMedicalConcerns = "SELECT Medical_Concern_Types.Id AS 'Medical_Concerns_Type_Id', Student_To_Medical_Concerns.Medical_Concern_Name, Medical_Concern_Types.Type_Name, Student_To_Medical_Concerns.Id AS 'Unique_Medical_Id', Students.First_Name, Students.Last_Name FROM Medical_Concern_Types
 JOIN Student_To_Medical_Concerns ON Medical_Concern_Types.Id = Student_To_Medical_Concerns.Medical_Type_Id
-    JOIN Students ON Student_To_Medical_Concerns.Student_Id = Students.Id WHERE Medical_Concern_Types.Active_Id = 1;";
+    JOIN Students ON Student_To_Medical_Concerns.Student_Id = Students.Id WHERE Medical_Concern_Types.Active_Id = 1 AND Student_To_Medical_Concerns.Active_Id = 1;";
 $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
 ?>
 <div class="app-title">
@@ -40,7 +48,10 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             <tbody>
             <?php
             while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
-                $medicalConcernTypeId = $medicalConcernsRow['Id'];
+                $dynamicId++;
+                $uniqueIdToArchive = $medicalConcernsRow['Unique_Medical_Id'];
+                $studentId = $medicalConcernsRow['Student_Id'];
+                $medicalConcernTypeId = $medicalConcernsRow['Medical_Concerns_Type_Id'];
                 $medicalConcernName = $medicalConcernsRow['Medical_Concern_Name'];
                 $medicalConcernType = $medicalConcernsRow['Type_Name'];
                 $studentWithAllergy = $medicalConcernsRow['First_Name'] . " " . $medicalConcernsRow['Last_Name'];
@@ -54,20 +65,20 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                         <div class='left-action-buttons-container d-inline m-auto'>
                             <div class=' d-inline'>
                                 <button type='button'
-                                        class='btn large-action-buttons edit-button'
-                                        onclick='launchEditMedicalConcernsModal(<?php echo $medicalConcernTypeId; ?>)'
-                                >
+                                        onclick="launchEditMedicalConcernsModal(<?php echo $medicalConcernTypeId; ?>)"
+                                        formtarget="medicalConcerntypeForm<?php echo $dynamicId; ?>"
+                                        class='btn medical-concerns-table-action-buttons edit-button'>
                                     <i class='fa fa-pencil'></i> Edit
                                 </button>
                             </div>
                             <div class='d-inline'>
                                 <button type='button'
-                                        class='btn large-action-buttons delete-button'
+                                        class='btn medical-concerns-table-action-buttons delete-button'
                                         onclick='launchConfirmArchiveModal(
-                                                "<?php echo $medicalConcernTypeId; ?>",
-                                                "ArchiveMedicalConcern.php",
-                                                "Medical Concern Type",
-                                                "<?php echo $medicalConcernType; ?>",
+                                                "<?php echo $uniqueIdToArchive; ?>",
+                                                "ArchiveStudentToMedicalConcern.php",
+                                                "Medical Concern For Student",
+                                                "<?php echo $medicalConcernName; ?>",
                                                 "ShowMedicalConcerns.php")'
                                 >
                                     <i class='fa fa-archive'></i> Archive
@@ -75,15 +86,6 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                             </div>
                         </div>
 
-                        <div class='right-action-buttons-container d-inline'>
-                            <span title='Students With Concern' data-toggle='tooltip' class='small-action-buttons'>
-                                <button type='button' class='btn small-action-buttons test-scores-button'
-                                        onclick='launchStudentsWithMedicalConcernsModal(<?php echo $medicalConcernId; ?>)'
-                                >
-                                    <i class='fa fa-graduation-cap mr-0'></i>
-                                </button>
-                            </span>
-                        </div>
                     </td>
                 </tr>
             <?php } ?>
@@ -115,6 +117,21 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
         });
     </script>
 </div>
+
+<script type="text/javascript">
+    function editMedicalConcernType() {
+        var medicalConcernTypeId = document.getElementById("medicalConcernTypeId");
+        $.ajax({
+            url: "../edit/EditMedicalConcern.php",
+            method: "POST",
+            data: medicalConcernTypeId,
+            success: function() {
+                window.location = "../edit/EditMedicalConcern.php"
+            }
+        });
+        document.getElementsByTagName("form")[0].submit();
+    }
+</script>
 
 <?php
 include("../app-shell/Footer.php");

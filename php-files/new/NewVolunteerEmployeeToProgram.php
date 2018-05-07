@@ -82,6 +82,9 @@ $activeProgramResults = mysqli_query($db, $queryForActivePrograms);
 
 <script type="text/javascript">
     function validateEmployeeToProgram() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var volunteerId = document.getElementById("volunteerId").value;
         var programId = document.getElementById("programId").value;
         var programName = document.getElementById("programName").value;

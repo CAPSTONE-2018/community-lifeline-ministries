@@ -103,7 +103,7 @@ $dynamicRowId = 0;
                                 </td>
                                 <td class="text-center">
                                     <button type='button'
-                                            onclick='launchContactsModal(<?php echo $studentIdToSearch; ?>)'
+                                            onclick='launchAttendanceStudentToContactsModal(<?php echo $studentIdToSearch; ?>)'
                                             class='btn attendance-contact-button'>
                                         <i class='fa fa-phone'></i>
                                     </button>
@@ -145,10 +145,13 @@ $dynamicRowId = 0;
 
     <script type="text/javascript">
         function validateAttendanceRows() {
+            if(ErrorPromptCheck() == true){
+                return;
+            }
             var attendanceForm = $("#newAttendanceRecordForm").serialize();
             var programName = document.getElementById("programNameToDisplay").value;
             var numberOfCheckBoxes = $('input[type="radio"]:checked').length;
-            var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 1;
+            var numberOfTableRows = $("#newAttendanceRecordForm tr").length - 2;
             if (numberOfCheckBoxes < numberOfTableRows) {
                 launchAttendanceWarningModal();
             } else {

@@ -7,7 +7,7 @@
 }
 
 .radio-input-wrapper {
-    padding-right: 50%;
+    /*padding-right: 50%;*/
 }
 
 .radio-input-wrapper input {
@@ -16,7 +16,7 @@
 
 .custom-check-mark-attendance-page {
     position: absolute;
-    top: 40%;
+    margin: -17px;
     height: 30px;
     width: 30px;
     background-color: #eee;

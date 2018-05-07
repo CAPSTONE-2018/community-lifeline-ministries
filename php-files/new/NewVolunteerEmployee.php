@@ -322,6 +322,7 @@ include("../../db/config.php");
 
 <script type="text/javascript">
     function sendNewVolunteerEmployeeForm() {
+
         var employeeForm = $('#newVolunteerEmployeeForm').serialize();
         $('#showVolunteerEmployeeModal').modal('hide');
         $.ajax({
@@ -351,6 +352,9 @@ include("../../db/config.php");
 
 <script type="text/javascript">
     function launchVerifyNewEmployeeInfoWizard() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var serializedEmployeeForm = $('#newVolunteerEmployeeForm').serialize();
         launchConfirmVolunteerEntriesModal(serializedEmployeeForm);
         $('#modal').modal({

@@ -173,6 +173,9 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
 
 <script type="text/javascript">
     function ChangeVolunteerAvailability() {
+        if(ErrorPromptCheck() == true){
+            return;
+        }
         var mondayInput, tuesdayInput, wednesdayInput, thursdayInput, fridayInput = 0;
 
         for (var i = 1; i < <?php echo $dynamicRowId; ?>+1; i++) {
