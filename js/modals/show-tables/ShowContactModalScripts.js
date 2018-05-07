@@ -24,22 +24,3 @@ function launchEditContactModal(contactId) {
         }
     });
 }
-
-function launchStudentsToContactModal(contactId) {
-    $.ajax({
-        url: '../modals/contacts/',
-        type: 'POST',
-        data: {
-            contactId: contactId
-        },
-        success: function (response) {
-            $('#custom-modal').removeClass().addClass('modal right fade');
-            $('#custom-size').removeClass().addClass('modal-dialog');
-            $('#custom-title').removeClass().addClass('modal-header contact-modal-header');
-            $('#custom-icon').removeClass().addClass('m-auto fa fa-graduation-cap fa-2x');
-            $('#dynamic-title').text("Students For This Contact");
-            $('#customModalBody').html(response);
-            $('#customModal').modal('show');
-        }
-    })
-}

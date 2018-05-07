@@ -59,7 +59,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                             <div class='d-inline'>
                                 <button type='button' data-toggle='modal' data-target='#customModal'
                                         data-dismiss='modal'
-                                        class='btn large-action-buttons edit-button'
+                                        class='btn show-contacts-action-buttons edit-button'
                                         onclick='launchEditContactModal(<?php echo $contactId; ?>)'
                                 >
                                     <i class='fa fa-pencil'></i> Edit
@@ -68,7 +68,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                             <div class='d-inline'>
                                 <button type='button' data-toggle='modal' data-target='#customModal'
                                         data-dismiss='modal'
-                                        class='btn large-action-buttons delete-button'
+                                        class='btn show-contacts-action-buttons delete-button'
                                         onclick='launchConfirmArchiveModal(
                                                 "<?php echo $contactId; ?>",
                                                 "ArchiveContact.php",
@@ -79,25 +79,6 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                                     <i class='fa fa-archive'></i> Archive
                                 </button>
                             </div>
-                        </div>
-
-                        <div class='right-action-buttons-container d-inline'>
-                                    <span title='Volunteers' data-toggle='tooltip' class='small-action-buttons'>
-                                        <button type='button' onclick=''
-                                                class='btn small-action-buttons test-scores-button'
-                                        >
-                                            <i class='fa fa-star mr-0'></i>
-                                        </button>
-                                    </span>
-                            <span title='Students For Contact' data-toggle='tooltip'
-                                  class='small-action-buttons'>
-                                        <button type='button'
-                                                onclick='launchStudentsToContactModal(<?php echo $contactId; ?>)'
-                                                class='btn small-action-buttons contact-button'
-                                        >
-                                            <i class='fa fa-graduation-cap mr-0'></i>
-                                        </button>
-                                    </span>
                         </div>
                     </td>
                 </tr>
