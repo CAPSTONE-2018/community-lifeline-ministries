@@ -1,12 +1,6 @@
 <div class="tab-pane" role="tabpanel" id="studentMedicalConcerns">
     <form id="newStudentMedicalConcernsForm" name="newStudentMedicalConcernsForm">
         <div class="header"><i class="fa fa-warning"></i> Medical Info</div>
-        <div>
-            <!--Create button to add another medical condition field-->
-            <button type="button" id="add-new-medical-concern-button"
-                    class="add-new-medical-concern-button">Add Medical Concern
-            </button>
-        </div>
         <div class="blue-line-color"></div>
         <div class="row">
             <div class="col-sm-6">
@@ -47,30 +41,3 @@
         <div id="new-medical-concern-layer" class="new-medical-concern-layer"></div>
     </form>
 </div>
-
-
-<script type="text/javascript">
-    var dynamicMedicalConcernId = 0;
-    $(document).ready(function () {
-        $('#add-new-medical-concern-button').click(function () {
-            dynamicMedicalConcernId++;
-            $.ajax({
-                url: "../scripts/AjaxDynamicMedicalConcern.php",
-                method: "POST",
-                data: {
-                    dynamicMedicalConcernId: dynamicMedicalConcernId
-                },
-                success: function (output) {
-                    $('.new-medical-concern-layer').append(output);
-                    componentHandler.upgradeDom();
-                }
-            })
-        });
-    });
-
-    $(document).on('click', '.remove-medical-concern', function (event) {
-        event.preventDefault();
-        var button_id = this.id;
-        $('#dynamic-medical-concern' + button_id).remove();
-    });
-</script>

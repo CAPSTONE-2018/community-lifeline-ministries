@@ -88,13 +88,13 @@
                 </li>
                 <li>
                     <a class="treeview-item" href="../new/NewVolunteerEmployeeAvailability.php">
-                        <i class="icon fa fa-plus"></i>
-                        Add/Update Volunteer Availability
+                        <i class="icon fa fa-star-o"></i>
+                        View Volunteer Availability
                     </a>
                 </li>
                 <li>
                     <a class="treeview-item" href="../new/NewVolunteerEmployeeToProgram.php">
-                        <i class="icon fa fa-plus"></i>
+                        <i class="icon fa fa-pencil"></i>
                         Add Volunteer to Program
                     </a>
                 </li>

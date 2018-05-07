@@ -3,7 +3,7 @@ include("../app-shell/Header.php");
 include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
-$queryForAllActiveStudents = "SELECT * FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
+$queryForAllActiveStudents = "SELECT Students.Id, Students.First_Name, Students.Last_Name FROM Students WHERE Active_Student = 1 ORDER BY Last_Name, First_Name;";
 $allActiveStudentsResults = mysqli_query($db, $queryForAllActiveStudents);
 $queryForAllActiveMedicalConcernTypes = "SELECT * FROM Medical_Concern_Types WHERE Active_Id = 1;";
 $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalConcernTypes);
