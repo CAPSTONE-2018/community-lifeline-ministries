@@ -387,7 +387,6 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
             method: "POST",
             data: editStudentForm,
             success: function (response) {
-
                 var parsedOutput = JSON.parse(response);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var newContactConfirmation = parsedOutput['new-contact-confirmation'];

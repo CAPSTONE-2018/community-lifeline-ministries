@@ -19,11 +19,7 @@ $school = $_POST['studentSchool'];
 $permissionSlip = intval($_POST['permissionSlipCheckbox']);
 $birthCertificate = intval($_POST['birthCertificateCheckbox']);
 $reducedLunchEligibility = intval($_POST['reducedLunchEligibilityCheckbox']);
-$iep = intval($_POST['iepCheckbox']);
-
-$medicalConcernName = $_POST['medicalConcernName'];
-$medicalConcernType = $_POST['medicalConcernType'];
-$medicalConcernNote = $_POST['medicalConcernNote'];
+$iep = 1;
 
 $studentUpdateConfirmation = false;
 
@@ -50,7 +46,6 @@ UPDATE Students SET
   Reduced_Lunch_Eligible = '$reducedLunchEligibility', 
   IEP = '$iep' 
   WHERE Id = '$id' ;";
-
     if ($db->query($sql) === TRUE) {
         $studentUpdateConfirmation = true;
     } else {
