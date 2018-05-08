@@ -40,7 +40,7 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input id="suffix" class="mdl-textfield__input" name="studentSuffix"
                            type="text" onkeypress="return suppressEnter()"
-                           pattern="^[A-Z](([ \.]|(\, ))?[a-zA-Z]+)*\.?$"/>
+                           pattern="^[A-Z](([ \.]|(\, )|(\. ))?[a-zA-Z]+)*\.?$"/>
                     <label class="mdl-textfield__label" for="suffix">Suffix</label>
                     <span class="mdl-textfield__error">Invalid Suffix Data Entered</span>
                 </div>
