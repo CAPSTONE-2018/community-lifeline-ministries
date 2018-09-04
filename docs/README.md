@@ -7,5 +7,5 @@ Community Lifeline ministries (CLM) is a non-profit organization based in Joliet
 They are in need of a database and reporting system for tracking student demographics, attendance, test results, etc.
 
 ## Current Status
-The project has been implemented with a MySQL database and PHP.  The [current version](http://cs.lewisu.edu/~howardcy/community-lifeline-ministries/login.html) is running on the Lewis Front server (ask me for credentials).  Many of the webpages will need to be rewritten to provide a more user-friendly search and usable reports.  Additional reports need to be added.  The database may require some modification.  Here's the current design:
+The project has been implemented with a MySQL database and PHP.  The [current version](http://cs.lewisu.edu/~mlewis/community-lifeline-ministries/index.html) is running on the Lewis Front server (ask me for credentials).  Many of the webpages will need to be rewritten to provide a more user-friendly search and usable reports.  Additional reports need to be added.  The database may require some modification.  Here's the current design:
 ![er model](original-er-model.jpg)
