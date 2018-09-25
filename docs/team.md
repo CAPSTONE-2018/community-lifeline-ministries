@@ -6,4 +6,5 @@
 
 # Team Members - Fall 2018
 - Kevin Ibay : kevinribay@lewisu.edu
+- Jason Sitts : jasonesitts@lewisu.edu
 - Gregory R James III (Trey) : gregoryrjames@lewisu.edu
