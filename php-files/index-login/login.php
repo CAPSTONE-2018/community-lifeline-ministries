@@ -3,7 +3,7 @@ $enteredUsername = $_POST['username'];
 $enteredPassword = $_POST['password'];
 
 if (!isset($enteredUsername) && !isset($enteredPassword)) {
-    header("Location: /community-lifeline-ministries/index.html");
+    header("Location: ../index.html");
 } else {
     $encryptPass = md5($enteredPassword);
     //Retrieve database credentials and connect to database
@@ -21,9 +21,9 @@ if (!isset($enteredUsername) && !isset($enteredPassword)) {
             $_SESSION['loggedIn'] = "$enteredUsername";
             $_SESSION['account'] = "$account";
 
-            header("Location: /community-lifeline-ministries/php-files/index-login/Main-Menu.php");
+            header("Location: ../php-files/index-login/Main-Menu.php");
         } else {
-            header("Location: /community-lifeline-ministries/index.html");
+            header("Location: ../index.html");
         }
     }
 }

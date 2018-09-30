@@ -11,7 +11,7 @@ use community_lifeline;
 
 CREATE TABLE Students (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Student         TINYINT(1),
@@ -36,7 +36,7 @@ CREATE TABLE Students (
 
 # CREATE TABLE Medical_Concerns (
 #   Created_Timestamp      TIMESTAMP DEFAULT now(),
-#   Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#   Last_Updated_Timestamp TIMESTAMP ,
 #   Author_Username        VARCHAR(30),
 #   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
 #   Name                   VARCHAR(60),
@@ -46,7 +46,7 @@ CREATE TABLE Students (
 
 CREATE TABLE Medical_Concern_Types (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Id              TINYINT(1),
@@ -56,7 +56,7 @@ CREATE TABLE Medical_Concern_Types (
 
 CREATE TABLE Student_To_Medical_Concerns (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Id              TINYINT(1),
@@ -72,7 +72,7 @@ CREATE TABLE Student_To_Medical_Concerns (
 
 CREATE TABLE Programs (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Program         TINYINT(1),
@@ -81,7 +81,7 @@ CREATE TABLE Programs (
 
 CREATE TABLE Attendance (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Student_Id             INT(10),
@@ -98,7 +98,7 @@ CREATE TABLE Attendance (
 
 CREATE TABLE Contacts (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Contact         TINYINT(1),
@@ -119,7 +119,7 @@ CREATE TABLE Contacts (
 
 CREATE TABLE Volunteer_Employees (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Volunteer       TINYINT(1),
@@ -148,7 +148,7 @@ CREATE TABLE Volunteer_Employees (
 
 CREATE TABLE Classes (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Class           TINYINT(1),
@@ -157,7 +157,7 @@ CREATE TABLE Classes (
 
 CREATE TABLE Student_Test_Scores (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Id              TINYINT(1),
@@ -172,7 +172,7 @@ CREATE TABLE Student_Test_Scores (
 
 CREATE TABLE Student_To_Contacts (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Id              TINYINT(1),
@@ -187,7 +187,7 @@ CREATE TABLE Student_To_Contacts (
 
 CREATE TABLE Volunteer_To_Programs (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Id              TINYINT(1),
@@ -201,7 +201,7 @@ CREATE TABLE Volunteer_To_Programs (
 
 CREATE TABLE Schedules (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Program_Id             INT(10),
@@ -218,7 +218,7 @@ CREATE TABLE Schedules (
 
 CREATE TABLE Student_To_Programs (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Id                     INT(10)   AUTO_INCREMENT PRIMARY KEY,
   Active_Id              TINYINT(1),
@@ -232,7 +232,7 @@ CREATE TABLE Student_To_Programs (
 
 CREATE TABLE Account_Login (
   Created_Timestamp      TIMESTAMP DEFAULT now(),
-  Last_Updated_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  Last_Updated_Timestamp TIMESTAMP ,
   Author_Username        VARCHAR(30),
   Active_Id              TINYINT(1),
   Username               VARCHAR(30),
