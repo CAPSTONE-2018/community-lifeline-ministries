@@ -21,7 +21,7 @@ if (!isset($enteredUsername) && !isset($enteredPassword)) {
             $_SESSION['loggedIn'] = "$enteredUsername";
             $_SESSION['account'] = "$account";
 
-            header("Location: ../php-files/index-login/Main-Menu.php");
+            header("Location: Main-Menu.php");
         } else {
             header("Location: ../index.html");
         }
