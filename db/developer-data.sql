@@ -1,3 +1,5 @@
+use community_lifeline;
+
   INSERT INTO Medical_Concern_Types(Author_Username, Type_Name, Note, Active_Id) VALUES ('Developer', 'Allergy', '', 1);
   INSERT INTO Medical_Concern_Types(Author_Username, Type_Name, Note, Active_Id) VALUES ('Developer', 'Mental Health', '', 1);
   INSERT INTO Medical_Concern_Types(Author_Username, Type_Name, Note, Active_Id) VALUES ('Developer', 'Medical Concern', '', 1);
