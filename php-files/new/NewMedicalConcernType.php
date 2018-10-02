@@ -60,7 +60,7 @@ include("../../db/config.php");
         var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewMedicalConcernType.php";
 
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddMedicalConcernType.php",
+            url: "../mysql-statements/add/AddMedicalConcernType.php",
             method: "POST",
             data: {name: medicalTypeName},
             success: function (response) {

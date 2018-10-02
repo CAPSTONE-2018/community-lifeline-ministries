@@ -28,7 +28,7 @@
 <script src="../../js/modals/show-tables/ShowContactModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowProgramsModalScripts.js"></script>
 <script src="../../js/modals/show-tables/ShowVolunteerEmployees.js"></script>
-<script src="../../js/modals/show-tables/ToggleStudentTable.js"></script>
+<!--<script src="../../js/modals/show-tables/ToggleStudentTable.js"></script>-->
 <script src="../../js/modals/show-tables/ShowMedicalConcernsModalScripts.js"></script>
 <!--Code for sorting Table-->
 <!--<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>-->
@@ -41,7 +41,7 @@
 
 
 <!--Student Related Scripts-->
-<script src="../../js/modals/student/AddNewStudentConfirmation.js"></script>
+<!--<script src="../../js/modals/student/AddNewStudentConfirmation.js"></script>-->
 <script src="../../js/modals/student/EditStudentConfirmation.js"></script>
 <script src="../../js/modals/student/ConfirmNewStudentEntries.js"></script>
 <!--Contact Related Scripts-->
@@ -49,7 +49,7 @@
 <script src="../../js/modals/contact/AddNewContactConfirmation.js"></script>
 <!--Employee Related Scripts-->
 <script src="../../js/modals/employee/ConfirmNewEmployeeEntries.js"></script>
-<script src="../../js/modals/ModalFooterRoutes.js"></script>
+<!--<script src="../../js/modals/ModalFooterRoutes.js"></script>-->
 <!--<script src="../../js/modals/program/ValidateProgramEntry.js"></script>-->
 <script src="../../js/modals/contact/EditContactConfirmation.js"></script>
 

@@ -1,6 +1,6 @@
 function launchEditStudentModal(studentId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/students/EditModal.php',
+        url: '../modals/students/EditModal.php',
         type: 'POST',
         data: {studentId: studentId},
         success: function (response) {
@@ -28,7 +28,7 @@ function launchEditStudentModal(studentId) {
 
 function launchTestScoresModal(studentId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/students/TestScoresModal.php',
+        url: '../modals/students/TestScoresModal.php',
         type: 'post',
         data: {studentId: studentId},
         success: function (response) {
@@ -56,7 +56,7 @@ function launchTestScoresModal(studentId) {
 
 function launchContactsModal(studentId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/students/StudentContactsModal.php',
+        url: '../php-files/modals/students/StudentContactsModal.php',
         type: 'post',
         data: {studentId: studentId},
         success: function (response) {
@@ -85,7 +85,7 @@ function launchContactsModal(studentId) {
 function launchMedicalConcernsModal(studentId) {
 
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/students/MedicalConcernsModal.php',
+        url: '../modals/students/MedicalConcernsModal.php',
         type: 'POST',
         data: {studentId: studentId},
         success: function (response) {
@@ -110,7 +110,7 @@ function launchMedicalConcernsModal(studentId) {
 
 function launchDocumentsModal(studentId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/students/DocumentsModal.php',
+        url: '../modals/students/DocumentsModal.php',
         type: 'POST',
         data: {studentId: studentId},
         success: function (response) {

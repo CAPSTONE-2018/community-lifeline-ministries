@@ -3,7 +3,7 @@ $enteredUsername = $_POST['username'];
 $enteredPassword = $_POST['password'];
 
 if (!isset($enteredUsername) && !isset($enteredPassword)) {
-    header("Location: ../index.html");
+    header("Location: ../../index.html");
 } else {
     $encryptPass = md5($enteredPassword);
     //Retrieve database credentials and connect to database
@@ -23,7 +23,7 @@ if (!isset($enteredUsername) && !isset($enteredPassword)) {
 
             header("Location: Main-Menu.php");
         } else {
-            header("Location: ../index.html");
+            header("Location: ../../index.html");
         }
     }
 }

@@ -1,7 +1,7 @@
 function launchConfirmStudentEntriesModal(serializedStudentInfoForm) {
 
     $.ajax({
-        url: "/community-lifeline-ministries/php-files/modals/students/VerifyNewStudent.php",
+        url: "../modals/students/VerifyNewStudent.php",
         method: "POST",
         data: serializedStudentInfoForm,
         success: function (response) {
@@ -14,7 +14,7 @@ function launchConfirmStudentEntriesModal(serializedStudentInfoForm) {
 function launchConfirmEditStudentEntriesModal(serializedStudentInfoForm) {
 
     $.ajax({
-        url: "/community-lifeline-ministries/php-files/modals/students/VerifyNewStudent.php",
+        url: "../modals/students/VerifyNewStudent.php",
         method: "POST",
         data: serializedStudentInfoForm,
         success: function (response) {
@@ -27,7 +27,7 @@ function launchConfirmEditStudentEntriesModal(serializedStudentInfoForm) {
 function launchVerifyMedicalInfoForStudent(serializedMedicalConcernsForm) {
 
     $.ajax({
-        url: "/community-lifeline-ministries/php-files/modals/students/VerifyNewMedicalConcerns.php",
+        url: "../modals/students/VerifyNewMedicalConcerns.php",
         method: "POST",
         data: serializedMedicalConcernsForm,
         success: function (response) {
@@ -39,7 +39,7 @@ function launchVerifyMedicalInfoForStudent(serializedMedicalConcernsForm) {
 function launchVerifyContactInfoForStudent(serializedStudentContactForm) {
 
     $.ajax({
-        url: "/community-lifeline-ministries/php-files/modals/students/VerifyNewContact.php",
+        url: "../modals/students/VerifyNewContact.php",
         method: "POST",
         data: serializedStudentContactForm,
         success: function (response) {

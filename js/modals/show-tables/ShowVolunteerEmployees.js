@@ -1,6 +1,6 @@
 function launchProgramsForVolunteerModal(volunteerId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/employees/ProgramsForEmployeeModal.php',
+        url: '../modals/employees/ProgramsForEmployeeModal.php',
         type: 'POST',
         data: {volunteerId: volunteerId},
         success: function (response) {

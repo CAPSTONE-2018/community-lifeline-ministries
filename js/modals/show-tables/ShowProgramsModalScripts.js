@@ -1,6 +1,6 @@
 function launchEditProgramModal(programId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/programs/EditProgramModalContent.php',
+        url: '../modals/programs/EditProgramModalContent.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {
@@ -13,7 +13,7 @@ function launchEditProgramModal(programId) {
 
 function launchVolunteersInProgramModal(programId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/programs/VolunteersToProgramModalContent.php',
+        url: '../modals/programs/VolunteersToProgramModalContent.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {
@@ -28,7 +28,7 @@ function launchVolunteersInProgramModal(programId) {
 
 function launchStudentsInProgramModal(programId) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/modals/programs/StudentsEnrolledModalContent.php',
+        url: '../modals/programs/StudentsEnrolledModalContent.php',
         type: 'POST',
         data: {programId: programId},
         success: function (response) {

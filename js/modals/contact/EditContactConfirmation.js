@@ -1,7 +1,7 @@
 function launchContactConfirmationModal(serializedForm) {
     $('#customModal').modal('hide');
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/mysql-statements/update/UpdateContact.php',
+        url: '../mysql-statements/update/UpdateContact.php',
         method: "POST",
         data: serializedForm,
         success: function (response) {

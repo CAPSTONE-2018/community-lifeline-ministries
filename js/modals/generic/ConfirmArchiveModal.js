@@ -23,7 +23,7 @@ function launchConfirmArchiveModal(idToArchive, urlRouteToArchive, typeToDisplay
 
 function archiveEvent(idToArchive, urlRouteToArchive, newLocationToRoute) {
     $.ajax({
-        url: '/community-lifeline-ministries/php-files/mysql-statements/archive/' + urlRouteToArchive + '',
+        url: '../mysql-statements/archive/' + urlRouteToArchive + '',
         type: 'POST',
         data: {
             idToArchive: idToArchive
