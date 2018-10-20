@@ -129,3 +129,15 @@ form {
 .show > .add-student-contact-button.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
+
+input:invalid{
+    border: 1px solid red;
+}
+
+input:valid{
+    border: 1px solid green;
+}
+.mdl-textfield__label{
+    line-height: 2.5;
+    padding-left: 1%;
+}

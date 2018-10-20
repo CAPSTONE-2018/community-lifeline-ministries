@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../css/form-styles.css">
+</head>
 <div class="tab-pane active" role="tabpanel" id="studentInfo">
     <form id="newStudentForm" name="newStudentForm">
         <div class="header"><i class="fa fa-graduation-cap"></i> Student Info</div>
@@ -6,7 +9,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="firstName" class="mdl-textfield__input"
+                    <input required id="firstName" class="mdl-textfield__input"
                            name="studentFirstName" type="text"
                            onkeypress="return suppressEnter()"
                            pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
@@ -17,7 +20,7 @@
 
             <div class="col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="lastName" class="mdl-textfield__input" name="studentLastName"
+                    <input required id="lastName" class="mdl-textfield__input" name="studentLastName"
                            type="text" onkeypress="return suppressEnter()"
                            pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
                     <label class="mdl-textfield__label" for="lastName">Last Name</label>
@@ -51,17 +54,17 @@
 
             <div class="col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="dob" class="mdl-textfield__input" name="dob" type="text"
+                    <input required id="dob" class="mdl-textfield__input" name="dob" type="text"
                            onkeypress="return suppressEnter()"
                            pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\/[1-9][0-9]{3}$"/>
-                    <label class="mdl-textfield__label" for="dob">D.O.B.</label>
+                    <label class="mdl-textfield__label" for="dob"> (dd/mm/yyyy)</label>
                     <span class="mdl-textfield__error">Invalid D.O.B. Data Entered</span>
                 </div>
             </div>
 
             <div class="col-6 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="ethnicity" class="mdl-textfield__input" name="ethnicity"
+                    <input required id="ethnicity" class="mdl-textfield__input" name="ethnicity"
                            type="text" onkeypress="return suppressEnter()"
                            pattern="^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$"/>
                     <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
@@ -71,7 +74,7 @@
 
             <div class="col-6 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                    <input type="text" class="mdl-textfield__input" id="gender"
+                    <input required type="text" class="mdl-textfield__input" id="gender"
                            readonly>
                     <input type="hidden" name="gender">
                     <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
@@ -89,7 +92,7 @@
         <div class="row">
             <div class="col-8 col-sm-6">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="studentAddressOne" class="mdl-textfield__input"
+                    <input required id="studentAddressOne" class="mdl-textfield__input"
                            name="studentAddressOne" type="text"
                            onkeypress="return suppressEnter()"
                            pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"/>
@@ -113,7 +116,7 @@
         <div class="row">
             <div class="col-12 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="studentCity" class="mdl-textfield__input" name="studentCity"
+                    <input required id="studentCity" class="mdl-textfield__input" name="studentCity"
                            type="text" onkeypress="return suppressEnter()"
                            pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*\.?$"/>
                     <label class="mdl-textfield__label" for="studentCity">City</label>
@@ -136,7 +139,7 @@
             <div class="col-6 col-sm-4">
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input id="studentZip" class="mdl-textfield__input" name="studentZip"
+                    <input required id="studentZip" class="mdl-textfield__input" name="studentZip"
                            type="text" onkeypress="return suppressEnter()"
                            pattern="^[0-9]{5}(-[0-9]{4})?$"/>
                     <label class="mdl-textfield__label" for="studentZip">Zip Code</label>
