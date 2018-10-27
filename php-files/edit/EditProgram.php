@@ -107,7 +107,7 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
         var volunteerId = document.getElementById("volunteerId").value;
         var programId = document.getElementById("programId").value;
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/archive/ArchiveVolunteerToProgram.php",
+            url: "../mysql-statements/archive/ArchiveVolunteerToProgram.php",
             type: "POST",
             data: {
                 volunteerId: volunteerId,
@@ -127,11 +127,11 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
     function validateEditProgramInfo() {
         var programName = document.getElementById("programName").value;
         var programId = document.getElementById("programId").value;
-        var successModalMessage = "The Program, " + programName + " has been entered successfully.";
+        var successModalMessage = "The Program, " + programName + " has been updated successfully.";
         var duplicateModalMessage = "the Program, " + programName + " already exists.";
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowPrograms.php";
+        var afterModalDisplaysRoute = "../show/ShowPrograms.php";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateProgram.php",
+            url: "../mysql-statements/update/UpdateProgram.php",
             method: "POST",
             data: {
                 programId: programId,
@@ -154,7 +154,7 @@ $volunteerInfoResults = mysqli_query($db, $queryForVolunteerInfo);
 
 <script type="text/javascript">
     function rerouteToShowProgramsPage() {
-        window.location = "/community-lifeline-ministries/php-files/show/ShowPrograms.php";
+        window.location = "../show/ShowPrograms.php";
 
     }
 </script>
