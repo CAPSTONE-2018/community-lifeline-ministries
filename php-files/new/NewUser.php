@@ -107,10 +107,10 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
         var volunteerName = document.getElementById("volunteerName").value;
         var successModalMessage = "The username, " + username + " has been entered successfully.";
         var duplicateModalMessage = "the username, " + username + " for " + volunteerName + "already exists.";
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
+        var afterModalDisplaysRoute = "../index-login/Main-Menu.php";
 
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddUser.php",
+            url: "../mysql-statements/add/AddUser.php",
             method: "POST",
             data: {
                 username: username,
