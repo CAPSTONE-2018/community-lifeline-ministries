@@ -91,11 +91,11 @@ $allActiveContactsResults = mysqli_query($db, $queryForAllActiveContacts);
         var studentName = document.getElementById("studentName").value;
         var contactName = document.getElementById("contactName").value;
         var relationship = document.getElementById("relationship").value;
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudentToContact.php";
+        var afterModalDisplaysRoute = "NewStudentToContact.php";
         var successModalMessage = "The Student, " + studentName + " and contact, " + contactName + " have been added.";
         var duplicateModalMessage = "the record for " + studentName + ", and " + contactName + " already exist.";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudentToContact.php",
+            url: "../mysql-statements/add/AddStudentToContact.php",
             method: "POST",
             data: {
                 studentId: studentId,
