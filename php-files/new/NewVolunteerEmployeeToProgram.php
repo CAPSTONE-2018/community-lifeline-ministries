@@ -89,11 +89,11 @@ $activeProgramResults = mysqli_query($db, $queryForActivePrograms);
         var programId = document.getElementById("programId").value;
         var programName = document.getElementById("programName").value;
         var volunteerName = document.getElementById("volunteerName").value;
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewVolunteerEmployeeToProgram.php";
+        var afterModalDisplaysRoute = "NewVolunteerEmployeeToProgram.php";
         var successModalMessage = "The Volunteer, " + volunteerName + " has been added to, " + programName + ".";
         var duplicateModalMessage = "the record for " + programName + ", and " + volunteerName + " already exist.";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddVolunteerEmployeeToProgram.php",
+            url: "../mysql-statements/add/AddVolunteerEmployeeToProgram.php",
             method: "POST",
             data: {
                 volunteerId: volunteerId,
