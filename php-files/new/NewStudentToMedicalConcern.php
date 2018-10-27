@@ -106,11 +106,11 @@ $allActiveMedicalConcernResults = mysqli_query($db, $queryForAllActiveMedicalCon
         var concernNote = document.getElementById("medicalConcernNote").value;
         var studentName = document.getElementById("studentName").value;
         var concernName = document.getElementById("medicalConcernName").value;
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudentToMedicalConcern.php";
+        var afterModalDisplaysRoute = "NewStudentToMedicalConcern.php";
         var successModalMessage = "The Student, " + studentName + " has been updated as having " + concernName + ".";
         var duplicateModalMessage = "the record for " + studentName + " having " + concernName + " already exist.";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudentToMedicalConcerns.php",
+            url: "../mysql-statements/add/AddStudentToMedicalConcerns.php",
             method: "POST",
             data: {
                 studentId: studentId,
