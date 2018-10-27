@@ -81,11 +81,11 @@ $allActiveProgramsResults = mysqli_query($db, $queryForAllActivePrograms);
         var programId = document.getElementById("programId").value;
         var studentName = document.getElementById("studentName").value;
         var programName = document.getElementById("programName").value;
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudentToProgram.php";
+        var afterModalDisplaysRoute = "NewStudentToProgram.php";
         var successModalMessage = studentName + " has been registered to the Program, " + programName + ".";
         var duplicateModalMessage = "the record for " + studentName + ", and " + programName + " already exist.";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudentToProgram.php",
+            url: "../mysql-statements/add/AddStudentToProgram.php",
             method: "POST",
             data: {
                 studentId: studentId,
