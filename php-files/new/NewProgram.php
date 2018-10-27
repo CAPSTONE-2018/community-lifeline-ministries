@@ -70,9 +70,9 @@ $volunteerResults = mysqli_query($db, $query);
         var volunteerId = document.getElementById("volunteerId").value;
         var successModalMessage = "The Program, " + programName + " has been entered successfully.";
         var duplicateModalMessage = "the Program, " + programName + " already exists.";
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewProgram.php";
+        var afterModalDisplaysRoute = "NewProgram.php";
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddProgram.php",
+            url: "../mysql-statements/add/AddProgram.php",
             method: "POST",
             data: {
                 programName: programName,
