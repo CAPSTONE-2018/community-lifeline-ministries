@@ -51,7 +51,7 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactFirstName" class="mdl-textfield__input"
                        name="contactFirstName" type="text"
-                       pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$" onkeypress="return suppressEnter()"/>
+                       pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$" onkeypress="return suppressEnter()" required/>
                 <label class="mdl-textfield__label" for="contactFirstName">First Name</label>
                 <span class="mdl-textfield__error">Invalid First Name Enterd</span>
             </div>
@@ -61,7 +61,7 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactLastName" class="mdl-textfield__input" name="contactLastName"
                        type="text" pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"
-                       onkeypress="return suppressEnter()"/>
+                       onkeypress="return suppressEnter()" required/>
                 <label class="mdl-textfield__label" for="contactLastName">Last Name</label>
                 <span class="mdl-textfield__error">Invalid Last Name Entered</span>
             </div>
@@ -83,9 +83,9 @@
                 <input id="contactPrimaryPhone" class="mdl-textfield__input"
                        name="contactPrimaryPhone" type="text"
                        pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"
-                       onkeypress="return suppressEnter()"/>
+                       onkeypress="return suppressEnter()" required/>
                 <label class="mdl-textfield__label" for="contactPrimaryPhone">Primary Phone</label>
-                <span class="mdl-textfield__error">Invalid Phone Number Entered</span>
+                <span class="mdl-textfield__error">Invalid Phone Number Entered (###-###-####)</span>
             </div>
         </div>
 
@@ -95,7 +95,7 @@
                        type="text" pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"
                        onkeypress="return suppressEnter()"/>
                 <label class="mdl-textfield__label" for="contactSecondaryPhone">Secondary Phone</label>
-                <span class="mdl-textfield__error">Invalid Phone Number Entered</span>
+                <span class="mdl-textfield__error">Invalid Phone Number Entered (###-###-####)</span>
             </div>
         </div>
     </div>
@@ -111,6 +111,18 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="contactEmail" class="mdl-textfield__input" name="atHomeLanguage"
+                       type="text"
+                       onkeypress="return suppressEnter()" required/>
+                <label class="mdl-textfield__label" for="atHomeLanguage">Language Spoken at Home</label>
+                <span class="mdl-textfield__error">Input Required</span>
+            </div>
+        </div>
+    </div>
+
     <h4 class="heading"><i class="fa fa-home"></i>Address</h4>
     <div class="blue-line-color"></div>
     <div class="row">
@@ -119,7 +131,7 @@
                 <input id="contactAddressOne" class="mdl-textfield__input"
                        name="contactAddressOne" type="text"
                        pattern="^[A-Z0-9]+(([ \-\.']|(\. ))?[a-zA-Z0-9]+)*\.?$"
-                       onkeypress="return suppressEnter()"/>
+                       onkeypress="return suppressEnter()" required/>
                 <label class="mdl-textfield__label"
                        for="contactAddressOne">Address</label>
                 <span class="mdl-textfield__error">Invalid Address Entered</span>
@@ -142,7 +154,7 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactCity" class="mdl-textfield__input" name="contactCity"
                        type="text" pattern="^[A-Z](([ \-\,\.']|(\. )|(\, ))?[a-zA-Z]+)*$"
-                       onkeypress="return suppressEnter()"/>
+                       onkeypress="return suppressEnter()" required/>
                 <label class="mdl-textfield__label" for="contactCity">City</label>
                 <span class="mdl-textfield__error">Invalid City Entered</span>
             </div>
@@ -163,7 +175,7 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input id="contactZip" class="mdl-textfield__input" name="contactZip"
                        type="text" pattern="^[0-9]{5}(-[0-9]{4})?$"
-                       onkeypress="return suppressEnter()"/>
+                       onkeypress="return suppressEnter()" required/>
                 <label class="mdl-textfield__label" for="contactZip">Zip Code</label>
                 <span class="mdl-textfield__error">Invalid Zip Code Entered</span>
             </div>
