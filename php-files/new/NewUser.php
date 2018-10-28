@@ -101,7 +101,7 @@ $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
             return;
         }
         var username = document.getElementById("username").value;
-        var accountType = document.getElementById("accountType").value;
+        var accountType = document.getElementById("accountType").value.toLowerCase();
         var volunteerId = document.getElementById("volunteerId").value;
         var password = document.getElementById("password").value;
         var volunteerName = document.getElementById("volunteerName").value;
