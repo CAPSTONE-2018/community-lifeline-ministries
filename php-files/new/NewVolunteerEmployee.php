@@ -316,12 +316,12 @@ include("../../db/config.php");
         var employeeForm = $('#newVolunteerEmployeeForm').serialize();
         $('#showVolunteerEmployeeModal').modal('hide');
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddVolunteerEmployee.php",
+            url: "../mysql-statements/add/AddVolunteerEmployee.php",
             method: "POST",
             data: employeeForm,
             success: function (response) {
                 var modalMessage = "The Volunteer Was Added Successfully";
-                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewVolunteerEmployee.php";
+                var afterModalDisplaysRoute = "NewVolunteerEmployee.php";
                 if (response === 'fill-required-inputs') {
                     launchGenericRequiredInputsModal();
                 } else if (response === 'success') {

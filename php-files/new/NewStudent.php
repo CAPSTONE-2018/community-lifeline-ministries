@@ -124,7 +124,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
         var allForms = $('#newStudentForm,#newStudentMedicalConcernsForm, #newStudentContactForm').serialize();
         $('#showStudentModal').modal('hide');
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddStudent.php",
+            url: "../mysql-statements/add/AddStudent.php",
             method: "POST",
             data: allForms,
             success: function (response) {
@@ -135,7 +135,7 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
                 var newStudentConfirmation = parsedOutput['student-confirmation'];
                 var newContactConfirmation = parsedOutput['new-contact-confirmation'];
                 var modalMessage = "The Student Was Added Successfully";
-                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewStudent.php";
+                var afterModalDisplaysRoute = "NewStudent.php";
 
                 if (newStudentConfirmation === true) {
                     launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)

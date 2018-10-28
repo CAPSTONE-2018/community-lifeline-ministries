@@ -156,10 +156,10 @@ $dynamicRowId = 0;
                 launchAttendanceWarningModal();
             } else {
 
-                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
+                var afterModalDisplaysRoute = "../index-login/Main-Menu.php";
                 var successModalMessage = "The Attendance Record for, " + programName +" has been entered successfully.";
                 $.ajax({
-                    url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddAttendanceRecord.php",
+                    url: "../mysql-statements/add/AddAttendanceRecord.php",
                     method: "POST",
                     data: {
                         formData: attendanceForm,
