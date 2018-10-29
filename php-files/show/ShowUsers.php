@@ -4,8 +4,6 @@ include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 
-session_start();
-$account = $_SESSION['account'];
 if ($account != "administrator") {
     ?>
     <script type="text/javascript">
@@ -100,7 +98,7 @@ if ($account != "administrator") {
         </script>
     </div>
 
-
+    <script src="../../js/NumberTableRows.js"></script>
     <?php
     include("../app-shell/Footer.php");
 }

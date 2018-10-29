@@ -38,13 +38,13 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
             <tr>
                 <th class="text-center small">#</th>
                 <th class="text-center small">Volunteer</th>
+                <th class="text-center small">Sunday</th>
                 <th class="text-center small">Monday</th>
                 <th class="text-center small">Tuesday</th>
                 <th class="text-center small">Wednesday</th>
                 <th class="text-center small">Thursday</th>
                 <th class="text-center small">Friday</th>
                 <th class="text-center small">Saturday</th>
-                <th class="text-center small">Sunday</th>
             </tr>
             </thead>
 
@@ -53,6 +53,12 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
             while ($availabilityRow = mysqli_fetch_array($volunteerAvailabilityResults, MYSQLI_ASSOC)) {
                 $dynamicRowId++;
                 $nameToDisplay = $availabilityRow['First_Name'] . ' ' . $availabilityRow['Last_Name'];
+
+                if ($availabilityRow['Sunday_Availability'] == 1) {
+                    $sunday = "green-check fa fa-check-square-o";
+                } else {
+                    $sunday = "red-circle fa fa-ban";
+                }
                 if ($availabilityRow['Monday_Availability'] == 1) {
                     $monday = "green-check fa fa-check-square-o";
                 } else {
@@ -82,13 +88,8 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
                     $saturday = "green-check fa fa-check-square-o";
                 } else {
                     $saturday = "red-circle fa fa-ban";
-                }
-
-                if ($availabilityRow['Sunday_Availability'] == 1) {
-                    $sunday = "green-check fa fa-check-square-o";
-                } else {
-                    $sunday = "red-circle fa fa-ban";
                 } ?>
+
                 <tr>
                     <td class="text-center"></td>
                     <td class="text-center">
@@ -97,13 +98,19 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
                                name='VolunteerId[<?php echo $dynamicRowId; ?>]'
                                value='<?php echo $row['Id']; ?>'/>
                     </td>
+
+                    <td class="text-center">
+                        <button type="button"
+                                class='btn permission-slip-button'>
+                            <i class='<?php echo $sunday ?> mr-0'></i>
+                        </button>
+                    </td>
                     <td class="text-center">
                         <button type="button"
                                 class='btn permission-slip-button'>
                             <i class='<?php echo $monday ?> mr-0'></i>
                         </button>
                     </td>
-
                     <td class="text-center">
                         <button type="button"
                                 class='btn permission-slip-button'>
@@ -134,30 +141,10 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
                             <i class='<?php echo $saturday ?> mr-0'></i>
                         </button>
                     </td>
-                    <td class="text-center">
-                        <button type="button"
-                                class='btn permission-slip-button'>
-                            <i class='<?php echo $sunday ?> mr-0'></i>
-                        </button>
-                    </td>
                 </tr>
             <?php } ?>
             </tbody>
-            <tfoot>
-            <tr>
-                <th class="text-center small">#</th>
-                <th class="text-center small">Volunteer</th>
-                <th class="text-center small">Monday</th>
-                <th class="text-center small">Tuesday</th>
-                <th class="text-center small">Wednesday</th>
-                <th class="text-center small">Thursday</th>
-                <th class="text-center small">Friday</th>
-                <th class="text-center small">Saturday</th>
-                <th class="text-center small">Sunday</th>
-            </tr>
-            </tfoot>
         </table>
-
     </div>
 </div>
 
@@ -184,13 +171,13 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
                 method: "POST",
                 data: {
                     volunteerId: volunteerId,
+                    sunday: sunday,
                     monday: monday,
                     tuesday: tuesday,
                     wednesday: wednesday,
                     thursday: thursday,
                     friday: friday,
-                    saturday: saturday,
-                    sunday: sunday
+                    saturday: saturday
                 },
                 success: function (output) {
 
@@ -200,6 +187,7 @@ $volunteerAvailabilityResults = mysqli_query($db, $queryForVolunteerAvailability
     }
 </script>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php include("../app-shell/Footer.php"); ?>
 <!--$studentIdToSearch = $row['Student_Id'];-->
 <!--$queryForContacts = "SELECT Contacts.First_Name, Contacts.Last_Name, Contacts.Primary_Phone-->

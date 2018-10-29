@@ -139,6 +139,7 @@ $studentTableToLookUp = "Students";
     </script>
 </div>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

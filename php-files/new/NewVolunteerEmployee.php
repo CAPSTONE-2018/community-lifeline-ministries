@@ -225,7 +225,6 @@ include("../../db/config.php");
                 <table id="employeeAvailabilityTable" class="table table-hover table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th class="text-center"></th>
                         <th class="text-center text-muted small">Sunday</th>
                         <th class="text-center text-muted small">Monday</th>
                         <th class="text-center text-muted small">Tuesday</th>
@@ -237,7 +236,6 @@ include("../../db/config.php");
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="sundayCheckBox">
                                 <input type="checkbox" name="sundayCheckBox" value="1"

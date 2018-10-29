@@ -123,6 +123,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
     }
 </script>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

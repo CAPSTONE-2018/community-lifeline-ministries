@@ -101,5 +101,7 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
             });
         </script>
     </div>
+
+    <script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");

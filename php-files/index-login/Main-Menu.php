@@ -18,5 +18,6 @@ include("./Dashboard.php");
         // When <select> state changes...
         $dropdown.refresh();
     </script>
+    <script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");

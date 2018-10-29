@@ -109,6 +109,7 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
     </script>
 </div>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

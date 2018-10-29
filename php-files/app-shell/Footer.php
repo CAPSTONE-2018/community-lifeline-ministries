@@ -10,9 +10,9 @@
 <script src="../../js/plugins/mdl-select/MdlSelect.js"></script>
 <script src="../../js/suppressEnter.js"></script>
 <script src="../../js/forms/CapitalizeFirstLetter.js"></script>
-<script src="../../js/NumberTableRows.js"></script>
+<!--<script src="../../js/NumberTableRows.js"></script>-->
 <script src="../../js/forms/FilterFields.js"></script>
-<script src="../../js/forms/ToggleSwitchValues.js"></script>
+<!--<script src="../../js/forms/ToggleSwitchValues.js"></script>-->
 <script src="../../js/modals/ClearModalsOnClose.js"></script>
 <script src="../../js/forms/ErrorPromptCheck.js"></script>
 <!--Generic Modal Scripts-->
