@@ -85,15 +85,6 @@ $activeVolunteerResults = mysqli_query($db, $queryForActiveVolunteers);
                     </tr>
                 <?php } ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th class="align-middle text-center">#</th>
-                    <th class="align-middle">Name</th>
-                    <th class="align-middle text-center">Email</th>
-                    <th class="align-middle text-center">Phone</th>
-                    <th class="align-middle text-center">Actions</th>
-                </tr>
-                </tfoot>
             </table>
         </div>
         <script type="text/javascript">
