@@ -91,15 +91,6 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
                 </tr>
             <?php } ?>
             </tbody>
-            <tfoot>
-            <tr>
-                <th class="text-center"></th>
-                <th class="text-center">Program</th>
-                <th class="text-center"># of Students</th>
-                <th class="text-center"># of Volunteers</th>
-                <th class="text-center">Actions</th>
-            </tr>
-            </tfoot>
         </table>
     </div>
 
@@ -118,6 +109,7 @@ $enrolledProgramResults = mysqli_query($db, $queryForStudentsAndEnrolledPrograms
     </script>
 </div>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

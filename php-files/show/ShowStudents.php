@@ -121,14 +121,6 @@ $studentTableToLookUp = "Students";
                 </tr>
             <?php } ?>
             </tbody>
-            <tfoot>
-            <tr>
-                <th class="text-center align-middle"></th>
-                <th class="align-middle">Student Name</th>
-                <th class="text-center align-middle">Permission Slip</th>
-                <th class="text-center align-middle">Actions</th>
-            </tr>
-            </tfoot>
         </table>
     </div>
 
@@ -147,6 +139,7 @@ $studentTableToLookUp = "Students";
     </script>
 </div>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

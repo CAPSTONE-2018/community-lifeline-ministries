@@ -84,15 +84,6 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
                 </tr>
             <?php } ?>
             </tbody>
-            <tfoot>
-            <tr>
-                <th class="text-center align-middle"></th>
-                <th class="align-middle">Name</th>
-                <th class="text-center">Email</th>
-                <th class="text-center">Phone</th>
-                <th class="text-center">Actions</th>
-            </tr>
-            </tfoot>
         </table>
     </div>
 
@@ -112,6 +103,7 @@ $activeContactsResults = mysqli_query($db, $queryForActiveContacts);
     </script>
 </div>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

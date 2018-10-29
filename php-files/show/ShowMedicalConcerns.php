@@ -50,7 +50,6 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
             while ($medicalConcernsRow = mysqli_fetch_assoc($medicalConcernsResults)) {
                 $dynamicId++;
                 $uniqueIdToArchive = $medicalConcernsRow['Unique_Medical_Id'];
-                $studentId = $medicalConcernsRow['Student_Id'];
                 $medicalConcernTypeId = $medicalConcernsRow['Medical_Concerns_Type_Id'];
                 $medicalConcernName = $medicalConcernsRow['Medical_Concern_Name'];
                 $medicalConcernType = $medicalConcernsRow['Type_Name'];
@@ -90,15 +89,6 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
                 </tr>
             <?php } ?>
             </tbody>
-            <tfoot>
-            <tr>
-                <th>#</th>
-                <th class="text-center">Medical Concerns</th>
-                <th class="text-center">Concern Type</th>
-                <th class="text-center">Students With Concern</th>
-                <th class="text-center">Actions</th>
-            </tr>
-            </tfoot>
         </table>
     </div>
 
@@ -133,6 +123,7 @@ $medicalConcernsResults = mysqli_query($db, $queryForMedicalConcerns);
     }
 </script>
 
+<script src="../../js/NumberTableRows.js"></script>
 <?php
 include("../app-shell/Footer.php");
 ?>

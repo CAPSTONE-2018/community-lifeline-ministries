@@ -197,4 +197,5 @@ $existingProgramResults = mysqli_query($db, $queryForPrograms);
         });
     })
 </script>
+<script src="../../js/forms/ToggleSwitchValues.js">
 <?php include("../app-shell/Footer.php"); ?>

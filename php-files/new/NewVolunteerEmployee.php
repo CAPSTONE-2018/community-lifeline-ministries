@@ -225,19 +225,24 @@ include("../../db/config.php");
                 <table id="employeeAvailabilityTable" class="table table-hover table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th class="text-center"></th>
+                        <th class="text-center text-muted small">Sunday</th>
                         <th class="text-center text-muted small">Monday</th>
                         <th class="text-center text-muted small">Tuesday</th>
                         <th class="text-center text-muted small">Wednesday</th>
                         <th class="text-center text-muted small">Thursday</th>
                         <th class="text-center text-muted small">Friday</th>
                         <th class="text-center text-muted small">Saturday</th>
-                        <th class="text-center text-muted small">Sunday</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
+                        <td class="radio-input-wrapper align-middle text-center">
+                            <label class="radio-label" for="sundayCheckBox">
+                                <input type="checkbox" name="sundayCheckBox" value="1"
+                                       id="sundayCheckBox"/>
+                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
+                            </label>
+                        </td>
                         <td class="radio-input-wrapper align-middle text-center">
                             <label class="radio-label" for="mondayCheckBox">
                                 <input type="checkbox" name="mondayCheckBox" value="1"
@@ -277,13 +282,6 @@ include("../../db/config.php");
                             <label class="radio-label" for="saturdayCheckBox">
                                 <input type="checkbox" name="saturdayCheckBox" value="1"
                                        id="saturdayCheckBox"/>
-                                <span class="custom-check-mark-new-volunteer-page blue-check"></span>
-                            </label>
-                        </td>
-                        <td class="radio-input-wrapper align-middle text-center">
-                            <label class="radio-label" for="sundayCheckBox">
-                                <input type="checkbox" name="sundayCheckBox" value="1"
-                                       id="sundayCheckBox"/>
                                 <span class="custom-check-mark-new-volunteer-page blue-check"></span>
                             </label>
                         </td>
