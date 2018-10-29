@@ -261,7 +261,7 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
                                     </div>
 
                                     <div class="col-sm-3">
-                                        <div class="toggle-title">Emotional Problem</div>
+                                        <div class="toggle-title">IEP</div>
                                         <ul class="tg-list">
                                             <div class="toggle-side-label">No</div>
                                             <li class="tg-list-item">

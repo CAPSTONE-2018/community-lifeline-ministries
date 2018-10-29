@@ -228,7 +228,7 @@
             </div>
 
             <div class="col-sm-3">
-                <div class="toggle-title">Immediate Emotional Problem</div>
+                <div class="toggle-title">IEP</div>
                 <ul class="tg-list">
                     <div class="toggle-side-label">No</div>
                     <li class="tg-list-item">
