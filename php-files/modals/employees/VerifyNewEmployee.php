@@ -1,24 +1,24 @@
 <?php
+$volunteerType = $_POST['volunteerType'];
 $prefix = $_POST['volunteerPrefix'];
 $firstName = $_POST['volunteerFirstName'];
 $lastName = $_POST['volunteerLastName'];
 $primaryPhone = $_POST['volunteerPrimaryPhone'];
 $secondaryPhone = $_POST['volunteerSecondaryPhone'];
-$volunteerEmail = $_POST['volunteerEmail'];
-$volunteerType = $_POST['volunteerType'];
+$email = $_POST['volunteerEmail'];
 $program = $_POST['volunteerProgram'];
 $addressOne = $_POST['volunteerAddressOne'];
 $addressTwo = $_POST['volunteerAddressTwo'];
 $city = $_POST['volunteerCity'];
 $state = $_POST['volunteerState'];
 $zipCode = $_POST['volunteerZip'];
-$monday = $_POST['mondayCheckBox'];
-$tuesday = $_POST['tuesdayCheckBox'];
-$wednesday = $_POST['wednesdayCheckBox'];
-$thursday = $_POST['thursdayCheckBox'];
-$friday = $_POST['fridayCheckBox'];
-$saturday = $_POST['saturdayCheckBox'];
-$sunday = $_POST['sundayCheckBox'];
+$sunday = isset($_POST['sundayCheckBox']);
+$monday = isset($_POST['mondayCheckBox']);
+$tuesday = isset($_POST['tuesdayCheckBox']);
+$wednesday = isset($_POST['wednesdayCheckBox']);
+$thursday = isset($_POST['thursdayCheckBox']);
+$friday = isset($_POST['fridayCheckBox']);
+$saturday = isset($_POST['saturdayCheckBox']);
 $addressToDisplay = $addressOne . " " . $addressTwo;
 $mondayAvailability = "";
 $tuesdayAvailability = "";
@@ -27,6 +27,13 @@ $thursdayAvailability = "";
 $fridayAvailability = "";
 $saturdayAvailability = "";
 $sundayAvailability = "";
+
+
+if ($sunday == 1) {
+    $sundayAvailability = 'Yes';
+} else {
+    $sundayAvailability = 'No';
+}
 
 if ($monday == 1) {
     $mondayAvailability = 'Yes';
@@ -64,12 +71,6 @@ if ($saturday == 1) {
     $saturdayAvailability = 'No';
 }
 
-if ($sunday == 1) {
-    $sundayAvailability = 'Yes';
-} else {
-    $sundayAvailability = 'No';
-}
-
 ?>
 
 <div>
@@ -84,12 +85,15 @@ if ($sunday == 1) {
     State: <?php echo $state; ?> <br/>
     Zip:  <?php echo $zipCode; ?> <br/>
 
-    Availability:
-    Monday: <?php echo $mondayAvailability; ?> <br/>
-    Tuesday:  <?php echo $tuesdayAvailability; ?> <br/>
-    Wednesday:  <?php echo $wednesdayAvailability; ?> <br/>
-    Thursday:  <?php echo $thursdayAvailability; ?> <br/>
-    Friday:  <?php echo $fridayAvailability; ?> <br/>
-    Saturday:  <?php echo $saturdayAvailability; ?> <br/>
-    Sunday:  <?php echo $sundayAvailability; ?> <br/>
+    <br/>
+    <i>Availability: </i><br/>
+    <ul>
+        <li>&emsp;Sunday: <?php echo $sundayAvailability; ?> </li>
+        <li>&emsp;Monday: <?php echo $mondayAvailability; ?> </li>
+        <li>&emsp;Tuesday: <?php echo $tuesdayAvailability; ?> </li>
+        <li>&emsp;Wednesday: <?php echo $wednesdayAvailability; ?> </li>
+        <li>&emsp;Thursday: <?php echo $thursdayAvailability; ?> </li>
+        <li>&emsp;Friday: <?php echo $fridayAvailability; ?> </li>
+        <li>&emsp;Saturday: <?php echo $saturdayAvailability; ?> </li>
+    </ul>
 </div>
