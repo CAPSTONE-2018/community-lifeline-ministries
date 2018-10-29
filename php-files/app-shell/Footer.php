@@ -57,7 +57,10 @@
 <!--<script src="js/plugins/pace.min.js"></script>-->
 <!-- Page specific javascripts-->
 <!--<script type="text/javascript" src="js/plugins/chart.js"></script>-->
-<script type="text/javascript">
+
+
+<!--Not sure what this below chunk is for... was causing a Type Error and commenting out didn't seem to change anything?-->
+<!--<script type="text/javascript">
     var data = {
         labels: ["January", "February", "March", "April", "May"],
         datasets: [
@@ -103,6 +106,6 @@
 
     var ctxp = $("#pieChartDemo").get(0).getContext("2d");
     var pieChart = new Chart(ctxp).Pie(pdata);
-</script>
+</script>-->
 </body>
 </html>
