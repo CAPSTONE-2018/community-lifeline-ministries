@@ -4,8 +4,6 @@ include("../app-shell/Sidebar.php");
 include("../app-shell/EmptyModalShell.php");
 include("../../db/config.php");
 
-session_start();
-$account = $_SESSION['account'];
 if ($account != "administrator") {
     ?>
     <script type="text/javascript">

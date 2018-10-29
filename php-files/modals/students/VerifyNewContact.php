@@ -11,9 +11,9 @@ else
     $prefix = null;
 }
 $firstName = $_POST['contactFirstName'];
-$middleName = $_POST['middleName'];
+$middleName = $_POST['contactMiddleName'];
 $lastName = $_POST['contactLastName'];
-$suffix = $_POST['suffix'];
+$suffix = $_POST['contactSuffix'];
 $primaryPhone = $_POST['contactPrimaryPhone'];
 $secondaryPhone = $_POST['contactSecondaryPhone'];
 $addressOne = $_POST['contactAddressOne'];
@@ -22,7 +22,7 @@ $city = $_POST['contactCity'];
 $state = $_POST['contactState'];
 $zip = intval($_POST['contactZip']);
 $email = $_POST['contactEmail'];
-$relationship = $_POST['relationship'];
+$relationship = $_POST['contactRelationToStudent'];
 $addressToDisplay = $addressOne . " " . $addressTwo;
 ?>
 

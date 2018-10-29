@@ -72,7 +72,7 @@ $studentsResult = mysqli_query($db, $query);
         $('#showContactModal').modal('hide');
         var serializedContactInfoForm = $('#newContactForm').serialize();
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddContact.php",
+            url: "../mysql-statements/add/AddContact.php",
             method: "POST",
             data: serializedContactInfoForm,
             success: function (response) {
@@ -83,7 +83,7 @@ $studentsResult = mysqli_query($db, $query);
                 var newContactConfirmation = parsedOutput['contact-confirmation'];
                 var newStudentToContactConfirmation = parsedOutput['student-to-contact-confirmation'];
                 var modalMessage = "The Contact Was Added Successfully";
-                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewContact.php";
+                var afterModalDisplaysRoute = "NewContact.php";
                 if (newContactConfirmation === true) {
                     launchGenericSuccessfulEntryModal(modalMessage, afterModalDisplaysRoute)
                 } else {
@@ -104,7 +104,7 @@ $studentsResult = mysqli_query($db, $query);
             backdrop: 'static'
         });
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/modals/contacts/VerifyNewContact.php",
+            url: "../modals/contacts/VerifyNewContact.php",
             method: "POST",
             data: serializedContactInfoForm,
             success: function (response) {

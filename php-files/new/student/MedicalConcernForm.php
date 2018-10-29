@@ -24,7 +24,7 @@
                         class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                         <?php
                         while ($medicalConcernTypeRow = mysqli_fetch_assoc($medicalConcernTypesResult)) {
-                            echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Id'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type_Name'] . "</li>";
+                            echo "<li class='mdl-menu__item' data-val='" . $medicalConcernTypeRow['Type_Name'] . "' value=" . $medicalConcernTypeRow['Id'] . ">" . $medicalConcernTypeRow['Type_Name'] . "</li>";
                         } ?>
                     </ul>
                 </div>

@@ -43,6 +43,21 @@
                 <h4 class="heading"><i class="fa fa-user"></i> Personal Info</h4>
                 <div class="blue-line-color"></div>
                 <div class="row">
+                    <div class="col-sm-2">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                            <input type="text" class="mdl-textfield__input" id="contactPrefix"
+                                   value="<?php echo $prefix; ?>"/>
+                            <input type="hidden" name="contactPrefix"/>
+                            <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
+                            <label for="contactPrefix" class="mdl-textfield__label">Prefix</label>
+                            <ul for="contactPrefix" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <li class="mdl-menu__item" data-val="Mr.">Mr.</li>
+                                <li class="mdl-menu__item" data-val="Ms.">Ms.</li>
+                                <li class="mdl-menu__item" data-val="Mrs.">Mrs.</li>
+                                <li class="mdl-menu__item" data-val="Dr.">Dr.</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <div id="floatingFirstName"
                              class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -68,6 +83,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div id="floatingMiddleName"
+                             class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                            <input id='contactMiddleName' class='mdl-textfield__input'
+                                   name='contactMiddleName' type='text'
+                                   onkeypress="return suppressEnter()"
+                                   pattern="^[A-Z]([ \-']?[a-zA-Z]+)*$"/>
+                            <label class='mdl-textfield__label' for='contactMiddleName'>Middle
+                                Name</label>
+                            <span class='mdl-textfield__error'>Invalid Middle Name</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="contactSuffix" class="mdl-textfield__input" name="contactSuffix"
+                                   type="text" onkeypress="return suppressEnter()"
+                                   pattern="^[A-Z](([ \.]|(\, )|(\. ))?[a-zA-Z]+)*\.?$"/>
+                            <label class="mdl-textfield__label" for="contactSuffix">Suffix</label>
+                            <span class="mdl-textfield__error">Invalid Suffix Data Entered</span>
+                        </div>
+                    </div>
+                </div>
                 <div class='row'>
                     <div class='col-sm-6'>
                         <div id="floatingPrimaryPhone"
@@ -78,7 +116,7 @@
                                    onkeypress="return suppressEnter()"
                                    pattern="^[2-9][0-9]{2}-[2-9][0-9]{2}-[0-9]{4}$"/>
                             <label class='mdl-textfield__label'
-                                   for='contactPrimaryPhone'>Primary Phone</label>
+                                   for='contactPrimaryPhone'>Primary Phone <i>[###-###-####]</i></label>
                             <span class='mdl-textfield__error'>Invalid Primary Phone Number</span>
                         </div>
                     </div>

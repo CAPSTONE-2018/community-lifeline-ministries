@@ -54,7 +54,7 @@
 
             <div class="col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input required id="dob" class="mdl-textfield__input" name="dob" type="text"
+                    <input required id="dob" class="mdl-textfield__input" name="studentDob" type="text"
                            onkeypress="return suppressEnter()"
                            pattern="^((0[1-9])|(1[0-2]))\/((0[1-9])|([1-2][0-9])|(3[0-1]))\/[1-9][0-9]{3}$"/>
                     <label class="mdl-textfield__label" for="dob"> (dd/mm/yyyy)</label>
@@ -64,7 +64,7 @@
 
             <div class="col-6 col-sm-4">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input required id="ethnicity" class="mdl-textfield__input" name="ethnicity"
+                    <input required id="ethnicity" class="mdl-textfield__input" name="studentEthnicity"
                            type="text" onkeypress="return suppressEnter()"
                            pattern="^[A-Z](([ \-|(\, )])?[a-zA-Z]+)*$"/>
                     <label class="mdl-textfield__label" for="ethnicity">Ethnicity</label>
@@ -76,7 +76,7 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                     <input required type="text" class="mdl-textfield__input" id="gender"
                            readonly>
-                    <input type="hidden" name="gender">
+                    <input type="hidden" name="studentGender">
                     <i class="mdl-icon-toggle__label fa fa-angle-down"></i>
                     <label for="gender" class="mdl-textfield__label">Gender</label>
                     <ul for="gender" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
