@@ -1,9 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['loggedIn'])) {
-    header("Location: index.html");
-}
-$account = $_SESSION['account'];
+include("../app-shell/Header.php");
+include("../app-shell/Sidebar.php");
+include("../app-shell/EmptyModalShell.php");
+include("../../db/config.php");
 
 if ($account != "administrator") {
     ?>
@@ -12,10 +11,6 @@ if ($account != "administrator") {
     </script>
     <?php
 }
-include("../app-shell/Header.php");
-include("../app-shell/Sidebar.php");
-include("../app-shell/EmptyModalShell.php");
-include("../../db/config.php");
 
 $queryForActiveVolunteer = "SELECT * FROM Volunteer_Employees WHERE Active_Volunteer = 1;";
 $volunteerResults = mysqli_query($db, $queryForActiveVolunteer);
