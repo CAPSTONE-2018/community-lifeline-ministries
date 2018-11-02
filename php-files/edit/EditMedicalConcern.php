@@ -54,10 +54,10 @@ include("../../db/config.php");
         var medicalTypeName = document.getElementById("medicalConcernType").value;
         var successModalMessage = "Medical Concern Type, " + medicalTypeName + " has been entered successfully.";
         var duplicateModalMessage = "Medical Concern Type, " + medicalTypeName + " already exists.";
-        var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/new/NewMedicalConcernType.php";
+        var afterModalDisplaysRoute = "../new/NewMedicalConcernType.php";
 
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/add/AddMedicalConcernType.php",
+            url: "../mysql-statements/add/AddMedicalConcernType.php",
             method: "POST",
             data: {name: medicalTypeName},
             success: function (response) {

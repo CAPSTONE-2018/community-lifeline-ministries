@@ -393,12 +393,12 @@ while ($studentInfoRow = mysqli_fetch_assoc($studentInfoResults)) {
         //editStudentForm.push({name: "IEP", value: "<?php //$studentIep?>//"});
         $('#showEditStudentModal').modal('hide');
         $.ajax({
-            url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateStudent.php",
+            url: "../mysql-statements/update/UpdateStudent.php",
             method: "POST",
             data: editStudentForm,
             success: function (response) {
                 var modalMessage = "The Student Was Updated Successfully";
-                var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/show/ShowStudents.php";
+                var afterModalDisplaysRoute = "../show/ShowStudents.php";
 
                 if (response === 'fill-required-inputs') {
                     launchGenericRequiredInputsModal();

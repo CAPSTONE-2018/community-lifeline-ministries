@@ -175,10 +175,10 @@ $dynamicRowId = 0;
             var attendanceForm = $("#editAttendanceRecordForm").serialize();
             var programName = document.getElementById("programNameToDisplay").value;
             var numberOfTableRows = $("#editAttendanceRecordForm tr").length - 1;
-            var afterModalDisplaysRoute = "/community-lifeline-ministries/php-files/index-login/Main-Menu.php";
+            var afterModalDisplaysRoute = "../index-login/Main-Menu.php";
             var successModalMessage = "The Attendance Record for, " + programName + " has been updated successfully.";
             $.ajax({
-                url: "/community-lifeline-ministries/php-files/mysql-statements/update/UpdateAttendanceRecord.php",
+                url: "../mysql-statements/update/UpdateAttendanceRecord.php",
                 method: "POST",
                 data: {
                     formData: attendanceForm,
